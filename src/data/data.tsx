@@ -110,7 +110,7 @@ export const aboutData: About = {
     {label: 'Age', text: '34', Icon: CalendarIcon},
     {label: 'Nationality', text: 'Canadian / English', Icon: FlagIcon},
     {label: 'Interests', text: 'Yoga, Jiu Jitsu, Music', Icon: SparklesIcon},
-    {label: 'Study', text: 'University of Victoria', Icon: AcademicCapIcon},
+    {label: 'Study', text: 'University of Calgary', Icon: AcademicCapIcon},
     {label: 'Employment', text: 'VertiGIS', Icon: OfficeBuildingIcon},
   ],
 };
