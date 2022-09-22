@@ -103,16 +103,15 @@ export const heroData: Hero = {
  */
 export const aboutData: About = {
   profileImageSrc: profilepic,
-  description: `Use this bio section as your way of describing yourself and saying what you do, what technologies you like
-  to use or feel most comfortable with, describing your personality, or whatever else you feel like throwing
-  in.`,
+  description: `I am a Solutions Engineer focusing on the GIS space. I'm most famiiliar with the Esri ArcGIS Enterprise stack, 
+  extended by the VertiGIS Studio suite.`,
   aboutItems: [
     {label: 'Location', text: 'Victoria, BC', Icon: MapIcon},
-    {label: 'Age', text: '29', Icon: CalendarIcon},
-    {label: 'Nationality', text: 'Canadian / Irish', Icon: FlagIcon},
-    {label: 'Interests', text: 'Motorcycles, Muay Thai, Banjos', Icon: SparklesIcon},
+    {label: 'Age', text: '34', Icon: CalendarIcon},
+    {label: 'Nationality', text: 'Canadian / English', Icon: FlagIcon},
+    {label: 'Interests', text: 'Yoga, Jiu Jitsu, Music', Icon: SparklesIcon},
     {label: 'Study', text: 'University of Victoria', Icon: AcademicCapIcon},
-    {label: 'Employment', text: 'Instant Domains, inc.', Icon: OfficeBuildingIcon},
+    {label: 'Employment', text: 'VertiGIS', Icon: OfficeBuildingIcon},
   ],
 };
 
@@ -133,23 +132,32 @@ export const skills: SkillGroup[] = [
       },
       {
         name: 'Spanish',
-        level: 3,
+        level: 2,
       },
+      {
+        name: 'German',
+        level: 2,
+      },
+      
     ],
   },
   {
-    name: 'Frontend development',
+    name: 'Esri products',
     skills: [
       {
-        name: 'React',
+        name: 'ArcGIS Enterprise',
         level: 9,
       },
       {
-        name: 'Typescript',
-        level: 7,
+        name: 'ArcGIS Online',
+        level: 9,
       },
       {
-        name: 'GraphQL',
+        name: 'ArcGIS Pro',
+        level: 6,
+      },
+      {
+        name: 'Open Data formats',
         level: 6,
       },
     ],
