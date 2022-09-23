@@ -45,7 +45,7 @@ import {
  */
 export const homePageMeta: HomepageMeta = {
   title: 'Gareth Evans',
-  description: "Personal website of Gareth Evans",
+  description: "Gareth Evans is a ",
 };
 
 /**
@@ -373,7 +373,7 @@ export const contact: ContactSection = {
  */
 export const socialLinks: Social[] = [
   {label: 'Github', Icon: GithubIcon, href: 'https://github.com/ggfevans'},
-  {label: 'Stack Overflow', Icon: StackOverflowIcon, href: 'https://stackoverflow.com/users'},
+  {label: 'Stack Overflow', Icon: StackOverflowIcon, href: 'https://stackoverflow.com/users/20067268/ggfevans'},
   {label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/ggfevans/'},
   {label: 'Instagram', Icon: InstagramIcon, href: 'https://www.instagram.com/ggfevans/'},
   {label: 'Twitter', Icon: TwitterIcon, href: 'https://twitter.com/ggfevans'},
