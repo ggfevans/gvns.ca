@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+/* import classNames from 'classnames';
 import {FC, memo, UIEventHandler, useCallback, useEffect, useMemo, useRef, useState} from 'react';
 
 import {isApple, isMobile} from '../../config';
@@ -64,3 +64,4 @@ const Running: FC = memo(() => {
 // );
 
 export default Running;
+ */
