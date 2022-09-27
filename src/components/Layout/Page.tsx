@@ -25,7 +25,7 @@ const Page: NextPage<HomepageMeta> = memo(({children, title, description}) => {
         {/* Open Graph : https://ogp.me/ */}
         <meta content={title} property="og:title" />
         <meta content={description} property="og:description" />
-        <meta content={`https://reactresume.com${pathname}`} property="og:url" />
+        <meta content={`https://gvns.ca${pathname}`} property="og:url" />
 
         {/* Twitter: https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup */}
         <meta content={title} name="twitter:title" />

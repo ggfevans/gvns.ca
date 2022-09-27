@@ -45,7 +45,7 @@ import {
  */
 export const homePageMeta: HomepageMeta = {
   title: 'Gareth Evans',
-  description: "Gareth Evans is a ",
+  description: "Gareth Evans is a Solutions Engineer",
 };
 
 /**
@@ -69,7 +69,7 @@ export type SectionId = typeof SectionId[keyof typeof SectionId];
  */
 export const heroData: Hero = {
   imageSrc: heroImage,
-  name: `I'm Gareth Evans.`,
+  name: `Gareth Evans`,
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
