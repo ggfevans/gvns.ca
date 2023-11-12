@@ -1,12 +1,12 @@
 import {
   AcademicCapIcon,
+  ArrowDownTrayIcon,
+  BuildingOffice2Icon,
   CalendarIcon,
-  DownloadIcon,
   FlagIcon,
   MapIcon,
-  OfficeBuildingIcon,
   SparklesIcon,
-} from '@heroicons/react/outline';
+} from '@heroicons/react/24/outline';
 
 import GithubIcon from '../components/Icon/GithubIcon';
 import InstagramIcon from '../components/Icon/InstagramIcon';
@@ -62,7 +62,7 @@ export const SectionId = {
   Testimonials: 'testimonials',
 } as const;
 
-export type SectionId = typeof SectionId[keyof typeof SectionId];
+export type SectionId = (typeof SectionId)[keyof typeof SectionId];
 
 /**
  * Hero section
@@ -88,7 +88,7 @@ export const heroData: Hero = {
       href: '/assets/resume.pdf',
       text: 'Resume',
       primary: true,
-      Icon: DownloadIcon,
+      Icon: ArrowDownTrayIcon,
     },
     {
       href: `#${SectionId.Contact}`,
@@ -205,67 +205,67 @@ export const portfolioItems: PortfolioItem[] = [
   {
     title: 'Project title 1',
     description: 'Give a short description of your project here.',
-    url: 'https://timbaker.me',
+    url: 'https://reactresume.com',
     image: porfolioImage1,
   },
   {
     title: 'Project title 2',
     description: 'Give a short description of your project here.',
-    url: 'https://timbaker.me',
+    url: 'https://reactresume.com',
     image: porfolioImage2,
   },
   {
     title: 'Project title 3',
     description: 'Give a short description of your project here.',
-    url: 'https://timbaker.me',
+    url: 'https://reactresume.com',
     image: porfolioImage3,
   },
   {
     title: 'Project title 4',
     description: 'Give a short description of your project here.',
-    url: 'https://timbaker.me',
+    url: 'https://reactresume.com',
     image: porfolioImage4,
   },
   {
     title: 'Project title 5',
     description: 'Give a short description of your project here.',
-    url: 'https://timbaker.me',
+    url: 'https://reactresume.com',
     image: porfolioImage5,
   },
   {
     title: 'Project title 6',
     description: 'Give a short description of your project here.',
-    url: 'https://timbaker.me',
+    url: 'https://reactresume.com',
     image: porfolioImage6,
   },
   {
     title: 'Project title 7',
     description: 'Give a short description of your project here.',
-    url: 'https://timbaker.me',
+    url: 'https://reactresume.com',
     image: porfolioImage7,
   },
   {
     title: 'Project title 8',
     description: 'Give a short description of your project here.',
-    url: 'https://timbaker.me',
+    url: 'https://reactresume.com',
     image: porfolioImage8,
   },
   {
     title: 'Project title 9',
     description: 'Give a short description of your project here.',
-    url: 'https://timbaker.me',
+    url: 'https://reactresume.com',
     image: porfolioImage9,
   },
   {
     title: 'Project title 10',
     description: 'Give a short description of your project here.',
-    url: 'https://timbaker.me',
+    url: 'https://reactresume.com',
     image: porfolioImage10,
   },
   {
     title: 'Project title 11',
     description: 'Give a short description of your project here.',
-    url: 'https://timbaker.me',
+    url: 'https://reactresume.com',
     image: porfolioImage11,
   },
 ];
