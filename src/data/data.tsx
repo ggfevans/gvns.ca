@@ -69,7 +69,7 @@ export type SectionId = (typeof SectionId)[keyof typeof SectionId];
  */
 export const heroData: Hero = {
   imageSrc: heroImage,
-  name: `Gareth Evans`,
+  name: `I'm Gareth Evans`,
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
@@ -111,7 +111,7 @@ export const aboutData: About = {
     {label: 'Nationality', text: 'Canadian / English', Icon: FlagIcon},
     {label: 'Interests', text: 'Yoga, Jiu Jitsu, Music', Icon: SparklesIcon},
     {label: 'Study', text: 'University of Calgary', Icon: AcademicCapIcon},
-    {label: 'Employment', text: 'VertiGIS', Icon: OfficeBuildingIcon},
+    {label: 'Employment', text: 'VertiGIS', Icon: BuildingOffice2Icon},
   ],
 };
 
