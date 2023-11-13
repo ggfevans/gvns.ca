@@ -11,8 +11,6 @@ import {
 import GithubIcon from '../components/Icon/GithubIcon';
 import InstagramIcon from '../components/Icon/InstagramIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
-import StackOverflowIcon from '../components/Icon/StackOverflowIcon';
-import TwitterIcon from '../components/Icon/TwitterIcon';
 import heroImage from '../images/header-background.webp';
 import porfolioImage1 from '../images/portfolio/portfolio-1.jpg';
 import porfolioImage2 from '../images/portfolio/portfolio-2.jpg';
@@ -69,11 +67,11 @@ export type SectionId = (typeof SectionId)[keyof typeof SectionId];
  */
 export const heroData: Hero = {
   imageSrc: heroImage,
-  name: `I'm Gareth Evans`,
+  name: `Hi, I'm Gareth Evans.`,
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        I'm a Victoria based <strong className="text-stone-100">Solutions Engineer</strong>, currently working
+        I'm a Victoria based <s>Golden Retriever</s> <strong className="text-stone-100">Solutions Engineer</strong>, currently working
         at <strong className="text-stone-100">VertiGIS</strong> helping people meet their GIS application needs.
       </p>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
@@ -342,13 +340,13 @@ export const testimonial: TestimonialSection = {
  */
 
 export const contact: ContactSection = {
-  headerText: 'Get in touch.',
-  description: 'Here is a good spot for a message to your readers to let them know how best to reach out to you.',
+  headerText: 'Get in touch with me.',
+  description: 'Feel free to reach out and get in contact!',
   items: [
     {
       type: ContactType.Email,
-      text: 'me@gvns.ca',
-      href: 'mailto:me@gvns.ca',
+      text: 'hi@gvns.ca',
+      href: 'mailto:hi@gvns.ca',
     },
     {
       type: ContactType.Location,
@@ -373,8 +371,6 @@ export const contact: ContactSection = {
  */
 export const socialLinks: Social[] = [
   {label: 'Github', Icon: GithubIcon, href: 'https://github.com/ggfevans'},
-  {label: 'Stack Overflow', Icon: StackOverflowIcon, href: 'https://stackoverflow.com/users/20067268/ggfevans'},
   {label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/ggfevans/'},
-  {label: 'Instagram', Icon: InstagramIcon, href: 'https://www.instagram.com/ggfevans/'},
-  {label: 'Twitter', Icon: TwitterIcon, href: 'https://twitter.com/ggfevans'},
+  {label: 'Instagram', Icon: InstagramIcon, href: 'https://www.instagram.com/ggfevans/'}
 ];

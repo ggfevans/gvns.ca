@@ -27,9 +27,6 @@ const Page: NextPage<PropsWithChildren<HomepageMeta>> = memo(({children, title, 
         <meta content={description} property="og:description" />
         <meta content={`https://gvns.ca${pathname}`} property="og:url" />
 
-        {/* Twitter: https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup */}
-        <meta content={title} name="twitter:title" />
-        <meta content={description} name="twitter:description" />
       </Head>
       {children}
     </>
