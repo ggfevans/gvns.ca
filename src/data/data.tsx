@@ -43,7 +43,7 @@ import {
  */
 export const homePageMeta: HomepageMeta = {
   title: 'Gareth Evans',
-  description: "Gareth Evans is a Solutions Engineer",
+  description: 'Gareth Evans is a Solutions Engineer',
 };
 
 /**
@@ -71,8 +71,9 @@ export const heroData: Hero = {
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        I'm a Victoria based <s>Golden Retriever</s> <strong className="text-stone-100">Solutions Engineer</strong>, currently working
-        at <strong className="text-stone-100">VertiGIS</strong> helping people meet their GIS application needs.
+        I'm a Victoria based <s>Golden Retriever</s> <strong className="text-stone-100">Solutions Engineer</strong>,
+        currently working at <strong className="text-stone-100">VertiGIS</strong> helping people meet their GIS
+        application needs.
       </p>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
         In my free time time, you can catch me training in <strong className="text-stone-100">Jiu Jitsu</strong>,
@@ -136,7 +137,6 @@ export const skills: SkillGroup[] = [
         name: 'German',
         level: 2,
       },
-      
     ],
   },
   {
@@ -372,5 +372,5 @@ export const contact: ContactSection = {
 export const socialLinks: Social[] = [
   {label: 'Github', Icon: GithubIcon, href: 'https://github.com/ggfevans'},
   {label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/ggfevans/'},
-  {label: 'Instagram', Icon: InstagramIcon, href: 'https://www.instagram.com/ggfevans/'}
+  {label: 'Instagram', Icon: InstagramIcon, href: 'https://www.instagram.com/ggfevans/'},
 ];
