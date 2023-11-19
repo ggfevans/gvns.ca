@@ -1,5 +1,5 @@
-import {getAnalytics} from 'firebase/analytics';
-import {initializeApp} from 'firebase/app';
+// import {getAnalytics} from 'firebase/analytics';
+// import {initializeApp} from 'firebase/app';
 import dynamic from 'next/dynamic';
 import {FC, memo} from 'react';
 
