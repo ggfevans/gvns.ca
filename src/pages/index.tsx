@@ -14,13 +14,13 @@ import Testimonials from '../components/Sections/Testimonials';
 import {homePageMeta} from '../data/data';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyD-nS9FEMjth4ryab01z-Qndb94br7-8qQ',
-  authDomain: 'gvns-ca.firebaseapp.com',
-  projectId: 'gvns-ca',
-  storageBucket: 'gvns-ca.appspot.com',
-  messagingSenderId: '376773105450',
-  appId: '1:376773105450:web:ac0e7afad342f68d1ff053',
-  measurementId: 'G-8VZMZG93BY',
+  apiKey: process.env.apiKey,
+  authDomain: process.env.authDomain,
+  projectId: process.env.projectId,
+  storageBucket: process.env.storageBucket,
+  messagingSenderId: process.env.messagingSenderId,
+  appId: process.env.appId,
+  measurementId: process.env.measurementId,
 };
 
 const firebase = initializeApp(firebaseConfig);
