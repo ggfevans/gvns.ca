@@ -13,7 +13,7 @@ import Resume from '../components/Sections/Resume';
 import Testimonials from '../components/Sections/Testimonials';
 import {homePageMeta} from '../data/data';
 
-const firebaseConfig = {
+/* const firebaseConfig = {
   apiKey: process.env.apiKey,
   authDomain: process.env.authDomain,
   projectId: process.env.projectId,
@@ -25,7 +25,7 @@ const firebaseConfig = {
 
 const firebase = initializeApp(firebaseConfig);
 
-export const analytics = typeof window !== 'undefined' ? getAnalytics(firebase) : null;
+export const analytics = typeof window !== 'undefined' ? getAnalytics(firebase) : null; */
 
 // eslint-disable-next-line react-memo/require-memo
 const Header = dynamic(() => import('../components/Sections/Header'), {ssr: false});
