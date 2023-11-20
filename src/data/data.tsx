@@ -71,7 +71,7 @@ export const heroData: Hero = {
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        I'm a Victoria based <s>Golden Retriever</s> <strong className="text-stone-100">Solutions Engineer</strong>,
+        I'm a Victoria based <strong className="text-stone-100">Solutions Engineer</strong>,
         currently working at <strong className="text-stone-100">VertiGIS</strong> helping people meet their GIS
         application needs.
       </p>
