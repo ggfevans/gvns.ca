@@ -4,6 +4,12 @@ import {FC, memo} from 'react';
 import {SectionId} from '../../data/data';
 import Socials from '../Socials';
 
+const currentDate =new Date();
+const currentYear = currentDate.getFullYear();
+const currentDay = currentDate.getDay();
+const weekDay = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+const currentDayOfWeek = weekDay[currentDay];
+
 const Footer: FC = memo(() => (
   <div className="relative bg-neutral-900 px-4 pb-6 pt-12 sm:px-8 sm:pb-8 sm:pt-14">
     <div className="absolute inset-x-0 -top-4 flex justify-center sm:-top-6">
@@ -17,7 +23,7 @@ const Footer: FC = memo(() => (
       <div className="flex gap-x-4 text-neutral-500">
         <Socials />
       </div>
-      <span className="text-sm text-neutral-700">© Copyright 2022 Gareth Evans</span>
+      <span className="text-sm text-neutral-700">© Copyright {currentYear} Gareth Evans and it's {currentDayOfWeek}, my dude</span>
     </div>
   </div>
 ));
