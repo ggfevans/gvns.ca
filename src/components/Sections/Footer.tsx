@@ -23,7 +23,7 @@ const Footer: FC = memo(() => (
       <div className="flex gap-x-4 text-neutral-500">
         <Socials />
       </div>
-      <span className="text-sm text-neutral-700">© Copyright {currentYear} Gareth Evans and it's {currentDayOfWeek}, my dude</span>
+      <span className="text-sm text-neutral-700" suppressHydrationWarning>© Copyright {currentYear} Gareth Evans and it's {currentDayOfWeek}, my dude</span>
     </div>
   </div>
 ));
