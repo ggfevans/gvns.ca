@@ -1,0 +1,196 @@
+# gvns.ca Architecture
+
+## Tech Stack
+
+| Layer | Choice | Rationale |
+|-------|--------|-----------|
+| **Framework** | Astro 5.x | Content-first, zero JS default, islands architecture |
+| **UI Framework** | Svelte 5 | Islands only when interactivity needed |
+| **Styling** | Tailwind CSS 4.x | Utility-first, design tokens via CSS variables |
+| **Content** | Astro Content Collections | Type-safe markdown with frontmatter validation |
+| **Code Highlighting** | Shiki | Built into Astro, Dracula theme |
+| **Fonts** | System font stack | No external requests, fast loading |
+
+## Site Structure
+
+```
+gvns.ca/
+├── /                   # Home — intro + recent posts
+├── /blog/              # Blog index — all posts, filterable by tag
+├── /blog/[slug]/       # Individual post
+├── /blog/tags/         # Tag listing page
+├── /blog/tags/[tag]/   # Posts filtered by tag
+├── /about/             # About + Resume (recruiter-friendly)
+├── /projects/          # Project showcase (optional MVP)
+├── /rss.xml            # RSS feed
+└── /sitemap.xml        # Auto-generated sitemap
+```
+
+## File Organisation
+
+```
+src/
+├── components/
+│   ├── BaseHead.astro      # <head> with meta, fonts, Umami
+│   ├── Header.astro        # Site navigation
+│   ├── Footer.astro        # Site footer
+│   ├── PostCard.astro      # Blog post preview card
+│   ├── TagList.astro       # Tag display component
+│   └── ThemeToggle.svelte  # Dark/light toggle (island)
+│
+├── content/
+│   ├── blog/               # Blog posts (markdown)
+│   │   └── *.md
+│   └── config.ts           # Content collection schemas
+│
+├── layouts/
+│   ├── BaseLayout.astro    # HTML wrapper, theme, skip links
+│   ├── PostLayout.astro    # Blog post with metadata
+│   └── PageLayout.astro    # Static pages (about, projects)
+│
+├── pages/
+│   ├── index.astro         # Home
+│   ├── about.astro         # About/Resume
+│   ├── projects.astro      # Projects (optional)
+│   ├── blog/
+│   │   ├── index.astro     # Blog listing
+│   │   ├── [slug].astro    # Dynamic post pages
+│   │   └── tags/
+│   │       ├── index.astro # All tags
+│   │       └── [tag].astro # Posts by tag
+│   ├── rss.xml.ts          # RSS feed endpoint
+│   └── 404.astro           # Custom 404
+│
+├── styles/
+│   └── global.css          # Tailwind imports + custom styles
+│
+└── utils/
+    ├── date.ts             # Date formatting helpers
+    └── reading-time.ts     # Reading time calculation
+```
+
+## Content Collections
+
+### Blog Collection Schema
+
+```typescript
+// src/content/config.ts
+import { defineCollection, z } from 'astro:content';
+
+const blog = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    pubDate: z.coerce.date(),
+    updatedDate: z.coerce.date().optional(),
+    tags: z.array(z.string()).default([]),
+    series: z.string().optional(),
+    seriesOrder: z.number().optional(),
+    draft: z.boolean().default(false),
+    heroImage: z.string().optional(),
+  }),
+});
+
+export const collections = { blog };
+```
+
+See `CONTENT-SCHEMA.md` for full frontmatter specification and tag taxonomy.
+
+## Build & Deploy
+
+### Local Development
+
+```bash
+npm run dev      # Start dev server at localhost:4321
+npm run build    # Build to ./dist
+npm run preview  # Preview production build
+```
+
+### Production Deploy
+
+**Method**: GitHub Actions → rsync to Linode
+
+```
+GitHub Push
+    │
+    ▼
+GitHub Actions
+    ├── npm ci
+    ├── npm run build
+    └── rsync ./dist → Linode:/var/www/gvns
+    │
+    ▼
+Cloudflare (cache purge)
+    │
+    ▼
+Live at gvns.ca
+```
+
+See `INFRASTRUCTURE.md` for server configuration details.
+
+## Key Conventions
+
+### Naming
+
+- **Files**: `kebab-case.astro`, `kebab-case.md`
+- **Components**: `PascalCase.astro` or `PascalCase.svelte`
+- **CSS classes**: Tailwind utilities; custom classes use `gvns-` prefix
+
+### Imports
+
+```typescript
+// Prefer path aliases
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { formatDate } from '@utils/date';
+
+// Astro path aliases (tsconfig.json)
+{
+  "paths": {
+    "@components/*": ["src/components/*"],
+    "@layouts/*": ["src/layouts/*"],
+    "@utils/*": ["src/utils/*"],
+    "@styles/*": ["src/styles/*"]
+  }
+}
+```
+
+### Component Patterns
+
+- **Astro components**: Default choice for static content
+- **Svelte islands**: Only for client-side interactivity (theme toggle, search)
+- **Props**: Destructure with defaults in frontmatter
+
+```astro
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Default description' } = Astro.props;
+---
+```
+
+## Performance Targets
+
+| Metric | Target |
+|--------|--------|
+| Lighthouse Performance | > 95 |
+| First Contentful Paint | < 1.0s |
+| Time to Interactive | < 1.5s |
+| Total Page Weight | < 200KB (initial) |
+| JavaScript | 0KB default (islands only) |
+
+## Accessibility
+
+- Semantic HTML throughout
+- Skip link to main content
+- ARIA labels on interactive elements
+- Colour contrast meets WCAG AA
+- Keyboard navigation for all features
+- Reduced motion support via `prefers-reduced-motion`
+
+---
+
+*Last updated: 2024-12-09*
