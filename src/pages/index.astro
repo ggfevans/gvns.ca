@@ -1,16 +1,49 @@
 ---
-
+import BaseLayout from '@layouts/BaseLayout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout 
+  title="Gareth Evans — Web Developer" 
+  description="Personal blog and portfolio. Writing about homelab, web development, BJJ, and whatever else catches my attention."
+>
+  <div class="home">
+    <h1>Hi, I'm Gareth</h1>
+    <p class="intro">
+      Web developer on Vancouver Island. I write about homelab, self-hosting, 
+      web development, BJJ, and the occasional life observation.
+    </p>
+    <p class="cta">
+      <a href="/blog">Read the blog</a> or <a href="/about">learn more about me</a>.
+    </p>
+  </div>
+</BaseLayout>
+
+<style>
+  .home {
+    max-width: 65ch;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: 2.25rem;
+    margin-bottom: var(--space-4, 1rem);
+  }
+
+  .intro {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-6, 1.5rem);
+  }
+
+  .cta a {
+    color: var(--color-link);
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 2px;
+    transition: text-decoration-color var(--transition-fast);
+  }
+
+  .cta a:hover {
+    text-decoration-color: var(--color-link);
+  }
+</style>
