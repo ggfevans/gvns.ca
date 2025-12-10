@@ -1,1 +1,80 @@
 @import "tailwindcss";
+
+/* ============================================
+   gvns.ca Design Tokens
+   Based on Dracula Theme
+   ============================================ */
+
+:root {
+  /* Core Dracula Palette */
+  --background: #282a36;
+  --current-line: #44475a;
+  --foreground: #f8f8f2;
+  --comment: #6272a4;
+  --cyan: #8be9fd;
+  --green: #50fa7b;
+  --orange: #ffb86c;
+  --pink: #ff79c6;
+  --purple: #bd93f9;
+  --red: #ff5555;
+  --yellow: #f1fa8c;
+
+  /* Semantic Backgrounds */
+  --color-bg-primary: var(--background);
+  --color-bg-secondary: var(--current-line);
+  --color-bg-elevated: #343746;
+
+  /* Semantic Text */
+  --color-text-primary: var(--foreground);
+  --color-text-secondary: var(--comment);
+  --color-text-muted: #6272a4;
+
+  /* Interactive */
+  --color-link: var(--cyan);
+  --color-link-hover: var(--purple);
+
+  /* Accent */
+  --color-accent-primary: var(--purple);
+  --color-accent-secondary: var(--pink);
+
+  /* Feedback */
+  --color-success: var(--green);
+  --color-warning: var(--orange);
+  --color-error: var(--red);
+  --color-info: var(--cyan);
+
+  /* Typography */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+    "Liberation Mono", monospace;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 350ms ease;
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
