@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(**)",
+      "Edit(**)",
+      "Write(**)",
+      "Glob(**)",
+      "Grep(**)",
+      "Bash(npm run:*)",
+      "Bash(npm install)",
+      "Bash(npm outdated)",
+      "Bash(npm update:*)",
+      "Bash(npm run lint:*)",
+      "Bash(npm test:*)",
+      "Bash(npx:*)",
+      "Bash(ls:*)",
+      "Bash(mkdir:*)"
+    ]
+  }
+}
