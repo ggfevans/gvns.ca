@@ -12,11 +12,16 @@ interface Props {
 const { post, showReadingTime = true } = Astro.props;
 const { title, description, pubDate, tags } = post.data;
 const readingTime = getReadingTime(post.body);
+
+// Extract just the filename from the full slug path
+// e.g., "2024/12/hello-world" -> "hello-world"
+const slugParts = post.slug.split('/');
+const filename = slugParts[slugParts.length - 1];
 ---
 
 <article class="post-card">
   <h3 class="post-title">
-    <a href={`/blog/${post.slug}`}>{title}</a>
+    <a href={`/blog/${filename}`}>{title}</a>
   </h3>
   <div class="post-meta">
     <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>
