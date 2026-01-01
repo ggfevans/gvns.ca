@@ -25,9 +25,9 @@
   class="theme-toggle"
 >
   {#if theme === 'dark'}
-    <span class="icon">☀️</span>
+    <span class="icon" aria-hidden="true">☀️</span>
   {:else}
-    <span class="icon">🌙</span>
+    <span class="icon" aria-hidden="true">🌙</span>
   {/if}
 </button>
 
