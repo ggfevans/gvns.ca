@@ -1,0 +1,117 @@
+---
+import PageLayout from '@layouts/PageLayout.astro';
+
+const projects = [
+  {
+    name: 'gvns.ca',
+    description: 'Personal blog and portfolio. Built with Astro 5, Svelte 5 islands, and Tailwind CSS. Self-hosted on Linode.',
+    tech: ['Astro', 'Svelte', 'Tailwind'],
+    github: 'https://github.com/ggfevans/gvns.ca',
+    demo: 'https://gvns.ca',
+  },
+  // Add more projects here as needed
+];
+---
+
+<PageLayout
+  title="Projects"
+  description="Things I've built — side projects, experiments, and tools."
+>
+  <p>
+    A collection of projects I've worked on. Some are finished, some are
+    ongoing experiments.
+  </p>
+
+  <div class="projects-grid">
+    {projects.map((project) => (
+      <article class="project-card">
+        <h3>{project.name}</h3>
+        <p class="description">{project.description}</p>
+        <div class="tech-tags">
+          {project.tech.map((t) => (
+            <span class="tag">{t}</span>
+          ))}
+        </div>
+        <div class="links">
+          {project.github && (
+            <a href={project.github} class="link">GitHub</a>
+          )}
+          {project.demo && (
+            <a href={project.demo} class="link">Live Demo</a>
+          )}
+        </div>
+      </article>
+    ))}
+  </div>
+</PageLayout>
+
+<style>
+  p {
+    margin-bottom: 2rem;
+    color: var(--color-text-secondary);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    background: var(--color-bg-secondary);
+    border-radius: 8px;
+    padding: 1.5rem;
+    border: 1px solid transparent;
+    transition: border-color var(--transition-fast);
+  }
+
+  .project-card:hover {
+    border-color: var(--color-accent-primary);
+  }
+
+  .project-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .description {
+    color: var(--color-text-secondary);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    background: var(--current-line);
+    color: var(--pink);
+    border-radius: 4px;
+  }
+
+  .links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .link {
+    color: var(--color-link);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color var(--transition-fast);
+  }
+
+  .link:hover {
+    color: var(--color-link-hover);
+  }
+</style>
