@@ -12,8 +12,8 @@ const currentPath = Astro.url.pathname;
 ---
 
 <header class="header">
-  <nav class="nav">
-    <a href="/" class="logo">gvns.ca</a>
+  <nav class="nav" aria-label="Main navigation">
+    <a href="/" class="logo" aria-label="gvns.ca home">gvns.ca</a>
     <div class="nav-right">
       <ul class="nav-links">
         {navItems.map(({ href, label }) => {
