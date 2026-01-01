@@ -47,12 +47,6 @@
     opacity: 1;
   }
 
-  .theme-toggle:focus-visible {
-    outline: 2px solid var(--color-accent-primary);
-    outline-offset: 2px;
-    border-radius: 4px;
-  }
-
   .icon {
     display: block;
   }
