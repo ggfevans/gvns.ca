@@ -1,0 +1,106 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const posts = await getCollection('blog', ({ data }) => {
+  return import.meta.env.PROD ? !data.draft : true;
+});
+
+// Count posts per tag
+const tagCounts = new Map<string, number>();
+posts.forEach((post) => {
+  post.data.tags.forEach((tag) => {
+    tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1);
+  });
+});
+
+// Sort tags alphabetically
+const sortedTags = [...tagCounts.entries()].sort((a, b) =>
+  a[0].localeCompare(b[0])
+);
+---
+
+<BaseLayout
+  title="Tags | gvns.ca"
+  description="Browse all blog post tags."
+>
+  <main id="main-content" class="tags-page">
+    <h1>Tags</h1>
+    <p class="intro">Browse posts by topic.</p>
+
+    {sortedTags.length > 0 ? (
+      <ul class="tag-list">
+        {sortedTags.map(([tag, count]) => (
+          <li>
+            <a href={`/blog/tags/${tag}`} class="tag-link">
+              <span class="tag-name">{tag}</span>
+              <span class="tag-count">({count})</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p class="no-tags">No tags yet.</p>
+    )}
+  </main>
+</BaseLayout>
+
+<style>
+  .tags-page {
+    max-width: 65ch;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: 2.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .intro {
+    color: var(--color-text-secondary);
+    margin-bottom: 2rem;
+  }
+
+  .tag-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .tag-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.5rem 0.75rem;
+    background: var(--color-bg-secondary);
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color var(--transition-fast);
+  }
+
+  .tag-link:hover {
+    background: var(--color-bg-elevated);
+  }
+
+  .tag-link:focus-visible {
+    outline: 2px solid var(--color-accent-primary);
+    outline-offset: 2px;
+  }
+
+  .tag-name {
+    color: var(--pink);
+    font-weight: 500;
+  }
+
+  .tag-count {
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+  }
+
+  .no-tags {
+    color: var(--color-text-secondary);
+    font-style: italic;
+  }
+</style>

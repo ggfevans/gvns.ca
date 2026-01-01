@@ -1,0 +1,96 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import PostCard from '@components/PostCard.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => {
+    return import.meta.env.PROD ? !data.draft : true;
+  });
+
+  // Get all unique tags
+  const tags = new Set<string>();
+  posts.forEach((post) => {
+    post.data.tags.forEach((tag) => tags.add(tag));
+  });
+
+  return [...tags].map((tag) => ({
+    params: { tag },
+    props: {
+      tag,
+      posts: posts
+        .filter((post) => post.data.tags.includes(tag))
+        .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()),
+    },
+  }));
+}
+
+interface Props {
+  tag: string;
+  posts: Awaited<ReturnType<typeof getCollection<'blog'>>>;
+}
+
+const { tag, posts } = Astro.props;
+---
+
+<BaseLayout
+  title={`Posts tagged "${tag}" | gvns.ca`}
+  description={`All blog posts tagged with ${tag}.`}
+>
+  <main id="main-content" class="tag-page">
+    <header>
+      <a href="/blog/tags" class="back-link">&larr; All tags</a>
+      <h1>Posts tagged: <span class="tag-name">{tag}</span></h1>
+      <p class="count">{posts.length} post{posts.length !== 1 ? 's' : ''}</p>
+    </header>
+
+    <div class="post-list">
+      {posts.map((post) => (
+        <PostCard post={post} />
+      ))}
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .tag-page {
+    max-width: 65ch;
+    margin: 0 auto;
+  }
+
+  header {
+    margin-bottom: 2rem;
+  }
+
+  .back-link {
+    display: inline-block;
+    color: var(--color-link);
+    text-decoration: none;
+    margin-bottom: 1rem;
+    transition: color var(--transition-fast);
+  }
+
+  .back-link:hover {
+    color: var(--color-link-hover);
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .tag-name {
+    color: var(--pink);
+  }
+
+  .count {
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+  }
+
+  .post-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+</style>
