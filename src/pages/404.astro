@@ -1,0 +1,72 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Page Not Found | gvns.ca" description="The page you're looking for doesn't exist.">
+  <main id="main-content" class="error-page">
+    <h1>404</h1>
+    <p class="message">The page you're looking for doesn't exist.</p>
+    <p class="help">Perhaps you were looking for:</p>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="/projects">Projects</a></li>
+      <li><a href="/about">About</a></li>
+    </ul>
+  </main>
+</BaseLayout>
+
+<style>
+  .error-page {
+    max-width: 65ch;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 2rem;
+  }
+
+  h1 {
+    font-size: 6rem;
+    font-weight: 700;
+    color: var(--purple);
+    margin-bottom: 0.5rem;
+    line-height: 1;
+  }
+
+  .message {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 2rem;
+  }
+
+  .help {
+    color: var(--color-text-secondary);
+    margin-bottom: 1rem;
+  }
+
+  .nav-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-links a {
+    color: var(--color-link);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    background: var(--color-bg-secondary);
+    border-radius: 6px;
+    transition: background-color var(--transition-fast);
+  }
+
+  .nav-links a:hover {
+    background: var(--color-bg-elevated);
+  }
+
+  .nav-links a:focus-visible {
+    outline: 2px solid var(--color-accent-primary);
+    outline-offset: 2px;
+  }
+</style>
