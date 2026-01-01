@@ -1,4 +1,6 @@
 ---
+import ThemeToggle from './ThemeToggle.svelte';
+
 const navItems = [
   { href: '/', label: 'Home' },
   { href: '/blog', label: 'Blog' },
@@ -12,18 +14,21 @@ const currentPath = Astro.url.pathname;
 <header class="header">
   <nav class="nav">
     <a href="/" class="logo">gvns.ca</a>
-    <ul class="nav-links">
-      {navItems.map(({ href, label }) => (
-        <li>
-          <a 
-            href={href} 
-            class:list={['nav-link', { active: currentPath === href || (href !== '/' && currentPath.startsWith(href)) }]}
-          >
-            {label}
-          </a>
-        </li>
-      ))}
-    </ul>
+    <div class="nav-right">
+      <ul class="nav-links">
+        {navItems.map(({ href, label }) => (
+          <li>
+            <a
+              href={href}
+              class:list={['nav-link', { active: currentPath === href || (href !== '/' && currentPath.startsWith(href)) }]}
+            >
+              {label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <ThemeToggle client:load />
+    </div>
   </nav>
 </header>
 
@@ -45,6 +50,12 @@ const currentPath = Astro.url.pathname;
     font-weight: 700;
     color: var(--color-text-primary);
     text-decoration: none;
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
   }
 
   .nav-links {

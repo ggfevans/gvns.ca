@@ -55,6 +55,25 @@
   --transition-slow: 350ms ease;
 }
 
+/* Light Theme */
+[data-theme="light"] {
+  --background: #f8f8f2;
+  --current-line: #e9e9e4;
+  --foreground: #282a36;
+  --comment: #44475a;
+
+  --color-bg-primary: #f8f8f2;
+  --color-bg-secondary: #e9e9e4;
+  --color-bg-elevated: #ffffff;
+
+  --color-text-primary: #282a36;
+  --color-text-secondary: #44475a;
+  --color-text-muted: #6272a4;
+
+  --color-link: #6f42c1;
+  --color-link-hover: #bd93f9;
+}
+
 /* Base Styles */
 html {
   scroll-behavior: smooth;

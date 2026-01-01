@@ -16,6 +16,12 @@ const { title, description } = Astro.props;
 <html lang="en">
   <head>
     <BaseHead title={title} description={description} />
+    <script is:inline>
+      // Initialize theme before page renders to prevent flash
+      const theme = localStorage.getItem('theme')
+        || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', theme);
+    </script>
   </head>
   <body>
     <a href="#main-content" class="skip-link">Skip to content</a>
