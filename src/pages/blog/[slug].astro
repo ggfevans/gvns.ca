@@ -1,0 +1,29 @@
+---
+import { getCollection, render } from 'astro:content';
+import PostLayout from '@layouts/PostLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => {
+    return import.meta.env.PROD ? !data.draft : true;
+  });
+
+  return posts.map((post) => {
+    // Extract just the filename from the full slug path
+    // e.g., "2024/12/hello-world" -> "hello-world"
+    const slugParts = post.slug.split('/');
+    const filename = slugParts[slugParts.length - 1];
+
+    return {
+      params: { slug: filename },
+      props: { post },
+    };
+  });
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<PostLayout post={post}>
+  <Content />
+</PostLayout>
