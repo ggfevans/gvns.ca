@@ -293,11 +293,48 @@ tail -f /var/log/caddy/access.log
 
 ### Backups
 
-| What | How | Frequency |
-|------|-----|-----------|
-| Umami DB | `pg_dump` via cron | Daily |
-| Site content | Git repo is source of truth | N/A |
-| Server config | Document in repo's `/docs` | As changed |
+| What | How | Frequency | Retention |
+|------|-----|-----------|-----------|
+| Umami DB | `pg_dump` via cron | Daily 3:00 AM | 7 days local |
+| Umami DB (offsite) | rsync to Backrest | Daily 4:00 AM | Per Backrest policy |
+| Site content | Git repo is source of truth | N/A | N/A |
+| Server config | Document in repo's `/docs` | As changed | N/A |
+
+#### Umami Database Backup Details
+
+**On vps-web-gvnsca (Linode):**
+- Cron runs daily at 3:00 AM
+- `pg_dump` from `umami-db` container
+- Stored at `/home/gvns/backups/postgres/`
+- Format: `umami-YYYYMMDD.sql.gz`
+- Retention: 7 days
+
+**On Backrest (offsite):**
+- Cron runs daily at 4:00 AM (after backup completes)
+- rsync pulls from vps-web-gvnsca over Tailscale
+- Stored at `/mnt/backup-sources/vps-web-gvnsca/umami/`
+- Uses `restic-ed25519` SSH key, port 42042
+
+```bash
+# Backrest cron entry
+0 4 * * * rsync -avz -e "ssh -p 42042 -i /root/.ssh/restic-ed25519" gvns@100.79.95.64:/home/gvns/backups/postgres/ /mnt/backup-sources/vps-web-gvnsca/umami/
+```
+
+#### Restore Procedure
+
+```bash
+# On vps-web-gvnsca
+cd /opt/umami
+
+# Stop Umami (keep DB running)
+docker compose stop umami
+
+# Restore from backup
+gunzip -c /home/gvns/backups/postgres/umami-YYYYMMDD.sql.gz | docker exec -i umami-db psql -U umami -d umami
+
+# Restart Umami
+docker compose up -d
+```
 
 ## Cost Summary
 
@@ -321,4 +358,4 @@ tail -f /var/log/caddy/access.log
 
 ---
 
-*Last updated: 2024-12-09*
+*Last updated: 2026-01-02*
