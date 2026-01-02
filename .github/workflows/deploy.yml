@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -25,16 +25,26 @@ jobs:
       - name: Build site
         run: npm run build
 
-      - name: Deploy to Linode
-        uses: burnett01/rsync-deployments@6.0.0
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
         with:
-          switches: -avzr --delete
+          name: dist
           path: dist/
-          remote_path: /var/www/gvns/
-          remote_host: ${{ secrets.LINODE_HOST }}
-          remote_port: ${{ secrets.LINODE_SSH_PORT }}
-          remote_user: ${{ secrets.LINODE_USER }}
-          remote_key: ${{ secrets.LINODE_SSH_KEY }}
+          retention-days: 1
+
+  deploy:
+    needs: build
+    runs-on: [self-hosted, Linux]
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+      - name: Deploy to web root
+        run: |
+          rsync -avz --delete dist/ /var/www/gvns/
 
       - name: Purge Cloudflare cache
         run: |
