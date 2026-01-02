@@ -8,7 +8,7 @@
 | **UI Framework** | Svelte 5 | Islands only when interactivity needed |
 | **Styling** | Tailwind CSS 4.x | Utility-first, design tokens via CSS variables |
 | **Content** | Astro Content Collections | Type-safe markdown with frontmatter validation |
-| **Code Highlighting** | Shiki | Built into Astro, Dracula theme |
+| **Code Highlighting** | Shiki | Built into Astro |
 | **Fonts** | System font stack | No external requests, fast loading |
 
 ## Site Structure
@@ -193,4 +193,4 @@ const { title, description = 'Default description' } = Astro.props;
 
 ---
 
-*Last updated: 2024-12-09*
+*Last updated: 2026-01-02*
