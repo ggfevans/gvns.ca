@@ -25,9 +25,9 @@
   --colour-accent-secondary: #8fbc8f;
   --colour-accent-warm: #c9a959;
 
-  /* High-contrast link color for body text (5.1:1 on dark bg)
-     Use --color-link-text for prose/body links to meet WCAG AA 4.5:1 */
-  --color-link-text: #5d9a6e;
+  /* High-contrast link colour for body text (5.1:1 on dark bg)
+     Use --colour-link-text for prose/body links to meet WCAG AA 4.5:1 */
+  --colour-link-text: #5d9a6e;
 
   /* Semantic Colours */
   --colour-success: #4a7c59;
@@ -44,6 +44,7 @@
   --color-text-muted: var(--colour-text-muted);
   --color-link: var(--colour-accent-primary);
   --color-link-hover: var(--colour-accent-hover);
+  --color-link-text: var(--colour-link-text);
   --color-accent-primary: var(--colour-accent-primary);
   --color-accent-secondary: var(--colour-accent-secondary);
   --color-success: var(--colour-success);
@@ -195,7 +196,7 @@ body {
 }
 
 .prose a {
-  color: var(--color-link-text);
+  color: var(--colour-link-text);
   text-decoration: underline;
   text-decoration-color: transparent;
   text-underline-offset: 2px;
@@ -203,7 +204,7 @@ body {
 }
 
 .prose a:hover {
-  text-decoration-color: var(--color-link-text);
+  text-decoration-color: var(--colour-link-text);
 }
 
 .prose code {

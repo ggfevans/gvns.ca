@@ -75,7 +75,7 @@ WCAG AA requires 4.5:1 for normal text, 3:1 for large text/UI components.
 
 **Usage guidance:**
 - Forest green (`#4a7c59`): Safe for large text (18px+), UI components, and decorative elements on dark backgrounds
-- Link text (`#5d9a6e`): Use `--color-link-text` for body/prose links — passes 4.5:1 for normal text
+- Link text (`#5d9a6e`): Use `--colour-link-text` for body/prose links — passes 4.5:1 for normal text (alias: `--color-link-text`)
 - Warm gold (`#c9a959`): Use only on dark backgrounds for text; decorative only on light
 
 ## Typography
@@ -129,7 +129,7 @@ For blog content, custom prose styles are defined in `global.css` (not using `@t
 }
 
 .prose a {
-  color: var(--color-link-text); /* #5d9a6e - passes 4.5:1 for body text */
+  color: var(--colour-link-text); /* #5d9a6e - passes 4.5:1 for body text */
 }
 
 .prose blockquote {
