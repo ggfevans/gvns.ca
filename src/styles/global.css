@@ -17,7 +17,9 @@
   --colour-text-secondary: #a3aab5;
   --colour-text-muted: #6b7280;
 
-  /* Accent Colours */
+  /* Accent Colours
+     Note: Forest green (3.89:1 on dark) is for large text/UI only.
+     Warm gold passes on dark (8.38:1) but fails on light (2.14:1). */
   --colour-accent-primary: #4a7c59;
   --colour-accent-hover: #5d9a6e;
   --colour-accent-secondary: #8fbc8f;
@@ -86,7 +88,7 @@
   --colour-text-secondary: #4a5568;
   --colour-text-muted: #718096;
 
-  /* Legacy aliases */
+  /* Legacy aliases (accent/semantic colours unchanged from dark theme) */
   --color-bg-primary: var(--colour-bg-primary);
   --color-bg-secondary: var(--colour-bg-secondary);
   --color-bg-elevated: var(--colour-bg-tertiary);
@@ -189,7 +191,7 @@ body {
 }
 
 .prose a {
-  color: var(--color-link);
+  color: var(--colour-accent-primary);
   text-decoration: underline;
   text-decoration-color: transparent;
   text-underline-offset: 2px;
@@ -197,7 +199,7 @@ body {
 }
 
 .prose a:hover {
-  text-decoration-color: var(--color-link);
+  text-decoration-color: var(--colour-accent-primary);
 }
 
 .prose code {

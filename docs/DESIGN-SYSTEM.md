@@ -2,7 +2,7 @@
 
 ## Colour Palette
 
-Based on [GVNS Brand Guide v1.1](/Users/gvns/notes/gVault/01-PROJECTS/gvns-site/gvns-brand-guide.md). Dark-first, light-available. Colours are functional first, decorative second.
+Based on GVNS Brand Guide v1.1. Dark-first, light-available. Colours are functional first, decorative second.
 
 ### Base Colours — Dark Theme (Default)
 
@@ -60,6 +60,22 @@ Based on [GVNS Brand Guide v1.1](/Users/gvns/notes/gVault/01-PROJECTS/gvns-site/
 - Pairs beautifully with the green
 - Adds sophistication without competing
 
+### Contrast & Accessibility
+
+WCAG AA requires 4.5:1 for normal text, 3:1 for large text/UI components.
+
+| Pairing | Ratio | Status |
+|---------|-------|--------|
+| Primary text on dark bg | 16.3:1 | ✓ Pass |
+| Primary text on light bg | 14.8:1 | ✓ Pass |
+| Forest green on dark bg | 3.89:1 | ⚠ Large text/UI only |
+| Warm gold on dark bg | 8.38:1 | ✓ Pass |
+| Warm gold on light bg | 2.14:1 | ✗ Avoid for text |
+
+**Usage guidance:**
+- Forest green (`#4a7c59`): Safe for large text (18px+), UI components, and decorative elements on dark backgrounds
+- Warm gold (`#c9a959`): Use only on dark backgrounds for text; decorative only on light
+
 ## Typography
 
 ### Font Stack
@@ -103,16 +119,24 @@ Based on 1.25 ratio (Major Third) with 16px base.
 
 ### Prose Styling
 
-For blog content, custom prose styles in global.css:
+For blog content, custom prose styles are defined in `global.css` (not using `@tailwindcss/typography`):
 
 ```css
 .prose {
-  --tw-prose-body: var(--colour-text-primary);
-  --tw-prose-headings: var(--colour-text-primary);
-  --tw-prose-links: var(--colour-accent-primary);
-  --tw-prose-bold: var(--colour-text-primary);
-  --tw-prose-pre-bg: var(--colour-bg-tertiary);
-  --tw-prose-quote-borders: var(--colour-accent-primary);
+  line-height: 1.7;
+}
+
+.prose a {
+  color: var(--colour-accent-primary);
+}
+
+.prose blockquote {
+  border-left: 3px solid var(--colour-accent-primary);
+  color: var(--colour-text-secondary);
+}
+
+.prose pre, .prose code {
+  background: var(--colour-bg-tertiary);
 }
 ```
 
