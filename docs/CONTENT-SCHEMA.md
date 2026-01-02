@@ -162,10 +162,36 @@ Posts generate URLs from filename:
 
 ### Writing Style
 
-- **Voice**: Conversational but technically precise
+Based on GVNS Brand Guide voice attributes:
+
+| Attribute | Meaning | Example |
+|-----------|---------|---------|
+| **Direct** | Lead with the point, then riff | "This solves X. Yes, I'm rather proud of that name." |
+| **Technical** | Precise terminology, accessibly delivered | Explain the thing, then joke about the thing |
+| **Warm** | Genuinely friendly, not corporate-friendly | First person, contractions, personality |
+| **Witty** | Puns, wordplay, dry observations | Earned, not forced — quality over quantity |
+| **Self-aware** | Can laugh at yourself | Acknowledge absurdity when it's there |
+
+**The "Gareth Test"**: Before publishing, ask *"Would I actually say this to someone?"*
+- If it sounds like a LinkedIn post → rewrite
+- If it sounds like a Discord message to a technical friend → ship it
+
+**Mechanics:**
 - **Perspective**: First person ("I discovered..." not "One discovers...")
+- **Contractions**: Yes, always
+- **Spelling**: Canadian (colour, organisation, behaviour)
+- **Oxford comma**: Yes
+- **Exclamation marks**: Rarely, one at a time max
 - **Code**: Always include context, explain non-obvious parts
 - **Links**: Prefer inline links over reference-style
+
+**Humour calibration by context:**
+
+| Context | Level | Notes |
+|---------|-------|-------|
+| Blog posts | Full | Puns, metaphors, tangents, personality |
+| Tutorials | Medium | Dry wit, occasional asides |
+| Error states | Permission granted | "Well, that didn't work" > "An error occurred" |
 
 ### Code Blocks
 
@@ -222,4 +248,4 @@ export const collections = { blog };
 
 ---
 
-*Last updated: 2024-12-09*
+*Last updated: 2026-01-02*

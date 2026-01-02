@@ -2,46 +2,57 @@
 
 /* ============================================
    gvns.ca Design Tokens
-   Based on Dracula Theme
+   Based on GVNS Brand Guide v1.1
    ============================================ */
 
 :root {
-  /* Core Dracula Palette */
-  --background: #282a36;
-  --current-line: #44475a;
-  --foreground: #f8f8f2;
-  --comment: #6272a4;
-  --cyan: #8be9fd;
-  --green: #50fa7b;
-  --orange: #ffb86c;
-  --pink: #ff79c6;
-  --purple: #bd93f9;
-  --red: #ff5555;
-  --yellow: #f1fa8c;
+  /* Core Palette — Dark Theme (Default) */
+  --colour-bg-primary: #0f1114;
+  --colour-bg-secondary: #1a1d23;
+  --colour-bg-tertiary: #252a33;
+  --colour-border: #2e3440;
 
-  /* Semantic Backgrounds */
-  --color-bg-primary: var(--background);
-  --color-bg-secondary: var(--current-line);
-  --color-bg-elevated: #343746;
+  /* Text Colours */
+  --colour-text-primary: #eceff4;
+  --colour-text-secondary: #a3aab5;
+  --colour-text-muted: #6b7280;
 
-  /* Semantic Text */
-  --color-text-primary: var(--foreground);
-  --color-text-secondary: var(--comment);
-  --color-text-muted: #6272a4;
+  /* Accent Colours
+     Note: Forest green (3.89:1 on dark) is for large text/UI only.
+     Warm gold passes on dark (8.38:1) but fails on light (2.14:1). */
+  --colour-accent-primary: #4a7c59;
+  --colour-accent-hover: #5d9a6e;
+  --colour-accent-secondary: #8fbc8f;
+  --colour-accent-warm: #c9a959;
 
-  /* Interactive */
-  --color-link: var(--cyan);
-  --color-link-hover: var(--purple);
+  /* High-contrast link colour for body text (5.1:1 on dark bg)
+     Use --colour-link-text for prose/body links to meet WCAG AA 4.5:1 */
+  --colour-link-text: #5d9a6e;
 
-  /* Accent */
-  --color-accent-primary: var(--purple);
-  --color-accent-secondary: var(--pink);
+  /* Semantic Colours */
+  --colour-success: #4a7c59;
+  --colour-warning: #c9a959;
+  --colour-error: #bf616a;
+  --colour-info: #81a1c1;
 
-  /* Feedback */
-  --color-success: var(--green);
-  --color-warning: var(--orange);
-  --color-error: var(--red);
-  --color-info: var(--cyan);
+  /* Legacy aliases for compatibility */
+  --color-bg-primary: var(--colour-bg-primary);
+  --color-bg-secondary: var(--colour-bg-secondary);
+  --color-bg-elevated: var(--colour-bg-tertiary);
+  --color-text-primary: var(--colour-text-primary);
+  --color-text-secondary: var(--colour-text-secondary);
+  --color-text-muted: var(--colour-text-muted);
+  --color-link: var(--colour-accent-primary);
+  --color-link-hover: var(--colour-accent-hover);
+  --color-link-text: var(--colour-link-text);
+  --color-accent-primary: var(--colour-accent-primary);
+  --color-accent-secondary: var(--colour-accent-secondary);
+  --color-success: var(--colour-success);
+  --color-warning: var(--colour-warning);
+  --color-error: var(--colour-error);
+  --color-info: var(--colour-info);
+  --current-line: var(--colour-bg-secondary);
+  --purple: var(--colour-accent-primary);
 
   /* Typography */
   --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
@@ -73,21 +84,23 @@
 
 /* Light Theme */
 [data-theme="light"] {
-  --background: #f8f8f2;
-  --current-line: #e9e9e4;
-  --foreground: #282a36;
-  --comment: #44475a;
+  --colour-bg-primary: #f8f9fa;
+  --colour-bg-secondary: #ffffff;
+  --colour-bg-tertiary: #e9ecef;
+  --colour-border: #dee2e6;
 
-  --color-bg-primary: #f8f8f2;
-  --color-bg-secondary: #e9e9e4;
-  --color-bg-elevated: #ffffff;
+  --colour-text-primary: #1a1d23;
+  --colour-text-secondary: #4a5568;
+  --colour-text-muted: #718096;
 
-  --color-text-primary: #282a36;
-  --color-text-secondary: #44475a;
-  --color-text-muted: #6272a4;
-
-  --color-link: #6f42c1;
-  --color-link-hover: #bd93f9;
+  /* Legacy aliases (accent/semantic colours unchanged from dark theme) */
+  --color-bg-primary: var(--colour-bg-primary);
+  --color-bg-secondary: var(--colour-bg-secondary);
+  --color-bg-elevated: var(--colour-bg-tertiary);
+  --color-text-primary: var(--colour-text-primary);
+  --color-text-secondary: var(--colour-text-secondary);
+  --color-text-muted: var(--colour-text-muted);
+  --current-line: var(--colour-bg-secondary);
 }
 
 /* Base Styles */
@@ -175,15 +188,15 @@ body {
 }
 
 .prose blockquote {
-  border-left: 3px solid var(--purple);
+  border-left: 3px solid var(--colour-accent-primary);
   padding-left: 1rem;
   margin: 1.5rem 0;
   font-style: italic;
-  color: var(--color-text-secondary);
+  color: var(--colour-text-secondary);
 }
 
 .prose a {
-  color: var(--color-link);
+  color: var(--colour-link-text);
   text-decoration: underline;
   text-decoration-color: transparent;
   text-underline-offset: 2px;
@@ -191,19 +204,19 @@ body {
 }
 
 .prose a:hover {
-  text-decoration-color: var(--color-link);
+  text-decoration-color: var(--colour-link-text);
 }
 
 .prose code {
   font-family: var(--font-mono);
   font-size: 0.9em;
-  background: var(--current-line);
+  background: var(--colour-bg-tertiary);
   padding: 0.125em 0.375em;
   border-radius: 4px;
 }
 
 .prose pre {
-  background: var(--current-line);
+  background: var(--colour-bg-tertiary);
   padding: 1rem;
   border-radius: 8px;
   overflow-x: auto;
@@ -223,6 +236,6 @@ body {
 
 .prose hr {
   border: none;
-  border-top: 1px solid var(--current-line);
+  border-top: 1px solid var(--colour-border);
   margin: 2rem 0;
 }
