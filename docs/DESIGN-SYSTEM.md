@@ -69,11 +69,13 @@ WCAG AA requires 4.5:1 for normal text, 3:1 for large text/UI components.
 | Primary text on dark bg | 16.3:1 | ✓ Pass |
 | Primary text on light bg | 14.8:1 | ✓ Pass |
 | Forest green on dark bg | 3.89:1 | ⚠ Large text/UI only |
+| Link text green on dark bg | 5.1:1 | ✓ Pass (body text safe) |
 | Warm gold on dark bg | 8.38:1 | ✓ Pass |
 | Warm gold on light bg | 2.14:1 | ✗ Avoid for text |
 
 **Usage guidance:**
 - Forest green (`#4a7c59`): Safe for large text (18px+), UI components, and decorative elements on dark backgrounds
+- Link text (`#5d9a6e`): Use `--color-link-text` for body/prose links — passes 4.5:1 for normal text
 - Warm gold (`#c9a959`): Use only on dark backgrounds for text; decorative only on light
 
 ## Typography
@@ -127,7 +129,7 @@ For blog content, custom prose styles are defined in `global.css` (not using `@t
 }
 
 .prose a {
-  color: var(--colour-accent-primary);
+  color: var(--color-link-text); /* #5d9a6e - passes 4.5:1 for body text */
 }
 
 .prose blockquote {
@@ -306,7 +308,20 @@ a:focus-visible {
 
 ### Code Blocks
 
-Handled by Shiki. Additional styling:
+Syntax highlighting is handled by Shiki (Astro's default). Currently using Astro's default theme (`github-dark`). To customize, add `markdown.shikiConfig.theme` in `astro.config.mjs`:
+
+```javascript
+// astro.config.mjs
+export default defineConfig({
+  markdown: {
+    shikiConfig: {
+      theme: 'github-dark', // or 'dracula', 'nord', etc.
+    },
+  },
+});
+```
+
+Additional styling in `global.css`:
 
 ```css
 pre {
