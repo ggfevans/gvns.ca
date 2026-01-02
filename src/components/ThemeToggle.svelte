@@ -1,16 +1,14 @@
 <script lang="ts">
-  let theme = $state<'dark' | 'light'>('dark');
-
-  // Initialize theme from localStorage or system preference
-  $effect(() => {
-    const stored = localStorage.getItem('theme');
-    if (stored === 'light' || stored === 'dark') {
-      theme = stored;
-    } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
-      theme = 'light';
+  // Read initial theme from BaseLayout's inline script (avoids re-initialization)
+  // Falls back to 'dark' during SSR or if window.__theme isn't set
+  function getInitialTheme(): 'dark' | 'light' {
+    if (typeof window !== 'undefined' && (window as any).__theme) {
+      return (window as any).__theme;
     }
-    document.documentElement.setAttribute('data-theme', theme);
-  });
+    return 'dark';
+  }
+
+  let theme = $state<'dark' | 'light'>(getInitialTheme());
 
   function toggle() {
     theme = theme === 'dark' ? 'light' : 'dark';

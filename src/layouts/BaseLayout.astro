@@ -18,9 +18,12 @@ const { title, description } = Astro.props;
     <BaseHead title={title} description={description} />
     <script is:inline>
       // Initialize theme before page renders to prevent flash
+      // This is the single source of truth for theme initialization
       const theme = localStorage.getItem('theme')
         || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
       document.documentElement.setAttribute('data-theme', theme);
+      // Expose to Svelte components so they can read initial state without re-initializing
+      window.__theme = theme;
     </script>
   </head>
   <body>
