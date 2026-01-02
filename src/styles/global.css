@@ -53,6 +53,22 @@
   --transition-fast: 150ms ease;
   --transition-base: 250ms ease;
   --transition-slow: 350ms ease;
+
+  /* Container Widths */
+  --width-content: 65ch;
+  --width-wide: 80rem;
+
+  /* Spacing Scale (4px base) */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-24: 6rem;     /* 96px */
 }
 
 /* Light Theme */
@@ -84,6 +100,19 @@ body {
   background-color: var(--color-bg-primary);
   color: var(--color-text-primary);
   line-height: 1.6;
+}
+
+/* Container Utility */
+.container {
+  max-width: var(--width-content);
+  margin-inline: auto;
+  padding-inline: var(--space-6);
+}
+
+.container-wide {
+  max-width: var(--width-wide);
+  margin-inline: auto;
+  padding-inline: var(--space-6);
 }
 
 /* Global Focus Styles */

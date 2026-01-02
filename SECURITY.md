@@ -6,7 +6,7 @@ If you discover a security vulnerability in this project, please report it respo
 
 **Do not open a public GitHub issue for security vulnerabilities.**
 
-Instead, please email security concerns to: **security@gvns.ca**
+Instead, please email security concerns to: **hi@gvns.ca**
 
 ### What to Include
 
