@@ -9,7 +9,7 @@ Personal blog and portfolio site for gvns.ca. Currently in documentation/plannin
 ## Tech Stack
 
 - **Framework**: Astro 5.x with Svelte 5 islands for interactivity
-- **Styling**: Tailwind CSS 4.x with Dracula theme colour palette
+- **Styling**: Tailwind CSS 4.x with GVNS brand palette (forest green + warm gold)
 - **Content**: Astro Content Collections (type-safe markdown)
 - **Hosting**: Linode Nanode (rsync deploy via GitHub Actions)
 - **Analytics**: Self-hosted Umami
@@ -66,12 +66,12 @@ Post URLs derive from filename, not folder structure:
 
 ## Design System
 
-Based on Dracula theme. Key semantic tokens:
-- `--color-bg-primary`, `--color-bg-secondary`
-- `--color-text-primary`, `--color-text-secondary`
-- `--color-link`, `--color-accent-primary`
+Based on GVNS Brand Guide. Key semantic tokens:
+- `--colour-bg-primary`, `--colour-bg-secondary`, `--colour-bg-tertiary`
+- `--colour-text-primary`, `--colour-text-secondary`
+- `--colour-accent-primary` (forest green `#4a7c59`), `--colour-accent-warm` (gold `#c9a959`)
 
-Uses system font stack (no external fonts). Code highlighting via Shiki with Dracula theme.
+Uses system font stack (no external fonts). Code highlighting via Shiki.
 
 ## Deployment
 

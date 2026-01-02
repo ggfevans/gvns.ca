@@ -2,80 +2,63 @@
 
 ## Colour Palette
 
-Based on [Dracula Theme](https://draculatheme.com/) with semantic mappings.
+Based on [GVNS Brand Guide v1.1](/Users/gvns/notes/gVault/01-PROJECTS/gvns-site/gvns-brand-guide.md). Dark-first, light-available. Colours are functional first, decorative second.
 
-### Core Colours
+### Base Colours — Dark Theme (Default)
 
 | Token | Hex | RGB | Usage |
 |-------|-----|-----|-------|
-| `--background` | `#282a36` | `40, 42, 54` | Page background |
-| `--current-line` | `#44475a` | `68, 71, 90` | Hover states, borders |
-| `--foreground` | `#f8f8f2` | `248, 248, 242` | Primary text |
-| `--comment` | `#6272a4` | `98, 114, 164` | Secondary text, muted |
-| `--cyan` | `#8be9fd` | `139, 233, 253` | Links, interactive |
-| `--green` | `#50fa7b` | `80, 250, 123` | Success, positive |
-| `--orange` | `#ffb86c` | `255, 184, 108` | Warnings, highlights |
-| `--pink` | `#ff79c6` | `255, 121, 198` | Accents, tags |
-| `--purple` | `#bd93f9` | `189, 147, 249` | Primary accent |
-| `--red` | `#ff5555` | `255, 85, 85` | Errors, destructive |
-| `--yellow` | `#f1fa8c` | `241, 250, 140` | Caution, attention |
+| `--colour-bg-primary` | `#0f1114` | `15, 17, 20` | Page background |
+| `--colour-bg-secondary` | `#1a1d23` | `26, 29, 35` | Cards, elevated surfaces |
+| `--colour-bg-tertiary` | `#252a33` | `37, 42, 51` | Hover states, code blocks |
+| `--colour-border` | `#2e3440` | `46, 52, 64` | Subtle borders, dividers |
 
-### Semantic Tokens
+### Base Colours — Light Theme
 
-```css
-:root {
-  /* Backgrounds */
-  --color-bg-primary: var(--background);
-  --color-bg-secondary: var(--current-line);
-  --color-bg-elevated: #343746; /* Slightly lighter than current-line */
-  
-  /* Text */
-  --color-text-primary: var(--foreground);
-  --color-text-secondary: var(--comment);
-  --color-text-muted: #6272a4;
-  
-  /* Interactive */
-  --color-link: var(--cyan);
-  --color-link-hover: var(--purple);
-  --color-link-visited: var(--pink);
-  
-  /* Accent */
-  --color-accent-primary: var(--purple);
-  --color-accent-secondary: var(--pink);
-  
-  /* Feedback */
-  --color-success: var(--green);
-  --color-warning: var(--orange);
-  --color-error: var(--red);
-  --color-info: var(--cyan);
-  
-  /* Code */
-  --color-code-bg: var(--current-line);
-  --color-code-text: var(--foreground);
-}
-```
+| Token | Hex | RGB | Usage |
+|-------|-----|-----|-------|
+| `--colour-bg-primary` | `#f8f9fa` | `248, 249, 250` | Page background |
+| `--colour-bg-secondary` | `#ffffff` | `255, 255, 255` | Cards, elevated surfaces |
+| `--colour-bg-tertiary` | `#e9ecef` | `233, 236, 239` | Hover states, code blocks |
+| `--colour-border` | `#dee2e6` | `222, 226, 230` | Subtle borders, dividers |
 
-### Light Theme (Optional)
+### Text Colours
 
-For accessibility and user preference. Derived from Dracula colours, not a separate palette.
+| Token | Dark | Light | Usage |
+|-------|------|-------|-------|
+| `--colour-text-primary` | `#eceff4` | `#1a1d23` | Body text, headings |
+| `--colour-text-secondary` | `#a3aab5` | `#4a5568` | Secondary text, captions |
+| `--colour-text-muted` | `#6b7280` | `#718096` | Timestamps, metadata |
 
-```css
-[data-theme="light"] {
-  --color-bg-primary: #f8f8f2;
-  --color-bg-secondary: #e9e9e4;
-  --color-bg-elevated: #ffffff;
-  
-  --color-text-primary: #282a36;
-  --color-text-secondary: #44475a;
-  --color-text-muted: #6272a4;
-  
-  --color-link: #6f42c1; /* Darker purple for contrast */
-  --color-link-hover: #bd93f9;
-  
-  --color-code-bg: #282a36;
-  --color-code-text: #f8f8f2;
-}
-```
+### Accent Colours
+
+| Token | Hex | RGB | Usage |
+|-------|-----|-----|-------|
+| `--colour-accent-primary` | `#4a7c59` | `74, 124, 89` | Primary actions, links, focus |
+| `--colour-accent-hover` | `#5d9a6e` | `93, 154, 110` | Hover state for primary |
+| `--colour-accent-secondary` | `#8fbc8f` | `143, 188, 143` | Secondary highlights, tags |
+| `--colour-accent-warm` | `#c9a959` | `201, 169, 89` | Warmth, warnings, variety |
+
+### Semantic Colours
+
+| Token | Hex | Usage |
+|-------|-----|-------|
+| `--colour-success` | `#4a7c59` | Success states (maps to primary) |
+| `--colour-warning` | `#c9a959` | Warning states |
+| `--colour-error` | `#bf616a` | Error states |
+| `--colour-info` | `#81a1c1` | Informational states |
+
+### Colour Rationale
+
+**Forest green (`#4a7c59`)** is the signature:
+- Desaturated enough to not vibrate on dark backgrounds
+- Warm enough to feel organic, not clinical
+- Underused in tech (differentiator)
+
+**Warm gold (`#c9a959`)** provides contrast:
+- Think aged brass, not caution tape
+- Pairs beautifully with the green
+- Adds sophistication without competing
 
 ## Typography
 
@@ -120,17 +103,16 @@ Based on 1.25 ratio (Major Third) with 16px base.
 
 ### Prose Styling
 
-For blog content, using Tailwind Typography plugin defaults with Dracula overrides:
+For blog content, custom prose styles in global.css:
 
 ```css
 .prose {
-  --tw-prose-body: var(--color-text-primary);
-  --tw-prose-headings: var(--color-text-primary);
-  --tw-prose-links: var(--color-link);
-  --tw-prose-bold: var(--color-text-primary);
-  --tw-prose-code: var(--pink);
-  --tw-prose-pre-bg: var(--current-line);
-  --tw-prose-quote-borders: var(--purple);
+  --tw-prose-body: var(--colour-text-primary);
+  --tw-prose-headings: var(--colour-text-primary);
+  --tw-prose-links: var(--colour-accent-primary);
+  --tw-prose-bold: var(--colour-text-primary);
+  --tw-prose-pre-bg: var(--colour-bg-tertiary);
+  --tw-prose-quote-borders: var(--colour-accent-primary);
 }
 ```
 
@@ -217,7 +199,7 @@ Using Tailwind defaults:
 
 ```css
 a {
-  color: var(--color-link);
+  color: var(--colour-accent-primary);
   text-decoration: underline;
   text-decoration-color: transparent;
   text-underline-offset: 2px;
@@ -225,11 +207,11 @@ a {
 }
 
 a:hover {
-  text-decoration-color: var(--color-link);
+  text-decoration-color: var(--colour-accent-primary);
 }
 
 a:focus-visible {
-  outline: 2px solid var(--color-accent-primary);
+  outline: 2px solid var(--colour-accent-primary);
   outline-offset: 2px;
   border-radius: 2px;
 }
@@ -244,27 +226,27 @@ a:focus-visible {
   gap: var(--space-2);
   padding: var(--space-2) var(--space-4);
   font-weight: var(--font-medium);
-  border-radius: 6px;
+  border-radius: 4px;
   transition: all 150ms ease;
 }
 
 .btn-primary {
-  background: var(--color-accent-primary);
-  color: var(--background);
+  background: var(--colour-accent-primary);
+  color: var(--colour-bg-primary);
 }
 
 .btn-primary:hover {
-  background: var(--pink);
+  background: var(--colour-accent-hover);
 }
 
 .btn-ghost {
   background: transparent;
-  color: var(--color-text-primary);
-  border: 1px solid var(--current-line);
+  color: var(--colour-text-primary);
+  border: 1px solid var(--colour-border);
 }
 
 .btn-ghost:hover {
-  background: var(--current-line);
+  background: var(--colour-bg-secondary);
 }
 ```
 
@@ -272,15 +254,15 @@ a:focus-visible {
 
 ```css
 .card {
-  background: var(--color-bg-secondary);
+  background: var(--colour-bg-secondary);
   border-radius: 8px;
-  padding: var(--space-4);
-  border: 1px solid transparent;
+  padding: var(--space-6);
+  border: 1px solid var(--colour-border);
   transition: border-color 150ms ease;
 }
 
 .card:hover {
-  border-color: var(--color-accent-primary);
+  border-color: var(--colour-accent-primary);
 }
 ```
 
@@ -292,20 +274,22 @@ a:focus-visible {
   padding: var(--space-1) var(--space-2);
   font-size: var(--text-xs);
   font-weight: var(--font-medium);
-  background: var(--current-line);
-  color: var(--pink);
+  background: var(--colour-bg-tertiary);
+  color: var(--colour-accent-secondary);
   border-radius: 4px;
 }
 ```
 
 ### Code Blocks
 
-Handled by Shiki with Dracula theme. Additional styling:
+Handled by Shiki. Additional styling:
 
 ```css
 pre {
+  background: var(--colour-bg-tertiary);
+  border: 1px solid var(--colour-border);
   padding: var(--space-4);
-  border-radius: 8px;
+  border-radius: 6px;
   overflow-x: auto;
   font-size: var(--text-sm);
   line-height: 1.7;
@@ -317,7 +301,7 @@ code {
 
 /* Inline code */
 :not(pre) > code {
-  background: var(--current-line);
+  background: var(--colour-bg-tertiary);
   padding: 0.125em 0.375em;
   border-radius: 4px;
   font-size: 0.9em;
@@ -360,4 +344,4 @@ Use [Lucide](https://lucide.dev/) icons via `astro-icon` or inline SVG.
 
 ---
 
-*Last updated: 2024-12-09*
+*Last updated: 2026-01-02*
