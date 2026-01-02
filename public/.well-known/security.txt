@@ -1,0 +1,9 @@
+# Security Policy for gvns.ca
+# See https://securitytxt.org/ for format specification (RFC 9116)
+
+Contact: mailto:hi@gvns.ca
+Contact: https://github.com/ggfevans/gvns.ca/security/advisories/new
+Preferred-Languages: en
+Canonical: https://gvns.ca/.well-known/security.txt
+Policy: https://github.com/ggfevans/gvns.ca/blob/main/SECURITY.md
+Expires: 2027-01-01T00:00:00.000Z
