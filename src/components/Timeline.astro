@@ -1,0 +1,155 @@
+---
+import yaml from 'js-yaml';
+import fs from 'node:fs';
+import path from 'node:path';
+
+interface TimelineEntry {
+  date: string;
+  title: string;
+  description: string;
+}
+
+// Load timeline data from YAML
+const timelinePath = path.join(process.cwd(), 'src/data/timeline.yaml');
+const timelineContent = fs.readFileSync(timelinePath, 'utf-8');
+const entries = yaml.load(timelineContent) as TimelineEntry[];
+
+// Sort by date descending (newest first)
+const sortedEntries = entries.sort((a, b) =>
+  new Date(b.date).getTime() - new Date(a.date).getTime()
+);
+
+// Format date for display
+function formatDate(dateStr: string): string {
+  const date = new Date(dateStr);
+  return date.toLocaleDateString('en-CA', {
+    year: 'numeric',
+    month: 'short',
+  });
+}
+---
+
+<section id="timeline" class="timeline-section">
+  <h2>Timeline</h2>
+  <div class="timeline">
+    <div class="timeline-line" aria-hidden="true"></div>
+    {sortedEntries.map((entry) => (
+      <div class="timeline-entry">
+        <div class="timeline-date">
+          <span class="timeline-marker" aria-hidden="true"></span>
+          <time datetime={new Date(entry.date).toISOString().split('T')[0]}>{formatDate(entry.date)}</time>
+        </div>
+        <div class="timeline-content">
+          <h3>{entry.title}</h3>
+          <p>{entry.description}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .timeline-section {
+    margin-top: 2rem;
+  }
+
+  .timeline-section h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  .timeline {
+    display: grid;
+    grid-template-columns: 100px 2px 1fr;
+    gap: 0 1.5rem;
+    position: relative;
+  }
+
+  .timeline-line {
+    background: var(--color-accent-primary);
+    grid-column: 2;
+    grid-row: 1 / -1;
+    border-radius: 1px;
+  }
+
+  .timeline-entry {
+    display: contents;
+  }
+
+  .timeline-date {
+    grid-column: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    padding-top: 0.25rem;
+  }
+
+  .timeline-date time {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    white-space: nowrap;
+  }
+
+  .timeline-marker {
+    width: 12px;
+    height: 12px;
+    background: var(--color-bg-primary);
+    border: 2px solid var(--color-accent-primary);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+    position: relative;
+    right: -0.75rem;
+    z-index: 1;
+  }
+
+  .timeline-content {
+    grid-column: 3;
+    padding-bottom: 1.5rem;
+  }
+
+  .timeline-content h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin: 0 0 0.25rem 0;
+  }
+
+  .timeline-content p {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* Mobile: Stack layout, hide line */
+  @media (max-width: 639px) {
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .timeline-line {
+      display: none;
+    }
+
+    .timeline-entry {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .timeline-date {
+      justify-content: flex-start;
+    }
+
+    .timeline-marker {
+      display: none;
+    }
+
+    .timeline-content {
+      padding-bottom: 0;
+    }
+  }
+</style>
