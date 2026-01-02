@@ -6,8 +6,13 @@ const WORDS_PER_MINUTE = 200;
  * Returns minimum of 1 minute.
  */
 export function getReadingTime(content: string): number {
-  // Strip HTML tags
-  const withoutHtml = content.replace(/<[^>]*>/g, '');
+  // Strip HTML tags iteratively to handle nested/crafted tags like <scr<script>ipt>
+  let withoutHtml = content;
+  let previous;
+  do {
+    previous = withoutHtml;
+    withoutHtml = withoutHtml.replace(/<[^>]*>/g, '');
+  } while (withoutHtml !== previous);
 
   // Strip markdown syntax (links, images, bold, italic, code, etc.)
   const withoutMarkdown = withoutHtml
