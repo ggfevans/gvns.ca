@@ -11,8 +11,11 @@ interface Props {
 }
 
 const { post } = Astro.props;
-const { title, description, pubDate, updatedDate, tags } = post.data;
+const { title, description, pubDate, updatedDate, tags, heroImage } = post.data;
 const readingTime = getReadingTime(post.body);
+
+// Get heroImage URL if present
+const heroImageUrl = heroImage?.src;
 
 const siteUrl = normalizeSiteUrl(Astro.site);
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
@@ -33,7 +36,7 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
 ]));
 ---
 
-<BaseLayout title={`${title} | gvns.ca`} description={description}>
+<BaseLayout title={`${title} | gvns.ca`} description={description} image={heroImageUrl}>
   <script type="application/ld+json" set:html={articleJsonLd} slot="head" />
   <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />
   <main id="main-content">
