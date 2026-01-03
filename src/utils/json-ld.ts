@@ -4,9 +4,9 @@
  * @see https://developers.google.com/search/docs/appearance/structured-data
  */
 
-const SITE_URL = 'https://gvns.ca';
 const SITE_NAME = 'gvns.ca';
 const AUTHOR_NAME = 'Gareth Evans';
+const DEFAULT_SITE_URL = 'https://gvns.ca';
 
 interface ArticleSchema {
   title: string;
@@ -14,6 +14,7 @@ interface ArticleSchema {
   pubDate: Date;
   updatedDate?: Date;
   url: string;
+  siteUrl?: string;
 }
 
 interface BreadcrumbItem {
@@ -22,14 +23,24 @@ interface BreadcrumbItem {
 }
 
 /**
- * Generate WebSite schema for the home page
+ * Normalize site URL by removing trailing slash
  */
-export function websiteSchema(): object {
+export function normalizeSiteUrl(siteUrl: URL | string | undefined): string {
+  if (!siteUrl) return DEFAULT_SITE_URL;
+  return siteUrl.toString().replace(/\/$/, '');
+}
+
+/**
+ * Generate WebSite schema for the home page
+ * @param siteUrl - The base URL of the site (from Astro.site)
+ */
+export function websiteSchema(siteUrl?: string): object {
+  const url = siteUrl || DEFAULT_SITE_URL;
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: SITE_NAME,
-    url: SITE_URL,
+    url,
     author: {
       '@type': 'Person',
       name: AUTHOR_NAME,
@@ -41,13 +52,15 @@ export function websiteSchema(): object {
 
 /**
  * Generate Person schema for the about page
+ * @param siteUrl - The base URL of the site (from Astro.site)
  */
-export function personSchema(): object {
+export function personSchema(siteUrl?: string): object {
+  const url = siteUrl || DEFAULT_SITE_URL;
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: AUTHOR_NAME,
-    url: SITE_URL,
+    url,
     jobTitle: 'Web Developer',
     knowsAbout: [
       'Web Development',
@@ -68,7 +81,9 @@ export function articleSchema({
   pubDate,
   updatedDate,
   url,
+  siteUrl,
 }: ArticleSchema): object {
+  const baseUrl = siteUrl || DEFAULT_SITE_URL;
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -77,12 +92,12 @@ export function articleSchema({
     author: {
       '@type': 'Person',
       name: AUTHOR_NAME,
-      url: SITE_URL,
+      url: baseUrl,
     },
     publisher: {
       '@type': 'Person',
       name: AUTHOR_NAME,
-      url: SITE_URL,
+      url: baseUrl,
     },
     datePublished: pubDate.toISOString(),
     dateModified: (updatedDate || pubDate).toISOString(),

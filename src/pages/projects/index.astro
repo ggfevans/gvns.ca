@@ -1,10 +1,11 @@
 ---
 import PageLayout from '@layouts/PageLayout.astro';
-import { breadcrumbSchema, toJsonLd } from '@utils/json-ld';
+import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
 
+const siteUrl = normalizeSiteUrl(Astro.site);
 const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
-  { name: 'Home', url: 'https://gvns.ca' },
-  { name: 'Projects', url: 'https://gvns.ca/projects' },
+  { name: 'Home', url: siteUrl },
+  { name: 'Projects', url: `${siteUrl}/projects` },
 ]));
 
 const projects = [

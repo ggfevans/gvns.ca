@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '@layouts/BaseLayout.astro';
-import { breadcrumbSchema, toJsonLd } from '@utils/json-ld';
+import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
 
 const posts = await getCollection('blog', ({ data }) => {
   return import.meta.env.PROD ? !data.draft : true;
@@ -20,10 +20,11 @@ const sortedTags = [...tagCounts.entries()].sort((a, b) =>
   a[0].localeCompare(b[0])
 );
 
+const siteUrl = normalizeSiteUrl(Astro.site);
 const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
-  { name: 'Home', url: 'https://gvns.ca' },
-  { name: 'Blog', url: 'https://gvns.ca/blog' },
-  { name: 'Tags', url: 'https://gvns.ca/blog/tags' },
+  { name: 'Home', url: siteUrl },
+  { name: 'Blog', url: `${siteUrl}/blog` },
+  { name: 'Tags', url: `${siteUrl}/blog/tags` },
 ]));
 ---
 
