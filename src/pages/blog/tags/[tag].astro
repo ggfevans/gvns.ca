@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import PostCard from '@components/PostCard.astro';
+import { breadcrumbSchema, toJsonLd } from '@utils/json-ld';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => {
@@ -31,12 +32,20 @@ interface Props {
 }
 
 const { tag, posts } = Astro.props;
+
+const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
+  { name: 'Home', url: 'https://gvns.ca' },
+  { name: 'Blog', url: 'https://gvns.ca/blog' },
+  { name: 'Tags', url: 'https://gvns.ca/blog/tags' },
+  { name: tag, url: `https://gvns.ca/blog/tags/${tag}` },
+]));
 ---
 
 <BaseLayout
   title={`Posts tagged "${tag}" | gvns.ca`}
   description={`All blog posts tagged with ${tag}.`}
 >
+  <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />
   <main id="main-content" class="tag-page">
     <header>
       <a href="/blog/tags" class="back-link">&larr; All tags</a>

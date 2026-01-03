@@ -4,6 +4,7 @@ import BaseLayout from './BaseLayout.astro';
 import TagList from '@components/TagList.astro';
 import { formatDate } from '@utils/date';
 import { getReadingTime } from '@utils/reading-time';
+import { articleSchema, breadcrumbSchema, toJsonLd } from '@utils/json-ld';
 
 interface Props {
   post: CollectionEntry<'blog'>;
@@ -12,9 +13,27 @@ interface Props {
 const { post } = Astro.props;
 const { title, description, pubDate, updatedDate, tags } = post.data;
 const readingTime = getReadingTime(post.body);
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
+
+const articleJsonLd = toJsonLd(articleSchema({
+  title,
+  description,
+  pubDate,
+  updatedDate,
+  url: canonicalUrl,
+}));
+
+const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
+  { name: 'Home', url: 'https://gvns.ca' },
+  { name: 'Blog', url: 'https://gvns.ca/blog' },
+  { name: title, url: canonicalUrl },
+]));
 ---
 
 <BaseLayout title={`${title} | gvns.ca`} description={description}>
+  <script type="application/ld+json" set:html={articleJsonLd} slot="head" />
+  <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />
   <main id="main-content">
     <article class="post">
     <header class="post-header">

@@ -2,17 +2,21 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import PostCard from '@components/PostCard.astro';
+import { websiteSchema, toJsonLd } from '@utils/json-ld';
 
 const posts = (await getCollection('blog'))
   .filter((post) => import.meta.env.PROD ? !post.data.draft : true)
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3);
+
+const jsonLd = toJsonLd(websiteSchema());
 ---
 
 <BaseLayout
   title="Gareth Evans — Web Developer"
   description="Personal blog and portfolio. Writing about homelab, web development, BJJ, and whatever else catches my attention."
 >
+  <script type="application/ld+json" set:html={jsonLd} slot="head" />
   <main id="main-content" class="home">
     <section class="intro-section">
       <h1>Hi, I'm Gareth</h1>

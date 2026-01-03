@@ -1,12 +1,21 @@
 ---
 import PageLayout from '@layouts/PageLayout.astro';
 import Timeline from '@components/Timeline.astro';
+import { personSchema, breadcrumbSchema, toJsonLd } from '@utils/json-ld';
+
+const personJsonLd = toJsonLd(personSchema());
+const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
+  { name: 'Home', url: 'https://gvns.ca' },
+  { name: 'About', url: 'https://gvns.ca/about' },
+]));
 ---
 
 <PageLayout
   title="About"
   description="Web developer on Vancouver Island. Writing about homelab, web development, BJJ, and whatever catches my attention."
 >
+  <script type="application/ld+json" set:html={personJsonLd} slot="head" />
+  <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />
   <p>
     Hi, I'm Gareth — a web developer based on Vancouver Island, Canada.
   </p>

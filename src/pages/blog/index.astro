@@ -2,16 +2,23 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import PostCard from '@components/PostCard.astro';
+import { breadcrumbSchema, toJsonLd } from '@utils/json-ld';
 
 const posts = (await getCollection('blog'))
   .filter((post) => import.meta.env.PROD ? !post.data.draft : true)
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
+  { name: 'Home', url: 'https://gvns.ca' },
+  { name: 'Blog', url: 'https://gvns.ca/blog' },
+]));
 ---
 
 <BaseLayout
   title="Blog | gvns.ca"
   description="Thoughts on homelab, web development, BJJ, and productivity."
 >
+  <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />
   <main id="main-content" class="blog-listing">
     <h1>Blog</h1>
     <p class="intro">
