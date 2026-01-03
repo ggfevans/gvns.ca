@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import PostCard from '@components/PostCard.astro';
-import { breadcrumbSchema, toJsonLd } from '@utils/json-ld';
+import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => {
@@ -33,11 +33,12 @@ interface Props {
 
 const { tag, posts } = Astro.props;
 
+const siteUrl = normalizeSiteUrl(Astro.site);
 const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
-  { name: 'Home', url: 'https://gvns.ca' },
-  { name: 'Blog', url: 'https://gvns.ca/blog' },
-  { name: 'Tags', url: 'https://gvns.ca/blog/tags' },
-  { name: tag, url: `https://gvns.ca/blog/tags/${tag}` },
+  { name: 'Home', url: siteUrl },
+  { name: 'Blog', url: `${siteUrl}/blog` },
+  { name: 'Tags', url: `${siteUrl}/blog/tags` },
+  { name: tag, url: `${siteUrl}/blog/tags/${encodeURIComponent(tag)}` },
 ]));
 ---
 

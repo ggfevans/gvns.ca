@@ -1,12 +1,13 @@
 ---
 import PageLayout from '@layouts/PageLayout.astro';
 import Timeline from '@components/Timeline.astro';
-import { personSchema, breadcrumbSchema, toJsonLd } from '@utils/json-ld';
+import { personSchema, breadcrumbSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
 
-const personJsonLd = toJsonLd(personSchema());
+const siteUrl = normalizeSiteUrl(Astro.site);
+const personJsonLd = toJsonLd(personSchema(siteUrl));
 const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
-  { name: 'Home', url: 'https://gvns.ca' },
-  { name: 'About', url: 'https://gvns.ca/about' },
+  { name: 'Home', url: siteUrl },
+  { name: 'About', url: `${siteUrl}/about` },
 ]));
 ---
 
