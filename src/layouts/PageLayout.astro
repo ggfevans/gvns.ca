@@ -10,6 +10,7 @@ const { title, description } = Astro.props;
 ---
 
 <BaseLayout title={`${title} | gvns.ca`} description={description || title}>
+  <slot name="head" slot="head" />
   <main id="main-content" class="page">
     <header class="page-header">
       <h1>{title}</h1>

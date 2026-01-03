@@ -1,5 +1,11 @@
 ---
 import PageLayout from '@layouts/PageLayout.astro';
+import { breadcrumbSchema, toJsonLd } from '@utils/json-ld';
+
+const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
+  { name: 'Home', url: 'https://gvns.ca' },
+  { name: 'Projects', url: 'https://gvns.ca/projects' },
+]));
 
 const projects = [
   {
@@ -17,6 +23,7 @@ const projects = [
   title="Projects"
   description="Things I've built — side projects, experiments, and tools."
 >
+  <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />
   <p>
     A collection of projects I've worked on. Some are finished, some are
     ongoing experiments.
