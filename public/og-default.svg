@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#1a1a2e"/>
+  <rect x="40" y="40" width="1120" height="550" rx="8" fill="#16213e" stroke="#4a7c59" stroke-width="2"/>
+  <text x="600" y="280" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="bold" fill="#f8f8f2">gvns.ca</text>
+  <text x="600" y="360" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="28" fill="#6272a4">Code · Design · Create</text>
+  <rect x="480" y="400" width="240" height="4" rx="2" fill="#4a7c59"/>
+</svg>

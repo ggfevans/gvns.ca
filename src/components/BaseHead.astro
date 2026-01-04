@@ -2,10 +2,22 @@
 interface Props {
   title: string;
   description: string;
+  image?: string;
+  imageWidth?: number;
+  imageHeight?: number;
 }
 
-const { title, description } = Astro.props;
+const { title, description, image, imageWidth, imageHeight } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const DEFAULT_OG_IMAGE = '/og-default.svg';
+const DEFAULT_OG_WIDTH = 1200;
+const DEFAULT_OG_HEIGHT = 630;
+
+const ogImage = image || DEFAULT_OG_IMAGE;
+const ogImageURL = new URL(ogImage, Astro.site);
+const ogWidth = imageWidth || DEFAULT_OG_WIDTH;
+const ogHeight = imageHeight || DEFAULT_OG_HEIGHT;
 ---
 
 <!-- Global Metadata -->
@@ -27,6 +39,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
+<meta property="og:image" content={ogImageURL} />
+<meta property="og:image:width" content={ogWidth} />
+<meta property="og:image:height" content={ogHeight} />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImageURL} />
 
 <!-- Umami Analytics -->
 <script defer src="https://analytics.gvns.ca/script.js" data-website-id="658b4ad8-cda9-4b91-b341-36e6e8148538"></script>
