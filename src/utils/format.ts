@@ -46,7 +46,9 @@ export function safeUrl(url: string | undefined | null): string | undefined {
 
 /** Format an ISO date string to a long human-readable timestamp. */
 export function formatTimestamp(dateString: string): string {
-  return new Date(dateString).toLocaleString('en-CA', {
+  const d = new Date(dateString);
+  if (Number.isNaN(d.getTime())) return '';
+  return d.toLocaleString('en-CA', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',

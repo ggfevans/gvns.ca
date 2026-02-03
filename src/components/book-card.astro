@@ -25,8 +25,12 @@ const {
   showRating = false,
 } = Astro.props;
 
-const stars = typeof rating === 'number'
-  ? Array.from({ length: 5 }, (_, i) => (i < rating ? '\u2605' : '\u2606'))
+const clampedRating = typeof rating === 'number'
+  ? Math.min(5, Math.max(0, Math.round(rating)))
+  : null;
+
+const stars = clampedRating != null
+  ? Array.from({ length: 5 }, (_, i) => (i < clampedRating ? '\u2605' : '\u2606'))
   : [];
 
 const clampedProgress = typeof progress === 'number' ? Math.min(Math.max(progress, 0), 100) : null;
@@ -61,16 +65,19 @@ if (dateFinished) {
     )}
   </div>
   <div class="gvns-book-info">
-    {safeUrl(hardcoverUrl) ? (
-      <a href={safeUrl(hardcoverUrl)!} class="gvns-book-title-link" target="_blank" rel="noopener noreferrer">
+    {(() => {
+      const href = safeUrl(hardcoverUrl);
+      return href ? (
+        <a href={href} class="gvns-book-title-link" target="_blank" rel="noopener noreferrer">
+          <h3 class="gvns-book-title">{title}</h3>
+        </a>
+      ) : (
         <h3 class="gvns-book-title">{title}</h3>
-      </a>
-    ) : (
-      <h3 class="gvns-book-title">{title}</h3>
-    )}
+      );
+    })()}
     <p class="gvns-book-author">{author}</p>
-    {showRating && typeof rating === 'number' && (
-      <div class="gvns-book-rating" aria-label={`${rating} out of 5 stars`}>
+    {showRating && clampedRating != null && (
+      <div class="gvns-book-rating" aria-label={`${clampedRating} out of 5 stars`}>
         {stars.map((star) => (
           <span class:list={['gvns-star', { 'gvns-star--filled': star === '\u2605' }]}>{star}</span>
         ))}
@@ -78,7 +85,7 @@ if (dateFinished) {
     )}
     {showProgress && clampedProgress != null && (
       <div class="gvns-book-progress">
-        <div class="gvns-progress-bar">
+        <div class="gvns-progress-bar" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={clampedProgress!} aria-label="Reading progress">
           <div class="gvns-progress-fill" style={`width: ${clampedProgress}%`} />
         </div>
         <span class="gvns-progress-text">{clampedProgress}%</span>

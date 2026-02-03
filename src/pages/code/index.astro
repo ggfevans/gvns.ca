@@ -90,9 +90,16 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
                 <li class="commit-item">
                   <div class="commit-dot" aria-hidden="true" />
                   <div class="commit-content">
-                    <a href={safeUrl(commit.url) ?? '#'} class="commit-repo" target="_blank" rel="noopener noreferrer">
-                      {commit.repo}
-                    </a>
+                    {(() => {
+                      const href = safeUrl(commit.url);
+                      return href ? (
+                        <a href={href} class="commit-repo" target="_blank" rel="noopener noreferrer">
+                          {commit.repo}
+                        </a>
+                      ) : (
+                        <span class="commit-repo">{commit.repo}</span>
+                      );
+                    })()}
                     <span class="commit-message">{truncate(commit.message, 72)}</span>
                     <time class="commit-date" datetime={commit.date}>
                       {relativeTime(commit.date)}
@@ -110,7 +117,7 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
             <h2>Repositories</h2>
             <div class="repo-grid">
               {githubData.repositories.map((repo) => (
-                <a href={safeUrl(repo.url) ?? '#'} class="repo-card" target="_blank" rel="noopener noreferrer">
+                <a href={safeUrl(repo.url) || '#'} class="repo-card" target="_blank" rel="noopener noreferrer">
                   <h3 class="repo-name">{repo.name}</h3>
                   {repo.description && (
                     <p class="repo-description">{truncate(repo.description, 100)}</p>

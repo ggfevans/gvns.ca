@@ -113,7 +113,7 @@ if (readingData.lastUpdated) {
 
       {formattedLastUpdated && (
         <footer class="page-footer">
-          <p class="last-updated">Last updated: <time>{formattedLastUpdated}</time></p>
+          <p class="last-updated">Last updated: <time datetime={readingData.lastUpdated!}>{formattedLastUpdated}</time></p>
         </footer>
       )}
     </div>

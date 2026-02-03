@@ -85,9 +85,9 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
                       {track.albumArtUrl ? (
                         <img
                           src={track.albumArtUrl}
-                          alt={`${track.album} album art`}
-                          width="64"
-                          height="64"
+                          alt={`${track.album || track.name} album art`}
+                          width="48"
+                          height="48"
                           loading="lazy"
                           decoding="async"
                         />
@@ -128,8 +128,8 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
                         <img
                           src={artist.imageUrl}
                           alt={artist.name}
-                          width="80"
-                          height="80"
+                          width="64"
+                          height="64"
                           loading="lazy"
                           decoding="async"
                         />
@@ -157,7 +157,7 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
             <p class="gvns-last-updated">
               Last updated{' '}
               <time datetime={listeningData.lastUpdated}>
-                {new Date(listeningData.lastUpdated).toLocaleDateString('en-CA', {
+                {new Date(listeningData.lastUpdated).toLocaleString('en-CA', {
                   day: 'numeric',
                   month: 'long',
                   year: 'numeric',

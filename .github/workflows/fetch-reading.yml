@@ -67,6 +67,13 @@ jobs:
           RESPONSE=$(cat /tmp/hc_response.json)
           rm -f /tmp/hc_response.json
 
+          # Check for GraphQL errors
+          if echo "$RESPONSE" | jq -e '.errors' > /dev/null 2>&1; then
+            echo "Error: GraphQL errors from Hardcover API"
+            echo "$RESPONSE" | jq -r '.errors[].message' 2>/dev/null
+            exit 1
+          fi
+
           # Validate response has data
           if ! echo "$RESPONSE" | jq -e '.data.user_books' > /dev/null 2>&1; then
             echo "Error: Invalid response structure from Hardcover API"

@@ -82,11 +82,17 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
               </span>
             </div>
             <div class="watch-card-body">
-              <h3 class="watch-card-title">
-                {safeUrl(item.url) ? <a href={safeUrl(item.url)!}>{item.title}</a> : item.title}
-              </h3>
+              {(() => {
+                const href = safeUrl(item.url);
+                return (
+                  <h3 class="watch-card-title">
+                    {href ? <a href={href}>{item.title}</a> : item.title}
+                  </h3>
+                );
+              })()}
               {item.rating != null && (() => {
-                const r = Number(item.rating);
+                const raw = Number(item.rating);
+                const r = Number.isNaN(raw) ? 0 : Math.min(5, Math.max(0, Math.round(raw)));
                 return (
                   <div class="watch-rating" aria-label={`Rated ${r} out of 5`}>
                     {Array.from({ length: 5 }).map((_, i) => (
@@ -95,11 +101,14 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
                   </div>
                 );
               })()}
-              {item.watchedDate && (
-                <time class="watch-date" datetime={item.watchedDate}>
-                  {new Date(item.watchedDate).toLocaleDateString('en-CA', { month: 'short', day: 'numeric', year: 'numeric' })}
-                </time>
-              )}
+              {item.watchedDate && (() => {
+                const d = new Date(item.watchedDate);
+                return !Number.isNaN(d.getTime()) ? (
+                  <time class="watch-date" datetime={item.watchedDate}>
+                    {d.toLocaleDateString('en-CA', { month: 'short', day: 'numeric', year: 'numeric' })}
+                  </time>
+                ) : null;
+              })()}
             </div>
           </article>
         ))}
