@@ -135,14 +135,14 @@
     padding: 0;
     background: transparent;
     border: none;
-    color: var(--color-text-primary);
+    color: var(--colour-text-primary);
     cursor: pointer;
     border-radius: 4px;
     transition: background-color var(--transition-fast);
   }
 
   .hamburger:hover {
-    background: var(--color-bg-secondary);
+    background: var(--colour-bg-secondary);
   }
 
   .menu {
@@ -150,7 +150,7 @@
     top: 100%;
     left: 0;
     right: 0;
-    background: var(--color-bg-primary);
+    background: var(--colour-bg-primary);
     border-bottom: 1px solid var(--colour-border);
     padding: 1rem 1.5rem;
     opacity: 0;
@@ -180,7 +180,7 @@
   .nav-link {
     display: block;
     padding: 0.75rem 1rem;
-    color: var(--color-text-secondary);
+    color: var(--colour-text-secondary);
     text-decoration: none;
     border-radius: 4px;
     transition:
@@ -189,13 +189,13 @@
   }
 
   .nav-link:hover {
-    color: var(--color-link);
-    background: var(--color-bg-secondary);
+    color: var(--colour-accent-primary);
+    background: var(--colour-bg-secondary);
   }
 
   .nav-link.active {
-    color: var(--color-link);
-    background: var(--color-bg-secondary);
+    color: var(--colour-accent-primary);
+    background: var(--colour-bg-secondary);
   }
 
   .menu-footer {

@@ -51,7 +51,7 @@ const projects = (await getCollection('work'))
 <style>
   p {
     margin-bottom: 2rem;
-    color: var(--color-text-secondary);
+    color: var(--colour-text-secondary);
   }
 
   .projects-grid {
@@ -61,7 +61,7 @@ const projects = (await getCollection('work'))
   }
 
   .project-card {
-    background: var(--color-bg-secondary);
+    background: var(--colour-bg-secondary);
     border-radius: 8px;
     padding: 1.5rem;
     border: 1px solid var(--colour-border);
@@ -69,7 +69,7 @@ const projects = (await getCollection('work'))
   }
 
   .project-card:hover {
-    border-color: var(--color-accent-primary);
+    border-color: var(--colour-accent-primary);
   }
 
   .card-header {
@@ -87,16 +87,16 @@ const projects = (await getCollection('work'))
   }
 
   .project-card h3 a {
-    color: var(--color-text-primary);
+    color: var(--colour-text-primary);
     text-decoration: none;
   }
 
   .project-card h3 a:hover {
-    color: var(--color-link);
+    color: var(--colour-accent-primary);
   }
 
   .description {
-    color: var(--color-text-secondary);
+    color: var(--colour-text-secondary);
     font-size: var(--text-sm);
     line-height: 1.6;
     margin-bottom: 1rem;
@@ -117,7 +117,7 @@ const projects = (await getCollection('work'))
   }
 
   .status-maintained {
-    color: var(--colour-accent-secondary);
+    color: var(--colour-accent-primary);
   }
 
   .status-archived {
@@ -131,13 +131,13 @@ const projects = (await getCollection('work'))
   }
 
   .link {
-    color: var(--color-link);
+    color: var(--colour-accent-primary);
     text-decoration: none;
     font-size: var(--text-sm);
     transition: color var(--transition-fast);
   }
 
   .link:hover {
-    color: var(--color-link-hover);
+    color: var(--colour-accent-hover);
   }
 </style>
