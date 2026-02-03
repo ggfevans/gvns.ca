@@ -2,12 +2,17 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import PostCard from '@components/PostCard.astro';
+import WorkCard from '@components/WorkCard.astro';
 import { websiteSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
 
 const posts = (await getCollection('writing'))
-  .filter((post) => import.meta.env.PROD ? !post.data.draft : true)
+  .filter((post) => (import.meta.env.PROD ? !post.data.draft : true))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3);
+
+const featuredWork = (await getCollection('work'))
+  .filter((project) => project.data.featured)
+  .sort((a, b) => a.data.title.localeCompare(b.data.title));
 
 const siteUrl = normalizeSiteUrl(Astro.site);
 const jsonLd = toJsonLd(websiteSchema(siteUrl));
@@ -19,100 +24,170 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
 >
   <script type="application/ld+json" set:html={jsonLd} slot="head" />
   <main id="main-content" class="home">
-    <section class="intro-section">
-      <h1>Hi, I'm Gareth</h1>
+    <section class="hero" aria-labelledby="hero-heading">
+      <h1 id="hero-heading">Hi, I'm Gareth</h1>
       <p class="tagline">Serious work, questionable puns.</p>
       <p class="intro">
         Web developer on Vancouver Island. I write about homelab, self-hosting,
         web development, BJJ, and the occasional life observation.
       </p>
-      <p class="cta">
-        <a href="/write">Read the writing</a> or <a href="/about">learn more about me</a>.
-      </p>
+      <nav class="hero-cta" aria-label="Quick links">
+        <a href="/write" class="cta-link">Writing</a>
+        <a href="/work" class="cta-link">Work</a>
+        <a href="/now" class="cta-link">Now</a>
+      </nav>
     </section>
 
-    <section class="recent-posts">
-      <h2>Recent Posts</h2>
-      {posts.length > 0 ? (
-        <div class="post-list">
-          {posts.map((post) => (
-            <PostCard post={post} />
-          ))}
-        </div>
-        <a href="/write" class="view-all">View all writing &rarr;</a>
-      ) : (
-        <p class="no-posts">No posts yet. Check back soon!</p>
-      )}
+    {
+      featuredWork.length > 0 && (
+        <section class="featured-work" aria-labelledby="work-heading">
+          <div class="section-header">
+            <h2 id="work-heading">Featured Work</h2>
+            <a href="/work" class="view-all">
+              See all work &rarr;
+            </a>
+          </div>
+          <div class="work-grid">
+            {featuredWork.map((project) => (
+              <WorkCard project={project} />
+            ))}
+          </div>
+        </section>
+      )
+    }
+
+    <section class="recent-writing" aria-labelledby="writing-heading">
+      <div class="section-header">
+        <h2 id="writing-heading">Recent Writing</h2>
+        <a href="/write" class="view-all">Explore all posts &rarr;</a>
+      </div>
+      {
+        posts.length > 0 ? (
+          <div class="post-list">
+            {posts.map((post) => (
+              <PostCard post={post} />
+            ))}
+          </div>
+        ) : (
+          <p class="empty-state">No posts yet. Check back soon.</p>
+        )
+      }
     </section>
   </main>
 </BaseLayout>
 
 <style>
   .home {
-    max-width: var(--width-content);
+    max-width: var(--width-wide);
     margin: 0 auto;
+    padding-inline: var(--space-6);
   }
 
-  .intro-section {
-    margin-bottom: 3rem;
+  /* Hero */
+  .hero {
+    max-width: var(--width-content);
+    margin: 0 auto;
+    padding: var(--space-16) 0 var(--space-12);
+    text-align: center;
   }
 
   h1 {
     font-size: var(--text-4xl);
     line-height: 1.2;
-    letter-spacing: -0.01em;
-    margin-bottom: 1rem;
+    letter-spacing: -0.025em;
+    margin-bottom: var(--space-4);
   }
 
   .tagline {
     font-size: var(--text-lg);
     color: var(--colour-text-secondary);
-    margin-bottom: 1rem;
+    margin-bottom: var(--space-4);
   }
 
   .intro {
     font-size: var(--text-lg);
     color: var(--colour-text-secondary);
-    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    margin-bottom: var(--space-8);
   }
 
-  .cta a {
-    color: var(--colour-accent-primary);
-    text-decoration: underline;
-    text-decoration-color: transparent;
-    text-underline-offset: 2px;
-    transition: text-decoration-color var(--transition-fast);
-  }
-
-  .cta a:hover {
-    text-decoration-color: var(--colour-accent-primary);
-  }
-
-  .recent-posts h2 {
-    font-size: var(--text-2xl);
-    line-height: 1.3;
-    margin-bottom: 1.5rem;
-  }
-
-  .post-list {
+  .hero-cta {
     display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
+    gap: var(--space-6);
+    justify-content: center;
+  }
+
+  .cta-link {
+    color: var(--colour-accent-primary);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: var(--text-lg);
+    transition: color var(--transition-fast);
+  }
+
+  .cta-link:hover {
+    color: var(--colour-accent-hover);
+  }
+
+  /* Sections */
+  .featured-work,
+  .recent-writing {
+    padding: var(--space-12) 0;
+    border-top: 1px solid var(--colour-border);
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: var(--space-8);
+  }
+
+  .section-header h2 {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    letter-spacing: -0.025em;
   }
 
   .view-all {
-    display: inline-block;
     color: var(--colour-accent-primary);
     text-decoration: none;
+    font-size: var(--text-sm);
     transition: color var(--transition-fast);
+    white-space: nowrap;
   }
 
   .view-all:hover {
     color: var(--colour-accent-hover);
   }
 
-  .no-posts {
+  /* Work Grid */
+  .work-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  @media (min-width: 768px) {
+    .work-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .work-grid {
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+  }
+
+  /* Post List */
+  .post-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .empty-state {
     color: var(--colour-text-secondary);
     font-style: italic;
   }
