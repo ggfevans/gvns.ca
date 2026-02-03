@@ -1,0 +1,290 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/Breadcrumb.astro';
+import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
+
+let watchingData = { lastUpdated: null as string | null, recentlyWatched: [] as any[], stats: { moviesThisMonth: 0, showsThisMonth: 0 } };
+try {
+  watchingData = (await import('../../data/watching.json')).default as typeof watchingData;
+} catch {}
+
+const hasData = watchingData.recentlyWatched.length > 0;
+
+const siteUrl = normalizeSiteUrl(Astro.site);
+const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
+  { name: 'Home', url: siteUrl },
+  { name: 'Now', url: `${siteUrl}/now` },
+  { name: 'Watch', url: `${siteUrl}/watch` },
+]));
+---
+
+<BaseLayout title="Watch | gvns.ca" description="Movies and shows I've been watching.">
+  <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />
+
+  <main id="main-content" class="watch-page" data-pagefind-body>
+    <Breadcrumb items={[
+      { label: 'Home', href: '/' },
+      { label: 'Now', href: '/now' },
+      { label: 'Watch' },
+    ]} />
+
+    <header class="page-header">
+      <h1 class="page-title">Watch</h1>
+      <p class="page-subtitle">Movies and shows I've been watching.</p>
+    </header>
+
+    {!hasData && (
+      <section class="coming-soon-card">
+        <div class="card-content">
+          <h2 class="card-heading">Coming soon</h2>
+          <p class="card-text">
+            This page will show movies and TV shows once a data source is configured.
+          </p>
+          <p class="card-candidates">
+            <span class="candidates-label">Candidates:</span> Letterboxd, Trakt, Simkl
+          </p>
+        </div>
+      </section>
+    )}
+
+    {hasData && (
+      <section class="watch-grid">
+        {watchingData.recentlyWatched.map((item: any) => (
+          <article class="watch-card">
+            <div class="poster-wrapper">
+              {item.posterUrl ? (
+                <img src={item.posterUrl} alt={`Poster for ${item.title}`} class="poster" width="180" height="270" loading="lazy" decoding="async" />
+              ) : (
+                <div class="poster-placeholder">
+                  <span class="poster-icon" aria-hidden="true">&#127916;</span>
+                </div>
+              )}
+              <span class={`type-badge ${item.type === 'movie' ? 'badge-movie' : 'badge-show'}`}>
+                {item.type === 'movie' ? 'Movie' : 'Show'}
+              </span>
+            </div>
+            <div class="watch-card-body">
+              <h3 class="watch-card-title">
+                {item.url ? <a href={item.url}>{item.title}</a> : item.title}
+              </h3>
+              {item.rating && (
+                <div class="watch-rating" aria-label={`Rated ${item.rating} out of 5`}>
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <span class={i < item.rating ? 'star filled' : 'star'}>&#9733;</span>
+                  ))}
+                </div>
+              )}
+              {item.watchedDate && (
+                <time class="watch-date" datetime={item.watchedDate}>
+                  {new Date(item.watchedDate).toLocaleDateString('en-CA', { month: 'short', day: 'numeric', year: 'numeric' })}
+                </time>
+              )}
+            </div>
+          </article>
+        ))}
+      </section>
+    )}
+
+    {watchingData.lastUpdated && (
+      <footer class="last-updated">
+        <p>
+          Last updated: <time datetime={watchingData.lastUpdated}>
+            {new Date(watchingData.lastUpdated).toLocaleDateString('en-CA', { month: 'long', day: 'numeric', year: 'numeric' })}
+          </time>
+        </p>
+      </footer>
+    )}
+  </main>
+</BaseLayout>
+
+<style>
+  .watch-page {
+    max-width: var(--width-content);
+    margin: 0 auto;
+  }
+
+  .page-header {
+    margin-bottom: var(--space-8);
+  }
+
+  .page-title {
+    font-size: var(--text-4xl);
+    font-family: var(--font-sans);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--colour-text-primary);
+    margin: 0 0 var(--space-2) 0;
+  }
+
+  .page-subtitle {
+    font-size: var(--text-lg);
+    color: var(--colour-text-secondary);
+    margin: 0;
+  }
+
+  /* Coming soon card */
+  .coming-soon-card {
+    border-left: 3px solid var(--colour-p4-amber);
+    background-color: var(--colour-bg-secondary);
+    border-radius: 0.375rem;
+    padding: var(--space-6);
+    margin-bottom: var(--space-8);
+  }
+
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .card-heading {
+    font-size: var(--text-xl);
+    font-family: var(--font-sans);
+    color: var(--colour-p4-amber);
+    margin: 0;
+  }
+
+  .card-text {
+    font-size: var(--text-base);
+    color: var(--colour-text-secondary);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .card-candidates {
+    font-size: var(--text-sm);
+    color: var(--colour-text-muted);
+    margin: 0;
+  }
+
+  .candidates-label {
+    font-weight: 600;
+    color: var(--colour-text-secondary);
+  }
+
+  /* Watch grid (future data) */
+  .watch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: var(--space-6);
+    margin-bottom: var(--space-8);
+  }
+
+  .watch-card {
+    background-color: var(--colour-bg-secondary);
+    border-radius: 0.375rem;
+    overflow: hidden;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    border: 1px solid var(--colour-border);
+  }
+
+  .watch-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .poster-wrapper {
+    position: relative;
+    aspect-ratio: 2 / 3;
+    background-color: var(--colour-bg-tertiary);
+  }
+
+  .poster {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .poster-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .poster-icon {
+    font-size: var(--text-3xl);
+    opacity: 0.4;
+  }
+
+  .type-badge {
+    position: absolute;
+    top: var(--space-2);
+    right: var(--space-2);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    padding: var(--space-1) var(--space-2);
+    border-radius: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .badge-movie {
+    background-color: var(--colour-p4-amber);
+    color: #0a0a0a;
+  }
+
+  .badge-show {
+    background-color: var(--colour-bg-tertiary);
+    color: var(--colour-text-secondary);
+    border: 1px solid var(--colour-border);
+  }
+
+  .watch-card-body {
+    padding: var(--space-3);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .watch-card-title {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--colour-text-primary);
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .watch-card-title a {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .watch-card-title a:hover {
+    color: var(--colour-p4-amber);
+  }
+
+  .watch-rating {
+    display: flex;
+    gap: 1px;
+  }
+
+  .star {
+    font-size: var(--text-sm);
+    color: var(--colour-border);
+  }
+
+  .star.filled {
+    color: var(--colour-p4-amber);
+  }
+
+  .watch-date {
+    font-size: var(--text-xs);
+    color: var(--colour-text-muted);
+  }
+
+  /* Last updated */
+  .last-updated {
+    margin-top: var(--space-8);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--colour-border);
+  }
+
+  .last-updated p {
+    font-size: var(--text-sm);
+    color: var(--colour-text-muted);
+    margin: 0;
+  }
+</style>

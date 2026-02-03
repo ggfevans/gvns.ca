@@ -1,0 +1,42 @@
+---
+import PageLayout from '@layouts/PageLayout.astro';
+import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
+
+const siteUrl = normalizeSiteUrl(Astro.site);
+const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
+  { name: 'Home', url: siteUrl },
+  { name: 'Now', url: `${siteUrl}/now` },
+]));
+---
+
+<PageLayout
+  title="Now"
+  description="What I'm up to right now."
+>
+  <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />
+  <p class="intro">
+    Dashboard coming soon. In the meantime, check out what I'm
+    <a href="/read">reading</a>,
+    <a href="/listen">listening to</a>,
+    <a href="/code">coding</a>, and
+    <a href="/watch">watching</a>.
+  </p>
+</PageLayout>
+
+<style>
+  .intro {
+    font-size: var(--text-lg);
+    color: var(--colour-text-secondary);
+    line-height: 1.7;
+  }
+
+  .intro a {
+    color: var(--colour-accent-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .intro a:hover {
+    color: var(--colour-accent-hover);
+  }
+</style>
