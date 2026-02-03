@@ -115,15 +115,18 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
       </section>
     )}
 
-    {watchingData.lastUpdated && (
-      <footer class="last-updated">
-        <p>
-          Last updated: <time datetime={watchingData.lastUpdated}>
-            {new Date(watchingData.lastUpdated).toLocaleDateString('en-CA', { month: 'long', day: 'numeric', year: 'numeric' })}
-          </time>
-        </p>
-      </footer>
-    )}
+    {watchingData.lastUpdated && (() => {
+      const d = new Date(watchingData.lastUpdated);
+      return !Number.isNaN(d.getTime()) ? (
+        <footer class="last-updated">
+          <p>
+            Last updated: <time datetime={watchingData.lastUpdated}>
+              {d.toLocaleDateString('en-CA', { month: 'long', day: 'numeric', year: 'numeric' })}
+            </time>
+          </p>
+        </footer>
+      ) : null;
+    })()}
   </main>
 </BaseLayout>
 
