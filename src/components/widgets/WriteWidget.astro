@@ -1,0 +1,60 @@
+---
+import { getCollection } from 'astro:content';
+import { formatDate } from '@utils/date';
+
+const posts = (await getCollection('writing'))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const latestPost = posts[0] ?? null;
+---
+
+<article class="gvns-widget gvns-widget--write">
+  <div class="gvns-widget__label">Write</div>
+  {latestPost ? (
+    <div class="gvns-widget__content">
+      <a href={`/write/${latestPost.slug}`} class="gvns-widget__post-link">
+        <p class="gvns-widget__detail gvns-widget__detail--bold">{latestPost.data.title}</p>
+      </a>
+      <time class="gvns-widget__time" datetime={latestPost.data.pubDate.toISOString()}>
+        {formatDate(latestPost.data.pubDate)}
+      </time>
+      <p class="gvns-widget__excerpt">{latestPost.data.description}</p>
+    </div>
+  ) : (
+    <p class="gvns-widget__empty">No posts yet.</p>
+  )}
+  <a href="/write" class="gvns-widget__link">
+    View Full Activity <span aria-hidden="true">&rarr;</span>
+  </a>
+</article>
+
+<style>
+  .gvns-widget--write {
+    border-left-color: var(--colour-p4-amber);
+  }
+
+  .gvns-widget--write .gvns-widget__link:hover {
+    color: var(--colour-p4-amber);
+  }
+
+  .gvns-widget__post-link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .gvns-widget__post-link:hover .gvns-widget__detail {
+    color: var(--colour-p4-amber);
+  }
+
+  .gvns-widget__excerpt {
+    font-size: var(--text-sm);
+    color: var(--colour-text-secondary);
+    margin: var(--space-2) 0 0 0;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>
