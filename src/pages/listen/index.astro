@@ -50,38 +50,38 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
   <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />
 
   <main id="main-content" data-pagefind-body>
-    <div class="listen-container">
+    <div class="gvns-listen-container">
       <Breadcrumb items={[
         { label: 'Home', href: '/' },
         { label: 'Now', href: '/now' },
         { label: 'Listen' },
       ]} />
 
-      <header class="listen-header">
+      <header class="gvns-listen-header">
         <h1>Listen</h1>
-        <p class="listen-subtitle">Tracking my music via ListenBrainz.</p>
+        <p class="gvns-listen-subtitle">Tracking my music via ListenBrainz.</p>
       </header>
 
       {hasData ? (
-        <div class="listen-content">
+        <div class="gvns-listen-content">
           {/* Stats bar */}
           {(listeningData.stats.tracksToday > 0 || listeningData.stats.artistsToday > 0) && (
-            <div class="stats-bar">
-              <span class="stats-accent">{listeningData.stats.tracksToday} tracks</span>
+            <div class="gvns-stats-bar">
+              <span class="gvns-stats-accent">{listeningData.stats.tracksToday} tracks</span>
               {' '}from{' '}
-              <span class="stats-accent">{listeningData.stats.artistsToday} artists</span>
+              <span class="gvns-stats-accent">{listeningData.stats.artistsToday} artists</span>
               {' '}today
             </div>
           )}
 
           {/* Recent tracks */}
           {listeningData.recentTracks.length > 0 && (
-            <section class="listen-section">
+            <section class="gvns-listen-section">
               <h2>Recent Tracks</h2>
-              <ul class="track-list">
+              <ul class="gvns-track-list">
                 {listeningData.recentTracks.map((track) => (
-                  <li class="track-item">
-                    <div class="track-art">
+                  <li class="gvns-track-item">
+                    <div class="gvns-track-art">
                       {track.albumArtUrl ? (
                         <img
                           src={track.albumArtUrl}
@@ -92,7 +92,7 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
                           decoding="async"
                         />
                       ) : (
-                        <div class="track-art-placeholder" aria-hidden="true">
+                        <div class="gvns-track-art-placeholder" aria-hidden="true">
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
                             <path d="M9 18V5l12-2v13" />
                             <circle cx="6" cy="18" r="3" />
@@ -101,12 +101,12 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
                         </div>
                       )}
                     </div>
-                    <div class="track-info">
-                      <span class="track-name">{track.name}</span>
-                      <span class="track-artist">{track.artist}</span>
+                    <div class="gvns-track-info">
+                      <span class="gvns-track-name">{track.name}</span>
+                      <span class="gvns-track-artist">{track.artist}</span>
                     </div>
                     {track.listenedAt && (
-                      <time class="track-time" datetime={track.listenedAt}>
+                      <time class="gvns-track-time" datetime={track.listenedAt}>
                         {relativeTime(track.listenedAt)}
                       </time>
                     )}
@@ -118,12 +118,12 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
 
           {/* Top artists */}
           {listeningData.topArtists.length > 0 && (
-            <section class="listen-section">
+            <section class="gvns-listen-section">
               <h2>Top Artists</h2>
-              <div class="artist-grid">
+              <div class="gvns-artist-grid">
                 {listeningData.topArtists.map((artist) => (
-                  <div class="artist-card">
-                    <div class="artist-image">
+                  <div class="gvns-artist-card">
+                    <div class="gvns-artist-image">
                       {artist.imageUrl ? (
                         <img
                           src={artist.imageUrl}
@@ -134,7 +134,7 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
                           decoding="async"
                         />
                       ) : (
-                        <div class="artist-image-placeholder" aria-hidden="true">
+                        <div class="gvns-artist-image-placeholder" aria-hidden="true">
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28">
                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
                             <circle cx="12" cy="7" r="4" />
@@ -142,9 +142,9 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
                         </div>
                       )}
                     </div>
-                    <div class="artist-info">
-                      <span class="artist-name">{artist.name}</span>
-                      <span class="artist-plays">{artist.playCount} plays</span>
+                    <div class="gvns-artist-info">
+                      <span class="gvns-artist-name">{artist.name}</span>
+                      <span class="gvns-artist-plays">{artist.playCount} plays</span>
                     </div>
                   </div>
                 ))}
@@ -154,10 +154,10 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
 
           {/* Last updated */}
           {listeningData.lastUpdated && (
-            <p class="last-updated">
+            <p class="gvns-last-updated">
               Last updated{' '}
               <time datetime={listeningData.lastUpdated}>
-                {new Date(listeningData.lastUpdated).toLocaleDateString('en-GB', {
+                {new Date(listeningData.lastUpdated).toLocaleDateString('en-CA', {
                   day: 'numeric',
                   month: 'long',
                   year: 'numeric',
@@ -169,18 +169,18 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
           )}
         </div>
       ) : (
-        <div class="listen-empty">
-          <div class="empty-icon" aria-hidden="true">
+        <div class="gvns-listen-empty">
+          <div class="gvns-empty-icon" aria-hidden="true">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="48" height="48">
               <path d="M9 18V5l12-2v13" />
               <circle cx="6" cy="18" r="3" />
               <circle cx="18" cy="16" r="3" />
             </svg>
           </div>
-          <p class="empty-message">
+          <p class="gvns-empty-message">
             ListenBrainz integration coming soon.
           </p>
-          <p class="empty-detail">
+          <p class="gvns-empty-detail">
             This page will show what I have been listening to once the data pipeline is wired up.
           </p>
         </div>
@@ -190,17 +190,17 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
 </BaseLayout>
 
 <style>
-  .listen-container {
+  .gvns-listen-container {
     max-width: var(--width-content);
     margin-inline: auto;
     padding-inline: var(--space-6);
   }
 
-  .listen-header {
+  .gvns-listen-header {
     margin-bottom: var(--space-8);
   }
 
-  .listen-header h1 {
+  .gvns-listen-header h1 {
     font-size: var(--text-4xl);
     font-weight: 700;
     letter-spacing: -0.02em;
@@ -208,13 +208,13 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
     margin-bottom: var(--space-2);
   }
 
-  .listen-subtitle {
+  .gvns-listen-subtitle {
     font-size: var(--text-lg);
     color: var(--colour-text-secondary);
   }
 
   /* Stats bar */
-  .stats-bar {
+  .gvns-stats-bar {
     display: inline-flex;
     align-items: center;
     gap: var(--space-1);
@@ -228,17 +228,17 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
     margin-bottom: var(--space-8);
   }
 
-  .stats-accent {
+  .gvns-stats-accent {
     color: var(--colour-p3-emerald);
     font-weight: 600;
   }
 
   /* Sections */
-  .listen-section {
+  .gvns-listen-section {
     margin-bottom: var(--space-12);
   }
 
-  .listen-section h2 {
+  .gvns-listen-section h2 {
     font-size: var(--text-xl);
     font-weight: 600;
     margin-bottom: var(--space-6);
@@ -246,7 +246,7 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
   }
 
   /* Track list */
-  .track-list {
+  .gvns-track-list {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -255,7 +255,7 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
     gap: var(--space-1);
   }
 
-  .track-item {
+  .gvns-track-item {
     display: flex;
     align-items: center;
     gap: var(--space-4);
@@ -264,23 +264,23 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
     transition: background var(--transition-fast);
   }
 
-  .track-item:hover {
+  .gvns-track-item:hover {
     background: var(--colour-bg-secondary);
   }
 
-  .track-art img,
-  .track-art-placeholder {
+  .gvns-track-art img,
+  .gvns-track-art-placeholder {
     width: 48px;
     height: 48px;
     border-radius: 6px;
     flex-shrink: 0;
   }
 
-  .track-art img {
+  .gvns-track-art img {
     object-fit: cover;
   }
 
-  .track-art-placeholder {
+  .gvns-track-art-placeholder {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -288,7 +288,7 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
     color: var(--colour-text-muted);
   }
 
-  .track-info {
+  .gvns-track-info {
     display: flex;
     flex-direction: column;
     gap: 2px;
@@ -296,7 +296,7 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
     flex: 1;
   }
 
-  .track-name {
+  .gvns-track-name {
     font-size: var(--text-base);
     font-weight: 500;
     color: var(--colour-text-primary);
@@ -305,7 +305,7 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
     text-overflow: ellipsis;
   }
 
-  .track-artist {
+  .gvns-track-artist {
     font-size: var(--text-sm);
     color: var(--colour-text-secondary);
     white-space: nowrap;
@@ -313,7 +313,7 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
     text-overflow: ellipsis;
   }
 
-  .track-time {
+  .gvns-track-time {
     font-size: var(--text-xs);
     font-family: var(--font-mono);
     color: var(--colour-text-muted);
@@ -322,13 +322,13 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
   }
 
   /* Artist grid */
-  .artist-grid {
+  .gvns-artist-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     gap: var(--space-4);
   }
 
-  .artist-card {
+  .gvns-artist-card {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -341,23 +341,23 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
     text-align: center;
   }
 
-  .artist-card:hover {
+  .gvns-artist-card:hover {
     border-color: var(--colour-p3-emerald);
   }
 
-  .artist-image img,
-  .artist-image-placeholder {
+  .gvns-artist-image img,
+  .gvns-artist-image-placeholder {
     width: 64px;
     height: 64px;
     border-radius: 50%;
     flex-shrink: 0;
   }
 
-  .artist-image img {
+  .gvns-artist-image img {
     object-fit: cover;
   }
 
-  .artist-image-placeholder {
+  .gvns-artist-image-placeholder {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -365,7 +365,7 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
     color: var(--colour-text-muted);
   }
 
-  .artist-info {
+  .gvns-artist-info {
     display: flex;
     flex-direction: column;
     gap: 2px;
@@ -373,7 +373,7 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
     width: 100%;
   }
 
-  .artist-name {
+  .gvns-artist-name {
     font-size: var(--text-sm);
     font-weight: 600;
     color: var(--colour-text-primary);
@@ -382,14 +382,14 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
     text-overflow: ellipsis;
   }
 
-  .artist-plays {
+  .gvns-artist-plays {
     font-size: var(--text-xs);
     font-family: var(--font-mono);
     color: var(--colour-p3-emerald);
   }
 
   /* Last updated */
-  .last-updated {
+  .gvns-last-updated {
     font-size: var(--text-sm);
     color: var(--colour-text-muted);
     margin-top: var(--space-8);
@@ -398,7 +398,7 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
   }
 
   /* Empty state */
-  .listen-empty {
+  .gvns-listen-empty {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -407,19 +407,19 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
     gap: var(--space-4);
   }
 
-  .empty-icon {
+  .gvns-empty-icon {
     color: var(--colour-p3-emerald);
     opacity: 0.6;
     margin-bottom: var(--space-2);
   }
 
-  .empty-message {
+  .gvns-empty-message {
     font-size: var(--text-lg);
     font-weight: 500;
     color: var(--colour-text-primary);
   }
 
-  .empty-detail {
+  .gvns-empty-detail {
     font-size: var(--text-base);
     color: var(--colour-text-secondary);
     max-width: 40ch;
@@ -427,17 +427,17 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
 
   /* Responsive */
   @media (max-width: 640px) {
-    .listen-header h1 {
+    .gvns-listen-header h1 {
       font-size: var(--text-3xl);
     }
 
-    .track-art img,
-    .track-art-placeholder {
+    .gvns-track-art img,
+    .gvns-track-art-placeholder {
       width: 40px;
       height: 40px;
     }
 
-    .artist-grid {
+    .gvns-artist-grid {
       grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
     }
   }

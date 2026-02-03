@@ -23,16 +23,22 @@ const {
   showRating = false,
 } = Astro.props;
 
-const stars = rating
+const stars = typeof rating === 'number'
   ? Array.from({ length: 5 }, (_, i) => (i < rating ? '\u2605' : '\u2606'))
   : [];
 
-const formattedDate = dateFinished
-  ? new Date(dateFinished).toLocaleDateString('en-GB', {
+const clampedProgress = typeof progress === 'number' ? Math.min(Math.max(progress, 0), 100) : null;
+
+let formattedDate: string | null = null;
+if (dateFinished) {
+  const parsed = new Date(dateFinished);
+  if (!Number.isNaN(parsed.getTime())) {
+    formattedDate = parsed.toLocaleDateString('en-CA', {
       month: 'short',
       year: 'numeric',
-    })
-  : null;
+    });
+  }
+}
 ---
 
 <article class="gvns-book-card">
@@ -61,19 +67,19 @@ const formattedDate = dateFinished
       <h3 class="gvns-book-title">{title}</h3>
     )}
     <p class="gvns-book-author">{author}</p>
-    {showRating && stars.length > 0 && (
+    {showRating && typeof rating === 'number' && (
       <div class="gvns-book-rating" aria-label={`${rating} out of 5 stars`}>
         {stars.map((star) => (
           <span class:list={['gvns-star', { 'gvns-star--filled': star === '\u2605' }]}>{star}</span>
         ))}
       </div>
     )}
-    {showProgress && typeof progress === 'number' && (
+    {showProgress && clampedProgress != null && (
       <div class="gvns-book-progress">
         <div class="gvns-progress-bar">
-          <div class="gvns-progress-fill" style={`width: ${Math.min(progress, 100)}%`} />
+          <div class="gvns-progress-fill" style={`width: ${clampedProgress}%`} />
         </div>
-        <span class="gvns-progress-text">{progress}%</span>
+        <span class="gvns-progress-text">{clampedProgress}%</span>
       </div>
     )}
     {formattedDate && (

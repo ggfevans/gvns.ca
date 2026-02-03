@@ -23,7 +23,13 @@ interface ReadingData {
 
 let readingData: ReadingData = { lastUpdated: null, currentlyReading: [], finished: [], wantToRead: [] };
 try {
-  readingData = (await import('../../data/reading.json')).default as ReadingData;
+  const imported = (await import('../../data/reading.json')).default as Partial<ReadingData>;
+  readingData = {
+    lastUpdated: imported.lastUpdated ?? null,
+    currentlyReading: Array.isArray(imported.currentlyReading) ? imported.currentlyReading : [],
+    finished: Array.isArray(imported.finished) ? imported.finished : [],
+    wantToRead: Array.isArray(imported.wantToRead) ? imported.wantToRead : [],
+  };
 } catch (e) {
   if (import.meta.env.DEV) console.error('Failed to load reading data:', e);
 }
@@ -37,13 +43,17 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
   { name: 'Read', url: `${siteUrl}/read` },
 ]));
 
-const formattedLastUpdated = readingData.lastUpdated
-  ? new Date(readingData.lastUpdated).toLocaleDateString('en-GB', {
+let formattedLastUpdated: string | null = null;
+if (readingData.lastUpdated) {
+  const date = new Date(readingData.lastUpdated);
+  if (!Number.isNaN(date.getTime())) {
+    formattedLastUpdated = date.toLocaleDateString('en-CA', {
       day: 'numeric',
       month: 'long',
       year: 'numeric',
-    })
-  : null;
+    });
+  }
+}
 ---
 
 <BaseLayout

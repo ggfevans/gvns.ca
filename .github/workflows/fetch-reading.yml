@@ -19,14 +19,104 @@ jobs:
           HARDCOVER_TOKEN: ${{ secrets.HARDCOVER_TOKEN }}
           HARDCOVER_USER_ID: ${{ secrets.HARDCOVER_USER_ID }}
         run: |
-          if [ -z "$HARDCOVER_TOKEN" ] || [ -z "$HARDCOVER_USER_ID" ]; then
+          set -euo pipefail
+
+          if [ -z "${HARDCOVER_TOKEN:-}" ] || [ -z "${HARDCOVER_USER_ID:-}" ]; then
             echo "Hardcover credentials not configured, skipping"
             exit 0
           fi
-          # TODO: Implement Hardcover GraphQL query
-          # For now, this is a placeholder that will be filled in
-          # when the Hardcover API integration is built
-          echo "Hardcover integration pending"
+
+          QUERY='query GetUserBooks($userId: Int!) {
+            user_books(
+              where: { user_id: { _eq: $userId } }
+              order_by: { updated_at: desc }
+              limit: 50
+            ) {
+              status_id
+              rating
+              progress
+              updated_at
+              book {
+                title
+                contributions(limit: 1) {
+                  author { name }
+                }
+                image { url }
+                slug
+              }
+            }
+          }'
+
+          PAYLOAD=$(jq -n \
+            --arg query "$QUERY" \
+            --argjson userId "$HARDCOVER_USER_ID" \
+            '{ query: $query, variables: { userId: $userId } }')
+
+          RESPONSE=$(curl -sf \
+            -X POST \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer ${HARDCOVER_TOKEN}" \
+            -d "$PAYLOAD" \
+            "https://api.hardcover.app/v1/graphql")
+
+          if [ $? -ne 0 ]; then
+            echo "Error: Hardcover API request failed"
+            exit 1
+          fi
+
+          # Validate response has data
+          if ! echo "$RESPONSE" | jq -e '.data.user_books' > /dev/null 2>&1; then
+            echo "Error: Invalid response from Hardcover API"
+            echo "$RESPONSE" | jq '.' 2>/dev/null || echo "$RESPONSE"
+            exit 1
+          fi
+
+          mkdir -p src/data
+
+          # Map status_id: 1=want, 2=reading, 3=finished, 4=dnf, 5=dropped
+          echo "$RESPONSE" | jq '{
+            lastUpdated: (now | todate),
+            currentlyReading: [
+              .data.user_books[]
+              | select(.status_id == 2)
+              | {
+                  title: .book.title,
+                  author: (.book.contributions[0].author.name // "Unknown"),
+                  coverUrl: .book.image.url,
+                  hardcoverUrl: ("https://hardcover.app/books/" + .book.slug),
+                  progress: (.progress // 0)
+                }
+            ],
+            finished: [
+              .data.user_books[]
+              | select(.status_id == 3)
+              | {
+                  title: .book.title,
+                  author: (.book.contributions[0].author.name // "Unknown"),
+                  coverUrl: .book.image.url,
+                  hardcoverUrl: ("https://hardcover.app/books/" + .book.slug),
+                  rating: (.rating // null),
+                  dateFinished: .updated_at
+                }
+            ],
+            wantToRead: [
+              .data.user_books[]
+              | select(.status_id == 1)
+              | {
+                  title: .book.title,
+                  author: (.book.contributions[0].author.name // "Unknown"),
+                  coverUrl: .book.image.url,
+                  hardcoverUrl: ("https://hardcover.app/books/" + .book.slug)
+                }
+            ]
+          }' > src/data/reading.json
+
+          echo "Successfully fetched reading data"
+          cat src/data/reading.json | jq '{
+            currently_reading: (.currentlyReading | length),
+            finished: (.finished | length),
+            want_to_read: (.wantToRead | length)
+          }'
 
       - name: Commit and push if changed
         run: |

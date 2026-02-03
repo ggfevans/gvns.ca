@@ -84,13 +84,16 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
               <h3 class="watch-card-title">
                 {item.url ? <a href={item.url}>{item.title}</a> : item.title}
               </h3>
-              {item.rating && (
-                <div class="watch-rating" aria-label={`Rated ${item.rating} out of 5`}>
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <span class={i < item.rating ? 'star filled' : 'star'}>&#9733;</span>
-                  ))}
-                </div>
-              )}
+              {item.rating != null && (() => {
+                const r = Number(item.rating);
+                return (
+                  <div class="watch-rating" aria-label={`Rated ${r} out of 5`}>
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <span class={i < r ? 'star filled' : 'star'}>&#9733;</span>
+                    ))}
+                  </div>
+                );
+              })()}
               {item.watchedDate && (
                 <time class="watch-date" datetime={item.watchedDate}>
                   {new Date(item.watchedDate).toLocaleDateString('en-CA', { month: 'short', day: 'numeric', year: 'numeric' })}
@@ -239,7 +242,7 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
 
   .badge-movie {
     background-color: var(--colour-p4-amber);
-    color: #0a0a0a;
+    color: var(--colour-text-inverse);
   }
 
   .badge-show {

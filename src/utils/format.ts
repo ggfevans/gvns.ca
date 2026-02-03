@@ -6,7 +6,13 @@
 export function relativeTime(dateString: string): string {
   const now = new Date();
   const then = new Date(dateString);
+
+  if (Number.isNaN(then.getTime())) return 'unknown date';
+
   const diffMs = now.getTime() - then.getTime();
+
+  if (diffMs < 0) return 'just now';
+
   const diffMins = Math.floor(diffMs / 60000);
   const diffHours = Math.floor(diffMs / 3600000);
   const diffDays = Math.floor(diffMs / 86400000);
@@ -28,7 +34,7 @@ export function truncate(str: string, max: number): string {
 
 /** Format an ISO date string to a long human-readable timestamp. */
 export function formatTimestamp(dateString: string): string {
-  return new Date(dateString).toLocaleDateString('en-CA', {
+  return new Date(dateString).toLocaleString('en-CA', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
