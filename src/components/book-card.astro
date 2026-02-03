@@ -1,0 +1,228 @@
+---
+import { safeUrl } from '@utils/format';
+
+interface Props {
+  title: string;
+  author: string;
+  coverUrl?: string;
+  hardcoverUrl?: string;
+  rating?: number;
+  progress?: number;
+  dateFinished?: string;
+  showProgress?: boolean;
+  showRating?: boolean;
+}
+
+const {
+  title,
+  author,
+  coverUrl,
+  hardcoverUrl,
+  rating,
+  progress,
+  dateFinished,
+  showProgress = false,
+  showRating = false,
+} = Astro.props;
+
+const clampedRating = typeof rating === 'number'
+  ? Math.min(5, Math.max(0, Math.round(rating)))
+  : null;
+
+const stars = clampedRating != null
+  ? Array.from({ length: 5 }, (_, i) => (i < clampedRating ? '\u2605' : '\u2606'))
+  : [];
+
+const clampedProgress = typeof progress === 'number' ? Math.min(Math.max(progress, 0), 100) : null;
+
+let formattedDate: string | null = null;
+if (dateFinished) {
+  const parsed = new Date(dateFinished);
+  if (!Number.isNaN(parsed.getTime())) {
+    formattedDate = parsed.toLocaleDateString('en-CA', {
+      month: 'short',
+      year: 'numeric',
+    });
+  }
+}
+---
+
+<article class="gvns-book-card">
+  <div class="gvns-book-cover">
+    {coverUrl ? (
+      <img
+        src={coverUrl}
+        alt={`Cover of ${title}`}
+        width="80"
+        height="120"
+        loading="lazy"
+        decoding="async"
+      />
+    ) : (
+      <div class="gvns-cover-fallback" aria-hidden="true">
+        <span class="gvns-cover-icon">&#128214;</span>
+      </div>
+    )}
+  </div>
+  <div class="gvns-book-info">
+    {(() => {
+      const href = safeUrl(hardcoverUrl);
+      return href ? (
+        <a href={href} class="gvns-book-title-link" target="_blank" rel="noopener noreferrer">
+          <h3 class="gvns-book-title">{title}</h3>
+        </a>
+      ) : (
+        <h3 class="gvns-book-title">{title}</h3>
+      );
+    })()}
+    <p class="gvns-book-author">{author}</p>
+    {showRating && clampedRating != null && (
+      <div class="gvns-book-rating" aria-label={`${clampedRating} out of 5 stars`}>
+        {stars.map((star) => (
+          <span class:list={['gvns-star', { 'gvns-star--filled': star === '\u2605' }]}>{star}</span>
+        ))}
+      </div>
+    )}
+    {showProgress && clampedProgress != null && (
+      <div class="gvns-book-progress">
+        <div class="gvns-progress-bar" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={clampedProgress!} aria-label="Reading progress">
+          <div class="gvns-progress-fill" style={`width: ${clampedProgress}%`} />
+        </div>
+        <span class="gvns-progress-text">{clampedProgress}%</span>
+      </div>
+    )}
+    {formattedDate && (
+      <p class="gvns-book-date">{formattedDate}</p>
+    )}
+  </div>
+</article>
+
+<style>
+  .gvns-book-card {
+    display: flex;
+    gap: var(--space-4);
+    padding: var(--space-4);
+    border: 1px solid var(--colour-border);
+    border-radius: 8px;
+    background: var(--colour-bg-secondary);
+    transition: border-color var(--transition-fast);
+  }
+
+  .gvns-book-card:hover {
+    border-color: var(--colour-p2-rose);
+  }
+
+  .gvns-book-cover {
+    flex-shrink: 0;
+    width: 80px;
+    height: 120px;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .gvns-book-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .gvns-cover-fallback {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--colour-bg-tertiary);
+    border-radius: 4px;
+  }
+
+  .gvns-cover-icon {
+    font-size: var(--text-2xl);
+    opacity: 0.4;
+  }
+
+  .gvns-book-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    min-width: 0;
+  }
+
+  .gvns-book-title-link {
+    text-decoration: none;
+    color: inherit;
+    transition: color var(--transition-fast);
+  }
+
+  .gvns-book-title-link:hover {
+    color: var(--colour-p2-rose);
+  }
+
+  .gvns-book-title {
+    font-size: var(--text-base);
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  .gvns-book-author {
+    font-size: var(--text-sm);
+    color: var(--colour-text-secondary);
+    margin: 0;
+  }
+
+  .gvns-book-rating {
+    display: flex;
+    gap: 2px;
+    font-size: var(--text-sm);
+  }
+
+  .gvns-star {
+    color: var(--colour-text-muted);
+  }
+
+  .gvns-star--filled {
+    color: var(--colour-p2-rose);
+  }
+
+  .gvns-book-progress {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-top: var(--space-1);
+  }
+
+  .gvns-progress-bar {
+    flex: 1;
+    height: 6px;
+    background: var(--colour-bg-tertiary);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .gvns-progress-fill {
+    height: 100%;
+    background: var(--colour-p2-rose);
+    border-radius: 3px;
+    transition: width var(--transition-base);
+  }
+
+  .gvns-progress-text {
+    font-size: var(--text-xs);
+    font-family: var(--font-mono);
+    color: var(--colour-text-secondary);
+    white-space: nowrap;
+  }
+
+  .gvns-book-date {
+    font-size: var(--text-xs);
+    color: var(--colour-text-muted);
+    margin: 0;
+    margin-top: auto;
+  }
+</style>

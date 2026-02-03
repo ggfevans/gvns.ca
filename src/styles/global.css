@@ -22,6 +22,7 @@
   --colour-text-primary: #f4f4f5;     /* zinc-100 */
   --colour-text-secondary: #a1a1aa;   /* zinc-400 */
   --colour-text-muted: #71717a;       /* zinc-500 */
+  --colour-text-inverse: #0a0a0a;     /* zinc-950 — dark text on light backgrounds */
 
   /* P1-P5 Accent Palette */
   --colour-p1-violet: #8b5cf6;        /* violet-500 — code activity */
@@ -96,6 +97,7 @@
   --colour-text-primary: #18181b;     /* zinc-900 */
   --colour-text-secondary: #52525b;   /* zinc-600 */
   --colour-text-muted: #71717a;       /* zinc-500 */
+  --colour-text-inverse: #fafafa;     /* zinc-50 — light text on dark backgrounds */
 
   /* Darker accent for light bg contrast */
   --colour-accent-primary: #7c3aed;   /* violet-600 */

@@ -1,0 +1,88 @@
+---
+import BookCard from '@components/book-card.astro';
+
+interface Book {
+  title: string;
+  author: string;
+  coverUrl?: string;
+  hardcoverUrl?: string;
+  rating?: number;
+  progress?: number;
+  dateFinished?: string;
+}
+
+interface Props {
+  title: string;
+  books?: Book[];
+  emptyMessage: string;
+  showProgress?: boolean;
+  showRating?: boolean;
+}
+
+const { title, books = [], emptyMessage, showProgress = false, showRating = false } = Astro.props;
+---
+
+<section class="gvns-book-list">
+  <h2 class="gvns-book-list-title">{title}</h2>
+  {books.length > 0 ? (
+    <div class="gvns-book-grid">
+      {books.map((book) => (
+        <BookCard
+          title={book.title}
+          author={book.author}
+          coverUrl={book.coverUrl}
+          hardcoverUrl={book.hardcoverUrl}
+          rating={book.rating}
+          progress={book.progress}
+          dateFinished={book.dateFinished}
+          showProgress={showProgress}
+          showRating={showRating}
+        />
+      ))}
+    </div>
+  ) : (
+    <p class="gvns-book-list-empty">{emptyMessage}</p>
+  )}
+</section>
+
+<style>
+  .gvns-book-list {
+    margin-bottom: var(--space-12);
+  }
+
+  .gvns-book-list-title {
+    font-size: var(--text-xl);
+    font-weight: 600;
+    margin: 0 0 var(--space-6) 0;
+    color: var(--colour-text-primary);
+  }
+
+  .gvns-book-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  @media (min-width: 640px) {
+    .gvns-book-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .gvns-book-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .gvns-book-list-empty {
+    color: var(--colour-text-muted);
+    font-size: var(--text-sm);
+    font-style: italic;
+    margin: 0;
+    padding: var(--space-4);
+    background: var(--colour-bg-secondary);
+    border-radius: 8px;
+    border: 1px dashed var(--colour-border);
+  }
+</style>
