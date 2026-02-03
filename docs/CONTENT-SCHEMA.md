@@ -22,8 +22,6 @@ description: "A compelling summary."
 pubDate: 2024-12-09
 updatedDate: 2024-12-15          # Shows "Updated" badge
 tags: ["homelab", "docker"]
-series: "homelab-from-scratch"   # Links related posts
-seriesOrder: 1                   # Position in series (1-indexed)
 draft: true                      # Excludes from build
 heroImage: "./images/hero.jpg"   # Relative to post file
 ---
@@ -38,8 +36,6 @@ heroImage: "./images/hero.jpg"   # Relative to post file
 | `pubDate` | date | ✓ | Publication date (YYYY-MM-DD) |
 | `updatedDate` | date | | Last significant update |
 | `tags` | string[] | ✓ | 1-4 tags from taxonomy |
-| `series` | string | | Series slug (kebab-case) |
-| `seriesOrder` | number | | Position in series |
 | `draft` | boolean | | Default: false |
 | `heroImage` | string | | Path to hero image |
 
@@ -89,14 +85,6 @@ Use **one primary tag** per post, plus 1-3 secondary tags.
 4. **Kebab-case only**: `web-dev` not `webDev` or `Web Dev`
 5. **No plurals**: `tutorial` not `tutorials`
 
-## Series Configuration
-
-### When to Use Series
-
-- Multi-part tutorials (3+ posts)
-- Progressive learning paths
-- Project build logs
-
 ## Content Organisation
 
 ### File Structure
@@ -122,7 +110,7 @@ src/content/writing/
 ### URL Generation
 
 Posts generate URLs from filename:
-- `src/content/writing/2024/12/my-first-post.md` → `/writing/my-first-post/`
+- `src/content/writing/2024/12/my-first-post.md` → `/write/my-first-post/`
 - Date folders are for organisation only, not in URL
 
 ## Content Guidelines
