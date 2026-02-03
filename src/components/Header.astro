@@ -1,6 +1,7 @@
 ---
 import ThemeToggle from './ThemeToggle.svelte';
 import MobileNav from './MobileNav.svelte';
+import Search from './Search.svelte';
 
 const navItems = [
   { href: '/about', label: 'About' },
@@ -36,6 +37,9 @@ const currentPath = Astro.url.pathname;
       </ul>
       <ThemeToggle client:load />
     </div>
+
+    <!-- Search (single instance, visible at all breakpoints) -->
+    <Search client:load />
 
     <!-- Mobile Navigation -->
     <div class="mobile-nav-wrapper">
@@ -101,7 +105,9 @@ const currentPath = Astro.url.pathname;
 
   /* Mobile Navigation */
   .mobile-nav-wrapper {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
   }
 
   @media (min-width: 768px) {
