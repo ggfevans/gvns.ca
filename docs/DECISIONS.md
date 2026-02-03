@@ -40,7 +40,7 @@ Use **Astro 5.x** with Svelte for interactive islands.
 ## ADR-002: Self-Host on Linode with Caddy
 
 **Date**: 2024-12-07  
-**Status**: Accepted
+**Status**: Superseded by ADR-007
 
 ### Context
 Needed hosting solution. Candidates:
@@ -100,7 +100,7 @@ Self-host **Umami** on the same Linode VPS.
 ## ADR-004: GVNS Brand Guide Palette
 
 **Date**: 2024-12-09  
-**Status**: Accepted
+**Status**: Superseded by ADR-008
 
 ### Context
 Needed a colour palette and design direction. Options:
@@ -127,7 +127,7 @@ Use the **GVNS Brand Guide** palette (forest green + brass accents) with semanti
 ## ADR-005: Self-Hosted Brand Fonts
 
 **Date**: 2024-12-09  
-**Status**: Accepted
+**Status**: Superseded by ADR-009
 
 ### Context
 Needed to choose typography approach. Options:
@@ -179,6 +179,143 @@ Use **Option D**: GitHub repo (`/docs/`) as source of truth, upload stable docs 
 
 ---
 
+## ADR-007: Deploy via Cloudflare Pages
+
+**Date**: 2026-02-02  
+**Status**: Accepted
+**Supersedes**: ADR-002
+
+### Context
+The original plan was to self-host on a Linode Nanode with Caddy. The site spec designates Cloudflare Pages as the deployment target, with automatic deploys on push to main and custom domain support.
+
+### Decision
+Use **Cloudflare Pages** for hosting and deployment.
+
+### Rationale
+- Zero server maintenance — no VPS to patch, monitor, or pay for
+- Automatic deploys on push to main
+- Built-in CDN with global edge network
+- Custom domain with automatic HTTPS
+- Free tier covers the site's needs
+- Simpler CI/CD — no rsync or SSH keys needed
+
+### Consequences
+- No VPS for self-hosted services (Umami needs separate hosting or a managed alternative)
+- Less control over server configuration
+- Dependent on Cloudflare platform availability
+- Build environment constraints (Cloudflare's build system)
+
+---
+
+## ADR-008: P1-P5 Accent Colour Palette
+
+**Date**: 2026-02-02  
+**Status**: Accepted
+**Supersedes**: ADR-004
+
+### Context
+The GVNS Brand Guide v1.0 specified forest green + warm gold. The site spec defines a five-colour accent system (P1-P5) where each activity section has a dedicated colour, enabling visual wayfinding across the site.
+
+### Decision
+Use the **P1-P5 accent palette**:
+- **Violet** (`#8b5cf6` / `#7c3aed`) — Primary brand, Code activity
+- **Rose** (`#f43f5e` / `#e11d48`) — Read section
+- **Emerald** (`#10b981` / `#059669`) — Listen section
+- **Amber** (`#f59e0b` / `#d97706`) — Write section
+- **Sky** (`#0ea5e9` / `#0284c7`) — Status indicators
+
+Dark mode uses `-500` variants, light mode uses `-600` for contrast.
+
+### Rationale
+- Each activity section gets a distinct, memorable colour
+- Enables visual wayfinding across pages (Read = rose, Code = violet, etc.)
+- Zinc-based neutrals provide clean, modern surface hierarchy
+- Both dark and light variants tested for WCAG AA compliance
+
+### Consequences
+- More colours to maintain consistently
+- Colour discipline required — each activity type must use its assigned colour
+- Components need both `dark:` and light variants
+- Custom Shiki themes needed for both modes
+
+---
+
+## ADR-009: Inter as Primary Typeface
+
+**Date**: 2026-02-02  
+**Status**: Accepted
+**Supersedes**: ADR-005
+
+### Context
+ADR-005 chose IBM Plex Sans. The site spec designates Inter as the primary typeface, paired with JetBrains Mono for code.
+
+### Decision
+Use **Inter** (weights: 400, 500, 600, 700) and **JetBrains Mono** (400), self-hosted.
+
+### Rationale
+- Inter is purpose-built for screens with excellent legibility at small sizes
+- Variable font option keeps payload small
+- Extensive weight range (400-700) covers all hierarchy needs
+- Strong community adoption and active maintenance
+- JetBrains Mono retained for code — proven readability
+
+### Consequences
+- Font assets change in build
+- IBM Plex Sans removed from dependencies
+- Subtle visual shift across all text — Inter has different metrics
+
+---
+
+## ADR-010: Verb-Based URL Naming Convention
+
+**Date**: 2026-02-02  
+**Status**: Accepted
+
+### Context
+Content pages used gerund-form URLs (`/writing`, `/reading`). The site spec establishes a verb-based naming convention for all pages: present-tense verbs consistently.
+
+### Decision
+Use **verb-based URLs**: `/write`, `/read`, `/listen`, `/watch`, `/code`.
+
+### Rationale
+- Consistent voice across the entire site
+- Shorter, punchier URLs
+- Matches nav labels (Write, not Writing)
+- Activity pages use verbs as brand identity — "Read" not "Reading" or "Books"
+
+### Consequences
+- Existing `/writing` and `/reading` routes need redirects
+- Internal links updated across all components and content
+- RSS feed URL may change
+- SEO: 301 redirects preserve link equity
+
+---
+
+## ADR-011: Class-Based Dark/Light Theme Toggle
+
+**Date**: 2026-02-02  
+**Status**: Accepted
+
+### Context
+The current implementation uses CSS custom variables with `[data-theme="light"]` selectors. The site spec and light mode spec define a Tailwind `dark:` class-based approach with `darkMode: 'class'`.
+
+### Decision
+Use **Tailwind's class-based dark mode** (`darkMode: 'class'`) with a `dark` class on `<html>`.
+
+### Rationale
+- Tailwind's `dark:` variant is idiomatic and well-documented
+- Co-locates light and dark styles in the same class list
+- System preference detection on first visit, localStorage persistence after
+- Inline `<head>` script prevents flash of wrong theme
+
+### Consequences
+- Components use `dark:` utility classes instead of CSS variable swaps
+- Theme toggle adds/removes `dark` class on `<html>`
+- Both modes must be tested for every component
+- Slightly more verbose class lists but better colocation
+
+---
+
 ## Template for New Decisions
 
 ```markdown
@@ -202,4 +339,4 @@ Use **Option D**: GitHub repo (`/docs/`) as source of truth, upload stable docs 
 
 ---
 
-*Last updated: 2024-12-09*
+*Last updated: 2026-02-02*
