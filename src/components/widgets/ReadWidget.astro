@@ -19,6 +19,9 @@ try {
 } catch { /* data unavailable */ }
 
 const currentBook = data.currentlyReading[0] ?? null;
+const progress = currentBook && typeof currentBook.progress === 'number'
+  ? Math.max(0, Math.min(100, currentBook.progress))
+  : null;
 ---
 
 <article class="gvns-widget gvns-widget--read">
@@ -39,10 +42,10 @@ const currentBook = data.currentlyReading[0] ?? null;
       <div>
         <p class="gvns-widget__detail gvns-widget__detail--bold">{currentBook.title}</p>
         <p class="gvns-widget__meta">{currentBook.author}</p>
-        {typeof currentBook.progress === 'number' && (
+        {progress !== null && (
           <div class="gvns-widget__progress">
-            <div class="gvns-widget__progress-bar" style={`width: ${currentBook.progress}%`} role="progressbar" aria-valuenow={currentBook.progress} aria-valuemin={0} aria-valuemax={100}>
-              <span class="sr-only">{currentBook.progress}% complete</span>
+            <div class="gvns-widget__progress-bar" style={`width: ${progress}%`} role="progressbar" aria-valuenow={progress} aria-valuemin={0} aria-valuemax={100}>
+              <span class="sr-only">{progress}% complete</span>
             </div>
           </div>
         )}
