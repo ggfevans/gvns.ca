@@ -1,0 +1,28 @@
+---
+import PageLayout from '@layouts/PageLayout.astro';
+import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
+
+const siteUrl = normalizeSiteUrl(Astro.site);
+const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
+  { name: 'Home', url: siteUrl },
+  { name: 'Reading', url: `${siteUrl}/reading` },
+]));
+---
+
+<PageLayout
+  title="Reading"
+  description="Books, notes, and the occasional rabbit hole."
+>
+  <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />
+  <p class="intro">
+    This will pull from Hardcover once the integration is wired up.
+    For now, consider it a promise with footnotes.
+  </p>
+</PageLayout>
+
+<style>
+  .intro {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+  }
+</style>

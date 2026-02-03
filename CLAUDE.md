@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Personal blog and portfolio site for gvns.ca. Currently in documentation/planning phase with a January 2026 target launch.
+Personal writing + work site for gvns.ca. Brand guide aligned and in active build phase.
 
 ## Tech Stack
 
@@ -30,10 +30,10 @@ npm run preview  # Preview production build
 src/
 ├── components/     # Astro components (.astro) and Svelte islands (.svelte)
 ├── content/
-│   ├── blog/       # Markdown posts organised by date (YYYY/MM/)
+│   ├── writing/    # Markdown posts organised by date (YYYY/MM/)
 │   └── config.ts   # Content collection schemas
 ├── layouts/        # BaseLayout, PostLayout, PageLayout
-├── pages/          # Route files including blog/[slug].astro
+├── pages/          # Route files including writing/[slug].astro
 ├── styles/         # global.css with Tailwind imports
 └── utils/          # Helpers (date formatting, reading time)
 ```
@@ -62,7 +62,7 @@ Blog posts require:
 Optional: `updatedDate`, `series`, `seriesOrder`, `draft`, `heroImage`
 
 Post URLs derive from filename, not folder structure:
-`src/content/blog/2024/12/my-post.md` → `/blog/my-post/`
+`src/content/writing/2024/12/my-post.md` → `/writing/my-post/`
 
 ## Design System
 
@@ -71,7 +71,7 @@ Based on GVNS Brand Guide. Key semantic tokens:
 - `--colour-text-primary`, `--colour-text-secondary`
 - `--colour-accent-primary` (forest green `#4a7c59`), `--colour-accent-warm` (gold `#c9a959`)
 
-Uses system font stack (no external fonts). Code highlighting via Shiki.
+Uses IBM Plex Sans (400/500/600) + JetBrains Mono (400), self-hosted via @fontsource. Code highlighting via Shiki.
 
 ## Deployment
 

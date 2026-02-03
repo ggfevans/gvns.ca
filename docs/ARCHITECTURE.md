@@ -9,19 +9,22 @@
 | **Styling** | Tailwind CSS 4.x | Utility-first, design tokens via CSS variables |
 | **Content** | Astro Content Collections | Type-safe markdown with frontmatter validation |
 | **Code Highlighting** | Shiki | Built into Astro |
-| **Fonts** | System font stack | No external requests, fast loading |
+| **Fonts** | IBM Plex Sans + JetBrains Mono | Self-hosted via @fontsource |
 
 ## Site Structure
 
 ```
 gvns.ca/
 ├── /                   # Home — intro + recent posts
-├── /blog/              # Blog index — all posts, filterable by tag
-├── /blog/[slug]/       # Individual post
-├── /blog/tags/         # Tag listing page
-├── /blog/tags/[tag]/   # Posts filtered by tag
-├── /about/             # About + Resume (recruiter-friendly)
-├── /projects/          # Project showcase (optional MVP)
+├── /writing/           # Writing index — all posts, filterable by tag
+├── /writing/[slug]/    # Individual post
+├── /writing/tags/      # Tag listing page
+├── /writing/tags/[tag]/# Posts filtered by tag
+├── /work/              # Project showcase
+├── /work/[project]/    # Project detail
+├── /about/             # About
+├── /resume/            # Resume + PDF download
+├── /reading/           # Reading list (optional)
 ├── /rss.xml            # RSS feed
 └── /sitemap.xml        # Auto-generated sitemap
 ```
@@ -34,26 +37,29 @@ src/
 │   ├── BaseHead.astro      # <head> with meta, fonts, Umami
 │   ├── Header.astro        # Site navigation
 │   ├── Footer.astro        # Site footer
-│   ├── PostCard.astro      # Blog post preview card
+│   ├── PostCard.astro      # Writing post preview card
 │   ├── TagList.astro       # Tag display component
 │   └── ThemeToggle.svelte  # Dark/light toggle (island)
 │
 ├── content/
-│   ├── blog/               # Blog posts (markdown)
+│   ├── writing/            # Writing posts (markdown)
+│   │   └── *.md
+│   ├── work/               # Work entries (markdown)
 │   │   └── *.md
 │   └── config.ts           # Content collection schemas
 │
 ├── layouts/
 │   ├── BaseLayout.astro    # HTML wrapper, theme, skip links
-│   ├── PostLayout.astro    # Blog post with metadata
-│   └── PageLayout.astro    # Static pages (about, projects)
+│   ├── PostLayout.astro    # Writing post with metadata
+│   └── PageLayout.astro    # Static pages (about, work)
 │
 ├── pages/
 │   ├── index.astro         # Home
-│   ├── about.astro         # About/Resume
-│   ├── projects.astro      # Projects (optional)
-│   ├── blog/
-│   │   ├── index.astro     # Blog listing
+│   ├── about/              # About
+│   ├── resume/             # Resume
+│   ├── work/               # Work index + detail
+│   ├── writing/
+│   │   ├── index.astro     # Writing listing
 │   │   ├── [slug].astro    # Dynamic post pages
 │   │   └── tags/
 │   │       ├── index.astro # All tags
@@ -71,28 +77,40 @@ src/
 
 ## Content Collections
 
-### Blog Collection Schema
+### Writing Collection Schema
 
 ```typescript
 // src/content/config.ts
 import { defineCollection, z } from 'astro:content';
 
-const blog = defineCollection({
+const writing = defineCollection({
   type: 'content',
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
+  schema: ({ image }) => z.object({
+    title: z.string().max(100),
+    description: z.string().max(200),
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
-    tags: z.array(z.string()).default([]),
-    series: z.string().optional(),
-    seriesOrder: z.number().optional(),
+    tags: z.array(z.string()).min(1).max(4),
     draft: z.boolean().default(false),
-    heroImage: z.string().optional(),
+    heroImage: image().optional(),
   }),
 });
 
-export const collections = { blog };
+const work = defineCollection({
+  type: 'content',
+  schema: ({ image }) => z.object({
+    title: z.string().max(100),
+    description: z.string().max(200),
+    url: z.string().url().optional(),
+    repo: z.string().url().optional(),
+    status: z.enum(['active', 'maintained', 'archived']),
+    tags: z.array(z.string()).min(1).max(6),
+    heroImage: image().optional(),
+    featured: z.boolean().default(false),
+  }),
+});
+
+export const collections = { writing, work };
 ```
 
 See `CONTENT-SCHEMA.md` for full frontmatter specification and tag taxonomy.

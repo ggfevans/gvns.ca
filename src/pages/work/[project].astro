@@ -1,0 +1,118 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+import PageLayout from '@layouts/PageLayout.astro';
+import TagList from '@components/TagList.astro';
+import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('work');
+  return projects.map((project) => ({
+    params: { project: project.slug },
+    props: { project },
+  }));
+}
+
+interface Props {
+  project: CollectionEntry<'work'>;
+}
+
+const { project } = Astro.props;
+const { title, description, url, repo, status, tags } = project.data;
+const { Content } = await project.render();
+
+const siteUrl = normalizeSiteUrl(Astro.site);
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
+  { name: 'Home', url: siteUrl },
+  { name: 'Work', url: `${siteUrl}/work` },
+  { name: title, url: canonicalUrl },
+]));
+---
+
+<PageLayout title={title} description={description}>
+  <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />
+  <header class="work-header">
+    <div class="title-row">
+      <h1>{title}</h1>
+      <span class={`status status-${status}`}>{status}</span>
+    </div>
+    <p class="summary">{description}</p>
+    <TagList tags={tags} linked={false} />
+    <div class="links">
+      {repo && <a href={repo} class="link">GitHub</a>}
+      {url && <a href={url} class="link">Live</a>}
+    </div>
+  </header>
+
+  <div class="prose">
+    <Content />
+  </div>
+</PageLayout>
+
+<style>
+  .work-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--colour-border);
+  }
+
+  .title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+  }
+
+  h1 {
+    font-size: var(--text-4xl);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.5rem;
+  }
+
+  .summary {
+    color: var(--color-text-secondary);
+    font-size: var(--text-lg);
+    margin-bottom: 1rem;
+  }
+
+  .status {
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.25rem 0.5rem;
+    border-radius: 999px;
+    background: var(--colour-bg-tertiary);
+    color: var(--colour-text-secondary);
+  }
+
+  .status-active {
+    color: var(--colour-accent-primary);
+  }
+
+  .status-maintained {
+    color: var(--colour-accent-secondary);
+  }
+
+  .status-archived {
+    color: var(--colour-text-muted);
+  }
+
+  .links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .link {
+    color: var(--color-link);
+    text-decoration: none;
+    font-size: var(--text-sm);
+    transition: color var(--transition-fast);
+  }
+
+  .link:hover {
+    color: var(--color-link-hover);
+  }
+</style>

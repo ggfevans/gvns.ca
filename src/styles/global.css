@@ -1,3 +1,7 @@
+@import "@fontsource/ibm-plex-sans/400.css";
+@import "@fontsource/ibm-plex-sans/500.css";
+@import "@fontsource/ibm-plex-sans/600.css";
+@import "@fontsource/jetbrains-mono/400.css";
 @import "tailwindcss";
 
 /* ============================================
@@ -51,14 +55,22 @@
   --color-warning: var(--colour-warning);
   --color-error: var(--colour-error);
   --color-info: var(--colour-info);
-  --current-line: var(--colour-bg-secondary);
-  --purple: var(--colour-accent-primary);
 
   /* Typography */
-  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
-    "Liberation Mono", monospace;
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo,
+    Consolas, "Liberation Mono", monospace;
+
+  /* Type Scale */
+  --text-xs: 0.75rem;   /* 12px */
+  --text-sm: 0.875rem;  /* 14px */
+  --text-base: 1rem;    /* 16px */
+  --text-lg: 1.25rem;   /* 20px */
+  --text-xl: 1.5rem;    /* 24px */
+  --text-2xl: 1.875rem; /* 30px */
+  --text-3xl: 2.375rem; /* 38px */
+  --text-4xl: 3rem;     /* 48px */
 
   /* Transitions */
   --transition-fast: 150ms ease;
@@ -100,7 +112,6 @@
   --color-text-primary: var(--colour-text-primary);
   --color-text-secondary: var(--colour-text-secondary);
   --color-text-muted: var(--colour-text-muted);
-  --current-line: var(--colour-bg-secondary);
 }
 
 /* Base Styles */
@@ -110,6 +121,7 @@ html {
 
 body {
   font-family: var(--font-sans);
+  font-size: var(--text-base);
   background-color: var(--color-bg-primary);
   color: var(--color-text-primary);
   line-height: 1.6;
@@ -156,30 +168,43 @@ body {
    ============================================ */
 
 .prose {
-  line-height: 1.7;
+  font-size: var(--text-base);
+  line-height: 1.6;
 }
 
 .prose h2 {
-  font-size: 1.5rem;
+  font-size: var(--text-3xl);
   font-weight: 600;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
 }
 
 .prose h3 {
-  font-size: 1.25rem;
+  font-size: var(--text-2xl);
   font-weight: 600;
-  margin-top: 1.5rem;
-  margin-bottom: 0.75rem;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.prose h4 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.4;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
 }
 
 .prose p {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5em;
 }
 
 .prose ul,
 .prose ol {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5em;
   padding-left: 1.5rem;
 }
 

@@ -1,0 +1,70 @@
+---
+import PageLayout from '@layouts/PageLayout.astro';
+import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
+
+const siteUrl = normalizeSiteUrl(Astro.site);
+const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
+  { name: 'Home', url: siteUrl },
+  { name: 'Resume', url: `${siteUrl}/resume` },
+]));
+---
+
+<PageLayout
+  title="Resume"
+  description="Professional summary and experience."
+>
+  <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />
+
+  <p class="summary">
+    Web developer focused on shipping clean, fast, and dependable products.
+    Equal parts systems thinking and detail-obsessed execution.
+  </p>
+
+  <div class="download">
+    <a href="/resume.pdf" class="download-link">Download PDF</a>
+    <span class="download-note">(Latest version)</span>
+  </div>
+
+  <h2>Highlights</h2>
+  <ul>
+    <li>Frontend engineering with a bias for performance and accessibility</li>
+    <li>Modern web stacks: Astro, Svelte, Tailwind, TypeScript</li>
+    <li>Infrastructure pragmatism: self-hosting, observability, automation</li>
+  </ul>
+
+  <h2>Experience</h2>
+  <p>
+    Detailed role history available in the PDF. If you need a tailored version,
+    just ask — I keep a few variants on hand.
+  </p>
+</PageLayout>
+
+<style>
+  .summary {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    margin-bottom: 1.5rem;
+  }
+
+  .download {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .download-link {
+    color: var(--color-link);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .download-link:hover {
+    color: var(--color-link-hover);
+  }
+
+  .download-note {
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+  }
+</style>

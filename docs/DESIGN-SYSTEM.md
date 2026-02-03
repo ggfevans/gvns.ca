@@ -2,7 +2,7 @@
 
 ## Colour Palette
 
-Based on GVNS Brand Guide v1.1. Dark-first, light-available. Colours are functional first, decorative second.
+Based on GVNS Brand Guide v1.0. Dark-first, light-available. Colours are functional first, decorative second.
 
 ### Base Colours — Dark Theme (Default)
 
@@ -84,13 +84,13 @@ WCAG AA requires 4.5:1 for normal text, 3:1 for large text/UI components.
 
 ```css
 :root {
-  /* Primary — clean, readable, no external requests */
-  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  
-  /* Monospace — for code blocks */
-  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, 
-    "Liberation Mono", monospace;
+  /* Primary — IBM Plex Sans (self-hosted via @fontsource) */
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Monospace — JetBrains Mono (self-hosted via @fontsource) */
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo,
+    Consolas, "Liberation Mono", monospace;
 }
 ```
 
@@ -103,12 +103,11 @@ Based on 1.25 ratio (Major Third) with 16px base.
 | `--text-xs` | 0.75rem (12px) | 1.5 | Captions, metadata |
 | `--text-sm` | 0.875rem (14px) | 1.5 | Secondary text |
 | `--text-base` | 1rem (16px) | 1.6 | Body text |
-| `--text-lg` | 1.125rem (18px) | 1.6 | Lead paragraphs |
-| `--text-xl` | 1.25rem (20px) | 1.4 | H4, card titles |
-| `--text-2xl` | 1.5rem (24px) | 1.3 | H3 |
-| `--text-3xl` | 1.875rem (30px) | 1.25 | H2 |
-| `--text-4xl` | 2.25rem (36px) | 1.2 | H1, page titles |
-| `--text-5xl` | 3rem (48px) | 1.1 | Hero text |
+| `--text-lg` | 1.25rem (20px) | 1.5 | Lead paragraphs |
+| `--text-xl` | 1.5rem (24px) | 1.4 | H4, card titles |
+| `--text-2xl` | 1.875rem (30px) | 1.3 | H3 |
+| `--text-3xl` | 2.375rem (38px) | 1.2 | H2 |
+| `--text-4xl` | 3rem (48px) | 1.1 | H1, page titles |
 
 ### Font Weights
 
@@ -121,11 +120,11 @@ Based on 1.25 ratio (Major Third) with 16px base.
 
 ### Prose Styling
 
-For blog content, custom prose styles are defined in `global.css` (not using `@tailwindcss/typography`):
+For writing content, custom prose styles are defined in `global.css` (not using `@tailwindcss/typography`):
 
 ```css
 .prose {
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
 .prose a {
@@ -198,7 +197,7 @@ Using Tailwind defaults:
 ### Grid
 
 ```css
-/* Blog listing, projects */
+/* Writing listing, work */
 .grid-cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -315,7 +314,7 @@ Syntax highlighting is handled by Shiki (Astro's default). Currently using Astro
 export default defineConfig({
   markdown: {
     shikiConfig: {
-      theme: 'github-dark', // or 'dracula', 'nord', etc.
+      theme: 'gvns', // custom theme aligned to brand palette
     },
   },
 });

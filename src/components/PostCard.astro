@@ -5,7 +5,7 @@ import { getReadingTime } from '@utils/reading-time';
 import TagList from './TagList.astro';
 
 interface Props {
-  post: CollectionEntry<'blog'>;
+  post: CollectionEntry<'writing'>;
   showReadingTime?: boolean;
 }
 
@@ -21,7 +21,7 @@ const filename = slugParts[slugParts.length - 1];
 
 <article class="post-card">
   <h3 class="post-title">
-    <a href={`/blog/${filename}`}>{title}</a>
+    <a href={`/writing/${filename}`}>{title}</a>
   </h3>
   <div class="post-meta">
     <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>
@@ -36,7 +36,7 @@ const filename = slugParts[slugParts.length - 1];
     background: var(--color-bg-secondary);
     border-radius: 8px;
     padding: 1.5rem;
-    border: 1px solid transparent;
+    border: 1px solid var(--colour-border);
     transition: border-color var(--transition-fast);
   }
 
@@ -46,7 +46,7 @@ const filename = slugParts[slugParts.length - 1];
 
   .post-title {
     margin: 0 0 0.5rem;
-    font-size: 1.25rem;
+    font-size: var(--text-xl);
     font-weight: 600;
     line-height: 1.4;
   }
@@ -64,7 +64,7 @@ const filename = slugParts[slugParts.length - 1];
   .post-meta {
     display: flex;
     gap: 1rem;
-    font-size: 0.875rem;
+    font-size: var(--text-sm);
     color: var(--color-text-secondary);
     margin-bottom: 0.75rem;
   }

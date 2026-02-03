@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
 
-const posts = await getCollection('blog', ({ data }) => {
+const posts = await getCollection('writing', ({ data }) => {
   return import.meta.env.PROD ? !data.draft : true;
 });
 
@@ -23,14 +23,14 @@ const sortedTags = [...tagCounts.entries()].sort((a, b) =>
 const siteUrl = normalizeSiteUrl(Astro.site);
 const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
   { name: 'Home', url: siteUrl },
-  { name: 'Blog', url: `${siteUrl}/blog` },
-  { name: 'Tags', url: `${siteUrl}/blog/tags` },
+  { name: 'Writing', url: `${siteUrl}/writing` },
+  { name: 'Tags', url: `${siteUrl}/writing/tags` },
 ]));
 ---
 
 <BaseLayout
   title="Tags | gvns.ca"
-  description="Browse all blog post tags."
+  description="Browse all writing tags."
 >
   <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />
   <main id="main-content" class="tags-page">
@@ -41,7 +41,7 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
       <ul class="tag-list">
         {sortedTags.map(([tag, count]) => (
           <li>
-            <a href={`/blog/tags/${tag}`} class="tag-link">
+            <a href={`/writing/tags/${tag}`} class="tag-link">
               <span class="tag-name">{tag}</span>
               <span class="tag-count">({count})</span>
             </a>
@@ -61,7 +61,9 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
   }
 
   h1 {
-    font-size: 2.25rem;
+    font-size: var(--text-4xl);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
     margin-bottom: 0.5rem;
   }
 
@@ -90,7 +92,7 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
   }
 
   .tag-link:hover {
-    background: var(--color-bg-elevated);
+    background: var(--colour-bg-tertiary);
   }
 
   .tag-link:focus-visible {
@@ -99,13 +101,13 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
   }
 
   .tag-name {
-    color: var(--pink);
+    color: var(--colour-accent-secondary);
     font-weight: 500;
   }
 
   .tag-count {
     color: var(--color-text-secondary);
-    font-size: 0.875rem;
+    font-size: var(--text-sm);
   }
 
   .no-tags {

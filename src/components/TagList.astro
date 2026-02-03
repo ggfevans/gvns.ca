@@ -11,7 +11,7 @@ const { tags, linked = true } = Astro.props;
   {tags.map((tag) => (
     <li>
       {linked ? (
-        <a href={`/blog/tags/${tag}`} class="tag">
+        <a href={`/writing/tags/${tag}`} class="tag">
           {tag}
         </a>
       ) : (
@@ -36,14 +36,14 @@ const { tags, linked = true } = Astro.props;
     padding: 0.25rem 0.5rem;
     font-size: 0.75rem;
     font-weight: 500;
-    background: var(--current-line);
-    color: var(--pink);
+    background: var(--colour-bg-tertiary);
+    color: var(--colour-accent-secondary);
     border-radius: 4px;
     text-decoration: none;
     transition: background-color var(--transition-fast);
   }
 
   a.tag:hover {
-    background: var(--color-bg-elevated);
+    background: var(--colour-bg-secondary);
   }
 </style>

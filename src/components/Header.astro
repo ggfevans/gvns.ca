@@ -4,8 +4,8 @@ import MobileNav from './MobileNav.svelte';
 
 const navItems = [
   { href: '/', label: 'Home' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/projects', label: 'Projects' },
+  { href: '/writing', label: 'Writing' },
+  { href: '/work', label: 'Work' },
   { href: '/about', label: 'About' },
 ];
 
@@ -14,7 +14,7 @@ const currentPath = Astro.url.pathname;
 
 <header class="header">
   <nav class="nav" aria-label="Main navigation">
-    <a href="/" class="logo" aria-label="gvns.ca home">gvns.ca</a>
+    <a href="/" class="logo" aria-label="GVNS home">GVNS</a>
 
     <!-- Desktop Navigation -->
     <div class="nav-right desktop-nav">
@@ -48,7 +48,7 @@ const currentPath = Astro.url.pathname;
   .header {
     position: relative;
     padding: var(--space-4, 1rem) var(--space-6, 1.5rem);
-    border-bottom: 1px solid var(--current-line);
+    border-bottom: 1px solid var(--colour-border);
   }
 
   .nav {
@@ -60,7 +60,9 @@ const currentPath = Astro.url.pathname;
   }
 
   .logo {
-    font-weight: 700;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
     color: var(--color-text-primary);
     text-decoration: none;
   }

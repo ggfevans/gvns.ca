@@ -151,7 +151,7 @@
     left: 0;
     right: 0;
     background: var(--color-bg-primary);
-    border-bottom: 1px solid var(--current-line);
+    border-bottom: 1px solid var(--colour-border);
     padding: 1rem 1.5rem;
     opacity: 0;
     visibility: hidden;
@@ -201,7 +201,7 @@
   .menu-footer {
     margin-top: 1rem;
     padding-top: 1rem;
-    border-top: 1px solid var(--current-line);
+    border-top: 1px solid var(--colour-border);
     display: flex;
     align-items: center;
     gap: 0.5rem;

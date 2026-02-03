@@ -1,6 +1,6 @@
 ---
 title: "Hello, World!"
-description: "Welcome to gvns.ca — a personal blog about homelab, BJJ, and productivity."
+description: "Welcome to gvns.ca — writing on homelab, BJJ, and productivity."
 pubDate: 2024-12-09
 tags: ["meta"]
 ---
@@ -17,6 +17,6 @@ Stay tuned for real content. For now, the plumbing is being tested.
 
 ## What's Next
 
-I'm building this site with Astro 5, Svelte 5 islands, and Tailwind CSS 4. The Dracula colour scheme keeps things easy on the eyes during late-night coding sessions.
+I'm building this site with Astro 5, Svelte 5 islands, and Tailwind CSS 4, with a custom GVNS palette and typography system.
 
 More posts coming soon.

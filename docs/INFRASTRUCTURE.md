@@ -43,7 +43,7 @@
 - Existing account with ~$100 credits expiring Feb 2026
 - Simple, predictable pricing
 - Canadian data centre for low latency
-- Good enough for a personal blog
+- Good enough for a personal site
 
 ## Domain Configuration
 

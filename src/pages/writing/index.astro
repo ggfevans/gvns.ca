@@ -4,24 +4,24 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 import PostCard from '@components/PostCard.astro';
 import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
 
-const posts = (await getCollection('blog'))
+const posts = (await getCollection('writing'))
   .filter((post) => import.meta.env.PROD ? !post.data.draft : true)
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 const siteUrl = normalizeSiteUrl(Astro.site);
 const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
   { name: 'Home', url: siteUrl },
-  { name: 'Blog', url: `${siteUrl}/blog` },
+  { name: 'Writing', url: `${siteUrl}/writing` },
 ]));
 ---
 
 <BaseLayout
-  title="Blog | gvns.ca"
+  title="Writing | gvns.ca"
   description="Thoughts on homelab, web development, BJJ, and productivity."
 >
   <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />
-  <main id="main-content" class="blog-listing">
-    <h1>Blog</h1>
+  <main id="main-content" class="writing-listing">
+    <h1>Writing</h1>
     <p class="intro">
       Thoughts on homelab, web development, BJJ, and productivity.
     </p>
@@ -39,18 +39,21 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
 </BaseLayout>
 
 <style>
-  .blog-listing {
+  .writing-listing {
     max-width: var(--width-content);
     margin: 0 auto;
   }
 
   h1 {
-    font-size: 2.25rem;
+    font-size: var(--text-4xl);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
     margin-bottom: 0.5rem;
   }
 
   .intro {
     color: var(--color-text-secondary);
+    font-size: var(--text-lg);
     margin-bottom: 2rem;
   }
 

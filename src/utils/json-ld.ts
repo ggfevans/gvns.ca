@@ -46,7 +46,7 @@ export function websiteSchema(siteUrl?: string): object {
       name: AUTHOR_NAME,
     },
     description:
-      'Personal blog and portfolio. Writing about homelab, web development, BJJ, and whatever else catches my attention.',
+      'Personal site for writing and shipped work. Notes on homelab, web development, BJJ, and productivity.',
   };
 }
 
@@ -73,7 +73,7 @@ export function personSchema(siteUrl?: string): object {
 }
 
 /**
- * Generate Article schema for blog posts
+ * Generate Article schema for writing posts
  */
 export function articleSchema({
   title,

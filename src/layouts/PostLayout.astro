@@ -7,7 +7,7 @@ import { getReadingTime } from '@utils/reading-time';
 import { articleSchema, breadcrumbSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
 
 interface Props {
-  post: CollectionEntry<'blog'>;
+  post: CollectionEntry<'writing'>;
 }
 
 const { post } = Astro.props;
@@ -33,7 +33,7 @@ const articleJsonLd = toJsonLd(articleSchema({
 
 const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
   { name: 'Home', url: siteUrl },
-  { name: 'Blog', url: `${siteUrl}/blog` },
+  { name: 'Writing', url: `${siteUrl}/writing` },
   { name: title, url: canonicalUrl },
 ]));
 ---
@@ -64,7 +64,7 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
     </div>
 
     <footer class="post-footer">
-      <a href="/blog">&larr; Back to blog</a>
+      <a href="/writing">&larr; Back to writing</a>
     </footer>
     </article>
   </main>
@@ -79,12 +79,13 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
   .post-header {
     margin-bottom: 2rem;
     padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--current-line);
+    border-bottom: 1px solid var(--colour-border);
   }
 
   .post-header h1 {
-    font-size: 2.25rem;
+    font-size: var(--text-4xl);
     line-height: 1.2;
+    letter-spacing: -0.01em;
     margin-bottom: 0.75rem;
   }
 
@@ -109,7 +110,7 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
   .post-footer {
     margin-top: 3rem;
     padding-top: 1.5rem;
-    border-top: 1px solid var(--current-line);
+    border-top: 1px solid var(--colour-border);
   }
 
   .post-footer a {

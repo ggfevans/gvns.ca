@@ -38,22 +38,22 @@
   - [ ] Set up path aliases in tsconfig.json
   - [ ] Add Tailwind CSS integration
   - [ ] Add Svelte integration (for islands)
-  - [ ] Configure Shiki with Dracula theme
+  - [ ] Configure Shiki with GVNS theme
 - [ ] Create base layout structure
   - [ ] `BaseHead.astro` (meta, fonts, Umami script)
   - [ ] `BaseLayout.astro` (HTML wrapper, skip link)
   - [ ] `Header.astro` (navigation)
   - [ ] `Footer.astro`
 - [ ] Set up content collections
-  - [ ] Create `src/content/config.ts` with blog schema
-  - [ ] Create sample blog post for testing
+  - [ ] Create `src/content/config.ts` with writing/work schemas
+  - [ ] Create sample writing post for testing
 - [ ] Create page templates
-  - [ ] `PostLayout.astro` (blog post wrapper)
+  - [ ] `PostLayout.astro` (writing post wrapper)
   - [ ] `PageLayout.astro` (static pages)
 - [ ] Create core pages
   - [ ] Home (`/`)
-  - [ ] Blog listing (`/blog/`)
-  - [ ] Blog post (`/blog/[slug]/`)
+  - [ ] Writing listing (`/writing/`)
+  - [ ] Writing post (`/writing/[slug]/`)
   - [ ] About (`/about/`)
 - [ ] Add utility functions
   - [ ] Date formatting
@@ -66,7 +66,7 @@
 
 - [ ] Set up design tokens
   - [ ] Create `global.css` with CSS variables
-  - [ ] Configure Tailwind with Dracula colours
+  - [ ] Configure Tailwind with GVNS colours
 - [ ] Implement dark theme (default)
 - [ ] Add light theme toggle (Svelte island)
 - [ ] Style components
@@ -91,10 +91,10 @@
   - [ ] Bio section
   - [ ] Skills/experience
   - [ ] Contact info
-- [ ] Write 2-3 launch blog posts
+- [ ] Write 2-3 launch writing posts
 - [ ] Implement tag system
-  - [ ] Tag listing page (`/blog/tags/`)
-  - [ ] Tag filter page (`/blog/tags/[tag]/`)
+  - [ ] Tag listing page (`/writing/tags/`)
+  - [ ] Tag filter page (`/writing/tags/[tag]/`)
 - [ ] Add RSS feed (`/rss.xml`)
 - [ ] Add sitemap (`/sitemap.xml`)
 

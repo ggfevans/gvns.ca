@@ -32,7 +32,9 @@ const { title, description, image, imageWidth, imageHeight } = Astro.props;
   </head>
   <body>
     <a href="#main-content" class="skip-link">Skip to content</a>
+    <Header />
     <slot />
+    <Footer />
   </body>
 </html>
 
@@ -54,7 +56,7 @@ const { title, description, image, imageWidth, imageHeight } = Astro.props;
     left: 0;
     padding: 8px 16px;
     background: var(--color-accent-primary);
-    color: var(--background);
+    color: var(--color-bg-primary);
     z-index: 100;
   }
 

@@ -1,6 +1,6 @@
 # gvns.ca Content Schema
 
-## Blog Post Frontmatter
+## Writing Post Frontmatter
 
 ### Required Fields
 
@@ -97,37 +97,12 @@ Use **one primary tag** per post, plus 1-3 secondary tags.
 - Progressive learning paths
 - Project build logs
 
-### Series Frontmatter
-
-```yaml
-# Part 1
-series: "homelab-from-scratch"
-seriesOrder: 1
-
-# Part 2
-series: "homelab-from-scratch"
-seriesOrder: 2
-```
-
-### Series Display
-
-- Series navigation appears at top/bottom of posts
-- Series index page auto-generated at `/blog/series/[series-slug]`
-- Posts sorted by `seriesOrder`
-
-### Active Series
-
-| Slug | Title | Description |
-|------|-------|-------------|
-| `homelab-from-scratch` | Homelab from Scratch | Building a home server setup |
-| *(add as needed)* | | |
-
 ## Content Organisation
 
 ### File Structure
 
 ```
-src/content/blog/
+src/content/writing/
 ├── 2024/
 │   ├── 12/
 │   │   ├── my-first-post.md
@@ -147,7 +122,7 @@ src/content/blog/
 ### URL Generation
 
 Posts generate URLs from filename:
-- `src/content/blog/2024/12/my-first-post.md` → `/blog/my-first-post/`
+- `src/content/writing/2024/12/my-first-post.md` → `/writing/my-first-post/`
 - Date folders are for organisation only, not in URL
 
 ## Content Guidelines
@@ -189,7 +164,7 @@ Based on GVNS Brand Guide voice attributes:
 
 | Context | Level | Notes |
 |---------|-------|-------|
-| Blog posts | Full | Puns, metaphors, tangents, personality |
+| Writing posts | Full | Puns, metaphors, tangents, personality |
 | Tutorials | Medium | Dry wit, occasional asides |
 | Error states | Permission granted | "Well, that didn't work" > "An error occurred" |
 
@@ -228,7 +203,7 @@ Supports:
 // src/content/config.ts
 import { defineCollection, z } from 'astro:content';
 
-const blog = defineCollection({
+const writing = defineCollection({
   type: 'content',
   schema: ({ image }) => z.object({
     title: z.string().max(100),
@@ -236,16 +211,28 @@ const blog = defineCollection({
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
     tags: z.array(z.string()).min(1).max(4),
-    series: z.string().optional(),
-    seriesOrder: z.number().positive().optional(),
     draft: z.boolean().default(false),
     heroImage: image().optional(),
   }),
 });
 
-export const collections = { blog };
+const work = defineCollection({
+  type: 'content',
+  schema: ({ image }) => z.object({
+    title: z.string().max(100),
+    description: z.string().max(200),
+    url: z.string().url().optional(),
+    repo: z.string().url().optional(),
+    status: z.enum(['active', 'maintained', 'archived']),
+    tags: z.array(z.string()).min(1).max(6),
+    heroImage: image().optional(),
+    featured: z.boolean().default(false),
+  }),
+});
+
+export const collections = { writing, work };
 ```
 
 ---
 
-*Last updated: 2026-01-02*
+*Last updated: 2026-02-02*

@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import type { APIContext } from 'astro';
 
 export async function GET(context: APIContext) {
-  const posts = (await getCollection('blog'))
+  const posts = (await getCollection('writing'))
     .filter((post) => !post.data.draft)
     .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
@@ -15,13 +15,13 @@ export async function GET(context: APIContext) {
 
   return rss({
     title: 'gvns.ca',
-    description: 'Personal blog about homelab, web development, BJJ, and productivity.',
+    description: 'Writing about homelab, web development, BJJ, and productivity.',
     site: context.site || 'https://gvns.ca',
     items: posts.map((post) => ({
       title: post.data.title,
       pubDate: post.data.pubDate,
       description: post.data.description,
-      link: `/blog/${getFilename(post.slug)}/`,
+      link: `/writing/${getFilename(post.slug)}/`,
       categories: post.data.tags,
     })),
     customData: '<language>en-CA</language>',

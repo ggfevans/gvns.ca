@@ -14,7 +14,7 @@ Format inspired by [Architecture Decision Records (ADR)](https://adr.github.io/)
 **Status**: Accepted
 
 ### Context
-Needed to choose a framework for a content-first blog/portfolio site. Candidates considered:
+Needed to choose a framework for a content-first writing/work site. Candidates considered:
 - Astro
 - SvelteKit
 - Hugo
@@ -97,60 +97,57 @@ Self-host **Umami** on the same Linode VPS.
 
 ---
 
-## ADR-004: Dracula Theme as Design Foundation
+## ADR-004: GVNS Brand Guide Palette
 
 **Date**: 2024-12-09  
 **Status**: Accepted
 
 ### Context
 Needed a colour palette and design direction. Options:
-- Custom palette from scratch
+- Custom palette from brand guide
 - Existing theme (Dracula, Nord, Catppuccin, etc.)
 - Minimal/monochrome
 
 ### Decision
-Use **Dracula** colour palette as foundation with semantic token mappings.
+Use the **GVNS Brand Guide** palette (forest green + brass accents) with semantic token mappings.
 
 ### Rationale
-- Already familiar and comfortable with Dracula
-- Well-defined, complete palette
-- Good contrast ratios
-- Works well for code-heavy content
-- Has official light theme variant if needed
+- Brand-aligned and distinctive
+- Purpose-built for long-form reading and code
+- Consistent dark/light tokens
+- Clear accent hierarchy (green primary, brass warm)
 
 ### Consequences
-- Site will have a distinctive "dev" aesthetic
-- May not appeal to everyone (that's fine)
-- Consistent with terminal/editor theming preferences
+- Site reflects GVNS identity and tone
+- Requires token maintenance across components
+- Custom theme needed for code highlighting
 
 ---
 
-## ADR-005: System Font Stack
+## ADR-005: Self-Hosted Brand Fonts
 
 **Date**: 2024-12-09  
 **Status**: Accepted
 
 ### Context
 Needed to choose typography approach. Options:
-- Custom web fonts (Google Fonts, self-hosted)
-- System font stack
-- Variable fonts
+- Self-hosted web fonts
+- Google Fonts CDN
+- System font stack only
 
 ### Decision
-Use **system font stack** with no external font requests.
+Use **IBM Plex Sans** (400/500/600) and **JetBrains Mono** (400), self-hosted via @fontsource.
 
 ### Rationale
-- Zero additional HTTP requests
-- Instant text rendering (no FOIT/FOUT)
-- Native look on each platform
-- Smaller page weight
-- Good enough for a personal blog
+- Brand-aligned typography
+- Local hosting avoids third-party requests
+- Predictable rendering across platforms
+- Compatible with performance targets using `font-display: swap`
 
 ### Consequences
-- Less typographic distinctiveness
-- Fonts vary slightly across platforms
-- Can't use fancy display fonts
-- Simpler to maintain
+- Additional font assets in build
+- Must monitor page weight and FCP
+- Requires occasional font updates
 
 ---
 
