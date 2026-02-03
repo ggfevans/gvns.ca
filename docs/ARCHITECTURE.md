@@ -9,22 +9,26 @@
 | **Styling** | Tailwind CSS 4.x | Utility-first, design tokens via CSS variables |
 | **Content** | Astro Content Collections | Type-safe markdown with frontmatter validation |
 | **Code Highlighting** | Shiki | Built into Astro |
-| **Fonts** | IBM Plex Sans + JetBrains Mono | Self-hosted via @fontsource |
+| **Fonts** | Inter + JetBrains Mono | Self-hosted via @fontsource |
 
 ## Site Structure
 
 ```
 gvns.ca/
 ├── /                   # Home — intro + recent posts
-├── /writing/           # Writing index — all posts, filterable by tag
-├── /writing/[slug]/    # Individual post
-├── /writing/tags/      # Tag listing page
-├── /writing/tags/[tag]/# Posts filtered by tag
+├── /write/             # Write index — all posts, filterable by tag
+├── /write/[slug]/      # Individual post
+├── /write/tags/        # Tag listing page
+├── /write/tags/[tag]/  # Posts filtered by tag
 ├── /work/              # Project showcase
 ├── /work/[project]/    # Project detail
 ├── /about/             # About
 ├── /resume/            # Resume + PDF download
-├── /reading/           # Reading list (optional)
+├── /read/              # Reading list (Hardcover)
+├── /now/               # Now dashboard
+├── /listen/            # Listening activity (future)
+├── /watch/             # Watching activity (future)
+├── /code/              # Code activity (future)
 ├── /rss.xml            # RSS feed
 └── /sitemap.xml        # Auto-generated sitemap
 ```
@@ -127,19 +131,16 @@ npm run preview  # Preview production build
 
 ### Production Deploy
 
-**Method**: GitHub Actions → rsync to Linode
+**Method**: Cloudflare Pages (automatic on push to main)
 
 ```
 GitHub Push
     │
     ▼
-GitHub Actions
+Cloudflare Pages
     ├── npm ci
     ├── npm run build
-    └── rsync ./dist → Linode:/var/www/gvns
-    │
-    ▼
-Cloudflare (cache purge)
+    └── Deploy to edge network
     │
     ▼
 Live at gvns.ca
@@ -211,4 +212,4 @@ const { title, description = 'Default description' } = Astro.props;
 
 ---
 
-*Last updated: 2026-01-02*
+*Last updated: 2026-02-02*
