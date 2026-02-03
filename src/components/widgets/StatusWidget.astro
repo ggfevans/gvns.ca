@@ -1,0 +1,40 @@
+---
+const status = 'Open to freelance work';
+const isActive = true;
+---
+
+<article class="gvns-widget gvns-widget--status">
+  <div class="gvns-widget__label">Status</div>
+  <div class="gvns-widget__content">
+    <div class="gvns-status__row">
+      {isActive && <span class="gvns-status__pulse" aria-hidden="true" />}
+      <p class="gvns-widget__detail gvns-widget__detail--bold">{status}</p>
+    </div>
+  </div>
+</article>
+
+<style>
+  .gvns-widget--status {
+    border-left-color: var(--colour-p5-sky);
+  }
+
+  .gvns-status__row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .gvns-status__pulse {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--colour-p5-sky);
+    flex-shrink: 0;
+    animation: gvns-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes gvns-pulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 color-mix(in srgb, var(--colour-p5-sky) 40%, transparent); }
+    50% { opacity: 0.7; box-shadow: 0 0 0 6px transparent; }
+  }
+</style>

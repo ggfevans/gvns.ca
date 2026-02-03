@@ -1,0 +1,72 @@
+---
+import { relativeTime } from '@utils/format';
+
+interface WatchItem {
+  title: string;
+  type: string;
+  posterUrl?: string;
+  watchedAt?: string;
+}
+
+interface WatchingData {
+  lastUpdated: string | null;
+  recentlyWatched: WatchItem[];
+  stats: { moviesThisMonth: number; showsThisMonth: number };
+}
+
+let data: WatchingData = { lastUpdated: null, recentlyWatched: [], stats: { moviesThisMonth: 0, showsThisMonth: 0 } };
+try {
+  data = (await import('../../data/watching.json')).default as WatchingData;
+} catch { /* data unavailable */ }
+
+const latestWatch = data.recentlyWatched[0] ?? null;
+---
+
+<article class="gvns-widget gvns-widget--watch">
+  <div class="gvns-widget__label">Watch</div>
+  {latestWatch ? (
+    <div class="gvns-widget__content gvns-widget__content--row">
+      {latestWatch.posterUrl && (
+        <img
+          src={latestWatch.posterUrl}
+          alt={`Poster for ${latestWatch.title}`}
+          class="gvns-widget__poster"
+          width="48"
+          height="72"
+          loading="lazy"
+          decoding="async"
+        />
+      )}
+      <div>
+        <p class="gvns-widget__detail gvns-widget__detail--bold">{latestWatch.title}</p>
+        <p class="gvns-widget__meta">{latestWatch.type}</p>
+        {latestWatch.watchedAt && (
+          <time class="gvns-widget__time" datetime={latestWatch.watchedAt}>
+            {relativeTime(latestWatch.watchedAt)}
+          </time>
+        )}
+      </div>
+    </div>
+  ) : (
+    <p class="gvns-widget__empty">Nothing watched recently.</p>
+  )}
+  <a href="/watch" class="gvns-widget__link">
+    View Full Activity <span aria-hidden="true">&rarr;</span>
+  </a>
+</article>
+
+<style>
+  .gvns-widget--watch {
+    border-left-color: var(--colour-p4-amber);
+  }
+
+  .gvns-widget--watch .gvns-widget__link:hover {
+    color: var(--colour-p4-amber);
+  }
+
+  .gvns-widget__poster {
+    border-radius: 4px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+</style>
