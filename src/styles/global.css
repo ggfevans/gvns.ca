@@ -4,6 +4,7 @@
 @import "@fontsource/inter/700.css";
 @import "@fontsource/jetbrains-mono/400.css";
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 /* ============================================
    gvns.ca Design Tokens
@@ -86,7 +87,7 @@
 }
 
 /* Light Theme */
-[data-theme="light"] {
+:root:not(.dark) {
   --colour-bg-primary: #fafafa;       /* zinc-50 */
   --colour-bg-secondary: #ffffff;
   --colour-bg-tertiary: #f4f4f5;      /* zinc-100 */
