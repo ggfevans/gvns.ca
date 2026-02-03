@@ -5,6 +5,7 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import svelte from '@astrojs/svelte';
 import sitemap from '@astrojs/sitemap';
+import rehypeSlug from 'rehype-slug';
 
 const shikiTheme = JSON.parse(
   readFileSync(new URL('./src/styles/shiki-gvns.json', import.meta.url), 'utf-8')
@@ -17,9 +18,15 @@ export default defineConfig({
     shikiConfig: {
       theme: shikiTheme,
     },
+    rehypePlugins: [rehypeSlug],
   },
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    build: {
+      rollupOptions: {
+        external: ['/pagefind/pagefind-ui.js'],
+      },
+    },
   },
 
   integrations: [svelte(), sitemap()]

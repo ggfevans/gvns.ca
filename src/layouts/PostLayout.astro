@@ -1,6 +1,9 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import BaseLayout from './BaseLayout.astro';
+import Breadcrumb from '@components/Breadcrumb.astro';
+import ReadingProgress from '@components/ReadingProgress.svelte';
+import TableOfContents from '@components/TableOfContents.svelte';
 import TagList from '@components/TagList.astro';
 import { formatDate } from '@utils/date';
 import { getReadingTime } from '@utils/reading-time';
@@ -41,8 +44,14 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
 <BaseLayout title={`${title} | gvns.ca`} description={description} image={heroImageUrl} imageWidth={heroImageWidth} imageHeight={heroImageHeight}>
   <script type="application/ld+json" set:html={articleJsonLd} slot="head" />
   <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />
-  <main id="main-content">
+  <ReadingProgress client:idle />
+  <main id="main-content" data-pagefind-body>
     <article class="post">
+    <Breadcrumb items={[
+      { label: 'Home', href: '/' },
+      { label: 'Write', href: '/write' },
+      { label: title },
+    ]} />
     <header class="post-header">
       <h1>{title}</h1>
       <div class="post-meta">
@@ -58,6 +67,8 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
       </div>
       <TagList tags={tags} />
     </header>
+
+    <TableOfContents client:idle />
 
     <div class="prose">
       <slot />
