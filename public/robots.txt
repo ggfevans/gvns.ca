@@ -1,0 +1,3 @@
+User-agent: *
+
+Sitemap: https://gvns.ca/sitemap-index.xml
