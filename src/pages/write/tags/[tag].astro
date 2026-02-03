@@ -36,9 +36,9 @@ const { tag, posts } = Astro.props;
 const siteUrl = normalizeSiteUrl(Astro.site);
 const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
   { name: 'Home', url: siteUrl },
-  { name: 'Writing', url: `${siteUrl}/writing` },
-  { name: 'Tags', url: `${siteUrl}/writing/tags` },
-  { name: tag, url: `${siteUrl}/writing/tags/${encodeURIComponent(tag)}` },
+  { name: 'Write', url: `${siteUrl}/write` },
+  { name: 'Tags', url: `${siteUrl}/write/tags` },
+  { name: tag, url: `${siteUrl}/write/tags/${encodeURIComponent(tag)}` },
 ]));
 ---
 
@@ -49,7 +49,7 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
   <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />
   <main id="main-content" class="tag-page">
     <header>
-      <a href="/writing/tags" class="back-link">&larr; All tags</a>
+      <a href="/write/tags" class="back-link">&larr; All tags</a>
       <h1>Posts tagged: <span class="tag-name">{tag}</span></h1>
       <p class="count">{posts.length} post{posts.length !== 1 ? 's' : ''}</p>
     </header>

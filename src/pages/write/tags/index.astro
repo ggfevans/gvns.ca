@@ -23,8 +23,8 @@ const sortedTags = [...tagCounts.entries()].sort((a, b) =>
 const siteUrl = normalizeSiteUrl(Astro.site);
 const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
   { name: 'Home', url: siteUrl },
-  { name: 'Writing', url: `${siteUrl}/writing` },
-  { name: 'Tags', url: `${siteUrl}/writing/tags` },
+  { name: 'Write', url: `${siteUrl}/write` },
+  { name: 'Tags', url: `${siteUrl}/write/tags` },
 ]));
 ---
 
@@ -41,7 +41,7 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
       <ul class="tag-list">
         {sortedTags.map(([tag, count]) => (
           <li>
-            <a href={`/writing/tags/${tag}`} class="tag-link">
+            <a href={`/write/tags/${tag}`} class="tag-link">
               <span class="tag-name">{tag}</span>
               <span class="tag-count">({count})</span>
             </a>

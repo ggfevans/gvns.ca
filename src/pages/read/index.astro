@@ -5,12 +5,12 @@ import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
 const siteUrl = normalizeSiteUrl(Astro.site);
 const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
   { name: 'Home', url: siteUrl },
-  { name: 'Reading', url: `${siteUrl}/reading` },
+  { name: 'Read', url: `${siteUrl}/read` },
 ]));
 ---
 
 <PageLayout
-  title="Reading"
+  title="Read"
   description="Books, notes, and the occasional rabbit hole."
 >
   <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />

@@ -33,7 +33,7 @@ const articleJsonLd = toJsonLd(articleSchema({
 
 const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
   { name: 'Home', url: siteUrl },
-  { name: 'Writing', url: `${siteUrl}/writing` },
+  { name: 'Write', url: `${siteUrl}/write` },
   { name: title, url: canonicalUrl },
 ]));
 ---
@@ -64,7 +64,7 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
     </div>
 
     <footer class="post-footer">
-      <a href="/writing">&larr; Back to writing</a>
+      <a href="/write">&larr; Back to writing</a>
     </footer>
     </article>
   </main>

@@ -11,17 +11,17 @@ const posts = (await getCollection('writing'))
 const siteUrl = normalizeSiteUrl(Astro.site);
 const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
   { name: 'Home', url: siteUrl },
-  { name: 'Writing', url: `${siteUrl}/writing` },
+  { name: 'Write', url: `${siteUrl}/write` },
 ]));
 ---
 
 <BaseLayout
-  title="Writing | gvns.ca"
+  title="Write | gvns.ca"
   description="Thoughts on homelab, web development, BJJ, and productivity."
 >
   <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />
   <main id="main-content" class="writing-listing">
-    <h1>Writing</h1>
+    <h1>Write</h1>
     <p class="intro">
       Thoughts on homelab, web development, BJJ, and productivity.
     </p>
