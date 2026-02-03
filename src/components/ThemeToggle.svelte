@@ -18,6 +18,7 @@
       document.documentElement.classList.remove('dark');
     }
     localStorage.setItem('theme', theme);
+    (window as any).__theme = theme;
   }
 </script>
 
