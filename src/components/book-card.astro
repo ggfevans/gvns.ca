@@ -35,8 +35,8 @@ const formattedDate = dateFinished
   : null;
 ---
 
-<article class="book-card">
-  <div class="book-cover">
+<article class="gvns-book-card">
+  <div class="gvns-book-cover">
     {coverUrl ? (
       <img
         src={coverUrl}
@@ -47,43 +47,43 @@ const formattedDate = dateFinished
         decoding="async"
       />
     ) : (
-      <div class="cover-fallback" aria-hidden="true">
-        <span class="cover-icon">&#128214;</span>
+      <div class="gvns-cover-fallback" aria-hidden="true">
+        <span class="gvns-cover-icon">&#128214;</span>
       </div>
     )}
   </div>
-  <div class="book-info">
+  <div class="gvns-book-info">
     {hardcoverUrl ? (
-      <a href={hardcoverUrl} class="book-title-link" target="_blank" rel="noopener noreferrer">
-        <h3 class="book-title">{title}</h3>
+      <a href={hardcoverUrl} class="gvns-book-title-link" target="_blank" rel="noopener noreferrer">
+        <h3 class="gvns-book-title">{title}</h3>
       </a>
     ) : (
-      <h3 class="book-title">{title}</h3>
+      <h3 class="gvns-book-title">{title}</h3>
     )}
-    <p class="book-author">{author}</p>
+    <p class="gvns-book-author">{author}</p>
     {showRating && stars.length > 0 && (
-      <div class="book-rating" aria-label={`${rating} out of 5 stars`}>
+      <div class="gvns-book-rating" aria-label={`${rating} out of 5 stars`}>
         {stars.map((star) => (
-          <span class:list={['star', { filled: star === '\u2605' }]}>{star}</span>
+          <span class:list={['gvns-star', { 'gvns-star--filled': star === '\u2605' }]}>{star}</span>
         ))}
       </div>
     )}
     {showProgress && typeof progress === 'number' && (
-      <div class="book-progress">
-        <div class="progress-bar">
-          <div class="progress-fill" style={`width: ${Math.min(progress, 100)}%`} />
+      <div class="gvns-book-progress">
+        <div class="gvns-progress-bar">
+          <div class="gvns-progress-fill" style={`width: ${Math.min(progress, 100)}%`} />
         </div>
-        <span class="progress-text">{progress}%</span>
+        <span class="gvns-progress-text">{progress}%</span>
       </div>
     )}
     {formattedDate && (
-      <p class="book-date">{formattedDate}</p>
+      <p class="gvns-book-date">{formattedDate}</p>
     )}
   </div>
 </article>
 
 <style>
-  .book-card {
+  .gvns-book-card {
     display: flex;
     gap: var(--space-4);
     padding: var(--space-4);
@@ -93,11 +93,11 @@ const formattedDate = dateFinished
     transition: border-color var(--transition-fast);
   }
 
-  .book-card:hover {
+  .gvns-book-card:hover {
     border-color: var(--colour-p2-rose);
   }
 
-  .book-cover {
+  .gvns-book-cover {
     flex-shrink: 0;
     width: 80px;
     height: 120px;
@@ -105,13 +105,13 @@ const formattedDate = dateFinished
     overflow: hidden;
   }
 
-  .book-cover img {
+  .gvns-book-cover img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
 
-  .cover-fallback {
+  .gvns-cover-fallback {
     width: 100%;
     height: 100%;
     display: flex;
@@ -121,29 +121,29 @@ const formattedDate = dateFinished
     border-radius: 4px;
   }
 
-  .cover-icon {
+  .gvns-cover-icon {
     font-size: var(--text-2xl);
     opacity: 0.4;
   }
 
-  .book-info {
+  .gvns-book-info {
     display: flex;
     flex-direction: column;
     gap: var(--space-1);
     min-width: 0;
   }
 
-  .book-title-link {
+  .gvns-book-title-link {
     text-decoration: none;
     color: inherit;
     transition: color var(--transition-fast);
   }
 
-  .book-title-link:hover {
+  .gvns-book-title-link:hover {
     color: var(--colour-p2-rose);
   }
 
-  .book-title {
+  .gvns-book-title {
     font-size: var(--text-base);
     font-weight: 600;
     line-height: 1.3;
@@ -155,34 +155,34 @@ const formattedDate = dateFinished
     -webkit-box-orient: vertical;
   }
 
-  .book-author {
+  .gvns-book-author {
     font-size: var(--text-sm);
     color: var(--colour-text-secondary);
     margin: 0;
   }
 
-  .book-rating {
+  .gvns-book-rating {
     display: flex;
     gap: 2px;
     font-size: var(--text-sm);
   }
 
-  .star {
+  .gvns-star {
     color: var(--colour-text-muted);
   }
 
-  .star.filled {
+  .gvns-star--filled {
     color: var(--colour-p2-rose);
   }
 
-  .book-progress {
+  .gvns-book-progress {
     display: flex;
     align-items: center;
     gap: var(--space-2);
     margin-top: var(--space-1);
   }
 
-  .progress-bar {
+  .gvns-progress-bar {
     flex: 1;
     height: 6px;
     background: var(--colour-bg-tertiary);
@@ -190,21 +190,21 @@ const formattedDate = dateFinished
     overflow: hidden;
   }
 
-  .progress-fill {
+  .gvns-progress-fill {
     height: 100%;
     background: var(--colour-p2-rose);
     border-radius: 3px;
     transition: width var(--transition-base);
   }
 
-  .progress-text {
+  .gvns-progress-text {
     font-size: var(--text-xs);
     font-family: var(--font-mono);
     color: var(--colour-text-secondary);
     white-space: nowrap;
   }
 
-  .book-date {
+  .gvns-book-date {
     font-size: var(--text-xs);
     color: var(--colour-text-muted);
     margin: 0;

@@ -3,10 +3,27 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 import Breadcrumb from '@components/Breadcrumb.astro';
 import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
 
-let watchingData = { lastUpdated: null as string | null, recentlyWatched: [] as any[], stats: { moviesThisMonth: 0, showsThisMonth: 0 } };
+interface WatchItem {
+  title: string;
+  type: 'movie' | 'show';
+  posterUrl?: string;
+  url?: string;
+  rating?: number;
+  watchedDate?: string;
+}
+
+interface WatchingData {
+  lastUpdated: string | null;
+  recentlyWatched: WatchItem[];
+  stats: { moviesThisMonth: number; showsThisMonth: number };
+}
+
+let watchingData: WatchingData = { lastUpdated: null, recentlyWatched: [], stats: { moviesThisMonth: 0, showsThisMonth: 0 } };
 try {
-  watchingData = (await import('../../data/watching.json')).default as typeof watchingData;
-} catch {}
+  watchingData = (await import('../../data/watching.json')).default as WatchingData;
+} catch (e) {
+  if (import.meta.env.DEV) console.error('Failed to load watching data:', e);
+}
 
 const hasData = watchingData.recentlyWatched.length > 0;
 
@@ -49,7 +66,7 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
 
     {hasData && (
       <section class="watch-grid">
-        {watchingData.recentlyWatched.map((item: any) => (
+        {watchingData.recentlyWatched.map((item) => (
           <article class="watch-card">
             <div class="poster-wrapper">
               {item.posterUrl ? (

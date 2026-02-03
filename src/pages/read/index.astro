@@ -1,14 +1,32 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Breadcrumb from '@components/Breadcrumb.astro';
-import BookList from '@components/BookList.astro';
+import BookList from '@components/book-list.astro';
 import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
 
-// Read data at build time
-let readingData = { lastUpdated: null as string | null, currentlyReading: [] as any[], finished: [] as any[], wantToRead: [] as any[] };
+interface Book {
+  title: string;
+  author: string;
+  coverUrl?: string;
+  hardcoverUrl?: string;
+  rating?: number;
+  progress?: number;
+  dateFinished?: string;
+}
+
+interface ReadingData {
+  lastUpdated: string | null;
+  currentlyReading: Book[];
+  finished: Book[];
+  wantToRead: Book[];
+}
+
+let readingData: ReadingData = { lastUpdated: null, currentlyReading: [], finished: [], wantToRead: [] };
 try {
-  readingData = (await import('../../data/reading.json')).default as typeof readingData;
-} catch {}
+  readingData = (await import('../../data/reading.json')).default as ReadingData;
+} catch (e) {
+  if (import.meta.env.DEV) console.error('Failed to load reading data:', e);
+}
 
 const hasData = readingData.currentlyReading.length > 0 || readingData.finished.length > 0 || readingData.wantToRead.length > 0;
 

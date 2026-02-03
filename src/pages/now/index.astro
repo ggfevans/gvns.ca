@@ -14,29 +14,11 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
   description="What I'm up to right now."
 >
   <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />
-  <p class="intro">
+  <p class="text-lg text-zinc-400 leading-relaxed">
     Dashboard coming soon. In the meantime, check out what I'm
-    <a href="/read">reading</a>,
-    <a href="/listen">listening to</a>,
-    <a href="/code">coding</a>, and
-    <a href="/watch">watching</a>.
+    <a href="/read" class="text-violet-500 no-underline transition-colors hover:text-violet-400">reading</a>,
+    <a href="/listen" class="text-violet-500 no-underline transition-colors hover:text-violet-400">listening to</a>,
+    <a href="/code" class="text-violet-500 no-underline transition-colors hover:text-violet-400">coding</a>, and
+    <a href="/watch" class="text-violet-500 no-underline transition-colors hover:text-violet-400">watching</a>.
   </p>
 </PageLayout>
-
-<style>
-  .intro {
-    font-size: var(--text-lg);
-    color: var(--colour-text-secondary);
-    line-height: 1.7;
-  }
-
-  .intro a {
-    color: var(--colour-accent-primary);
-    text-decoration: none;
-    transition: color var(--transition-fast);
-  }
-
-  .intro a:hover {
-    color: var(--colour-accent-hover);
-  }
-</style>
