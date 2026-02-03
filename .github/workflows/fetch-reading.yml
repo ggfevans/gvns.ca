@@ -52,22 +52,24 @@ jobs:
             --argjson userId "$HARDCOVER_USER_ID" \
             '{ query: $query, variables: { userId: $userId } }')
 
-          RESPONSE=$(curl -sf \
+          HTTP_CODE=$(curl -s -o /tmp/hc_response.json -w "%{http_code}" \
             -X POST \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer ${HARDCOVER_TOKEN}" \
             -d "$PAYLOAD" \
             "https://api.hardcover.app/v1/graphql")
 
-          if [ $? -ne 0 ]; then
-            echo "Error: Hardcover API request failed"
+          if [ "$HTTP_CODE" -ne 200 ]; then
+            echo "Error: Hardcover API returned HTTP $HTTP_CODE"
             exit 1
           fi
 
+          RESPONSE=$(cat /tmp/hc_response.json)
+          rm -f /tmp/hc_response.json
+
           # Validate response has data
           if ! echo "$RESPONSE" | jq -e '.data.user_books' > /dev/null 2>&1; then
-            echo "Error: Invalid response from Hardcover API"
-            echo "$RESPONSE" | jq '.' 2>/dev/null || echo "$RESPONSE"
+            echo "Error: Invalid response structure from Hardcover API"
             exit 1
           fi
 

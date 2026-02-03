@@ -32,6 +32,18 @@ export function truncate(str: string, max: number): string {
   return str.slice(0, max).trimEnd() + '\u2026';
 }
 
+/** Validate a URL is safe to use as an href (http/https only). Returns undefined for invalid URLs. */
+export function safeUrl(url: string | undefined | null): string | undefined {
+  if (!url) return undefined;
+  try {
+    const parsed = new URL(url);
+    if (parsed.protocol === 'http:' || parsed.protocol === 'https:') return url;
+  } catch {
+    // invalid URL
+  }
+  return undefined;
+}
+
 /** Format an ISO date string to a long human-readable timestamp. */
 export function formatTimestamp(dateString: string): string {
   return new Date(dateString).toLocaleString('en-CA', {

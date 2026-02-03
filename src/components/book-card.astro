@@ -1,4 +1,6 @@
 ---
+import { safeUrl } from '@utils/format';
+
 interface Props {
   title: string;
   author: string;
@@ -59,8 +61,8 @@ if (dateFinished) {
     )}
   </div>
   <div class="gvns-book-info">
-    {hardcoverUrl ? (
-      <a href={hardcoverUrl} class="gvns-book-title-link" target="_blank" rel="noopener noreferrer">
+    {safeUrl(hardcoverUrl) ? (
+      <a href={safeUrl(hardcoverUrl)!} class="gvns-book-title-link" target="_blank" rel="noopener noreferrer">
         <h3 class="gvns-book-title">{title}</h3>
       </a>
     ) : (

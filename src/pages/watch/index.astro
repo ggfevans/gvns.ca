@@ -2,6 +2,7 @@
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Breadcrumb from '@components/Breadcrumb.astro';
 import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
+import { safeUrl } from '@utils/format';
 
 interface WatchItem {
   title: string;
@@ -82,7 +83,7 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
             </div>
             <div class="watch-card-body">
               <h3 class="watch-card-title">
-                {item.url ? <a href={item.url}>{item.title}</a> : item.title}
+                {safeUrl(item.url) ? <a href={safeUrl(item.url)!}>{item.title}</a> : item.title}
               </h3>
               {item.rating != null && (() => {
                 const r = Number(item.rating);

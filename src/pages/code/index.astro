@@ -2,7 +2,7 @@
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Breadcrumb from '@components/Breadcrumb.astro';
 import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
-import { relativeTime, truncate, formatTimestamp } from '@utils/format';
+import { relativeTime, truncate, formatTimestamp, safeUrl } from '@utils/format';
 
 interface Commit {
   repo: string;
@@ -90,7 +90,7 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
                 <li class="commit-item">
                   <div class="commit-dot" aria-hidden="true" />
                   <div class="commit-content">
-                    <a href={commit.url} class="commit-repo" target="_blank" rel="noopener noreferrer">
+                    <a href={safeUrl(commit.url) ?? '#'} class="commit-repo" target="_blank" rel="noopener noreferrer">
                       {commit.repo}
                     </a>
                     <span class="commit-message">{truncate(commit.message, 72)}</span>
@@ -110,7 +110,7 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
             <h2>Repositories</h2>
             <div class="repo-grid">
               {githubData.repositories.map((repo) => (
-                <a href={repo.url} class="repo-card" target="_blank" rel="noopener noreferrer">
+                <a href={safeUrl(repo.url) ?? '#'} class="repo-card" target="_blank" rel="noopener noreferrer">
                   <h3 class="repo-name">{repo.name}</h3>
                   {repo.description && (
                     <p class="repo-description">{truncate(repo.description, 100)}</p>
