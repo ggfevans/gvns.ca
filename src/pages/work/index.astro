@@ -18,6 +18,7 @@ const projects = (await getCollection('work'))
   title="Work"
   description="Shipped projects, experiments, and tools."
   accent="p1-violet"
+  breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Work' }]}
 >
   <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />
   <p>

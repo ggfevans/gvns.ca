@@ -32,6 +32,7 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
   title="Tags | gvns.ca"
   description="Browse all writing tags."
   accent="p4-amber"
+  breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Write', href: '/write' }, { label: 'Tags' }]}
 >
   <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />
   <main id="main-content" class="gvns-tags">

@@ -5,12 +5,13 @@ interface Props {
   title: string;
   description?: string;
   accent?: 'p1-violet' | 'p2-rose' | 'p3-emerald' | 'p4-amber' | 'p5-sky' | 'neutral';
+  breadcrumbs?: { label: string; href?: string }[];
 }
 
-const { title, description, accent } = Astro.props;
+const { title, description, accent, breadcrumbs } = Astro.props;
 ---
 
-<BaseLayout title={`${title} | gvns.ca`} description={description || title} accent={accent}>
+<BaseLayout title={`${title} | gvns.ca`} description={description || title} accent={accent} breadcrumbs={breadcrumbs}>
   <slot name="head" slot="head" />
   <main id="main-content" class="page" data-pagefind-body>
     <header class="page-header">

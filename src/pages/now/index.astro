@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
-import Breadcrumb from '@components/Breadcrumb.astro';
 import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
 import CodeWidget from '@components/widgets/CodeWidget.astro';
 import ReadWidget from '@components/widgets/ReadWidget.astro';
@@ -20,16 +19,12 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
   title="Now | gvns.ca"
   description="What I'm up to right now — code, reading, music, and more."
   accent="p5-sky"
+  breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Now' }]}
 >
   <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />
 
   <main id="main-content" class="gvns-now" data-pagefind-body>
     <div class="gvns-now__container">
-      <Breadcrumb items={[
-        { label: 'Home', href: '/' },
-        { label: 'Now' },
-      ]} />
-
       <header class="gvns-now__header">
         <h1>Now</h1>
         <p class="gvns-now__subtitle">What I'm up to right now.</p>

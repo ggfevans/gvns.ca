@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
-import Breadcrumb from '@components/Breadcrumb.astro';
 import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
 import { relativeTime, isValidMbid } from '@utils/format';
 
@@ -102,17 +101,12 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
   title="Listen | gvns.ca"
   description="Tracking my music via ListenBrainz."
   accent="p3-emerald"
+  breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Now', href: '/now' }, { label: 'Listen' }]}
 >
   <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />
 
   <main id="main-content" data-pagefind-body>
     <div class="gvns-listen-container">
-      <Breadcrumb items={[
-        { label: 'Home', href: '/' },
-        { label: 'Now', href: '/now' },
-        { label: 'Listen' },
-      ]} />
-
       <header class="gvns-listen-header">
         <h1>Listen</h1>
         <p class="gvns-listen-subtitle">Tracking my music via ListenBrainz.</p>

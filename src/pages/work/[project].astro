@@ -30,7 +30,7 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
 ]));
 ---
 
-<PageLayout title={title} description={description} accent="p1-violet">
+<PageLayout title={title} description={description} accent="p1-violet" breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Work', href: '/work' }, { label: title }]}>
   <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />
   <header class="work-header">
     <div class="title-row">

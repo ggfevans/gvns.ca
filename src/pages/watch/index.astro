@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
-import Breadcrumb from '@components/Breadcrumb.astro';
 import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
 import { safeUrl } from '@utils/format';
 
@@ -36,16 +35,10 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
 ]));
 ---
 
-<BaseLayout title="Watch | gvns.ca" description="Movies and shows I've been watching." accent="p4-amber">
+<BaseLayout title="Watch | gvns.ca" description="Movies and shows I've been watching." accent="p4-amber" breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Now', href: '/now' }, { label: 'Watch' }]}>
   <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />
 
   <main id="main-content" class="gvns-watch" data-pagefind-body>
-    <Breadcrumb items={[
-      { label: 'Home', href: '/' },
-      { label: 'Now', href: '/now' },
-      { label: 'Watch' },
-    ]} />
-
     <header class="gvns-watch__header">
       <h1 class="gvns-watch__title">Watch</h1>
       <p class="gvns-watch__subtitle">Movies and shows I've been watching, tracked on <a href="https://trakt.tv/users/gvns" class="gvns-watch__trakt-link" target="_blank" rel="noopener noreferrer">Trakt</a>.</p>

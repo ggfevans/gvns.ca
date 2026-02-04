@@ -1,13 +1,13 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import BaseLayout from './BaseLayout.astro';
-import Breadcrumb from '@components/Breadcrumb.astro';
 import ReadingProgress from '@components/ReadingProgress.svelte';
 import TableOfContents from '@components/TableOfContents.svelte';
 import TagList from '@components/TagList.astro';
 import { formatDate } from '@utils/date';
 import { getReadingTime } from '@utils/reading-time';
 import { articleSchema, breadcrumbSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
+import CopyCodeInit from '@components/CopyCodeInit.astro';
 
 interface Props {
   post: CollectionEntry<'writing'>;
@@ -41,17 +41,12 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
 ]));
 ---
 
-<BaseLayout title={`${title} | gvns.ca`} description={description} image={heroImageUrl} imageWidth={heroImageWidth} imageHeight={heroImageHeight} accent="p4-amber">
+<BaseLayout title={`${title} | gvns.ca`} description={description} image={heroImageUrl} imageWidth={heroImageWidth} imageHeight={heroImageHeight} accent="p4-amber" breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Write', href: '/write' }, { label: title }]}>
   <script type="application/ld+json" set:html={articleJsonLd} slot="head" />
   <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />
   <ReadingProgress client:idle />
   <main id="main-content" data-pagefind-body>
     <article class="post">
-    <Breadcrumb items={[
-      { label: 'Home', href: '/' },
-      { label: 'Write', href: '/write' },
-      { label: title },
-    ]} />
     <header class="post-header">
       <h1>{title}</h1>
       <div class="post-meta">
@@ -73,6 +68,7 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
     <div class="prose">
       <slot />
     </div>
+    <CopyCodeInit />
 
     <footer class="post-footer">
       <a href="/write">&larr; Back to writing</a>

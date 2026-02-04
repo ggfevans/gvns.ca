@@ -11,9 +11,10 @@ interface Props {
   imageWidth?: number;
   imageHeight?: number;
   accent?: 'p1-violet' | 'p2-rose' | 'p3-emerald' | 'p4-amber' | 'p5-sky' | 'neutral';
+  breadcrumbs?: { label: string; href?: string }[];
 }
 
-const { title, description, image, imageWidth, imageHeight, accent } = Astro.props;
+const { title, description, image, imageWidth, imageHeight, accent, breadcrumbs } = Astro.props;
 ---
 
 <!doctype html>
@@ -38,7 +39,7 @@ const { title, description, image, imageWidth, imageHeight, accent } = Astro.pro
   </head>
   <body>
     <a href="#main-content" class="skip-link">Skip to content</a>
-    <Header />
+    <Header breadcrumbs={breadcrumbs} />
     <slot />
     <Footer />
   </body>

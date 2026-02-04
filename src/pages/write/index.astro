@@ -19,6 +19,7 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
   title="Write | gvns.ca"
   description="Thoughts on homelab, web development, BJJ, and productivity."
   accent="p4-amber"
+  breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Write' }]}
 >
   <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />
   <main id="main-content" class="writing-listing">
