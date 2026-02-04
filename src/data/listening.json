@@ -1,15 +1,136 @@
 {
-  "lastUpdated": null,
-  "recentListens": [],
+  "lastUpdated": "2026-02-04T05:12:50Z",
+  "recentListens": [
+    {
+      "track": "Elegy",
+      "artist": "Tycho",
+      "album": "Dive",
+      "listenedAt": "2026-02-03T06:45:38Z",
+      "caaReleaseMbid": "5d4bf97e-95cf-4085-bbfb-4cad7123e461",
+      "caaId": 4693168938,
+      "recordingMbid": "9909e8a4-eed4-4a9f-ac5f-2525e07e14c6",
+      "artistMbids": [
+        "cbef45a9-7acb-4325-94c9-70081ac8d1b8"
+      ]
+    },
+    {
+      "track": "Elegy",
+      "artist": "Tycho",
+      "album": "Dive",
+      "listenedAt": "2026-02-03T06:11:53Z",
+      "caaReleaseMbid": "5d4bf97e-95cf-4085-bbfb-4cad7123e461",
+      "caaId": 4693168938,
+      "recordingMbid": "9909e8a4-eed4-4a9f-ac5f-2525e07e14c6",
+      "artistMbids": [
+        "cbef45a9-7acb-4325-94c9-70081ac8d1b8"
+      ]
+    },
+    {
+      "track": "Epigram",
+      "artist": "Tycho",
+      "album": "Dive",
+      "listenedAt": "2026-02-03T06:09:23Z",
+      "caaReleaseMbid": "5d4bf97e-95cf-4085-bbfb-4cad7123e461",
+      "caaId": 4693168938,
+      "recordingMbid": "a9e1c5e2-7bf0-47b5-9881-6d4a853ce518",
+      "artistMbids": [
+        "cbef45a9-7acb-4325-94c9-70081ac8d1b8"
+      ]
+    },
+    {
+      "track": "Adrift",
+      "artist": "Tycho",
+      "album": "Dive",
+      "listenedAt": "2026-02-03T06:03:20Z",
+      "caaReleaseMbid": "5d4bf97e-95cf-4085-bbfb-4cad7123e461",
+      "caaId": 4693168938,
+      "recordingMbid": "262e1594-d7ae-48eb-978c-2514dd6d34e1",
+      "artistMbids": [
+        "cbef45a9-7acb-4325-94c9-70081ac8d1b8"
+      ]
+    },
+    {
+      "track": "Melanine",
+      "artist": "Tycho",
+      "album": "Dive",
+      "listenedAt": "2026-02-03T06:00:26Z",
+      "caaReleaseMbid": "5d4bf97e-95cf-4085-bbfb-4cad7123e461",
+      "caaId": 4693168938,
+      "recordingMbid": "bf1c34a9-d9b4-4a76-943c-0a55b6579e52",
+      "artistMbids": [
+        "cbef45a9-7acb-4325-94c9-70081ac8d1b8"
+      ]
+    },
+    {
+      "track": "Ascension",
+      "artist": "Tycho",
+      "album": "Dive",
+      "listenedAt": "2026-02-03T05:56:00Z",
+      "caaReleaseMbid": "5d4bf97e-95cf-4085-bbfb-4cad7123e461",
+      "caaId": 4693168938,
+      "recordingMbid": "86588318-2ef2-40b3-bb30-e5907b60aaa5",
+      "artistMbids": [
+        "cbef45a9-7acb-4325-94c9-70081ac8d1b8"
+      ]
+    },
+    {
+      "track": "Coastal Brake",
+      "artist": "Tycho",
+      "album": "Dive",
+      "listenedAt": "2026-02-03T05:50:25Z",
+      "caaReleaseMbid": "5d4bf97e-95cf-4085-bbfb-4cad7123e461",
+      "caaId": 4693168938,
+      "recordingMbid": "d916853e-8aeb-48f2-96d6-4bd202b40d63",
+      "artistMbids": [
+        "cbef45a9-7acb-4325-94c9-70081ac8d1b8"
+      ]
+    },
+    {
+      "track": "Dive",
+      "artist": "Tycho",
+      "album": "Dive",
+      "listenedAt": "2026-02-03T05:42:03Z",
+      "caaReleaseMbid": "5d4bf97e-95cf-4085-bbfb-4cad7123e461",
+      "caaId": 4693168938,
+      "recordingMbid": "f35804dc-4fbc-407f-9e97-3d27c32eab5b",
+      "artistMbids": [
+        "cbef45a9-7acb-4325-94c9-70081ac8d1b8"
+      ]
+    },
+    {
+      "track": "Daydream",
+      "artist": "Tycho",
+      "album": "Dive",
+      "listenedAt": "2026-02-03T05:36:29Z",
+      "caaReleaseMbid": "5d4bf97e-95cf-4085-bbfb-4cad7123e461",
+      "caaId": 4693168938,
+      "recordingMbid": "1e733373-3daf-42c8-9272-e7f1fa96c0fc",
+      "artistMbids": [
+        "cbef45a9-7acb-4325-94c9-70081ac8d1b8"
+      ]
+    },
+    {
+      "track": "Hours",
+      "artist": "Tycho",
+      "album": "Dive",
+      "listenedAt": "2026-02-03T05:30:43Z",
+      "caaReleaseMbid": "5d4bf97e-95cf-4085-bbfb-4cad7123e461",
+      "caaId": 4693168938,
+      "recordingMbid": "a5b7507a-8f3e-4a1f-a7f0-5c82f4b37a9f",
+      "artistMbids": [
+        "cbef45a9-7acb-4325-94c9-70081ac8d1b8"
+      ]
+    }
+  ],
   "recentListensStatus": "ok",
   "topArtists": [],
-  "topArtistsStatus": "ok",
+  "topArtistsStatus": "no_data",
   "topTracks": [],
-  "topTracksStatus": "ok",
+  "topTracksStatus": "no_data",
   "topAlbums": [],
-  "topAlbumsStatus": "ok",
+  "topAlbumsStatus": "no_data",
   "stats": {
-    "totalListenCount": null,
+    "totalListenCount": 131086,
     "range": "this_month",
     "artistCount": null,
     "albumCount": null,
