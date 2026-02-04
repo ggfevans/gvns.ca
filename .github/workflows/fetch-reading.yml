@@ -15,6 +15,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Fetch Hardcover data
+        id: fetch
         env:
           HARDCOVER_TOKEN: ${{ secrets.HARDCOVER_TOKEN }}
           HARDCOVER_USER_ID: ${{ secrets.HARDCOVER_USER_ID }}
@@ -71,6 +72,7 @@ jobs:
           if echo "$RESPONSE" | jq -e '.errors' > /dev/null 2>&1; then
             echo "Error: GraphQL errors from Hardcover API"
             echo "$RESPONSE" | jq -r '.errors[].message' 2>/dev/null
+            echo "Full error details: $(echo "$RESPONSE" | jq '.errors' 2>/dev/null)"
             exit 1
           fi
 
@@ -128,9 +130,26 @@ jobs:
           }'
 
       - name: Commit and push if changed
+        if: steps.fetch.outcome == 'success' && hashFiles('src/data/reading.json') != ''
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add src/data/reading.json
-          git diff --staged --quiet || git commit -m "chore: update reading data"
-          git push
+          if ! git diff --staged --quiet; then
+            git commit -m "chore: update reading data"
+
+            MAX_RETRIES=3
+            for i in $(seq 1 $MAX_RETRIES); do
+              if git push 2>&1; then
+                echo "Push succeeded on attempt $i"
+                exit 0
+              fi
+              echo "::warning::git push failed (attempt $i/$MAX_RETRIES)"
+              sleep $((i * 5))
+            done
+
+            echo "::error::git push failed after $MAX_RETRIES attempts"
+            exit 1
+          else
+            echo "No changes to commit"
+          fi
