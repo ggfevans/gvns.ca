@@ -46,6 +46,7 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
 <BaseLayout
   title={`Posts tagged "${tag}" | gvns.ca`}
   description={`All writing posts tagged with ${tag}.`}
+  accent="p4-amber"
 >
   <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />
   <main id="main-content" class="tag-page">
