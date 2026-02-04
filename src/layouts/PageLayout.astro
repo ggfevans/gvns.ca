@@ -4,12 +4,13 @@ import BaseLayout from './BaseLayout.astro';
 interface Props {
   title: string;
   description?: string;
+  accent?: 'p1-violet' | 'p2-rose' | 'p3-emerald' | 'p4-amber' | 'p5-sky' | 'neutral';
 }
 
-const { title, description } = Astro.props;
+const { title, description, accent } = Astro.props;
 ---
 
-<BaseLayout title={`${title} | gvns.ca`} description={description || title}>
+<BaseLayout title={`${title} | gvns.ca`} description={description || title} accent={accent}>
   <slot name="head" slot="head" />
   <main id="main-content" class="page" data-pagefind-body>
     <header class="page-header">
