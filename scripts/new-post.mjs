@@ -11,7 +11,7 @@
 import { input, checkbox, confirm } from '@inquirer/prompts';
 import { readdir, mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import { execSync } from 'node:child_process';
+import { execFile } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = join(fileURLToPath(import.meta.url), '..', '..');
@@ -131,10 +131,14 @@ async function main() {
 
   console.log(`\nCreated: ${filePath}`);
 
-  // Try to open in $EDITOR
+  // Try to open in $EDITOR (using execFile to avoid shell injection)
   if (process.env.EDITOR) {
     try {
-      execSync(`${process.env.EDITOR} "${filePath}"`, { stdio: 'inherit' });
+      // Parse EDITOR in case it contains arguments (e.g., "code --wait")
+      const editorParts = process.env.EDITOR.split(/\s+/);
+      const editorCmd = editorParts[0];
+      const editorArgs = [...editorParts.slice(1), filePath];
+      execFile(editorCmd, editorArgs, { stdio: 'inherit' }, () => {});
     } catch {
       // Editor launch failed — not critical
     }
