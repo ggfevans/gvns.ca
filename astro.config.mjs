@@ -4,6 +4,7 @@ import { defineConfig } from 'astro/config';
 
 import tailwindcss from '@tailwindcss/vite';
 import svelte from '@astrojs/svelte';
+import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import rehypeSlug from 'rehype-slug';
 
@@ -29,5 +30,5 @@ export default defineConfig({
     },
   },
 
-  integrations: [svelte(), sitemap()]
+  integrations: [svelte(), react(), sitemap()]
 });

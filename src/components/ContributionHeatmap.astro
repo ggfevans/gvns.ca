@@ -1,0 +1,33 @@
+---
+import type { GitHubCalendar } from '@utils/github';
+import HeatmapIsland from './ContributionHeatmap.tsx';
+
+interface Props {
+  calendar: GitHubCalendar;
+}
+
+const { calendar } = Astro.props;
+const days = calendar.weeks.flatMap((w) => w.days);
+---
+
+<div class="gvns-heatmap" role="img" aria-label="Contribution activity over the past year">
+  <HeatmapIsland client:visible days={days} />
+</div>
+
+<style>
+  .gvns-heatmap {
+    overflow-x: auto;
+  }
+
+  /* Style the react-activity-calendar container */
+  .gvns-heatmap :global(.react-activity-calendar) {
+    color: var(--colour-text-muted);
+    font-family: var(--font-sans);
+  }
+
+  @media (max-width: 640px) {
+    .gvns-heatmap :global(.react-activity-calendar) {
+      font-size: 10px;
+    }
+  }
+</style>

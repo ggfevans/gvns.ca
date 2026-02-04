@@ -1,69 +1,57 @@
 ---
-import { relativeTime } from '@utils/format';
+import { relativeTime, truncate } from '@utils/format';
+import { parseGitHubData, activityLabel, formatStreak, EMPTY_GITHUB_DATA } from '@utils/github';
+import type { GitHubData } from '@utils/github';
 
 interface Props { compact?: boolean; }
 const { compact = false } = Astro.props;
 
-interface Commit {
-  repo: string;
-  message: string;
-  sha: string;
-  date: string;
-  url: string;
-}
-
-interface GitHubData {
-  lastUpdated: string | null;
-  recentCommits: Commit[];
-  stats: { commitsThisWeek: number; commitsThisMonth: number; repositoriesThisWeek: number };
-  repositories: { name: string; description: string; language: string; stars: number; url: string }[];
-}
-
-let data: GitHubData = { lastUpdated: null, recentCommits: [], stats: { commitsThisWeek: 0, commitsThisMonth: 0, repositoriesThisWeek: 0 }, repositories: [] };
+let data: GitHubData;
 try {
-  const imported = (await import('../../data/github.json')).default as Partial<GitHubData>;
-  data = {
-    lastUpdated: imported.lastUpdated ?? null,
-    recentCommits: Array.isArray(imported.recentCommits) ? imported.recentCommits : [],
-    stats: imported.stats && typeof imported.stats === 'object'
-      ? { commitsThisWeek: imported.stats.commitsThisWeek ?? 0, commitsThisMonth: imported.stats.commitsThisMonth ?? 0, repositoriesThisWeek: imported.stats.repositoriesThisWeek ?? 0 }
-      : { commitsThisWeek: 0, commitsThisMonth: 0, repositoriesThisWeek: 0 },
-    repositories: Array.isArray(imported.repositories) ? imported.repositories : [],
-  };
+  const imported = (await import('../../data/github.json')).default;
+  data = parseGitHubData(imported);
 } catch (e) {
   if (import.meta.env.DEV) console.error('Failed to load GitHub data for CodeWidget:', e);
+  data = EMPTY_GITHUB_DATA;
 }
 
-const latestCommit = data.recentCommits[0] ?? null;
+const latestActivity = data.recentActivity[0] ?? null;
+const streak = data.streak;
 ---
 
 {compact ? (
   <article class="gvns-widget-compact gvns-widget-compact--code">
     <div class="gvns-widget-compact__label">Now Coding</div>
-    {latestCommit ? (
+    {latestActivity ? (
       <a href="/code" class="gvns-widget-compact__body">
         <div class="gvns-widget-compact__info">
-          <p class="gvns-widget-compact__title gvns-widget-compact__title--mono">{latestCommit.repo}</p>
-          <p class="gvns-widget-compact__subtitle">{latestCommit.message}</p>
+          <p class="gvns-widget-compact__title gvns-widget-compact__title--mono">{latestActivity.repo}</p>
+          <p class="gvns-widget-compact__subtitle">{truncate(latestActivity.title, 60)}</p>
         </div>
       </a>
     ) : (
-      <p class="gvns-widget-compact__empty">No recent commits.</p>
+      <p class="gvns-widget-compact__empty">No recent activity.</p>
     )}
   </article>
 ) : (
   <article class="gvns-widget gvns-widget--code">
     <div class="gvns-widget__label">Code</div>
-    {latestCommit ? (
+    {latestActivity ? (
       <div class="gvns-widget__content">
-        <p class="gvns-widget__repo">{latestCommit.repo}</p>
-        <p class="gvns-widget__detail">{latestCommit.message}</p>
-        <time class="gvns-widget__time" datetime={latestCommit.date}>
-          {relativeTime(latestCommit.date)}
-        </time>
+        <p class="gvns-widget__repo">{latestActivity.repo}</p>
+        <p class="gvns-widget__detail">{truncate(latestActivity.title, 72)}</p>
+        <div class="gvns-widget__meta">
+          <span class="gvns-widget__activity-type">{activityLabel(latestActivity.type)}</span>
+          <time class="gvns-widget__time" datetime={latestActivity.date}>
+            {relativeTime(latestActivity.date)}
+          </time>
+        </div>
+        {streak.current > 0 && (
+          <p class="gvns-widget__streak">{formatStreak(streak.current)} streak</p>
+        )}
       </div>
     ) : (
-      <p class="gvns-widget__empty">No recent commits.</p>
+      <p class="gvns-widget__empty">No recent activity.</p>
     )}
     <a href="/code" class="gvns-widget__link">
       View Full Activity <span aria-hidden="true">&rarr;</span>
@@ -85,6 +73,23 @@ const latestCommit = data.recentCommits[0] ?? null;
     font-size: var(--text-sm);
     color: var(--colour-p1-violet);
     margin: 0 0 var(--space-1) 0;
+  }
+
+  .gvns-widget__meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .gvns-widget__activity-type {
+    font-size: var(--text-xs);
+    color: var(--colour-text-muted);
+  }
+
+  .gvns-widget__streak {
+    font-size: var(--text-xs);
+    color: var(--colour-p1-violet);
+    margin: var(--space-1) 0 0 0;
   }
 
   .gvns-widget-compact--code {
