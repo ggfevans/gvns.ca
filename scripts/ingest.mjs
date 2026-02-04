@@ -12,23 +12,22 @@
  */
 
 import { input, checkbox, confirm } from '@inquirer/prompts';
-import { readFile, readdir, mkdir, writeFile } from 'node:fs/promises';
+import { readFile, mkdir, writeFile } from 'node:fs/promises';
 import { join, basename, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import {
+  slugify,
+  today,
+  findUniqueSlug,
+  escapeYamlString,
+  collectSlugs,
+  TAG_CATEGORIES,
+} from './lib/cli-utils.mjs';
 
 const ROOT = join(fileURLToPath(import.meta.url), '..', '..');
 const WRITING_DIR = join(ROOT, 'src', 'content', 'writing');
 
-// Mirror of src/utils/tags.ts — kept in sync manually to avoid TS build step.
-const TAG_CATEGORIES = {
-  'Tech & Homelab': ['homelab', 'docker', 'linux', 'networking', 'automation', 'web-dev'],
-  'Movement & Training': ['bjj', 'movement', 'training'],
-  'Productivity & Life': ['adhd', 'productivity', 'pkm'],
-  'Meta & Essays': ['essay', 'tutorial', 'til', 'meta'],
-};
-
-const VALID_TAGS = Object.values(TAG_CATEGORIES).flat();
-
+// Keyword-to-tag mapping for content-based tag suggestion (ingest-specific)
 const TAG_KEYWORDS = {
   'self-host': 'homelab', selfhost: 'homelab', proxmox: 'homelab', server: 'homelab',
   nas: 'homelab', truenas: 'homelab', unraid: 'homelab',
@@ -52,22 +51,6 @@ const TAG_KEYWORDS = {
   'step by step': 'tutorial', 'how to': 'tutorial', guide: 'tutorial', walkthrough: 'tutorial',
   'today i learned': 'til', 'quick tip': 'til', snippet: 'til',
 };
-
-function slugify(text) {
-  return text
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-|-$/g, '');
-}
-
-function today() {
-  const d = new Date();
-  return {
-    iso: d.toISOString().split('T')[0],
-    year: String(d.getFullYear()),
-    month: String(d.getMonth() + 1).padStart(2, '0'),
-  };
-}
 
 /**
  * Extract title from the first # heading in the content.
@@ -136,41 +119,6 @@ function hasFrontmatter(content) {
   return /^---\s*\n/.test(content);
 }
 
-async function existingSlugs() {
-  const slugs = new Set();
-  async function walk(dir) {
-    let entries;
-    try {
-      entries = await readdir(dir, { withFileTypes: true });
-    } catch {
-      return;
-    }
-    for (const entry of entries) {
-      if (entry.isDirectory()) {
-        await walk(join(dir, entry.name));
-      } else if (entry.name.endsWith('.md')) {
-        slugs.add(entry.name.replace(/\.md$/, ''));
-      }
-    }
-  }
-  await walk(WRITING_DIR);
-  return slugs;
-}
-
-function findUniqueSlug(baseSlug, takenSlugs) {
-  if (!takenSlugs.has(baseSlug)) return baseSlug;
-  let suffix = 2;
-  while (takenSlugs.has(`${baseSlug}-${suffix}`)) {
-    suffix++;
-  }
-  return `${baseSlug}-${suffix}`;
-}
-
-function escapeYamlString(str) {
-  // Escape backslashes first, then double quotes
-  return str.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
-}
-
 async function main() {
   const filePath = process.argv[2];
   if (!filePath) {
@@ -235,12 +183,12 @@ async function main() {
 
   // Slug
   let slug = slugify(title);
-  const taken = await existingSlugs();
+  const taken = await collectSlugs(WRITING_DIR);
   if (taken.has(slug)) {
-    const suggested = findUniqueSlug(slug, taken);
+    const suggestedSlug = findUniqueSlug(slug, taken);
     const choice = await input({
       message: `Slug "${slug}" exists. Enter new slug:`,
-      default: suggested,
+      default: suggestedSlug,
       validate: (v) => {
         const normalized = slugify(v.trim());
         if (!normalized) return 'Slug required';

@@ -9,75 +9,21 @@
  */
 
 import { input, checkbox, confirm } from '@inquirer/prompts';
-import { readdir, mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { execFile } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import {
+  slugify,
+  today,
+  findUniqueSlug,
+  escapeYamlString,
+  collectSlugs,
+  TAG_CATEGORIES,
+} from './lib/cli-utils.mjs';
 
 const ROOT = join(fileURLToPath(import.meta.url), '..', '..');
 const WRITING_DIR = join(ROOT, 'src', 'content', 'writing');
-
-// Import tag taxonomy — uses the compiled-out values directly to avoid
-// needing a TS build step for a CLI script.
-const TAG_CATEGORIES = {
-  'Tech & Homelab': ['homelab', 'docker', 'linux', 'networking', 'automation', 'web-dev'],
-  'Movement & Training': ['bjj', 'movement', 'training'],
-  'Productivity & Life': ['adhd', 'productivity', 'pkm'],
-  'Meta & Essays': ['essay', 'tutorial', 'til', 'meta'],
-};
-
-const VALID_TAGS = Object.values(TAG_CATEGORIES).flat();
-
-function slugify(text) {
-  return text
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-|-$/g, '');
-}
-
-function today() {
-  const d = new Date();
-  return {
-    iso: d.toISOString().split('T')[0],
-    year: String(d.getFullYear()),
-    month: String(d.getMonth() + 1).padStart(2, '0'),
-  };
-}
-
-async function existingSlugs() {
-  const slugs = new Set();
-  async function walk(dir) {
-    let entries;
-    try {
-      entries = await readdir(dir, { withFileTypes: true });
-    } catch {
-      return;
-    }
-    for (const entry of entries) {
-      if (entry.isDirectory()) {
-        await walk(join(dir, entry.name));
-      } else if (entry.name.endsWith('.md')) {
-        slugs.add(entry.name.replace(/\.md$/, ''));
-      }
-    }
-  }
-  await walk(WRITING_DIR);
-  return slugs;
-}
-
-function findUniqueSlug(baseSlug, takenSlugs) {
-  if (!takenSlugs.has(baseSlug)) return baseSlug;
-  let suffix = 2;
-  while (takenSlugs.has(`${baseSlug}-${suffix}`)) {
-    suffix++;
-  }
-  return `${baseSlug}-${suffix}`;
-}
-
-function escapeYamlString(str) {
-  // Escape backslashes first, then double quotes
-  return str.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
-}
 
 async function main() {
   // Title — from CLI arg or prompt
@@ -91,7 +37,7 @@ async function main() {
 
   // Slug
   let slug = slugify(title);
-  const taken = await existingSlugs();
+  const taken = await collectSlugs(WRITING_DIR);
   if (taken.has(slug)) {
     const suggested = findUniqueSlug(slug, taken);
     const choice = await input({
