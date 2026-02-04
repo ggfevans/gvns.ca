@@ -26,6 +26,10 @@ export function today() {
 
 /**
  * Find a unique slug by appending incrementing suffix.
+ *
+ * Note: This check is not atomic - if multiple processes run concurrently,
+ * a race condition could cause collisions. This is acceptable for interactive
+ * CLI tools where only one instance runs at a time.
  */
 export function findUniqueSlug(baseSlug, takenSlugs) {
   if (!takenSlugs.has(baseSlug)) return baseSlug;
