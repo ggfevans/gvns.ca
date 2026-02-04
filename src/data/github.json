@@ -1,10 +1,95 @@
 {
-  "lastUpdated": null,
+  "lastUpdated": "2026-02-04T05:19:29Z",
   "recentCommits": [],
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
     "repositoriesThisWeek": 0
   },
-  "repositories": []
+  "repositories": [
+    {
+      "name": "gvns.ca",
+      "description": "",
+      "language": "Astro",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/gvns.ca"
+    },
+    {
+      "name": "listenbrainz-github-action",
+      "description": "Fetch your ListenBrainz listening data as JSON for static sites. No auth required.",
+      "language": "Shell",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/listenbrainz-github-action"
+    },
+    {
+      "name": "gh-mint",
+      "description": "A gh CLI extension that creates GitHub repos with consistent defaults from named profiles",
+      "language": "Go",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/gh-mint"
+    },
+    {
+      "name": "claude-yolo",
+      "description": "shell alias that makes  claude--dangerously-skip-permissions look as reckless as it is",
+      "language": "",
+      "stars": 1,
+      "url": "https://github.com/ggfevans/claude-yolo"
+    },
+    {
+      "name": "listenbrainz-csv-upload",
+      "description": "Import your Last.fm listening history into ListenBrainz from a CSV export",
+      "language": "Python",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/listenbrainz-csv-upload"
+    },
+    {
+      "name": "searxng-seek-alfred",
+      "description": "Alfred workflow for private web search via SearXNG. Includes inline results, favicons, quick actions",
+      "language": "JavaScript",
+      "stars": 3,
+      "url": "https://github.com/ggfevans/searxng-seek-alfred"
+    },
+    {
+      "name": "rainforest-EAGLE-commands",
+      "description": "",
+      "language": "Shell",
+      "stars": 1,
+      "url": "https://github.com/ggfevans/rainforest-EAGLE-commands"
+    },
+    {
+      "name": "claude-prune",
+      "description": "Cleanup tool for Claude Code CLI - removes accumulated cache and state files that cause performance issues and hook delays",
+      "language": "Go",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/claude-prune"
+    },
+    {
+      "name": "searxng-dracula-theme",
+      "description": "",
+      "language": "Less",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/searxng-dracula-theme"
+    },
+    {
+      "name": "things3-reset-script",
+      "description": "Resets a Things 3 installation to a fresh state, without having to hunt around for files.",
+      "language": "Shell",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/things3-reset-script"
+    },
+    {
+      "name": "homebrew-launchd-updater",
+      "description": "Automated Homebrew updates via launchd. Runs at 2 AM, checks for AC power, and doesn't ask permission",
+      "language": "Shell",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/homebrew-launchd-updater"
+    },
+    {
+      "name": "irc-topic-notify",
+      "description": "Never miss when someone finally updates the channel topic. Push notifications for IRC topic changes. The bot stays quiet.",
+      "language": "Python",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/irc-topic-notify"
+    }
+  ]
 }
