@@ -34,6 +34,7 @@ jobs:
 
           MAX_RETRIES=3
           for i in $(seq 1 $MAX_RETRIES); do
+            git pull --rebase 2>&1 || true
             if git push 2>&1; then
               echo "Push succeeded on attempt $i"
               exit 0
