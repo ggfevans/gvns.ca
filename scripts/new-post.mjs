@@ -65,6 +65,15 @@ async function existingSlugs() {
   return slugs;
 }
 
+function findUniqueSlug(baseSlug, takenSlugs) {
+  if (!takenSlugs.has(baseSlug)) return baseSlug;
+  let suffix = 2;
+  while (takenSlugs.has(`${baseSlug}-${suffix}`)) {
+    suffix++;
+  }
+  return `${baseSlug}-${suffix}`;
+}
+
 async function main() {
   // Title — from CLI arg or prompt
   const cliTitle = process.argv.slice(2).join(' ').trim();
@@ -79,8 +88,18 @@ async function main() {
   let slug = slugify(title);
   const taken = await existingSlugs();
   if (taken.has(slug)) {
-    const ok = await confirm({ message: `Slug "${slug}" already exists. Use "${slug}-2"?`, default: true });
-    slug = ok ? `${slug}-2` : await input({ message: 'Enter a custom slug:', validate: (v) => v.trim().length > 0 || 'Slug required' });
+    const suggested = findUniqueSlug(slug, taken);
+    const choice = await input({
+      message: `Slug "${slug}" exists. Enter new slug:`,
+      default: suggested,
+      validate: (v) => {
+        const normalized = slugify(v.trim());
+        if (!normalized) return 'Slug required';
+        if (taken.has(normalized)) return `Slug "${normalized}" also exists`;
+        return true;
+      },
+    });
+    slug = slugify(choice.trim());
   }
 
   // Tags — grouped multi-select
