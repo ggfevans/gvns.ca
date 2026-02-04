@@ -28,8 +28,7 @@ const currentPath = Astro.url.pathname;
 
     <div class="gvns-navbar__center">
       {breadcrumbs ? (
-        <nav aria-label="Breadcrumb">
-          <ol class="gvns-breadcrumbs">
+        <ol class="gvns-breadcrumbs" aria-label="Breadcrumb">
             {breadcrumbs.map((item, i) => (
               <li class="gvns-breadcrumbs__item">
                 {i > 0 && <span class="gvns-breadcrumbs__separator" aria-hidden="true">/</span>}
@@ -41,7 +40,6 @@ const currentPath = Astro.url.pathname;
               </li>
             ))}
           </ol>
-        </nav>
       ) : (
         <ul class="gvns-navbar__links">
           {navItems.map(({ href, label }) => {
