@@ -125,7 +125,8 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
     color: var(--colour-accent-hover);
   }
 
-  /* Status */
+  /* Status — these :global() selectors target StatusWidget's internal classes
+     to restyle it inline on the homepage. Update if StatusWidget class names change. */
   .status-section {
     max-width: var(--width-content);
     margin: 0 auto;
