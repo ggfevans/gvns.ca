@@ -35,7 +35,6 @@ jobs:
             ) {
               status_id
               rating
-              progress
               updated_at
               book {
                 title
@@ -94,8 +93,7 @@ jobs:
                   title: .book.title,
                   author: (.book.contributions[0].author.name // "Unknown"),
                   coverUrl: .book.image.url,
-                  hardcoverUrl: ("https://hardcover.app/books/" + .book.slug),
-                  progress: (.progress // 0)
+                  hardcoverUrl: ("https://hardcover.app/books/" + .book.slug)
                 }
             ],
             finished: [
@@ -140,6 +138,7 @@ jobs:
 
             MAX_RETRIES=3
             for i in $(seq 1 $MAX_RETRIES); do
+              git pull --rebase 2>&1 || true
               if git push 2>&1; then
                 echo "Push succeeded on attempt $i"
                 exit 0

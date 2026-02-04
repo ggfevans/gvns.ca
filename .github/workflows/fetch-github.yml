@@ -139,11 +139,20 @@ jobs:
           git add src/data/github.json
           if ! git diff --staged --quiet; then
             git commit -m "chore: update github activity data"
-            if ! git push; then
-              echo "::error::git push failed (branch may be protected). Rolling back local commit."
-              git reset --soft HEAD~1
-              exit 1
-            fi
+
+            MAX_RETRIES=3
+            for i in $(seq 1 $MAX_RETRIES); do
+              git pull --rebase 2>&1 || true
+              if git push 2>&1; then
+                echo "Push succeeded on attempt $i"
+                exit 0
+              fi
+              echo "::warning::git push failed (attempt $i/$MAX_RETRIES)"
+              sleep $((i * 5))
+            done
+
+            echo "::error::git push failed after $MAX_RETRIES attempts"
+            exit 1
           else
             echo "No changes to commit"
           fi
