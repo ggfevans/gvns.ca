@@ -118,7 +118,11 @@ function suggestTags(content) {
   const lower = content.toLowerCase();
   const suggested = new Set();
   for (const [keyword, tag] of Object.entries(TAG_KEYWORDS)) {
-    if (lower.includes(keyword)) {
+    // Use word boundary matching to avoid false positives
+    // Escape special regex characters in keyword
+    const escaped = keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(`\\b${escaped}\\b`, 'i');
+    if (regex.test(lower)) {
       suggested.add(tag);
     }
   }
