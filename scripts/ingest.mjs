@@ -162,6 +162,11 @@ function findUniqueSlug(baseSlug, takenSlugs) {
   return `${baseSlug}-${suffix}`;
 }
 
+function escapeYamlString(str) {
+  // Escape backslashes first, then double quotes
+  return str.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+}
+
 async function main() {
   const filePath = process.argv[2];
   if (!filePath) {
@@ -255,8 +260,8 @@ async function main() {
 
   const frontmatter = [
     '---',
-    `title: "${title.replace(/"/g, '\\"')}"`,
-    `description: "${description.replace(/"/g, '\\"')}"`,
+    `title: "${escapeYamlString(title)}"`,
+    `description: "${escapeYamlString(description)}"`,
     `pubDate: ${iso}`,
     `tags: [${selectedTags.map((t) => `"${t}"`).join(', ')}]`,
   ];
