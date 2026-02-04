@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
+    "prebuild": "node scripts/prebuild-clean.js",
     "build": "astro build && npx pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro"

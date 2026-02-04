@@ -22,3 +22,7 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+
+# claude-mem context files (keep root CLAUDE.md, ignore all others)
+**/CLAUDE.md
+!/CLAUDE.md
