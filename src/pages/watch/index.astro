@@ -48,18 +48,15 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
 
     <header class="page-header">
       <h1 class="page-title">Watch</h1>
-      <p class="page-subtitle">Movies and shows I've been watching.</p>
+      <p class="page-subtitle">Movies and shows I've been watching, tracked on <a href="https://trakt.tv/users/gvns" class="trakt-link">Trakt</a>.</p>
     </header>
 
     {!hasData && (
       <section class="coming-soon-card">
         <div class="card-content">
-          <h2 class="card-heading">Coming soon</h2>
+          <h2 class="card-heading">No recent activity</h2>
           <p class="card-text">
-            This page will show movies and TV shows once a data source is configured.
-          </p>
-          <p class="card-candidates">
-            <span class="candidates-label">Candidates:</span> Letterboxd, Trakt, Simkl
+            Watch history from <a href="https://trakt.tv/users/gvns" class="trakt-link">Trakt</a> will appear here once data syncs.
           </p>
         </div>
       </section>
@@ -184,15 +181,13 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
     line-height: 1.6;
   }
 
-  .card-candidates {
-    font-size: var(--text-sm);
-    color: var(--colour-text-muted);
-    margin: 0;
+  .trakt-link {
+    color: var(--colour-p4-amber);
+    text-decoration: none;
   }
 
-  .candidates-label {
-    font-weight: 600;
-    color: var(--colour-text-secondary);
+  .trakt-link:hover {
+    text-decoration: underline;
   }
 
   /* Watch grid (future data) */
