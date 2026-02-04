@@ -1,5 +1,5 @@
 ---
-import { relativeTime } from '@utils/format';
+import { relativeTime, safeUrl } from '@utils/format';
 
 interface WatchItem {
   title: string;
@@ -16,19 +16,29 @@ interface WatchingData {
 
 let data: WatchingData = { lastUpdated: null, recentlyWatched: [], stats: { moviesThisMonth: 0, showsThisMonth: 0 } };
 try {
-  data = (await import('../../data/watching.json')).default as WatchingData;
-} catch { /* data unavailable */ }
+  const imported = (await import('../../data/watching.json')).default as Partial<WatchingData>;
+  data = {
+    lastUpdated: imported.lastUpdated ?? null,
+    recentlyWatched: Array.isArray(imported.recentlyWatched) ? imported.recentlyWatched : [],
+    stats: imported.stats && typeof imported.stats === 'object'
+      ? { moviesThisMonth: imported.stats.moviesThisMonth ?? 0, showsThisMonth: imported.stats.showsThisMonth ?? 0 }
+      : { moviesThisMonth: 0, showsThisMonth: 0 },
+  };
+} catch (e) {
+  if (import.meta.env.DEV) console.error('Failed to load watching data for WatchWidget:', e);
+}
 
 const latestWatch = data.recentlyWatched[0] ?? null;
+const posterSrc = safeUrl(latestWatch?.posterUrl);
 ---
 
 <article class="gvns-widget gvns-widget--watch">
   <div class="gvns-widget__label">Watch</div>
   {latestWatch ? (
     <div class="gvns-widget__content gvns-widget__content--row">
-      {latestWatch.posterUrl && (
+      {posterSrc && (
         <img
-          src={latestWatch.posterUrl}
+          src={posterSrc}
           alt={`Poster for ${latestWatch.title}`}
           class="gvns-widget__poster"
           width="48"

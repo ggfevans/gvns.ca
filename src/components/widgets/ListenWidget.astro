@@ -1,5 +1,5 @@
 ---
-import { relativeTime } from '@utils/format';
+import { relativeTime, safeUrl } from '@utils/format';
 
 interface Track {
   name: string;
@@ -18,19 +18,30 @@ interface ListeningData {
 
 let data: ListeningData = { lastUpdated: null, recentTracks: [], topArtists: [], stats: { tracksToday: 0, artistsToday: 0 } };
 try {
-  data = (await import('../../data/listening.json')).default as ListeningData;
-} catch { /* data unavailable */ }
+  const imported = (await import('../../data/listening.json')).default as Partial<ListeningData>;
+  data = {
+    lastUpdated: imported.lastUpdated ?? null,
+    recentTracks: Array.isArray(imported.recentTracks) ? imported.recentTracks : [],
+    topArtists: Array.isArray(imported.topArtists) ? imported.topArtists : [],
+    stats: imported.stats && typeof imported.stats === 'object'
+      ? { tracksToday: imported.stats.tracksToday ?? 0, artistsToday: imported.stats.artistsToday ?? 0 }
+      : { tracksToday: 0, artistsToday: 0 },
+  };
+} catch (e) {
+  if (import.meta.env.DEV) console.error('Failed to load listening data for ListenWidget:', e);
+}
 
 const latestTrack = data.recentTracks[0] ?? null;
+const artSrc = safeUrl(latestTrack?.albumArtUrl);
 ---
 
 <article class="gvns-widget gvns-widget--listen">
   <div class="gvns-widget__label">Listen</div>
   {latestTrack ? (
     <div class="gvns-widget__content gvns-widget__content--row">
-      {latestTrack.albumArtUrl ? (
+      {artSrc ? (
         <img
-          src={latestTrack.albumArtUrl}
+          src={artSrc}
           alt={`${latestTrack.album || latestTrack.name} album art`}
           class="gvns-widget__art"
           width="64"

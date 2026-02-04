@@ -1,4 +1,6 @@
 ---
+import { safeUrl } from '@utils/format';
+
 interface Book {
   title: string;
   author: string;
@@ -15,12 +17,22 @@ interface ReadingData {
 
 let data: ReadingData = { lastUpdated: null, currentlyReading: [], finished: [], wantToRead: [] };
 try {
-  data = (await import('../../data/reading.json')).default as ReadingData;
-} catch { /* data unavailable */ }
+  const imported = (await import('../../data/reading.json')).default as Partial<ReadingData>;
+  data = {
+    lastUpdated: imported.lastUpdated ?? null,
+    currentlyReading: Array.isArray(imported.currentlyReading) ? imported.currentlyReading : [],
+    finished: Array.isArray(imported.finished) ? imported.finished : [],
+    wantToRead: Array.isArray(imported.wantToRead) ? imported.wantToRead : [],
+  };
+} catch (e) {
+  if (import.meta.env.DEV) console.error('Failed to load reading data for ReadWidget:', e);
+}
 
 const currentBook = data.currentlyReading[0] ?? null;
-const progress = currentBook && typeof currentBook.progress === 'number'
-  ? Math.max(0, Math.min(100, currentBook.progress))
+const coverSrc = safeUrl(currentBook?.coverUrl);
+const rawProgress = currentBook?.progress;
+const progress = typeof rawProgress === 'number' && !Number.isNaN(rawProgress)
+  ? Math.max(0, Math.min(100, rawProgress))
   : null;
 ---
 
@@ -28,9 +40,9 @@ const progress = currentBook && typeof currentBook.progress === 'number'
   <div class="gvns-widget__label">Read</div>
   {currentBook ? (
     <div class="gvns-widget__content gvns-widget__content--row">
-      {currentBook.coverUrl && (
+      {coverSrc && (
         <img
-          src={currentBook.coverUrl}
+          src={coverSrc}
           alt={`Cover of ${currentBook.title}`}
           class="gvns-widget__cover"
           width="64"

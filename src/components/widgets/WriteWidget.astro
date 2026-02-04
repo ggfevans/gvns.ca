@@ -3,17 +3,18 @@ import { getCollection } from 'astro:content';
 import { formatDate } from '@utils/date';
 
 const posts = (await getCollection('writing'))
-  .filter((p) => !p.data.draft)
+  .filter((p) => (import.meta.env.PROD ? !p.data.draft : true))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 const latestPost = posts[0] ?? null;
+const postSlug = latestPost?.slug.split('/').pop();
 ---
 
 <article class="gvns-widget gvns-widget--write">
   <div class="gvns-widget__label">Write</div>
   {latestPost ? (
     <div class="gvns-widget__content">
-      <a href={`/write/${latestPost.slug}`} class="gvns-widget__post-link">
+      <a href={`/write/${postSlug}`} class="gvns-widget__post-link">
         <p class="gvns-widget__detail gvns-widget__detail--bold">{latestPost.data.title}</p>
       </a>
       <time class="gvns-widget__time" datetime={latestPost.data.pubDate.toISOString()}>

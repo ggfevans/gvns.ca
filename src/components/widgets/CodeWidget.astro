@@ -18,8 +18,18 @@ interface GitHubData {
 
 let data: GitHubData = { lastUpdated: null, recentCommits: [], stats: { commitsThisWeek: 0, commitsThisMonth: 0, repositoriesThisWeek: 0 }, repositories: [] };
 try {
-  data = (await import('../../data/github.json')).default as GitHubData;
-} catch { /* data unavailable */ }
+  const imported = (await import('../../data/github.json')).default as Partial<GitHubData>;
+  data = {
+    lastUpdated: imported.lastUpdated ?? null,
+    recentCommits: Array.isArray(imported.recentCommits) ? imported.recentCommits : [],
+    stats: imported.stats && typeof imported.stats === 'object'
+      ? { commitsThisWeek: imported.stats.commitsThisWeek ?? 0, commitsThisMonth: imported.stats.commitsThisMonth ?? 0, repositoriesThisWeek: imported.stats.repositoriesThisWeek ?? 0 }
+      : { commitsThisWeek: 0, commitsThisMonth: 0, repositoriesThisWeek: 0 },
+    repositories: Array.isArray(imported.repositories) ? imported.repositories : [],
+  };
+} catch (e) {
+  if (import.meta.env.DEV) console.error('Failed to load GitHub data for CodeWidget:', e);
+}
 
 const latestCommit = data.recentCommits[0] ?? null;
 ---
