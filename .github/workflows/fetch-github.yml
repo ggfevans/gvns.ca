@@ -50,21 +50,49 @@ jobs:
             echo "::warning::No events fetched — output will be sparse"
           fi
 
-          # Extract PushEvent commits with metadata
-          ALL_COMMITS=$(echo "$EVENTS" | jq '[
+          # Extract PushEvent before/head pairs (API no longer includes commits in payload)
+          PUSHES=$(echo "$EVENTS" | jq -c '[
             .[]
-            | select(.type == "PushEvent")
-            | .created_at as $date
-            | .repo.name as $repo
-            | (.payload.commits // [])[]
+            | select(.type == "PushEvent" and .payload.before != null and .payload.head != null)
             | {
-                repo: ($repo | split("/") | last),
-                message: (.message | split("\n") | first),
-                sha: .sha,
-                date: $date,
-                url: ("https://github.com/" + $repo + "/commit/" + .sha)
+                repo: .repo.name,
+                before: .payload.before,
+                head: .payload.head,
+                date: .created_at
               }
-          ] | unique_by(.sha) | sort_by(.date) | reverse')
+          ] | unique_by(.head)')
+
+          # Fetch actual commits via Compare API for each push
+          ALL_COMMITS="[]"
+          for PUSH in $(echo "$PUSHES" | jq -c '.[]'); do
+            REPO=$(echo "$PUSH" | jq -r '.repo')
+            BEFORE=$(echo "$PUSH" | jq -r '.before')
+            HEAD=$(echo "$PUSH" | jq -r '.head')
+            DATE=$(echo "$PUSH" | jq -r '.date')
+
+            COMPARE=$(curl -sf \
+              --connect-timeout 10 \
+              --max-time 30 \
+              -H "Authorization: token ${GH_TOKEN}" \
+              -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${REPO}/compare/${BEFORE}...${HEAD}" \
+            ) || { echo "::warning::Failed to compare ${REPO} ${BEFORE}...${HEAD}"; continue; }
+
+            PUSH_COMMITS=$(echo "$COMPARE" | jq --arg repo "$REPO" --arg date "$DATE" '[
+              .commits[]
+              | {
+                  repo: ($repo | split("/") | last),
+                  message: (.commit.message | split("\n") | first),
+                  sha: .sha,
+                  date: ((.commit.author.date // .commit.committer.date // $date) | if . == "" then $date else . end),
+                  url: .html_url
+                }
+            ]' 2>/dev/null) || continue
+
+            ALL_COMMITS=$(echo "$ALL_COMMITS" "$PUSH_COMMITS" | jq -s '.[0] + .[1]')
+          done
+
+          ALL_COMMITS=$(echo "$ALL_COMMITS" | jq 'unique_by(.sha) | sort_by(.date) | reverse')
 
           RECENT_COMMITS=$(echo "$ALL_COMMITS" | jq '.[0:30]')
 
