@@ -2,7 +2,7 @@
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Breadcrumb from '@components/Breadcrumb.astro';
 import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
-import { relativeTime } from '@utils/format';
+import { relativeTime, isValidMbid } from '@utils/format';
 
 interface Listen {
   track: string;
@@ -80,14 +80,14 @@ try {
   if (import.meta.env.DEV) console.error('Failed to load listening data:', e);
 }
 
-const hasData = listeningData.recentListens.length > 0
-  || listeningData.topArtists.length > 0
-  || listeningData.topTracks.length > 0
-  || listeningData.topAlbums.length > 0;
+const hasData = (listeningData.recentListens?.length ?? 0) > 0
+  || (listeningData.topArtists?.length ?? 0) > 0
+  || (listeningData.topTracks?.length ?? 0) > 0
+  || (listeningData.topAlbums?.length ?? 0) > 0;
 
 /** Construct a Cover Art Archive URL from a release MBID, or return undefined. */
 function coverArtUrl(mbid: string | null | undefined): string | undefined {
-  return mbid ? `https://coverartarchive.org/release/${mbid}/front-250` : undefined;
+  return isValidMbid(mbid) ? `https://coverartarchive.org/release/${mbid}/front-250` : undefined;
 }
 
 const siteUrl = normalizeSiteUrl(Astro.site);
@@ -129,49 +129,52 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
           )}
 
           {/* Recent listens */}
-          {listeningData.recentListens.length > 0 && listeningData.recentListensStatus === 'ok' && (
+          {listeningData.recentListens?.length > 0 && listeningData.recentListensStatus === 'ok' && (
             <section class="gvns-listen-section">
               <h2>Recent Listens</h2>
               <ul class="gvns-track-list">
-                {listeningData.recentListens.map((listen) => (
-                  <li class="gvns-track-item">
-                    <div class="gvns-track-art">
-                      {coverArtUrl(listen.caaReleaseMbid) ? (
-                        <img
-                          src={coverArtUrl(listen.caaReleaseMbid)}
-                          alt={`${listen.album || listen.track} album art`}
-                          width="48"
-                          height="48"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                      ) : (
-                        <div class="gvns-track-art-placeholder" aria-hidden="true">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
-                            <path d="M9 18V5l12-2v13" />
-                            <circle cx="6" cy="18" r="3" />
-                            <circle cx="18" cy="16" r="3" />
-                          </svg>
-                        </div>
+                {listeningData.recentListens.map((listen) => {
+                  const art = coverArtUrl(listen.caaReleaseMbid);
+                  return (
+                    <li class="gvns-track-item">
+                      <div class="gvns-track-art">
+                        {art ? (
+                          <img
+                            src={art}
+                            alt={`${listen.album || listen.track} album art`}
+                            width="48"
+                            height="48"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        ) : (
+                          <div class="gvns-track-art-placeholder" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
+                              <path d="M9 18V5l12-2v13" />
+                              <circle cx="6" cy="18" r="3" />
+                              <circle cx="18" cy="16" r="3" />
+                            </svg>
+                          </div>
+                        )}
+                      </div>
+                      <div class="gvns-track-info">
+                        <span class="gvns-track-name">{listen.track}</span>
+                        <span class="gvns-track-artist">{listen.artist}</span>
+                      </div>
+                      {listen.listenedAt && (
+                        <time class="gvns-track-time" datetime={listen.listenedAt}>
+                          {relativeTime(listen.listenedAt)}
+                        </time>
                       )}
-                    </div>
-                    <div class="gvns-track-info">
-                      <span class="gvns-track-name">{listen.track}</span>
-                      <span class="gvns-track-artist">{listen.artist}</span>
-                    </div>
-                    {listen.listenedAt && (
-                      <time class="gvns-track-time" datetime={listen.listenedAt}>
-                        {relativeTime(listen.listenedAt)}
-                      </time>
-                    )}
-                  </li>
-                ))}
+                    </li>
+                  );
+                })}
               </ul>
             </section>
           )}
 
           {/* Top artists */}
-          {listeningData.topArtists.length > 0 && listeningData.topArtistsStatus === 'ok' && (
+          {listeningData.topArtists?.length > 0 && listeningData.topArtistsStatus === 'ok' && (
             <section class="gvns-listen-section">
               <h2>Top Artists</h2>
               <div class="gvns-artist-grid">
@@ -196,78 +199,84 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
           )}
 
           {/* Top tracks */}
-          {listeningData.topTracks.length > 0 && listeningData.topTracksStatus === 'ok' && (
+          {listeningData.topTracks?.length > 0 && listeningData.topTracksStatus === 'ok' && (
             <section class="gvns-listen-section">
               <h2>Top Tracks</h2>
               <ul class="gvns-track-list">
-                {listeningData.topTracks.map((track) => (
-                  <li class="gvns-track-item">
-                    <div class="gvns-track-art">
-                      {coverArtUrl(track.caaReleaseMbid) ? (
-                        <img
-                          src={coverArtUrl(track.caaReleaseMbid)}
-                          alt={`${track.track} album art`}
-                          width="48"
-                          height="48"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                      ) : (
-                        <div class="gvns-track-art-placeholder" aria-hidden="true">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
-                            <path d="M9 18V5l12-2v13" />
-                            <circle cx="6" cy="18" r="3" />
-                            <circle cx="18" cy="16" r="3" />
-                          </svg>
-                        </div>
-                      )}
-                    </div>
-                    <div class="gvns-track-info">
-                      <span class="gvns-track-name">{track.track}</span>
-                      <span class="gvns-track-artist">{track.artist}</span>
-                    </div>
-                    <span class="gvns-track-time">{track.listenCount} plays</span>
-                  </li>
-                ))}
+                {listeningData.topTracks.map((track) => {
+                  const art = coverArtUrl(track.caaReleaseMbid);
+                  return (
+                    <li class="gvns-track-item">
+                      <div class="gvns-track-art">
+                        {art ? (
+                          <img
+                            src={art}
+                            alt={`${track.track} album art`}
+                            width="48"
+                            height="48"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        ) : (
+                          <div class="gvns-track-art-placeholder" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
+                              <path d="M9 18V5l12-2v13" />
+                              <circle cx="6" cy="18" r="3" />
+                              <circle cx="18" cy="16" r="3" />
+                            </svg>
+                          </div>
+                        )}
+                      </div>
+                      <div class="gvns-track-info">
+                        <span class="gvns-track-name">{track.track}</span>
+                        <span class="gvns-track-artist">{track.artist}</span>
+                      </div>
+                      <span class="gvns-track-time">{track.listenCount} plays</span>
+                    </li>
+                  );
+                })}
               </ul>
             </section>
           )}
 
           {/* Top albums */}
-          {listeningData.topAlbums.length > 0 && listeningData.topAlbumsStatus === 'ok' && (
+          {listeningData.topAlbums?.length > 0 && listeningData.topAlbumsStatus === 'ok' && (
             <section class="gvns-listen-section">
               <h2>Top Albums</h2>
               <div class="gvns-artist-grid">
-                {listeningData.topAlbums.map((album) => (
-                  <div class="gvns-artist-card">
-                    <div class="gvns-artist-image">
-                      {coverArtUrl(album.caaReleaseMbid) ? (
-                        <img
-                          src={coverArtUrl(album.caaReleaseMbid)}
-                          alt={`${album.album} cover art`}
-                          class="gvns-artist-image--square"
-                          width="64"
-                          height="64"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                      ) : (
-                        <div class="gvns-artist-image-placeholder" aria-hidden="true">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28">
-                            <path d="M9 18V5l12-2v13" />
-                            <circle cx="6" cy="18" r="3" />
-                            <circle cx="18" cy="16" r="3" />
-                          </svg>
-                        </div>
-                      )}
+                {listeningData.topAlbums.map((album) => {
+                  const art = coverArtUrl(album.caaReleaseMbid);
+                  return (
+                    <div class="gvns-artist-card">
+                      <div class="gvns-artist-image">
+                        {art ? (
+                          <img
+                            src={art}
+                            alt={`${album.album} cover art`}
+                            class="gvns-artist-image--square"
+                            width="64"
+                            height="64"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        ) : (
+                          <div class="gvns-artist-image-placeholder" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28">
+                              <path d="M9 18V5l12-2v13" />
+                              <circle cx="6" cy="18" r="3" />
+                              <circle cx="18" cy="16" r="3" />
+                            </svg>
+                          </div>
+                        )}
+                      </div>
+                      <div class="gvns-artist-info">
+                        <span class="gvns-artist-name">{album.album}</span>
+                        <span class="gvns-track-artist">{album.artist}</span>
+                        <span class="gvns-artist-plays">{album.listenCount} plays</span>
+                      </div>
                     </div>
-                    <div class="gvns-artist-info">
-                      <span class="gvns-artist-name">{album.album}</span>
-                      <span class="gvns-track-artist">{album.artist}</span>
-                      <span class="gvns-artist-plays">{album.listenCount} plays</span>
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </section>
           )}

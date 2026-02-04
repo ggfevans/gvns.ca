@@ -1,5 +1,5 @@
 ---
-import { relativeTime } from '@utils/format';
+import { relativeTime, isValidMbid } from '@utils/format';
 
 interface Listen {
   track: string;
@@ -48,8 +48,8 @@ try {
   if (import.meta.env.DEV) console.error('Failed to load listening data for ListenWidget:', e);
 }
 
-const latestTrack = data.recentListens[0] ?? null;
-const artUrl = latestTrack?.caaReleaseMbid
+const latestTrack = data.recentListens?.[0] ?? null;
+const artUrl = isValidMbid(latestTrack?.caaReleaseMbid)
   ? `https://coverartarchive.org/release/${latestTrack.caaReleaseMbid}/front-250`
   : undefined;
 ---

@@ -32,6 +32,12 @@ export function truncate(str: string, max: number): string {
   return str.slice(0, max).trimEnd() + '\u2026';
 }
 
+/** Validate a MusicBrainz ID (standard UUID format). */
+const MBID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+export function isValidMbid(id: string | null | undefined): id is string {
+  return typeof id === 'string' && MBID_RE.test(id);
+}
+
 /** Validate a URL is safe to use as an href (http/https only). Returns undefined for invalid URLs. */
 export function safeUrl(url: string | undefined | null): string | undefined {
   if (!url) return undefined;
