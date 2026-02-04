@@ -1,6 +1,325 @@
 {
-  "lastUpdated": null,
-  "currentlyReading": [],
-  "finished": [],
-  "wantToRead": []
+  "lastUpdated": "2026-02-04T05:20:13Z",
+  "currentlyReading": [
+    {
+      "title": "Radicalized: Four Tales of Our Present Moment",
+      "author": "Cory Doctorow",
+      "coverUrl": "https://assets.hardcover.app/external_data/28473324/bbfc1d3a639d337468a9dae5bddf40bd9f918f9e.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/radicalized"
+    },
+    {
+      "title": "Heaven's River",
+      "author": "Dennis E. Taylor",
+      "coverUrl": "https://assets.hardcover.app/edition/28338001/d9febd1bc2f6332f39edc4d42352b4e0909f884c.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/heavens-river"
+    }
+  ],
+  "finished": [
+    {
+      "title": "A Season for Spies",
+      "author": "Iona Whishaw",
+      "coverUrl": "https://assets.hardcover.app/edition/32613914/8434e5b16c98554085182591cd2060ad762872f6.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/a-season-for-spies-2025",
+      "rating": 4.0,
+      "dateFinished": "2026-02-04T03:48:15.925215+00:00"
+    },
+    {
+      "title": "Gonzo: The Life of Hunter S. Thompson",
+      "author": "Corey Seymour",
+      "coverUrl": "https://assets.hardcover.app/external_data/2382724/74fb73196fbe7a575360f4f63e9f8d2907c0f5e1.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/gonzo",
+      "rating": 5.0,
+      "dateFinished": "2026-01-29T18:02:01.037162+00:00"
+    },
+    {
+      "title": "The Collected Stories of Philip K. Dick 1: The Short Happy Life of the Brown Oxford",
+      "author": "Philip K. Dick",
+      "coverUrl": "https://assets.hardcover.app/edition/16176412/8de45c787c0a5d0b8388d1c9b31e0ed1d05d84cc.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/the-collected-stories-of-philip-k-dick-1",
+      "rating": 5.0,
+      "dateFinished": "2026-01-20T23:58:31.152564+00:00"
+    },
+    {
+      "title": "Makers",
+      "author": "Cory Doctorow",
+      "coverUrl": "https://assets.hardcover.app/edition/17444787/6283085-L.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/makers",
+      "rating": 4.0,
+      "dateFinished": "2026-01-11T01:36:06.056477+00:00"
+    },
+    {
+      "title": "The Rum Diary",
+      "author": "Hunter S. Thompson",
+      "coverUrl": "https://assets.hardcover.app/edition/32413671/d5a93b25-2753-4d34-a95a-e4d4342b2ac8.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/the-rum-diary",
+      "rating": 4.0,
+      "dateFinished": "2026-01-01T19:58:10.397857+00:00"
+    },
+    {
+      "title": "The Martian",
+      "author": "Andy Weir",
+      "coverUrl": "https://assets.hardcover.app/editions/21716111/5323176149970177.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/the-martian",
+      "rating": null,
+      "dateFinished": "2025-10-09T23:16:16.317847+00:00"
+    },
+    {
+      "title": "All These Worlds",
+      "author": "Dennis E. Taylor",
+      "coverUrl": "https://assets.hardcover.app/book_mappings/7333407/ef076f14108e71996dce509538bb392e356e2938.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/all-these-worlds",
+      "rating": null,
+      "dateFinished": "2025-10-01T07:43:13.980302+00:00"
+    },
+    {
+      "title": "For We Are Many",
+      "author": "Dennis E. Taylor",
+      "coverUrl": "https://assets.hardcover.app/edition/31488149/ef06ef458ae3ab9a347040ffe24592e1aa56062f.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/for-we-are-many",
+      "rating": null,
+      "dateFinished": "2025-09-22T07:39:24.806107+00:00"
+    },
+    {
+      "title": "We Are Legion",
+      "author": "Dennis E. Taylor",
+      "coverUrl": "https://assets.hardcover.app/edition/31651212/0f91da1379dc803e1a880cc526c86661808a6680.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/we-are-legion",
+      "rating": 4.5,
+      "dateFinished": "2025-09-10T20:48:46.461072+00:00"
+    },
+    {
+      "title": "Sandworm: A New Era of Cyberwar and the Hunt for the Kremlin's Most Dangerous Hackers",
+      "author": "Andy Greenberg",
+      "coverUrl": "https://assets.hardcover.app/external_data/36164466/d87c82e88299c17da21c60b069381fa4c2dd8b37.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/sandworm",
+      "rating": 4.0,
+      "dateFinished": "2025-09-05T20:20:47.704877+00:00"
+    },
+    {
+      "title": "Project Hail Mary",
+      "author": "Andy Weir",
+      "coverUrl": "https://assets.hardcover.app/editions/3274049/8741341047797682-91mYu67RfUL._SL1500_.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/project-hail-mary",
+      "rating": 4.5,
+      "dateFinished": "2025-08-29T09:34:11.994705+00:00"
+    },
+    {
+      "title": "X-COM: UFO Defense",
+      "author": "Diane Duane",
+      "coverUrl": "https://assets.hardcover.app/edition/31639183/514458aaf5d982ee9e3cec6967208a06eab8cf1b.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/x-com",
+      "rating": 3.5,
+      "dateFinished": "2025-07-26T07:38:04.6908+00:00"
+    },
+    {
+      "title": "Tripwire",
+      "author": "Lee Child",
+      "coverUrl": "https://assets.hardcover.app/editions/31803235/9167679358389894.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/tripwire",
+      "rating": null,
+      "dateFinished": "2025-07-22T07:42:37.906215+00:00"
+    },
+    {
+      "title": "A Midsummer Night's Dream: Shakespeare: The Critical Tradition, Volume 7",
+      "author": "Judith M. Kennedy",
+      "coverUrl": "https://assets.hardcover.app/external_data/32809286/3e05d1edc109c73683598e323046555da7a544a2.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/a-midsummer-nights-dream-shakespeare-the-critical-tradition-volume-7",
+      "rating": null,
+      "dateFinished": "2025-07-19T01:28:02.979695+00:00"
+    }
+  ],
+  "wantToRead": [
+    {
+      "title": "Palm Sunday",
+      "author": "Kurt Vonnegut",
+      "coverUrl": "https://assets.hardcover.app/edition/11137070/ea3fa0279a086577764e7f0e8c4e17911862f849.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/palm-sunday"
+    },
+    {
+      "title": "The Diary of a Young Girl",
+      "author": "Anne Frank",
+      "coverUrl": "https://assets.hardcover.app/edition/27851218/8581374-L.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/the-diary-of-a-young-girl"
+    },
+    {
+      "title": "On the Calculation of Volume (Book I)",
+      "author": "Solvej Balle",
+      "coverUrl": "https://assets.hardcover.app/edition/31587092/87ad151b8936a6b0c71ebeb25dd1e3a9c1aca925.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/on-the-calculation-of-volume-book-i"
+    },
+    {
+      "title": "Walden",
+      "author": "Henry David Thoreau",
+      "coverUrl": "https://assets.hardcover.app/external_data/37168858/2ae624ba7bce24b7bcb621002ad9f9a31ccc9b8f.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/walden"
+    },
+    {
+      "title": "Road Trippin' Carrera Style: A Lighthearted Story About The Game Of Life Coming Around Full Circle",
+      "author": "Chantry Rhodes",
+      "coverUrl": null,
+      "hardcoverUrl": "https://hardcover.app/books/road-trippin-carrera-style"
+    },
+    {
+      "title": "Power of Now",
+      "author": "Eckhart Tolle",
+      "coverUrl": "https://assets.hardcover.app/edition/31594446/d94fb5d1-b5f2-4ddf-b70b-8c29ff55a3f8.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/power-of-now"
+    },
+    {
+      "title": "The Brothers Karamazov",
+      "author": "Fyodor Dostoevsky",
+      "coverUrl": "https://assets.hardcover.app/edition/31370986/f057a871e6635e92341a5d3c47840dd16a91c543.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/the-brothers-karamazov"
+    },
+    {
+      "title": "The Immortal Life of Henrietta Lacks",
+      "author": "Rebecca Skloot",
+      "coverUrl": "https://assets.hardcover.app/external_data/1278567/aa60138875d5f87c89c95d21a4bdd1fd8f76b27f.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/the-immortal-life-of-henrietta-lacks"
+    },
+    {
+      "title": "Black Sun",
+      "author": "Rebecca Roanhorse",
+      "coverUrl": "https://assets.hardcover.app/book_mappings/7332858/c7932f5d466a101153b9b0eeeccb38100363f8aa.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/black-sun"
+    },
+    {
+      "title": "The Tainted Cup",
+      "author": "Robert Jackson Bennett",
+      "coverUrl": "https://assets.hardcover.app/editions/30774097/5279737640186273-ttce1.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/the-tainted-cup"
+    },
+    {
+      "title": "Not Till We Are Lost",
+      "author": "Dennis E. Taylor",
+      "coverUrl": "https://assets.hardcover.app/editions/31469389/7597277688037378.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/not-till-we-are-lost"
+    },
+    {
+      "title": "The Five Dysfunctions of a Team: A Leadership Fable",
+      "author": "Patrick Lencioni",
+      "coverUrl": "https://assets.hardcover.app/edition/30575274/d606b49e8a0dc8913b5b950dfff32396b62a6d38.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/the-five-dysfunctions-of-a-team"
+    },
+    {
+      "title": "Chokepoint Capitalism: How Big Tech and Big Content Captured Creative Labor Markets and How We'll Win Them Back",
+      "author": "Rebecca Giblin",
+      "coverUrl": "https://assets.hardcover.app/external_data/59737350/36a92f7c334e832ca7764646f3510fd781420d88.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/chokepoint-capitalism"
+    },
+    {
+      "title": "Some Assembly Required: Decoding Four Billion Years of Life, from Ancient Fossils to DNA",
+      "author": "Neil Shubin",
+      "coverUrl": "https://assets.hardcover.app/external_data/1124978/e0a1ecbb35d2fb9e9f86805ee712c43811854915.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/some-assembly-required"
+    },
+    {
+      "title": "The Creative Act: A Way of Being",
+      "author": "Rick Rubin",
+      "coverUrl": "https://assets.hardcover.app/editions/30513220/57736a93-b5e0-4f61-9487-4e2586617bee.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/the-creative-act"
+    },
+    {
+      "title": "This Is Water: Some Thoughts, Delivered on a Significant Occasion, about Living a Compassionate Life",
+      "author": "David Foster Wallace",
+      "coverUrl": "https://assets.hardcover.app/edition/8922668/53a4be73f807eb5a86d5bdd069388b47ac0c1f54.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/this-is-water"
+    },
+    {
+      "title": "The Sum of Us: What Racism Costs Everyone and How We Can Prosper Together",
+      "author": "Heather  McGhee",
+      "coverUrl": "https://assets.hardcover.app/edition/14862921/1e1263c6be7fb1b7afd54bc07f1dcbff61bf7398.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/the-sum-of-us"
+    },
+    {
+      "title": "Start Something That Matters",
+      "author": "Blake Mycoskie",
+      "coverUrl": "https://assets.hardcover.app/edition/30428765/8ea49e7ad201f461c08c2d8b0d62fef44043844d.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/start-something-that-matters"
+    },
+    {
+      "title": "The Big Trip Up Yonder",
+      "author": "Kurt Vonnegut",
+      "coverUrl": "https://assets.hardcover.app/external_data/887009/0df65a9b92d2a2c357a3e1707b3478e9a7357ed0.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/the-big-trip-up-yonder"
+    },
+    {
+      "title": "Mind Map Handbook",
+      "author": "Tony Buzan",
+      "coverUrl": "https://assets.hardcover.app/edition/31991992/43a8d542d859caed0a67ef9ccbd20e3d0a5fa8b4.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/mind-map-handbook"
+    },
+    {
+      "title": "WikiLeaks: Inside Julian Assange's War on Secrecy",
+      "author": "David Leigh",
+      "coverUrl": "https://assets.hardcover.app/edition/32593935/204111bdd85df9d4ba64503b8b1da3ee89a78a6d.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/wikileaks-inside-julian-assanges-war-on-secrecy-2011"
+    },
+    {
+      "title": "Die Trying",
+      "author": "Lee Child",
+      "coverUrl": "https://assets.hardcover.app/edition/19744953/69f4c90c1fa7a96e01a7c37c0ef21b77e8512eb1.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/die-trying-1998"
+    },
+    {
+      "title": "The Goal: A Process of Ongoing Improvement",
+      "author": "Eliyahu M. Goldratt",
+      "coverUrl": "https://assets.hardcover.app/external_data/61729985/331f6217ace8f76533ae76e19e0818afcb82909e.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/the-goal-a-process-of-ongoing-improvement"
+    },
+    {
+      "title": "This Is How You Lose the Time War",
+      "author": "Amal El-Mohtar",
+      "coverUrl": "https://assets.hardcover.app/editions/26220245/ef7105eb-0f93-4580-a0e7-2bf6259c8203.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/this-is-how-you-lose-the-time-war"
+    },
+    {
+      "title": "The Mercy of Gods",
+      "author": "James S. A. Corey",
+      "coverUrl": "https://assets.hardcover.app/edition/31103022/eb1f5d59e1dce085739447bf87fb0aa14d2c9036.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/the-mercy-of-gods"
+    },
+    {
+      "title": "The Extended Mind: The Power of Thinking Outside the Brain",
+      "author": "Annie Murphy Paul",
+      "coverUrl": "https://assets.hardcover.app/external_data/60342815/b99adfc36779da26c6d285bfed3cb6cd61333244.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/the-extended-mind-the-power-of-thinking-outside-the-brain"
+    },
+    {
+      "title": "Children of Time",
+      "author": "Adrian Tchaikovsky",
+      "coverUrl": "https://assets.hardcover.app/editions/30400632/1512151722488735-25563522.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/children-of-time"
+    },
+    {
+      "title": "The Pragmatic Programmer: Your Journey to Mastery, 20th Anniversary Edition",
+      "author": "Andrew Hunt",
+      "coverUrl": "https://assets.hardcover.app/editions/30683445/f6e058b1-c743-4fa0-9ab9-9130c350481c.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/the-pragmatic-programmer"
+    },
+    {
+      "title": "The Mythical Man-Month: Essays on Software Engineering",
+      "author": "Frederick P. Brooks Jr.",
+      "coverUrl": "https://assets.hardcover.app/edition/11238811/7bc708885c26c0e1342f9a450a8a26ace038e4b2.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/the-mythical-man-month-essays-on-software-engineering"
+    },
+    {
+      "title": "Refactoring UI",
+      "author": "Adam Wathan",
+      "coverUrl": "https://assets.hardcover.app/external_data/28441964/d82a244276bb97845de0396bedb25a716463e7a4.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/refactoring-ui"
+    },
+    {
+      "title": "Peopleware",
+      "author": "Tom DeMarco",
+      "coverUrl": "https://assets.hardcover.app/edition/27644271/711893-L.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/peopleware"
+    },
+    {
+      "title": "Observing the User Experience: A Practitioner's Guide to User Research",
+      "author": "Mike Kuniavsky",
+      "coverUrl": "https://assets.hardcover.app/edition/14636838/784336-L.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/observing-the-user-experience"
+    }
+  ]
 }
