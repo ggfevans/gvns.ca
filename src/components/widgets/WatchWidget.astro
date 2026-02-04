@@ -30,6 +30,9 @@ try {
 
 const latestWatch = data.recentlyWatched[0] ?? null;
 const posterSrc = safeUrl(latestWatch?.posterUrl);
+const watchedDate = latestWatch?.watchedDate && !Number.isNaN(new Date(latestWatch.watchedDate).getTime())
+  ? latestWatch.watchedDate
+  : null;
 ---
 
 <article class="gvns-widget gvns-widget--watch">
@@ -50,9 +53,9 @@ const posterSrc = safeUrl(latestWatch?.posterUrl);
       <div>
         <p class="gvns-widget__detail gvns-widget__detail--bold">{latestWatch.title}</p>
         <p class="gvns-widget__meta">{latestWatch.type}</p>
-        {latestWatch.watchedDate && (
-          <time class="gvns-widget__time" datetime={latestWatch.watchedDate}>
-            {relativeTime(latestWatch.watchedDate)}
+        {watchedDate && (
+          <time class="gvns-widget__time" datetime={watchedDate}>
+            {relativeTime(watchedDate)}
           </time>
         )}
       </div>

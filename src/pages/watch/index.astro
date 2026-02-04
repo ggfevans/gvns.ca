@@ -48,7 +48,7 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
 
     <header class="page-header">
       <h1 class="page-title">Watch</h1>
-      <p class="page-subtitle">Movies and shows I've been watching, tracked on <a href="https://trakt.tv/users/gvns" class="trakt-link" rel="noopener noreferrer">Trakt</a>.</p>
+      <p class="page-subtitle">Movies and shows I've been watching, tracked on <a href="https://trakt.tv/users/gvns" class="trakt-link" target="_blank" rel="noopener noreferrer">Trakt</a>.</p>
     </header>
 
     {!hasData && (
@@ -56,7 +56,7 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
         <div class="card-content">
           <h2 class="card-heading">No recent activity</h2>
           <p class="card-text">
-            Watch history from <a href="https://trakt.tv/users/gvns" class="trakt-link" rel="noopener noreferrer">Trakt</a> will appear here once data syncs.
+            Watch history from <a href="https://trakt.tv/users/gvns" class="trakt-link" target="_blank" rel="noopener noreferrer">Trakt</a> will appear here once data syncs.
           </p>
         </div>
       </section>
@@ -189,6 +189,12 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
   .trakt-link:hover,
   .trakt-link:focus-visible {
     text-decoration: underline;
+  }
+
+  .trakt-link:focus-visible {
+    outline: 2px solid var(--colour-p4-amber);
+    outline-offset: 2px;
+    border-radius: 2px;
   }
 
   /* Watch grid (future data) */
