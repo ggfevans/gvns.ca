@@ -1,6 +1,9 @@
 ---
 import { safeUrl } from '@utils/format';
 
+interface Props { compact?: boolean; }
+const { compact = false } = Astro.props;
+
 interface Book {
   title: string;
   author: string;
@@ -36,40 +39,59 @@ const progress = typeof rawProgress === 'number' && !Number.isNaN(rawProgress)
   : null;
 ---
 
-<article class="gvns-widget gvns-widget--read">
-  <div class="gvns-widget__label">Read</div>
-  {currentBook ? (
-    <div class="gvns-widget__content gvns-widget__content--row">
-      {coverSrc && (
-        <img
-          src={coverSrc}
-          alt={`Cover of ${currentBook.title}`}
-          class="gvns-widget__cover"
-          width="64"
-          height="96"
-          loading="lazy"
-          decoding="async"
-        />
-      )}
-      <div>
-        <p class="gvns-widget__detail gvns-widget__detail--bold">{currentBook.title}</p>
-        <p class="gvns-widget__meta">{currentBook.author}</p>
-        {progress !== null && (
-          <div class="gvns-widget__progress">
-            <div class="gvns-widget__progress-bar" style={`width: ${progress}%`} role="progressbar" aria-valuenow={progress} aria-valuemin={0} aria-valuemax={100}>
-              <span class="sr-only">{progress}% complete</span>
-            </div>
-          </div>
+{compact ? (
+  <article class="gvns-widget-compact gvns-widget-compact--read">
+    <div class="gvns-widget-compact__label">Now Reading</div>
+    {currentBook ? (
+      <a href="/read" class="gvns-widget-compact__body">
+        {coverSrc && (
+          <img src={coverSrc} alt={`Cover of ${currentBook.title}`} class="gvns-widget-compact__cover" width="40" height="60" loading="lazy" decoding="async" />
         )}
+        <div class="gvns-widget-compact__info">
+          <p class="gvns-widget-compact__title">{currentBook.title}</p>
+          <p class="gvns-widget-compact__subtitle">{currentBook.author}</p>
+        </div>
+      </a>
+    ) : (
+      <p class="gvns-widget-compact__empty">Nothing right now.</p>
+    )}
+  </article>
+) : (
+  <article class="gvns-widget gvns-widget--read">
+    <div class="gvns-widget__label">Read</div>
+    {currentBook ? (
+      <div class="gvns-widget__content gvns-widget__content--row">
+        {coverSrc && (
+          <img
+            src={coverSrc}
+            alt={`Cover of ${currentBook.title}`}
+            class="gvns-widget__cover"
+            width="64"
+            height="96"
+            loading="lazy"
+            decoding="async"
+          />
+        )}
+        <div>
+          <p class="gvns-widget__detail gvns-widget__detail--bold">{currentBook.title}</p>
+          <p class="gvns-widget__meta">{currentBook.author}</p>
+          {progress !== null && (
+            <div class="gvns-widget__progress">
+              <div class="gvns-widget__progress-bar" style={`width: ${progress}%`} role="progressbar" aria-valuenow={progress} aria-valuemin={0} aria-valuemax={100}>
+                <span class="sr-only">{progress}% complete</span>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
-    </div>
-  ) : (
-    <p class="gvns-widget__empty">Nothing on the nightstand.</p>
-  )}
-  <a href="/read" class="gvns-widget__link">
-    View Full Activity <span aria-hidden="true">&rarr;</span>
-  </a>
-</article>
+    ) : (
+      <p class="gvns-widget__empty">Nothing on the nightstand.</p>
+    )}
+    <a href="/read" class="gvns-widget__link">
+      View Full Activity <span aria-hidden="true">&rarr;</span>
+    </a>
+  </article>
+)}
 
 <style>
   .gvns-widget--read {
@@ -99,5 +121,9 @@ const progress = typeof rawProgress === 'number' && !Number.isNaN(rawProgress)
     background: var(--colour-p2-rose);
     border-radius: 2px;
     transition: width var(--transition-base);
+  }
+
+  .gvns-widget-compact--read {
+    border-top: 3px solid var(--colour-p2-rose);
   }
 </style>
