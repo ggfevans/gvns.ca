@@ -74,7 +74,7 @@ jobs:
               [ -z "$tmdb_id" ] && continue
 
               TMDB_HTTP=$(curl -s --max-time 5 -o /tmp/tmdb_item.json -w "%{http_code}" \
-                "https://api.themoviedb.org/3/${media_type}/${tmdb_id}?api_key=${TMDB_API_KEY}" || true)
+                "https://api.themoviedb.org/3/${media_type}/${tmdb_id}?api_key=${TMDB_API_KEY}" || echo "000")
 
               if [ "$TMDB_HTTP" = "200" ]; then
                 POSTER_PATH=$(jq -r '.poster_path // empty' /tmp/tmdb_item.json 2>/dev/null || true)
@@ -170,7 +170,7 @@ jobs:
           rm -f /tmp/trakt_history.json /tmp/tmdb_ids.txt /tmp/tmdb_posters.json
 
       - name: Commit and push if changed
-        if: steps.fetch.outcome == 'success'
+        if: steps.fetch.outcome == 'success' && hashFiles('src/data/watching.json') != ''
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
