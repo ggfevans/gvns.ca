@@ -15,6 +15,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Fetch Trakt data
+        id: fetch
         env:
           TRAKT_CLIENT_ID: ${{ secrets.TRAKT_CLIENT_ID }}
           TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
@@ -72,9 +73,16 @@ jobs:
             while IFS=' ' read -r tmdb_id media_type; do
               [ -z "$tmdb_id" ] && continue
 
-              POSTER_PATH=$(curl -s --max-time 5 \
-                "https://api.themoviedb.org/3/${media_type}/${tmdb_id}?api_key=${TMDB_API_KEY}" \
-                | jq -r '.poster_path // empty' 2>/dev/null || true)
+              TMDB_HTTP=$(curl -s --max-time 5 -o /tmp/tmdb_item.json -w "%{http_code}" \
+                "https://api.themoviedb.org/3/${media_type}/${tmdb_id}?api_key=${TMDB_API_KEY}" || true)
+
+              if [ "$TMDB_HTTP" = "200" ]; then
+                POSTER_PATH=$(jq -r '.poster_path // empty' /tmp/tmdb_item.json 2>/dev/null || true)
+              else
+                echo "::debug::TMDB lookup failed for ${media_type}/${tmdb_id}: HTTP $TMDB_HTTP"
+                POSTER_PATH=""
+              fi
+              rm -f /tmp/tmdb_item.json
 
               if [ -n "$POSTER_PATH" ]; then
                 # Store as: { "movie_12345": "https://image.tmdb.org/t/p/w342/path.jpg" }
@@ -162,6 +170,7 @@ jobs:
           rm -f /tmp/trakt_history.json /tmp/tmdb_ids.txt /tmp/tmdb_posters.json
 
       - name: Commit and push if changed
+        if: steps.fetch.outcome == 'success'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
