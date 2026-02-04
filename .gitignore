@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+
+# claude-mem context files (cause Astro routing issues in src/pages/)
+src/**/CLAUDE.md
