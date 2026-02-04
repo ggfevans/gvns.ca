@@ -3,116 +3,84 @@
 ## Architecture Overview
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                      Cloudflare                              │
-│                   (DNS + CDN Proxy)                         │
-│                                                             │
-│    gvns.ca ──────────────► Linode VPS (45.79.xxx.xxx)      │
-│                                   │                         │
-│    analytics.gvns.ca ─────────────►│                        │
-└─────────────────────────────────────┼───────────────────────┘
-                                      │
-                                ┌─────┴─────┐
-                                │   Caddy   │
-                                │  :80/:443 │
-                                └─────┬─────┘
-                                      │
-                  ┌───────────────────┼───────────────────┐
-                  │                   │                   │
-            /var/www/gvns       Umami:3000          PostgreSQL
-            (static files)      (analytics)         (Umami DB)
+┌─────────────────────────────────────────────────────┐
+│                    Cloudflare                        │
+│                                                     │
+│   gvns.ca ──────────► CF Pages (static site)       │
+│                                                     │
+│   www.gvns.ca ────────► 301 → gvns.ca (_redirects) │
+│                                                     │
+│   analytics.gvns.ca ──► Hetzner VPS (Umami)        │
+└─────────────────────────────────────────────────────┘
+
+GitHub Actions (scheduled):
+  fetch-reading.yml  → src/data/reading.json   → push → CF Pages rebuild
+  fetch-listening.yml → src/data/listening.json → push → CF Pages rebuild
+  fetch-github.yml   → src/data/github.json    → push → CF Pages rebuild
 ```
 
-## Server Specification
-
-### Linode Nanode
-
-| Spec | Value |
-|------|-------|
-| **Plan** | Nanode 1GB |
-| **Cost** | $5/month (covered by credits until Feb 2026) |
-| **CPU** | 1 shared core |
-| **RAM** | 1 GB |
-| **Storage** | 25 GB SSD |
-| **Transfer** | 1 TB/month |
-| **OS** | Ubuntu 24.04 LTS |
-| **Region** | Toronto, CA (ca-central) |
-
-### Why Linode?
-
-- Existing account with ~$100 credits expiring Feb 2026
-- Simple, predictable pricing
-- Canadian data centre for low latency
-- Good enough for a personal site
-
-## Domain Configuration
-
-### DNS Records (Cloudflare)
-
-| Type | Name | Content | Proxy |
-|------|------|---------|-------|
-| A | `gvns.ca` | `45.79.xxx.xxx` | ✓ Proxied |
-| A | `analytics` | `45.79.xxx.xxx` | ✓ Proxied |
-| CNAME | `www` | `gvns.ca` | ✓ Proxied |
-
-### Cloudflare Settings
+## Site Hosting: Cloudflare Pages
 
 | Setting | Value |
 |---------|-------|
-| **SSL/TLS** | Full (strict) |
-| **Always Use HTTPS** | On |
-| **Auto Minify** | JS, CSS, HTML |
-| **Brotli** | On |
-| **Cache Level** | Standard |
-| **Browser Cache TTL** | 1 month |
+| **Provider** | Cloudflare Pages (free tier) |
+| **Build command** | `npm run build` |
+| **Output directory** | `dist` |
+| **Node version** | 20 (via `.nvmrc`) |
+| **Production branch** | `main` |
+| **Preview deploys** | Enabled (auto on PRs) |
 
-## Caddy Configuration
+### Custom Domains
 
-### `/etc/caddy/Caddyfile`
+| Domain | Purpose |
+|--------|---------|
+| `gvns.ca` | Primary (apex) |
+| `www.gvns.ca` | Redirects to apex via `_redirects` |
 
-```caddyfile
-# Main site - static files
-gvns.ca {
-    root * /var/www/gvns
-    file_server
-    encode gzip zstd
-    
-    # Cache static assets
-    @static {
-        path *.css *.js *.ico *.gif *.jpg *.jpeg *.png *.svg *.woff *.woff2
-    }
-    header @static Cache-Control "public, max-age=31536000, immutable"
-    
-    # Security headers
-    header {
-        X-Content-Type-Options "nosniff"
-        X-Frame-Options "DENY"
-        Referrer-Policy "strict-origin-when-cross-origin"
-    }
-    
-    # Handle SPA-style routing (if needed)
-    try_files {path} {path}/ /index.html
-}
+### How Deploys Work
 
-# WWW redirect
-www.gvns.ca {
-    redir https://gvns.ca{uri} permanent
-}
+1. Push to `main` → CF Pages auto-builds and deploys
+2. PR opened → CF Pages creates preview deploy with unique URL
+3. Scheduled GH Actions fetch external data → commit JSON → push → triggers rebuild
 
-# Analytics subdomain - reverse proxy to Umami
-analytics.gvns.ca {
-    reverse_proxy localhost:3000
-}
-```
+No deploy workflow needed. No wrangler. No secrets for deploys.
 
-## Umami Analytics
+### Security Headers
+
+Served via `_headers` file:
+- `Content-Security-Policy` (allowlists `analytics.gvns.ca` for Umami tracker)
+- `Strict-Transport-Security` with preload
+- `X-Content-Type-Options: nosniff`
+- `X-Frame-Options: DENY`
+- `Referrer-Policy: strict-origin-when-cross-origin`
+- `Permissions-Policy: camera=(), microphone=(), geolocation=()`
+
+## Analytics: Umami (Self-Hosted)
+
+### Server Specification
+
+| Spec | Value |
+|------|-------|
+| **Provider** | Hetzner |
+| **Plan** | CAX11 (ARM64) |
+| **Cost** | ~€3.50/month |
+| **CPU** | 2 Ampere Altra cores |
+| **RAM** | 4 GB |
+| **Storage** | 40 GB SSD |
+| **Transfer** | 20 TB/month |
+| **OS** | Ubuntu 24.04 LTS |
+
+### Stack
+
+- **Caddy** reverse proxy for `analytics.gvns.ca` → Umami :3000
+- **Umami** Docker container (PostgreSQL variant)
+- **PostgreSQL 15** Docker container
 
 ### Docker Compose
 
-**Location**: `/opt/umami/docker-compose.yml`
+Location: `/opt/umami/docker-compose.yml`
 
 ```yaml
-version: '3'
 services:
   umami:
     image: ghcr.io/umami-software/umami:postgresql-latest
@@ -154,208 +122,65 @@ networks:
     driver: bridge
 ```
 
-### Environment File
+### Tracked Sites
 
-**Location**: `/opt/umami/.env`
+| Site | Website ID |
+|------|-----------|
+| gvns.ca | `658b4ad8-cda9-4b91-b341-36e6e8148538` |
 
-```bash
-POSTGRES_PASSWORD=<generate-strong-password>
-APP_SECRET=<generate-32-char-secret>
-```
+### Tracker Integration
 
-### Umami Setup Checklist
-
-- [ ] Create website in Umami dashboard
-- [ ] Copy tracking script to BaseHead.astro
-- [ ] Verify data collection
-- [ ] Set up basic dashboard views
-
-### Tracking Script
-
+Script tag in `src/components/BaseHead.astro`:
 ```html
-<!-- In BaseHead.astro -->
-<script 
-  defer 
-  src="https://analytics.gvns.ca/script.js" 
-  data-website-id="<your-website-id>"
-></script>
+<script defer src="https://analytics.gvns.ca/script.js" data-website-id="658b4ad8-cda9-4b91-b341-36e6e8148538"></script>
 ```
 
-## Deployment
+## CI/CD
 
-### GitHub Actions Workflow
+### GitHub Actions
 
-**Location**: `.github/workflows/deploy.yml`
+| Workflow | Trigger | Purpose |
+|----------|---------|---------|
+| `ci.yml` | PR to `main` | Build check |
+| `fetch-reading.yml` | Daily schedule | Fetch Hardcover data (future) |
+| `fetch-listening.yml` | Daily schedule | Fetch ListenBrainz data (future) |
+| `fetch-github.yml` | Daily schedule | Fetch GitHub activity (future) |
 
-```yaml
-name: Deploy to Linode
+### Required Secrets (GitHub Actions)
 
-on:
-  push:
-    branches: [main]
+| Secret | Used by | Purpose |
+|--------|---------|---------|
+| `HARDCOVER_TOKEN` | fetch-reading | Hardcover API auth (future) |
+| `HARDCOVER_USER_ID` | fetch-reading | Hardcover user (future) |
+| `LISTENBRAINZ_USERNAME` | fetch-listening | LB user (future) |
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
-      
-      - name: Install dependencies
-        run: npm ci
-      
-      - name: Build site
-        run: npm run build
-      
-      - name: Deploy to Linode
-        uses: burnett01/rsync-deployments@6.0.0
-        with:
-          switches: -avzr --delete
-          path: dist/
-          remote_path: /var/www/gvns/
-          remote_host: ${{ secrets.LINODE_HOST }}
-          remote_user: ${{ secrets.LINODE_USER }}
-          remote_key: ${{ secrets.LINODE_SSH_KEY }}
-      
-      - name: Purge Cloudflare cache
-        run: |
-          curl -X POST "https://api.cloudflare.com/client/v4/zones/${{ secrets.CF_ZONE_ID }}/purge_cache" \
-            -H "Authorization: Bearer ${{ secrets.CF_API_TOKEN }}" \
-            -H "Content-Type: application/json" \
-            --data '{"purge_everything":true}'
-```
+No Cloudflare secrets needed in GitHub — deploys are handled by CF Pages native integration.
 
-### Required Secrets
+## DNS Records (Cloudflare)
 
-| Secret | Description |
-|--------|-------------|
-| `LINODE_HOST` | Server IP address |
-| `LINODE_USER` | SSH username (deploy user) |
-| `LINODE_SSH_KEY` | Private SSH key for deploy user |
-| `CF_ZONE_ID` | Cloudflare zone ID for gvns.ca |
-| `CF_API_TOKEN` | Cloudflare API token with cache purge permission |
+| Type | Name | Content | Proxy |
+|------|------|---------|-------|
+| CNAME | `gvns.ca` | `<project>.pages.dev` | Proxied |
+| CNAME | `www` | `<project>.pages.dev` | Proxied |
+| A | `analytics` | `<hetzner-ip>` | Proxied |
 
-## Server Setup Checklist
-
-### Initial Server Setup
-
-- [ ] Create Linode Nanode in Toronto
-- [ ] SSH in and update system (`apt update && apt upgrade`)
-- [ ] Create non-root user with sudo
-- [ ] Configure SSH (disable password auth)
-- [ ] Set up UFW firewall (allow 22, 80, 443)
-- [ ] Install Docker and Docker Compose
-- [ ] Install Caddy
-
-### Application Setup
-
-- [ ] Create `/var/www/gvns` directory
-- [ ] Set up Umami in `/opt/umami`
-- [ ] Configure Caddyfile
-- [ ] Test HTTPS certificates
-- [ ] Verify Umami at analytics.gvns.ca
-
-### CI/CD Setup
-
-- [ ] Create deploy SSH key pair
-- [ ] Add public key to server's authorized_keys
-- [ ] Add private key to GitHub secrets
-- [ ] Create Cloudflare API token
-- [ ] Add all secrets to GitHub repository
-- [ ] Test deployment pipeline
-
-## Maintenance
-
-### Updating Umami
-
-```bash
-cd /opt/umami
-docker compose pull
-docker compose up -d
-```
-
-### Viewing Logs
-
-```bash
-# Caddy logs
-journalctl -u caddy -f
-
-# Umami logs
-docker compose -f /opt/umami/docker-compose.yml logs -f
-
-# Nginx access (if using)
-tail -f /var/log/caddy/access.log
-```
-
-### Backups
+## Backups
 
 | What | How | Frequency | Retention |
 |------|-----|-----------|-----------|
 | Umami DB | `pg_dump` via cron | Daily 3:00 AM | 7 days local |
 | Umami DB (offsite) | rsync to Backrest | Daily 4:00 AM | Per Backrest policy |
 | Site content | Git repo is source of truth | N/A | N/A |
-| Server config | Document in repo's `/docs` | As changed | N/A |
-
-#### Umami Database Backup Details
-
-**On vps-web-gvnsca (Linode):**
-- Cron runs daily at 3:00 AM
-- `pg_dump` from `umami-db` container
-- Stored at `/home/gvns/backups/postgres/`
-- Format: `umami-YYYYMMDD.sql.gz`
-- Retention: 7 days
-
-**On Backrest (offsite):**
-- Cron runs daily at 4:00 AM (after backup completes)
-- rsync pulls from vps-web-gvnsca over Tailscale
-- Stored at `/mnt/backup-sources/vps-web-gvnsca/umami/`
-- Uses `restic-ed25519` SSH key, port 42042
-
-```bash
-# Backrest cron entry
-0 4 * * * rsync -avz -e "ssh -p 42042 -i /root/.ssh/restic-ed25519" gvns@100.79.95.64:/home/gvns/backups/postgres/ /mnt/backup-sources/vps-web-gvnsca/umami/
-```
-
-#### Restore Procedure
-
-```bash
-# On vps-web-gvnsca
-cd /opt/umami
-
-# Stop Umami (keep DB running)
-docker compose stop umami
-
-# Restore from backup
-gunzip -c /home/gvns/backups/postgres/umami-YYYYMMDD.sql.gz | docker exec -i umami-db psql -U umami -d umami
-
-# Restart Umami
-docker compose up -d
-```
 
 ## Cost Summary
 
-### Current (Through Feb 2026)
-
 | Item | Monthly |
 |------|---------|
-| Linode Nanode | $5 (credits) |
-| Cloudflare | $0 |
+| Cloudflare Pages | $0 |
+| Hetzner CAX11 (Umami) | ~€3.50 |
 | Domain | ~$1 (amortised) |
-| **Total** | **$0** out of pocket |
-
-### After Feb 2026
-
-| Item | Monthly |
-|------|---------|
-| Linode Nanode | $5 |
-| Cloudflare | $0 |
-| Domain | ~$1 |
-| **Total** | **~$6/month** |
+| **Total** | **~€4.50/month** |
 
 ---
 
-*Last updated: 2026-01-02*
+*Last updated: 2026-02-03*
