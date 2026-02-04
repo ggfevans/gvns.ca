@@ -38,9 +38,16 @@ export function findUniqueSlug(baseSlug, takenSlugs) {
 
 /**
  * Escape a string for use in double-quoted YAML.
+ * Handles backslashes, quotes, newlines, tabs, and control characters.
  */
 export function escapeYamlString(str) {
-  return str.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+  return str
+    .replace(/\\/g, '\\\\')     // Backslashes first (before other escapes add more)
+    .replace(/"/g, '\\"')       // Double quotes
+    .replace(/\n/g, '\\n')      // Newlines
+    .replace(/\r/g, '\\r')      // Carriage returns
+    .replace(/\t/g, '\\t')      // Tabs
+    .replace(/[\x00-\x08\x0B\x0C\x0E-\x1F]/g, ''); // Strip other control chars
 }
 
 /**
