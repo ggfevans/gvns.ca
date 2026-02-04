@@ -1,9 +1,18 @@
 {
   "lastUpdated": null,
-  "recentTracks": [],
+  "recentListens": [],
+  "recentListensStatus": "ok",
   "topArtists": [],
+  "topArtistsStatus": "ok",
+  "topTracks": [],
+  "topTracksStatus": "ok",
+  "topAlbums": [],
+  "topAlbumsStatus": "ok",
   "stats": {
-    "tracksToday": 0,
-    "artistsToday": 0
+    "totalListenCount": null,
+    "range": "this_month",
+    "artistCount": null,
+    "albumCount": null,
+    "trackCount": null
   }
 }
