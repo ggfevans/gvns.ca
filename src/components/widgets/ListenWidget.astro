@@ -1,48 +1,67 @@
 ---
-import { relativeTime, safeUrl } from '@utils/format';
+import { relativeTime } from '@utils/format';
 
-interface Track {
-  name: string;
+interface Listen {
+  track: string;
   artist: string;
   album?: string;
-  albumArtUrl?: string;
   listenedAt?: string;
+  caaReleaseMbid?: string | null;
+  caaId?: number | null;
+  recordingMbid?: string | null;
+  artistMbids?: string[];
 }
+
+type SectionStatus = 'ok' | 'no_data' | 'error';
 
 interface ListeningData {
   lastUpdated: string | null;
-  recentTracks: Track[];
-  topArtists: { name: string; playCount: number; imageUrl?: string }[];
-  stats: { tracksToday: number; artistsToday: number };
+  recentListens: Listen[];
+  recentListensStatus: SectionStatus;
+  topArtists: { name: string; listenCount: number; artistMbid?: string | null }[];
+  topArtistsStatus: SectionStatus;
+  topTracks: { track: string; artist: string; listenCount: number; caaReleaseMbid?: string | null; caaId?: number | null; recordingMbid?: string | null }[];
+  topTracksStatus: SectionStatus;
+  topAlbums: { album: string; artist: string; listenCount: number; caaReleaseMbid?: string | null; caaId?: number | null }[];
+  topAlbumsStatus: SectionStatus;
+  stats: { totalListenCount: number | null; range: string; artistCount: number | null; albumCount: number | null; trackCount: number | null };
 }
 
-let data: ListeningData = { lastUpdated: null, recentTracks: [], topArtists: [], stats: { tracksToday: 0, artistsToday: 0 } };
+const emptyData: ListeningData = {
+  lastUpdated: null,
+  recentListens: [],
+  recentListensStatus: 'ok',
+  topArtists: [],
+  topArtistsStatus: 'ok',
+  topTracks: [],
+  topTracksStatus: 'ok',
+  topAlbums: [],
+  topAlbumsStatus: 'ok',
+  stats: { totalListenCount: null, range: 'this_month', artistCount: null, albumCount: null, trackCount: null },
+};
+
+let data: ListeningData = emptyData;
 try {
   const imported = (await import('../../data/listening.json')).default as Partial<ListeningData>;
-  data = {
-    lastUpdated: imported.lastUpdated ?? null,
-    recentTracks: Array.isArray(imported.recentTracks) ? imported.recentTracks : [],
-    topArtists: Array.isArray(imported.topArtists) ? imported.topArtists : [],
-    stats: imported.stats && typeof imported.stats === 'object'
-      ? { tracksToday: imported.stats.tracksToday ?? 0, artistsToday: imported.stats.artistsToday ?? 0 }
-      : { tracksToday: 0, artistsToday: 0 },
-  };
+  data = { ...emptyData, ...imported };
 } catch (e) {
   if (import.meta.env.DEV) console.error('Failed to load listening data for ListenWidget:', e);
 }
 
-const latestTrack = data.recentTracks[0] ?? null;
-const artSrc = safeUrl(latestTrack?.albumArtUrl);
+const latestTrack = data.recentListens[0] ?? null;
+const artUrl = latestTrack?.caaReleaseMbid
+  ? `https://coverartarchive.org/release/${latestTrack.caaReleaseMbid}/front-250`
+  : undefined;
 ---
 
 <article class="gvns-widget gvns-widget--listen">
   <div class="gvns-widget__label">Listen</div>
   {latestTrack ? (
     <div class="gvns-widget__content gvns-widget__content--row">
-      {artSrc ? (
+      {artUrl ? (
         <img
-          src={artSrc}
-          alt={`${latestTrack.album || latestTrack.name} album art`}
+          src={artUrl}
+          alt={`${latestTrack.album || latestTrack.track} album art`}
           class="gvns-widget__art"
           width="64"
           height="64"
@@ -55,7 +74,7 @@ const artSrc = safeUrl(latestTrack?.albumArtUrl);
         </div>
       )}
       <div>
-        <p class="gvns-widget__detail gvns-widget__detail--bold">{latestTrack.name}</p>
+        <p class="gvns-widget__detail gvns-widget__detail--bold">{latestTrack.track}</p>
         <p class="gvns-widget__meta">{latestTrack.artist}</p>
         {latestTrack.listenedAt && (
           <time class="gvns-widget__time" datetime={latestTrack.listenedAt}>
