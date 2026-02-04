@@ -2,17 +2,18 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import PostCard from '@components/PostCard.astro';
-import WorkCard from '@components/WorkCard.astro';
+import StatusWidget from '@components/widgets/StatusWidget.astro';
+import ActivityBar from '@components/ActivityBar.astro';
+import ReadWidget from '@components/widgets/ReadWidget.astro';
+import ListenWidget from '@components/widgets/ListenWidget.astro';
+import WatchWidget from '@components/widgets/WatchWidget.astro';
+import CodeWidget from '@components/widgets/CodeWidget.astro';
 import { websiteSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
 
 const posts = (await getCollection('writing'))
   .filter((post) => (import.meta.env.PROD ? !post.data.draft : true))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3);
-
-const featuredWork = (await getCollection('work'))
-  .filter((project) => project.data.featured)
-  .sort((a, b) => a.data.title.localeCompare(b.data.title));
 
 const siteUrl = normalizeSiteUrl(Astro.site);
 const jsonLd = toJsonLd(websiteSchema(siteUrl));
@@ -39,23 +40,22 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
       </nav>
     </section>
 
-    {
-      featuredWork.length > 0 && (
-        <section class="featured-work" aria-labelledby="work-heading">
-          <div class="section-header">
-            <h2 id="work-heading">Featured Work</h2>
-            <a href="/work" class="view-all">
-              See all work &rarr;
-            </a>
-          </div>
-          <div class="work-grid">
-            {featuredWork.map((project) => (
-              <WorkCard project={project} />
-            ))}
-          </div>
-        </section>
-      )
-    }
+    <section class="status-section" aria-label="Current status">
+      <StatusWidget />
+    </section>
+
+    <div class="activity-bar-wrapper">
+      <ActivityBar />
+    </div>
+
+    <section class="activity-widgets" aria-label="Current activity">
+      <div class="activity-grid">
+        <ReadWidget compact />
+        <ListenWidget compact />
+        <WatchWidget compact />
+        <CodeWidget compact />
+      </div>
+    </section>
 
     <section class="recent-writing" aria-labelledby="writing-heading">
       <div class="section-header">
@@ -81,7 +81,7 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
   .home {
     max-width: var(--width-wide);
     margin: 0 auto;
-    padding-inline: var(--space-6);
+    padding-inline: var(--space-4);
   }
 
   /* Hero */
@@ -91,33 +91,28 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
     padding: var(--space-16) 0 var(--space-12);
     text-align: center;
   }
-
   h1 {
     font-size: var(--text-4xl);
     line-height: 1.2;
     letter-spacing: -0.025em;
     margin-bottom: var(--space-4);
   }
-
   .tagline {
     font-size: var(--text-lg);
     color: var(--colour-text-secondary);
     margin-bottom: var(--space-4);
   }
-
   .intro {
     font-size: var(--text-lg);
     color: var(--colour-text-secondary);
     line-height: 1.6;
     margin-bottom: var(--space-8);
   }
-
   .hero-cta {
     display: flex;
     gap: var(--space-6);
     justify-content: center;
   }
-
   .cta-link {
     color: var(--colour-accent-primary);
     text-decoration: none;
@@ -125,31 +120,141 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
     font-size: var(--text-lg);
     transition: color var(--transition-fast);
   }
-
   .cta-link:hover {
     color: var(--colour-accent-hover);
   }
 
-  /* Sections */
-  .featured-work,
+  /* Status */
+  .status-section {
+    max-width: var(--width-content);
+    margin: 0 auto;
+    padding-bottom: var(--space-8);
+  }
+  .status-section :global(.gvns-widget) {
+    background: transparent;
+    border: none;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+  }
+  .status-section :global(.gvns-widget__label) {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--colour-text-muted);
+  }
+  .status-section :global(.gvns-widget__content) {
+    flex: none;
+  }
+  .status-section :global(.gvns-widget__detail) {
+    font-size: var(--text-sm);
+    color: var(--colour-text-secondary);
+    margin: 0;
+  }
+
+  /* Activity bar */
+  .activity-bar-wrapper {
+    padding: var(--space-4) 0;
+  }
+
+  /* Activity widget grid */
+  .activity-widgets {
+    padding: var(--space-8) 0;
+  }
+  .activity-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-4);
+  }
+  .activity-grid :global(.gvns-widget-compact) {
+    background: var(--colour-bg-secondary);
+    border: 1px solid var(--colour-border);
+    border-radius: 8px;
+    padding: var(--space-4);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    transition: border-color var(--transition-fast);
+  }
+  .activity-grid :global(.gvns-widget-compact__label) {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--colour-text-muted);
+  }
+  .activity-grid :global(.gvns-widget-compact__body) {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    text-decoration: none;
+    color: inherit;
+  }
+  .activity-grid :global(.gvns-widget-compact__cover) {
+    border-radius: 4px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+  .activity-grid :global(.gvns-widget-compact__info) {
+    min-width: 0;
+  }
+  .activity-grid :global(.gvns-widget-compact__title) {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--colour-text-primary);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .activity-grid :global(.gvns-widget-compact__subtitle) {
+    font-size: var(--text-xs);
+    color: var(--colour-text-secondary);
+    margin: var(--space-1) 0 0 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .activity-grid :global(.gvns-widget-compact__empty) {
+    font-size: var(--text-sm);
+    color: var(--colour-text-muted);
+    font-style: italic;
+    margin: 0;
+  }
+
+  @media (max-width: 1024px) {
+    .activity-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 640px) {
+    .activity-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Recent Writing */
   .recent-writing {
+    max-width: var(--width-content);
+    margin: 0 auto;
     padding: var(--space-12) 0;
     border-top: 1px solid var(--colour-border);
   }
-
   .section-header {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
     margin-bottom: var(--space-8);
   }
-
   .section-header h2 {
     font-size: var(--text-2xl);
     font-weight: 700;
     letter-spacing: -0.025em;
   }
-
   .view-all {
     color: var(--colour-accent-primary);
     text-decoration: none;
@@ -157,37 +262,14 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
     transition: color var(--transition-fast);
     white-space: nowrap;
   }
-
   .view-all:hover {
     color: var(--colour-accent-hover);
   }
-
-  /* Work Grid */
-  .work-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-6);
-  }
-
-  @media (min-width: 768px) {
-    .work-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .work-grid {
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    }
-  }
-
-  /* Post List */
   .post-list {
     display: flex;
     flex-direction: column;
     gap: var(--space-6);
   }
-
   .empty-state {
     color: var(--colour-text-secondary);
     font-style: italic;
