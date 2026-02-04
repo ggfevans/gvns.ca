@@ -19,7 +19,7 @@ jobs:
       - name: Fetch GitHub activity
         id: fetch
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
 
@@ -56,7 +56,7 @@ jobs:
             | select(.type == "PushEvent")
             | .created_at as $date
             | .repo.name as $repo
-            | .payload.commits[]
+            | (.payload.commits // [])[]
             | {
                 repo: ($repo | split("/") | last),
                 message: (.message | split("\n") | first),
@@ -94,7 +94,7 @@ jobs:
 
           REPOSITORIES=$(echo "$REPOS" | jq '[
             .[]
-            | select(.fork == false and .archived == false)
+            | select((.fork // false) == false and (.archived // false) == false)
             | {
                 name: .name,
                 description: (.description // ""),
