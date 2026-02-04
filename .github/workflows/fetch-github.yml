@@ -84,7 +84,7 @@ jobs:
                   repo: ($repo | split("/") | last),
                   message: (.commit.message | split("\n") | first),
                   sha: .sha,
-                  date: $date,
+                  date: ((.commit.author.date // .commit.committer.date // $date) | if . == "" then $date else . end),
                   url: .html_url
                 }
             ]' 2>/dev/null) || continue
