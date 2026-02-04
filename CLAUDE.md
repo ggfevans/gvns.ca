@@ -12,7 +12,7 @@ Personal writing + work site for gvns.ca. Brand guide aligned and in active buil
 - **Styling**: Tailwind CSS 4.x with P1-P5 accent palette (violet/rose/emerald/amber/sky) + zinc neutrals
 - **Content**: Astro Content Collections (type-safe markdown)
 - **Hosting**: Cloudflare Pages (auto-deploy from GitHub)
-- **Analytics**: TBD (migrating from self-hosted Umami)
+- **Analytics**: Umami (self-hosted on Hetzner VPS, tracked at analytics.gvns.ca)
 
 ## Development Commands
 
@@ -78,9 +78,9 @@ Dark-first with `.dark` class toggle (Tailwind `dark:` variant via `@custom-vari
 
 ## Deployment
 
-Cloudflare Pages auto-deploys on push to main. GitHub Actions workflow:
-1. `npm ci` → `npm run build`
-2. Deploy `./dist` to Cloudflare Pages
+Cloudflare Pages auto-deploys on push to main via native Git integration (no GH Actions deploy step). PR pushes generate preview deploy URLs.
+
+GitHub Actions runs `ci.yml` for build checks on PRs only. Scheduled data-fetching workflows commit to `src/data/` and push, triggering CF Pages rebuilds.
 
 ## Documentation
 
