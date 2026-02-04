@@ -74,7 +74,8 @@ const emptyData: ListeningData = {
 
 let listeningData: ListeningData = emptyData;
 try {
-  listeningData = { ...emptyData, ...(await import('../../data/listening.json')).default as Partial<ListeningData> };
+  const imported = (await import('../../data/listening.json')).default as Partial<ListeningData>;
+  listeningData = { ...emptyData, ...imported, stats: { ...emptyData.stats, ...(imported.stats || {}) } };
 } catch (e) {
   if (import.meta.env.DEV) console.error('Failed to load listening data:', e);
 }
@@ -244,11 +245,11 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
                         <img
                           src={coverArtUrl(album.caaReleaseMbid)}
                           alt={`${album.album} cover art`}
+                          class="gvns-artist-image--square"
                           width="64"
                           height="64"
                           loading="lazy"
                           decoding="async"
-                          style="border-radius: 6px;"
                         />
                       ) : (
                         <div class="gvns-artist-image-placeholder" aria-hidden="true">
@@ -474,6 +475,10 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
 
   .gvns-artist-image img {
     object-fit: cover;
+  }
+
+  .gvns-artist-image--square {
+    border-radius: 6px;
   }
 
   .gvns-artist-image-placeholder {

@@ -43,7 +43,7 @@ const emptyData: ListeningData = {
 let data: ListeningData = emptyData;
 try {
   const imported = (await import('../../data/listening.json')).default as Partial<ListeningData>;
-  data = { ...emptyData, ...imported };
+  data = { ...emptyData, ...imported, stats: { ...emptyData.stats, ...(imported.stats || {}) } };
 } catch (e) {
   if (import.meta.env.DEV) console.error('Failed to load listening data for ListenWidget:', e);
 }
