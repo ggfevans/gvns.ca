@@ -93,7 +93,7 @@ export const TAG_KEYWORDS: Record<string, ValidTag> = {
   // Productivity & Life
   'attention deficit': 'adhd',
   neurodivergent: 'adhd',
-  executive function: 'adhd',
+  'executive function': 'adhd',
   workflow: 'productivity',
   'time management': 'productivity',
   habits: 'productivity',
