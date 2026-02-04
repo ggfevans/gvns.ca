@@ -18,12 +18,15 @@ let files;
 try {
   files = readdirSync('.', { recursive: true, withFileTypes: true });
 } catch (err) {
-  // Directory read failed — nothing to clean
-  if (err.code !== 'ENOENT') {
-    console.error(`Warning: ${err.message}`);
+  if (err.code === 'ENOENT') {
+    // Directory doesn't exist — nothing to clean
+    process.exit(0);
   }
-  process.exit(0);
+  console.error(`Error reading directory: ${err.message}`);
+  process.exit(1);
 }
+
+let hadDeleteError = false;
 
 for (const file of files) {
   if (file.isFile() && file.name === targetFile) {
@@ -38,7 +41,12 @@ for (const file of files) {
     } catch (err) {
       if (err.code !== 'ENOENT') {
         console.error(`Warning: failed to remove ${filePath}: ${err.message}`);
+        hadDeleteError = true;
       }
     }
   }
+}
+
+if (hadDeleteError) {
+  process.exitCode = 1;
 }
