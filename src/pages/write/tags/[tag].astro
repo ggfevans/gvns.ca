@@ -1,7 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '@layouts/BaseLayout.astro';
-import Breadcrumb from '@components/Breadcrumb.astro';
 import PostCard from '@components/PostCard.astro';
 import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
 
@@ -46,15 +45,11 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
 <BaseLayout
   title={`Posts tagged "${tag}" | gvns.ca`}
   description={`All writing posts tagged with ${tag}.`}
+  accent="p4-amber"
+  breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Write', href: '/write' }, { label: 'Tags', href: '/write/tags' }, { label: tag }]}
 >
   <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />
   <main id="main-content" class="tag-page">
-    <Breadcrumb items={[
-      { label: 'Home', href: '/' },
-      { label: 'Write', href: '/write' },
-      { label: 'Tags', href: '/write/tags' },
-      { label: tag },
-    ]} />
     <header>
       <h1>Posts tagged: <span class="tag-name">{tag}</span></h1>
       <p class="count">{posts.length} post{posts.length !== 1 ? 's' : ''}</p>

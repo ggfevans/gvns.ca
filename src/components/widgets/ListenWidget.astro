@@ -1,6 +1,9 @@
 ---
 import { relativeTime, isValidMbid } from '@utils/format';
 
+interface Props { compact?: boolean; }
+const { compact = false } = Astro.props;
+
 interface Listen {
   track: string;
   artist: string;
@@ -54,42 +57,61 @@ const artUrl = isValidMbid(latestTrack?.caaReleaseMbid)
   : undefined;
 ---
 
-<article class="gvns-widget gvns-widget--listen">
-  <div class="gvns-widget__label">Listen</div>
-  {latestTrack ? (
-    <div class="gvns-widget__content gvns-widget__content--row">
-      {artUrl ? (
-        <img
-          src={artUrl}
-          alt={`${latestTrack.album || latestTrack.track} album art`}
-          class="gvns-widget__art"
-          width="64"
-          height="64"
-          loading="lazy"
-          decoding="async"
-        />
-      ) : (
-        <div class="gvns-widget__art-placeholder" aria-hidden="true">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-        </div>
-      )}
-      <div>
-        <p class="gvns-widget__detail gvns-widget__detail--bold">{latestTrack.track}</p>
-        <p class="gvns-widget__meta">{latestTrack.artist}</p>
-        {latestTrack.listenedAt && (
-          <time class="gvns-widget__time" datetime={latestTrack.listenedAt}>
-            {relativeTime(latestTrack.listenedAt)}
-          </time>
+{compact ? (
+  <article class="gvns-widget-compact gvns-widget-compact--listen">
+    <div class="gvns-widget-compact__label">Now Listening</div>
+    {latestTrack ? (
+      <a href="/listen" class="gvns-widget-compact__body">
+        {artUrl && (
+          <img src={artUrl} alt={`${latestTrack.album || latestTrack.track} album art`} class="gvns-widget-compact__cover gvns-widget-compact__cover--square" width="40" height="40" loading="lazy" decoding="async" />
         )}
+        <div class="gvns-widget-compact__info">
+          <p class="gvns-widget-compact__title">{latestTrack.track}</p>
+          <p class="gvns-widget-compact__subtitle">{latestTrack.artist}</p>
+        </div>
+      </a>
+    ) : (
+      <p class="gvns-widget-compact__empty">Nothing playing.</p>
+    )}
+  </article>
+) : (
+  <article class="gvns-widget gvns-widget--listen">
+    <div class="gvns-widget__label">Listen</div>
+    {latestTrack ? (
+      <div class="gvns-widget__content gvns-widget__content--row">
+        {artUrl ? (
+          <img
+            src={artUrl}
+            alt={`${latestTrack.album || latestTrack.track} album art`}
+            class="gvns-widget__art"
+            width="64"
+            height="64"
+            loading="lazy"
+            decoding="async"
+          />
+        ) : (
+          <div class="gvns-widget__art-placeholder" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+          </div>
+        )}
+        <div>
+          <p class="gvns-widget__detail gvns-widget__detail--bold">{latestTrack.track}</p>
+          <p class="gvns-widget__meta">{latestTrack.artist}</p>
+          {latestTrack.listenedAt && (
+            <time class="gvns-widget__time" datetime={latestTrack.listenedAt}>
+              {relativeTime(latestTrack.listenedAt)}
+            </time>
+          )}
+        </div>
       </div>
-    </div>
-  ) : (
-    <p class="gvns-widget__empty">Nothing playing right now.</p>
-  )}
-  <a href="/listen" class="gvns-widget__link">
-    View Full Activity <span aria-hidden="true">&rarr;</span>
-  </a>
-</article>
+    ) : (
+      <p class="gvns-widget__empty">Nothing playing right now.</p>
+    )}
+    <a href="/listen" class="gvns-widget__link">
+      View Full Activity <span aria-hidden="true">&rarr;</span>
+    </a>
+  </article>
+)}
 
 <style>
   .gvns-widget--listen {
@@ -118,5 +140,13 @@ const artUrl = isValidMbid(latestTrack?.caaReleaseMbid)
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+  }
+
+  .gvns-widget-compact--listen {
+    border-top: 3px solid var(--colour-p3-emerald);
+  }
+
+  .gvns-widget-compact__cover--square {
+    border-radius: 4px;
   }
 </style>

@@ -1,0 +1,31 @@
+<!-- CopyCodeInit — event-delegated clipboard script for gvns-code-mockup blocks. -->
+<script>
+  document.addEventListener('click', async (e) => {
+    const btn = (e.target as HTMLElement).closest<HTMLButtonElement>(
+      '.gvns-code-mockup__copy'
+    );
+    if (!btn) return;
+
+    const code = btn.dataset.code ?? '';
+    if (!code) return;
+
+    try {
+      await navigator.clipboard.writeText(code);
+    } catch {
+      // Fallback for non-secure contexts
+      const textarea = document.createElement('textarea');
+      textarea.value = code;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+    }
+
+    btn.dataset.copied = 'true';
+    setTimeout(() => {
+      delete btn.dataset.copied;
+    }, 2000);
+  });
+</script>

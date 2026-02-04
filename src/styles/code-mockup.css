@@ -1,0 +1,151 @@
+/* ============================================
+   gvns-code-mockup — macOS-style code blocks
+   BEM structure, fully tokenized
+   ============================================ */
+
+.gvns-code-mockup {
+  background: var(--colour-bg-secondary);
+  border: 1px solid var(--colour-border);
+  border-radius: var(--code-mockup-radius);
+  margin: var(--space-6) 0;
+  overflow: hidden;
+}
+
+/* Header — macOS chrome bar */
+.gvns-code-mockup__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  background: var(--colour-bg-tertiary);
+  border-bottom: 1px solid var(--colour-border);
+}
+
+/* Traffic light dots */
+.gvns-code-mockup__dots {
+  display: flex;
+  align-items: center;
+  gap: var(--code-mockup-dot-gap);
+}
+
+.gvns-code-mockup__dots span {
+  display: block;
+  width: var(--code-mockup-dot-size);
+  height: var(--code-mockup-dot-size);
+  border-radius: 50%;
+}
+
+.gvns-code-mockup__dots span:nth-child(1) {
+  background: var(--code-mockup-dot-close);
+}
+
+.gvns-code-mockup__dots span:nth-child(2) {
+  background: var(--code-mockup-dot-minimize);
+}
+
+.gvns-code-mockup__dots span:nth-child(3) {
+  background: var(--code-mockup-dot-maximize);
+}
+
+/* Language label */
+.gvns-code-mockup__lang {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--colour-text-muted);
+  margin-left: auto;
+}
+
+/* Copy button */
+.gvns-code-mockup__copy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-1);
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--colour-text-muted);
+  cursor: pointer;
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.gvns-code-mockup__copy:hover {
+  color: var(--colour-text-primary);
+  background: var(--colour-bg-primary);
+}
+
+.gvns-code-mockup__copy .icon-check {
+  display: none;
+}
+
+.gvns-code-mockup__copy .icon-copy {
+  display: block;
+}
+
+.gvns-code-mockup__copy[data-copied="true"] {
+  color: var(--colour-success);
+}
+
+.gvns-code-mockup__copy[data-copied="true"] .icon-check {
+  display: block;
+}
+
+.gvns-code-mockup__copy[data-copied="true"] .icon-copy {
+  display: none;
+}
+
+/* Body — line numbers + code side by side */
+.gvns-code-mockup__body {
+  display: flex;
+  overflow-x: auto;
+}
+
+/* Line number / prompt gutter */
+.gvns-code-mockup__lines {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  padding: var(--space-4) var(--space-3) var(--space-4) var(--space-4);
+  border-right: 1px solid var(--colour-border);
+  min-width: var(--code-mockup-gutter-width);
+  text-align: right;
+  user-select: none;
+}
+
+.gvns-code-mockup__lines span {
+  font-family: var(--font-mono);
+  font-size: var(--code-mockup-font-size);
+  line-height: var(--code-mockup-line-height);
+  color: var(--colour-text-muted);
+}
+
+/* Terminal prompt variant */
+.gvns-code-mockup__lines--terminal span {
+  color: var(--code-mockup-terminal-prompt);
+  text-align: left;
+}
+
+/* Code area — override prose defaults */
+.gvns-code-mockup .astro-code {
+  margin: 0;
+  border-radius: 0;
+  border: none;
+  background: transparent !important;
+  padding: var(--space-4);
+  flex: 1;
+  min-width: 0;
+}
+
+.gvns-code-mockup .astro-code code {
+  font-size: var(--code-mockup-font-size);
+  line-height: var(--code-mockup-line-height);
+  background: none;
+  padding: 0;
+}
+
+/* Hide line numbers on narrow viewports */
+@media (max-width: 480px) {
+  .gvns-code-mockup__lines {
+    display: none;
+  }
+}

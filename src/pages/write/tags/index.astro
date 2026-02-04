@@ -31,31 +31,33 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
 <BaseLayout
   title="Tags | gvns.ca"
   description="Browse all writing tags."
+  accent="p4-amber"
+  breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Write', href: '/write' }, { label: 'Tags' }]}
 >
   <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />
-  <main id="main-content" class="tags-page">
+  <main id="main-content" class="gvns-tags">
     <h1>Tags</h1>
     <p class="intro">Browse posts by topic.</p>
 
     {sortedTags.length > 0 ? (
-      <ul class="tag-list">
+      <ul class="gvns-tags__list">
         {sortedTags.map(([tag, count]) => (
           <li>
-            <a href={`/write/tags/${tag}`} class="tag-link">
-              <span class="tag-name">{tag}</span>
-              <span class="tag-count">({count})</span>
+            <a href={`/write/tags/${tag}`} class="gvns-tags__link">
+              <span class="gvns-tags__name">{tag}</span>
+              <span class="gvns-tags__count">({count})</span>
             </a>
           </li>
         ))}
       </ul>
     ) : (
-      <p class="no-tags">No tags yet.</p>
+      <p class="gvns-tags__empty">No tags yet.</p>
     )}
   </main>
 </BaseLayout>
 
 <style>
-  .tags-page {
+  .gvns-tags {
     max-width: var(--width-content);
     margin: 0 auto;
   }
@@ -72,7 +74,7 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
     margin-bottom: 2rem;
   }
 
-  .tag-list {
+  .gvns-tags__list {
     list-style: none;
     padding: 0;
     display: flex;
@@ -80,7 +82,7 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
     gap: 0.75rem;
   }
 
-  .tag-link {
+  .gvns-tags__link {
     display: inline-flex;
     align-items: center;
     gap: 0.25rem;
@@ -91,26 +93,26 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
     transition: background-color var(--transition-fast);
   }
 
-  .tag-link:hover {
+  .gvns-tags__link:hover {
     background: var(--colour-bg-tertiary);
   }
 
-  .tag-link:focus-visible {
+  .gvns-tags__link:focus-visible {
     outline: 2px solid var(--colour-accent-primary);
     outline-offset: 2px;
   }
 
-  .tag-name {
+  .gvns-tags__name {
     color: var(--colour-accent-primary);
     font-weight: 500;
   }
 
-  .tag-count {
+  .gvns-tags__count {
     color: var(--colour-text-secondary);
     font-size: var(--text-sm);
   }
 
-  .no-tags {
+  .gvns-tags__empty {
     color: var(--colour-text-secondary);
     font-style: italic;
   }

@@ -1,46 +1,23 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
-import Breadcrumb from '@components/Breadcrumb.astro';
+import ContributionHeatmap from '@components/ContributionHeatmap.astro';
+import ActivityTimeline from '@components/ActivityTimeline.astro';
 import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
-import { relativeTime, truncate, formatTimestamp, safeUrl } from '@utils/format';
+import { formatTimestamp, safeUrl } from '@utils/format';
+import { parseGitHubData, formatStreak, EMPTY_GITHUB_DATA } from '@utils/github';
+import type { GitHubData } from '@utils/github';
 
-interface Commit {
-  repo: string;
-  message: string;
-  sha: string;
-  date: string;
-  url: string;
-}
-
-interface Repository {
-  name: string;
-  description: string;
-  language: string;
-  stars: number;
-  url: string;
-}
-
-interface GithubData {
-  lastUpdated: string | null;
-  recentCommits: Commit[];
-  stats: { commitsThisWeek: number; commitsThisMonth: number; repositoriesThisWeek: number };
-  repositories: Repository[];
-}
-
-let githubData: GithubData = {
-  lastUpdated: null,
-  recentCommits: [],
-  stats: { commitsThisWeek: 0, commitsThisMonth: 0, repositoriesThisWeek: 0 },
-  repositories: [],
-};
-
+let githubData: GitHubData;
 try {
-  githubData = (await import('../../data/github.json')).default as GithubData;
+  const imported = (await import('../../data/github.json')).default;
+  githubData = parseGitHubData(imported);
 } catch (e) {
   if (import.meta.env.DEV) console.error('Failed to load GitHub data:', e);
+  githubData = EMPTY_GITHUB_DATA;
 }
 
-const hasData = githubData.recentCommits.length > 0 || githubData.repositories.length > 0;
+const hasData = githubData.recentActivity.length > 0 || githubData.repositories.length > 0;
+const { contributions, streak, stats } = githubData;
 
 const siteUrl = normalizeSiteUrl(Astro.site);
 const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
@@ -51,86 +28,98 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
 
 ---
 
-<BaseLayout title="Code | gvns.ca" description="Building in public on GitHub. Recent commits, active repositories, and coding activity.">
+<BaseLayout title="Code | gvns.ca" description="Building in public on GitHub. Recent commits, active repositories, and coding activity." accent="p1-violet" breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Now', href: '/now' }, { label: 'Code' }]}>
   <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />
-  <main id="main-content" class="code-page" data-pagefind-body>
-    <Breadcrumb items={[
-      { label: 'Home', href: '/' },
-      { label: 'Now', href: '/now' },
-      { label: 'Code' },
-    ]} />
-
-    <header class="page-header">
+  <main id="main-content" class="gvns-code" data-pagefind-body>
+    <header class="gvns-code__header">
       <h1>Code</h1>
-      <p class="subtitle">Building in public on GitHub</p>
+      <p class="gvns-code__subtitle">Building in public on GitHub</p>
     </header>
 
     {hasData ? (
-      <div class="content">
+      <div class="gvns-code__content">
         {/* Stats bar */}
-        <div class="stats-bar">
-          <span class="stat">
-            <strong class="stat-value">{githubData.stats.commitsThisWeek}</strong>
-            {githubData.stats.commitsThisWeek === 1 ? 'commit' : 'commits'}
-          </span>
-          <span class="stat-sep" aria-hidden="true">across</span>
-          <span class="stat">
-            <strong class="stat-value">{githubData.stats.repositoriesThisWeek}</strong>
-            {githubData.stats.repositoriesThisWeek === 1 ? 'repository' : 'repositories'}
-          </span>
-          <span class="stat-label">this week</span>
+        <div class="gvns-code__stats">
+          <div class="gvns-code__stats__primary">
+            <span class="gvns-code__stat">
+              <strong class="gvns-code__stat-value">{contributions.total}</strong>
+              contributions
+            </span>
+            <span class="gvns-code__stat-sep" aria-hidden="true">&middot;</span>
+            <span class="gvns-code__stat">
+              <strong class="gvns-code__stat-value">{contributions.commits}</strong>
+              {contributions.commits === 1 ? 'commit' : 'commits'}
+            </span>
+            <span class="gvns-code__stat-sep" aria-hidden="true">&middot;</span>
+            <span class="gvns-code__stat">
+              <strong class="gvns-code__stat-value">{contributions.pullRequests}</strong>
+              {contributions.pullRequests === 1 ? 'PR' : 'PRs'}
+            </span>
+            <span class="gvns-code__stat-sep" aria-hidden="true">&middot;</span>
+            <span class="gvns-code__stat">
+              <strong class="gvns-code__stat-value">{contributions.issues}</strong>
+              {contributions.issues === 1 ? 'issue' : 'issues'}
+            </span>
+          </div>
+          <div class="gvns-code__stats__secondary">
+            {streak.current > 0 && (
+              <span class="gvns-code__stat gvns-code__stat--streak">
+                <span class="gvns-code__streak-dot" aria-hidden="true" />
+                {formatStreak(streak.current)} streak
+              </span>
+            )}
+            <span class="gvns-code__stat">
+              <strong class="gvns-code__stat-value">{stats.contributionsThisWeek}</strong>
+              this week
+            </span>
+            <span class="gvns-code__stat-sep" aria-hidden="true">across</span>
+            <span class="gvns-code__stat">
+              <strong class="gvns-code__stat-value">{stats.repositoriesThisWeek}</strong>
+              {stats.repositoriesThisWeek === 1 ? 'repo' : 'repos'}
+            </span>
+          </div>
         </div>
 
-        {/* Recent commits */}
-        {githubData.recentCommits.length > 0 && (
-          <section class="section">
+        {/* Contribution heatmap */}
+        {githubData.calendar.weeks.length > 0 && (
+          <section class="gvns-code__section">
+            <h2>Contributions</h2>
+            <ContributionHeatmap calendar={githubData.calendar} />
+          </section>
+        )}
+
+        {/* Activity timeline */}
+        {githubData.recentActivity.length > 0 && (
+          <section class="gvns-code__section">
             <h2>Recent activity</h2>
-            <ol class="commit-timeline" role="list">
-              {githubData.recentCommits.map((commit) => (
-                <li class="commit-item">
-                  <div class="commit-dot" aria-hidden="true" />
-                  <div class="commit-content">
-                    {(() => {
-                      const href = safeUrl(commit.url);
-                      return href ? (
-                        <a href={href} class="commit-repo" target="_blank" rel="noopener noreferrer">
-                          {commit.repo}
-                        </a>
-                      ) : (
-                        <span class="commit-repo">{commit.repo}</span>
-                      );
-                    })()}
-                    <span class="commit-message">{truncate(commit.message, 72)}</span>
-                    <time class="commit-date" datetime={commit.date}>
-                      {relativeTime(commit.date)}
-                    </time>
-                  </div>
-                </li>
-              ))}
-            </ol>
+            <ActivityTimeline activities={githubData.recentActivity} />
           </section>
         )}
 
         {/* Repositories */}
         {githubData.repositories.length > 0 && (
-          <section class="section">
+          <section class="gvns-code__section">
             <h2>Repositories</h2>
-            <div class="repo-grid">
+            <div class="gvns-code__repo-grid">
               {githubData.repositories.map((repo) => (
-                <a href={safeUrl(repo.url) || '#'} class="repo-card" target="_blank" rel="noopener noreferrer">
-                  <h3 class="repo-name">{repo.name}</h3>
+                <a href={safeUrl(repo.url) || '#'} class="gvns-code__repo-card" target="_blank" rel="noopener noreferrer">
+                  <h3 class="gvns-code__repo-name">{repo.name}</h3>
                   {repo.description && (
-                    <p class="repo-description">{truncate(repo.description, 100)}</p>
+                    <p class="gvns-code__repo-desc">{repo.description.length > 100 ? repo.description.slice(0, 100).trimEnd() + '\u2026' : repo.description}</p>
                   )}
-                  <div class="repo-meta">
+                  <div class="gvns-code__repo-meta">
                     {repo.language && (
-                      <span class="repo-language">
-                        <span class="language-dot" aria-hidden="true" />
+                      <span class="gvns-code__repo-lang">
+                        <span
+                          class="gvns-code__lang-dot"
+                          style={repo.languageColor ? `background: ${repo.languageColor}` : undefined}
+                          aria-hidden="true"
+                        />
                         {repo.language}
                       </span>
                     )}
                     {repo.stars > 0 && (
-                      <span class="repo-stars">
+                      <span class="gvns-code__repo-stars">
                         <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
                           <path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z" />
                         </svg>
@@ -146,21 +135,21 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
 
         {/* Last updated */}
         {githubData.lastUpdated && (
-          <footer class="last-updated">
+          <footer class="gvns-code__updated">
             <p>Last updated: <time datetime={githubData.lastUpdated}>{formatTimestamp(githubData.lastUpdated)}</time></p>
           </footer>
         )}
       </div>
     ) : (
-      <div class="empty-state">
-        <div class="empty-icon" aria-hidden="true">
+      <div class="gvns-code__empty">
+        <div class="gvns-code__empty-icon" aria-hidden="true">
           <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="16 18 22 12 16 6" />
             <polyline points="8 6 2 12 8 18" />
           </svg>
         </div>
-        <p class="empty-title">Coming soon</p>
-        <p class="empty-description">
+        <p class="gvns-code__empty-title">Coming soon</p>
+        <p class="gvns-code__empty-desc">
           GitHub activity will appear here once the integration is wired up.
         </p>
       </div>
@@ -169,33 +158,32 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
 </BaseLayout>
 
 <style>
-  .code-page {
+  .gvns-code {
     max-width: var(--width-content);
     margin: 0 auto;
   }
 
-  .page-header {
+  .gvns-code__header {
     margin-bottom: var(--space-8);
   }
 
-  .page-header h1 {
+  .gvns-code__header h1 {
     font-size: var(--text-4xl);
     line-height: 1.2;
     letter-spacing: -0.01em;
     margin: 0 0 var(--space-2) 0;
   }
 
-  .subtitle {
+  .gvns-code__subtitle {
     font-size: var(--text-lg);
     color: var(--colour-text-secondary);
     margin: 0;
   }
 
   /* Stats bar */
-  .stats-bar {
+  .gvns-code__stats {
     display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
+    flex-direction: column;
     gap: var(--space-2);
     padding: var(--space-4) var(--space-6);
     background: var(--colour-bg-secondary);
@@ -206,112 +194,74 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
     margin-bottom: var(--space-8);
   }
 
-  .stat-value {
+  .gvns-code__stats__primary,
+  .gvns-code__stats__secondary {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-2);
+  }
+
+  .gvns-code__stats__secondary {
+    font-size: var(--text-xs);
+    color: var(--colour-text-muted);
+  }
+
+  .gvns-code__stat-value {
     font-size: var(--text-lg);
     font-weight: 600;
     color: var(--colour-p1-violet);
   }
 
-  .stat-sep {
+  .gvns-code__stats__secondary .gvns-code__stat-value {
+    font-size: var(--text-sm);
+  }
+
+  .gvns-code__stat-sep {
     color: var(--colour-text-muted);
   }
 
-  .stat-label {
-    color: var(--colour-text-muted);
+  .gvns-code__stat--streak {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    color: var(--colour-p1-violet);
+    font-weight: 500;
+  }
+
+  .gvns-code__streak-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--colour-p1-violet);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
   }
 
   /* Sections */
-  .section {
+  .gvns-code__section {
     margin-bottom: var(--space-10);
   }
 
-  .section h2 {
+  .gvns-code__section h2 {
     font-size: var(--text-xl);
     font-weight: 600;
     margin: 0 0 var(--space-6) 0;
     letter-spacing: -0.01em;
   }
 
-  /* Commit timeline */
-  .commit-timeline {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    position: relative;
-  }
-
-  .commit-timeline::before {
-    content: '';
-    position: absolute;
-    left: 5px;
-    top: 12px;
-    bottom: 12px;
-    width: 1px;
-    background: var(--colour-border);
-  }
-
-  .commit-item {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--space-4);
-    padding: var(--space-3) 0;
-    position: relative;
-  }
-
-  .commit-dot {
-    flex-shrink: 0;
-    width: 11px;
-    height: 11px;
-    border-radius: 50%;
-    background: var(--colour-bg-primary);
-    border: 2px solid var(--colour-p1-violet);
-    margin-top: 5px;
-    position: relative;
-    z-index: 1;
-  }
-
-  .commit-content {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: var(--space-2);
-    min-width: 0;
-  }
-
-  .commit-repo {
-    font-family: var(--font-mono);
-    font-size: var(--text-sm);
-    color: var(--colour-p1-violet);
-    text-decoration: none;
-    transition: color var(--transition-fast);
-    flex-shrink: 0;
-  }
-
-  .commit-repo:hover {
-    color: var(--colour-p1-violet-hover);
-  }
-
-  .commit-message {
-    font-size: var(--text-sm);
-    color: var(--colour-text-primary);
-    word-break: break-word;
-  }
-
-  .commit-date {
-    font-size: var(--text-xs);
-    color: var(--colour-text-muted);
-    flex-shrink: 0;
-    margin-left: auto;
-  }
-
   /* Repository grid */
-  .repo-grid {
+  .gvns-code__repo-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: var(--space-4);
   }
 
-  .repo-card {
+  .gvns-code__repo-card {
     display: flex;
     flex-direction: column;
     padding: var(--space-6);
@@ -323,11 +273,11 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
     transition: border-color var(--transition-fast);
   }
 
-  .repo-card:hover {
+  .gvns-code__repo-card:hover {
     border-color: var(--colour-p1-violet);
   }
 
-  .repo-name {
+  .gvns-code__repo-name {
     font-family: var(--font-mono);
     font-size: var(--text-base);
     font-weight: 600;
@@ -336,11 +286,11 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
     transition: color var(--transition-fast);
   }
 
-  .repo-card:hover .repo-name {
+  .gvns-code__repo-card:hover .gvns-code__repo-name {
     color: var(--colour-p1-violet-hover);
   }
 
-  .repo-description {
+  .gvns-code__repo-desc {
     font-size: var(--text-sm);
     color: var(--colour-text-secondary);
     margin: 0 0 var(--space-4) 0;
@@ -348,7 +298,7 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
     line-height: 1.5;
   }
 
-  .repo-meta {
+  .gvns-code__repo-meta {
     display: flex;
     align-items: center;
     gap: var(--space-4);
@@ -356,62 +306,62 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
     color: var(--colour-text-muted);
   }
 
-  .repo-language {
+  .gvns-code__repo-lang {
     display: flex;
     align-items: center;
     gap: var(--space-1);
   }
 
-  .language-dot {
+  .gvns-code__lang-dot {
     width: 8px;
     height: 8px;
     border-radius: 50%;
     background: var(--colour-p1-violet);
   }
 
-  .repo-stars {
+  .gvns-code__repo-stars {
     display: flex;
     align-items: center;
     gap: var(--space-1);
   }
 
-  .repo-stars svg {
+  .gvns-code__repo-stars svg {
     color: var(--colour-text-muted);
   }
 
   /* Empty state */
-  .empty-state {
+  .gvns-code__empty {
     text-align: center;
     padding: var(--space-16) var(--space-6);
   }
 
-  .empty-icon {
+  .gvns-code__empty-icon {
     color: var(--colour-p1-violet);
     margin-bottom: var(--space-6);
     opacity: 0.6;
   }
 
-  .empty-title {
+  .gvns-code__empty-title {
     font-size: var(--text-xl);
     font-weight: 600;
     color: var(--colour-text-primary);
     margin: 0 0 var(--space-2) 0;
   }
 
-  .empty-description {
+  .gvns-code__empty-desc {
     font-size: var(--text-base);
     color: var(--colour-text-secondary);
     margin: 0;
   }
 
   /* Last updated */
-  .last-updated {
+  .gvns-code__updated {
     margin-top: var(--space-8);
     padding-top: var(--space-4);
     border-top: 1px solid var(--colour-border);
   }
 
-  .last-updated p {
+  .gvns-code__updated p {
     font-size: var(--text-xs);
     color: var(--colour-text-muted);
     margin: 0;

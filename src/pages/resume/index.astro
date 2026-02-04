@@ -12,6 +12,8 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
 <PageLayout
   title="Resume"
   description="Professional summary and experience."
+  accent="p5-sky"
+  breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Resume' }]}
 >
   <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />
 

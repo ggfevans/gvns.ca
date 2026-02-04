@@ -1,0 +1,31 @@
+---
+// Decorative horizontal stripe of the P1-P5 accent palette
+---
+
+<div class="gvns-activity-bar" role="presentation" aria-hidden="true">
+  <span class="gvns-activity-bar__segment gvns-activity-bar__segment--p1"></span>
+  <span class="gvns-activity-bar__segment gvns-activity-bar__segment--p2"></span>
+  <span class="gvns-activity-bar__segment gvns-activity-bar__segment--p3"></span>
+  <span class="gvns-activity-bar__segment gvns-activity-bar__segment--p4"></span>
+  <span class="gvns-activity-bar__segment gvns-activity-bar__segment--p5"></span>
+</div>
+
+<style>
+  .gvns-activity-bar {
+    display: flex;
+    gap: 4px;
+    height: 5px;
+    width: 100%;
+  }
+
+  .gvns-activity-bar__segment {
+    flex: 1;
+    border-radius: 3px;
+  }
+
+  .gvns-activity-bar__segment--p1 { background: var(--colour-p1-violet); }
+  .gvns-activity-bar__segment--p2 { background: var(--colour-p2-rose); }
+  .gvns-activity-bar__segment--p3 { background: var(--colour-p3-emerald); }
+  .gvns-activity-bar__segment--p4 { background: var(--colour-p4-amber); }
+  .gvns-activity-bar__segment--p5 { background: var(--colour-p5-sky); }
+</style>
