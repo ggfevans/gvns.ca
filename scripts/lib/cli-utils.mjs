@@ -71,7 +71,7 @@ export async function collectSlugs(writingDir) {
       if (entry.isDirectory()) {
         await walk(join(dir, entry.name));
       } else if (entry.name.toLowerCase().endsWith('.md')) {
-        slugs.add(entry.name.replace(/\.md$/, ''));
+        slugs.add(entry.name.replace(/\.md$/i, ''));
       }
     }
   }

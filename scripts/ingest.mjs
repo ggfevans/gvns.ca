@@ -43,6 +43,7 @@ const TAG_KEYWORDS = {
   frontend: 'web-dev', css: 'web-dev', react: 'web-dev',
   'jiu-jitsu': 'bjj', 'jiu jitsu': 'bjj', grappling: 'bjj', submission: 'bjj', guard: 'bjj',
   mobility: 'movement', stretching: 'movement', flexibility: 'movement',
+  'training programming': 'training', 'workout programming': 'training',
   periodisation: 'training', strength: 'training', conditioning: 'training',
   'attention deficit': 'adhd', neurodivergent: 'adhd', 'executive function': 'adhd',
   workflow: 'productivity', 'time management': 'productivity', habits: 'productivity',
@@ -220,8 +221,11 @@ async function main() {
   await mkdir(dir, { recursive: true });
   const outPath = join(dir, `${slug}.md`);
 
-  // Remove first # heading from body if we extracted the title from it
-  const cleanBody = body.replace(/^#\s+.+\n*/, '').trim();
+  // Only remove first # heading if it matches the extracted title (not filename-derived)
+  const headingMatch = body.match(/^#\s+(.+)$/m);
+  const cleanBody = (headingMatch && headingMatch[1].trim() === extractedTitle)
+    ? body.replace(/^#\s+.+\n*/, '').trim()
+    : body.trim();
 
   const frontmatter = [
     '---',
