@@ -106,6 +106,9 @@ WCAG AA requires 4.5:1 for normal text, 3:1 for large text/UI components.
 
 ```css
 :root {
+  /* Headings — Space Grotesk (self-hosted, 600/700) */
+  --font-heading: "Space Grotesk", var(--font-sans);
+
   /* Primary — Inter (self-hosted) */
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system,
     BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -131,12 +134,12 @@ WCAG AA requires 4.5:1 for normal text, 3:1 for large text/UI components.
 
 ### Font Weights
 
-| Weight | Value | Usage |
-|--------|-------|-------|
-| `font-normal` | 400 | Body text |
-| `font-medium` | 500 | Labels, UI elements |
-| `font-semibold` | 600 | Subheadings, links |
-| `font-bold` | 700 | Headings, emphasis |
+| Weight | Value | Font | Usage |
+|--------|-------|------|-------|
+| `font-normal` | 400 | Inter | Body text |
+| `font-medium` | 500 | Inter | Labels, UI elements |
+| `font-semibold` | 600 | Inter, Space Grotesk | Subheadings, links, h2/h3 |
+| `font-bold` | 700 | Inter, Space Grotesk | Headings, emphasis, h1 |
 
 ### Letter Spacing
 

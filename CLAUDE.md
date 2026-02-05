@@ -72,7 +72,7 @@ P1-P5 accent palette with zinc neutrals. Key semantic tokens:
 - `--colour-accent-primary` (violet-500 `#8b5cf6`)
 - P1 Violet (code), P2 Rose (read), P3 Emerald (listen), P4 Amber (write/watch), P5 Sky (status)
 
-Uses Inter (400/500/600/700) + JetBrains Mono (400), self-hosted via @fontsource. Code highlighting via Shiki.
+Uses Space Grotesk (600/700) for h1-h3 headings, Inter (400/500/600/700) for body text, and JetBrains Mono (400) for code — all self-hosted via @fontsource. Code highlighting via Shiki.
 
 Dark-first with `.dark` class toggle (Tailwind `dark:` variant via `@custom-variant`).
 
