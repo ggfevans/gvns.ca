@@ -1,4 +1,14 @@
 <script lang="ts">
+  declare global {
+    interface Window {
+      PagefindUI: new (options: {
+        element: HTMLElement;
+        showSubResults?: boolean;
+        showImages?: boolean;
+      }) => void;
+    }
+  }
+
   let dialogEl: HTMLDialogElement | undefined = $state();
   let searchContainerEl: HTMLDivElement | undefined = $state();
   let isOpen = $state(false);
@@ -8,9 +18,11 @@
   async function loadPagefind() {
     if (pagefindLoaded) return;
     try {
-      const pagefind = await import(/* @vite-ignore */ '/pagefind/pagefind-ui.js');
-      if (searchContainerEl) {
-        new pagefind.PagefindUI({
+      // pagefind-ui.js is an IIFE that sets window.PagefindUI (not an ES module)
+      await import(/* @vite-ignore */ '/pagefind/pagefind-ui.js');
+
+      if (searchContainerEl && window.PagefindUI) {
+        new window.PagefindUI({
           element: searchContainerEl,
           showSubResults: true,
           showImages: false,
@@ -21,6 +33,8 @@
           const input = searchContainerEl?.querySelector<HTMLInputElement>('input');
           input?.focus();
         });
+      } else {
+        pagefindError = true;
       }
     } catch {
       pagefindError = true;
