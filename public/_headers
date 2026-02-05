@@ -6,3 +6,6 @@
   Permissions-Policy: geolocation=(), microphone=(), camera=()
   Content-Security-Policy: default-src 'self'; script-src 'self' https://analytics.gvns.ca 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self'; connect-src 'self' https://analytics.gvns.ca; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
 
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
