@@ -23,6 +23,9 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
+# git worktrees
+.worktree/
+
 # claude-mem context files (keep root CLAUDE.md, ignore all others)
 **/CLAUDE.md
 !/CLAUDE.md
