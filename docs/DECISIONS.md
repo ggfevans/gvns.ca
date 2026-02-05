@@ -316,12 +316,42 @@ Use **Tailwind's class-based dark mode** (`darkMode: 'class'`) with a `dark` cla
 
 ---
 
+## ADR-012: astro-pagefind Integration for Search
+
+**Date**: 2026-02-05
+**Status**: Accepted
+
+### Context
+Site search used a manual Pagefind CLI step (`astro build && npx pagefind --site dist`) with a Svelte island (`Search.svelte`) that loaded the Pagefind UI as an IIFE script via dynamic `import()`. This caused multiple issues:
+- CSP blocked WebAssembly compilation (`wasm-unsafe-eval` missing from `script-src`)
+- The Svelte component was purely imperative DOM work (show/hide dialog, keydown listener, lazy-load script) — no reactive state justified a Svelte island
+- Rollup required an `external` hack to ignore the `/pagefind/pagefind-ui.js` import
+- No dev mode search support
+
+### Decision
+Replace manual Pagefind CLI + Svelte island with **astro-pagefind** integration + native **Astro component**.
+
+### Rationale
+- astro-pagefind automatically indexes pages during `astro build` — no separate CLI step
+- Provides proper ES module import (`@pagefind/default-ui`) instead of IIFE script loading
+- Search dialog is imperative DOM work (open/close dialog, focus input, keydown handler) — Astro inline `<script>` handles this without shipping a framework runtime
+- Dev mode search works with a prior build's index
+- Eliminates Vite `rollupOptions.external` workaround
+
+### Consequences
+- Search.svelte deleted, Search.astro created with identical UX
+- `client:load` removed from Header.astro search usages
+- Build script simplified to `astro build`
+- CSP updated with `wasm-unsafe-eval` for Pagefind WASM
+
+---
+
 ## Template for New Decisions
 
 ```markdown
 ## ADR-XXX: [Title]
 
-**Date**: YYYY-MM-DD  
+**Date**: YYYY-MM-DD
 **Status**: Proposed | Accepted | Deprecated | Superseded by ADR-XXX
 
 ### Context
@@ -339,4 +369,4 @@ Use **Tailwind's class-based dark mode** (`darkMode: 'class'`) with a `dark` cla
 
 ---
 
-*Last updated: 2026-02-02*
+*Last updated: 2026-02-05*

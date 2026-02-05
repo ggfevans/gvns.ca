@@ -1,93 +1,11 @@
-<script lang="ts">
-  declare global {
-    interface Window {
-      PagefindUI: new (options: {
-        element: HTMLElement;
-        showSubResults?: boolean;
-        showImages?: boolean;
-      }) => void;
-    }
-  }
+---
+import { join } from 'node:path/posix';
 
-  let dialogEl: HTMLDialogElement | undefined = $state();
-  let searchContainerEl: HTMLDivElement | undefined = $state();
-  let isOpen = $state(false);
-  let pagefindLoaded = $state(false);
-  let pagefindError = $state(false);
-
-  async function loadPagefind() {
-    if (pagefindLoaded) return;
-    try {
-      // pagefind-ui.js is an IIFE that sets window.PagefindUI (not an ES module)
-      await import(/* @vite-ignore */ '/pagefind/pagefind-ui.js');
-
-      if (searchContainerEl && window.PagefindUI) {
-        new window.PagefindUI({
-          element: searchContainerEl,
-          showSubResults: true,
-          showImages: false,
-        });
-        pagefindLoaded = true;
-        // Focus the input after Pagefind renders
-        requestAnimationFrame(() => {
-          const input = searchContainerEl?.querySelector<HTMLInputElement>('input');
-          input?.focus();
-        });
-      } else {
-        pagefindError = true;
-      }
-    } catch {
-      pagefindError = true;
-    }
-  }
-
-  function openDialog() {
-    if (!dialogEl) return;
-    dialogEl.showModal();
-    isOpen = true;
-    loadPagefind();
-    // If already loaded, focus the input
-    if (pagefindLoaded) {
-      requestAnimationFrame(() => {
-        const input = searchContainerEl?.querySelector<HTMLInputElement>('input');
-        input?.focus();
-      });
-    }
-  }
-
-  function closeDialog() {
-    if (!dialogEl) return;
-    dialogEl.close();
-    isOpen = false;
-  }
-
-  // Keyboard shortcut: Cmd/Ctrl+K
-  $effect(() => {
-    function handleKeydown(e: KeyboardEvent) {
-      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-        e.preventDefault();
-        if (isOpen) {
-          closeDialog();
-        } else {
-          openDialog();
-        }
-      }
-    }
-
-    document.addEventListener('keydown', handleKeydown);
-    return () => document.removeEventListener('keydown', handleKeydown);
-  });
-
-  // Close on click outside (on backdrop)
-  function handleDialogClick(e: MouseEvent) {
-    if (e.target === dialogEl) {
-      closeDialog();
-    }
-  }
-</script>
+const bundlePath = join(import.meta.env.BASE_URL, 'pagefind/');
+---
 
 <button
-  onclick={openDialog}
+  data-search-trigger
   class="search-trigger"
   aria-label="Search (Cmd+K)"
   title="Search (Cmd+K)"
@@ -109,13 +27,11 @@
   </svg>
 </button>
 
-<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 <dialog
-  bind:this={dialogEl}
+  data-search-dialog
   class="search-dialog"
   aria-label="Site search"
-  onclick={handleDialogClick}
-  onclose={() => isOpen = false}
+  data-bundle-path={bundlePath}
 >
   <div class="search-dialog-inner">
     <div class="search-header">
@@ -124,15 +40,99 @@
         <span class="kbd-symbol">&#8984;</span>K
       </kbd>
     </div>
-    <div class="search-container" bind:this={searchContainerEl}>
-      {#if pagefindError}
-        <p class="search-fallback">
-          Search is not available in development mode. Run a production build to enable search.
-        </p>
-      {/if}
-    </div>
+    <div class="search-container" data-search-container></div>
   </div>
 </dialog>
+
+<script>
+  import { PagefindUI } from '@pagefind/default-ui';
+
+  let dialog: HTMLDialogElement | null = null;
+  let container: HTMLElement | null = null;
+  let isOpen = false;
+  let pagefindLoaded = false;
+
+  function getDialog() {
+    if (!dialog) {
+      dialog = document.querySelector('[data-search-dialog]');
+      container = dialog?.querySelector('[data-search-container]') ?? null;
+    }
+    return dialog;
+  }
+
+  function loadPagefind() {
+    if (pagefindLoaded) return;
+    const el = getDialog();
+    if (!container || !el) return;
+
+    try {
+      const bundlePath = el.getAttribute('data-bundle-path') || '/pagefind/';
+      new PagefindUI({
+        element: container,
+        showSubResults: true,
+        showImages: false,
+        bundlePath,
+        translations: { placeholder: '42' },
+      });
+      pagefindLoaded = true;
+      requestAnimationFrame(() => {
+        container?.querySelector<HTMLInputElement>('input')?.focus();
+      });
+    } catch {
+      container.innerHTML =
+        '<p class="search-fallback">Search is not available. Run a production build to enable search.</p>';
+    }
+  }
+
+  function openDialog() {
+    const el = getDialog();
+    if (!el) return;
+    el.showModal();
+    isOpen = true;
+    loadPagefind();
+    if (pagefindLoaded) {
+      requestAnimationFrame(() => {
+        container?.querySelector<HTMLInputElement>('input')?.focus();
+      });
+    }
+  }
+
+  function closeDialog() {
+    const el = getDialog();
+    if (!el) return;
+    el.close();
+    isOpen = false;
+  }
+
+  // Cmd/Ctrl+K keyboard shortcut
+  document.addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      if (isOpen) {
+        closeDialog();
+      } else {
+        openDialog();
+      }
+    }
+  });
+
+  // All trigger buttons open the shared dialog
+  document.querySelectorAll('[data-search-trigger]').forEach((btn) => {
+    btn.addEventListener('click', openDialog);
+  });
+
+  // Click on backdrop closes
+  getDialog()?.addEventListener('click', (e) => {
+    if (e.target === dialog) {
+      closeDialog();
+    }
+  });
+
+  // Sync state when dialog is closed via Escape
+  getDialog()?.addEventListener('close', () => {
+    isOpen = false;
+  });
+</script>
 
 <style>
   .search-trigger {
@@ -189,8 +189,6 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: var(--space-4, 1rem);
-    padding-bottom: var(--space-3, 0.75rem);
-    border-bottom: 1px solid var(--colour-border);
   }
 
   .search-title {
@@ -222,14 +220,6 @@
     min-height: 60px;
   }
 
-  .search-fallback {
-    color: var(--colour-text-secondary);
-    font-size: var(--text-sm, 0.875rem);
-    text-align: center;
-    padding: var(--space-8, 2rem) var(--space-4, 1rem);
-    margin: 0;
-  }
-
   /* Pagefind UI style overrides */
   .search-container :global(.pagefind-ui__search-input) {
     background: var(--colour-bg-secondary) !important;
@@ -249,8 +239,7 @@
   }
 
   .search-container :global(.pagefind-ui__search-clear) {
-    color: var(--colour-text-secondary) !important;
-    background: none !important;
+    display: none !important;
   }
 
   .search-container :global(.pagefind-ui__result) {
@@ -302,5 +291,15 @@
 
   .search-container :global(.pagefind-ui__result-title) {
     color: var(--colour-text-primary) !important;
+  }
+</style>
+
+<style is:global>
+  .search-fallback {
+    color: var(--colour-text-secondary);
+    font-size: var(--text-sm, 0.875rem);
+    text-align: center;
+    padding: var(--space-8, 2rem) var(--space-4, 1rem);
+    margin: 0;
   }
 </style>

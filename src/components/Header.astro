@@ -1,7 +1,7 @@
 ---
 import ThemeToggle from './ThemeToggle.svelte';
 import MobileNav from './MobileNav.svelte';
-import Search from './Search.svelte';
+import Search from './Search.astro';
 
 interface Props {
   breadcrumbs?: { label: string; href?: string }[];
@@ -62,7 +62,7 @@ const currentPath = Astro.url.pathname;
 
     <div class="gvns-navbar__end">
       <ThemeToggle client:load />
-      <Search client:load />
+      <Search />
     </div>
   </nav>
 
@@ -70,7 +70,7 @@ const currentPath = Astro.url.pathname;
   <div class="gvns-navbar__mobile">
     <a href="/" class="gvns-navbar__logo" aria-label="GVNS home">GVNS</a>
     <div class="gvns-navbar__mobile-actions">
-      <Search client:load />
+      <Search />
       <MobileNav client:load navItems={navItems} currentPath={currentPath} />
     </div>
   </div>

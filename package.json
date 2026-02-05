@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "prebuild": "node scripts/prebuild-clean.js",
-    "build": "astro build && npx pagefind --site dist",
+    "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
     "new-post": "node scripts/new-post.mjs",
@@ -24,6 +24,7 @@
     "@fontsource/space-grotesk": "^5.2.10",
     "@tailwindcss/vite": "^4.1.18",
     "astro": "^5.17.1",
+    "astro-pagefind": "^1.8.5",
     "react": "^19.2.4",
     "react-activity-calendar": "^3.1.1",
     "react-dom": "^19.2.4",
