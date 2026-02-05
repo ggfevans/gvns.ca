@@ -28,7 +28,6 @@ When reporting a vulnerability, please include:
 This security policy applies to:
 
 - The gvns.ca website codebase
-- Self-hosted infrastructure (Linode VPS, Umami analytics)
 
 ### Out of Scope
 
