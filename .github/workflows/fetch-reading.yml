@@ -2,7 +2,7 @@ name: Fetch Reading Data
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Daily at midnight UTC
+    - cron: '0 0 * * *'
   workflow_dispatch:
 
 permissions:
@@ -14,121 +14,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Fetch Hardcover data
-        id: fetch
-        env:
-          HARDCOVER_TOKEN: ${{ secrets.HARDCOVER_TOKEN }}
-          HARDCOVER_USER_ID: ${{ secrets.HARDCOVER_USER_ID }}
-        run: |
-          set -euo pipefail
-
-          if [ -z "${HARDCOVER_TOKEN:-}" ] || [ -z "${HARDCOVER_USER_ID:-}" ]; then
-            echo "Hardcover credentials not configured, skipping"
-            exit 0
-          fi
-
-          QUERY='query GetUserBooks($userId: Int!) {
-            user_books(
-              where: { user_id: { _eq: $userId } }
-              order_by: { updated_at: desc }
-              limit: 50
-            ) {
-              status_id
-              rating
-              updated_at
-              book {
-                title
-                contributions(limit: 1) {
-                  author { name }
-                }
-                image { url }
-                slug
-              }
-            }
-          }'
-
-          PAYLOAD=$(jq -n \
-            --arg query "$QUERY" \
-            --argjson userId "$HARDCOVER_USER_ID" \
-            '{ query: $query, variables: { userId: $userId } }')
-
-          HTTP_CODE=$(curl -s -o /tmp/hc_response.json -w "%{http_code}" \
-            -X POST \
-            -H "Content-Type: application/json" \
-            -H "Authorization: Bearer ${HARDCOVER_TOKEN}" \
-            -d "$PAYLOAD" \
-            "https://api.hardcover.app/v1/graphql")
-
-          if [ "$HTTP_CODE" -ne 200 ]; then
-            echo "Error: Hardcover API returned HTTP $HTTP_CODE"
-            exit 1
-          fi
-
-          RESPONSE=$(cat /tmp/hc_response.json)
-          rm -f /tmp/hc_response.json
-
-          # Check for GraphQL errors
-          if echo "$RESPONSE" | jq -e '.errors' > /dev/null 2>&1; then
-            echo "Error: GraphQL errors from Hardcover API"
-            echo "$RESPONSE" | jq -r '.errors[].message' 2>/dev/null
-            echo "Full error details: $(echo "$RESPONSE" | jq '.errors' 2>/dev/null)"
-            exit 1
-          fi
-
-          # Validate response has data
-          if ! echo "$RESPONSE" | jq -e '.data.user_books' > /dev/null 2>&1; then
-            echo "Error: Invalid response structure from Hardcover API"
-            exit 1
-          fi
-
-          mkdir -p src/data
-
-          # Map status_id: 1=want, 2=reading, 3=finished, 4=dnf, 5=dropped
-          echo "$RESPONSE" | jq '{
-            lastUpdated: (now | todate),
-            currentlyReading: [
-              .data.user_books[]
-              | select(.status_id == 2)
-              | {
-                  title: .book.title,
-                  author: (.book.contributions[0].author.name // "Unknown"),
-                  coverUrl: .book.image.url,
-                  hardcoverUrl: ("https://hardcover.app/books/" + .book.slug)
-                }
-            ],
-            finished: [
-              .data.user_books[]
-              | select(.status_id == 3)
-              | {
-                  title: .book.title,
-                  author: (.book.contributions[0].author.name // "Unknown"),
-                  coverUrl: .book.image.url,
-                  hardcoverUrl: ("https://hardcover.app/books/" + .book.slug),
-                  rating: (.rating // null),
-                  dateFinished: .updated_at
-                }
-            ],
-            wantToRead: [
-              .data.user_books[]
-              | select(.status_id == 1)
-              | {
-                  title: .book.title,
-                  author: (.book.contributions[0].author.name // "Unknown"),
-                  coverUrl: .book.image.url,
-                  hardcoverUrl: ("https://hardcover.app/books/" + .book.slug)
-                }
-            ]
-          }' > src/data/reading.json
-
-          echo "Successfully fetched reading data"
-          cat src/data/reading.json | jq '{
-            currently_reading: (.currentlyReading | length),
-            finished: (.finished | length),
-            want_to_read: (.wantToRead | length)
-          }'
+      - name: Fetch reading data
+        uses: ggfevans/hardcover-github-action@f68d44fb791e471a33a52f04f61052faa8654cb4 # v1
+        with:
+          token: ${{ secrets.HARDCOVER_TOKEN }}
+          user_id: ${{ secrets.HARDCOVER_USER_ID }}
+          output_path: src/data/reading.json
 
       - name: Commit and push if changed
-        if: steps.fetch.outcome == 'success' && hashFiles('src/data/reading.json') != ''
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
