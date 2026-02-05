@@ -198,18 +198,17 @@ async function main() {
   // Slug
   let slug = slugify(title);
   const taken = await collectSlugs(WRITING_DIR);
-  if (taken.has(slug)) {
-    const suggestedSlug = findUniqueSlug(slug, taken);
-    const choice = await input({
-      message: `Slug "${slug}" exists. Enter new slug:`,
-      default: suggestedSlug,
-      validate: (v) => {
-        const normalized = slugify(v.trim());
-        if (!normalized) return 'Slug required';
-        if (taken.has(normalized)) return `Slug "${normalized}" also exists`;
-        return true;
-      },
-    });
+  const slugValidate = (v) => {
+    const normalized = slugify(v.trim());
+    if (!normalized) return 'Slug required';
+    if (taken.has(normalized)) return `Slug "${normalized}" already exists`;
+    return true;
+  };
+
+  if (!slug || taken.has(slug)) {
+    const suggested = slug ? findUniqueSlug(slug, taken) : '';
+    const message = slug ? `Slug "${slug}" exists. Enter new slug:` : 'Title produced empty slug. Enter slug:';
+    const choice = await input({ message, default: suggested || undefined, validate: slugValidate });
     slug = slugify(choice.trim());
   }
 
