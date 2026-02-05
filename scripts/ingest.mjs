@@ -88,7 +88,7 @@ function extractDescription(content) {
       if (paragraphLines.length > 0) break;
       continue;
     }
-    if (trimmed.startsWith('#') || trimmed.startsWith('```') || trimmed.startsWith('- ') || trimmed.startsWith('|')) {
+    if (trimmed.startsWith('#') || trimmed.startsWith('```') || trimmed.startsWith('- ') || trimmed.startsWith('|') || trimmed.startsWith('>') || trimmed.startsWith('![') || /^\d+\.\s/.test(trimmed)) {
       if (paragraphLines.length > 0) break;
       continue;
     }
@@ -226,7 +226,7 @@ async function main() {
   // Only remove first # heading if it matches the extracted title (not filename-derived)
   const headingMatch = body.match(/^#\s+(.+)$/m);
   const cleanBody = (headingMatch && headingMatch[1].trim() === extractedTitle)
-    ? body.replace(/^#\s+.+\n*/, '').trim()
+    ? body.replace(/^#\s+.+\n*/m, '').trim()
     : body.trim();
 
   const frontmatter = [
