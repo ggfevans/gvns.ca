@@ -1,6 +1,12 @@
 /**
  * Canonical tag taxonomy for gvns.ca writing collection.
- * Source of truth — referenced by CLI scripts and content validation.
+ *
+ * SOURCE OF TRUTH: This file defines the authoritative tag taxonomy.
+ * The CLI scripts (scripts/lib/cli-utils.mjs, scripts/ingest.mjs) duplicate
+ * these definitions because .mjs cannot import .ts without a build step.
+ * When modifying tags here, also update:
+ *   - scripts/lib/cli-utils.mjs (TAG_CATEGORIES, VALID_TAGS)
+ *   - scripts/ingest.mjs (TAG_KEYWORDS)
  */
 
 export const VALID_TAGS = [

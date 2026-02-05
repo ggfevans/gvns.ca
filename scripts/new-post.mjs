@@ -113,12 +113,18 @@ async function main() {
   if (process.env.EDITOR) {
     try {
       // Parse EDITOR in case it contains arguments (e.g., "code --wait")
+      // Note: This simple split won't handle quoted paths with spaces.
+      // For complex EDITOR values, users should use a wrapper script.
       const editorParts = process.env.EDITOR.split(/\s+/);
       const editorCmd = editorParts[0];
       const editorArgs = [...editorParts.slice(1), filePath];
-      execFile(editorCmd, editorArgs, { stdio: 'inherit' }, () => {});
-    } catch {
-      // Editor launch failed — not critical
+      execFile(editorCmd, editorArgs, (err) => {
+        if (err) {
+          console.warn(`Could not open editor: ${err.message}`);
+        }
+      });
+    } catch (err) {
+      console.warn(`Editor launch failed: ${err.message}`);
     }
   }
 }

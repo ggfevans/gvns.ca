@@ -49,7 +49,8 @@ For publishing directly from Obsidian.
 ### Option A: Separate Vault for Blog
 
 Create an Obsidian vault at the repository root:
-```
+
+```text
 gvns.ca/
 ├── .obsidian/          # Obsidian config
 ├── src/content/writing/ # Posts live here

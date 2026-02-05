@@ -26,7 +26,10 @@ import {
 const ROOT = join(fileURLToPath(import.meta.url), '..', '..');
 const WRITING_DIR = join(ROOT, 'src', 'content', 'writing');
 
-// Keyword-to-tag mapping for content-based tag suggestion (ingest-specific)
+// Keyword-to-tag mapping for content-based tag suggestion.
+// NOTE: This is intentionally duplicated from src/utils/tags.ts because .mjs
+// scripts cannot import .ts modules without a build step. The canonical source
+// is src/utils/tags.ts — keep both in sync when adding/removing keywords.
 const TAG_KEYWORDS = {
   'self-host': 'homelab', selfhost: 'homelab', proxmox: 'homelab', server: 'homelab',
   nas: 'homelab', truenas: 'homelab', unraid: 'homelab',
@@ -127,7 +130,19 @@ async function main() {
 
   const resolved = resolve(filePath);
   const filename = basename(resolved);
-  const content = await readFile(resolved, 'utf-8');
+
+  // Check file exists before attempting to read
+  let content;
+  try {
+    content = await readFile(resolved, 'utf-8');
+  } catch (err) {
+    if (err.code === 'ENOENT') {
+      console.error(`File not found: ${resolved}`);
+    } else {
+      console.error(`Cannot read file "${filePath}": ${err.message}`);
+    }
+    process.exit(1);
+  }
 
   if (hasFrontmatter(content)) {
     console.log('File already has frontmatter. Use this for bare markdown files.');

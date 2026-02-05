@@ -13,14 +13,14 @@ export function slugify(text) {
 }
 
 /**
- * Get today's date components.
+ * Get today's date components (UTC to match ISO string).
  */
 export function today() {
   const d = new Date();
   return {
     iso: d.toISOString().split('T')[0],
-    year: String(d.getFullYear()),
-    month: String(d.getMonth() + 1).padStart(2, '0'),
+    year: String(d.getUTCFullYear()),
+    month: String(d.getUTCMonth() + 1).padStart(2, '0'),
   };
 }
 
@@ -81,6 +81,10 @@ export async function collectSlugs(writingDir) {
 
 /**
  * Tag categories for CLI multi-select grouping.
+ *
+ * NOTE: Duplicated from src/utils/tags.ts because .mjs scripts cannot import
+ * .ts modules without a build step. The canonical source is src/utils/tags.ts.
+ * Keep both in sync when modifying the tag taxonomy.
  */
 export const TAG_CATEGORIES = {
   'Tech & Homelab': ['homelab', 'docker', 'linux', 'networking', 'automation', 'web-dev'],
