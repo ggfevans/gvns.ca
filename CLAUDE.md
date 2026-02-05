@@ -12,7 +12,7 @@ Personal writing + work site for gvns.ca. Brand guide aligned and in active buil
 - **Styling**: Tailwind CSS 4.x with P1-P5 accent palette (violet/rose/emerald/amber/sky) + zinc neutrals
 - **Content**: Astro Content Collections (type-safe markdown)
 - **Hosting**: Cloudflare Pages (auto-deploy from GitHub)
-- **Analytics**: Umami (self-hosted on Hetzner VPS, tracked at analytics.gvns.ca)
+- **Analytics**: None (Umami removed)
 
 ## Development Commands
 
