@@ -1,6 +1,20 @@
 {
-  "lastUpdated": "2026-02-05T04:01:17Z",
+  "lastUpdated": "2026-02-05T04:54:27Z",
   "recentCommits": [
+    {
+      "repo": "gvns.ca",
+      "message": "fix: case-insensitive .md strip, ambiguous keyword, conditional heading removal",
+      "sha": "8ea950f8d6f17e4add5897788c402ef5cc3ab622",
+      "date": "2026-02-05T03:59:32Z",
+      "url": "https://github.com/ggfevans/gvns.ca/commit/8ea950f8d6f17e4add5897788c402ef5cc3ab622"
+    },
+    {
+      "repo": "gvns.ca",
+      "message": "fix: guard against empty slugs from non-ASCII titles",
+      "sha": "6be6bea622a53cd0806cf1ab25995ca357044620",
+      "date": "2026-02-05T03:55:59Z",
+      "url": "https://github.com/ggfevans/gvns.ca/commit/6be6bea622a53cd0806cf1ab25995ca357044620"
+    },
     {
       "repo": "gvns.ca",
       "message": "refactor: use trakt-github-action instead of inline script",
@@ -196,20 +210,6 @@
       "sha": "471f23f348b0ca14db6462e1496d60918bcd028b",
       "date": "2026-02-04T21:52:42Z",
       "url": "https://github.com/ggfevans/gvns.ca/commit/471f23f348b0ca14db6462e1496d60918bcd028b"
-    },
-    {
-      "repo": "gvns.ca",
-      "message": "fix: improve prebuild script error handling (#133)",
-      "sha": "45baf4cf863fd6b13fbba46ede6f8fdc1ab2d190",
-      "date": "2026-02-04T21:43:38Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/45baf4cf863fd6b13fbba46ede6f8fdc1ab2d190"
-    },
-    {
-      "repo": "gvns.ca",
-      "message": "fix: use proper exit codes for prebuild script errors",
-      "sha": "a838f26b64a433e83e9125fce344dcd9bd08b127",
-      "date": "2026-02-04T21:41:27Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/a838f26b64a433e83e9125fce344dcd9bd08b127"
     }
   ],
   "stats": {
@@ -228,7 +228,7 @@
     {
       "name": "hardcover-github-action",
       "description": "",
-      "language": "",
+      "language": "Shell",
       "stars": 0,
       "url": "https://github.com/ggfevans/hardcover-github-action"
     },
