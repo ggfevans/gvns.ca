@@ -18,6 +18,9 @@ const ogImage = image || DEFAULT_OG_IMAGE;
 const ogImageURL = new URL(ogImage, Astro.site);
 const ogWidth = imageWidth || DEFAULT_OG_WIDTH;
 const ogHeight = imageHeight || DEFAULT_OG_HEIGHT;
+
+import interLatin400 from '@fontsource/inter/files/inter-latin-400-normal.woff2?url';
+import interLatin600 from '@fontsource/inter/files/inter-latin-600-normal.woff2?url';
 ---
 
 <!-- Global Metadata -->
@@ -25,6 +28,14 @@ const ogHeight = imageHeight || DEFAULT_OG_HEIGHT;
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta name="generator" content={Astro.generator} />
+
+<!-- Font Preloading (critical latin subsets only) -->
+<link rel="preload" as="font" type="font/woff2" href={interLatin400} crossorigin="anonymous" />
+<link rel="preload" as="font" type="font/woff2" href={interLatin600} crossorigin="anonymous" />
+
+<!-- Preconnect to analytics -->
+<link rel="preconnect" href="https://analytics.gvns.ca" />
+<link rel="dns-prefetch" href="https://analytics.gvns.ca" />
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
