@@ -8,7 +8,6 @@
  *
  * Usage:
  *   npm run ingest -- path/to/file.md
- *   npm run ingest -- path/to/file.md --no-interactive
  */
 
 import { input, checkbox, confirm } from '@inquirer/prompts';

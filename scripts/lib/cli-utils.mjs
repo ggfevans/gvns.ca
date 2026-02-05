@@ -51,6 +51,7 @@ export function escapeYamlString(str) {
     .replace(/\n/g, '\\n')      // Newlines
     .replace(/\r/g, '\\r')      // Carriage returns
     .replace(/\t/g, '\\t')      // Tabs
+    // biome-ignore lint/suspicious/noControlCharactersInRegex: Intentionally matching control chars to strip them
     .replace(/[\x00-\x08\x0B\x0C\x0E-\x1F]/g, ''); // Strip other control chars
 }
 

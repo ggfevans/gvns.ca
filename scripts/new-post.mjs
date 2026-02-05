@@ -28,11 +28,19 @@ const WRITING_DIR = join(ROOT, 'src', 'content', 'writing');
 async function main() {
   // Title — from CLI arg or prompt
   const cliTitle = process.argv.slice(2).join(' ').trim();
+  const validateTitle = (v) => (v.trim().length > 0 && v.trim().length <= 100) || 'Title required (max 100 chars)';
+
+  // Validate CLI title if provided, otherwise prompt
+  if (cliTitle && validateTitle(cliTitle) !== true) {
+    console.error(validateTitle(cliTitle));
+    process.exit(1);
+  }
+
   const title =
     cliTitle ||
     (await input({
       message: 'Post title:',
-      validate: (v) => (v.trim().length > 0 && v.trim().length <= 100) || 'Title required (max 100 chars)',
+      validate: validateTitle,
     }));
 
   // Slug
