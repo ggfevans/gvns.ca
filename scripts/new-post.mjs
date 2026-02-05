@@ -104,7 +104,16 @@ async function main() {
   if (isDraft) frontmatter.push('draft: true');
   frontmatter.push('---', '', '');
 
-  await writeFile(filePath, frontmatter.join('\n'), 'utf-8');
+  try {
+    await writeFile(filePath, frontmatter.join('\n'), { encoding: 'utf-8', flag: 'wx' });
+  } catch (err) {
+    if (err.code === 'EEXIST') {
+      console.error(`File already exists: ${filePath}`);
+    } else {
+      console.error(`Failed to write file: ${err.message}`);
+    }
+    process.exit(1);
+  }
 
   console.log(`\nCreated: ${filePath}`);
 

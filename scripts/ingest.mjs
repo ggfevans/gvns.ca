@@ -38,15 +38,17 @@ const TAG_KEYWORDS = {
   dns: 'networking', vpn: 'networking', wireguard: 'networking', tailscale: 'networking',
   firewall: 'networking', vlan: 'networking',
   'ci/cd': 'automation', 'github actions': 'automation', cron: 'automation',
-  pipeline: 'automation',
+  script: 'automation', pipeline: 'automation',
   astro: 'web-dev', svelte: 'web-dev', tailwind: 'web-dev', typescript: 'web-dev',
   frontend: 'web-dev', css: 'web-dev', react: 'web-dev',
   'jiu-jitsu': 'bjj', 'jiu jitsu': 'bjj', grappling: 'bjj', submission: 'bjj', guard: 'bjj',
   mobility: 'movement', stretching: 'movement', flexibility: 'movement',
+  'movement practice': 'movement',
   'training programming': 'training', 'workout programming': 'training',
   periodisation: 'training', strength: 'training', conditioning: 'training',
   'attention deficit': 'adhd', neurodivergent: 'adhd', 'executive function': 'adhd',
   workflow: 'productivity', 'time management': 'productivity', habits: 'productivity',
+  systems: 'productivity',
   obsidian: 'pkm', 'second brain': 'pkm', 'knowledge management': 'pkm',
   zettelkasten: 'pkm', 'note-taking': 'pkm',
   'this site': 'meta', 'gvns.ca': 'meta', 'behind the scenes': 'meta', changelog: 'meta',
@@ -251,7 +253,16 @@ async function main() {
     process.exit(0);
   }
 
-  await writeFile(outPath, output, 'utf-8');
+  try {
+    await writeFile(outPath, output, { encoding: 'utf-8', flag: 'wx' });
+  } catch (err) {
+    if (err.code === 'EEXIST') {
+      console.error(`File already exists: ${outPath}`);
+    } else {
+      console.error(`Failed to write file: ${err.message}`);
+    }
+    process.exit(1);
+  }
   console.log(`\nIngested: ${outPath}`);
 }
 
