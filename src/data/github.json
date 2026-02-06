@@ -1,221 +1,221 @@
 {
-  "lastUpdated": "2026-02-05T04:54:27Z",
+  "lastUpdated": "2026-02-06T04:01:32Z",
   "recentCommits": [
     {
-      "repo": "gvns.ca",
-      "message": "fix: case-insensitive .md strip, ambiguous keyword, conditional heading removal",
-      "sha": "8ea950f8d6f17e4add5897788c402ef5cc3ab622",
-      "date": "2026-02-05T03:59:32Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/8ea950f8d6f17e4add5897788c402ef5cc3ab622"
+      "repo": "Rackula",
+      "message": "chore(deps): bump svelte 5.49.1→5.49.2 and @types/node 25.2.0→25.2.1 (#1043)",
+      "sha": "3839622b12a290208c0ef22797f800d00a7b9e38",
+      "date": "2026-02-06T03:31:22Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/3839622b12a290208c0ef22797f800d00a7b9e38"
+    },
+    {
+      "repo": "listenbrainz-github-action",
+      "message": "fix: prevent grep no-match from aborting under pipefail",
+      "sha": "e50b2335fd2834902005ca3ef3617b151a2bb8f6",
+      "date": "2026-02-05T12:20:51Z",
+      "url": "https://github.com/ggfevans/listenbrainz-github-action/commit/e50b2335fd2834902005ca3ef3617b151a2bb8f6"
+    },
+    {
+      "repo": "listenbrainz-github-action",
+      "message": "fix: harden SECURITY.md update with flexible separator matching and verification",
+      "sha": "b500928f3fdca218a94dd32e128c96b6281b59b5",
+      "date": "2026-02-05T11:45:43Z",
+      "url": "https://github.com/ggfevans/listenbrainz-github-action/commit/b500928f3fdca218a94dd32e128c96b6281b59b5"
+    },
+    {
+      "repo": "hypermind",
+      "message": "Merge branch 'lklynet:main' into feat/threeworld",
+      "sha": "b8cdec4170bf081d8d5c7bfdbaa7ba999aeadcb1",
+      "date": "2026-02-05T11:19:39Z",
+      "url": "https://github.com/ggfevans/hypermind/commit/b8cdec4170bf081d8d5c7bfdbaa7ba999aeadcb1"
     },
     {
       "repo": "gvns.ca",
-      "message": "fix: guard against empty slugs from non-ASCII titles",
-      "sha": "6be6bea622a53cd0806cf1ab25995ca357044620",
-      "date": "2026-02-05T03:55:59Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/6be6bea622a53cd0806cf1ab25995ca357044620"
+      "message": "chore: add robots meta tag for SEO audit compliance (#116) (#151)",
+      "sha": "8901e4158964ad9f197f7a36d27d776a0ddd2202",
+      "date": "2026-02-05T10:06:24Z",
+      "url": "https://github.com/ggfevans/gvns.ca/commit/8901e4158964ad9f197f7a36d27d776a0ddd2202"
     },
     {
       "repo": "gvns.ca",
-      "message": "refactor: use trakt-github-action instead of inline script",
-      "sha": "bdf07458f2ac9e62c3c3080ead61d421f2c4fb77",
-      "date": "2026-02-05T00:47:47Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/bdf07458f2ac9e62c3c3080ead61d421f2c4fb77"
+      "message": "fix: remove stale analytics preconnect hints (#115) (#150)",
+      "sha": "70d711445f7154979a0d87b12fd13ab7cbc94389",
+      "date": "2026-02-05T10:00:55Z",
+      "url": "https://github.com/ggfevans/gvns.ca/commit/70d711445f7154979a0d87b12fd13ab7cbc94389"
+    },
+    {
+      "repo": "gvns.ca",
+      "message": "Merge pull request #148 from ggfevans/feat/147-dual-font-system",
+      "sha": "a0df14e54d12e3fcf0bb987cf1a8348d6776ac83",
+      "date": "2026-02-05T08:16:45Z",
+      "url": "https://github.com/ggfevans/gvns.ca/commit/a0df14e54d12e3fcf0bb987cf1a8348d6776ac83"
+    },
+    {
+      "repo": "gvns.ca",
+      "message": "fix: enforce explicit heading weights and remove font-family override",
+      "sha": "8442e1bab2ed45a019f435fa55b6fdc30978d53d",
+      "date": "2026-02-05T08:15:12Z",
+      "url": "https://github.com/ggfevans/gvns.ca/commit/8442e1bab2ed45a019f435fa55b6fdc30978d53d"
+    },
+    {
+      "repo": "gvns.ca",
+      "message": "docs: update CLAUDE.md to document Space Grotesk heading font",
+      "sha": "bc46b21f66141b735883209b89b6fdf1d901ffe4",
+      "date": "2026-02-05T08:12:58Z",
+      "url": "https://github.com/ggfevans/gvns.ca/commit/bc46b21f66141b735883209b89b6fdf1d901ffe4"
+    },
+    {
+      "repo": "gvns.ca",
+      "message": "feat: add Space Grotesk as heading font for dual font system",
+      "sha": "94c65e65b8235661723a78dc6f4c2db1a5f9aef0",
+      "date": "2026-02-05T06:57:57Z",
+      "url": "https://github.com/ggfevans/gvns.ca/commit/94c65e65b8235661723a78dc6f4c2db1a5f9aef0"
+    },
+    {
+      "repo": "gvns.ca",
+      "message": "Merge pull request #146 from ggfevans/fix/143-144-145-csp-analytics-cleanup",
+      "sha": "d4e287439c55eb5d9fe045ba43e2043a5a95aa6b",
+      "date": "2026-02-05T06:17:05Z",
+      "url": "https://github.com/ggfevans/gvns.ca/commit/d4e287439c55eb5d9fe045ba43e2043a5a95aa6b"
+    },
+    {
+      "repo": "gvns.ca",
+      "message": "docs: remove stale self-hosted infrastructure from security scope (#144)",
+      "sha": "1e2a1f2da2476c68a5d12f43922d879f64470992",
+      "date": "2026-02-05T06:13:58Z",
+      "url": "https://github.com/ggfevans/gvns.ca/commit/1e2a1f2da2476c68a5d12f43922d879f64470992"
+    },
+    {
+      "repo": "gvns.ca",
+      "message": "chore: update CLAUDE.md to reflect analytics removal (#144)",
+      "sha": "9685b809f97d5a4c59ced4f8fa956d2ac80f8ed6",
+      "date": "2026-02-05T06:01:24Z",
+      "url": "https://github.com/ggfevans/gvns.ca/commit/9685b809f97d5a4c59ced4f8fa956d2ac80f8ed6"
+    },
+    {
+      "repo": "gvns.ca",
+      "message": "docs: remove Umami analytics references (#144)",
+      "sha": "48e53c7e16441d3aa97edec4cd5190b21e009da6",
+      "date": "2026-02-05T05:58:49Z",
+      "url": "https://github.com/ggfevans/gvns.ca/commit/48e53c7e16441d3aa97edec4cd5190b21e009da6"
+    },
+    {
+      "repo": "gvns.ca",
+      "message": "chore: remove analytics.gvns.ca from CSP directives (#144)",
+      "sha": "741927b0894726b03144f08a1257e1a98b5bf791",
+      "date": "2026-02-05T05:57:34Z",
+      "url": "https://github.com/ggfevans/gvns.ca/commit/741927b0894726b03144f08a1257e1a98b5bf791"
+    },
+    {
+      "repo": "gvns.ca",
+      "message": "chore: remove Umami analytics script tag (#144)",
+      "sha": "9bb05f6ab5190f86ae0c5203f2a4c509eecd9f3e",
+      "date": "2026-02-05T05:57:18Z",
+      "url": "https://github.com/ggfevans/gvns.ca/commit/9bb05f6ab5190f86ae0c5203f2a4c509eecd9f3e"
+    },
+    {
+      "repo": "gvns.ca",
+      "message": "fix: allow data: URIs in CSP font-src (#143)",
+      "sha": "e97b35076a0aa28c20add4c98e5196eb58456c93",
+      "date": "2026-02-05T05:56:56Z",
+      "url": "https://github.com/ggfevans/gvns.ca/commit/e97b35076a0aa28c20add4c98e5196eb58456c93"
+    },
+    {
+      "repo": "gvns.ca",
+      "message": "Merge pull request #142 from ggfevans/fix/114-cache-control-headers",
+      "sha": "2e0bf4a68468c6e3c1643944ba86cff122ce5a68",
+      "date": "2026-02-05T05:44:42Z",
+      "url": "https://github.com/ggfevans/gvns.ca/commit/2e0bf4a68468c6e3c1643944ba86cff122ce5a68"
     },
     {
       "repo": "trakt-github-action",
-      "message": "ci: set shellcheck severity to warning to ignore notes",
-      "sha": "840686406bb160c82d5bfde1bb9e7f137a3b7b6d",
-      "date": "2026-02-05T00:47:21Z",
-      "url": "https://github.com/ggfevans/trakt-github-action/commit/840686406bb160c82d5bfde1bb9e7f137a3b7b6d"
+      "message": "Merge pull request #1 from ggfevans/security/harden-v1.0.0",
+      "sha": "2afb54d241c5212ee3c35c0cd2400fd35db0ca72",
+      "date": "2026-02-05T05:38:25Z",
+      "url": "https://github.com/ggfevans/trakt-github-action/commit/2afb54d241c5212ee3c35c0cd2400fd35db0ca72"
     },
     {
       "repo": "gvns.ca",
-      "message": "fix: address additional CodeRabbit feedback",
-      "sha": "0229ecdaedf15dcbfb2c64bb74ebad48f00804b4",
-      "date": "2026-02-05T00:45:06Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/0229ecdaedf15dcbfb2c64bb74ebad48f00804b4"
+      "message": "Merge pull request #141 from ggfevans/feat/112-resource-hints",
+      "sha": "f391c6a7d4d08bbe793036587b92d02d1054d685",
+      "date": "2026-02-05T05:31:13Z",
+      "url": "https://github.com/ggfevans/gvns.ca/commit/f391c6a7d4d08bbe793036587b92d02d1054d685"
     },
     {
       "repo": "gvns.ca",
-      "message": "fix: address CodeRabbit/linter feedback",
-      "sha": "5e06d39eaa4a36706c7ed71efda75804a8b1c701",
-      "date": "2026-02-05T00:25:58Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/5e06d39eaa4a36706c7ed71efda75804a8b1c701"
+      "message": "chore: add cache-control headers for static assets (#114)",
+      "sha": "3419587bfde5ec6acbb6da41724367d3283da8bc",
+      "date": "2026-02-05T05:30:30Z",
+      "url": "https://github.com/ggfevans/gvns.ca/commit/3419587bfde5ec6acbb6da41724367d3283da8bc"
+    },
+    {
+      "repo": "trakt-github-action",
+      "message": "security: harden action inputs and pin third-party actions",
+      "sha": "c29cb54aa9924055c24b5e5d5ac04d5e53a6801c",
+      "date": "2026-02-05T05:30:04Z",
+      "url": "https://github.com/ggfevans/trakt-github-action/commit/c29cb54aa9924055c24b5e5d5ac04d5e53a6801c"
     },
     {
       "repo": "gvns.ca",
-      "message": "Merge pull request #135 from ggfevans/fix/134-security-and-quality",
-      "sha": "6a89af40308178a3a0c662c32cd70a7846db734d",
-      "date": "2026-02-05T00:14:47Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/6a89af40308178a3a0c662c32cd70a7846db734d"
+      "message": "Merge pull request #140 from ggfevans/chore/139-retry-push-watching",
+      "sha": "f14b168406035ca678fd96b1a3894777f6963cfe",
+      "date": "2026-02-05T05:25:14Z",
+      "url": "https://github.com/ggfevans/gvns.ca/commit/f14b168406035ca678fd96b1a3894777f6963cfe"
     },
     {
       "repo": "gvns.ca",
-      "message": "chore: add untracked content directory",
-      "sha": "9d6d0ded5b147ef2f26ba817ddb8c0f8c73c2d74",
-      "date": "2026-02-05T00:14:45Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/9d6d0ded5b147ef2f26ba817ddb8c0f8c73c2d74"
+      "message": "feat: add font preload hints and analytics preconnect",
+      "sha": "afa2eb27774a768f56e827e6747e7a07d70c707e",
+      "date": "2026-02-05T05:24:16Z",
+      "url": "https://github.com/ggfevans/gvns.ca/commit/afa2eb27774a768f56e827e6747e7a07d70c707e"
     },
     {
       "repo": "gvns.ca",
-      "message": "fix: search shows dev mode error in production (#137)",
-      "sha": "07d3c0cd15b26dff4da0b93c5f4743900f0c8b39",
-      "date": "2026-02-05T00:12:47Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/07d3c0cd15b26dff4da0b93c5f4743900f0c8b39"
+      "message": "chore: add retry logic to fetch-watching.yml push step",
+      "sha": "df1b4037e51a2027b5a741b2c0496ef5d7a96933",
+      "date": "2026-02-05T05:21:56Z",
+      "url": "https://github.com/ggfevans/gvns.ca/commit/df1b4037e51a2027b5a741b2c0496ef5d7a96933"
     },
     {
       "repo": "gvns.ca",
-      "message": "chore: update watching data",
-      "sha": "e27fa950dd0ee2d851fd40dc0a1cbcff1927dcc4",
-      "date": "2026-02-05T00:09:11Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/e27fa950dd0ee2d851fd40dc0a1cbcff1927dcc4"
+      "message": "Merge pull request #134 from ggfevans/feat/130-content-authoring-pipeline",
+      "sha": "27f1f91fe9257ba52e080a374c24cde0e13c6f20",
+      "date": "2026-02-05T05:17:26Z",
+      "url": "https://github.com/ggfevans/gvns.ca/commit/27f1f91fe9257ba52e080a374c24cde0e13c6f20"
     },
     {
       "repo": "gvns.ca",
-      "message": "docs: document race condition limitation in findUniqueSlug",
-      "sha": "4c931e48a51623bf7408644ef15ae489db20c3ee",
-      "date": "2026-02-04T23:55:41Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/4c931e48a51623bf7408644ef15ae489db20c3ee"
+      "message": "Merge pull request #138 from ggfevans/feat/125-hardcover-action",
+      "sha": "217d230fe3dd0f76a451ca9e0efdc5587a439dc7",
+      "date": "2026-02-05T05:15:04Z",
+      "url": "https://github.com/ggfevans/gvns.ca/commit/217d230fe3dd0f76a451ca9e0efdc5587a439dc7"
     },
     {
       "repo": "gvns.ca",
-      "message": "docs: document race condition limitation in findUniqueSlug",
-      "sha": "0a41bc55e10bb6a91e607dd5637cd6f228cb768f",
-      "date": "2026-02-04T23:55:41Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/0a41bc55e10bb6a91e607dd5637cd6f228cb768f"
+      "message": "fix: multiline H1 strip and broader block-element skipping in ingest",
+      "sha": "9c1e9bfa762db7030b7fb50c4ce16033cbef9d45",
+      "date": "2026-02-05T05:15:03Z",
+      "url": "https://github.com/ggfevans/gvns.ca/commit/9c1e9bfa762db7030b7fb50c4ce16033cbef9d45"
+    },
+    {
+      "repo": "trakt-github-action",
+      "message": "ci: auto-update SECURITY.md supported version on release",
+      "sha": "922d69a9c53333e52382790d69266636c88139bd",
+      "date": "2026-02-05T05:10:53Z",
+      "url": "https://github.com/ggfevans/trakt-github-action/commit/922d69a9c53333e52382790d69266636c88139bd"
     },
     {
       "repo": "gvns.ca",
-      "message": "fix: use case-insensitive .md extension check in collectSlugs",
-      "sha": "a618f199d42ee4817e8c1322fd340ee000dab07b",
-      "date": "2026-02-04T23:53:37Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/a618f199d42ee4817e8c1322fd340ee000dab07b"
-    },
-    {
-      "repo": "gvns.ca",
-      "message": "fix: use case-insensitive .md extension check in collectSlugs",
-      "sha": "935b8a0101bef892dce3307d8ac3fe6962543c06",
-      "date": "2026-02-04T23:53:37Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/935b8a0101bef892dce3307d8ac3fe6962543c06"
-    },
-    {
-      "repo": "gvns.ca",
-      "message": "fix: improve YAML escaping to handle newlines, tabs, and control chars",
-      "sha": "8b1671a6847a0b504ada5933350f7c4a06bb8d57",
-      "date": "2026-02-04T23:53:19Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/8b1671a6847a0b504ada5933350f7c4a06bb8d57"
-    },
-    {
-      "repo": "gvns.ca",
-      "message": "fix: improve YAML escaping to handle newlines, tabs, and control chars",
-      "sha": "2a392c010ea3b9e5c8ff9ba6a4908e4ebb014856",
-      "date": "2026-02-04T23:53:19Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/2a392c010ea3b9e5c8ff9ba6a4908e4ebb014856"
-    },
-    {
-      "repo": "gvns.ca",
-      "message": "refactor: extract shared CLI utilities to reduce duplication",
-      "sha": "e4b039dc49d469f0083566b8be5fbf65f2528627",
-      "date": "2026-02-04T23:17:03Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/e4b039dc49d469f0083566b8be5fbf65f2528627"
-    },
-    {
-      "repo": "gvns.ca",
-      "message": "refactor: extract shared CLI utilities to reduce duplication",
-      "sha": "3c44241b907703367f51ea861913c56f01dc4d4d",
-      "date": "2026-02-04T23:17:03Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/3c44241b907703367f51ea861913c56f01dc4d4d"
-    },
-    {
-      "repo": "gvns.ca",
-      "message": "fix: use word boundary matching for tag suggestions",
-      "sha": "9fe98da4157e16af100eb39bc277f9a003051e43",
-      "date": "2026-02-04T23:05:59Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/9fe98da4157e16af100eb39bc277f9a003051e43"
-    },
-    {
-      "repo": "gvns.ca",
-      "message": "fix: use word boundary matching for tag suggestions",
-      "sha": "08c2ee0aee6d69957460bff45d8c3fdcef50029b",
-      "date": "2026-02-04T23:05:59Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/08c2ee0aee6d69957460bff45d8c3fdcef50029b"
-    },
-    {
-      "repo": "gvns.ca",
-      "message": "fix: escape backslashes in YAML frontmatter strings",
-      "sha": "fcf941e6dd0c29302fed31b1fa935cc90b56e5b5",
-      "date": "2026-02-04T23:01:13Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/fcf941e6dd0c29302fed31b1fa935cc90b56e5b5"
-    },
-    {
-      "repo": "gvns.ca",
-      "message": "fix: escape backslashes in YAML frontmatter strings",
-      "sha": "5de42e1541fd7ccc31806c3e69fe44396a01f7ab",
-      "date": "2026-02-04T23:01:13Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/5de42e1541fd7ccc31806c3e69fe44396a01f7ab"
-    },
-    {
-      "repo": "gvns.ca",
-      "message": "fix: improve slug collision detection with incremental suffix",
-      "sha": "d92486e53592fd853417aceaf0367a85229e2698",
-      "date": "2026-02-04T23:00:03Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/d92486e53592fd853417aceaf0367a85229e2698"
-    },
-    {
-      "repo": "gvns.ca",
-      "message": "fix: improve slug collision detection with incremental suffix",
-      "sha": "cc234dd8d09e757e6396b7a2b61e4edef55cbde7",
-      "date": "2026-02-04T23:00:03Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/cc234dd8d09e757e6396b7a2b61e4edef55cbde7"
-    },
-    {
-      "repo": "gvns.ca",
-      "message": "fix(security): prevent shell injection in EDITOR execution",
-      "sha": "b7df114331e614470bcf41ecd6b76c997a13f6cd",
-      "date": "2026-02-04T22:52:33Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/b7df114331e614470bcf41ecd6b76c997a13f6cd"
-    },
-    {
-      "repo": "gvns.ca",
-      "message": "fix(security): prevent shell injection in EDITOR execution",
-      "sha": "0935cb8a85793e61c701c04a4f3d1e5a29faab76",
-      "date": "2026-02-04T22:52:33Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/0935cb8a85793e61c701c04a4f3d1e5a29faab76"
-    },
-    {
-      "repo": "gvns.ca",
-      "message": "fix: quote key with space in TAG_KEYWORDS object",
-      "sha": "e3b0a4a0d7bf4faf0c7beaf86d80a23aa51df583",
-      "date": "2026-02-04T22:52:00Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/e3b0a4a0d7bf4faf0c7beaf86d80a23aa51df583"
-    },
-    {
-      "repo": "gvns.ca",
-      "message": "fix: quote key with space in TAG_KEYWORDS object",
-      "sha": "c21d2e889e06a6ef762e234b9c562321c70a1b93",
-      "date": "2026-02-04T22:52:00Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/c21d2e889e06a6ef762e234b9c562321c70a1b93"
-    },
-    {
-      "repo": "gvns.ca",
-      "message": "feat: contextual accent system + homepage activity section (#128)",
-      "sha": "26f5ebcb72a23e4b3c5adc61bd44f4022454c5a8",
-      "date": "2026-02-04T22:39:44Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/26f5ebcb72a23e4b3c5adc61bd44f4022454c5a8"
-    },
-    {
-      "repo": "gvns.ca",
-      "message": "feat: add content authoring pipeline CLI tools",
-      "sha": "471f23f348b0ca14db6462e1496d60918bcd028b",
-      "date": "2026-02-04T21:52:42Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/471f23f348b0ca14db6462e1496d60918bcd028b"
+      "message": "fix: sync TAG_KEYWORDS drift and prevent silent file overwrites",
+      "sha": "b3679d9bc848f422dafc1482edb168020e009df7",
+      "date": "2026-02-05T05:02:33Z",
+      "url": "https://github.com/ggfevans/gvns.ca/commit/b3679d9bc848f422dafc1482edb168020e009df7"
     }
   ],
   "stats": {
-    "commitsThisWeek": 97,
-    "commitsThisMonth": 97,
-    "repositoriesThisWeek": 7
+    "commitsThisWeek": 77,
+    "commitsThisMonth": 87,
+    "repositoriesThisWeek": 6
   },
   "repositories": [
     {
@@ -226,11 +226,18 @@
       "url": "https://github.com/ggfevans/gvns.ca"
     },
     {
-      "name": "hardcover-github-action",
-      "description": "",
+      "name": "listenbrainz-github-action",
+      "description": "Fetch your ListenBrainz listening data as JSON for static sites. No auth required.",
       "language": "Shell",
       "stars": 0,
-      "url": "https://github.com/ggfevans/hardcover-github-action"
+      "url": "https://github.com/ggfevans/listenbrainz-github-action"
+    },
+    {
+      "name": "gwilym.ca",
+      "description": "",
+      "language": "Astro",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/gwilym.ca"
     },
     {
       "name": "trakt-github-action",
@@ -240,11 +247,11 @@
       "url": "https://github.com/ggfevans/trakt-github-action"
     },
     {
-      "name": "listenbrainz-github-action",
-      "description": "Fetch your ListenBrainz listening data as JSON for static sites. No auth required.",
+      "name": "hardcover-github-action",
+      "description": "Fetch your Hardcover.app reading data as JSON for static sites. ",
       "language": "Shell",
       "stars": 0,
-      "url": "https://github.com/ggfevans/listenbrainz-github-action"
+      "url": "https://github.com/ggfevans/hardcover-github-action"
     },
     {
       "name": "gh-mint",
@@ -294,13 +301,6 @@
       "language": "Less",
       "stars": 1,
       "url": "https://github.com/ggfevans/searxng-dracula-theme"
-    },
-    {
-      "name": "things3-reset-script",
-      "description": "Resets a Things 3 installation to a fresh state, without having to hunt around for files.",
-      "language": "Shell",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/things3-reset-script"
     }
   ]
 }
