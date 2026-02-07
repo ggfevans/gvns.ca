@@ -1,221 +1,221 @@
 {
-  "lastUpdated": "2026-02-06T04:01:32Z",
+  "lastUpdated": "2026-02-07T03:57:34Z",
   "recentCommits": [
     {
+      "repo": "listenbrainz-github-action",
+      "message": "fix: use repo-relative paths in git commands and fix shellcheck directives",
+      "sha": "9eaa63e7a601737920afff371e86613740950536",
+      "date": "2026-02-07T02:58:51Z",
+      "url": "https://github.com/ggfevans/listenbrainz-github-action/commit/9eaa63e7a601737920afff371e86613740950536"
+    },
+    {
+      "repo": "listenbrainz-github-action",
+      "message": "fix: address PR #14 review feedback for auto-commit",
+      "sha": "dddf71776f597eff76ef9e7e0e16ad495bc42d0e",
+      "date": "2026-02-07T02:24:20Z",
+      "url": "https://github.com/ggfevans/listenbrainz-github-action/commit/dddf71776f597eff76ef9e7e0e16ad495bc42d0e"
+    },
+    {
       "repo": "Rackula",
-      "message": "chore(deps): bump svelte 5.49.1→5.49.2 and @types/node 25.2.0→25.2.1 (#1043)",
-      "sha": "3839622b12a290208c0ef22797f800d00a7b9e38",
-      "date": "2026-02-06T03:31:22Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/3839622b12a290208c0ef22797f800d00a7b9e38"
+      "message": "test: harden matchMedia lifecycle in mobile toolbar test (#1068)",
+      "sha": "26630f8a5eea7b8fc4e68c3841b7979c2b862ad7",
+      "date": "2026-02-07T01:08:13Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/26630f8a5eea7b8fc4e68c3841b7979c2b862ad7"
+    },
+    {
+      "repo": "Rackula",
+      "message": "test: harden matchMedia lifecycle in mobile toolbar test",
+      "sha": "5294f6839c44764063c51209e89af3df6cf34680",
+      "date": "2026-02-07T00:45:17Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/5294f6839c44764063c51209e89af3df6cf34680"
+    },
+    {
+      "repo": "Rackula",
+      "message": "fix: avoid two-way binding to derived sheet state (#1064)",
+      "sha": "8f30b222d0ee16adadc4da6ec17491b1d4dfcf0d",
+      "date": "2026-02-06T10:58:40Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/8f30b222d0ee16adadc4da6ec17491b1d4dfcf0d"
+    },
+    {
+      "repo": "Rackula",
+      "message": "refactor: require BottomSheet onclose handler",
+      "sha": "a9f4622cc86dbd3c501351c9882f688ec42edd91",
+      "date": "2026-02-06T10:50:19Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/a9f4622cc86dbd3c501351c9882f688ec42edd91"
     },
     {
       "repo": "listenbrainz-github-action",
-      "message": "fix: prevent grep no-match from aborting under pipefail",
-      "sha": "e50b2335fd2834902005ca3ef3617b151a2bb8f6",
-      "date": "2026-02-05T12:20:51Z",
-      "url": "https://github.com/ggfevans/listenbrainz-github-action/commit/e50b2335fd2834902005ca3ef3617b151a2bb8f6"
+      "message": "Pin action references to SHAs and add release automation (#12)",
+      "sha": "ae8e30ccf7e23ddc07b5d3a277a849b98e38a0db",
+      "date": "2026-02-06T10:47:27Z",
+      "url": "https://github.com/ggfevans/listenbrainz-github-action/commit/ae8e30ccf7e23ddc07b5d3a277a849b98e38a0db"
     },
     {
-      "repo": "listenbrainz-github-action",
-      "message": "fix: harden SECURITY.md update with flexible separator matching and verification",
-      "sha": "b500928f3fdca218a94dd32e128c96b6281b59b5",
-      "date": "2026-02-05T11:45:43Z",
-      "url": "https://github.com/ggfevans/listenbrainz-github-action/commit/b500928f3fdca218a94dd32e128c96b6281b59b5"
+      "repo": "Rackula",
+      "message": "refactor: make BottomSheet open prop one-way",
+      "sha": "4c588e2ab16b0ef633d948cd99f0acba96f0f3fa",
+      "date": "2026-02-06T10:47:13Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/4c588e2ab16b0ef633d948cd99f0acba96f0f3fa"
     },
     {
-      "repo": "hypermind",
-      "message": "Merge branch 'lklynet:main' into feat/threeworld",
-      "sha": "b8cdec4170bf081d8d5c7bfdbaa7ba999aeadcb1",
-      "date": "2026-02-05T11:19:39Z",
-      "url": "https://github.com/ggfevans/hypermind/commit/b8cdec4170bf081d8d5c7bfdbaa7ba999aeadcb1"
+      "repo": "Rackula",
+      "message": "Merge branch 'main' into fix/bottomsheet-open-one-way",
+      "sha": "4c655b94d87f1f935fe1ff0c9d9f2287488d4f09",
+      "date": "2026-02-06T10:45:33Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/4c655b94d87f1f935fe1ff0c9d9f2287488d4f09"
     },
     {
-      "repo": "gvns.ca",
-      "message": "chore: add robots meta tag for SEO audit compliance (#116) (#151)",
-      "sha": "8901e4158964ad9f197f7a36d27d776a0ddd2202",
-      "date": "2026-02-05T10:06:24Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/8901e4158964ad9f197f7a36d27d776a0ddd2202"
+      "repo": "Rackula",
+      "message": "fix: address PR review feedback for mobile toolbar (#1066)",
+      "sha": "a81679fe68c346ebc880855a1399d7c98dda6268",
+      "date": "2026-02-06T10:44:54Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/a81679fe68c346ebc880855a1399d7c98dda6268"
     },
     {
-      "repo": "gvns.ca",
-      "message": "fix: remove stale analytics preconnect hints (#115) (#150)",
-      "sha": "70d711445f7154979a0d87b12fd13ab7cbc94389",
-      "date": "2026-02-05T10:00:55Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/70d711445f7154979a0d87b12fd13ab7cbc94389"
+      "repo": "Rackula",
+      "message": "fix: close bottom sheet on backdrop clicks",
+      "sha": "c5c6e1d8eecee02b0ea34681851ab1d3cb5771cf",
+      "date": "2026-02-06T10:10:17Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/c5c6e1d8eecee02b0ea34681851ab1d3cb5771cf"
     },
     {
-      "repo": "gvns.ca",
-      "message": "Merge pull request #148 from ggfevans/feat/147-dual-font-system",
-      "sha": "a0df14e54d12e3fcf0bb987cf1a8348d6776ac83",
-      "date": "2026-02-05T08:16:45Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/a0df14e54d12e3fcf0bb987cf1a8348d6776ac83"
+      "repo": "Rackula",
+      "message": "fix(persistence): integrate Start Screen into app launch flow (#1065)",
+      "sha": "11322ad84b4107a5789aae0d8fd61c0aaf3b4bf1",
+      "date": "2026-02-06T10:01:53Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/11322ad84b4107a5789aae0d8fd61c0aaf3b4bf1"
     },
     {
-      "repo": "gvns.ca",
-      "message": "fix: enforce explicit heading weights and remove font-family override",
-      "sha": "8442e1bab2ed45a019f435fa55b6fdc30978d53d",
-      "date": "2026-02-05T08:15:12Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/8442e1bab2ed45a019f435fa55b6fdc30978d53d"
+      "repo": "Rackula",
+      "message": "feat: add mobile view sheet controls (#643) (#1058)",
+      "sha": "97f3e39cb0a883d5ed62f6a4fb571afe801c1010",
+      "date": "2026-02-06T07:51:31Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/97f3e39cb0a883d5ed62f6a4fb571afe801c1010"
     },
     {
-      "repo": "gvns.ca",
-      "message": "docs: update CLAUDE.md to document Space Grotesk heading font",
-      "sha": "bc46b21f66141b735883209b89b6fdf1d901ffe4",
-      "date": "2026-02-05T08:12:58Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/bc46b21f66141b735883209b89b6fdf1d901ffe4"
+      "repo": "Rackula",
+      "message": "fix: split view sheet close handlers and add touch feedback",
+      "sha": "63441e600a23103023c1899ab5770649ec335363",
+      "date": "2026-02-06T07:45:27Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/63441e600a23103023c1899ab5770649ec335363"
     },
     {
-      "repo": "gvns.ca",
-      "message": "feat: add Space Grotesk as heading font for dual font system",
-      "sha": "94c65e65b8235661723a78dc6f4c2db1a5f9aef0",
-      "date": "2026-02-05T06:57:57Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/94c65e65b8235661723a78dc6f4c2db1a5f9aef0"
+      "repo": "Rackula",
+      "message": "feat: migrate mobile device library trigger to bottom nav (#1061)",
+      "sha": "2481d7874437f1e6b02794986d3b1f38c71fa75e",
+      "date": "2026-02-06T06:45:07Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/2481d7874437f1e6b02794986d3b1f38c71fa75e"
     },
     {
-      "repo": "gvns.ca",
-      "message": "Merge pull request #146 from ggfevans/fix/143-144-145-csp-analytics-cleanup",
-      "sha": "d4e287439c55eb5d9fe045ba43e2043a5a95aa6b",
-      "date": "2026-02-05T06:17:05Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/d4e287439c55eb5d9fe045ba43e2043a5a95aa6b"
+      "repo": "Rackula",
+      "message": "Merge branch 'main' into feat/644-mobile-device-library-bottom-nav",
+      "sha": "ee621a63f247860dd866214dd5fd04b461f4cb9a",
+      "date": "2026-02-06T06:41:51Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/ee621a63f247860dd866214dd5fd04b461f4cb9a"
     },
     {
-      "repo": "gvns.ca",
-      "message": "docs: remove stale self-hosted infrastructure from security scope (#144)",
-      "sha": "1e2a1f2da2476c68a5d12f43922d879f64470992",
-      "date": "2026-02-05T06:13:58Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/1e2a1f2da2476c68a5d12f43922d879f64470992"
+      "repo": "Rackula",
+      "message": "feat: add compact mobile toolbar quick actions (#1060)",
+      "sha": "ca760aa311b0e5b48de4210238c8aba799fe440a",
+      "date": "2026-02-06T06:41:38Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/ca760aa311b0e5b48de4210238c8aba799fe440a"
     },
     {
-      "repo": "gvns.ca",
-      "message": "chore: update CLAUDE.md to reflect analytics removal (#144)",
-      "sha": "9685b809f97d5a4c59ced4f8fa956d2ac80f8ed6",
-      "date": "2026-02-05T06:01:24Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/9685b809f97d5a4c59ced4f8fa956d2ac80f8ed6"
+      "repo": "Rackula",
+      "message": "Merge branch 'main' into feat/192-mobile-toolbar-actions",
+      "sha": "c34ea1a9bf19f40edcb4899b8e416e8a239a0b2f",
+      "date": "2026-02-06T06:41:24Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/c34ea1a9bf19f40edcb4899b8e416e8a239a0b2f"
     },
     {
-      "repo": "gvns.ca",
-      "message": "docs: remove Umami analytics references (#144)",
-      "sha": "48e53c7e16441d3aa97edec4cd5190b21e009da6",
-      "date": "2026-02-05T05:58:49Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/48e53c7e16441d3aa97edec4cd5190b21e009da6"
+      "repo": "Rackula",
+      "message": "Merge branch 'main' into feat/644-mobile-device-library-bottom-nav",
+      "sha": "5f2eeb2c2a0ab36e43023851974636766db1295b",
+      "date": "2026-02-06T06:40:46Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/5f2eeb2c2a0ab36e43023851974636766db1295b"
     },
     {
-      "repo": "gvns.ca",
-      "message": "chore: remove analytics.gvns.ca from CSP directives (#144)",
-      "sha": "741927b0894726b03144f08a1257e1a98b5bf791",
-      "date": "2026-02-05T05:57:34Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/741927b0894726b03144f08a1257e1a98b5bf791"
+      "repo": "Rackula",
+      "message": "feat: upgrade MobileBottomNav to Framework7-inspired design (#1062) (#1063)",
+      "sha": "7ebc6ac7a653f7c74350a0f811c223517b86e92c",
+      "date": "2026-02-06T06:40:34Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/7ebc6ac7a653f7c74350a0f811c223517b86e92c"
     },
     {
-      "repo": "gvns.ca",
-      "message": "chore: remove Umami analytics script tag (#144)",
-      "sha": "9bb05f6ab5190f86ae0c5203f2a4c509eecd9f3e",
-      "date": "2026-02-05T05:57:18Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/9bb05f6ab5190f86ae0c5203f2a4c509eecd9f3e"
+      "repo": "Rackula",
+      "message": "fix: address mobile view sheet review feedback",
+      "sha": "5a7ddb3b1a4bfedb4040f2d5f9d9c5e0423510fd",
+      "date": "2026-02-06T06:32:02Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/5a7ddb3b1a4bfedb4040f2d5f9d9c5e0423510fd"
     },
     {
-      "repo": "gvns.ca",
-      "message": "fix: allow data: URIs in CSP font-src (#143)",
-      "sha": "e97b35076a0aa28c20add4c98e5196eb58456c93",
-      "date": "2026-02-05T05:56:56Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/e97b35076a0aa28c20add4c98e5196eb58456c93"
+      "repo": "Rackula",
+      "message": "fix: address mobile view sheet review feedback",
+      "sha": "49a8916b2e36296ea31e525555be322f05ec1aa5",
+      "date": "2026-02-06T06:32:02Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/49a8916b2e36296ea31e525555be322f05ec1aa5"
     },
     {
-      "repo": "gvns.ca",
-      "message": "Merge pull request #142 from ggfevans/fix/114-cache-control-headers",
-      "sha": "2e0bf4a68468c6e3c1643944ba86cff122ce5a68",
-      "date": "2026-02-05T05:44:42Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/2e0bf4a68468c6e3c1643944ba86cff122ce5a68"
+      "repo": "Rackula",
+      "message": "fix: sync selection store, improve a11y, and Safari iOS dark rack colours (#1057)",
+      "sha": "6c6b4a25f0d4e995478d653abd0f4f67936ac8c5",
+      "date": "2026-02-06T06:24:53Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/6c6b4a25f0d4e995478d653abd0f4f67936ac8c5"
     },
     {
-      "repo": "trakt-github-action",
-      "message": "Merge pull request #1 from ggfevans/security/harden-v1.0.0",
-      "sha": "2afb54d241c5212ee3c35c0cd2400fd35db0ca72",
-      "date": "2026-02-05T05:38:25Z",
-      "url": "https://github.com/ggfevans/trakt-github-action/commit/2afb54d241c5212ee3c35c0cd2400fd35db0ca72"
+      "repo": "Rackula",
+      "message": "Merge branch 'main' into fix/rack-indicator-review-1056",
+      "sha": "750bcb2ab2ebf0f44a19fa246fd6d437e07e9127",
+      "date": "2026-02-06T06:24:42Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/750bcb2ab2ebf0f44a19fa246fd6d437e07e9127"
     },
     {
-      "repo": "gvns.ca",
-      "message": "Merge pull request #141 from ggfevans/feat/112-resource-hints",
-      "sha": "f391c6a7d4d08bbe793036587b92d02d1054d685",
-      "date": "2026-02-05T05:31:13Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/f391c6a7d4d08bbe793036587b92d02d1054d685"
+      "repo": "Rackula",
+      "message": "feat: add mobile file actions sheet (#1059)",
+      "sha": "b6aadebf805f00ab35a847245f18d419c019e6a9",
+      "date": "2026-02-06T06:21:11Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/b6aadebf805f00ab35a847245f18d419c019e6a9"
     },
     {
-      "repo": "gvns.ca",
-      "message": "chore: add cache-control headers for static assets (#114)",
-      "sha": "3419587bfde5ec6acbb6da41724367d3283da8bc",
-      "date": "2026-02-05T05:30:30Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/3419587bfde5ec6acbb6da41724367d3283da8bc"
+      "repo": "Rackula",
+      "message": "feat: add mobile view sheet controls",
+      "sha": "84570679d68f7b31e9a16c636581b2c9893b40bd",
+      "date": "2026-02-06T06:13:13Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/84570679d68f7b31e9a16c636581b2c9893b40bd"
     },
     {
-      "repo": "trakt-github-action",
-      "message": "security: harden action inputs and pin third-party actions",
-      "sha": "c29cb54aa9924055c24b5e5d5ac04d5e53a6801c",
-      "date": "2026-02-05T05:30:04Z",
-      "url": "https://github.com/ggfevans/trakt-github-action/commit/c29cb54aa9924055c24b5e5d5ac04d5e53a6801c"
+      "repo": "Rackula",
+      "message": "chore: add comments explaining Safari iOS inline fill workaround",
+      "sha": "4b0f6f93acadf3627e155830fb8f401d5ac28199",
+      "date": "2026-02-06T05:45:42Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/4b0f6f93acadf3627e155830fb8f401d5ac28199"
     },
     {
-      "repo": "gvns.ca",
-      "message": "Merge pull request #140 from ggfevans/chore/139-retry-push-watching",
-      "sha": "f14b168406035ca678fd96b1a3894777f6963cfe",
-      "date": "2026-02-05T05:25:14Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/f14b168406035ca678fd96b1a3894777f6963cfe"
+      "repo": "Rackula",
+      "message": "fix: add Safari iOS fallbacks for dark rack colours",
+      "sha": "69d629d4ae6b5ce24fe149dbec1e54ffa888482d",
+      "date": "2026-02-06T05:38:17Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/69d629d4ae6b5ce24fe149dbec1e54ffa888482d"
     },
     {
-      "repo": "gvns.ca",
-      "message": "feat: add font preload hints and analytics preconnect",
-      "sha": "afa2eb27774a768f56e827e6747e7a07d70c707e",
-      "date": "2026-02-05T05:24:16Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/afa2eb27774a768f56e827e6747e7a07d70c707e"
+      "repo": "Rackula",
+      "message": "feat: add rack indicator strip with navigation dots (#1056)",
+      "sha": "e0f3db8235ab4dfcab328a0ebd67709b78271827",
+      "date": "2026-02-06T05:14:25Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/e0f3db8235ab4dfcab328a0ebd67709b78271827"
     },
     {
-      "repo": "gvns.ca",
-      "message": "chore: add retry logic to fetch-watching.yml push step",
-      "sha": "df1b4037e51a2027b5a741b2c0496ef5d7a96933",
-      "date": "2026-02-05T05:21:56Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/df1b4037e51a2027b5a741b2c0496ef5d7a96933"
-    },
-    {
-      "repo": "gvns.ca",
-      "message": "Merge pull request #134 from ggfevans/feat/130-content-authoring-pipeline",
-      "sha": "27f1f91fe9257ba52e080a374c24cde0e13c6f20",
-      "date": "2026-02-05T05:17:26Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/27f1f91fe9257ba52e080a374c24cde0e13c6f20"
-    },
-    {
-      "repo": "gvns.ca",
-      "message": "Merge pull request #138 from ggfevans/feat/125-hardcover-action",
-      "sha": "217d230fe3dd0f76a451ca9e0efdc5587a439dc7",
-      "date": "2026-02-05T05:15:04Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/217d230fe3dd0f76a451ca9e0efdc5587a439dc7"
-    },
-    {
-      "repo": "gvns.ca",
-      "message": "fix: multiline H1 strip and broader block-element skipping in ingest",
-      "sha": "9c1e9bfa762db7030b7fb50c4ce16033cbef9d45",
-      "date": "2026-02-05T05:15:03Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/9c1e9bfa762db7030b7fb50c4ce16033cbef9d45"
-    },
-    {
-      "repo": "trakt-github-action",
-      "message": "ci: auto-update SECURITY.md supported version on release",
-      "sha": "922d69a9c53333e52382790d69266636c88139bd",
-      "date": "2026-02-05T05:10:53Z",
-      "url": "https://github.com/ggfevans/trakt-github-action/commit/922d69a9c53333e52382790d69266636c88139bd"
-    },
-    {
-      "repo": "gvns.ca",
-      "message": "fix: sync TAG_KEYWORDS drift and prevent silent file overwrites",
-      "sha": "b3679d9bc848f422dafc1482edb168020e009df7",
-      "date": "2026-02-05T05:02:33Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/b3679d9bc848f422dafc1482edb168020e009df7"
+      "repo": "Rackula",
+      "message": "feat: add mobile bottom navigation bar (#641) (#1055)",
+      "sha": "1be3178a5bebc9d083a4275446074108e89294fe",
+      "date": "2026-02-06T05:05:40Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/1be3178a5bebc9d083a4275446074108e89294fe"
     }
   ],
   "stats": {
-    "commitsThisWeek": 77,
-    "commitsThisMonth": 87,
-    "repositoriesThisWeek": 6
+    "commitsThisWeek": 51,
+    "commitsThisMonth": 61,
+    "repositoriesThisWeek": 4
   },
   "repositories": [
     {
@@ -229,7 +229,7 @@
       "name": "listenbrainz-github-action",
       "description": "Fetch your ListenBrainz listening data as JSON for static sites. No auth required.",
       "language": "Shell",
-      "stars": 0,
+      "stars": 1,
       "url": "https://github.com/ggfevans/listenbrainz-github-action"
     },
     {
