@@ -1,6 +1,90 @@
 {
-  "lastUpdated": "2026-02-06T03:14:49Z",
+  "lastUpdated": "2026-02-07T03:11:33Z",
   "recentListens": [
+    {
+      "track": "Golfer Vrs Boxer",
+      "artist": "Amon Tobin",
+      "album": "Supermodified",
+      "listenedAt": "2026-02-07T01:53:42Z",
+      "caaReleaseMbid": "fc94d683-52f6-4a55-9563-df2cf70da4e5",
+      "caaId": 42901742241,
+      "recordingMbid": "3482874a-dd20-4f76-8501-b1f452ce633a",
+      "artistMbids": [
+        "630662ea-1c7d-4208-99fd-ba3afec20f0c"
+      ]
+    },
+    {
+      "track": "Marine Machines",
+      "artist": "Amon Tobin",
+      "album": "Supermodified",
+      "listenedAt": "2026-02-07T01:47:22Z",
+      "caaReleaseMbid": "fc94d683-52f6-4a55-9563-df2cf70da4e5",
+      "caaId": 42901742241,
+      "recordingMbid": "fd80e98e-a004-4e5c-868f-8bb52c822b8d",
+      "artistMbids": [
+        "630662ea-1c7d-4208-99fd-ba3afec20f0c"
+      ]
+    },
+    {
+      "track": "Slowly",
+      "artist": "Amon Tobin",
+      "album": "Supermodified",
+      "listenedAt": "2026-02-07T01:41:36Z",
+      "caaReleaseMbid": "fc94d683-52f6-4a55-9563-df2cf70da4e5",
+      "caaId": 42901742241,
+      "recordingMbid": "c93f057b-9228-4897-8e37-871856e12fb5",
+      "artistMbids": [
+        "630662ea-1c7d-4208-99fd-ba3afec20f0c"
+      ]
+    },
+    {
+      "track": "Four Ton Mantis",
+      "artist": "Amon Tobin",
+      "album": "Supermodified",
+      "listenedAt": "2026-02-07T01:35:57Z",
+      "caaReleaseMbid": "fc94d683-52f6-4a55-9563-df2cf70da4e5",
+      "caaId": 42901742241,
+      "recordingMbid": "e5b2f2d7-b167-4f7a-9019-1b659e3f1b91",
+      "artistMbids": [
+        "630662ea-1c7d-4208-99fd-ba3afec20f0c"
+      ]
+    },
+    {
+      "track": "Get Your Snack On",
+      "artist": "Amon Tobin",
+      "album": "Supermodified",
+      "listenedAt": "2026-02-07T01:31:11Z",
+      "caaReleaseMbid": "fc94d683-52f6-4a55-9563-df2cf70da4e5",
+      "caaId": 42901742241,
+      "recordingMbid": "b6302b3b-b49f-48e7-83d6-95054c2335f9",
+      "artistMbids": [
+        "630662ea-1c7d-4208-99fd-ba3afec20f0c"
+      ]
+    },
+    {
+      "track": "Swift Automatons",
+      "artist": "Eluvium",
+      "album": "(Whirring Marvels In) Consensus Reality",
+      "listenedAt": "2026-02-06T11:11:58Z",
+      "caaReleaseMbid": "36488850-1230-47bc-9822-34211bbfe47b",
+      "caaId": 36104955971,
+      "recordingMbid": "f116a888-16b3-4940-a78b-510e7957acf5",
+      "artistMbids": [
+        "86139012-695b-42f4-98f1-1f353f7230b4"
+      ]
+    },
+    {
+      "track": "Escapement",
+      "artist": "Eluvium",
+      "album": "(Whirring Marvels In) Consensus Reality",
+      "listenedAt": "2026-02-06T11:09:20Z",
+      "caaReleaseMbid": "36488850-1230-47bc-9822-34211bbfe47b",
+      "caaId": 36104955971,
+      "recordingMbid": "64280736-b571-49b0-a8d2-d5fd41935765",
+      "artistMbids": [
+        "86139012-695b-42f4-98f1-1f353f7230b4"
+      ]
+    },
     {
       "track": "Endless Flower",
       "artist": "Eluvium",
@@ -36,107 +120,39 @@
       "artistMbids": [
         "86139012-695b-42f4-98f1-1f353f7230b4"
       ]
-    },
-    {
-      "track": "Clockwork Fables",
-      "artist": "Eluvium",
-      "album": "(Whirring Marvels In) Consensus Reality",
-      "listenedAt": "2026-02-04T17:53:53Z",
-      "caaReleaseMbid": "36488850-1230-47bc-9822-34211bbfe47b",
-      "caaId": 36104955971,
-      "recordingMbid": "0cbfdcf3-ee1b-4f39-97cd-07237cac7dbd",
-      "artistMbids": [
-        "86139012-695b-42f4-98f1-1f353f7230b4"
-      ]
-    },
-    {
-      "track": "Void Manifest",
-      "artist": "Eluvium",
-      "album": "(Whirring Marvels In) Consensus Reality",
-      "listenedAt": "2026-02-04T17:49:42Z",
-      "caaReleaseMbid": "36488850-1230-47bc-9822-34211bbfe47b",
-      "caaId": 36104955971,
-      "recordingMbid": "f2b263bd-c7a7-4472-9df4-4e7aa034cc6b",
-      "artistMbids": [
-        "86139012-695b-42f4-98f1-1f353f7230b4"
-      ]
-    },
-    {
-      "track": "The Violet Light",
-      "artist": "Eluvium",
-      "album": "(Whirring Marvels In) Consensus Reality",
-      "listenedAt": "2026-02-04T17:47:12Z",
-      "caaReleaseMbid": "36488850-1230-47bc-9822-34211bbfe47b",
-      "caaId": 36104955971,
-      "recordingMbid": "80c293ee-317c-410a-a2c6-686e5b0d9ad1",
-      "artistMbids": [
-        "86139012-695b-42f4-98f1-1f353f7230b4"
-      ]
-    },
-    {
-      "track": "Phantasia Telephonics",
-      "artist": "Eluvium",
-      "album": "(Whirring Marvels In) Consensus Reality",
-      "listenedAt": "2026-02-04T17:41:16Z",
-      "caaReleaseMbid": "36488850-1230-47bc-9822-34211bbfe47b",
-      "caaId": 36104955971,
-      "recordingMbid": "2f5b6333-2ea8-499b-853a-ee6f799c530d",
-      "artistMbids": [
-        "86139012-695b-42f4-98f1-1f353f7230b4"
-      ]
-    },
-    {
-      "track": "Scatterbrains",
-      "artist": "Eluvium",
-      "album": "(Whirring Marvels In) Consensus Reality",
-      "listenedAt": "2026-02-04T17:37:42Z",
-      "caaReleaseMbid": "36488850-1230-47bc-9822-34211bbfe47b",
-      "caaId": 36104955971,
-      "recordingMbid": "f7727213-3284-4436-ae40-91d358c8b97d",
-      "artistMbids": [
-        "86139012-695b-42f4-98f1-1f353f7230b4"
-      ]
-    },
-    {
-      "track": "Vibration Consensus Reality (for Spectral Multiband Resonator)",
-      "artist": "Eluvium",
-      "album": "(Whirring Marvels In) Consensus Reality",
-      "listenedAt": "2026-02-04T17:29:41Z",
-      "caaReleaseMbid": "36488850-1230-47bc-9822-34211bbfe47b",
-      "caaId": 36104955971,
-      "recordingMbid": "10f2b81b-bd57-4a24-8285-39cc08267b1a",
-      "artistMbids": [
-        "86139012-695b-42f4-98f1-1f353f7230b4"
-      ]
-    },
-    {
-      "track": "Swift Automatons",
-      "artist": "Eluvium",
-      "album": "(Whirring Marvels In) Consensus Reality",
-      "listenedAt": "2026-02-04T17:27:03Z",
-      "caaReleaseMbid": "36488850-1230-47bc-9822-34211bbfe47b",
-      "caaId": 36104955971,
-      "recordingMbid": "f116a888-16b3-4940-a78b-510e7957acf5",
-      "artistMbids": [
-        "86139012-695b-42f4-98f1-1f353f7230b4"
-      ]
     }
   ],
   "recentListensStatus": "ok",
   "topArtists": [
     {
+      "name": "Eluvium",
+      "listenCount": 13,
+      "artistMbid": "86139012-695b-42f4-98f1-1f353f7230b4"
+    },
+    {
       "name": "Tycho",
       "listenCount": 11,
       "artistMbid": "cbef45a9-7acb-4325-94c9-70081ac8d1b8"
-    },
-    {
-      "name": "Eluvium",
-      "listenCount": 11,
-      "artistMbid": "86139012-695b-42f4-98f1-1f353f7230b4"
     }
   ],
   "topArtistsStatus": "ok",
   "topTracks": [
+    {
+      "track": "Swift Automatons",
+      "artist": "Eluvium",
+      "listenCount": 2,
+      "recordingMbid": "f116a888-16b3-4940-a78b-510e7957acf5",
+      "caaReleaseMbid": "2b472acf-6751-4d5d-b448-76ca31c1ac6f",
+      "caaId": 37568706791
+    },
+    {
+      "track": "Escapement",
+      "artist": "Eluvium",
+      "listenCount": 2,
+      "recordingMbid": "64280736-b571-49b0-a8d2-d5fd41935765",
+      "caaReleaseMbid": "2b472acf-6751-4d5d-b448-76ca31c1ac6f",
+      "caaId": 37568706791
+    },
     {
       "track": "Elegy",
       "artist": "Tycho",
@@ -166,14 +182,6 @@
       "artist": "Eluvium",
       "listenCount": 1,
       "recordingMbid": "80c293ee-317c-410a-a2c6-686e5b0d9ad1",
-      "caaReleaseMbid": "2b472acf-6751-4d5d-b448-76ca31c1ac6f",
-      "caaId": 37568706791
-    },
-    {
-      "track": "Swift Automatons",
-      "artist": "Eluvium",
-      "listenCount": 1,
-      "recordingMbid": "f116a888-16b3-4940-a78b-510e7957acf5",
       "caaReleaseMbid": "2b472acf-6751-4d5d-b448-76ca31c1ac6f",
       "caaId": 37568706791
     },
@@ -208,36 +216,28 @@
       "recordingMbid": "65f8a938-5415-4d7f-9bcd-d3bb947562a0",
       "caaReleaseMbid": "2b472acf-6751-4d5d-b448-76ca31c1ac6f",
       "caaId": 37568706791
-    },
-    {
-      "track": "Hours",
-      "artist": "Tycho",
-      "listenCount": 1,
-      "recordingMbid": "a5b7507a-8f3e-4a1f-a7f0-5c82f4b37a9f",
-      "caaReleaseMbid": "d28ac66c-7fd1-4872-88ae-1a820a9c7e9d",
-      "caaId": 23728700898
     }
   ],
   "topTracksStatus": "ok",
   "topAlbums": [
+    {
+      "album": "(Whirring Marvels In) Consensus Reality",
+      "artist": "Eluvium",
+      "listenCount": 13,
+      "caaReleaseMbid": "2b472acf-6751-4d5d-b448-76ca31c1ac6f",
+      "caaId": 37568706791
+    },
     {
       "album": "Dive",
       "artist": "Tycho",
       "listenCount": 11,
       "caaReleaseMbid": "d28ac66c-7fd1-4872-88ae-1a820a9c7e9d",
       "caaId": 23728700898
-    },
-    {
-      "album": "(Whirring Marvels In) Consensus Reality",
-      "artist": "Eluvium",
-      "listenCount": 11,
-      "caaReleaseMbid": "2b472acf-6751-4d5d-b448-76ca31c1ac6f",
-      "caaId": 37568706791
     }
   ],
   "topAlbumsStatus": "ok",
   "stats": {
-    "totalListenCount": 131097,
+    "totalListenCount": 212569,
     "range": "this_month",
     "artistCount": 2,
     "albumCount": 2,
