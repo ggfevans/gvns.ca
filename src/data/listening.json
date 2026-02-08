@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-07T03:11:33Z",
+  "lastUpdated": "2026-02-08T03:27:21Z",
   "recentListens": [
     {
       "track": "Golfer Vrs Boxer",
@@ -133,6 +133,11 @@
       "name": "Tycho",
       "listenCount": 11,
       "artistMbid": "cbef45a9-7acb-4325-94c9-70081ac8d1b8"
+    },
+    {
+      "name": "Amon Tobin",
+      "listenCount": 5,
+      "artistMbid": "630662ea-1c7d-4208-99fd-ba3afec20f0c"
     }
   ],
   "topArtistsStatus": "ok",
@@ -186,6 +191,14 @@
       "caaId": 37568706791
     },
     {
+      "track": "Slowly",
+      "artist": "Amon Tobin",
+      "listenCount": 1,
+      "recordingMbid": "c93f057b-9228-4897-8e37-871856e12fb5",
+      "caaReleaseMbid": "fc94d683-52f6-4a55-9563-df2cf70da4e5",
+      "caaId": 42901742241
+    },
+    {
       "track": "Scatterbrains",
       "artist": "Eluvium",
       "listenCount": 1,
@@ -208,14 +221,6 @@
       "recordingMbid": "bf1c34a9-d9b4-4a76-943c-0a55b6579e52",
       "caaReleaseMbid": "d28ac66c-7fd1-4872-88ae-1a820a9c7e9d",
       "caaId": 23728700898
-    },
-    {
-      "track": "Mass Lossless Interbeing",
-      "artist": "Eluvium",
-      "listenCount": 1,
-      "recordingMbid": "65f8a938-5415-4d7f-9bcd-d3bb947562a0",
-      "caaReleaseMbid": "2b472acf-6751-4d5d-b448-76ca31c1ac6f",
-      "caaId": 37568706791
     }
   ],
   "topTracksStatus": "ok",
@@ -233,14 +238,21 @@
       "listenCount": 11,
       "caaReleaseMbid": "d28ac66c-7fd1-4872-88ae-1a820a9c7e9d",
       "caaId": 23728700898
+    },
+    {
+      "album": "Supermodified",
+      "artist": "Amon Tobin",
+      "listenCount": 5,
+      "caaReleaseMbid": "fc94d683-52f6-4a55-9563-df2cf70da4e5",
+      "caaId": 42901742241
     }
   ],
   "topAlbumsStatus": "ok",
   "stats": {
     "totalListenCount": 212569,
     "range": "this_month",
-    "artistCount": 2,
-    "albumCount": 2,
-    "trackCount": 21
+    "artistCount": 3,
+    "albumCount": 3,
+    "trackCount": 26
   }
 }
