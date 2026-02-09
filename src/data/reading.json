@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-07T00:20:12Z",
+  "lastUpdated": "2026-02-09T00:21:36Z",
   "currentlyReading": [
     {
       "title": "Radicalized: Four Tales of Our Present Moment",
@@ -129,6 +129,18 @@
     }
   ],
   "wantToRead": [
+    {
+      "title": "A Tree Grows in Brooklyn",
+      "author": "Betty Smith",
+      "coverUrl": "https://assets.hardcover.app/book_mappings/7333021/0b43734baa588dec6c20c5f4e1dbb367405b913c.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/a-tree-grows-in-brooklyn"
+    },
+    {
+      "title": "Broken Angels",
+      "author": "Richard K. Morgan",
+      "coverUrl": "https://assets.hardcover.app/edition/31402171/34a44a919344f25953dd8788677ee747b752b190.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/broken-angels"
+    },
     {
       "title": "Palm Sunday",
       "author": "Kurt Vonnegut",
@@ -308,18 +320,6 @@
       "author": "Adam Wathan",
       "coverUrl": "https://assets.hardcover.app/external_data/28441964/d82a244276bb97845de0396bedb25a716463e7a4.jpeg",
       "hardcoverUrl": "https://hardcover.app/books/refactoring-ui"
-    },
-    {
-      "title": "Peopleware",
-      "author": "Tom DeMarco",
-      "coverUrl": "https://assets.hardcover.app/edition/27644271/711893-L.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/peopleware"
-    },
-    {
-      "title": "Observing the User Experience: A Practitioner's Guide to User Research",
-      "author": "Mike Kuniavsky",
-      "coverUrl": "https://assets.hardcover.app/edition/14636838/784336-L.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/observing-the-user-experience"
     }
   ]
 }
