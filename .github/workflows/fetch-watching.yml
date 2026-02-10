@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: ggfevans/trakt-github-action@840686406bb160c82d5bfde1bb9e7f137a3b7b6d # main
+      - uses: ggfevans/trakt-github-action@2afb54d241c5212ee3c35c0cd2400fd35db0ca72 # main
         with:
           trakt_client_id: ${{ secrets.TRAKT_CLIENT_ID }}
           trakt_username: 'gvns'
