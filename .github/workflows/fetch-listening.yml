@@ -16,7 +16,7 @@ jobs:
 
       - name: Fetch ListenBrainz data
         id: fetch
-        uses: ggfevans/listenbrainz-github-action@a39e89ecc366d5f8bc90e8d56cdc3d9e6a2237a9 # v1
+        uses: ggfevans/listenbrainz-github-action@241017756e07940b69321aa1c4225b3d7fefbbde # v1
         with:
           username: ${{ secrets.LISTENBRAINZ_USERNAME }}
           output_path: src/data/listening.json
