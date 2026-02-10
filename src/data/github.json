@@ -1,158 +1,221 @@
 {
-  "lastUpdated": "2026-02-09T04:08:54Z",
+  "lastUpdated": "2026-02-10T04:11:33Z",
   "recentCommits": [
     {
       "repo": "Rackula",
-      "message": "feat: add touch long-press context menus (#1086)",
-      "sha": "c61bcd5fe6b55a5323d395786bf53b82162719bb",
-      "date": "2026-02-09T02:02:52Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/c61bcd5fe6b55a5323d395786bf53b82162719bb"
+      "message": "fix: widen mobile export preview blocks and guard aspect ratio (#1129)",
+      "sha": "93e1c72cce271ee623b1ef44cea5ae9fe648313b",
+      "date": "2026-02-09T17:29:05Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/93e1c72cce271ee623b1ef44cea5ae9fe648313b"
     },
     {
       "repo": "Rackula",
-      "message": "test: reuse layout has-started key in contract test (#1085)",
-      "sha": "66c5796b68f2e19a57a620d04962b84f00c7c187",
-      "date": "2026-02-09T01:57:23Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/66c5796b68f2e19a57a620d04962b84f00c7c187"
+      "message": "Merge branch 'main' into fix/export-dialog-preview-width-mobile",
+      "sha": "cde2bc708ce58fffd1a3a1ce398836d2a9519a9f",
+      "date": "2026-02-09T17:26:27Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/cde2bc708ce58fffd1a3a1ce398836d2a9519a9f"
     },
     {
       "repo": "Rackula",
-      "message": "feat: add touch long-press context menus",
-      "sha": "089f75ebae90e9a6a4bd8dc17ff6379feb12695d",
-      "date": "2026-02-09T01:53:23Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/089f75ebae90e9a6a4bd8dc17ff6379feb12695d"
+      "message": "docs: condense self-hosting guide for implementer workflow",
+      "sha": "0ab7bf1ed1440f64748c4ca8e77d4a9f46a5a72e",
+      "date": "2026-02-09T17:26:26Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/0ab7bf1ed1440f64748c4ca8e77d4a9f46a5a72e"
     },
     {
       "repo": "Rackula",
-      "message": "fix: clear stale canvas refs on touch listener teardown (#1084)",
-      "sha": "9dd561639329f761ee0a7e2976a7ad2b351aa99b",
-      "date": "2026-02-09T01:44:52Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/9dd561639329f761ee0a7e2976a7ad2b351aa99b"
+      "message": "docs: add nginx auth hardening section to self-hosting guide (#1127)",
+      "sha": "72d1d1eb4e950459a065e547813b60b9d17a3e9f",
+      "date": "2026-02-09T17:19:19Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/72d1d1eb4e950459a065e547813b60b9d17a3e9f"
     },
     {
       "repo": "Rackula",
-      "message": "fix: tighten swipe listener lifecycle and logging (#1082)",
-      "sha": "309dae90807cfe2a83ff37386fea0cc6c7cded12",
-      "date": "2026-02-09T01:26:44Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/309dae90807cfe2a83ff37386fea0cc6c7cded12"
+      "message": "Merge branch 'main' into docs/1112-nginx-auth-hardening-guide",
+      "sha": "e4185f3c62faa6969ed186a35cdb15f72e0fc234",
+      "date": "2026-02-09T17:17:20Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/e4185f3c62faa6969ed186a35cdb15f72e0fc234"
     },
     {
       "repo": "Rackula",
-      "message": "fix: tighten swipe listener lifecycle and logging",
-      "sha": "cef9362ae3509ef2614d15d54810fabc75b0d220",
-      "date": "2026-02-09T01:20:24Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/cef9362ae3509ef2614d15d54810fabc75b0d220"
+      "message": "fix: stabilize start screen startup flow and tests",
+      "sha": "c05e44e28a8adeb918f9fda2583adfc06f147d02",
+      "date": "2026-02-09T12:36:09Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/c05e44e28a8adeb918f9fda2583adfc06f147d02"
     },
     {
       "repo": "Rackula",
-      "message": "fix: address swipe gesture review follow-ups (#1081)",
-      "sha": "7de27e9bcb2a99848f598ec4c88e7804ada7c5ee",
-      "date": "2026-02-09T01:17:37Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/7de27e9bcb2a99848f598ec4c88e7804ada7c5ee"
+      "message": "chore: restore svelte-check/typecheck baseline (#1121) (#1136)",
+      "sha": "45c86e44ff3e0ee381dd8b15a45fed6748e8c45a",
+      "date": "2026-02-09T12:22:44Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/45c86e44ff3e0ee381dd8b15a45fed6748e8c45a"
     },
     {
       "repo": "Rackula",
-      "message": "feat: add mobile rack swipe navigation (#1076)",
-      "sha": "f62b0d895f4f6ac94fc4cb6820a3bb198af17590",
-      "date": "2026-02-09T00:34:54Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/f62b0d895f4f6ac94fc4cb6820a3bb198af17590"
+      "message": "chore: address static-analysis feedback for typecheck baseline",
+      "sha": "a3db876e7e1ab6a0e588f6ea8a32a2333467d7dc",
+      "date": "2026-02-09T12:06:54Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/a3db876e7e1ab6a0e588f6ea8a32a2333467d7dc"
+    },
+    {
+      "repo": "Rackula",
+      "message": "chore: restore typecheck baseline before v0.8.0",
+      "sha": "0851505beb9ccb1dd7d12065c8afe5f80875f304",
+      "date": "2026-02-09T12:02:06Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/0851505beb9ccb1dd7d12065c8afe5f80875f304"
+    },
+    {
+      "repo": "Rackula",
+      "message": "feat: import phase 1 netbox homelab devices (#1134)",
+      "sha": "40cb0a614bf0e430a2d6716c1ee6189f3c520b91",
+      "date": "2026-02-09T11:32:05Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/40cb0a614bf0e430a2d6716c1ee6189f3c520b91"
+    },
+    {
+      "repo": "Rackula",
+      "message": "chore(api): harden CORS and write-route auth defaults (#1124) (#1135)",
+      "sha": "ea7a24a15dba10fd6d97540491ced17dfb157704",
+      "date": "2026-02-09T11:31:18Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/ea7a24a15dba10fd6d97540491ced17dfb157704"
+    },
+    {
+      "repo": "Rackula",
+      "message": "Merge remote-tracking branch 'origin/main' into feat/1109-netbox-phase1-import",
+      "sha": "8a28e4ff4deac874720ee104cb6171a54c62989d",
+      "date": "2026-02-09T11:29:36Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/8a28e4ff4deac874720ee104cb6171a54c62989d"
+    },
+    {
+      "repo": "Rackula",
+      "message": "chore: address codeant feedback",
+      "sha": "8ac01d47c7e90f005d93d646370f7fafb5e6c8a1",
+      "date": "2026-02-09T11:27:56Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/8ac01d47c7e90f005d93d646370f7fafb5e6c8a1"
+    },
+    {
+      "repo": "Rackula",
+      "message": "chore(api): harden CORS and write-route auth defaults",
+      "sha": "fbce95fc9cf6ed818b84f5c5e92a37e35bbd0eee",
+      "date": "2026-02-09T11:26:46Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/fbce95fc9cf6ed818b84f5c5e92a37e35bbd0eee"
+    },
+    {
+      "repo": "Rackula",
+      "message": "feat: e2e test infrastructure and wizard keyboard shortcuts (#903) (#1128)",
+      "sha": "7e22700c9fcb24cb0f538f824fa57fab329f9c23",
+      "date": "2026-02-09T11:03:40Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/7e22700c9fcb24cb0f538f824fa57fab329f9c23"
+    },
+    {
+      "repo": "Rackula",
+      "message": "Merge branch 'main' into docs/1112-nginx-auth-hardening-guide",
+      "sha": "831b7a08a837ed94c293be35311c0982bddc5f82",
+      "date": "2026-02-09T11:01:36Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/831b7a08a837ed94c293be35311c0982bddc5f82"
+    },
+    {
+      "repo": "Rackula",
+      "message": "fix: make export/share dialogs responsive on mobile (#1123)",
+      "sha": "587b9bd77943e7926eae2a794a15ce88299b44dc",
+      "date": "2026-02-09T10:59:48Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/587b9bd77943e7926eae2a794a15ce88299b44dc"
+    },
+    {
+      "repo": "Rackula",
+      "message": "chore(e2e): address review feedback for issue 903",
+      "sha": "0310d29da1991b4cbd881580834e8c452137c59c",
+      "date": "2026-02-09T10:59:46Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/0310d29da1991b4cbd881580834e8c452137c59c"
+    },
+    {
+      "repo": "Rackula",
+      "message": "chore: deliver spike 1096 netbox homelab curation (#1118)",
+      "sha": "f1ba04b5be58f33ea91a70ead95c97792ede8614",
+      "date": "2026-02-09T10:55:52Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/f1ba04b5be58f33ea91a70ead95c97792ede8614"
+    },
+    {
+      "repo": "Rackula",
+      "message": "fix: make export/share dialogs responsive on mobile",
+      "sha": "041ee1438b04d293ea39fed0a2293a10893b8bdb",
+      "date": "2026-02-09T10:51:30Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/041ee1438b04d293ea39fed0a2293a10893b8bdb"
+    },
+    {
+      "repo": "Rackula",
+      "message": "Merge branch 'main' into chore/1096-netbox-homelab-curation",
+      "sha": "38f49663fe172e230713329b41b37b6ab6d701ff",
+      "date": "2026-02-09T10:50:31Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/38f49663fe172e230713329b41b37b6ab6d701ff"
     },
     {
       "repo": "gwilym.ca",
-      "message": "Merge pull request #2 from ggfevans/dependabot/github_actions/ggfevans/trakt-github-action-2afb54d241c5212ee3c35c0cd2400fd35db0ca72",
-      "sha": "f3dc2d68649a7c9d2bef693d4b13c1936abf7cca",
-      "date": "2026-02-09T00:28:51Z",
-      "url": "https://github.com/ggfevans/gwilym.ca/commit/f3dc2d68649a7c9d2bef693d4b13c1936abf7cca"
-    },
-    {
-      "repo": "gwilym.ca",
-      "message": "Merge pull request #1 from ggfevans/dependabot/github_actions/actions/checkout-6",
-      "sha": "3450c30cd5079472ef3eb30cf2a71174a324b82c",
-      "date": "2026-02-09T00:28:39Z",
-      "url": "https://github.com/ggfevans/gwilym.ca/commit/3450c30cd5079472ef3eb30cf2a71174a324b82c"
+      "message": "fix: align GitHub workflow output with GitHubData TypeScript schema (#21)",
+      "sha": "e14de9798715fb49f5b7f6a751b47568f77df0a6",
+      "date": "2026-02-09T08:56:43Z",
+      "url": "https://github.com/ggfevans/gwilym.ca/commit/e14de9798715fb49f5b7f6a751b47568f77df0a6"
     },
     {
       "repo": "Rackula",
-      "message": "docs: add star history chart to README (#1075)",
-      "sha": "a0f26657a8eaf41134836cbd137dcb62a559d9e6",
-      "date": "2026-02-09T00:13:56Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/a0f26657a8eaf41134836cbd137dcb62a559d9e6"
+      "message": "fix: exclude select from keyboard viewport scroll (#1103)",
+      "sha": "4ad378c22836739c9e99f535b604a253a56110db",
+      "date": "2026-02-09T08:37:30Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/4ad378c22836739c9e99f535b604a253a56110db"
     },
     {
       "repo": "Rackula",
-      "message": "Merge branch 'main' into docs/star-history",
-      "sha": "3809b36d382153a6caa7e896a949b53945b6e235",
-      "date": "2026-02-09T00:11:36Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/3809b36d382153a6caa7e896a949b53945b6e235"
+      "message": "Merge branch 'main' into fix/1049-exclude-select-keyboard-scroll",
+      "sha": "3b6eb2d708a08d230e38ab1a384ed03586c8a2d9",
+      "date": "2026-02-09T08:26:13Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/3b6eb2d708a08d230e38ab1a384ed03586c8a2d9"
     },
     {
       "repo": "Rackula",
-      "message": "chore(deps): bump @playwright/test in the development-dependencies group (#1067)",
-      "sha": "45d559ae842603f0506aa6f318c9417b5f1fd749",
-      "date": "2026-02-08T07:24:42Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/45d559ae842603f0506aa6f318c9417b5f1fd749"
-    },
-    {
-      "repo": "listenbrainz-github-action",
-      "message": "Fix project link in README.md (#24)",
-      "sha": "241017756e07940b69321aa1c4225b3d7fefbbde",
-      "date": "2026-02-08T06:49:21Z",
-      "url": "https://github.com/ggfevans/listenbrainz-github-action/commit/241017756e07940b69321aa1c4225b3d7fefbbde"
+      "message": "fix: harden canvas touch listener lifecycle (#1089) (#1099)",
+      "sha": "d118b46fac8eba315778e4d9901a2065a40baa13",
+      "date": "2026-02-09T08:25:45Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/d118b46fac8eba315778e4d9901a2065a40baa13"
     },
     {
       "repo": "Rackula",
-      "message": "fix: sanitize zip export folder names (#1074)",
-      "sha": "99784f26be51a12edb60e66ab98cb7960de85193",
-      "date": "2026-02-07T09:36:09Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/99784f26be51a12edb60e66ab98cb7960de85193"
+      "message": "Merge branch 'main' into feat/1089-canvas-touch-rebind",
+      "sha": "138977ec8466a3ab72257f9e012982a6763003e8",
+      "date": "2026-02-09T08:25:27Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/138977ec8466a3ab72257f9e012982a6763003e8"
     },
     {
       "repo": "Rackula",
-      "message": "refactor: make BottomSheet open prop one-way (#1073)",
-      "sha": "09417274d34ffef202a35fe187be2a4260b49f3b",
-      "date": "2026-02-07T08:48:56Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/09417274d34ffef202a35fe187be2a4260b49f3b"
+      "message": "test: prevent mock leakage in canvas lifecycle specs",
+      "sha": "906b2635ee3ddd6bd07d700abbe98584b3a377ec",
+      "date": "2026-02-09T08:20:42Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/906b2635ee3ddd6bd07d700abbe98584b3a377ec"
     },
     {
       "repo": "Rackula",
-      "message": "docs(security): add threat model research document (#1070)",
-      "sha": "0c9e664e44f598465dffd3883ff02cf2a5ed4c7d",
-      "date": "2026-02-07T08:17:50Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/0c9e664e44f598465dffd3883ff02cf2a5ed4c7d"
+      "message": "feat: add mobile floating undo/redo controls (#1098)",
+      "sha": "253cdaef5e1fe124e995be2fcf382bbac8c2b0e0",
+      "date": "2026-02-09T08:15:28Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/253cdaef5e1fe124e995be2fcf382bbac8c2b0e0"
     },
     {
       "repo": "Rackula",
-      "message": "test: add BottomSheet interaction coverage (#1072)",
-      "sha": "87f397bb15318f7a239e9d1f9a6766287ca1f2f5",
-      "date": "2026-02-07T08:16:42Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/87f397bb15318f7a239e9d1f9a6766287ca1f2f5"
+      "message": "feat: adapt mobile UI to virtual keyboard (#1097)",
+      "sha": "f69d1251338b191a520493b9ed0a81045e4fc74a",
+      "date": "2026-02-09T08:11:46Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/f69d1251338b191a520493b9ed0a81045e4fc74a"
     },
     {
       "repo": "Rackula",
-      "message": "docs: add star history chart to README (#1071)",
-      "sha": "d6245e951f20054768cb552ebeba93ce73fc7da0",
-      "date": "2026-02-07T08:07:46Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/d6245e951f20054768cb552ebeba93ce73fc7da0"
-    },
-    {
-      "repo": "gwilym.ca",
-      "message": "Bump ggfevans/trakt-github-action",
-      "sha": "979801896decf9e89ea6fb17a4f52b3a9496322e",
-      "date": "2026-02-05T10:40:52Z",
-      "url": "https://github.com/ggfevans/gwilym.ca/commit/979801896decf9e89ea6fb17a4f52b3a9496322e"
-    },
-    {
-      "repo": "gwilym.ca",
-      "message": "Bump actions/checkout from 4 to 6",
-      "sha": "c9b659c21618b5d7689b877c156353721648481f",
-      "date": "2026-02-05T10:40:47Z",
-      "url": "https://github.com/ggfevans/gwilym.ca/commit/c9b659c21618b5d7689b877c156353721648481f"
+      "message": "docs: add E2E helpers documentation to TESTING.md",
+      "sha": "4c9b7cbfbf46044f2d3e1ba6c5ae1ca236ad56bd",
+      "date": "2026-01-22T05:12:59Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/4c9b7cbfbf46044f2d3e1ba6c5ae1ca236ad56bd"
     }
   ],
   "stats": {
-    "commitsThisWeek": 21,
-    "commitsThisMonth": 21,
-    "repositoriesThisWeek": 3
+    "commitsThisWeek": 29,
+    "commitsThisMonth": 39,
+    "repositoriesThisWeek": 2
   },
   "repositories": [
     {
