@@ -1,221 +1,221 @@
 {
-  "lastUpdated": "2026-02-10T04:11:33Z",
+  "lastUpdated": "2026-02-11T04:10:32Z",
   "recentCommits": [
     {
-      "repo": "Rackula",
-      "message": "fix: widen mobile export preview blocks and guard aspect ratio (#1129)",
-      "sha": "93e1c72cce271ee623b1ef44cea5ae9fe648313b",
-      "date": "2026-02-09T17:29:05Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/93e1c72cce271ee623b1ef44cea5ae9fe648313b"
+      "repo": "trakt-json-bourne",
+      "message": "Merge pull request #3 from ggfevans/ggfevans-patch-1",
+      "sha": "889ebca81bbd285dd975898226ef558a963c0202",
+      "date": "2026-02-11T02:13:36Z",
+      "url": "https://github.com/ggfevans/trakt-json-bourne/commit/889ebca81bbd285dd975898226ef558a963c0202"
     },
     {
-      "repo": "Rackula",
-      "message": "Merge branch 'main' into fix/export-dialog-preview-width-mobile",
-      "sha": "cde2bc708ce58fffd1a3a1ce398836d2a9519a9f",
-      "date": "2026-02-09T17:26:27Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/cde2bc708ce58fffd1a3a1ce398836d2a9519a9f"
+      "repo": "trakt-json-bourne",
+      "message": "Fix formatting in README.md",
+      "sha": "2502bd838d77d63618b71758eadd60e47d218643",
+      "date": "2026-02-11T02:13:26Z",
+      "url": "https://github.com/ggfevans/trakt-json-bourne/commit/2502bd838d77d63618b71758eadd60e47d218643"
     },
     {
-      "repo": "Rackula",
-      "message": "docs: condense self-hosting guide for implementer workflow",
-      "sha": "0ab7bf1ed1440f64748c4ca8e77d4a9f46a5a72e",
-      "date": "2026-02-09T17:26:26Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/0ab7bf1ed1440f64748c4ca8e77d4a9f46a5a72e"
+      "repo": "trakt-json-bourne",
+      "message": "Update README.md",
+      "sha": "79cb49f453520a2d048e10377ad1e02abf76f13c",
+      "date": "2026-02-11T02:10:05Z",
+      "url": "https://github.com/ggfevans/trakt-json-bourne/commit/79cb49f453520a2d048e10377ad1e02abf76f13c"
     },
     {
-      "repo": "Rackula",
-      "message": "docs: add nginx auth hardening section to self-hosting guide (#1127)",
-      "sha": "72d1d1eb4e950459a065e547813b60b9d17a3e9f",
-      "date": "2026-02-09T17:19:19Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/72d1d1eb4e950459a065e547813b60b9d17a3e9f"
+      "repo": "trakt-json-bourne",
+      "message": "docs+ci: improve README and add lean security automation",
+      "sha": "74cc78af8f072be38f25b1854d0a49cacadd9730",
+      "date": "2026-02-11T02:09:25Z",
+      "url": "https://github.com/ggfevans/trakt-json-bourne/commit/74cc78af8f072be38f25b1854d0a49cacadd9730"
     },
     {
-      "repo": "Rackula",
-      "message": "Merge branch 'main' into docs/1112-nginx-auth-hardening-guide",
-      "sha": "e4185f3c62faa6969ed186a35cdb15f72e0fc234",
-      "date": "2026-02-09T17:17:20Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/e4185f3c62faa6969ed186a35cdb15f72e0fc234"
+      "repo": "listenbrainz-json-bourne",
+      "message": "chore(deps): bump actions/checkout from 4.2.2 to 6.0.2 (#25)",
+      "sha": "f3d2bff4bcad6eed1ad8392f85885fbea34b74c9",
+      "date": "2026-02-11T02:03:05Z",
+      "url": "https://github.com/ggfevans/listenbrainz-json-bourne/commit/f3d2bff4bcad6eed1ad8392f85885fbea34b74c9"
     },
     {
-      "repo": "Rackula",
-      "message": "fix: stabilize start screen startup flow and tests",
-      "sha": "c05e44e28a8adeb918f9fda2583adfc06f147d02",
-      "date": "2026-02-09T12:36:09Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/c05e44e28a8adeb918f9fda2583adfc06f147d02"
+      "repo": "listenbrainz-json-bourne",
+      "message": "ci: add dependabot for actions updates and harden shell defaults",
+      "sha": "2958f1c0ac96c5e189b8e4c42fed63456814b6f8",
+      "date": "2026-02-11T01:58:42Z",
+      "url": "https://github.com/ggfevans/listenbrainz-json-bourne/commit/2958f1c0ac96c5e189b8e4c42fed63456814b6f8"
     },
     {
-      "repo": "Rackula",
-      "message": "chore: restore svelte-check/typecheck baseline (#1121) (#1136)",
-      "sha": "45c86e44ff3e0ee381dd8b15a45fed6748e8c45a",
-      "date": "2026-02-09T12:22:44Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/45c86e44ff3e0ee381dd8b15a45fed6748e8c45a"
+      "repo": "trakt-json-bourne",
+      "message": "Rename action from 'Trakt Watching Data' to 'Trakt JSON Bourne'",
+      "sha": "499e6aabaab35c43ccccb852a0498324dca080f2",
+      "date": "2026-02-11T01:38:26Z",
+      "url": "https://github.com/ggfevans/trakt-json-bourne/commit/499e6aabaab35c43ccccb852a0498324dca080f2"
     },
     {
-      "repo": "Rackula",
-      "message": "chore: address static-analysis feedback for typecheck baseline",
-      "sha": "a3db876e7e1ab6a0e588f6ea8a32a2333467d7dc",
-      "date": "2026-02-09T12:06:54Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/a3db876e7e1ab6a0e588f6ea8a32a2333467d7dc"
+      "repo": "trakt-json-bourne",
+      "message": "ci: remove redundant example-usage workflow",
+      "sha": "579fe6c5b8b0309a6caf5a54071f19ff06f2b60f",
+      "date": "2026-02-11T01:33:39Z",
+      "url": "https://github.com/ggfevans/trakt-json-bourne/commit/579fe6c5b8b0309a6caf5a54071f19ff06f2b60f"
     },
     {
-      "repo": "Rackula",
-      "message": "chore: restore typecheck baseline before v0.8.0",
-      "sha": "0851505beb9ccb1dd7d12065c8afe5f80875f304",
-      "date": "2026-02-09T12:02:06Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/0851505beb9ccb1dd7d12065c8afe5f80875f304"
+      "repo": "trakt-json-bourne",
+      "message": "docs: bump references to v2",
+      "sha": "6ffc80374c7d7ead0b79ad158fc06f42475ee8b6",
+      "date": "2026-02-11T01:32:20Z",
+      "url": "https://github.com/ggfevans/trakt-json-bourne/commit/6ffc80374c7d7ead0b79ad158fc06f42475ee8b6"
     },
     {
-      "repo": "Rackula",
-      "message": "feat: import phase 1 netbox homelab devices (#1134)",
-      "sha": "40cb0a614bf0e430a2d6716c1ee6189f3c520b91",
-      "date": "2026-02-09T11:32:05Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/40cb0a614bf0e430a2d6716c1ee6189f3c520b91"
+      "repo": "trakt-json-bourne",
+      "message": "ci: add example and release workflows",
+      "sha": "b5384a13314fad1bd23c327d5c3f1fa07c84f4dd",
+      "date": "2026-02-11T01:26:31Z",
+      "url": "https://github.com/ggfevans/trakt-json-bourne/commit/b5384a13314fad1bd23c327d5c3f1fa07c84f4dd"
     },
     {
-      "repo": "Rackula",
-      "message": "chore(api): harden CORS and write-route auth defaults (#1124) (#1135)",
-      "sha": "ea7a24a15dba10fd6d97540491ced17dfb157704",
-      "date": "2026-02-09T11:31:18Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/ea7a24a15dba10fd6d97540491ced17dfb157704"
+      "repo": "trakt-json-bourne",
+      "message": "chore: switched to trakt-json-bourne and the fake IDs are for workflow",
+      "sha": "94aa1d2021758f98c48c92d5d6beed4467229f2d",
+      "date": "2026-02-11T01:17:47Z",
+      "url": "https://github.com/ggfevans/trakt-json-bourne/commit/94aa1d2021758f98c48c92d5d6beed4467229f2d"
     },
     {
-      "repo": "Rackula",
-      "message": "Merge remote-tracking branch 'origin/main' into feat/1109-netbox-phase1-import",
-      "sha": "8a28e4ff4deac874720ee104cb6171a54c62989d",
-      "date": "2026-02-09T11:29:36Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/8a28e4ff4deac874720ee104cb6171a54c62989d"
+      "repo": "listenbrainz-json-bourne",
+      "message": "fix: pin self-references to SHA for release workflow",
+      "sha": "1683b3ccaa523e9814deff91e43a014d1d3c7449",
+      "date": "2026-02-11T00:46:06Z",
+      "url": "https://github.com/ggfevans/listenbrainz-json-bourne/commit/1683b3ccaa523e9814deff91e43a014d1d3c7449"
     },
     {
-      "repo": "Rackula",
-      "message": "chore: address codeant feedback",
-      "sha": "8ac01d47c7e90f005d93d646370f7fafb5e6c8a1",
-      "date": "2026-02-09T11:27:56Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/8ac01d47c7e90f005d93d646370f7fafb5e6c8a1"
-    },
-    {
-      "repo": "Rackula",
-      "message": "chore(api): harden CORS and write-route auth defaults",
-      "sha": "fbce95fc9cf6ed818b84f5c5e92a37e35bbd0eee",
-      "date": "2026-02-09T11:26:46Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/fbce95fc9cf6ed818b84f5c5e92a37e35bbd0eee"
-    },
-    {
-      "repo": "Rackula",
-      "message": "feat: e2e test infrastructure and wizard keyboard shortcuts (#903) (#1128)",
-      "sha": "7e22700c9fcb24cb0f538f824fa57fab329f9c23",
-      "date": "2026-02-09T11:03:40Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/7e22700c9fcb24cb0f538f824fa57fab329f9c23"
-    },
-    {
-      "repo": "Rackula",
-      "message": "Merge branch 'main' into docs/1112-nginx-auth-hardening-guide",
-      "sha": "831b7a08a837ed94c293be35311c0982bddc5f82",
-      "date": "2026-02-09T11:01:36Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/831b7a08a837ed94c293be35311c0982bddc5f82"
-    },
-    {
-      "repo": "Rackula",
-      "message": "fix: make export/share dialogs responsive on mobile (#1123)",
-      "sha": "587b9bd77943e7926eae2a794a15ce88299b44dc",
-      "date": "2026-02-09T10:59:48Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/587b9bd77943e7926eae2a794a15ce88299b44dc"
-    },
-    {
-      "repo": "Rackula",
-      "message": "chore(e2e): address review feedback for issue 903",
-      "sha": "0310d29da1991b4cbd881580834e8c452137c59c",
-      "date": "2026-02-09T10:59:46Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/0310d29da1991b4cbd881580834e8c452137c59c"
-    },
-    {
-      "repo": "Rackula",
-      "message": "chore: deliver spike 1096 netbox homelab curation (#1118)",
-      "sha": "f1ba04b5be58f33ea91a70ead95c97792ede8614",
-      "date": "2026-02-09T10:55:52Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/f1ba04b5be58f33ea91a70ead95c97792ede8614"
-    },
-    {
-      "repo": "Rackula",
-      "message": "fix: make export/share dialogs responsive on mobile",
-      "sha": "041ee1438b04d293ea39fed0a2293a10893b8bdb",
-      "date": "2026-02-09T10:51:30Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/041ee1438b04d293ea39fed0a2293a10893b8bdb"
-    },
-    {
-      "repo": "Rackula",
-      "message": "Merge branch 'main' into chore/1096-netbox-homelab-curation",
-      "sha": "38f49663fe172e230713329b41b37b6ab6d701ff",
-      "date": "2026-02-09T10:50:31Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/38f49663fe172e230713329b41b37b6ab6d701ff"
+      "repo": "listenbrainz-json-bourne",
+      "message": "feat: add range listen count",
+      "sha": "90addcddb7d6944809dc5fc06c8f67fd585be3ac",
+      "date": "2026-02-10T23:51:18Z",
+      "url": "https://github.com/ggfevans/listenbrainz-json-bourne/commit/90addcddb7d6944809dc5fc06c8f67fd585be3ac"
     },
     {
       "repo": "gwilym.ca",
-      "message": "fix: align GitHub workflow output with GitHubData TypeScript schema (#21)",
-      "sha": "e14de9798715fb49f5b7f6a751b47568f77df0a6",
-      "date": "2026-02-09T08:56:43Z",
-      "url": "https://github.com/ggfevans/gwilym.ca/commit/e14de9798715fb49f5b7f6a751b47568f77df0a6"
+      "message": "update to use listenbrainz-json-bourne (the old action was GARBAGE and everyone hated it)",
+      "sha": "31242884a2b8763bcc817f11485a4806a1b5f5d4",
+      "date": "2026-02-10T20:58:04Z",
+      "url": "https://github.com/ggfevans/gwilym.ca/commit/31242884a2b8763bcc817f11485a4806a1b5f5d4"
+    },
+    {
+      "repo": "listenbrainz-json-bourne",
+      "message": "fix: shorten action description to 104 chars for marketplace limit",
+      "sha": "5d792467729fbb6aa05da569aaf0cdca3ec103a8",
+      "date": "2026-02-10T20:37:50Z",
+      "url": "https://github.com/ggfevans/listenbrainz-json-bourne/commit/5d792467729fbb6aa05da569aaf0cdca3ec103a8"
+    },
+    {
+      "repo": "listenbrainz-json-bourne",
+      "message": "feat: rebrand to ListenBrainz JSON Bourne v2.0.0",
+      "sha": "1967cb817a7ed29aebb317848a12e45952d841c8",
+      "date": "2026-02-10T20:29:53Z",
+      "url": "https://github.com/ggfevans/listenbrainz-json-bourne/commit/1967cb817a7ed29aebb317848a12e45952d841c8"
+    },
+    {
+      "repo": "listenbrainz-json-bourne",
+      "message": "feat: I saw a dumb pun at 2am and now everything has to match",
+      "sha": "465d3ed7dfe26107d1f14a444c99909f2d2cacf0",
+      "date": "2026-02-10T20:22:20Z",
+      "url": "https://github.com/ggfevans/listenbrainz-json-bourne/commit/465d3ed7dfe26107d1f14a444c99909f2d2cacf0"
     },
     {
       "repo": "Rackula",
-      "message": "fix: exclude select from keyboard viewport scroll (#1103)",
-      "sha": "4ad378c22836739c9e99f535b604a253a56110db",
-      "date": "2026-02-09T08:37:30Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/4ad378c22836739c9e99f535b604a253a56110db"
+      "message": "Revert \"feat(auth): add centralized auth gate and no-anonymous defaults\" (#1183)",
+      "sha": "f1d1567cf9f9636eec41afd14251ea6b1fe42cbf",
+      "date": "2026-02-10T19:35:32Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/f1d1567cf9f9636eec41afd14251ea6b1fe42cbf"
     },
     {
       "repo": "Rackula",
-      "message": "Merge branch 'main' into fix/1049-exclude-select-keyboard-scroll",
-      "sha": "3b6eb2d708a08d230e38ab1a384ed03586c8a2d9",
-      "date": "2026-02-09T08:26:13Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/3b6eb2d708a08d230e38ab1a384ed03586c8a2d9"
+      "message": "feat(auth): add centralized auth gate and no-anonymous defaults (#1182)",
+      "sha": "721407dac4f9e4f289e1f8a71b562d3a32626c7b",
+      "date": "2026-02-10T19:28:07Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/721407dac4f9e4f289e1f8a71b562d3a32626c7b"
     },
     {
       "repo": "Rackula",
-      "message": "fix: harden canvas touch listener lifecycle (#1089) (#1099)",
-      "sha": "d118b46fac8eba315778e4d9901a2065a40baa13",
-      "date": "2026-02-09T08:25:45Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/d118b46fac8eba315778e4d9901a2065a40baa13"
+      "message": "feat(auth): add centralized auth gate and no-anonymous defaults",
+      "sha": "bb8a44a3772fbcb20b0493927a414b73c98addc1",
+      "date": "2026-02-10T19:20:40Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/bb8a44a3772fbcb20b0493927a414b73c98addc1"
     },
     {
       "repo": "Rackula",
-      "message": "Merge branch 'main' into feat/1089-canvas-touch-rebind",
-      "sha": "138977ec8466a3ab72257f9e012982a6763003e8",
-      "date": "2026-02-09T08:25:27Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/138977ec8466a3ab72257f9e012982a6763003e8"
+      "message": "chore: resolve App.svelte state capture warning (#1179)",
+      "sha": "108a2522038dbc432f1cfd859272933e01f5d133",
+      "date": "2026-02-10T10:41:12Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/108a2522038dbc432f1cfd859272933e01f5d133"
     },
     {
       "repo": "Rackula",
-      "message": "test: prevent mock leakage in canvas lifecycle specs",
-      "sha": "906b2635ee3ddd6bd07d700abbe98584b3a377ec",
-      "date": "2026-02-09T08:20:42Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/906b2635ee3ddd6bd07d700abbe98584b3a377ec"
+      "message": "chore: resolve App.svelte state capture warning",
+      "sha": "b118183e0db8189c31b910643be264942b6d2070",
+      "date": "2026-02-10T10:37:59Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/b118183e0db8189c31b910643be264942b6d2070"
     },
     {
       "repo": "Rackula",
-      "message": "feat: add mobile floating undo/redo controls (#1098)",
-      "sha": "253cdaef5e1fe124e995be2fcf382bbac8c2b0e0",
-      "date": "2026-02-09T08:15:28Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/253cdaef5e1fe124e995be2fcf382bbac8c2b0e0"
+      "message": "docs: complete spike #573 yaml editor research (#1173)",
+      "sha": "bb37fc952a781259eff4144b1231911bd34e0fd1",
+      "date": "2026-02-10T10:32:09Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/bb37fc952a781259eff4144b1231911bd34e0fd1"
     },
     {
       "repo": "Rackula",
-      "message": "feat: adapt mobile UI to virtual keyboard (#1097)",
-      "sha": "f69d1251338b191a520493b9ed0a81045e4fc74a",
-      "date": "2026-02-09T08:11:46Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/f69d1251338b191a520493b9ed0a81045e4fc74a"
+      "message": "fix: resolve a11y build warnings in dialogs and rack device (#1172)",
+      "sha": "96f206e25fb68aa02c4b56d87c2bc4944828305d",
+      "date": "2026-02-10T10:27:08Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/96f206e25fb68aa02c4b56d87c2bc4944828305d"
     },
     {
       "repo": "Rackula",
-      "message": "docs: add E2E helpers documentation to TESTING.md",
-      "sha": "4c9b7cbfbf46044f2d3e1ba6c5ae1ca236ad56bd",
-      "date": "2026-01-22T05:12:59Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/4c9b7cbfbf46044f2d3e1ba6c5ae1ca236ad56bd"
+      "message": "docs: complete spike #573 yaml editor research",
+      "sha": "8c4ca0778694d26c527afb0ae6fdd030410de22e",
+      "date": "2026-02-10T10:25:25Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/8c4ca0778694d26c527afb0ae6fdd030410de22e"
+    },
+    {
+      "repo": "Rackula",
+      "message": "chore(container): tighten self-hosting runtime and CI guardrails (#1169)",
+      "sha": "d8d7be4a28eb5d11019316366b6451b10b1876f5",
+      "date": "2026-02-10T10:00:46Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/d8d7be4a28eb5d11019316366b6451b10b1876f5"
+    },
+    {
+      "repo": "Rackula",
+      "message": "chore(ci): clarify scan-after-push flow and dynamic scan refs",
+      "sha": "542a87853ca23725d7590daa1d3ed9d4005ce746",
+      "date": "2026-02-10T09:58:19Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/542a87853ca23725d7590daa1d3ed9d4005ce746"
+    },
+    {
+      "repo": "Rackula",
+      "message": "Merge branch 'main' into hotfix/1160-main",
+      "sha": "4ed841157bb1b737975383d4bbc49fe7d4ab623b",
+      "date": "2026-02-10T09:56:13Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/4ed841157bb1b737975383d4bbc49fe7d4ab623b"
+    },
+    {
+      "repo": "Rackula",
+      "message": "fix(container): harden auth header handling and scan flow docs",
+      "sha": "2beeabeac73e34fc6e371090be9c9c36984b199d",
+      "date": "2026-02-10T09:54:34Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/2beeabeac73e34fc6e371090be9c9c36984b199d"
+    },
+    {
+      "repo": "Rackula",
+      "message": "fix: stabilize Start Screen startup path and tests (#1122) [salvaged] (#1168)",
+      "sha": "2a5efdbdc932f77ec7a83e17b710f1d0aa4cacc1",
+      "date": "2026-02-10T09:43:59Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/2a5efdbdc932f77ec7a83e17b710f1d0aa4cacc1"
     }
   ],
   "stats": {
-    "commitsThisWeek": 29,
-    "commitsThisMonth": 39,
-    "repositoriesThisWeek": 2
+    "commitsThisWeek": 47,
+    "commitsThisMonth": 47,
+    "repositoriesThisWeek": 4
   },
   "repositories": [
     {
@@ -233,11 +233,18 @@
       "url": "https://github.com/ggfevans/gwilym.ca"
     },
     {
-      "name": "listenbrainz-github-action",
-      "description": "Fetch your ListenBrainz music listening data as JSON for static sites. No auth required.",
+      "name": "trakt-json-bourne",
+      "description": "GitHub Action that turns Trakt watch history into JSON with optional TMDB posters. For use in static sites.",
+      "language": "Shell",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/trakt-json-bourne"
+    },
+    {
+      "name": "listenbrainz-json-bourne",
+      "description": "GitHub Action to grab your ListenBrainz data and dump it to JSON. No auth required. Good Will Hunting for your music data.",
       "language": "Shell",
       "stars": 1,
-      "url": "https://github.com/ggfevans/listenbrainz-github-action"
+      "url": "https://github.com/ggfevans/listenbrainz-json-bourne"
     },
     {
       "name": "green-squares-action",
@@ -247,18 +254,11 @@
       "url": "https://github.com/ggfevans/green-squares-action"
     },
     {
-      "name": "trakt-github-action",
-      "description": "",
-      "language": "Shell",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/trakt-github-action"
-    },
-    {
-      "name": "hardcover-github-action",
+      "name": "hardcover-json-bourne",
       "description": "Fetch your Hardcover.app reading data as JSON for static sites. ",
       "language": "Shell",
       "stars": 0,
-      "url": "https://github.com/ggfevans/hardcover-github-action"
+      "url": "https://github.com/ggfevans/hardcover-json-bourne"
     },
     {
       "name": "gh-mint",
