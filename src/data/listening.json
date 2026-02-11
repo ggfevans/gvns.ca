@@ -1,124 +1,127 @@
 {
-  "lastUpdated": "2026-02-10T03:24:53Z",
+  "lastUpdated": "2026-02-11T03:23:41Z",
   "recentListens": [
     {
-      "track": "Dont Ask",
-      "artist": "Constantin Orbelian & Moscow Chamber Orchestra",
-      "album": "And My Pants Are Truey Trueee",
-      "listenedAt": "2026-02-09T20:51:49Z",
-      "caaReleaseMbid": "4af6e8d8-33cb-45bd-bc2c-7ddd82c24505",
-      "caaId": 33782787871,
-      "recordingMbid": "587b0134-f0b2-48c2-8bfb-579fe4d231e7",
-      "artistMbids": [
-        "62770345-475e-434b-9dd8-8f335dabafe3"
-      ]
-    },
-    {
-      "track": "Lullaby in a Storm",
-      "artist": "Constantin Orbelian & Moscow Chamber Orchestra",
-      "album": "Lullaby in a Storm",
-      "listenedAt": "2026-02-09T19:22:38Z",
-      "caaReleaseMbid": "d6e42e7b-1739-47eb-a426-203e09baf2e1",
-      "caaId": 37274852790,
-      "recordingMbid": "b3099f8c-64cc-47be-a696-31140d31b670",
-      "artistMbids": [
-        "e60da312-088a-4099-89a3-6fbfee7660bd"
-      ]
-    },
-    {
-      "track": "Because",
-      "artist": "The Beatles",
-      "album": "Abbey Road",
-      "listenedAt": "2026-02-09T19:11:55Z",
-      "caaReleaseMbid": "31765b9f-e969-4257-855f-c7ea1f657b2a",
-      "caaId": 39706767821,
-      "recordingMbid": "1e1d1f33-346c-4f9a-ad05-03aa715c2f37",
-      "artistMbids": [
-        "b10bbbfc-cf9e-42e0-be17-e2c3e1d2600d"
-      ]
-    },
-    {
-      "track": "Unaccompanied Cello Suite no. 1 in G major, BWV 1007: I. Prélude",
-      "artist": "Yo-Yo Ma",
-      "album": "Six Evolutions: Bach Cello Suites",
-      "listenedAt": "2026-02-09T19:09:52Z",
-      "caaReleaseMbid": "314a5dca-d734-4b7f-8e24-01f74293ee72",
-      "caaId": 43222761200,
-      "recordingMbid": "0eafbcad-14ee-4a0e-99fa-7d1296b72962",
-      "artistMbids": [
-        "62fe877d-b7a5-43e8-952e-2610d7614bff"
-      ]
-    },
-    {
-      "track": "Telephasic Workshop",
-      "artist": "Boards of Canada",
-      "album": "Music Has the Right to Children",
-      "listenedAt": "2026-02-09T19:03:43Z",
-      "caaReleaseMbid": "aa9286ad-59a3-4bd5-9cc0-545ae394720f",
-      "caaId": 26795548781,
-      "recordingMbid": "e658982b-4317-4369-a6ab-e50ceb00c0e5",
-      "artistMbids": [
-        "69158f97-4c07-4c4e-baf8-4e4ab1ed666e"
-      ]
-    },
-    {
-      "track": "The Color of the Fire",
-      "artist": "Boards of Canada",
-      "album": "Music Has the Right to Children",
-      "listenedAt": "2026-02-09T19:02:10Z",
-      "caaReleaseMbid": "aa9286ad-59a3-4bd5-9cc0-545ae394720f",
-      "caaId": 26795548781,
-      "recordingMbid": "7aecd7c0-dd37-487a-9b52-a76dc6054495",
-      "artistMbids": [
-        "69158f97-4c07-4c4e-baf8-4e4ab1ed666e"
-      ]
-    },
-    {
-      "track": "An Eagle in Your Mind",
-      "artist": "Boards of Canada",
-      "album": "Music Has the Right to Children",
-      "listenedAt": "2026-02-09T18:55:36Z",
-      "caaReleaseMbid": "aa9286ad-59a3-4bd5-9cc0-545ae394720f",
-      "caaId": 26795548781,
-      "recordingMbid": "4dcc4ed5-d63d-4466-8fb4-3cea2d4828e4",
-      "artistMbids": [
-        "69158f97-4c07-4c4e-baf8-4e4ab1ed666e"
-      ]
-    },
-    {
-      "track": "Wildlife Analysis",
-      "artist": "Boards of Canada",
-      "album": "Boc Maxima",
-      "listenedAt": "2026-02-09T18:54:04Z",
-      "caaReleaseMbid": "aa9286ad-59a3-4bd5-9cc0-545ae394720f",
-      "caaId": 26795548781,
-      "recordingMbid": "b061ba14-6b3b-4739-a043-dd4685357af4",
-      "artistMbids": [
-        "69158f97-4c07-4c4e-baf8-4e4ab1ed666e"
-      ]
-    },
-    {
-      "track": "Defender",
+      "track": "From You",
       "artist": "Bonobo",
-      "album": "Defender",
-      "listenedAt": "2026-02-09T18:53:32Z",
-      "caaReleaseMbid": "3d205a95-2f37-4801-9056-4077b14b6a26",
-      "caaId": 37381732326,
-      "recordingMbid": "09691ed9-8819-4a0d-b695-f47d9f419d26",
+      "album": "Fragments",
+      "listenedAt": "2026-02-10T21:08:05Z",
+      "caaReleaseMbid": "5dcaabc0-5038-47fb-bd7d-783793846bc0",
+      "caaId": 31635402236,
+      "recordingMbid": "da1899fd-fcd2-42e1-bd2d-94465ee80e03",
       "artistMbids": [
-        "9a709693-b4f8-4da9-8cc1-038c911a61be"
+        "9a709693-b4f8-4da9-8cc1-038c911a61be",
+        "8264722b-df00-467a-858e-5c97cda169c9"
       ]
     },
     {
-      "track": "Life in the Rain",
+      "track": "From You",
+      "artist": "Bonobo",
+      "album": "Fragments",
+      "listenedAt": "2026-02-10T21:06:40Z",
+      "caaReleaseMbid": "5dcaabc0-5038-47fb-bd7d-783793846bc0",
+      "caaId": 31635402236,
+      "recordingMbid": "da1899fd-fcd2-42e1-bd2d-94465ee80e03",
+      "artistMbids": [
+        "9a709693-b4f8-4da9-8cc1-038c911a61be",
+        "8264722b-df00-467a-858e-5c97cda169c9"
+      ]
+    },
+    {
+      "track": "Two Thousand and Seventeen",
+      "artist": "Four Tet",
+      "album": "New Energy",
+      "listenedAt": "2026-02-10T21:02:36Z",
+      "caaReleaseMbid": "ad18da95-7c3a-408c-958f-ff3dd7954440",
+      "caaId": 17914296176,
+      "recordingMbid": "59feedf2-8212-4352-80c9-820b00bd36ce",
+      "artistMbids": [
+        "3bcff06f-675a-451f-9075-99e8657047e8"
+      ]
+    },
+    {
+      "track": "Mi swing es tropical",
+      "artist": "Quantic & Nickodemus",
+      "album": "Salsa Style: Latin Beats for Dancing Feets",
+      "listenedAt": "2026-02-10T21:01:34Z",
+      "caaReleaseMbid": "82376b6c-5a13-41c7-888e-a76fb4f648dd",
+      "caaId": 21330531664,
+      "recordingMbid": "c23c6114-2f3f-4eea-9eb7-7d6ddcb8d2f5",
+      "artistMbids": [
+        "f1560407-8826-4ec9-b78f-e0c3fa3ea4f5",
+        "ec475fb8-d454-406e-b473-7f0b0d815f9d"
+      ]
+    },
+    {
+      "track": "Suzuki",
+      "artist": "Tosca",
+      "album": "Suzuki",
+      "listenedAt": "2026-02-10T20:55:29Z",
+      "caaReleaseMbid": "505f0ee9-6113-46aa-b44e-fbae0bcff839",
+      "caaId": 13276098607,
+      "recordingMbid": "f128b4c3-72a3-461e-b5b7-21ffaff31a9a",
+      "artistMbids": [
+        "3231d12a-c42d-4977-b2a4-a6e4d87978e1"
+      ]
+    },
+    {
+      "track": "Lebanese Blonde",
+      "artist": "Thievery Corporation",
+      "album": "The Mirror Conspiracy",
+      "listenedAt": "2026-02-10T20:50:26Z",
+      "caaReleaseMbid": "1de73c08-5755-3646-ad2c-a6657aa00fd4",
+      "caaId": 1769287326,
+      "recordingMbid": "27a32525-c99d-47d3-8f58-58e924313136",
+      "artistMbids": [
+        "a505bb48-ad65-4af4-ae47-29149715bff9"
+      ]
+    },
+    {
+      "track": "Time Is the Enemy",
       "artist": "Quantic",
-      "album": "Bar Lounge Classics: The Chill Out Edition",
-      "listenedAt": "2026-02-09T18:47:58Z",
+      "album": "The 5th Exotic",
+      "listenedAt": "2026-02-10T20:47:23Z",
       "caaReleaseMbid": "5cbf9bb5-6b4d-4b4e-843e-0db79f8f3a58",
       "caaId": 4396377486,
-      "recordingMbid": "8cf18aa2-683a-48dc-b7f9-13881b78bdfc",
+      "recordingMbid": "49ae589f-3af4-4c1c-8205-bdc65be7e001",
       "artistMbids": [
         "f1560407-8826-4ec9-b78f-e0c3fa3ea4f5"
+      ]
+    },
+    {
+      "track": "Tonto Rides the Gain",
+      "artist": "Jon Kennedy",
+      "album": "Corporeal",
+      "listenedAt": "2026-02-10T20:44:20Z",
+      "caaReleaseMbid": "a5b6c32b-2e0a-4122-9114-48910e0e6919",
+      "caaId": 42350940722,
+      "recordingMbid": "512201dc-5ded-47a0-867e-0675a09266b8",
+      "artistMbids": [
+        "69ead53e-b2d4-45f4-b777-71363fdeff28"
+      ]
+    },
+    {
+      "track": "C.R.E.A.M.",
+      "artist": "El Michels Affair",
+      "album": "Enter the 37th Chamber",
+      "listenedAt": "2026-02-10T20:41:18Z",
+      "caaReleaseMbid": "9efbc7c3-1d5a-42a4-8230-9afb02abdd04",
+      "caaId": 28388842087,
+      "recordingMbid": "c927b8c8-8fd6-476d-8429-6ece79e0b637",
+      "artistMbids": [
+        "dbf0a5c5-3665-4495-b13b-99438a6a0900"
+      ]
+    },
+    {
+      "track": "The Sensual Woman",
+      "artist": "The Herbaliser",
+      "album": "Very Mercenary",
+      "listenedAt": "2026-02-10T20:38:15Z",
+      "caaReleaseMbid": "d33ce12c-6973-4b81-bdfe-21ebabedc158",
+      "caaId": 9828849514,
+      "recordingMbid": "145b8ef0-7592-430a-806e-35980e3e195d",
+      "artistMbids": [
+        "bf48d271-9595-4043-9064-52f43707d4ab"
       ]
     }
   ],
@@ -140,43 +143,67 @@
       "artistMbid": "630662ea-1c7d-4208-99fd-ba3afec20f0c"
     },
     {
+      "name": "Quantic",
+      "listenCount": 5,
+      "artistMbid": "f1560407-8826-4ec9-b78f-e0c3fa3ea4f5"
+    },
+    {
       "name": "Boards of Canada",
       "listenCount": 5,
       "artistMbid": "69158f97-4c07-4c4e-baf8-4e4ab1ed666e"
     },
     {
-      "name": "Quantic",
-      "listenCount": 2,
-      "artistMbid": "f1560407-8826-4ec9-b78f-e0c3fa3ea4f5"
-    },
-    {
       "name": "Bonobo",
-      "listenCount": 2,
+      "listenCount": 4,
       "artistMbid": "9a709693-b4f8-4da9-8cc1-038c911a61be"
     },
     {
-      "name": "Andrew Bird",
+      "name": "Thievery Corporation",
       "listenCount": 2,
-      "artistMbid": "081b133e-ce74-42ba-92c1-c18234acb532"
+      "artistMbid": "a505bb48-ad65-4af4-ae47-29149715bff9"
     },
     {
-      "name": "wood.",
-      "listenCount": 1,
-      "artistMbid": "e60da312-088a-4099-89a3-6fbfee7660bd"
+      "name": "The Herbaliser",
+      "listenCount": 2,
+      "artistMbid": "bf48d271-9595-4043-9064-52f43707d4ab"
     },
     {
-      "name": "Yo‐Yo Ma",
-      "listenCount": 1,
-      "artistMbid": "62fe877d-b7a5-43e8-952e-2610d7614bff"
+      "name": "Jon Kennedy",
+      "listenCount": 2,
+      "artistMbid": "69ead53e-b2d4-45f4-b777-71363fdeff28"
     },
     {
-      "name": "Unknown Mortal Orchestra",
-      "listenCount": 1,
-      "artistMbid": "e2305342-0bde-4a2c-aed0-4b88694834de"
+      "name": "El Michels Affair",
+      "listenCount": 2,
+      "artistMbid": "dbf0a5c5-3665-4495-b13b-99438a6a0900"
     }
   ],
   "topArtistsStatus": "ok",
   "topTracks": [
+    {
+      "track": "Time Is the Enemy",
+      "artist": "Quantic",
+      "listenCount": 3,
+      "recordingMbid": "49ae589f-3af4-4c1c-8205-bdc65be7e001",
+      "caaReleaseMbid": "5cbf9bb5-6b4d-4b4e-843e-0db79f8f3a58",
+      "caaId": 4396377486
+    },
+    {
+      "track": "Tonto Rides the Gain",
+      "artist": "Jon Kennedy",
+      "listenCount": 2,
+      "recordingMbid": "512201dc-5ded-47a0-867e-0675a09266b8",
+      "caaReleaseMbid": "a5b6c32b-2e0a-4122-9114-48910e0e6919",
+      "caaId": 42350940722
+    },
+    {
+      "track": "The Sensual Woman",
+      "artist": "The Herbaliser",
+      "listenCount": 2,
+      "recordingMbid": "145b8ef0-7592-430a-806e-35980e3e195d",
+      "caaReleaseMbid": "d33ce12c-6973-4b81-bdfe-21ebabedc158",
+      "caaId": 9828849514
+    },
     {
       "track": "Swift Automatons",
       "artist": "Eluvium",
@@ -192,6 +219,22 @@
       "recordingMbid": "adce11b2-de0f-4cb4-9371-a09467f09ad7",
       "caaReleaseMbid": "488ea3c5-0615-452d-96e4-c2b7e13fda50",
       "caaId": 22168031137
+    },
+    {
+      "track": "Lebanese Blonde",
+      "artist": "Thievery Corporation",
+      "listenCount": 2,
+      "recordingMbid": "27a32525-c99d-47d3-8f58-58e924313136",
+      "caaReleaseMbid": "1de73c08-5755-3646-ad2c-a6657aa00fd4",
+      "caaId": 1769287326
+    },
+    {
+      "track": "From You",
+      "artist": "Bonobo",
+      "listenCount": 2,
+      "recordingMbid": "da1899fd-fcd2-42e1-bd2d-94465ee80e03",
+      "caaReleaseMbid": "2b50b9a7-84de-45a6-8c73-aeeca446e24c",
+      "caaId": 33344850420
     },
     {
       "track": "Escapement",
@@ -210,52 +253,12 @@
       "caaId": 23728700898
     },
     {
-      "track": "You and Me",
-      "artist": "Penny & the Quarters",
-      "listenCount": 1,
-      "recordingMbid": "fad0803b-a7a8-4ccc-9feb-bac391a34821",
-      "caaReleaseMbid": "217702fd-0559-45db-990f-060cb045c90c",
-      "caaId": 35009103309
-    },
-    {
-      "track": "Wildlife Analysis",
-      "artist": "Boards of Canada",
-      "listenCount": 1,
-      "recordingMbid": "b061ba14-6b3b-4739-a043-dd4685357af4",
-      "caaReleaseMbid": "cb4f8b4e-4eb7-3a4c-97ea-5f4a134b5248",
-      "caaId": 19310177954
-    },
-    {
-      "track": "Water (Bicep remix)",
-      "artist": "Blondes",
-      "listenCount": 1,
-      "recordingMbid": "1171cff7-68fd-4b86-90f7-d5b75dae1f11",
-      "caaReleaseMbid": "14854938-2bbf-464d-97e7-f98c55dac132",
-      "caaId": 42309612578
-    },
-    {
-      "track": "Void Manifest",
-      "artist": "Eluvium",
-      "listenCount": 1,
-      "recordingMbid": "f2b263bd-c7a7-4472-9df4-4e7aa034cc6b",
-      "caaReleaseMbid": "2b472acf-6751-4d5d-b448-76ca31c1ac6f",
-      "caaId": 37568706791
-    },
-    {
-      "track": "Vibration Consensus Reality (for Spectral Multiband Resonator)",
-      "artist": "Eluvium",
-      "listenCount": 1,
-      "recordingMbid": "10f2b81b-bd57-4a24-8285-39cc08267b1a",
-      "caaReleaseMbid": "2b472acf-6751-4d5d-b448-76ca31c1ac6f",
-      "caaId": 37568706791
-    },
-    {
-      "track": "Unaccompanied Cello Suite no. 1 in G major, BWV 1007: I. Prélude",
-      "artist": "Yo‐Yo Ma",
-      "listenCount": 1,
-      "recordingMbid": "0eafbcad-14ee-4a0e-99fa-7d1296b72962",
-      "caaReleaseMbid": "314a5dca-d734-4b7f-8e24-01f74293ee72",
-      "caaId": 43222761200
+      "track": "C.R.E.A.M.",
+      "artist": "El Michels Affair",
+      "listenCount": 2,
+      "recordingMbid": "c927b8c8-8fd6-476d-8429-6ece79e0b637",
+      "caaReleaseMbid": "9efbc7c3-1d5a-42a4-8230-9afb02abdd04",
+      "caaId": 28388842087
     }
   ],
   "topTracksStatus": "ok",
@@ -291,9 +294,23 @@
     {
       "album": "The 5th Exotic",
       "artist": "Quantic",
-      "listenCount": 2,
+      "listenCount": 4,
       "caaReleaseMbid": "5cbf9bb5-6b4d-4b4e-843e-0db79f8f3a58",
       "caaId": 4396377486
+    },
+    {
+      "album": "Very Mercenary",
+      "artist": "The Herbaliser",
+      "listenCount": 2,
+      "caaReleaseMbid": "d33ce12c-6973-4b81-bdfe-21ebabedc158",
+      "caaId": 9828849514
+    },
+    {
+      "album": "The Mirror Conspiracy",
+      "artist": "Thievery Corporation",
+      "listenCount": 2,
+      "caaReleaseMbid": "1de73c08-5755-3646-ad2c-a6657aa00fd4",
+      "caaId": 1769287326
     },
     {
       "album": "My Finest Work Yet",
@@ -303,40 +320,26 @@
       "caaId": 22168031137
     },
     {
-      "album": "The North Borders",
+      "album": "Fragments",
       "artist": "Bonobo",
-      "listenCount": 1,
-      "caaReleaseMbid": "1d85177b-0e66-4339-b5b6-8fdecc9f4861",
-      "caaId": 12310894004
+      "listenCount": 2,
+      "caaReleaseMbid": "2b50b9a7-84de-45a6-8c73-aeeca446e24c",
+      "caaId": 33344850420
     },
     {
-      "album": "The Bends",
-      "artist": "Radiohead",
-      "listenCount": 1,
-      "caaReleaseMbid": "29dcea33-ad28-3fa3-9831-af5e520a513b",
-      "caaId": 23802558961
-    },
-    {
-      "album": "So Tonight That I Might See",
-      "artist": "Mazzy Star",
-      "listenCount": 1,
-      "caaReleaseMbid": "f3686430-4792-4e0f-b105-45f68c459c64",
-      "caaId": 37044044892
-    },
-    {
-      "album": "Six Evolutions: Bach Cello Suites",
-      "artist": "Bach; Yo‐Yo Ma",
-      "listenCount": 1,
-      "caaReleaseMbid": "314a5dca-d734-4b7f-8e24-01f74293ee72",
-      "caaId": 43222761200
+      "album": "Enter the 37th Chamber",
+      "artist": "El Michels Affair",
+      "listenCount": 2,
+      "caaReleaseMbid": "9efbc7c3-1d5a-42a4-8230-9afb02abdd04",
+      "caaId": 28388842087
     }
   ],
   "topAlbumsStatus": "ok",
   "stats": {
-    "totalListenCount": 212593,
+    "totalListenCount": 212608,
     "range": "this_month",
-    "artistCount": 19,
-    "albumCount": 21,
-    "trackCount": 49
+    "artistCount": 26,
+    "albumCount": 29,
+    "trackCount": 57
   }
 }
