@@ -1,6 +1,188 @@
 {
-  "lastUpdated": "2026-02-11T04:10:32Z",
+  "lastUpdated": "2026-02-12T04:09:05Z",
   "recentCommits": [
+    {
+      "repo": "rainforest-EAGLE-commands",
+      "message": "update README and add home-assistant basic support",
+      "sha": "4bab72869d9d2890f74a0565c59258b5c8f7a743",
+      "date": "2026-02-12T00:57:33Z",
+      "url": "https://github.com/ggfevans/rainforest-EAGLE-commands/commit/4bab72869d9d2890f74a0565c59258b5c8f7a743"
+    },
+    {
+      "repo": "rainforest-EAGLE-commands",
+      "message": "update status script",
+      "sha": "ff7ada96c889c23ff1665faf70538db153b96635",
+      "date": "2026-02-12T00:57:16Z",
+      "url": "https://github.com/ggfevans/rainforest-EAGLE-commands/commit/ff7ada96c889c23ff1665faf70538db153b96635"
+    },
+    {
+      "repo": "rainforest-EAGLE-commands",
+      "message": "Fix device parsing",
+      "sha": "bb3e19fbfbc0a89583749b3b767beff1c61e9369",
+      "date": "2026-02-12T00:22:29Z",
+      "url": "https://github.com/ggfevans/rainforest-EAGLE-commands/commit/bb3e19fbfbc0a89583749b3b767beff1c61e9369"
+    },
+    {
+      "repo": "Rackula",
+      "message": "chore(release): prepare v0.8.0",
+      "sha": "879aeab09a5ccd2bf012843c2d5e95f6fd82186d",
+      "date": "2026-02-11T08:41:09Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/879aeab09a5ccd2bf012843c2d5e95f6fd82186d"
+    },
+    {
+      "repo": "Rackula",
+      "message": "fix(deps): revert eslint v10 upgrade breaking CI build (#1199)",
+      "sha": "21a2d4e4a144debd7bde0e571cbc80ce5c429a06",
+      "date": "2026-02-11T08:36:01Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/21a2d4e4a144debd7bde0e571cbc80ce5c429a06"
+    },
+    {
+      "repo": "Rackula",
+      "message": "fix: harden persistence health validation (#1087) (#1197)",
+      "sha": "bc766c20c8d0e5dea00d29d2a9be895fbd9be4b5",
+      "date": "2026-02-11T08:29:01Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/bc766c20c8d0e5dea00d29d2a9be895fbd9be4b5"
+    },
+    {
+      "repo": "Rackula",
+      "message": "Merge branch 'main' into fix/1087-healthcheck-false-positive",
+      "sha": "a61ce51aeb57b521571f8acec7be55d15ff6160b",
+      "date": "2026-02-11T08:25:43Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/a61ce51aeb57b521571f8acec7be55d15ff6160b"
+    },
+    {
+      "repo": "Rackula",
+      "message": "Update src/tests/App.startScreen.test.ts",
+      "sha": "cc28df37b5f20ab45dd69e5823d0135dffc33d8f",
+      "date": "2026-02-11T08:25:31Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/cc28df37b5f20ab45dd69e5823d0135dffc33d8f"
+    },
+    {
+      "repo": "Rackula",
+      "message": "chore(deps): bump @types/node in the typescript group (#1181)",
+      "sha": "df67bd13eb3d9487b8c990f4421fa4145278991d",
+      "date": "2026-02-11T06:12:49Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/df67bd13eb3d9487b8c990f4421fa4145278991d"
+    },
+    {
+      "repo": "Rackula",
+      "message": "chore(deps): bump the eslint group with 3 updates (#1180)",
+      "sha": "0e0fe296c659bf768bb059f3e0bd04b5b693edd4",
+      "date": "2026-02-11T06:12:45Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/0e0fe296c659bf768bb059f3e0bd04b5b693edd4"
+    },
+    {
+      "repo": "Rackula",
+      "message": "fix(api): align filesystem tests with UUID storage (#1184) (#1186)",
+      "sha": "23810429c94f92ddc83e239c664fda9e026d82ba",
+      "date": "2026-02-11T06:07:51Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/23810429c94f92ddc83e239c664fda9e026d82ba"
+    },
+    {
+      "repo": "Rackula",
+      "message": "Merge remote-tracking branch 'origin/main' into fix/1184-api-filesystem",
+      "sha": "48d505cddc5c57a3120a1dcbc2e6acfc0f6dfec4",
+      "date": "2026-02-11T06:06:25Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/48d505cddc5c57a3120a1dcbc2e6acfc0f6dfec4"
+    },
+    {
+      "repo": "Rackula",
+      "message": "feat: add YAML editor apply flow with conflict guards (#1196)",
+      "sha": "6ea124c4fad3ef938a0a91abf6caf735ad53879a",
+      "date": "2026-02-11T06:02:49Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/6ea124c4fad3ef938a0a91abf6caf735ad53879a"
+    },
+    {
+      "repo": "Rackula",
+      "message": "Merge branch 'dev/yamllama-ding-dong' into feat/1176-yaml-edit-apply-flow",
+      "sha": "8552d0a30cb826711fa07681a81b156f10492918",
+      "date": "2026-02-11T06:02:43Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/8552d0a30cb826711fa07681a81b156f10492918"
+    },
+    {
+      "repo": "Rackula",
+      "message": "fix: harden persistence health validation",
+      "sha": "5894627c2e83e2af99634140b993f103a5865fd2",
+      "date": "2026-02-11T06:01:07Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/5894627c2e83e2af99634140b993f103a5865fd2"
+    },
+    {
+      "repo": "Rackula",
+      "message": "fix: resolve api typecheck errors in security and storage (#1192)",
+      "sha": "e3ec25f919fb54f6e54177bbe51be9ae1771928d",
+      "date": "2026-02-11T05:50:05Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/e3ec25f919fb54f6e54177bbe51be9ae1771928d"
+    },
+    {
+      "repo": "Rackula",
+      "message": "Merge branch 'main' into fix/1184-api-filesystem",
+      "sha": "ab024015a6eb33d1fbf7d2fc63f94dbcf60bf108",
+      "date": "2026-02-11T05:40:05Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/ab024015a6eb33d1fbf7d2fc63f94dbcf60bf108"
+    },
+    {
+      "repo": "Rackula",
+      "message": "fix(api): dedupe migrated legacy listings",
+      "sha": "492d9263f86026f4c1d2b6a949c725a71ac0826c",
+      "date": "2026-02-11T05:36:31Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/492d9263f86026f4c1d2b6a949c725a71ac0826c"
+    },
+    {
+      "repo": "Rackula",
+      "message": "feat: import phase 2 NetBox homelab devices (#1111) (#1188)",
+      "sha": "378d7a6cca72957dc2080a7112324a6d35eaec1e",
+      "date": "2026-02-11T05:32:48Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/378d7a6cca72957dc2080a7112324a6d35eaec1e"
+    },
+    {
+      "repo": "Rackula",
+      "message": "fix(api): resolve typecheck errors in security/storage (#1185) (#1187)",
+      "sha": "e9344965e8066591a5c586837d90d99f1fb3d2bb",
+      "date": "2026-02-11T05:30:51Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/e9344965e8066591a5c586837d90d99f1fb3d2bb"
+    },
+    {
+      "repo": "Rackula",
+      "message": "fix: address CodeRabbit follow-ups for phase 2 import",
+      "sha": "c34b389041dba03de2b02f06f54ce41e375c360b",
+      "date": "2026-02-11T05:29:42Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/c34b389041dba03de2b02f06f54ce41e375c360b"
+    },
+    {
+      "repo": "Rackula",
+      "message": "Merge remote-tracking branch 'origin/fix/1184-api-filesystem' into fix/1185-api-typecheck",
+      "sha": "a3dee6e8e5deda70cb54d5aac31fac6a248e3cfe",
+      "date": "2026-02-11T05:29:31Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/a3dee6e8e5deda70cb54d5aac31fac6a248e3cfe"
+    },
+    {
+      "repo": "Rackula",
+      "message": "fix(api): address filesystem review feedback",
+      "sha": "3aac9239ca78c7320d3f6fd484e84c84388b197b",
+      "date": "2026-02-11T05:28:18Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/3aac9239ca78c7320d3f6fd484e84c84388b197b"
+    },
+    {
+      "repo": "Rackula",
+      "message": "fix(api): harden legacy slug validation and middleware coverage",
+      "sha": "0969c0223b53834836ab06d62e8262d2c4bc5779",
+      "date": "2026-02-11T05:26:54Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/0969c0223b53834836ab06d62e8262d2c4bc5779"
+    },
+    {
+      "repo": "Rackula",
+      "message": "fix(api): preserve DATA_DIR nullish semantics",
+      "sha": "d3bda1411b254ee21ff5221fecf910124ed715dd",
+      "date": "2026-02-11T05:22:14Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/d3bda1411b254ee21ff5221fecf910124ed715dd"
+    },
+    {
+      "repo": "Rackula",
+      "message": "fix(api): address PR #1186 review feedback",
+      "sha": "38fcaa6978ce5b15a1f1abdc3a56bd0c2ee00684",
+      "date": "2026-02-11T05:16:54Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/38fcaa6978ce5b15a1f1abdc3a56bd0c2ee00684"
+    },
     {
       "repo": "trakt-json-bourne",
       "message": "Merge pull request #3 from ggfevans/ggfevans-patch-1",
@@ -28,194 +210,12 @@
       "sha": "74cc78af8f072be38f25b1854d0a49cacadd9730",
       "date": "2026-02-11T02:09:25Z",
       "url": "https://github.com/ggfevans/trakt-json-bourne/commit/74cc78af8f072be38f25b1854d0a49cacadd9730"
-    },
-    {
-      "repo": "listenbrainz-json-bourne",
-      "message": "chore(deps): bump actions/checkout from 4.2.2 to 6.0.2 (#25)",
-      "sha": "f3d2bff4bcad6eed1ad8392f85885fbea34b74c9",
-      "date": "2026-02-11T02:03:05Z",
-      "url": "https://github.com/ggfevans/listenbrainz-json-bourne/commit/f3d2bff4bcad6eed1ad8392f85885fbea34b74c9"
-    },
-    {
-      "repo": "listenbrainz-json-bourne",
-      "message": "ci: add dependabot for actions updates and harden shell defaults",
-      "sha": "2958f1c0ac96c5e189b8e4c42fed63456814b6f8",
-      "date": "2026-02-11T01:58:42Z",
-      "url": "https://github.com/ggfevans/listenbrainz-json-bourne/commit/2958f1c0ac96c5e189b8e4c42fed63456814b6f8"
-    },
-    {
-      "repo": "trakt-json-bourne",
-      "message": "Rename action from 'Trakt Watching Data' to 'Trakt JSON Bourne'",
-      "sha": "499e6aabaab35c43ccccb852a0498324dca080f2",
-      "date": "2026-02-11T01:38:26Z",
-      "url": "https://github.com/ggfevans/trakt-json-bourne/commit/499e6aabaab35c43ccccb852a0498324dca080f2"
-    },
-    {
-      "repo": "trakt-json-bourne",
-      "message": "ci: remove redundant example-usage workflow",
-      "sha": "579fe6c5b8b0309a6caf5a54071f19ff06f2b60f",
-      "date": "2026-02-11T01:33:39Z",
-      "url": "https://github.com/ggfevans/trakt-json-bourne/commit/579fe6c5b8b0309a6caf5a54071f19ff06f2b60f"
-    },
-    {
-      "repo": "trakt-json-bourne",
-      "message": "docs: bump references to v2",
-      "sha": "6ffc80374c7d7ead0b79ad158fc06f42475ee8b6",
-      "date": "2026-02-11T01:32:20Z",
-      "url": "https://github.com/ggfevans/trakt-json-bourne/commit/6ffc80374c7d7ead0b79ad158fc06f42475ee8b6"
-    },
-    {
-      "repo": "trakt-json-bourne",
-      "message": "ci: add example and release workflows",
-      "sha": "b5384a13314fad1bd23c327d5c3f1fa07c84f4dd",
-      "date": "2026-02-11T01:26:31Z",
-      "url": "https://github.com/ggfevans/trakt-json-bourne/commit/b5384a13314fad1bd23c327d5c3f1fa07c84f4dd"
-    },
-    {
-      "repo": "trakt-json-bourne",
-      "message": "chore: switched to trakt-json-bourne and the fake IDs are for workflow",
-      "sha": "94aa1d2021758f98c48c92d5d6beed4467229f2d",
-      "date": "2026-02-11T01:17:47Z",
-      "url": "https://github.com/ggfevans/trakt-json-bourne/commit/94aa1d2021758f98c48c92d5d6beed4467229f2d"
-    },
-    {
-      "repo": "listenbrainz-json-bourne",
-      "message": "fix: pin self-references to SHA for release workflow",
-      "sha": "1683b3ccaa523e9814deff91e43a014d1d3c7449",
-      "date": "2026-02-11T00:46:06Z",
-      "url": "https://github.com/ggfevans/listenbrainz-json-bourne/commit/1683b3ccaa523e9814deff91e43a014d1d3c7449"
-    },
-    {
-      "repo": "listenbrainz-json-bourne",
-      "message": "feat: add range listen count",
-      "sha": "90addcddb7d6944809dc5fc06c8f67fd585be3ac",
-      "date": "2026-02-10T23:51:18Z",
-      "url": "https://github.com/ggfevans/listenbrainz-json-bourne/commit/90addcddb7d6944809dc5fc06c8f67fd585be3ac"
-    },
-    {
-      "repo": "gwilym.ca",
-      "message": "update to use listenbrainz-json-bourne (the old action was GARBAGE and everyone hated it)",
-      "sha": "31242884a2b8763bcc817f11485a4806a1b5f5d4",
-      "date": "2026-02-10T20:58:04Z",
-      "url": "https://github.com/ggfevans/gwilym.ca/commit/31242884a2b8763bcc817f11485a4806a1b5f5d4"
-    },
-    {
-      "repo": "listenbrainz-json-bourne",
-      "message": "fix: shorten action description to 104 chars for marketplace limit",
-      "sha": "5d792467729fbb6aa05da569aaf0cdca3ec103a8",
-      "date": "2026-02-10T20:37:50Z",
-      "url": "https://github.com/ggfevans/listenbrainz-json-bourne/commit/5d792467729fbb6aa05da569aaf0cdca3ec103a8"
-    },
-    {
-      "repo": "listenbrainz-json-bourne",
-      "message": "feat: rebrand to ListenBrainz JSON Bourne v2.0.0",
-      "sha": "1967cb817a7ed29aebb317848a12e45952d841c8",
-      "date": "2026-02-10T20:29:53Z",
-      "url": "https://github.com/ggfevans/listenbrainz-json-bourne/commit/1967cb817a7ed29aebb317848a12e45952d841c8"
-    },
-    {
-      "repo": "listenbrainz-json-bourne",
-      "message": "feat: I saw a dumb pun at 2am and now everything has to match",
-      "sha": "465d3ed7dfe26107d1f14a444c99909f2d2cacf0",
-      "date": "2026-02-10T20:22:20Z",
-      "url": "https://github.com/ggfevans/listenbrainz-json-bourne/commit/465d3ed7dfe26107d1f14a444c99909f2d2cacf0"
-    },
-    {
-      "repo": "Rackula",
-      "message": "Revert \"feat(auth): add centralized auth gate and no-anonymous defaults\" (#1183)",
-      "sha": "f1d1567cf9f9636eec41afd14251ea6b1fe42cbf",
-      "date": "2026-02-10T19:35:32Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/f1d1567cf9f9636eec41afd14251ea6b1fe42cbf"
-    },
-    {
-      "repo": "Rackula",
-      "message": "feat(auth): add centralized auth gate and no-anonymous defaults (#1182)",
-      "sha": "721407dac4f9e4f289e1f8a71b562d3a32626c7b",
-      "date": "2026-02-10T19:28:07Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/721407dac4f9e4f289e1f8a71b562d3a32626c7b"
-    },
-    {
-      "repo": "Rackula",
-      "message": "feat(auth): add centralized auth gate and no-anonymous defaults",
-      "sha": "bb8a44a3772fbcb20b0493927a414b73c98addc1",
-      "date": "2026-02-10T19:20:40Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/bb8a44a3772fbcb20b0493927a414b73c98addc1"
-    },
-    {
-      "repo": "Rackula",
-      "message": "chore: resolve App.svelte state capture warning (#1179)",
-      "sha": "108a2522038dbc432f1cfd859272933e01f5d133",
-      "date": "2026-02-10T10:41:12Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/108a2522038dbc432f1cfd859272933e01f5d133"
-    },
-    {
-      "repo": "Rackula",
-      "message": "chore: resolve App.svelte state capture warning",
-      "sha": "b118183e0db8189c31b910643be264942b6d2070",
-      "date": "2026-02-10T10:37:59Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/b118183e0db8189c31b910643be264942b6d2070"
-    },
-    {
-      "repo": "Rackula",
-      "message": "docs: complete spike #573 yaml editor research (#1173)",
-      "sha": "bb37fc952a781259eff4144b1231911bd34e0fd1",
-      "date": "2026-02-10T10:32:09Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/bb37fc952a781259eff4144b1231911bd34e0fd1"
-    },
-    {
-      "repo": "Rackula",
-      "message": "fix: resolve a11y build warnings in dialogs and rack device (#1172)",
-      "sha": "96f206e25fb68aa02c4b56d87c2bc4944828305d",
-      "date": "2026-02-10T10:27:08Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/96f206e25fb68aa02c4b56d87c2bc4944828305d"
-    },
-    {
-      "repo": "Rackula",
-      "message": "docs: complete spike #573 yaml editor research",
-      "sha": "8c4ca0778694d26c527afb0ae6fdd030410de22e",
-      "date": "2026-02-10T10:25:25Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/8c4ca0778694d26c527afb0ae6fdd030410de22e"
-    },
-    {
-      "repo": "Rackula",
-      "message": "chore(container): tighten self-hosting runtime and CI guardrails (#1169)",
-      "sha": "d8d7be4a28eb5d11019316366b6451b10b1876f5",
-      "date": "2026-02-10T10:00:46Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/d8d7be4a28eb5d11019316366b6451b10b1876f5"
-    },
-    {
-      "repo": "Rackula",
-      "message": "chore(ci): clarify scan-after-push flow and dynamic scan refs",
-      "sha": "542a87853ca23725d7590daa1d3ed9d4005ce746",
-      "date": "2026-02-10T09:58:19Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/542a87853ca23725d7590daa1d3ed9d4005ce746"
-    },
-    {
-      "repo": "Rackula",
-      "message": "Merge branch 'main' into hotfix/1160-main",
-      "sha": "4ed841157bb1b737975383d4bbc49fe7d4ab623b",
-      "date": "2026-02-10T09:56:13Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/4ed841157bb1b737975383d4bbc49fe7d4ab623b"
-    },
-    {
-      "repo": "Rackula",
-      "message": "fix(container): harden auth header handling and scan flow docs",
-      "sha": "2beeabeac73e34fc6e371090be9c9c36984b199d",
-      "date": "2026-02-10T09:54:34Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/2beeabeac73e34fc6e371090be9c9c36984b199d"
-    },
-    {
-      "repo": "Rackula",
-      "message": "fix: stabilize Start Screen startup path and tests (#1122) [salvaged] (#1168)",
-      "sha": "2a5efdbdc932f77ec7a83e17b710f1d0aa4cacc1",
-      "date": "2026-02-10T09:43:59Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/2a5efdbdc932f77ec7a83e17b710f1d0aa4cacc1"
     }
   ],
   "stats": {
-    "commitsThisWeek": 47,
-    "commitsThisMonth": 47,
-    "repositoriesThisWeek": 4
+    "commitsThisWeek": 60,
+    "commitsThisMonth": 60,
+    "repositoriesThisWeek": 5
   },
   "repositories": [
     {
@@ -231,6 +231,20 @@
       "language": "Astro",
       "stars": 0,
       "url": "https://github.com/ggfevans/gwilym.ca"
+    },
+    {
+      "name": "rainforest-EAGLE-commands",
+      "description": "",
+      "language": "Shell",
+      "stars": 1,
+      "url": "https://github.com/ggfevans/rainforest-EAGLE-commands"
+    },
+    {
+      "name": "obsidian-plugin-playbooks",
+      "description": "Obsidian plugin development skill with CLI playbooks for dev loop and release checks.",
+      "language": "JavaScript",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/obsidian-plugin-playbooks"
     },
     {
       "name": "trakt-json-bourne",
@@ -287,20 +301,6 @@
       "language": "JavaScript",
       "stars": 3,
       "url": "https://github.com/ggfevans/searxng-seek-alfred"
-    },
-    {
-      "name": "rainforest-EAGLE-commands",
-      "description": "",
-      "language": "Shell",
-      "stars": 1,
-      "url": "https://github.com/ggfevans/rainforest-EAGLE-commands"
-    },
-    {
-      "name": "claude-prune",
-      "description": "Cleanup tool for Claude Code CLI - removes accumulated cache and state files that cause performance issues and hook delays",
-      "language": "Go",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/claude-prune"
     }
   ]
 }
