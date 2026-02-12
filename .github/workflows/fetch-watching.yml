@@ -12,7 +12,7 @@ jobs:
   fetch:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - uses: ggfevans/trakt-github-action@840686406bb160c82d5bfde1bb9e7f137a3b7b6d # main
         with:
