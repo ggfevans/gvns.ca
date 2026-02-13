@@ -1,6 +1,55 @@
 {
-  "lastUpdated": "2026-02-12T04:09:05Z",
+  "lastUpdated": "2026-02-13T04:06:08Z",
   "recentCommits": [
+    {
+      "repo": "lima",
+      "message": "rename li-cli to lima",
+      "sha": "1a9cf74705eb8b44ad003152167ad8c5d17a5fc0",
+      "date": "2026-02-13T00:20:44Z",
+      "url": "https://github.com/ggfevans/lima/commit/1a9cf74705eb8b44ad003152167ad8c5d17a5fc0"
+    },
+    {
+      "repo": "lima",
+      "message": "update README",
+      "sha": "2ce246bb41d186ec7b0f55fac71ed50698d038cd",
+      "date": "2026-02-12T12:24:17Z",
+      "url": "https://github.com/ggfevans/lima/commit/2ce246bb41d186ec7b0f55fac71ed50698d038cd"
+    },
+    {
+      "repo": "lima",
+      "message": "fix CI: pin go 1.25.7, fix goreleaser deprecations",
+      "sha": "e2beacc9b08cae02561ab056d21978ecfcea9c30",
+      "date": "2026-02-12T12:20:07Z",
+      "url": "https://github.com/ggfevans/lima/commit/e2beacc9b08cae02561ab056d21978ecfcea9c30"
+    },
+    {
+      "repo": "lima",
+      "message": "add perms",
+      "sha": "6c5b8f1e972c551eea90ce7d2369842c3a1117e0",
+      "date": "2026-02-12T12:17:52Z",
+      "url": "https://github.com/ggfevans/lima/commit/6c5b8f1e972c551eea90ce7d2369842c3a1117e0"
+    },
+    {
+      "repo": "lima",
+      "message": "bump actions/checkout from v4 to v6",
+      "sha": "896fa0c3535355f05b8b4eb343b10f45d0dcace6",
+      "date": "2026-02-12T12:15:57Z",
+      "url": "https://github.com/ggfevans/lima/commit/896fa0c3535355f05b8b4eb343b10f45d0dcace6"
+    },
+    {
+      "repo": "lima",
+      "message": "Bump actions/setup-go from 5 to 6 (#1)",
+      "sha": "56ca519311cda9537386efdef1c56958158bfaa5",
+      "date": "2026-02-12T12:15:08Z",
+      "url": "https://github.com/ggfevans/lima/commit/56ca519311cda9537386efdef1c56958158bfaa5"
+    },
+    {
+      "repo": "lima",
+      "message": "Bump go.mau.fi/util from 0.9.4 to 0.9.5 (#3)",
+      "sha": "7148a4217b7145a8e5a82879244ba9378f9aa69a",
+      "date": "2026-02-12T12:14:57Z",
+      "url": "https://github.com/ggfevans/lima/commit/7148a4217b7145a8e5a82879244ba9378f9aa69a"
+    },
     {
       "repo": "rainforest-EAGLE-commands",
       "message": "update README and add home-assistant basic support",
@@ -161,61 +210,12 @@
       "sha": "3aac9239ca78c7320d3f6fd484e84c84388b197b",
       "date": "2026-02-11T05:28:18Z",
       "url": "https://github.com/RackulaLives/Rackula/commit/3aac9239ca78c7320d3f6fd484e84c84388b197b"
-    },
-    {
-      "repo": "Rackula",
-      "message": "fix(api): harden legacy slug validation and middleware coverage",
-      "sha": "0969c0223b53834836ab06d62e8262d2c4bc5779",
-      "date": "2026-02-11T05:26:54Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/0969c0223b53834836ab06d62e8262d2c4bc5779"
-    },
-    {
-      "repo": "Rackula",
-      "message": "fix(api): preserve DATA_DIR nullish semantics",
-      "sha": "d3bda1411b254ee21ff5221fecf910124ed715dd",
-      "date": "2026-02-11T05:22:14Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/d3bda1411b254ee21ff5221fecf910124ed715dd"
-    },
-    {
-      "repo": "Rackula",
-      "message": "fix(api): address PR #1186 review feedback",
-      "sha": "38fcaa6978ce5b15a1f1abdc3a56bd0c2ee00684",
-      "date": "2026-02-11T05:16:54Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/38fcaa6978ce5b15a1f1abdc3a56bd0c2ee00684"
-    },
-    {
-      "repo": "trakt-json-bourne",
-      "message": "Merge pull request #3 from ggfevans/ggfevans-patch-1",
-      "sha": "889ebca81bbd285dd975898226ef558a963c0202",
-      "date": "2026-02-11T02:13:36Z",
-      "url": "https://github.com/ggfevans/trakt-json-bourne/commit/889ebca81bbd285dd975898226ef558a963c0202"
-    },
-    {
-      "repo": "trakt-json-bourne",
-      "message": "Fix formatting in README.md",
-      "sha": "2502bd838d77d63618b71758eadd60e47d218643",
-      "date": "2026-02-11T02:13:26Z",
-      "url": "https://github.com/ggfevans/trakt-json-bourne/commit/2502bd838d77d63618b71758eadd60e47d218643"
-    },
-    {
-      "repo": "trakt-json-bourne",
-      "message": "Update README.md",
-      "sha": "79cb49f453520a2d048e10377ad1e02abf76f13c",
-      "date": "2026-02-11T02:10:05Z",
-      "url": "https://github.com/ggfevans/trakt-json-bourne/commit/79cb49f453520a2d048e10377ad1e02abf76f13c"
-    },
-    {
-      "repo": "trakt-json-bourne",
-      "message": "docs+ci: improve README and add lean security automation",
-      "sha": "74cc78af8f072be38f25b1854d0a49cacadd9730",
-      "date": "2026-02-11T02:09:25Z",
-      "url": "https://github.com/ggfevans/trakt-json-bourne/commit/74cc78af8f072be38f25b1854d0a49cacadd9730"
     }
   ],
   "stats": {
-    "commitsThisWeek": 60,
-    "commitsThisMonth": 60,
-    "repositoriesThisWeek": 5
+    "commitsThisWeek": 67,
+    "commitsThisMonth": 67,
+    "repositoriesThisWeek": 6
   },
   "repositories": [
     {
@@ -231,6 +231,13 @@
       "language": "Astro",
       "stars": 0,
       "url": "https://github.com/ggfevans/gwilym.ca"
+    },
+    {
+      "name": "lima",
+      "description": "LinkedIn messaging without the feed, the ads, or the \"Thoughts?\" posts. Terminal only.",
+      "language": "Go",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/lima"
     },
     {
       "name": "rainforest-EAGLE-commands",
@@ -294,13 +301,6 @@
       "language": "Python",
       "stars": 0,
       "url": "https://github.com/ggfevans/listenbrainz-csv-upload"
-    },
-    {
-      "name": "searxng-seek-alfred",
-      "description": "Alfred workflow for private web search via SearXNG. Includes inline results, favicons, quick actions",
-      "language": "JavaScript",
-      "stars": 3,
-      "url": "https://github.com/ggfevans/searxng-seek-alfred"
     }
   ]
 }
