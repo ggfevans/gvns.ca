@@ -1,54 +1,187 @@
 {
-  "lastUpdated": "2026-02-13T04:06:08Z",
+  "lastUpdated": "2026-02-14T03:57:42Z",
   "recentCommits": [
     {
-      "repo": "lima",
+      "repo": "endorse",
+      "message": "chore: update dependencies and fix typos",
+      "sha": "25bb3c25d2151f97debb6be95c599e262d4d2536",
+      "date": "2026-02-13T21:40:50Z",
+      "url": "https://github.com/ggfevans/endorse/commit/25bb3c25d2151f97debb6be95c599e262d4d2536"
+    },
+    {
+      "repo": "endorse",
+      "message": "fix: remove entry width wrapper that inflates list height",
+      "sha": "8bcfb08b016bc0d33e4ac66bde3072a28c69dc9f",
+      "date": "2026-02-13T08:37:49Z",
+      "url": "https://github.com/ggfevans/endorse/commit/8bcfb08b016bc0d33e4ac66bde3072a28c69dc9f"
+    },
+    {
+      "repo": "endorse",
+      "message": "fix: DemoClient.MarkRead persists read state",
+      "sha": "1b53429d61c9b44d5c93fd796b6ff1043ed79865",
+      "date": "2026-02-13T08:37:15Z",
+      "url": "https://github.com/ggfevans/endorse/commit/1b53429d61c9b44d5c93fd796b6ff1043ed79865"
+    },
+    {
+      "repo": "endorse",
+      "message": "fix: conversation list fills panel height properly",
+      "sha": "e2d734561655afeb812a1638723bdbd3798d0a7b",
+      "date": "2026-02-13T08:28:40Z",
+      "url": "https://github.com/ggfevans/endorse/commit/e2d734561655afeb812a1638723bdbd3798d0a7b"
+    },
+    {
+      "repo": "endorse",
+      "message": "fix: mark conversation read locally when opened",
+      "sha": "688a314f9fa1b93c5b376b1490fb7acf54a2f808",
+      "date": "2026-02-13T08:02:26Z",
+      "url": "https://github.com/ggfevans/endorse/commit/688a314f9fa1b93c5b376b1490fb7acf54a2f808"
+    },
+    {
+      "repo": "endorse",
+      "message": "feat: show timestamp on every message",
+      "sha": "b9199fe5b50bbab4a5516f6c04e402f26fed3741",
+      "date": "2026-02-13T08:02:00Z",
+      "url": "https://github.com/ggfevans/endorse/commit/b9199fe5b50bbab4a5516f6c04e402f26fed3741"
+    },
+    {
+      "repo": "endorse",
+      "message": "feat: add --theme CLI flag for quick theme switching",
+      "sha": "44f9e2367c964ea0dc3c7aa344efcaa0bbd51f54",
+      "date": "2026-02-13T07:56:33Z",
+      "url": "https://github.com/ggfevans/endorse/commit/44f9e2367c964ea0dc3c7aa344efcaa0bbd51f54"
+    },
+    {
+      "repo": "endorse",
+      "message": "fix: word-wrap message bodies to viewport width",
+      "sha": "8ed9bd0a1b1fe91689506e7cfbea852b6be54b06",
+      "date": "2026-02-13T07:55:34Z",
+      "url": "https://github.com/ggfevans/endorse/commit/8ed9bd0a1b1fe91689506e7cfbea852b6be54b06"
+    },
+    {
+      "repo": "endorse",
+      "message": "feat: add 3 new LinkedIn-themed demo conversations with Tim Robinson vibes",
+      "sha": "c6bc98901e5c6e02f16d3b4cc6795b98a21b307d",
+      "date": "2026-02-13T07:26:21Z",
+      "url": "https://github.com/ggfevans/endorse/commit/c6bc98901e5c6e02f16d3b4cc6795b98a21b307d"
+    },
+    {
+      "repo": "endorse",
+      "message": "fix: adjust demo timings so typing indicators are visible",
+      "sha": "b1f99fabeee14c39abd5271dfcf0475ec9903fca",
+      "date": "2026-02-13T07:24:53Z",
+      "url": "https://github.com/ggfevans/endorse/commit/b1f99fabeee14c39abd5271dfcf0475ec9903fca"
+    },
+    {
+      "repo": "endorse",
+      "message": "fix: add enter key to send messages from compose",
+      "sha": "fac6c28ecd26bc2d78068b015846f08171be288f",
+      "date": "2026-02-13T07:24:21Z",
+      "url": "https://github.com/ggfevans/endorse/commit/fac6c28ecd26bc2d78068b015846f08171be288f"
+    },
+    {
+      "repo": "endorse",
+      "message": "fix: add typing indicators before demo messages and auto-replies",
+      "sha": "6dcb33ea46651079bb6b1f04957b9667ccd5ce82",
+      "date": "2026-02-13T07:18:23Z",
+      "url": "https://github.com/ggfevans/endorse/commit/6dcb33ea46651079bb6b1f04957b9667ccd5ce82"
+    },
+    {
+      "repo": "endorse",
+      "message": "fix: auto-focus compose on conversation open, propagate cursor cmd",
+      "sha": "6d303ac5ddc4731e963ceff41a740be68350ec8d",
+      "date": "2026-02-13T07:17:38Z",
+      "url": "https://github.com/ggfevans/endorse/commit/6d303ac5ddc4731e963ceff41a740be68350ec8d"
+    },
+    {
+      "repo": "endorse",
+      "message": "fix: skip duplicate sender header when it matches conversation title",
+      "sha": "dbdc025093a9ca1a8cd5f23f2f504249d411849e",
+      "date": "2026-02-13T07:16:43Z",
+      "url": "https://github.com/ggfevans/endorse/commit/dbdc025093a9ca1a8cd5f23f2f504249d411849e"
+    },
+    {
+      "repo": "endorse",
+      "message": "feat: integrate always-visible compose into thread panel",
+      "sha": "123dd21a5d01d724ac6c5a36de4ce17105746bc6",
+      "date": "2026-02-13T07:04:36Z",
+      "url": "https://github.com/ggfevans/endorse/commit/123dd21a5d01d724ac6c5a36de4ce17105746bc6"
+    },
+    {
+      "repo": "endorse",
+      "message": "feat: embed compose box inside thread panel border",
+      "sha": "b391ff0361db3b98d2664e6f08903e86ba827358",
+      "date": "2026-02-13T07:04:32Z",
+      "url": "https://github.com/ggfevans/endorse/commit/b391ff0361db3b98d2664e6f08903e86ba827358"
+    },
+    {
+      "repo": "endorse",
+      "message": "feat: simplify compose - always visible, teal cursor, no line highlight",
+      "sha": "77cadb66f541f992800b85293906b31de5fc3413",
+      "date": "2026-02-13T07:04:28Z",
+      "url": "https://github.com/ggfevans/endorse/commit/77cadb66f541f992800b85293906b31de5fc3413"
+    },
+    {
+      "repo": "endorse",
+      "message": "feat: add ComposeCursor style using teal accent",
+      "sha": "0dd132a374075a00456a2b1646d27728b38339a3",
+      "date": "2026-02-13T07:04:24Z",
+      "url": "https://github.com/ggfevans/endorse/commit/0dd132a374075a00456a2b1646d27728b38339a3"
+    },
+    {
+      "repo": "endorse",
+      "message": "rename lima to endorse",
+      "sha": "4b1436ee8a9b63cfc3a735abff4e1cfd33aaee17",
+      "date": "2026-02-13T06:06:14Z",
+      "url": "https://github.com/ggfevans/endorse/commit/4b1436ee8a9b63cfc3a735abff4e1cfd33aaee17"
+    },
+    {
+      "repo": "endorse",
       "message": "rename li-cli to lima",
       "sha": "1a9cf74705eb8b44ad003152167ad8c5d17a5fc0",
       "date": "2026-02-13T00:20:44Z",
-      "url": "https://github.com/ggfevans/lima/commit/1a9cf74705eb8b44ad003152167ad8c5d17a5fc0"
+      "url": "https://github.com/ggfevans/endorse/commit/1a9cf74705eb8b44ad003152167ad8c5d17a5fc0"
     },
     {
-      "repo": "lima",
+      "repo": "endorse",
       "message": "update README",
       "sha": "2ce246bb41d186ec7b0f55fac71ed50698d038cd",
       "date": "2026-02-12T12:24:17Z",
-      "url": "https://github.com/ggfevans/lima/commit/2ce246bb41d186ec7b0f55fac71ed50698d038cd"
+      "url": "https://github.com/ggfevans/endorse/commit/2ce246bb41d186ec7b0f55fac71ed50698d038cd"
     },
     {
-      "repo": "lima",
+      "repo": "endorse",
       "message": "fix CI: pin go 1.25.7, fix goreleaser deprecations",
       "sha": "e2beacc9b08cae02561ab056d21978ecfcea9c30",
       "date": "2026-02-12T12:20:07Z",
-      "url": "https://github.com/ggfevans/lima/commit/e2beacc9b08cae02561ab056d21978ecfcea9c30"
+      "url": "https://github.com/ggfevans/endorse/commit/e2beacc9b08cae02561ab056d21978ecfcea9c30"
     },
     {
-      "repo": "lima",
+      "repo": "endorse",
       "message": "add perms",
       "sha": "6c5b8f1e972c551eea90ce7d2369842c3a1117e0",
       "date": "2026-02-12T12:17:52Z",
-      "url": "https://github.com/ggfevans/lima/commit/6c5b8f1e972c551eea90ce7d2369842c3a1117e0"
+      "url": "https://github.com/ggfevans/endorse/commit/6c5b8f1e972c551eea90ce7d2369842c3a1117e0"
     },
     {
-      "repo": "lima",
+      "repo": "endorse",
       "message": "bump actions/checkout from v4 to v6",
       "sha": "896fa0c3535355f05b8b4eb343b10f45d0dcace6",
       "date": "2026-02-12T12:15:57Z",
-      "url": "https://github.com/ggfevans/lima/commit/896fa0c3535355f05b8b4eb343b10f45d0dcace6"
+      "url": "https://github.com/ggfevans/endorse/commit/896fa0c3535355f05b8b4eb343b10f45d0dcace6"
     },
     {
-      "repo": "lima",
+      "repo": "endorse",
       "message": "Bump actions/setup-go from 5 to 6 (#1)",
       "sha": "56ca519311cda9537386efdef1c56958158bfaa5",
       "date": "2026-02-12T12:15:08Z",
-      "url": "https://github.com/ggfevans/lima/commit/56ca519311cda9537386efdef1c56958158bfaa5"
+      "url": "https://github.com/ggfevans/endorse/commit/56ca519311cda9537386efdef1c56958158bfaa5"
     },
     {
-      "repo": "lima",
+      "repo": "endorse",
       "message": "Bump go.mau.fi/util from 0.9.4 to 0.9.5 (#3)",
       "sha": "7148a4217b7145a8e5a82879244ba9378f9aa69a",
       "date": "2026-02-12T12:14:57Z",
-      "url": "https://github.com/ggfevans/lima/commit/7148a4217b7145a8e5a82879244ba9378f9aa69a"
+      "url": "https://github.com/ggfevans/endorse/commit/7148a4217b7145a8e5a82879244ba9378f9aa69a"
     },
     {
       "repo": "rainforest-EAGLE-commands",
@@ -77,145 +210,12 @@
       "sha": "879aeab09a5ccd2bf012843c2d5e95f6fd82186d",
       "date": "2026-02-11T08:41:09Z",
       "url": "https://github.com/RackulaLives/Rackula/commit/879aeab09a5ccd2bf012843c2d5e95f6fd82186d"
-    },
-    {
-      "repo": "Rackula",
-      "message": "fix(deps): revert eslint v10 upgrade breaking CI build (#1199)",
-      "sha": "21a2d4e4a144debd7bde0e571cbc80ce5c429a06",
-      "date": "2026-02-11T08:36:01Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/21a2d4e4a144debd7bde0e571cbc80ce5c429a06"
-    },
-    {
-      "repo": "Rackula",
-      "message": "fix: harden persistence health validation (#1087) (#1197)",
-      "sha": "bc766c20c8d0e5dea00d29d2a9be895fbd9be4b5",
-      "date": "2026-02-11T08:29:01Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/bc766c20c8d0e5dea00d29d2a9be895fbd9be4b5"
-    },
-    {
-      "repo": "Rackula",
-      "message": "Merge branch 'main' into fix/1087-healthcheck-false-positive",
-      "sha": "a61ce51aeb57b521571f8acec7be55d15ff6160b",
-      "date": "2026-02-11T08:25:43Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/a61ce51aeb57b521571f8acec7be55d15ff6160b"
-    },
-    {
-      "repo": "Rackula",
-      "message": "Update src/tests/App.startScreen.test.ts",
-      "sha": "cc28df37b5f20ab45dd69e5823d0135dffc33d8f",
-      "date": "2026-02-11T08:25:31Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/cc28df37b5f20ab45dd69e5823d0135dffc33d8f"
-    },
-    {
-      "repo": "Rackula",
-      "message": "chore(deps): bump @types/node in the typescript group (#1181)",
-      "sha": "df67bd13eb3d9487b8c990f4421fa4145278991d",
-      "date": "2026-02-11T06:12:49Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/df67bd13eb3d9487b8c990f4421fa4145278991d"
-    },
-    {
-      "repo": "Rackula",
-      "message": "chore(deps): bump the eslint group with 3 updates (#1180)",
-      "sha": "0e0fe296c659bf768bb059f3e0bd04b5b693edd4",
-      "date": "2026-02-11T06:12:45Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/0e0fe296c659bf768bb059f3e0bd04b5b693edd4"
-    },
-    {
-      "repo": "Rackula",
-      "message": "fix(api): align filesystem tests with UUID storage (#1184) (#1186)",
-      "sha": "23810429c94f92ddc83e239c664fda9e026d82ba",
-      "date": "2026-02-11T06:07:51Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/23810429c94f92ddc83e239c664fda9e026d82ba"
-    },
-    {
-      "repo": "Rackula",
-      "message": "Merge remote-tracking branch 'origin/main' into fix/1184-api-filesystem",
-      "sha": "48d505cddc5c57a3120a1dcbc2e6acfc0f6dfec4",
-      "date": "2026-02-11T06:06:25Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/48d505cddc5c57a3120a1dcbc2e6acfc0f6dfec4"
-    },
-    {
-      "repo": "Rackula",
-      "message": "feat: add YAML editor apply flow with conflict guards (#1196)",
-      "sha": "6ea124c4fad3ef938a0a91abf6caf735ad53879a",
-      "date": "2026-02-11T06:02:49Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/6ea124c4fad3ef938a0a91abf6caf735ad53879a"
-    },
-    {
-      "repo": "Rackula",
-      "message": "Merge branch 'dev/yamllama-ding-dong' into feat/1176-yaml-edit-apply-flow",
-      "sha": "8552d0a30cb826711fa07681a81b156f10492918",
-      "date": "2026-02-11T06:02:43Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/8552d0a30cb826711fa07681a81b156f10492918"
-    },
-    {
-      "repo": "Rackula",
-      "message": "fix: harden persistence health validation",
-      "sha": "5894627c2e83e2af99634140b993f103a5865fd2",
-      "date": "2026-02-11T06:01:07Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/5894627c2e83e2af99634140b993f103a5865fd2"
-    },
-    {
-      "repo": "Rackula",
-      "message": "fix: resolve api typecheck errors in security and storage (#1192)",
-      "sha": "e3ec25f919fb54f6e54177bbe51be9ae1771928d",
-      "date": "2026-02-11T05:50:05Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/e3ec25f919fb54f6e54177bbe51be9ae1771928d"
-    },
-    {
-      "repo": "Rackula",
-      "message": "Merge branch 'main' into fix/1184-api-filesystem",
-      "sha": "ab024015a6eb33d1fbf7d2fc63f94dbcf60bf108",
-      "date": "2026-02-11T05:40:05Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/ab024015a6eb33d1fbf7d2fc63f94dbcf60bf108"
-    },
-    {
-      "repo": "Rackula",
-      "message": "fix(api): dedupe migrated legacy listings",
-      "sha": "492d9263f86026f4c1d2b6a949c725a71ac0826c",
-      "date": "2026-02-11T05:36:31Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/492d9263f86026f4c1d2b6a949c725a71ac0826c"
-    },
-    {
-      "repo": "Rackula",
-      "message": "feat: import phase 2 NetBox homelab devices (#1111) (#1188)",
-      "sha": "378d7a6cca72957dc2080a7112324a6d35eaec1e",
-      "date": "2026-02-11T05:32:48Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/378d7a6cca72957dc2080a7112324a6d35eaec1e"
-    },
-    {
-      "repo": "Rackula",
-      "message": "fix(api): resolve typecheck errors in security/storage (#1185) (#1187)",
-      "sha": "e9344965e8066591a5c586837d90d99f1fb3d2bb",
-      "date": "2026-02-11T05:30:51Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/e9344965e8066591a5c586837d90d99f1fb3d2bb"
-    },
-    {
-      "repo": "Rackula",
-      "message": "fix: address CodeRabbit follow-ups for phase 2 import",
-      "sha": "c34b389041dba03de2b02f06f54ce41e375c360b",
-      "date": "2026-02-11T05:29:42Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/c34b389041dba03de2b02f06f54ce41e375c360b"
-    },
-    {
-      "repo": "Rackula",
-      "message": "Merge remote-tracking branch 'origin/fix/1184-api-filesystem' into fix/1185-api-typecheck",
-      "sha": "a3dee6e8e5deda70cb54d5aac31fac6a248e3cfe",
-      "date": "2026-02-11T05:29:31Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/a3dee6e8e5deda70cb54d5aac31fac6a248e3cfe"
-    },
-    {
-      "repo": "Rackula",
-      "message": "fix(api): address filesystem review feedback",
-      "sha": "3aac9239ca78c7320d3f6fd484e84c84388b197b",
-      "date": "2026-02-11T05:28:18Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/3aac9239ca78c7320d3f6fd484e84c84388b197b"
     }
   ],
   "stats": {
-    "commitsThisWeek": 67,
-    "commitsThisMonth": 67,
-    "repositoriesThisWeek": 6
+    "commitsThisWeek": 69,
+    "commitsThisMonth": 69,
+    "repositoriesThisWeek": 5
   },
   "repositories": [
     {
@@ -233,11 +233,11 @@
       "url": "https://github.com/ggfevans/gwilym.ca"
     },
     {
-      "name": "lima",
-      "description": "LinkedIn messaging without the feed, the ads, or the \"Thoughts?\" posts. Terminal only.",
+      "name": "endorse",
+      "description": "LinkedIn CLI / TUI. LinkedIn messaging without the feed, the ads, or the \"Thoughts?\" posts.",
       "language": "Go",
       "stars": 0,
-      "url": "https://github.com/ggfevans/lima"
+      "url": "https://github.com/ggfevans/endorse"
     },
     {
       "name": "rainforest-EAGLE-commands",
