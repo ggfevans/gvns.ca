@@ -1,6 +1,20 @@
 {
-  "lastUpdated": "2026-02-13T00:10:21Z",
+  "lastUpdated": "2026-02-14T00:09:36Z",
   "recentlyWatched": [
+    {
+      "title": "Detroiters — S02E02",
+      "type": "show",
+      "posterUrl": "https://image.tmdb.org/t/p/w342/hBxeoEzVola4LyhW3C7FjseFeWm.jpg",
+      "url": "https://trakt.tv/shows/detroiters",
+      "watchedDate": "2026-02-13T11:03:00.000Z"
+    },
+    {
+      "title": "Fallout — S02E08",
+      "type": "show",
+      "posterUrl": "https://image.tmdb.org/t/p/w342/c15BtJxCXMrISLVmysdsnZUPQft.jpg",
+      "url": "https://trakt.tv/shows/fallout",
+      "watchedDate": "2026-02-13T10:37:00.000Z"
+    },
     {
       "title": "Banshee — S03E06",
       "type": "show",
@@ -18,6 +32,6 @@
   ],
   "stats": {
     "moviesThisMonth": 0,
-    "showsThisMonth": 2
+    "showsThisMonth": 4
   }
 }
