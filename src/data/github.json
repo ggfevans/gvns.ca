@@ -1,221 +1,221 @@
 {
-  "lastUpdated": "2026-02-15T04:07:08Z",
+  "lastUpdated": "2026-02-16T04:08:03Z",
   "recentCommits": [
     {
-      "repo": "endorse",
-      "message": "remove demo.gif",
-      "sha": "64ffbba9c0281623252455406cb71df8dc59a525",
-      "date": "2026-02-14T11:21:18Z",
-      "url": "https://github.com/ggfevans/endorse/commit/64ffbba9c0281623252455406cb71df8dc59a525"
+      "repo": "claude-delegator",
+      "message": "Update README.md",
+      "sha": "fc912797d06ba4c2d0cf29d4627e9f331d85f810",
+      "date": "2026-02-16T00:13:39Z",
+      "url": "https://github.com/ggfevans/claude-delegator/commit/fc912797d06ba4c2d0cf29d4627e9f331d85f810"
     },
     {
-      "repo": "obsidian-plugin-playbooks",
-      "message": "fix: stop repeated error messages when obsidian CLI is not found",
-      "sha": "0c1e6e74f2e59955cd2b49b5a4d304ef99b3e7de",
-      "date": "2026-02-14T11:15:22Z",
-      "url": "https://github.com/ggfevans/obsidian-plugin-playbooks/commit/0c1e6e74f2e59955cd2b49b5a4d304ef99b3e7de"
+      "repo": "claude-delegator",
+      "message": "feat: add Gemini support via zero-dependency MCP bridge",
+      "sha": "7838de684f3c6941f799747189db06f53cb1899a",
+      "date": "2026-02-15T14:47:01Z",
+      "url": "https://github.com/ggfevans/claude-delegator/commit/7838de684f3c6941f799747189db06f53cb1899a"
     },
     {
-      "repo": "endorse",
-      "message": "chore: remove unused bin/linkedin-tui and demo.gif",
-      "sha": "a902d5ade708d700086ea7d2f3ea485bca3783cf",
-      "date": "2026-02-14T11:14:25Z",
-      "url": "https://github.com/ggfevans/endorse/commit/a902d5ade708d700086ea7d2f3ea485bca3783cf"
+      "repo": "claude-delegator",
+      "message": "refactor: improve bridge robustness, metadata alignment, and cwd support",
+      "sha": "a790c3fd64646a222f23a34427b70f49359c7a7b",
+      "date": "2026-02-15T14:44:31Z",
+      "url": "https://github.com/ggfevans/claude-delegator/commit/a790c3fd64646a222f23a34427b70f49359c7a7b"
     },
     {
-      "repo": "endorse",
-      "message": "fix: remove shitty half-assed theme",
-      "sha": "70fb000a84387af5286972d74b2e55861c224dcc",
-      "date": "2026-02-14T10:48:48Z",
-      "url": "https://github.com/ggfevans/endorse/commit/70fb000a84387af5286972d74b2e55861c224dcc"
+      "repo": "Rackula",
+      "message": "Merge branch 'main' into chore/1225-consolidate-helpers-fix-isolation",
+      "sha": "22172b7d854b291c684139f7c0fb32214d10a5b0",
+      "date": "2026-02-15T14:43:10Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/22172b7d854b291c684139f7c0fb32214d10a5b0"
     },
     {
-      "repo": "obsidian-plugin-playbooks",
-      "message": "fix: improve obsidian CLI error handling and conditional success message",
-      "sha": "adf3e117386d6b856f4fcf18ebb275e18de69082",
-      "date": "2026-02-14T10:46:57Z",
-      "url": "https://github.com/ggfevans/obsidian-plugin-playbooks/commit/adf3e117386d6b856f4fcf18ebb275e18de69082"
+      "repo": "Rackula",
+      "message": "Merge pull request #1247 from RackulaLives/feature/1219-save-vs-save-as",
+      "sha": "baf0a55928a6d7f2b43fdf368d0d0c75b6ad3938",
+      "date": "2026-02-15T14:42:40Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/baf0a55928a6d7f2b43fdf368d0d0c75b6ad3938"
     },
     {
-      "repo": "obsidian-plugin-playbooks",
-      "message": "fix: reject flags as values in CLI argument parsing",
-      "sha": "8bc565d660563e1156313386c6fbdb97b2fc9f9e",
-      "date": "2026-02-14T10:46:44Z",
-      "url": "https://github.com/ggfevans/obsidian-plugin-playbooks/commit/8bc565d660563e1156313386c6fbdb97b2fc9f9e"
+      "repo": "Rackula",
+      "message": "Merge branch 'main' into feature/1219-save-vs-save-as",
+      "sha": "b6e222d6e70ac1acf15affef6efd3826867103c2",
+      "date": "2026-02-15T14:42:25Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/b6e222d6e70ac1acf15affef6efd3826867103c2"
     },
     {
-      "repo": "obsidian-plugin-playbooks",
-      "message": "fix: block file generation on validation errors with user confirmation",
-      "sha": "0f16ec93dd6c9b60d98b0ceccc20c840e574313c",
-      "date": "2026-02-14T10:46:36Z",
-      "url": "https://github.com/ggfevans/obsidian-plugin-playbooks/commit/0f16ec93dd6c9b60d98b0ceccc20c840e574313c"
+      "repo": "claude-delegator",
+      "message": "feat: implement zero-dependency Gemini MCP bridge with multi-turn support",
+      "sha": "a8d1c6d287acdbbc5e85b4b5c69a0858d4c3c1f8",
+      "date": "2026-02-15T14:41:02Z",
+      "url": "https://github.com/ggfevans/claude-delegator/commit/a8d1c6d287acdbbc5e85b4b5c69a0858d4c3c1f8"
     },
     {
-      "repo": "obsidian-plugin-playbooks",
-      "message": "fix: extend prototype pollution defence to constructor and prototype keys",
-      "sha": "0c2d455880529441a0c18f4c40fd0736317cf562",
-      "date": "2026-02-14T10:46:26Z",
-      "url": "https://github.com/ggfevans/obsidian-plugin-playbooks/commit/0c2d455880529441a0c18f4c40fd0736317cf562"
+      "repo": "Rackula",
+      "message": "fix: extract helper, guard pendingSaveFirst, rename icon Bold",
+      "sha": "8f78c1fa5b6c9253abe4a1539b5e93b67343a9dd",
+      "date": "2026-02-15T14:19:42Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/8f78c1fa5b6c9253abe4a1539b5e93b67343a9dd"
     },
     {
-      "repo": "obsidian-plugin-playbooks",
-      "message": "docs: clarify installer target must differ from source directory",
-      "sha": "3b7f8945b7cbcc5e62261e5c381d41ccf2b0034f",
-      "date": "2026-02-14T10:10:24Z",
-      "url": "https://github.com/ggfevans/obsidian-plugin-playbooks/commit/3b7f8945b7cbcc5e62261e5c381d41ccf2b0034f"
+      "repo": "Rackula",
+      "message": "fix: address remaining CodeRabbit review items on PR #1247",
+      "sha": "4c1052e62acc85dc4c822cd4c1a1976b46cdf3b2",
+      "date": "2026-02-15T13:56:38Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/4c1052e62acc85dc4c822cd4c1a1976b46cdf3b2"
     },
     {
-      "repo": "obsidian-plugin-playbooks",
-      "message": "fix: sanitise loaded settings data to prevent prototype pollution",
-      "sha": "19b7030bd5b1170f934f9c6130eb4d67286a9d09",
-      "date": "2026-02-14T10:10:13Z",
-      "url": "https://github.com/ggfevans/obsidian-plugin-playbooks/commit/19b7030bd5b1170f934f9c6130eb4d67286a9d09"
+      "repo": "claude-delegator",
+      "message": "Merge pull request #1 from ggfevans/feat/gemini-support",
+      "sha": "a40a6349dc952f9eea8bdd3b99e6a9972bf6b0d9",
+      "date": "2026-02-15T13:41:25Z",
+      "url": "https://github.com/ggfevans/claude-delegator/commit/a40a6349dc952f9eea8bdd3b99e6a9972bf6b0d9"
     },
     {
-      "repo": "obsidian-plugin-playbooks",
-      "message": "chore: update generated dependency versions to match official sample plugin",
-      "sha": "d25eba518bcb089cb74b11705824f9a71f999e26",
-      "date": "2026-02-14T10:10:03Z",
-      "url": "https://github.com/ggfevans/obsidian-plugin-playbooks/commit/d25eba518bcb089cb74b11705824f9a71f999e26"
+      "repo": "claude-delegator",
+      "message": "feat: add support for Gemini expert subagents",
+      "sha": "f34157804d6ac1c925af645f2f42bec7879a03b5",
+      "date": "2026-02-15T13:36:59Z",
+      "url": "https://github.com/ggfevans/claude-delegator/commit/f34157804d6ac1c925af645f2f42bec7879a03b5"
     },
     {
-      "repo": "obsidian-plugin-playbooks",
-      "message": "fix: replace sample settings with minimal skeleton in generator",
-      "sha": "70bdb760024182c4fd5ecf070bbc54446aed9dab",
-      "date": "2026-02-14T10:09:52Z",
-      "url": "https://github.com/ggfevans/obsidian-plugin-playbooks/commit/70bdb760024182c4fd5ecf070bbc54446aed9dab"
+      "repo": "Rackula",
+      "message": "fix: handle pendingSaveFirst in server save path",
+      "sha": "cb17780b015d00f9732f52c6b69a7b3e2208cb3d",
+      "date": "2026-02-15T13:32:51Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/cb17780b015d00f9732f52c6b69a7b3e2208cb3d"
     },
     {
-      "repo": "obsidian-plugin-playbooks",
-      "message": "fix: reject self-copy when installer target equals source directory",
-      "sha": "a9902ea25ecfb6d0693a7813c48af843b0492090",
-      "date": "2026-02-14T10:09:10Z",
-      "url": "https://github.com/ggfevans/obsidian-plugin-playbooks/commit/a9902ea25ecfb6d0693a7813c48af843b0492090"
+      "repo": "Rackula",
+      "message": "fix(ci): pin actions to commit SHAs in build-lxc.yml",
+      "sha": "1b226d8e1c5b3b3b3fae9a32d51a6720d9627502",
+      "date": "2026-02-15T13:23:39Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/1b226d8e1c5b3b3b3fae9a32d51a6720d9627502"
     },
     {
-      "repo": "endorse",
-      "message": "bugfix: internal/app/app.go:",
-      "sha": "fa80adcf5db72287973a31d0f735f65ed7ba2069",
-      "date": "2026-02-14T04:42:16Z",
-      "url": "https://github.com/ggfevans/endorse/commit/fa80adcf5db72287973a31d0f735f65ed7ba2069"
+      "repo": "Rackula",
+      "message": "fix: thread slot_position through pointer-based device move events (#1246)",
+      "sha": "e8606977c429a8515c08be243e03b7c3ce258121",
+      "date": "2026-02-15T13:18:26Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/e8606977c429a8515c08be243e03b7c3ce258121"
     },
     {
-      "repo": "obsidian-plugin-playbooks",
-      "message": "docs: add CONTRIBUTING.md, CODE_OF_CONDUCT.md, and SECURITY.md",
-      "sha": "fa2f2ed66c9a32582a5f6f667cff16d893e7a5c8",
-      "date": "2026-02-14T02:47:23Z",
-      "url": "https://github.com/ggfevans/obsidian-plugin-playbooks/commit/fa2f2ed66c9a32582a5f6f667cff16d893e7a5c8"
+      "repo": "Rackula",
+      "message": "Merge remote-tracking branch 'origin/main' into fix/1244-slot-position-pointer-drag",
+      "sha": "f765c9a02bcdea3787fc049959b6e111d526c26b",
+      "date": "2026-02-15T13:15:50Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/f765c9a02bcdea3787fc049959b6e111d526c26b"
     },
     {
-      "repo": "obsidian-plugin-playbooks",
-      "message": "feat: include tools/ directory in installer and update path references",
-      "sha": "9d812041c3b2f42cf16c0002c8af3b44fc38c58e",
-      "date": "2026-02-13T22:57:31Z",
-      "url": "https://github.com/ggfevans/obsidian-plugin-playbooks/commit/9d812041c3b2f42cf16c0002c8af3b44fc38c58e"
+      "repo": "Rackula",
+      "message": "feat: separate Save from Save As (#1219)",
+      "sha": "995ae8849ad558d8dc968bba05059e15b364e412",
+      "date": "2026-02-15T13:11:59Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/995ae8849ad558d8dc968bba05059e15b364e412"
     },
     {
-      "repo": "obsidian-plugin-playbooks",
-      "message": "docs: add Node.js and Obsidian CLI version prerequisites",
-      "sha": "85be6a746391f5ce8dfef6d7bd24788939aadddb",
-      "date": "2026-02-13T22:56:52Z",
-      "url": "https://github.com/ggfevans/obsidian-plugin-playbooks/commit/85be6a746391f5ce8dfef6d7bd24788939aadddb"
+      "repo": "Rackula",
+      "message": "fix(ci): pin actions to commit SHAs in build-lxc.yml",
+      "sha": "4475766eaa37ffc5f0006a0edad53dd8328a9e0f",
+      "date": "2026-02-15T12:48:52Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/4475766eaa37ffc5f0006a0edad53dd8328a9e0f"
     },
     {
-      "repo": "obsidian-plugin-playbooks",
-      "message": "docs: remove hardcoded line count from README philosophy section",
-      "sha": "0a51dfdba44807727d30abc0cf55ceadcebdd5e6",
-      "date": "2026-02-13T22:56:36Z",
-      "url": "https://github.com/ggfevans/obsidian-plugin-playbooks/commit/0a51dfdba44807727d30abc0cf55ceadcebdd5e6"
+      "repo": "Rackula",
+      "message": "Merge pull request #1232 from RackulaLives/chore/1223-playwright-config-hardening",
+      "sha": "7be29612338a25f255c961b1285ed9e050857c89",
+      "date": "2026-02-15T12:45:20Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/7be29612338a25f255c961b1285ed9e050857c89"
     },
     {
-      "repo": "obsidian-plugin-playbooks",
-      "message": "fix: use repo-relative paths for README deep links",
-      "sha": "2e2cd8dd0ad80a28b824014d34a99d3d8d7e3c91",
-      "date": "2026-02-13T22:56:22Z",
-      "url": "https://github.com/ggfevans/obsidian-plugin-playbooks/commit/2e2cd8dd0ad80a28b824014d34a99d3d8d7e3c91"
+      "repo": "Rackula",
+      "message": "Merge branch 'main' into chore/1223-playwright-config-hardening",
+      "sha": "a9d5ca72fb27385b30d8a14c5b3460ddb5b5f20d",
+      "date": "2026-02-15T12:45:07Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/a9d5ca72fb27385b30d8a14c5b3460ddb5b5f20d"
     },
     {
-      "repo": "obsidian-plugin-playbooks",
-      "message": "fix: exit non-zero when CLI capture commands fail",
-      "sha": "b48df7be7623be4823ef78bb1470da3699a140fd",
-      "date": "2026-02-13T22:56:10Z",
-      "url": "https://github.com/ggfevans/obsidian-plugin-playbooks/commit/b48df7be7623be4823ef78bb1470da3699a140fd"
+      "repo": "Rackula",
+      "message": "Merge pull request #1242 from RackulaLives/fix/1191-1195-1193-half-width",
+      "sha": "154503af3b617561168ba358ab75a8901b7a63ad",
+      "date": "2026-02-15T10:51:27Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/154503af3b617561168ba358ab75a8901b7a63ad"
     },
     {
-      "repo": "obsidian-plugin-playbooks",
-      "message": "fix: make generated main.ts minimal and sanitise class name identifiers",
-      "sha": "d2d223302bc59d628c5d9364300aaef7d3de90e2",
-      "date": "2026-02-13T22:55:47Z",
-      "url": "https://github.com/ggfevans/obsidian-plugin-playbooks/commit/d2d223302bc59d628c5d9364300aaef7d3de90e2"
+      "repo": "Rackula",
+      "message": "Merge branch 'main' into fix/1191-1195-1193-half-width",
+      "sha": "1412ce3dad6e6b4bee1682dad28d549edddc7803",
+      "date": "2026-02-15T10:47:39Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/1412ce3dad6e6b4bee1682dad28d549edddc7803"
     },
     {
-      "repo": "obsidian-plugin-playbooks",
-      "message": "chore: update LICENSE copyright to 2026 Gareth Evans @ggfevans",
-      "sha": "55bd870c95c10ef5a2f4ec9e68d0f0bf93efd5f9",
-      "date": "2026-02-13T22:54:58Z",
-      "url": "https://github.com/ggfevans/obsidian-plugin-playbooks/commit/55bd870c95c10ef5a2f4ec9e68d0f0bf93efd5f9"
+      "repo": "Rackula",
+      "message": "Merge pull request #1241 from RackulaLives/fix/1203-settings-menu-context",
+      "sha": "41b39e06e441dbeda36c0f7a98a3f00516e4d62c",
+      "date": "2026-02-15T10:47:19Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/41b39e06e441dbeda36c0f7a98a3f00516e4d62c"
     },
     {
-      "repo": "obsidian-plugin-playbooks",
-      "message": "fix: remove corrupted UTF-8 characters from .gitignore",
-      "sha": "f2f1bf362d84154d13bd76c670e2a52c4ec6705a",
-      "date": "2026-02-13T22:54:46Z",
-      "url": "https://github.com/ggfevans/obsidian-plugin-playbooks/commit/f2f1bf362d84154d13bd76c670e2a52c4ec6705a"
+      "repo": "Rackula",
+      "message": "Merge branch 'main' into fix/1203-settings-menu-context",
+      "sha": "6e08c727ed1707e47b624d002bc7b00801565df3",
+      "date": "2026-02-15T10:47:07Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/6e08c727ed1707e47b624d002bc7b00801565df3"
     },
     {
-      "repo": "endorse",
-      "message": "chore: update dependencies and fix typos",
-      "sha": "25bb3c25d2151f97debb6be95c599e262d4d2536",
-      "date": "2026-02-13T21:40:50Z",
-      "url": "https://github.com/ggfevans/endorse/commit/25bb3c25d2151f97debb6be95c599e262d4d2536"
+      "repo": "Rackula",
+      "message": "Merge pull request #1243 from RackulaLives/fix/1200-safari-drag-drop",
+      "sha": "13daac08f9bf4b2f0fc48f4fe0d0d0420e8807b2",
+      "date": "2026-02-15T10:46:43Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/13daac08f9bf4b2f0fc48f4fe0d0d0420e8807b2"
     },
     {
-      "repo": "endorse",
-      "message": "fix: remove entry width wrapper that inflates list height",
-      "sha": "8bcfb08b016bc0d33e4ac66bde3072a28c69dc9f",
-      "date": "2026-02-13T08:37:49Z",
-      "url": "https://github.com/ggfevans/endorse/commit/8bcfb08b016bc0d33e4ac66bde3072a28c69dc9f"
+      "repo": "Rackula",
+      "message": "Update src/lib/components/Rack.svelte",
+      "sha": "763a543d743ddbac34bf5cbfb6152d49e44b5e8d",
+      "date": "2026-02-15T10:45:53Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/763a543d743ddbac34bf5cbfb6152d49e44b5e8d"
     },
     {
-      "repo": "endorse",
-      "message": "fix: DemoClient.MarkRead persists read state",
-      "sha": "1b53429d61c9b44d5c93fd796b6ff1043ed79865",
-      "date": "2026-02-13T08:37:15Z",
-      "url": "https://github.com/ggfevans/endorse/commit/1b53429d61c9b44d5c93fd796b6ff1043ed79865"
+      "repo": "ProxmoxVE",
+      "message": "fix: restore fork URL in ct/rackula.sh source line",
+      "sha": "32017642e8daa1a9e78c07e38ab816e155bb82ff",
+      "date": "2026-02-15T10:07:33Z",
+      "url": "https://github.com/ggfevans/ProxmoxVE/commit/32017642e8daa1a9e78c07e38ab816e155bb82ff"
     },
     {
-      "repo": "endorse",
-      "message": "fix: conversation list fills panel height properly",
-      "sha": "e2d734561655afeb812a1638723bdbd3798d0a7b",
-      "date": "2026-02-13T08:28:40Z",
-      "url": "https://github.com/ggfevans/endorse/commit/e2d734561655afeb812a1638723bdbd3798d0a7b"
+      "repo": "Rackula",
+      "message": "chore: apply CodeRabbit review fixes to playwright config",
+      "sha": "07f1258f05e6206d401fe8f8823d03111bae1fd2",
+      "date": "2026-02-15T10:06:27Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/07f1258f05e6206d401fe8f8823d03111bae1fd2"
     },
     {
-      "repo": "endorse",
-      "message": "fix: mark conversation read locally when opened",
-      "sha": "688a314f9fa1b93c5b376b1490fb7acf54a2f808",
-      "date": "2026-02-13T08:02:26Z",
-      "url": "https://github.com/ggfevans/endorse/commit/688a314f9fa1b93c5b376b1490fb7acf54a2f808"
+      "repo": "Rackula",
+      "message": "fix: add text/plain fallback for drag data in Rack drop handlers",
+      "sha": "4caeb900fa7d8a7e0069d9084dd10bf1b5b1f857",
+      "date": "2026-02-15T10:05:48Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/4caeb900fa7d8a7e0069d9084dd10bf1b5b1f857"
     },
     {
-      "repo": "endorse",
-      "message": "feat: show timestamp on every message",
-      "sha": "b9199fe5b50bbab4a5516f6c04e402f26fed3741",
-      "date": "2026-02-13T08:02:00Z",
-      "url": "https://github.com/ggfevans/endorse/commit/b9199fe5b50bbab4a5516f6c04e402f26fed3741"
+      "repo": "Rackula",
+      "message": "fix: thread slot_position through device move events and improve context menu",
+      "sha": "1b671b53d99ab42ec46d636910f416d84c80c0ef",
+      "date": "2026-02-15T10:05:03Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/1b671b53d99ab42ec46d636910f416d84c80c0ef"
     },
     {
-      "repo": "endorse",
-      "message": "feat: add --theme CLI flag for quick theme switching",
-      "sha": "44f9e2367c964ea0dc3c7aa344efcaa0bbd51f54",
-      "date": "2026-02-13T07:56:33Z",
-      "url": "https://github.com/ggfevans/endorse/commit/44f9e2367c964ea0dc3c7aa344efcaa0bbd51f54"
+      "repo": "Rackula",
+      "message": "fix(ui): replace GroupHeading with plain span in settings menu",
+      "sha": "589af0839ab98bca74de5a66aa85a31535513064",
+      "date": "2026-02-15T10:04:33Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/589af0839ab98bca74de5a66aa85a31535513064"
     }
   ],
   "stats": {
-    "commitsThisWeek": 79,
-    "commitsThisMonth": 79,
-    "repositoriesThisWeek": 4
+    "commitsThisWeek": 125,
+    "commitsThisMonth": 125,
+    "repositoriesThisWeek": 6
   },
   "repositories": [
     {
