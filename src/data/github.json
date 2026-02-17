@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-16T04:08:03Z",
+  "lastUpdated": "2026-02-17T04:04:17Z",
   "recentCommits": [
     {
       "repo": "claude-delegator",
@@ -213,8 +213,8 @@
     }
   ],
   "stats": {
-    "commitsThisWeek": 125,
-    "commitsThisMonth": 125,
+    "commitsThisWeek": 120,
+    "commitsThisMonth": 120,
     "repositoriesThisWeek": 6
   },
   "repositories": [
@@ -231,6 +231,13 @@
       "language": "Astro",
       "stars": 0,
       "url": "https://github.com/ggfevans/gwilym.ca"
+    },
+    {
+      "name": "trakt-json-bourne",
+      "description": "GitHub Action that turns Trakt watch history into JSON with optional TMDB posters. For use in static sites.",
+      "language": "Shell",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/trakt-json-bourne"
     },
     {
       "name": "obsidian-plugin-playbooks",
@@ -252,13 +259,6 @@
       "language": "Shell",
       "stars": 1,
       "url": "https://github.com/ggfevans/rainforest-EAGLE-commands"
-    },
-    {
-      "name": "trakt-json-bourne",
-      "description": "GitHub Action that turns Trakt watch history into JSON with optional TMDB posters. For use in static sites.",
-      "language": "Shell",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/trakt-json-bourne"
     },
     {
       "name": "listenbrainz-json-bourne",
