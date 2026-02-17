@@ -1,6 +1,13 @@
 {
-  "lastUpdated": "2026-02-16T00:08:29Z",
+  "lastUpdated": "2026-02-17T00:09:18Z",
   "recentlyWatched": [
+    {
+      "title": "Sentimental Value",
+      "type": "movie",
+      "posterUrl": "https://image.tmdb.org/t/p/w342/pz9NCWxxOk3o0W3v1Zkhawrwb4i.jpg",
+      "url": "https://trakt.tv/movies/sentimental-value-2025",
+      "watchedDate": "2026-02-16T05:32:00.000Z"
+    },
     {
       "title": "Banshee — S03E08",
       "type": "show",
@@ -31,7 +38,7 @@
     }
   ],
   "stats": {
-    "moviesThisMonth": 0,
+    "moviesThisMonth": 1,
     "showsThisMonth": 4
   }
 }
