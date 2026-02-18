@@ -1,6 +1,188 @@
 {
-  "lastUpdated": "2026-02-17T04:04:17Z",
+  "lastUpdated": "2026-02-18T04:05:58Z",
   "recentCommits": [
+    {
+      "repo": "endorse",
+      "message": "why are these words so fucking small",
+      "sha": "fefd5f7a58beeb74a64dbbdbea0d14755ab7fa85",
+      "date": "2026-02-18T03:56:26Z",
+      "url": "https://github.com/ggfevans/endorse/commit/fefd5f7a58beeb74a64dbbdbea0d14755ab7fa85"
+    },
+    {
+      "repo": "endorse",
+      "message": "Update README.md",
+      "sha": "5c75bd31a25b398efeb270b6001ccfa19b1f9cb5",
+      "date": "2026-02-18T03:45:58Z",
+      "url": "https://github.com/ggfevans/endorse/commit/5c75bd31a25b398efeb270b6001ccfa19b1f9cb5"
+    },
+    {
+      "repo": "endorse",
+      "message": "update hero gif - 1.5x speed and higher res so you can actually read this shit",
+      "sha": "19bd792c9f52970a42c95e6aaa6ebb3c93471d69",
+      "date": "2026-02-18T03:44:12Z",
+      "url": "https://github.com/ggfevans/endorse/commit/19bd792c9f52970a42c95e6aaa6ebb3c93471d69"
+    },
+    {
+      "repo": "endorse",
+      "message": "add hero image",
+      "sha": "897c3956d85182665433951c2d6eed2ff2f1b400",
+      "date": "2026-02-18T02:11:51Z",
+      "url": "https://github.com/ggfevans/endorse/commit/897c3956d85182665433951c2d6eed2ff2f1b400"
+    },
+    {
+      "repo": "endorse",
+      "message": "update README with --demo flag",
+      "sha": "1cc76d5cbe260a2cb6f4d5e731e58e8b5e1d72e2",
+      "date": "2026-02-18T02:11:38Z",
+      "url": "https://github.com/ggfevans/endorse/commit/1cc76d5cbe260a2cb6f4d5e731e58e8b5e1d72e2"
+    },
+    {
+      "repo": "endorse",
+      "message": "chore: update hero.gif",
+      "sha": "6e639e2c2efe917c4df1770a0ad00213e6d55194",
+      "date": "2026-02-18T01:48:28Z",
+      "url": "https://github.com/ggfevans/endorse/commit/6e639e2c2efe917c4df1770a0ad00213e6d55194"
+    },
+    {
+      "repo": "endorse",
+      "message": "fix: update README.md with hero.gif",
+      "sha": "fc87116440b23f30a252aa110ad7b168bd4c8400",
+      "date": "2026-02-18T01:19:22Z",
+      "url": "https://github.com/ggfevans/endorse/commit/fc87116440b23f30a252aa110ad7b168bd4c8400"
+    },
+    {
+      "repo": "Rackula",
+      "message": "v0.8.1",
+      "sha": "078a544e09d7d77fdc4e30068e4c20805cecb54f",
+      "date": "2026-02-17T10:39:45Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/078a544e09d7d77fdc4e30068e4c20805cecb54f"
+    },
+    {
+      "repo": "Rackula",
+      "message": "chore(deps): bump typescript-eslint (#1257)",
+      "sha": "d4a3047352179debcb36de3d2856e8f33402647f",
+      "date": "2026-02-17T10:21:21Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/d4a3047352179debcb36de3d2856e8f33402647f"
+    },
+    {
+      "repo": "Rackula",
+      "message": "chore(ci): bump the actions group with 4 updates (#1253)",
+      "sha": "214a81128b7c24d2301959dbe8f5aecffac0a4a1",
+      "date": "2026-02-17T10:16:08Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/214a81128b7c24d2301959dbe8f5aecffac0a4a1"
+    },
+    {
+      "repo": "Rackula",
+      "message": "chore(deps): bump the eslint group with 2 updates (#1251)",
+      "sha": "698e8fd390507a3cf7b9179202926922e276fc7c",
+      "date": "2026-02-17T10:15:57Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/698e8fd390507a3cf7b9179202926922e276fc7c"
+    },
+    {
+      "repo": "Rackula",
+      "message": "chore(deps): bump @vitest/eslint-plugin in the vitest group (#1250)",
+      "sha": "68289f76a6b68ac4543a514e4d20dd5061af2a55",
+      "date": "2026-02-17T10:14:20Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/68289f76a6b68ac4543a514e4d20dd5061af2a55"
+    },
+    {
+      "repo": "Rackula",
+      "message": "Merge branch 'main' into dependabot/npm_and_yarn/vitest-4140a429f0",
+      "sha": "69501436072857c4e24b386076d740b5621b45f1",
+      "date": "2026-02-17T09:39:00Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/69501436072857c4e24b386076d740b5621b45f1"
+    },
+    {
+      "repo": "Rackula",
+      "message": "chore(e2e): consolidate helpers and migrate all specs to gotoWithRack (#1225) (#1249)",
+      "sha": "48b5b7f9611547469462aeb484a8036b0a184ce0",
+      "date": "2026-02-17T09:38:36Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/48b5b7f9611547469462aeb484a8036b0a184ce0"
+    },
+    {
+      "repo": "Rackula",
+      "message": "Merge branch 'main' into chore/1225-consolidate-helpers-fix-isolation",
+      "sha": "54773de0ed51d2e85277cb7f44563ac76c7cdd1e",
+      "date": "2026-02-17T09:38:24Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/54773de0ed51d2e85277cb7f44563ac76c7cdd1e"
+    },
+    {
+      "repo": "Rackula",
+      "message": "Merge pull request #1255 from RackulaLives/feat/update-gh-dash",
+      "sha": "e6594646decf2facc0da73b245d818aacaf6b3dd",
+      "date": "2026-02-17T08:51:14Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/e6594646decf2facc0da73b245d818aacaf6b3dd"
+    },
+    {
+      "repo": "Rackula",
+      "message": "Merge branch 'main' into feat/update-gh-dash",
+      "sha": "a9d26312ef44050365867e8906fd5746fb9f7cfa",
+      "date": "2026-02-17T08:51:00Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/a9d26312ef44050365867e8906fd5746fb9f7cfa"
+    },
+    {
+      "repo": "claude-max-api-proxy",
+      "message": "Merge pull request #3 from ggfevans/fix/handle-openclaw-tools",
+      "sha": "0f2077d1ddac60536c5c5b840ae0b9ea432da19e",
+      "date": "2026-02-17T07:30:42Z",
+      "url": "https://github.com/ggfevans/claude-max-api-proxy/commit/0f2077d1ddac60536c5c5b840ae0b9ea432da19e"
+    },
+    {
+      "repo": "claude-max-api-proxy",
+      "message": "Merge branch 'main' into fix/handle-openclaw-tools",
+      "sha": "6f8409be7147ab8c8d52de08f8f3e97ac591b63e",
+      "date": "2026-02-17T07:30:26Z",
+      "url": "https://github.com/ggfevans/claude-max-api-proxy/commit/6f8409be7147ab8c8d52de08f8f3e97ac591b63e"
+    },
+    {
+      "repo": "claude-max-api-proxy",
+      "message": "feat: handle array content + pass OpenClaw tools to prompt",
+      "sha": "61c8845aeb35b633971190dac2cc2d930b76d52f",
+      "date": "2026-02-17T07:29:05Z",
+      "url": "https://github.com/ggfevans/claude-max-api-proxy/commit/61c8845aeb35b633971190dac2cc2d930b76d52f"
+    },
+    {
+      "repo": "claude-max-api-proxy",
+      "message": "Merge pull request #2 from ggfevans/fix-message-content",
+      "sha": "b2ec6715eaef2cc799695fc2474fc49a8a1d5906",
+      "date": "2026-02-17T07:13:33Z",
+      "url": "https://github.com/ggfevans/claude-max-api-proxy/commit/b2ec6715eaef2cc799695fc2474fc49a8a1d5906"
+    },
+    {
+      "repo": "Rackula",
+      "message": "feat: update gh-dash config",
+      "sha": "99fa1892d2ac9339ee4a1eadfc7f7db5821fa0d9",
+      "date": "2026-02-17T07:11:49Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/99fa1892d2ac9339ee4a1eadfc7f7db5821fa0d9"
+    },
+    {
+      "repo": "Rackula",
+      "message": "feat: update gh-dash with v0.8.1 filter",
+      "sha": "cef715b3db3f3c7e9ff4e644dd60305b66bb3a46",
+      "date": "2026-02-17T07:01:24Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/cef715b3db3f3c7e9ff4e644dd60305b66bb3a46"
+    },
+    {
+      "repo": "claude-max-api-proxy",
+      "message": "Merge pull request #1 from ggfevans/fix/handle-array-format-message",
+      "sha": "2526e679ab72251b0a52d0179a67d77cd27d3651",
+      "date": "2026-02-17T06:56:42Z",
+      "url": "https://github.com/ggfevans/claude-max-api-proxy/commit/2526e679ab72251b0a52d0179a67d77cd27d3651"
+    },
+    {
+      "repo": "claude-max-api-proxy",
+      "message": "Fix message content handling",
+      "sha": "c2a3ffe320922c5b718708c4eb31f2d5caef0476",
+      "date": "2026-02-17T06:54:37Z",
+      "url": "https://github.com/ggfevans/claude-max-api-proxy/commit/c2a3ffe320922c5b718708c4eb31f2d5caef0476"
+    },
+    {
+      "repo": "claude-max-api-proxy",
+      "message": "fix: handle array-format message content per OpenAI spec",
+      "sha": "d767da47ecb154395ecb5017827ee90f39b1e0f8",
+      "date": "2026-02-17T06:37:51Z",
+      "url": "https://github.com/ggfevans/claude-max-api-proxy/commit/d767da47ecb154395ecb5017827ee90f39b1e0f8"
+    },
     {
       "repo": "claude-delegator",
       "message": "Update README.md",
@@ -28,196 +210,21 @@
       "sha": "22172b7d854b291c684139f7c0fb32214d10a5b0",
       "date": "2026-02-15T14:43:10Z",
       "url": "https://github.com/RackulaLives/Rackula/commit/22172b7d854b291c684139f7c0fb32214d10a5b0"
-    },
-    {
-      "repo": "Rackula",
-      "message": "Merge pull request #1247 from RackulaLives/feature/1219-save-vs-save-as",
-      "sha": "baf0a55928a6d7f2b43fdf368d0d0c75b6ad3938",
-      "date": "2026-02-15T14:42:40Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/baf0a55928a6d7f2b43fdf368d0d0c75b6ad3938"
-    },
-    {
-      "repo": "Rackula",
-      "message": "Merge branch 'main' into feature/1219-save-vs-save-as",
-      "sha": "b6e222d6e70ac1acf15affef6efd3826867103c2",
-      "date": "2026-02-15T14:42:25Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/b6e222d6e70ac1acf15affef6efd3826867103c2"
-    },
-    {
-      "repo": "claude-delegator",
-      "message": "feat: implement zero-dependency Gemini MCP bridge with multi-turn support",
-      "sha": "a8d1c6d287acdbbc5e85b4b5c69a0858d4c3c1f8",
-      "date": "2026-02-15T14:41:02Z",
-      "url": "https://github.com/ggfevans/claude-delegator/commit/a8d1c6d287acdbbc5e85b4b5c69a0858d4c3c1f8"
-    },
-    {
-      "repo": "Rackula",
-      "message": "fix: extract helper, guard pendingSaveFirst, rename icon Bold",
-      "sha": "8f78c1fa5b6c9253abe4a1539b5e93b67343a9dd",
-      "date": "2026-02-15T14:19:42Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/8f78c1fa5b6c9253abe4a1539b5e93b67343a9dd"
-    },
-    {
-      "repo": "Rackula",
-      "message": "fix: address remaining CodeRabbit review items on PR #1247",
-      "sha": "4c1052e62acc85dc4c822cd4c1a1976b46cdf3b2",
-      "date": "2026-02-15T13:56:38Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/4c1052e62acc85dc4c822cd4c1a1976b46cdf3b2"
-    },
-    {
-      "repo": "claude-delegator",
-      "message": "Merge pull request #1 from ggfevans/feat/gemini-support",
-      "sha": "a40a6349dc952f9eea8bdd3b99e6a9972bf6b0d9",
-      "date": "2026-02-15T13:41:25Z",
-      "url": "https://github.com/ggfevans/claude-delegator/commit/a40a6349dc952f9eea8bdd3b99e6a9972bf6b0d9"
-    },
-    {
-      "repo": "claude-delegator",
-      "message": "feat: add support for Gemini expert subagents",
-      "sha": "f34157804d6ac1c925af645f2f42bec7879a03b5",
-      "date": "2026-02-15T13:36:59Z",
-      "url": "https://github.com/ggfevans/claude-delegator/commit/f34157804d6ac1c925af645f2f42bec7879a03b5"
-    },
-    {
-      "repo": "Rackula",
-      "message": "fix: handle pendingSaveFirst in server save path",
-      "sha": "cb17780b015d00f9732f52c6b69a7b3e2208cb3d",
-      "date": "2026-02-15T13:32:51Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/cb17780b015d00f9732f52c6b69a7b3e2208cb3d"
-    },
-    {
-      "repo": "Rackula",
-      "message": "fix(ci): pin actions to commit SHAs in build-lxc.yml",
-      "sha": "1b226d8e1c5b3b3b3fae9a32d51a6720d9627502",
-      "date": "2026-02-15T13:23:39Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/1b226d8e1c5b3b3b3fae9a32d51a6720d9627502"
-    },
-    {
-      "repo": "Rackula",
-      "message": "fix: thread slot_position through pointer-based device move events (#1246)",
-      "sha": "e8606977c429a8515c08be243e03b7c3ce258121",
-      "date": "2026-02-15T13:18:26Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/e8606977c429a8515c08be243e03b7c3ce258121"
-    },
-    {
-      "repo": "Rackula",
-      "message": "Merge remote-tracking branch 'origin/main' into fix/1244-slot-position-pointer-drag",
-      "sha": "f765c9a02bcdea3787fc049959b6e111d526c26b",
-      "date": "2026-02-15T13:15:50Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/f765c9a02bcdea3787fc049959b6e111d526c26b"
-    },
-    {
-      "repo": "Rackula",
-      "message": "feat: separate Save from Save As (#1219)",
-      "sha": "995ae8849ad558d8dc968bba05059e15b364e412",
-      "date": "2026-02-15T13:11:59Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/995ae8849ad558d8dc968bba05059e15b364e412"
-    },
-    {
-      "repo": "Rackula",
-      "message": "fix(ci): pin actions to commit SHAs in build-lxc.yml",
-      "sha": "4475766eaa37ffc5f0006a0edad53dd8328a9e0f",
-      "date": "2026-02-15T12:48:52Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/4475766eaa37ffc5f0006a0edad53dd8328a9e0f"
-    },
-    {
-      "repo": "Rackula",
-      "message": "Merge pull request #1232 from RackulaLives/chore/1223-playwright-config-hardening",
-      "sha": "7be29612338a25f255c961b1285ed9e050857c89",
-      "date": "2026-02-15T12:45:20Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/7be29612338a25f255c961b1285ed9e050857c89"
-    },
-    {
-      "repo": "Rackula",
-      "message": "Merge branch 'main' into chore/1223-playwright-config-hardening",
-      "sha": "a9d5ca72fb27385b30d8a14c5b3460ddb5b5f20d",
-      "date": "2026-02-15T12:45:07Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/a9d5ca72fb27385b30d8a14c5b3460ddb5b5f20d"
-    },
-    {
-      "repo": "Rackula",
-      "message": "Merge pull request #1242 from RackulaLives/fix/1191-1195-1193-half-width",
-      "sha": "154503af3b617561168ba358ab75a8901b7a63ad",
-      "date": "2026-02-15T10:51:27Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/154503af3b617561168ba358ab75a8901b7a63ad"
-    },
-    {
-      "repo": "Rackula",
-      "message": "Merge branch 'main' into fix/1191-1195-1193-half-width",
-      "sha": "1412ce3dad6e6b4bee1682dad28d549edddc7803",
-      "date": "2026-02-15T10:47:39Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/1412ce3dad6e6b4bee1682dad28d549edddc7803"
-    },
-    {
-      "repo": "Rackula",
-      "message": "Merge pull request #1241 from RackulaLives/fix/1203-settings-menu-context",
-      "sha": "41b39e06e441dbeda36c0f7a98a3f00516e4d62c",
-      "date": "2026-02-15T10:47:19Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/41b39e06e441dbeda36c0f7a98a3f00516e4d62c"
-    },
-    {
-      "repo": "Rackula",
-      "message": "Merge branch 'main' into fix/1203-settings-menu-context",
-      "sha": "6e08c727ed1707e47b624d002bc7b00801565df3",
-      "date": "2026-02-15T10:47:07Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/6e08c727ed1707e47b624d002bc7b00801565df3"
-    },
-    {
-      "repo": "Rackula",
-      "message": "Merge pull request #1243 from RackulaLives/fix/1200-safari-drag-drop",
-      "sha": "13daac08f9bf4b2f0fc48f4fe0d0d0420e8807b2",
-      "date": "2026-02-15T10:46:43Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/13daac08f9bf4b2f0fc48f4fe0d0d0420e8807b2"
-    },
-    {
-      "repo": "Rackula",
-      "message": "Update src/lib/components/Rack.svelte",
-      "sha": "763a543d743ddbac34bf5cbfb6152d49e44b5e8d",
-      "date": "2026-02-15T10:45:53Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/763a543d743ddbac34bf5cbfb6152d49e44b5e8d"
-    },
-    {
-      "repo": "ProxmoxVE",
-      "message": "fix: restore fork URL in ct/rackula.sh source line",
-      "sha": "32017642e8daa1a9e78c07e38ab816e155bb82ff",
-      "date": "2026-02-15T10:07:33Z",
-      "url": "https://github.com/ggfevans/ProxmoxVE/commit/32017642e8daa1a9e78c07e38ab816e155bb82ff"
-    },
-    {
-      "repo": "Rackula",
-      "message": "chore: apply CodeRabbit review fixes to playwright config",
-      "sha": "07f1258f05e6206d401fe8f8823d03111bae1fd2",
-      "date": "2026-02-15T10:06:27Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/07f1258f05e6206d401fe8f8823d03111bae1fd2"
-    },
-    {
-      "repo": "Rackula",
-      "message": "fix: add text/plain fallback for drag data in Rack drop handlers",
-      "sha": "4caeb900fa7d8a7e0069d9084dd10bf1b5b1f857",
-      "date": "2026-02-15T10:05:48Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/4caeb900fa7d8a7e0069d9084dd10bf1b5b1f857"
-    },
-    {
-      "repo": "Rackula",
-      "message": "fix: thread slot_position through device move events and improve context menu",
-      "sha": "1b671b53d99ab42ec46d636910f416d84c80c0ef",
-      "date": "2026-02-15T10:05:03Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/1b671b53d99ab42ec46d636910f416d84c80c0ef"
-    },
-    {
-      "repo": "Rackula",
-      "message": "fix(ui): replace GroupHeading with plain span in settings menu",
-      "sha": "589af0839ab98bca74de5a66aa85a31535513064",
-      "date": "2026-02-15T10:04:33Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/589af0839ab98bca74de5a66aa85a31535513064"
     }
   ],
   "stats": {
-    "commitsThisWeek": 120,
-    "commitsThisMonth": 120,
-    "repositoriesThisWeek": 6
+    "commitsThisWeek": 126,
+    "commitsThisMonth": 126,
+    "repositoriesThisWeek": 7
   },
   "repositories": [
+    {
+      "name": "endorse",
+      "description": "LinkedIn CLI / TUI. LinkedIn messaging without the feed, the ads, or the \"Thoughts?\" posts.",
+      "language": "Go",
+      "stars": 1,
+      "url": "https://github.com/ggfevans/endorse"
+    },
     {
       "name": "gvns.ca",
       "description": "",
@@ -245,13 +252,6 @@
       "language": "JavaScript",
       "stars": 0,
       "url": "https://github.com/ggfevans/obsidian-plugin-playbooks"
-    },
-    {
-      "name": "endorse",
-      "description": "LinkedIn CLI / TUI. LinkedIn messaging without the feed, the ads, or the \"Thoughts?\" posts.",
-      "language": "Go",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/endorse"
     },
     {
       "name": "rainforest-EAGLE-commands",
