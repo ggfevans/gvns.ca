@@ -1,6 +1,76 @@
 {
-  "lastUpdated": "2026-02-18T04:05:58Z",
+  "lastUpdated": "2026-02-19T04:04:59Z",
   "recentCommits": [
+    {
+      "repo": "Rackula",
+      "message": "chore: address git probe review feedback",
+      "sha": "2285c216acaae8248404f54615bfe4f7a49032c8",
+      "date": "2026-02-19T03:35:15Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/2285c216acaae8248404f54615bfe4f7a49032c8"
+    },
+    {
+      "repo": "endorse",
+      "message": "Update README.md",
+      "sha": "0e3a034d9cc2164c885ec74876c056fa56544d43",
+      "date": "2026-02-19T02:12:57Z",
+      "url": "https://github.com/ggfevans/endorse/commit/0e3a034d9cc2164c885ec74876c056fa56544d43"
+    },
+    {
+      "repo": "Rackula",
+      "message": "fix(auth): enforce logout CSRF and harden session signature scope",
+      "sha": "dfef78a81a202ebd75dbdc97193d9a56c330b16e",
+      "date": "2026-02-19T02:11:36Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/dfef78a81a202ebd75dbdc97193d9a56c330b16e"
+    },
+    {
+      "repo": "Rackula",
+      "message": "chore(auth): address review follow-ups for cookie parsing and auth mode",
+      "sha": "c6db083fdec571622487ca2b836a4c7e3db6bf27",
+      "date": "2026-02-19T01:56:31Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/c6db083fdec571622487ca2b836a4c7e3db6bf27"
+    },
+    {
+      "repo": "Rackula",
+      "message": "refactor: simplify git info fallback return path",
+      "sha": "00cd82639f9a91af75e7d49ff4682bbd12b78a1b",
+      "date": "2026-02-19T01:38:09Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/00cd82639f9a91af75e7d49ff4682bbd12b78a1b"
+    },
+    {
+      "repo": "searxng-proxmoxVE-Helper-Scripts",
+      "message": "add screenshot",
+      "sha": "bd241de6487c8561abe383d66f8a5b60b7f35242",
+      "date": "2026-02-19T00:50:26Z",
+      "url": "https://github.com/ggfevans/searxng-proxmoxVE-Helper-Scripts/commit/bd241de6487c8561abe383d66f8a5b60b7f35242"
+    },
+    {
+      "repo": "searxng-proxmoxVE-Helper-Scripts",
+      "message": "add README",
+      "sha": "a68e116cc465e33a1902f6fe2df674dc43176545",
+      "date": "2026-02-19T00:50:13Z",
+      "url": "https://github.com/ggfevans/searxng-proxmoxVE-Helper-Scripts/commit/a68e116cc465e33a1902f6fe2df674dc43176545"
+    },
+    {
+      "repo": "searxng-proxmoxVE-Helper-Scripts",
+      "message": "Add AGPLv3 license",
+      "sha": "2ea9219a2e79a4671fe3c1ff9a6b67fca49e52a8",
+      "date": "2026-02-19T00:50:01Z",
+      "url": "https://github.com/ggfevans/searxng-proxmoxVE-Helper-Scripts/commit/2ea9219a2e79a4671fe3c1ff9a6b67fca49e52a8"
+    },
+    {
+      "repo": "Rackula",
+      "message": "chore(auth): address auth review follow-ups",
+      "sha": "36d84d0346141b9ef03eb1274d2a6f64a93a5bb5",
+      "date": "2026-02-18T22:24:51Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/36d84d0346141b9ef03eb1274d2a6f64a93a5bb5"
+    },
+    {
+      "repo": "Rackula",
+      "message": "fix: harden git metadata probes in vite config",
+      "sha": "338163a30b92d08aad9201ad04fd98a5da2cce7a",
+      "date": "2026-02-18T22:12:07Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/338163a30b92d08aad9201ad04fd98a5da2cce7a"
+    },
     {
       "repo": "endorse",
       "message": "why are these words so fucking small",
@@ -140,91 +210,14 @@
       "sha": "61c8845aeb35b633971190dac2cc2d930b76d52f",
       "date": "2026-02-17T07:29:05Z",
       "url": "https://github.com/ggfevans/claude-max-api-proxy/commit/61c8845aeb35b633971190dac2cc2d930b76d52f"
-    },
-    {
-      "repo": "claude-max-api-proxy",
-      "message": "Merge pull request #2 from ggfevans/fix-message-content",
-      "sha": "b2ec6715eaef2cc799695fc2474fc49a8a1d5906",
-      "date": "2026-02-17T07:13:33Z",
-      "url": "https://github.com/ggfevans/claude-max-api-proxy/commit/b2ec6715eaef2cc799695fc2474fc49a8a1d5906"
-    },
-    {
-      "repo": "Rackula",
-      "message": "feat: update gh-dash config",
-      "sha": "99fa1892d2ac9339ee4a1eadfc7f7db5821fa0d9",
-      "date": "2026-02-17T07:11:49Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/99fa1892d2ac9339ee4a1eadfc7f7db5821fa0d9"
-    },
-    {
-      "repo": "Rackula",
-      "message": "feat: update gh-dash with v0.8.1 filter",
-      "sha": "cef715b3db3f3c7e9ff4e644dd60305b66bb3a46",
-      "date": "2026-02-17T07:01:24Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/cef715b3db3f3c7e9ff4e644dd60305b66bb3a46"
-    },
-    {
-      "repo": "claude-max-api-proxy",
-      "message": "Merge pull request #1 from ggfevans/fix/handle-array-format-message",
-      "sha": "2526e679ab72251b0a52d0179a67d77cd27d3651",
-      "date": "2026-02-17T06:56:42Z",
-      "url": "https://github.com/ggfevans/claude-max-api-proxy/commit/2526e679ab72251b0a52d0179a67d77cd27d3651"
-    },
-    {
-      "repo": "claude-max-api-proxy",
-      "message": "Fix message content handling",
-      "sha": "c2a3ffe320922c5b718708c4eb31f2d5caef0476",
-      "date": "2026-02-17T06:54:37Z",
-      "url": "https://github.com/ggfevans/claude-max-api-proxy/commit/c2a3ffe320922c5b718708c4eb31f2d5caef0476"
-    },
-    {
-      "repo": "claude-max-api-proxy",
-      "message": "fix: handle array-format message content per OpenAI spec",
-      "sha": "d767da47ecb154395ecb5017827ee90f39b1e0f8",
-      "date": "2026-02-17T06:37:51Z",
-      "url": "https://github.com/ggfevans/claude-max-api-proxy/commit/d767da47ecb154395ecb5017827ee90f39b1e0f8"
-    },
-    {
-      "repo": "claude-delegator",
-      "message": "Update README.md",
-      "sha": "fc912797d06ba4c2d0cf29d4627e9f331d85f810",
-      "date": "2026-02-16T00:13:39Z",
-      "url": "https://github.com/ggfevans/claude-delegator/commit/fc912797d06ba4c2d0cf29d4627e9f331d85f810"
-    },
-    {
-      "repo": "claude-delegator",
-      "message": "feat: add Gemini support via zero-dependency MCP bridge",
-      "sha": "7838de684f3c6941f799747189db06f53cb1899a",
-      "date": "2026-02-15T14:47:01Z",
-      "url": "https://github.com/ggfevans/claude-delegator/commit/7838de684f3c6941f799747189db06f53cb1899a"
-    },
-    {
-      "repo": "claude-delegator",
-      "message": "refactor: improve bridge robustness, metadata alignment, and cwd support",
-      "sha": "a790c3fd64646a222f23a34427b70f49359c7a7b",
-      "date": "2026-02-15T14:44:31Z",
-      "url": "https://github.com/ggfevans/claude-delegator/commit/a790c3fd64646a222f23a34427b70f49359c7a7b"
-    },
-    {
-      "repo": "Rackula",
-      "message": "Merge branch 'main' into chore/1225-consolidate-helpers-fix-isolation",
-      "sha": "22172b7d854b291c684139f7c0fb32214d10a5b0",
-      "date": "2026-02-15T14:43:10Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/22172b7d854b291c684139f7c0fb32214d10a5b0"
     }
   ],
   "stats": {
-    "commitsThisWeek": 126,
-    "commitsThisMonth": 126,
-    "repositoriesThisWeek": 7
+    "commitsThisWeek": 98,
+    "commitsThisMonth": 98,
+    "repositoriesThisWeek": 6
   },
   "repositories": [
-    {
-      "name": "endorse",
-      "description": "LinkedIn CLI / TUI. LinkedIn messaging without the feed, the ads, or the \"Thoughts?\" posts.",
-      "language": "Go",
-      "stars": 1,
-      "url": "https://github.com/ggfevans/endorse"
-    },
     {
       "name": "gvns.ca",
       "description": "",
@@ -238,6 +231,20 @@
       "language": "Astro",
       "stars": 0,
       "url": "https://github.com/ggfevans/gwilym.ca"
+    },
+    {
+      "name": "endorse",
+      "description": "LinkedIn CLI / TUI. LinkedIn messaging without the feed, the ads, or the \"Thoughts?\" posts.",
+      "language": "Go",
+      "stars": 12,
+      "url": "https://github.com/ggfevans/endorse"
+    },
+    {
+      "name": "searxng-proxmoxVE-Helper-Scripts",
+      "description": "SearXNG engine for searching the Proxmox VE Community Scripts catalogue (~480 scripts) — offline, cached, zero dependencies",
+      "language": "Python",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/searxng-proxmoxVE-Helper-Scripts"
     },
     {
       "name": "trakt-json-bourne",
@@ -294,13 +301,6 @@
       "language": "",
       "stars": 1,
       "url": "https://github.com/ggfevans/claude-yolo"
-    },
-    {
-      "name": "listenbrainz-csv-upload",
-      "description": "Import your Last.fm listening history into ListenBrainz from a CSV export",
-      "language": "Python",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/listenbrainz-csv-upload"
     }
   ]
 }
