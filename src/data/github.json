@@ -1,221 +1,53 @@
 {
-  "lastUpdated": "2026-02-19T04:04:59Z",
+  "lastUpdated": "2026-02-20T04:01:20Z",
   "recentCommits": [
     {
-      "repo": "Rackula",
-      "message": "chore: address git probe review feedback",
-      "sha": "2285c216acaae8248404f54615bfe4f7a49032c8",
-      "date": "2026-02-19T03:35:15Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/2285c216acaae8248404f54615bfe4f7a49032c8"
-    },
-    {
-      "repo": "endorse",
-      "message": "Update README.md",
-      "sha": "0e3a034d9cc2164c885ec74876c056fa56544d43",
-      "date": "2026-02-19T02:12:57Z",
-      "url": "https://github.com/ggfevans/endorse/commit/0e3a034d9cc2164c885ec74876c056fa56544d43"
+      "repo": "chorographia",
+      "message": "fix: adjust ollama batch size and logging",
+      "sha": "4f1b7d1e6bc84eff6420251d55307108c9e11f98",
+      "date": "2026-02-20T03:50:25Z",
+      "url": "https://github.com/ggfevans/chorographia/commit/4f1b7d1e6bc84eff6420251d55307108c9e11f98"
     },
     {
       "repo": "Rackula",
-      "message": "fix(auth): enforce logout CSRF and harden session signature scope",
-      "sha": "dfef78a81a202ebd75dbdc97193d9a56c330b16e",
-      "date": "2026-02-19T02:11:36Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/dfef78a81a202ebd75dbdc97193d9a56c330b16e"
+      "message": "feat: add MVP admin authorization for write routes (#1105) (#1277)",
+      "sha": "8c18f310273874e6d7fcc76fd6a24eaae38d91fa",
+      "date": "2026-02-20T01:58:44Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/8c18f310273874e6d7fcc76fd6a24eaae38d91fa"
     },
     {
       "repo": "Rackula",
-      "message": "chore(auth): address review follow-ups for cookie parsing and auth mode",
-      "sha": "c6db083fdec571622487ca2b836a4c7e3db6bf27",
-      "date": "2026-02-19T01:56:31Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/c6db083fdec571622487ca2b836a4c7e3db6bf27"
+      "message": "fix: address CodeRabbit review feedback",
+      "sha": "04f5e686c58f1788fb6146219e61d64b4a9d2818",
+      "date": "2026-02-19T20:10:20Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/04f5e686c58f1788fb6146219e61d64b4a9d2818"
     },
     {
       "repo": "Rackula",
-      "message": "refactor: simplify git info fallback return path",
-      "sha": "00cd82639f9a91af75e7d49ff4682bbd12b78a1b",
-      "date": "2026-02-19T01:38:09Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/00cd82639f9a91af75e7d49ff4682bbd12b78a1b"
+      "message": "fix: align authorization with CSRF method coverage and fix AppEnv type",
+      "sha": "cfcc7780f3bbe8d02e5e93de0e85dee1616852d1",
+      "date": "2026-02-19T11:12:41Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/cfcc7780f3bbe8d02e5e93de0e85dee1616852d1"
     },
     {
-      "repo": "searxng-proxmoxVE-Helper-Scripts",
-      "message": "add screenshot",
-      "sha": "bd241de6487c8561abe383d66f8a5b60b7f35242",
-      "date": "2026-02-19T00:50:26Z",
-      "url": "https://github.com/ggfevans/searxng-proxmoxVE-Helper-Scripts/commit/bd241de6487c8561abe383d66f8a5b60b7f35242"
+      "repo": "SearXNG-proxmoxVE-Helper-Scripts",
+      "message": "Merge pull request #2 from ggfevans/chore/cleanup-2",
+      "sha": "95b91e2166880f207d617e1db0fdbbdede925156",
+      "date": "2026-02-19T10:11:19Z",
+      "url": "https://github.com/ggfevans/SearXNG-proxmoxVE-Helper-Scripts/commit/95b91e2166880f207d617e1db0fdbbdede925156"
     },
     {
-      "repo": "searxng-proxmoxVE-Helper-Scripts",
-      "message": "add README",
-      "sha": "a68e116cc465e33a1902f6fe2df674dc43176545",
-      "date": "2026-02-19T00:50:13Z",
-      "url": "https://github.com/ggfevans/searxng-proxmoxVE-Helper-Scripts/commit/a68e116cc465e33a1902f6fe2df674dc43176545"
-    },
-    {
-      "repo": "searxng-proxmoxVE-Helper-Scripts",
-      "message": "Add AGPLv3 license",
-      "sha": "2ea9219a2e79a4671fe3c1ff9a6b67fca49e52a8",
-      "date": "2026-02-19T00:50:01Z",
-      "url": "https://github.com/ggfevans/searxng-proxmoxVE-Helper-Scripts/commit/2ea9219a2e79a4671fe3c1ff9a6b67fca49e52a8"
-    },
-    {
-      "repo": "Rackula",
-      "message": "chore(auth): address auth review follow-ups",
-      "sha": "36d84d0346141b9ef03eb1274d2a6f64a93a5bb5",
-      "date": "2026-02-18T22:24:51Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/36d84d0346141b9ef03eb1274d2a6f64a93a5bb5"
-    },
-    {
-      "repo": "Rackula",
-      "message": "fix: harden git metadata probes in vite config",
-      "sha": "338163a30b92d08aad9201ad04fd98a5da2cce7a",
-      "date": "2026-02-18T22:12:07Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/338163a30b92d08aad9201ad04fd98a5da2cce7a"
-    },
-    {
-      "repo": "endorse",
-      "message": "why are these words so fucking small",
-      "sha": "fefd5f7a58beeb74a64dbbdbea0d14755ab7fa85",
-      "date": "2026-02-18T03:56:26Z",
-      "url": "https://github.com/ggfevans/endorse/commit/fefd5f7a58beeb74a64dbbdbea0d14755ab7fa85"
-    },
-    {
-      "repo": "endorse",
-      "message": "Update README.md",
-      "sha": "5c75bd31a25b398efeb270b6001ccfa19b1f9cb5",
-      "date": "2026-02-18T03:45:58Z",
-      "url": "https://github.com/ggfevans/endorse/commit/5c75bd31a25b398efeb270b6001ccfa19b1f9cb5"
-    },
-    {
-      "repo": "endorse",
-      "message": "update hero gif - 1.5x speed and higher res so you can actually read this shit",
-      "sha": "19bd792c9f52970a42c95e6aaa6ebb3c93471d69",
-      "date": "2026-02-18T03:44:12Z",
-      "url": "https://github.com/ggfevans/endorse/commit/19bd792c9f52970a42c95e6aaa6ebb3c93471d69"
-    },
-    {
-      "repo": "endorse",
-      "message": "add hero image",
-      "sha": "897c3956d85182665433951c2d6eed2ff2f1b400",
-      "date": "2026-02-18T02:11:51Z",
-      "url": "https://github.com/ggfevans/endorse/commit/897c3956d85182665433951c2d6eed2ff2f1b400"
-    },
-    {
-      "repo": "endorse",
-      "message": "update README with --demo flag",
-      "sha": "1cc76d5cbe260a2cb6f4d5e731e58e8b5e1d72e2",
-      "date": "2026-02-18T02:11:38Z",
-      "url": "https://github.com/ggfevans/endorse/commit/1cc76d5cbe260a2cb6f4d5e731e58e8b5e1d72e2"
-    },
-    {
-      "repo": "endorse",
-      "message": "chore: update hero.gif",
-      "sha": "6e639e2c2efe917c4df1770a0ad00213e6d55194",
-      "date": "2026-02-18T01:48:28Z",
-      "url": "https://github.com/ggfevans/endorse/commit/6e639e2c2efe917c4df1770a0ad00213e6d55194"
-    },
-    {
-      "repo": "endorse",
-      "message": "fix: update README.md with hero.gif",
-      "sha": "fc87116440b23f30a252aa110ad7b168bd4c8400",
-      "date": "2026-02-18T01:19:22Z",
-      "url": "https://github.com/ggfevans/endorse/commit/fc87116440b23f30a252aa110ad7b168bd4c8400"
-    },
-    {
-      "repo": "Rackula",
-      "message": "v0.8.1",
-      "sha": "078a544e09d7d77fdc4e30068e4c20805cecb54f",
-      "date": "2026-02-17T10:39:45Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/078a544e09d7d77fdc4e30068e4c20805cecb54f"
-    },
-    {
-      "repo": "Rackula",
-      "message": "chore(deps): bump typescript-eslint (#1257)",
-      "sha": "d4a3047352179debcb36de3d2856e8f33402647f",
-      "date": "2026-02-17T10:21:21Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/d4a3047352179debcb36de3d2856e8f33402647f"
-    },
-    {
-      "repo": "Rackula",
-      "message": "chore(ci): bump the actions group with 4 updates (#1253)",
-      "sha": "214a81128b7c24d2301959dbe8f5aecffac0a4a1",
-      "date": "2026-02-17T10:16:08Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/214a81128b7c24d2301959dbe8f5aecffac0a4a1"
-    },
-    {
-      "repo": "Rackula",
-      "message": "chore(deps): bump the eslint group with 2 updates (#1251)",
-      "sha": "698e8fd390507a3cf7b9179202926922e276fc7c",
-      "date": "2026-02-17T10:15:57Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/698e8fd390507a3cf7b9179202926922e276fc7c"
-    },
-    {
-      "repo": "Rackula",
-      "message": "chore(deps): bump @vitest/eslint-plugin in the vitest group (#1250)",
-      "sha": "68289f76a6b68ac4543a514e4d20dd5061af2a55",
-      "date": "2026-02-17T10:14:20Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/68289f76a6b68ac4543a514e4d20dd5061af2a55"
-    },
-    {
-      "repo": "Rackula",
-      "message": "Merge branch 'main' into dependabot/npm_and_yarn/vitest-4140a429f0",
-      "sha": "69501436072857c4e24b386076d740b5621b45f1",
-      "date": "2026-02-17T09:39:00Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/69501436072857c4e24b386076d740b5621b45f1"
-    },
-    {
-      "repo": "Rackula",
-      "message": "chore(e2e): consolidate helpers and migrate all specs to gotoWithRack (#1225) (#1249)",
-      "sha": "48b5b7f9611547469462aeb484a8036b0a184ce0",
-      "date": "2026-02-17T09:38:36Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/48b5b7f9611547469462aeb484a8036b0a184ce0"
-    },
-    {
-      "repo": "Rackula",
-      "message": "Merge branch 'main' into chore/1225-consolidate-helpers-fix-isolation",
-      "sha": "54773de0ed51d2e85277cb7f44563ac76c7cdd1e",
-      "date": "2026-02-17T09:38:24Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/54773de0ed51d2e85277cb7f44563ac76c7cdd1e"
-    },
-    {
-      "repo": "Rackula",
-      "message": "Merge pull request #1255 from RackulaLives/feat/update-gh-dash",
-      "sha": "e6594646decf2facc0da73b245d818aacaf6b3dd",
-      "date": "2026-02-17T08:51:14Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/e6594646decf2facc0da73b245d818aacaf6b3dd"
-    },
-    {
-      "repo": "Rackula",
-      "message": "Merge branch 'main' into feat/update-gh-dash",
-      "sha": "a9d26312ef44050365867e8906fd5746fb9f7cfa",
-      "date": "2026-02-17T08:51:00Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/a9d26312ef44050365867e8906fd5746fb9f7cfa"
-    },
-    {
-      "repo": "claude-max-api-proxy",
-      "message": "Merge pull request #3 from ggfevans/fix/handle-openclaw-tools",
-      "sha": "0f2077d1ddac60536c5c5b840ae0b9ea432da19e",
-      "date": "2026-02-17T07:30:42Z",
-      "url": "https://github.com/ggfevans/claude-max-api-proxy/commit/0f2077d1ddac60536c5c5b840ae0b9ea432da19e"
-    },
-    {
-      "repo": "claude-max-api-proxy",
-      "message": "Merge branch 'main' into fix/handle-openclaw-tools",
-      "sha": "6f8409be7147ab8c8d52de08f8f3e97ac591b63e",
-      "date": "2026-02-17T07:30:26Z",
-      "url": "https://github.com/ggfevans/claude-max-api-proxy/commit/6f8409be7147ab8c8d52de08f8f3e97ac591b63e"
-    },
-    {
-      "repo": "claude-max-api-proxy",
-      "message": "feat: handle array content + pass OpenClaw tools to prompt",
-      "sha": "61c8845aeb35b633971190dac2cc2d930b76d52f",
-      "date": "2026-02-17T07:29:05Z",
-      "url": "https://github.com/ggfevans/claude-max-api-proxy/commit/61c8845aeb35b633971190dac2cc2d930b76d52f"
+      "repo": "SearXNG-proxmoxVE-Helper-Scripts",
+      "message": "Delete .DS_Store",
+      "sha": "511e30e201bb1ab8e90631d9e10d79233e63e00d",
+      "date": "2026-02-19T10:11:07Z",
+      "url": "https://github.com/ggfevans/SearXNG-proxmoxVE-Helper-Scripts/commit/511e30e201bb1ab8e90631d9e10d79233e63e00d"
     }
   ],
   "stats": {
-    "commitsThisWeek": 98,
-    "commitsThisMonth": 98,
-    "repositoriesThisWeek": 6
+    "commitsThisWeek": 6,
+    "commitsThisMonth": 6,
+    "repositoriesThisWeek": 3
   },
   "repositories": [
     {
@@ -240,11 +72,11 @@
       "url": "https://github.com/ggfevans/endorse"
     },
     {
-      "name": "searxng-proxmoxVE-Helper-Scripts",
-      "description": "SearXNG engine for searching the Proxmox VE Community Scripts catalogue (~480 scripts) — offline, cached, zero dependencies",
+      "name": "SearXNG-proxmoxVE-Helper-Scripts",
+      "description": "SearXNG engine for searching the Proxmox VE Community Scripts catalogue (~480 scripts). Offline, cached, zero dependencies",
       "language": "Python",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/searxng-proxmoxVE-Helper-Scripts"
+      "stars": 7,
+      "url": "https://github.com/ggfevans/SearXNG-proxmoxVE-Helper-Scripts"
     },
     {
       "name": "trakt-json-bourne",
