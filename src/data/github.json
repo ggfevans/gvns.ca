@@ -1,6 +1,76 @@
 {
-  "lastUpdated": "2026-02-21T03:56:45Z",
+  "lastUpdated": "2026-02-22T04:02:41Z",
   "recentCommits": [
+    {
+      "repo": "chorographia",
+      "message": "fix: avoid redundant blur-triggered settings writes",
+      "sha": "8fe91967d1f3b6a23832bf18c460bcd376c2bcb9",
+      "date": "2026-02-22T02:51:39Z",
+      "url": "https://github.com/ggfevans/chorographia/commit/8fe91967d1f3b6a23832bf18c460bcd376c2bcb9"
+    },
+    {
+      "repo": "chorographia",
+      "message": "fix: debounce batch-size saves and soften failure hint",
+      "sha": "6d5ec9e1440fee9634edabc1cd48da38f0a492d9",
+      "date": "2026-02-22T02:48:52Z",
+      "url": "https://github.com/ggfevans/chorographia/commit/6d5ec9e1440fee9634edabc1cd48da38f0a492d9"
+    },
+    {
+      "repo": "chorographia",
+      "message": "fix: harden batch size UX and migration handling",
+      "sha": "3a6581f13cd880de19460de6c63cb893acb55a99",
+      "date": "2026-02-22T02:45:24Z",
+      "url": "https://github.com/ggfevans/chorographia/commit/3a6581f13cd880de19460de6c63cb893acb55a99"
+    },
+    {
+      "repo": "chorographia",
+      "message": "refactor: extract embed batch-size settings helper",
+      "sha": "e7c231351bac738c38a78f595b0b3dcf32f791f6",
+      "date": "2026-02-22T02:43:08Z",
+      "url": "https://github.com/ggfevans/chorographia/commit/e7c231351bac738c38a78f595b0b3dcf32f791f6"
+    },
+    {
+      "repo": "chorographia",
+      "message": "docs: clarify batch size rate-limit and API-call tradeoffs",
+      "sha": "4b34fed0eef83701d297745a93a7eaf0b671d3b3",
+      "date": "2026-02-22T02:36:39Z",
+      "url": "https://github.com/ggfevans/chorographia/commit/4b34fed0eef83701d297745a93a7eaf0b671d3b3"
+    },
+    {
+      "repo": "chorographia",
+      "message": "refactor: use numeric batch size inputs in settings",
+      "sha": "c342eba9af95e334684ed03cac28221772eecf87",
+      "date": "2026-02-22T02:21:54Z",
+      "url": "https://github.com/ggfevans/chorographia/commit/c342eba9af95e334684ed03cac28221772eecf87"
+    },
+    {
+      "repo": "chorographia",
+      "message": "feat: add per-provider embedding batch size settings",
+      "sha": "c6212bb9db45058c7c7c549c630308f43a7bdc50",
+      "date": "2026-02-22T02:10:34Z",
+      "url": "https://github.com/ggfevans/chorographia/commit/c6212bb9db45058c7c7c549c630308f43a7bdc50"
+    },
+    {
+      "repo": "chorographia",
+      "message": "fix: avoid false success notice after embed failures",
+      "sha": "c7a22db5f39ccb50cedebe8ea831dd0e979fe96a",
+      "date": "2026-02-22T01:55:00Z",
+      "url": "https://github.com/ggfevans/chorographia/commit/c7a22db5f39ccb50cedebe8ea831dd0e979fe96a"
+    },
+    {
+      "repo": "chorographia",
+      "message": "feat: add embedding pipeline logging and failure guards",
+      "sha": "386217a5ffc9fde807c88678a242b7f11e3ce38d",
+      "date": "2026-02-22T01:00:13Z",
+      "url": "https://github.com/ggfevans/chorographia/commit/386217a5ffc9fde807c88678a242b7f11e3ce38d"
+    },
+    {
+      "repo": "chorographia",
+      "message": "v0.4.0-beta.1: label readability, PNG export, navigation, tag filtering",
+      "sha": "b1714bc8209b50cca0470aee509c2dbe989c7ad2",
+      "date": "2026-02-21T23:12:02Z",
+      "url": "https://github.com/ggfevans/chorographia/commit/b1714bc8209b50cca0470aee509c2dbe989c7ad2"
+    },
     {
       "repo": "gwilym.ca",
       "message": "add ingest script and review plan",
@@ -135,67 +205,32 @@
       "url": "https://github.com/ggfevans/gwilym.ca/commit/85c47d2e3a6b218fbd20f1f1535effca2737d685"
     },
     {
-      "repo": "Rackula",
-      "message": "feat: add MVP admin authorization for write routes (#1105) (#1277)",
-      "sha": "8c18f310273874e6d7fcc76fd6a24eaae38d91fa",
-      "date": "2026-02-20T01:58:44Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/8c18f310273874e6d7fcc76fd6a24eaae38d91fa"
-    },
-    {
       "repo": "gwilym.ca",
       "message": "docs: map existing codebase",
       "sha": "65821798b57f1f0bde091b433aeb22f0a50bd3b7",
       "date": "2026-02-20T01:57:45Z",
       "url": "https://github.com/ggfevans/gwilym.ca/commit/65821798b57f1f0bde091b433aeb22f0a50bd3b7"
-    },
-    {
-      "repo": "Rackula",
-      "message": "docs: map existing codebase",
-      "sha": "cdc2f25c4209c8927d3eb8fe1daaee991c0e3a68",
-      "date": "2026-02-19T20:13:11Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/cdc2f25c4209c8927d3eb8fe1daaee991c0e3a68"
-    },
-    {
-      "repo": "Rackula",
-      "message": "fix: address CodeRabbit review feedback",
-      "sha": "04f5e686c58f1788fb6146219e61d64b4a9d2818",
-      "date": "2026-02-19T20:10:20Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/04f5e686c58f1788fb6146219e61d64b4a9d2818"
-    },
-    {
-      "repo": "Rackula",
-      "message": "fix: align authorization with CSRF method coverage and fix AppEnv type",
-      "sha": "cfcc7780f3bbe8d02e5e93de0e85dee1616852d1",
-      "date": "2026-02-19T11:12:41Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/cfcc7780f3bbe8d02e5e93de0e85dee1616852d1"
-    },
-    {
-      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
-      "message": "update README",
-      "sha": "9a6c5271178e2da56d6c6b19efcf5f20488adedc",
-      "date": "2026-02-19T10:04:36Z",
-      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/9a6c5271178e2da56d6c6b19efcf5f20488adedc"
     }
   ],
   "stats": {
-    "commitsThisWeek": 25,
-    "commitsThisMonth": 25,
+    "commitsThisWeek": 32,
+    "commitsThisMonth": 32,
     "repositoriesThisWeek": 4
   },
   "repositories": [
-    {
-      "name": "gvns.ca",
-      "description": "",
-      "language": "Astro",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/gvns.ca"
-    },
     {
       "name": "gwilym.ca",
       "description": "",
       "language": "Astro",
       "stars": 0,
       "url": "https://github.com/ggfevans/gwilym.ca"
+    },
+    {
+      "name": "gvns.ca",
+      "description": "",
+      "language": "Astro",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/gvns.ca"
     },
     {
       "name": "SearXNG-Community-Scripts-ProxmoxVE",
