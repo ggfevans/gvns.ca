@@ -1,230 +1,223 @@
 {
-  "lastUpdated": "2026-02-22T04:02:41Z",
+  "lastUpdated": "2026-02-23T04:07:15Z",
   "recentCommits": [
     {
-      "repo": "chorographia",
-      "message": "fix: avoid redundant blur-triggered settings writes",
-      "sha": "8fe91967d1f3b6a23832bf18c460bcd376c2bcb9",
-      "date": "2026-02-22T02:51:39Z",
-      "url": "https://github.com/ggfevans/chorographia/commit/8fe91967d1f3b6a23832bf18c460bcd376c2bcb9"
+      "repo": "Rackula",
+      "message": "Merge branch 'main' into dependabot/npm_and_yarn/eslint-2e2637830d",
+      "sha": "ea02d3080e7ed8ae0cfb0c35f548ce773bb2b9c2",
+      "date": "2026-02-22T10:32:05Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/ea02d3080e7ed8ae0cfb0c35f548ce773bb2b9c2"
     },
     {
-      "repo": "chorographia",
-      "message": "fix: debounce batch-size saves and soften failure hint",
-      "sha": "6d5ec9e1440fee9634edabc1cd48da38f0a492d9",
-      "date": "2026-02-22T02:48:52Z",
-      "url": "https://github.com/ggfevans/chorographia/commit/6d5ec9e1440fee9634edabc1cd48da38f0a492d9"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "docs: Align disabled default guidance across files (#9)",
+      "sha": "babbbdf286b890d5885d60ad52de8657a8e0a426",
+      "date": "2026-02-22T10:12:59Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/babbbdf286b890d5885d60ad52de8657a8e0a426"
     },
     {
-      "repo": "chorographia",
-      "message": "fix: harden batch size UX and migration handling",
-      "sha": "3a6581f13cd880de19460de6c63cb893acb55a99",
-      "date": "2026-02-22T02:45:24Z",
-      "url": "https://github.com/ggfevans/chorographia/commit/3a6581f13cd880de19460de6c63cb893acb55a99"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "Merge pull request #8 from ggfevans/feat/changelog",
+      "sha": "6e881caf71ad5e92fecf3f94cea0251c4d4b7e2b",
+      "date": "2026-02-22T10:06:11Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/6e881caf71ad5e92fecf3f94cea0251c4d4b7e2b"
     },
     {
-      "repo": "chorographia",
-      "message": "refactor: extract embed batch-size settings helper",
-      "sha": "e7c231351bac738c38a78f595b0b3dcf32f791f6",
-      "date": "2026-02-22T02:43:08Z",
-      "url": "https://github.com/ggfevans/chorographia/commit/e7c231351bac738c38a78f595b0b3dcf32f791f6"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "docs: Fix CHANGELOG.md formatting and clarify cache limit",
+      "sha": "2e9604f9d7dec958457613b92e3225e36252d7ae",
+      "date": "2026-02-22T10:03:58Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/2e9604f9d7dec958457613b92e3225e36252d7ae"
     },
     {
-      "repo": "chorographia",
-      "message": "docs: clarify batch size rate-limit and API-call tradeoffs",
-      "sha": "4b34fed0eef83701d297745a93a7eaf0b671d3b3",
-      "date": "2026-02-22T02:36:39Z",
-      "url": "https://github.com/ggfevans/chorographia/commit/4b34fed0eef83701d297745a93a7eaf0b671d3b3"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "docs: Populate CHANGELOG with details from v1.0.0 and v1.0.1",
+      "sha": "98862062ea06516c6b06bebd324fef987fe77dcf",
+      "date": "2026-02-22T09:55:17Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/98862062ea06516c6b06bebd324fef987fe77dcf"
     },
     {
-      "repo": "chorographia",
-      "message": "refactor: use numeric batch size inputs in settings",
-      "sha": "c342eba9af95e334684ed03cac28221772eecf87",
-      "date": "2026-02-22T02:21:54Z",
-      "url": "https://github.com/ggfevans/chorographia/commit/c342eba9af95e334684ed03cac28221772eecf87"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "docs: Remove redundant temporary changelog",
+      "sha": "196bdbdca5fa38108d86fd63db12c0230075d84b",
+      "date": "2026-02-22T09:53:16Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/196bdbdca5fa38108d86fd63db12c0230075d84b"
     },
     {
-      "repo": "chorographia",
-      "message": "feat: add per-provider embedding batch size settings",
-      "sha": "c6212bb9db45058c7c7c549c630308f43a7bdc50",
-      "date": "2026-02-22T02:10:34Z",
-      "url": "https://github.com/ggfevans/chorographia/commit/c6212bb9db45058c7c7c549c630308f43a7bdc50"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "docs: Add CHANGELOG.md following Keep a Changelog pattern",
+      "sha": "b63781bf3e297d0ee81b366362620f2fe8ef1918",
+      "date": "2026-02-22T09:53:11Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/b63781bf3e297d0ee81b366362620f2fe8ef1918"
     },
     {
-      "repo": "chorographia",
-      "message": "fix: avoid false success notice after embed failures",
-      "sha": "c7a22db5f39ccb50cedebe8ea831dd0e979fe96a",
-      "date": "2026-02-22T01:55:00Z",
-      "url": "https://github.com/ggfevans/chorographia/commit/c7a22db5f39ccb50cedebe8ea831dd0e979fe96a"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "docs: Replace temporary changelog with CHANGELOG.md following Keep a Changelog pattern",
+      "sha": "9d08f68661fcc902c87a498b26f1ff7533c0f72f",
+      "date": "2026-02-22T09:52:20Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/9d08f68661fcc902c87a498b26f1ff7533c0f72f"
     },
     {
-      "repo": "chorographia",
-      "message": "feat: add embedding pipeline logging and failure guards",
-      "sha": "386217a5ffc9fde807c88678a242b7f11e3ce38d",
-      "date": "2026-02-22T01:00:13Z",
-      "url": "https://github.com/ggfevans/chorographia/commit/386217a5ffc9fde807c88678a242b7f11e3ce38d"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "Merge pull request #7 from ggfevans/fix/harden-api-payload",
+      "sha": "263c85a6c733f50cfbe42df80b3b2759256d3308",
+      "date": "2026-02-22T09:44:23Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/263c85a6c733f50cfbe42df80b3b2759256d3308"
     },
     {
-      "repo": "chorographia",
-      "message": "v0.4.0-beta.1: label readability, PNG export, navigation, tag filtering",
-      "sha": "b1714bc8209b50cca0470aee509c2dbe989c7ad2",
-      "date": "2026-02-21T23:12:02Z",
-      "url": "https://github.com/ggfevans/chorographia/commit/b1714bc8209b50cca0470aee509c2dbe989c7ad2"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "refactor: Improve HMAC handling, slug normalization, and serialization",
+      "sha": "2ecd02dd01c19956820a36917bc27a267f15570b",
+      "date": "2026-02-22T09:38:57Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/2ecd02dd01c19956820a36917bc27a267f15570b"
+    },
+    {
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "update searx/engines/community_scripts_proxmoxve.py and tests/test_community_scripts_proxmoxve.py",
+      "sha": "b00950eaadd596ba8b7ffcc47b3359cb17fa472e",
+      "date": "2026-02-22T08:05:30Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/b00950eaadd596ba8b7ffcc47b3359cb17fa472e"
     },
     {
       "repo": "gwilym.ca",
-      "message": "add ingest script and review plan",
-      "sha": "e123f6ba63e1760660b2418640e3e0d9b8976a74",
-      "date": "2026-02-21T02:07:22Z",
-      "url": "https://github.com/ggfevans/gwilym.ca/commit/e123f6ba63e1760660b2418640e3e0d9b8976a74"
+      "message": "chore: add design tokens & clean up widget layout (#36)",
+      "sha": "3011e0b0a3d5e0d0a36d7ff771f725167782ab7b",
+      "date": "2026-02-22T07:11:59Z",
+      "url": "https://github.com/ggfevans/gwilym.ca/commit/3011e0b0a3d5e0d0a36d7ff771f725167782ab7b"
     },
     {
-      "repo": "gwilym.ca",
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "move test_data_analysis.py to tools",
+      "sha": "c6a44145274a9f1219a351d9a81c74ac5d8164a5",
+      "date": "2026-02-22T06:58:25Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/c6a44145274a9f1219a351d9a81c74ac5d8164a5"
+    },
+    {
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "fix: update tests and scripts to address feedback",
+      "sha": "44a853e2f38bfa922ce72ca7a70007717fdc8e16",
+      "date": "2026-02-22T06:47:06Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/44a853e2f38bfa922ce72ca7a70007717fdc8e16"
+    },
+    {
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "refactor to use searxng networking stack and caching infra",
+      "sha": "30ee3dd2d60d81c0f61b87a569a0d63c46c4b352",
+      "date": "2026-02-22T06:23:35Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/30ee3dd2d60d81c0f61b87a569a0d63c46c4b352"
+    },
+    {
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "Add test_data_analysis.py",
+      "sha": "d705ea76a1d93bec98f6196a3475c47d16fbfc3b",
+      "date": "2026-02-22T06:23:09Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/d705ea76a1d93bec98f6196a3475c47d16fbfc3b"
+    },
+    {
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "feat: Update ProxmoxVE engine to use SearXNG network stack",
+      "sha": "77d92b707476775d4d37a864180b29fea46efe78",
+      "date": "2026-02-22T05:14:57Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/77d92b707476775d4d37a864180b29fea46efe78"
+    },
+    {
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "Fix: Harden API payload in community scripts tests",
+      "sha": "5522b8997249a63b8a65047a272a62c34b8e7d71",
+      "date": "2026-02-22T04:54:04Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/5522b8997249a63b8a65047a272a62c34b8e7d71"
+    },
+    {
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "Harden API payload in community_scripts_proxmoxve & add test",
+      "sha": "45a4707fe819c51ad328a90d9631a6e823180bd6",
+      "date": "2026-02-22T04:52:12Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/45a4707fe819c51ad328a90d9631a6e823180bd6"
+    },
+    {
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "Create .gitignore",
+      "sha": "f16290052aca7566dd395abc7ca7ab49cd2e7ea2",
+      "date": "2026-02-22T04:47:15Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/f16290052aca7566dd395abc7ca7ab49cd2e7ea2"
+    },
+    {
+      "repo": "github-json-bourne",
+      "message": "Create LICENSE",
+      "sha": "592ba1fdca19b94973cc4791b42332e6a207c1fd",
+      "date": "2026-02-22T04:41:31Z",
+      "url": "https://github.com/ggfevans/github-json-bourne/commit/592ba1fdca19b94973cc4791b42332e6a207c1fd"
+    },
+    {
+      "repo": "github-json-bourne",
+      "message": "Update .gitignore",
+      "sha": "005f3dcd5efcdb8abec47e4398c281aaf5bbe12c",
+      "date": "2026-02-22T04:41:21Z",
+      "url": "https://github.com/ggfevans/github-json-bourne/commit/005f3dcd5efcdb8abec47e4398c281aaf5bbe12c"
+    },
+    {
+      "repo": "github-json-bourne",
+      "message": "Create release.yml",
+      "sha": "97c40977c21dbd83e29713464fefc4061325d430",
+      "date": "2026-02-22T04:39:07Z",
+      "url": "https://github.com/ggfevans/github-json-bourne/commit/97c40977c21dbd83e29713464fefc4061325d430"
+    },
+    {
+      "repo": "github-json-bourne",
+      "message": "Add README.md",
+      "sha": "513ad0d5ef5df6088b55bbc2718b3f21782fb377",
+      "date": "2026-02-22T04:35:28Z",
+      "url": "https://github.com/ggfevans/github-json-bourne/commit/513ad0d5ef5df6088b55bbc2718b3f21782fb377"
+    },
+    {
+      "repo": "github-json-bourne",
+      "message": "docs: comprehensive README rewrite with schema examples and architecture",
+      "sha": "067befb09c7fb13e68681bf3cae79c74c6f3f434",
+      "date": "2026-02-22T04:18:34Z",
+      "url": "https://github.com/ggfevans/github-json-bourne/commit/067befb09c7fb13e68681bf3cae79c74c6f3f434"
+    },
+    {
+      "repo": "github-json-bourne",
       "message": "docs: initialize project",
-      "sha": "ad37850e67ec2a4b4d32c09ac8978f4503e97abd",
-      "date": "2026-02-21T02:03:17Z",
-      "url": "https://github.com/ggfevans/gwilym.ca/commit/ad37850e67ec2a4b4d32c09ac8978f4503e97abd"
+      "sha": "bb1110b9a27d5b5910018a6607a6e9c4222649b4",
+      "date": "2026-02-22T04:15:03Z",
+      "url": "https://github.com/ggfevans/github-json-bourne/commit/bb1110b9a27d5b5910018a6607a6e9c4222649b4"
     },
     {
-      "repo": "gwilym.ca",
-      "message": "fix: move stopImmediatePropagation into active branches",
-      "sha": "a707b78ebcdb15242a23e203ccf45acf2457f500",
-      "date": "2026-02-21T00:33:34Z",
-      "url": "https://github.com/ggfevans/gwilym.ca/commit/a707b78ebcdb15242a23e203ccf45acf2457f500"
-    },
-    {
-      "repo": "Rackula",
-      "message": "fix: harden auth event pseudonymization",
-      "sha": "bfd9d3612510fc3583dd83d1d7329c8914bff78f",
-      "date": "2026-02-20T22:20:43Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/bfd9d3612510fc3583dd83d1d7329c8914bff78f"
-    },
-    {
-      "repo": "Rackula",
-      "message": "test: harden false-positive e2e assertions (#1303)",
-      "sha": "ba80a5f6873f012267b7c3bbb9b3b43c55ffe748",
-      "date": "2026-02-20T21:36:52Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/ba80a5f6873f012267b7c3bbb9b3b43c55ffe748"
-    },
-    {
-      "repo": "Rackula",
-      "message": "chore(release): v0.8.4",
-      "sha": "04a567011c603de78bd4ce8ab774a5527c0d59f1",
-      "date": "2026-02-20T10:09:07Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/04a567011c603de78bd4ce8ab774a5527c0d59f1"
-    },
-    {
-      "repo": "Rackula",
-      "message": "fix(nginx): prevent auth_mode variable crash in container startup",
-      "sha": "713e017a543c368a997a251b3f9373c3cb43a9f3",
-      "date": "2026-02-20T10:01:00Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/713e017a543c368a997a251b3f9373c3cb43a9f3"
-    },
-    {
-      "repo": "Rackula",
-      "message": "chore(security): remediate Dependabot alerts for svelte jspdf hono",
-      "sha": "183d8965139ba31e2c7ab2a7728199ee0d642f33",
-      "date": "2026-02-20T09:42:16Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/183d8965139ba31e2c7ab2a7728199ee0d642f33"
-    },
-    {
-      "repo": "Rackula",
-      "message": "ci: make deploy failure alerts always run and labeled",
-      "sha": "f97b593dddbbd57baccc33ae0fa7cac9e3b2a419",
-      "date": "2026-02-20T09:20:28Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/f97b593dddbbd57baccc33ae0fa7cac9e3b2a419"
-    },
-    {
-      "repo": "Rackula",
-      "message": "ci: harden deploy-prod with timeouts and failure alerts",
-      "sha": "f7101c925731cd69074cc3b51ff05b2abdfc9b0e",
-      "date": "2026-02-20T09:17:59Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/f7101c925731cd69074cc3b51ff05b2abdfc9b0e"
-    },
-    {
-      "repo": "Rackula",
-      "message": "chore(release): prepare v0.8.3",
-      "sha": "1fdf73c1e430be92d22b8a245966bc74ad064942",
-      "date": "2026-02-20T09:13:04Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/1fdf73c1e430be92d22b8a245966bc74ad064942"
-    },
-    {
-      "repo": "Rackula",
-      "message": "fix(ci): align Trivy SARIF gate with severity threshold",
-      "sha": "4d4259400c1758fa6306bd64a860aa1b2f9d2a9a",
-      "date": "2026-02-20T09:08:27Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/4d4259400c1758fa6306bd64a860aa1b2f9d2a9a"
-    },
-    {
-      "repo": "Rackula",
-      "message": "chore(release): prepare v0.8.2",
-      "sha": "3373c766b4dbdeb08385c0c9edec64b34cc13bb1",
-      "date": "2026-02-20T07:30:38Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/3373c766b4dbdeb08385c0c9edec64b34cc13bb1"
-    },
-    {
-      "repo": "Rackula",
-      "message": "docs: add domain research (auth, security, E2E)",
-      "sha": "8a7d3760a49ef1e4064e3af079f058be10a68cf9",
-      "date": "2026-02-20T06:02:32Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/8a7d3760a49ef1e4064e3af079f058be10a68cf9"
-    },
-    {
-      "repo": "Rackula",
-      "message": "chore: add project config",
-      "sha": "f9e0e958d86ef12ae96236e0dc19fc79fc7f1cf6",
-      "date": "2026-02-20T05:29:36Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/f9e0e958d86ef12ae96236e0dc19fc79fc7f1cf6"
-    },
-    {
-      "repo": "chorographia",
-      "message": "chore: ignore and remove .planning artifacts",
-      "sha": "ee8d28f3f0216784ae65b312a116c01f393fd76d",
-      "date": "2026-02-20T04:23:32Z",
-      "url": "https://github.com/ggfevans/chorographia/commit/ee8d28f3f0216784ae65b312a116c01f393fd76d"
-    },
-    {
-      "repo": "chorographia",
-      "message": "fix: adjust ollama batch size and logging",
-      "sha": "4f1b7d1e6bc84eff6420251d55307108c9e11f98",
-      "date": "2026-02-20T03:50:25Z",
-      "url": "https://github.com/ggfevans/chorographia/commit/4f1b7d1e6bc84eff6420251d55307108c9e11f98"
-    },
-    {
-      "repo": "Rackula",
-      "message": "docs: initialize project",
-      "sha": "09768503f340dd05a625e01c0e14ff70bd6a5c0d",
-      "date": "2026-02-20T03:50:25Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/09768503f340dd05a625e01c0e14ff70bd6a5c0d"
-    },
-    {
-      "repo": "gwilym.ca",
-      "message": "init gsd",
-      "sha": "85c47d2e3a6b218fbd20f1f1535effca2737d685",
-      "date": "2026-02-20T02:00:55Z",
-      "url": "https://github.com/ggfevans/gwilym.ca/commit/85c47d2e3a6b218fbd20f1f1535effca2737d685"
-    },
-    {
-      "repo": "gwilym.ca",
+      "repo": "github-json-bourne",
       "message": "docs: map existing codebase",
-      "sha": "65821798b57f1f0bde091b433aeb22f0a50bd3b7",
-      "date": "2026-02-20T01:57:45Z",
-      "url": "https://github.com/ggfevans/gwilym.ca/commit/65821798b57f1f0bde091b433aeb22f0a50bd3b7"
+      "sha": "20abb75731b7159bef8d3caf3567b9e395be18c2",
+      "date": "2026-02-22T04:13:03Z",
+      "url": "https://github.com/ggfevans/github-json-bourne/commit/20abb75731b7159bef8d3caf3567b9e395be18c2"
+    },
+    {
+      "repo": "github-json-bourne",
+      "message": "Enhance security policy with new sections",
+      "sha": "475e512b74223a3e5c6bc3e5a5c4b891777b1c39",
+      "date": "2026-02-22T04:05:39Z",
+      "url": "https://github.com/ggfevans/github-json-bourne/commit/475e512b74223a3e5c6bc3e5a5c4b891777b1c39"
+    },
+    {
+      "repo": "gwilym.ca",
+      "message": "Bump devalue from 5.6.2 to 5.6.3 (#34)",
+      "sha": "36ee00ebcdc35e9679a4d34988d6f84d5c4c7bfa",
+      "date": "2026-02-22T03:58:50Z",
+      "url": "https://github.com/ggfevans/gwilym.ca/commit/36ee00ebcdc35e9679a4d34988d6f84d5c4c7bfa"
+    },
+    {
+      "repo": "gwilym.ca",
+      "message": "Bump fast-xml-parser from 5.3.4 to 5.3.7 (#33)",
+      "sha": "bf6744324219289a75bb9b1de8f31b0dcc8d4979",
+      "date": "2026-02-22T03:58:40Z",
+      "url": "https://github.com/ggfevans/gwilym.ca/commit/bf6744324219289a75bb9b1de8f31b0dcc8d4979"
     }
   ],
   "stats": {
-    "commitsThisWeek": 32,
-    "commitsThisMonth": 32,
+    "commitsThisWeek": 56,
+    "commitsThisMonth": 59,
     "repositoriesThisWeek": 4
   },
   "repositories": [
-    {
-      "name": "gwilym.ca",
-      "description": "",
-      "language": "Astro",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/gwilym.ca"
-    },
     {
       "name": "gvns.ca",
       "description": "",
@@ -233,11 +226,25 @@
       "url": "https://github.com/ggfevans/gvns.ca"
     },
     {
+      "name": "gwilym.ca",
+      "description": "",
+      "language": "Astro",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/gwilym.ca"
+    },
+    {
       "name": "SearXNG-Community-Scripts-ProxmoxVE",
       "description": "SearXNG engine for searching the Proxmox VE Community Scripts catalogue (~480 scripts). Offline, cached, zero dependencies",
       "language": "Python",
-      "stars": 8,
+      "stars": 9,
       "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE"
+    },
+    {
+      "name": "github-json-bourne",
+      "description": "",
+      "language": "JavaScript",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/github-json-bourne"
     },
     {
       "name": "cloud-observe",
@@ -294,13 +301,6 @@
       "language": "Shell",
       "stars": 0,
       "url": "https://github.com/ggfevans/hardcover-json-bourne"
-    },
-    {
-      "name": "gh-mint",
-      "description": "A gh CLI extension that creates GitHub repos with consistent defaults from named profiles",
-      "language": "Go",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/gh-mint"
     }
   ]
 }
