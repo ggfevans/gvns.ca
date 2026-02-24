@@ -25,6 +25,7 @@ pnpm-debug.log*
 
 # git worktrees
 .worktree/
+.worktrees/
 
 # claude-mem context files (keep root CLAUDE.md, ignore all others)
 **/CLAUDE.md

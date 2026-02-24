@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-17T00:21:29Z",
+  "lastUpdated": "2026-02-24T00:20:56Z",
   "currentlyReading": [
     {
       "title": "Radicalized: Four Tales of Our Present Moment",
@@ -15,6 +15,14 @@
     }
   ],
   "finished": [
+    {
+      "title": "A Midsummer Night's Dream: Shakespeare: The Critical Tradition, Volume 7",
+      "author": "Judith M. Kennedy",
+      "coverUrl": "https://assets.hardcover.app/external_data/32809286/3e05d1edc109c73683598e323046555da7a544a2.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/a-midsummer-nights-dream",
+      "rating": null,
+      "dateFinished": "2026-02-20T19:47:26.936503+00:00"
+    },
     {
       "title": "A Season for Spies",
       "author": "Iona Whishaw",
@@ -66,7 +74,7 @@
     {
       "title": "All These Worlds",
       "author": "Dennis E. Taylor",
-      "coverUrl": "https://assets.hardcover.app/book_mappings/7333407/ef076f14108e71996dce509538bb392e356e2938.jpeg",
+      "coverUrl": "https://assets.hardcover.app/edition/28912712/76b99f70-7807-471d-ae69-8d038f4b3ca6.jpg",
       "hardcoverUrl": "https://hardcover.app/books/all-these-worlds",
       "rating": null,
       "dateFinished": "2025-10-01T07:43:13.980302+00:00"
@@ -74,7 +82,7 @@
     {
       "title": "For We Are Many",
       "author": "Dennis E. Taylor",
-      "coverUrl": "https://assets.hardcover.app/edition/31488149/ef06ef458ae3ab9a347040ffe24592e1aa56062f.jpeg",
+      "coverUrl": "https://assets.hardcover.app/edition/30407482/2715fec8-0b67-449d-bf61-327d57ecb4b8.jpg",
       "hardcoverUrl": "https://hardcover.app/books/for-we-are-many",
       "rating": null,
       "dateFinished": "2025-09-22T07:39:24.806107+00:00"
@@ -118,14 +126,6 @@
       "hardcoverUrl": "https://hardcover.app/books/tripwire",
       "rating": null,
       "dateFinished": "2025-07-22T07:42:37.906215+00:00"
-    },
-    {
-      "title": "A Midsummer Night's Dream: Shakespeare: The Critical Tradition, Volume 7",
-      "author": "Judith M. Kennedy",
-      "coverUrl": "https://assets.hardcover.app/external_data/32809286/3e05d1edc109c73683598e323046555da7a544a2.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/a-midsummer-nights-dream-shakespeare-the-critical-tradition-volume-7",
-      "rating": null,
-      "dateFinished": "2025-07-19T01:28:02.979695+00:00"
     }
   ],
   "wantToRead": [

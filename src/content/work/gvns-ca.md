@@ -2,7 +2,7 @@
 title: "gvns.ca"
 description: "Personal site for writing and work. Built with Astro, Svelte islands, and Tailwind CSS."
 url: "https://gvns.ca"
-repo: "https://github.com/ggfevans/gvns.ca"
+repo: "https://github.com/ggfevans/gwilym.ca"
 status: active
 tags:
   - Astro

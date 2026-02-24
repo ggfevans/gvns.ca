@@ -1,6 +1,13 @@
 {
-  "lastUpdated": "2026-02-17T00:09:18Z",
+  "lastUpdated": "2026-02-24T00:09:02Z",
   "recentlyWatched": [
+    {
+      "title": "Pluribus — S01E09",
+      "type": "show",
+      "posterUrl": "https://image.tmdb.org/t/p/w342/z7Nga7Q9IGFWs5OEduY2gGFxnX3.jpg",
+      "url": "https://trakt.tv/shows/pluribus",
+      "watchedDate": "2026-02-23T06:22:00.000Z"
+    },
     {
       "title": "Sentimental Value",
       "type": "movie",
@@ -39,6 +46,6 @@
   ],
   "stats": {
     "moviesThisMonth": 1,
-    "showsThisMonth": 4
+    "showsThisMonth": 5
   }
 }

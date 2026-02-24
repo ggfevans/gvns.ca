@@ -14,226 +14,239 @@
    ============================================ */
 
 :root {
-  /* Background & Surfaces (zinc scale) */
-  --colour-bg-primary: #0a0a0a;
-  --colour-bg-secondary: #18181b;     /* zinc-900 */
-  --colour-bg-tertiary: #27272a;      /* zinc-800 */
-  --colour-border: #3f3f46;           /* zinc-700 */
+    /* Background & Surfaces (zinc scale) */
+    --colour-bg-primary: #0a0a0a;
+    --colour-bg-secondary: #18181b; /* zinc-900 */
+    --colour-bg-tertiary: #27272a; /* zinc-800 */
+    --colour-border: #3f3f46; /* zinc-700 */
 
-  /* Text Hierarchy */
-  --colour-text-primary: #f4f4f5;     /* zinc-100 */
-  --colour-text-secondary: #a1a1aa;   /* zinc-400 */
-  --colour-text-muted: #71717a;       /* zinc-500 */
-  --colour-text-inverse: #0a0a0a;     /* zinc-950 — dark text on light backgrounds */
+    /* Text Hierarchy */
+    --colour-text-primary: #f4f4f5; /* zinc-100 */
+    --colour-text-secondary: #a1a1aa; /* zinc-400 */
+    --colour-text-muted: #71717a; /* zinc-500 */
+    --colour-text-inverse: #0a0a0a; /* zinc-950 — dark text on light backgrounds */
 
-  /* P1-P5 Accent Palette */
-  --colour-p1-violet: #8b5cf6;        /* violet-500 — code activity */
-  --colour-p1-violet-hover: #a78bfa;  /* violet-400 */
-  --colour-p2-rose: #f43f5e;          /* rose-500 — read section */
-  --colour-p2-rose-hover: #fb7185;    /* rose-400 */
-  --colour-p3-emerald: #10b981;       /* emerald-500 — listen */
-  --colour-p3-emerald-hover: #34d399; /* emerald-400 */
-  --colour-p4-amber: #f59e0b;         /* amber-500 — write/watch */
-  --colour-p4-amber-hover: #fbbf24;   /* amber-400 */
-  --colour-p5-sky: #0ea5e9;           /* sky-500 — status */
-  --colour-p5-sky-hover: #38bdf8;     /* sky-400 */
+    /* P1-P5 Accent Palette */
+    --colour-p1-violet: #8b5cf6; /* violet-500 — code activity */
+    --colour-p1-violet-hover: #a78bfa; /* violet-400 */
+    --colour-p2-rose: #f43f5e; /* rose-500 — read section */
+    --colour-p2-rose-hover: #fb7185; /* rose-400 */
+    --colour-p3-emerald: #10b981; /* emerald-500 — listen */
+    --colour-p3-emerald-hover: #34d399; /* emerald-400 */
+    --colour-p4-amber: #f59e0b; /* amber-500 — write/watch */
+    --colour-p4-amber-hover: #fbbf24; /* amber-400 */
+    --colour-p5-sky: #0ea5e9; /* sky-500 — status */
+    --colour-p5-sky-hover: #38bdf8; /* sky-400 */
 
-  /* Neutral accent */
-  --colour-accent-neutral: #a1a1aa;
-  --colour-accent-neutral-hover: #d4d4d8;
+    /* Neutral accent */
+    --colour-accent-neutral: #a1a1aa;
+    --colour-accent-neutral-hover: #d4d4d8;
 
-  /* Primary accent (violet by default) */
-  --colour-accent-primary: var(--colour-p1-violet);
-  --colour-accent-hover: var(--colour-p1-violet-hover);
+    /* Primary accent (violet by default) */
+    --colour-accent-primary: var(--colour-p1-violet);
+    --colour-accent-hover: var(--colour-p1-violet-hover);
 
-  /* Link colour for prose (violet-400 meets 5.1:1 on #0a0a0a) */
-  --colour-link-text: #a78bfa;
+    /* Link colour for prose (violet-400 meets 5.1:1 on #0a0a0a) */
+    --colour-link-text: #a78bfa;
 
-  /* Semantic Colours */
-  --colour-success: var(--colour-p3-emerald);
-  --colour-warning: var(--colour-p4-amber);
-  --colour-error: #ef4444;
-  --colour-info: var(--colour-p5-sky);
+    /* Semantic Colours */
+    --colour-success: var(--colour-p3-emerald);
+    --colour-warning: var(--colour-p4-amber);
+    --colour-error: #ef4444;
+    --colour-info: var(--colour-p5-sky);
 
-  /* Typography */
-  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system,
-    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-heading: "Space Grotesk", var(--font-sans);
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo,
-    Consolas, "Liberation Mono", monospace;
+    /* Typography */
+    --font-sans:
+        "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-heading: "Space Grotesk", var(--font-sans);
+    --font-mono:
+        "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo,
+        Consolas, "Liberation Mono", monospace;
 
-  /* Type Scale */
-  --text-xs: 0.75rem;   /* 12px */
-  --text-sm: 0.875rem;  /* 14px */
-  --text-base: 1rem;    /* 16px */
-  --text-lg: 1.25rem;   /* 20px */
-  --text-xl: 1.5rem;    /* 24px */
-  --text-2xl: 1.875rem; /* 30px */
-  --text-3xl: 2.375rem; /* 38px */
-  --text-4xl: 3rem;     /* 48px */
+    /* Type Scale */
+    --text-xs: 0.75rem; /* 12px */
+    --text-sm: 0.875rem; /* 14px */
+    --text-base: 1rem; /* 16px */
+    --text-lg: 1.25rem; /* 20px */
+    --text-xl: 1.5rem; /* 24px */
+    --text-2xl: 1.875rem; /* 30px */
+    --text-3xl: 2.375rem; /* 38px */
+    --text-4xl: 3rem; /* 48px */
 
-  /* Transitions */
-  --transition-fast: 150ms ease;
-  --transition-base: 250ms ease;
-  --transition-slow: 350ms ease;
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-base: 250ms ease;
+    --transition-slow: 350ms ease;
 
-  /* Container Widths */
-  --width-content: 65ch;
-  --width-wide: 80rem;
+    /* Container Widths */
+    --width-content: 65ch;
+    --width-wide: 80rem;
 
-  /* Spacing Scale (4px base) */
-  --space-1: 0.25rem;   /* 4px */
-  --space-2: 0.5rem;    /* 8px */
-  --space-3: 0.75rem;   /* 12px */
-  --space-4: 1rem;      /* 16px */
-  --space-6: 1.5rem;    /* 24px */
-  --space-8: 2rem;      /* 32px */
-  --space-10: 2.5rem;   /* 40px */
-  --space-12: 3rem;     /* 48px */
-  --space-16: 4rem;     /* 64px */
-  --space-24: 6rem;     /* 96px */
+    /* Border Radii */
+    --radius-sm: 2px;
+    --radius-md: 4px;
+    --radius-lg: 8px;
+    --radius-xl: 12px;
+
+    /* Accent Border Width */
+    --border-accent: 3px;
+
+    /* Spacing Scale (4px base) */
+    --space-1: 0.25rem; /* 4px */
+    --space-2: 0.5rem; /* 8px */
+    --space-3: 0.75rem; /* 12px */
+    --space-4: 1rem; /* 16px */
+    --space-6: 1.5rem; /* 24px */
+    --space-8: 2rem; /* 32px */
+    --space-10: 2.5rem; /* 40px */
+    --space-12: 3rem; /* 48px */
+    --space-16: 4rem; /* 64px */
+    --space-24: 6rem; /* 96px */
 }
 
 /* Light Theme */
 :root:not(.dark) {
-  --colour-bg-primary: #fafafa;       /* zinc-50 */
-  --colour-bg-secondary: #ffffff;
-  --colour-bg-tertiary: #f4f4f5;      /* zinc-100 */
-  --colour-border: #e4e4e7;           /* zinc-200 */
+    --colour-bg-primary: #fafafa; /* zinc-50 */
+    --colour-bg-secondary: #ffffff;
+    --colour-bg-tertiary: #f4f4f5; /* zinc-100 */
+    --colour-border: #e4e4e7; /* zinc-200 */
 
-  --colour-text-primary: #18181b;     /* zinc-900 */
-  --colour-text-secondary: #52525b;   /* zinc-600 */
-  --colour-text-muted: #71717a;       /* zinc-500 */
-  --colour-text-inverse: #fafafa;     /* zinc-50 — light text on dark backgrounds */
-
+    --colour-text-primary: #18181b; /* zinc-900 */
+    --colour-text-secondary: #52525b; /* zinc-600 */
+    --colour-text-muted: #71717a; /* zinc-500 */
+    --colour-text-inverse: #fafafa; /* zinc-50 — light text on dark backgrounds */
 }
 
 /* Contextual accent overrides — set via data-accent on <html> */
 [data-accent="p1-violet"] {
-  --colour-accent-primary: var(--colour-p1-violet);
-  --colour-accent-hover: var(--colour-p1-violet-hover);
-  --colour-link-text: var(--colour-p1-violet-hover);
+    --colour-accent-primary: var(--colour-p1-violet);
+    --colour-accent-hover: var(--colour-p1-violet-hover);
+    --colour-link-text: var(--colour-p1-violet-hover);
 }
 [data-accent="p2-rose"] {
-  --colour-accent-primary: var(--colour-p2-rose);
-  --colour-accent-hover: var(--colour-p2-rose-hover);
-  --colour-link-text: var(--colour-p2-rose-hover);
+    --colour-accent-primary: var(--colour-p2-rose);
+    --colour-accent-hover: var(--colour-p2-rose-hover);
+    --colour-link-text: var(--colour-p2-rose-hover);
 }
 [data-accent="p3-emerald"] {
-  --colour-accent-primary: var(--colour-p3-emerald);
-  --colour-accent-hover: var(--colour-p3-emerald-hover);
-  --colour-link-text: var(--colour-p3-emerald-hover);
+    --colour-accent-primary: var(--colour-p3-emerald);
+    --colour-accent-hover: var(--colour-p3-emerald-hover);
+    --colour-link-text: var(--colour-p3-emerald-hover);
 }
 [data-accent="p4-amber"] {
-  --colour-accent-primary: var(--colour-p4-amber);
-  --colour-accent-hover: var(--colour-p4-amber-hover);
-  --colour-link-text: var(--colour-p4-amber-hover);
+    --colour-accent-primary: var(--colour-p4-amber);
+    --colour-accent-hover: var(--colour-p4-amber-hover);
+    --colour-link-text: var(--colour-p4-amber-hover);
 }
 [data-accent="p5-sky"] {
-  --colour-accent-primary: var(--colour-p5-sky);
-  --colour-accent-hover: var(--colour-p5-sky-hover);
-  --colour-link-text: var(--colour-p5-sky-hover);
+    --colour-accent-primary: var(--colour-p5-sky);
+    --colour-accent-hover: var(--colour-p5-sky-hover);
+    --colour-link-text: var(--colour-p5-sky-hover);
 }
 [data-accent="neutral"] {
-  --colour-accent-primary: var(--colour-accent-neutral);
-  --colour-accent-hover: var(--colour-accent-neutral-hover);
-  --colour-link-text: var(--colour-accent-neutral-hover);
+    --colour-accent-primary: var(--colour-accent-neutral);
+    --colour-accent-hover: var(--colour-accent-neutral-hover);
+    --colour-link-text: var(--colour-accent-neutral-hover);
 }
 
 /* Light theme per-accent overrides */
 :root:not(.dark)[data-accent="p1-violet"] {
-  --colour-accent-primary: #7c3aed;
-  --colour-accent-hover: #6d28d9;
-  --colour-link-text: #7c3aed;
+    --colour-accent-primary: #7c3aed;
+    --colour-accent-hover: #6d28d9;
+    --colour-link-text: #7c3aed;
 }
 :root:not(.dark)[data-accent="p2-rose"] {
-  --colour-accent-primary: #e11d48;
-  --colour-accent-hover: #be123c;
-  --colour-link-text: #e11d48;
+    --colour-accent-primary: #e11d48;
+    --colour-accent-hover: #be123c;
+    --colour-link-text: #e11d48;
 }
 :root:not(.dark)[data-accent="p3-emerald"] {
-  --colour-accent-primary: #059669;
-  --colour-accent-hover: #047857;
-  --colour-link-text: #059669;
+    --colour-accent-primary: #059669;
+    --colour-accent-hover: #047857;
+    --colour-link-text: #059669;
 }
 :root:not(.dark)[data-accent="p4-amber"] {
-  --colour-accent-primary: #d97706;
-  --colour-accent-hover: #b45309;
-  --colour-link-text: #d97706;
+    --colour-accent-primary: #d97706;
+    --colour-accent-hover: #b45309;
+    --colour-link-text: #d97706;
 }
 :root:not(.dark)[data-accent="p5-sky"] {
-  --colour-accent-primary: #0284c7;
-  --colour-accent-hover: #0369a1;
-  --colour-link-text: #0284c7;
+    --colour-accent-primary: #0284c7;
+    --colour-accent-hover: #0369a1;
+    --colour-link-text: #0284c7;
 }
 :root:not(.dark)[data-accent="neutral"] {
-  --colour-accent-primary: #52525b;
-  --colour-accent-hover: #3f3f46;
-  --colour-link-text: #52525b;
+    --colour-accent-primary: #52525b;
+    --colour-accent-hover: #3f3f46;
+    --colour-link-text: #52525b;
 }
 /* Fallback for pages without data-accent (backwards compat) */
 :root:not(.dark):not([data-accent]) {
-  --colour-accent-primary: #7c3aed;
-  --colour-accent-hover: #6d28d9;
-  --colour-link-text: #7c3aed;
+    --colour-accent-primary: #7c3aed;
+    --colour-accent-hover: #6d28d9;
+    --colour-link-text: #7c3aed;
 }
 
 /* Base Styles */
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 body {
-  font-family: var(--font-sans);
-  font-size: var(--text-base);
-  background-color: var(--colour-bg-primary);
-  color: var(--colour-text-primary);
-  line-height: 1.6;
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    background-color: var(--colour-bg-primary);
+    color: var(--colour-text-primary);
+    line-height: 1.6;
 }
 
-h1, h2, h3 {
-  font-family: var(--font-heading);
-  font-weight: 700;
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+    font-weight: 700;
 }
 
-h2, h3 {
-  font-weight: 600;
+h2,
+h3 {
+    font-weight: 600;
 }
 
 /* Container Utility */
 .container {
-  max-width: var(--width-content);
-  margin-inline: auto;
-  padding-inline: var(--space-6);
+    max-width: var(--width-content);
+    margin-inline: auto;
+    padding-inline: var(--space-6);
 }
 
 .container-wide {
-  max-width: var(--width-wide);
-  margin-inline: auto;
-  padding-inline: var(--space-6);
+    max-width: var(--width-wide);
+    margin-inline: auto;
+    padding-inline: var(--space-6);
 }
 
 /* Global Focus Styles */
 :focus-visible {
-  outline: 2px solid var(--colour-accent-primary);
-  outline-offset: 2px;
-  border-radius: 2px;
+    outline: 2px solid var(--colour-accent-primary);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
 }
 
 :focus:not(:focus-visible) {
-  outline: none;
+    outline: none;
 }
 
 /* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
 
 /* ============================================
@@ -241,99 +254,99 @@ h2, h3 {
    ============================================ */
 
 .prose {
-  font-size: var(--text-base);
-  line-height: 1.6;
+    font-size: var(--text-base);
+    line-height: 1.6;
 }
 
 .prose h2 {
-  font-size: var(--text-3xl);
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-  margin-top: 1.5em;
-  margin-bottom: 0.5em;
+    font-size: var(--text-3xl);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
 }
 
 .prose h3 {
-  font-size: var(--text-2xl);
-  font-weight: 600;
-  line-height: 1.3;
-  letter-spacing: -0.01em;
-  margin-top: 1.5em;
-  margin-bottom: 0.5em;
+    font-size: var(--text-2xl);
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
 }
 
 .prose h4 {
-  font-size: var(--text-xl);
-  font-weight: 500;
-  line-height: 1.4;
-  margin-top: 1.5em;
-  margin-bottom: 0.5em;
+    font-size: var(--text-xl);
+    font-weight: 500;
+    line-height: 1.4;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
 }
 
 .prose p {
-  margin-bottom: 1.5em;
+    margin-bottom: 1.5em;
 }
 
 .prose ul,
 .prose ol {
-  margin-bottom: 1.5em;
-  padding-left: 1.5rem;
+    margin-bottom: 1.5em;
+    padding-left: 1.5rem;
 }
 
 .prose li {
-  margin-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .prose blockquote {
-  border-left: 3px solid var(--colour-accent-primary);
-  padding-left: 1rem;
-  margin: 1.5rem 0;
-  font-style: italic;
-  color: var(--colour-text-secondary);
+    border-left: var(--border-accent) solid var(--colour-accent-primary);
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: var(--colour-text-secondary);
 }
 
 .prose a {
-  color: var(--colour-link-text);
-  text-decoration: underline;
-  text-decoration-color: transparent;
-  text-underline-offset: 2px;
-  transition: text-decoration-color var(--transition-fast);
+    color: var(--colour-link-text);
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 2px;
+    transition: text-decoration-color var(--transition-fast);
 }
 
 .prose a:hover {
-  text-decoration-color: var(--colour-link-text);
+    text-decoration-color: var(--colour-link-text);
 }
 
 .prose code {
-  font-family: var(--font-mono);
-  font-size: 0.9em;
-  background: var(--colour-bg-tertiary);
-  padding: 0.125em 0.375em;
-  border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    background: var(--colour-bg-tertiary);
+    padding: 0.125em 0.375em;
+    border-radius: var(--radius-md);
 }
 
 .prose pre {
-  background: var(--colour-bg-tertiary);
-  padding: 1rem;
-  border-radius: 8px;
-  overflow-x: auto;
-  margin: 1.5rem 0;
+    background: var(--colour-bg-tertiary);
+    padding: 1rem;
+    border-radius: var(--radius-lg);
+    overflow-x: auto;
+    margin: 1.5rem 0;
 }
 
 .prose pre code {
-  background: none;
-  padding: 0;
-  font-size: 0.875rem;
-  line-height: 1.7;
+    background: none;
+    padding: 0;
+    font-size: 0.875rem;
+    line-height: 1.7;
 }
 
 .prose strong {
-  font-weight: 600;
+    font-weight: 600;
 }
 
 .prose hr {
-  border: none;
-  border-top: 1px solid var(--colour-border);
-  margin: 2rem 0;
+    border: none;
+    border-top: 1px solid var(--colour-border);
+    margin: 2rem 0;
 }

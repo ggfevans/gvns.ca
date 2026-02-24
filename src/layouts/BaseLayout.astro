@@ -25,9 +25,9 @@ const { title, description, image, imageWidth, imageHeight, accent, breadcrumbs 
     <script is:inline>
       // Initialize theme before page renders to prevent flash
       // This is the single source of truth for theme initialization
-      const stored = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const theme = stored || (prefersDark ? 'dark' : 'light');
+      try { var stored = localStorage.getItem('theme'); } catch (e) { var stored = null; }
+      try { var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches; } catch (e) { var prefersDark = true; }
+      var theme = stored || (prefersDark ? 'dark' : 'light');
       if (theme === 'dark') {
         document.documentElement.classList.add('dark');
       } else {
@@ -38,7 +38,7 @@ const { title, description, image, imageWidth, imageHeight, accent, breadcrumbs 
     </script>
   </head>
   <body>
-    <a href="#main-content" class="skip-link">Skip to content</a>
+    <a href="#main-content" class="gvns-skip-link">Skip to content</a>
     <Header breadcrumbs={breadcrumbs} />
     <slot />
     <Footer />
@@ -57,7 +57,7 @@ const { title, description, image, imageWidth, imageHeight, accent, breadcrumbs 
     padding: var(--space-8, 2rem) var(--space-6, 1.5rem);
   }
 
-  .skip-link {
+  .gvns-skip-link {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -70,7 +70,7 @@ const { title, description, image, imageWidth, imageHeight, accent, breadcrumbs 
     border: 0;
   }
 
-  .skip-link:focus {
+  .gvns-skip-link:focus {
     position: fixed;
     top: 0;
     left: 0;

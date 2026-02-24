@@ -1,220 +1,220 @@
 {
-  "lastUpdated": "2026-02-17T04:04:17Z",
+  "lastUpdated": "2026-02-24T04:03:57Z",
   "recentCommits": [
     {
-      "repo": "claude-delegator",
-      "message": "Update README.md",
-      "sha": "fc912797d06ba4c2d0cf29d4627e9f331d85f810",
-      "date": "2026-02-16T00:13:39Z",
-      "url": "https://github.com/ggfevans/claude-delegator/commit/fc912797d06ba4c2d0cf29d4627e9f331d85f810"
+      "repo": "alseerr",
+      "message": "Harden request flow and secure API key handling",
+      "sha": "32b27dc444b92c7e1dbe208a2936850a3c99306d",
+      "date": "2026-02-24T02:43:06Z",
+      "url": "https://github.com/ggfevans/alseerr/commit/32b27dc444b92c7e1dbe208a2936850a3c99306d"
     },
     {
-      "repo": "claude-delegator",
-      "message": "feat: add Gemini support via zero-dependency MCP bridge",
-      "sha": "7838de684f3c6941f799747189db06f53cb1899a",
-      "date": "2026-02-15T14:47:01Z",
-      "url": "https://github.com/ggfevans/claude-delegator/commit/7838de684f3c6941f799747189db06f53cb1899a"
+      "repo": "alseerr",
+      "message": "Detect 401/HTML responses — Rework apiGet to capture HTTP status codes using -w flag and detect auth errors or HTML responses",
+      "sha": "f812867d80aeca5150eafb56ce3c3eda4d4d396c",
+      "date": "2026-02-24T01:11:53Z",
+      "url": "https://github.com/ggfevans/alseerr/commit/f812867d80aeca5150eafb56ce3c3eda4d4d396c"
     },
     {
-      "repo": "claude-delegator",
-      "message": "refactor: improve bridge robustness, metadata alignment, and cwd support",
-      "sha": "a790c3fd64646a222f23a34427b70f49359c7a7b",
-      "date": "2026-02-15T14:44:31Z",
-      "url": "https://github.com/ggfevans/claude-delegator/commit/a790c3fd64646a222f23a34427b70f49359c7a7b"
+      "repo": "alseerr",
+      "message": "Fix 1: Add uid to Alfred items for result learning",
+      "sha": "47af9cc41c6256b1dd22366cc04ea30ad222d0f8",
+      "date": "2026-02-24T01:11:18Z",
+      "url": "https://github.com/ggfevans/alseerr/commit/47af9cc41c6256b1dd22366cc04ea30ad222d0f8"
     },
     {
-      "repo": "Rackula",
-      "message": "Merge branch 'main' into chore/1225-consolidate-helpers-fix-isolation",
-      "sha": "22172b7d854b291c684139f7c0fb32214d10a5b0",
-      "date": "2026-02-15T14:43:10Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/22172b7d854b291c684139f7c0fb32214d10a5b0"
+      "repo": "alseerr",
+      "message": "change default behaviour: open seerr by default, request on alt",
+      "sha": "deb883a04730953d67524202818ebea13b964b68",
+      "date": "2026-02-24T01:05:41Z",
+      "url": "https://github.com/ggfevans/alseerr/commit/deb883a04730953d67524202818ebea13b964b68"
     },
     {
-      "repo": "Rackula",
-      "message": "Merge pull request #1247 from RackulaLives/feature/1219-save-vs-save-as",
-      "sha": "baf0a55928a6d7f2b43fdf368d0d0c75b6ad3938",
-      "date": "2026-02-15T14:42:40Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/baf0a55928a6d7f2b43fdf368d0d0c75b6ad3938"
+      "repo": "alseerr",
+      "message": "add configurable keyword",
+      "sha": "90ddd9ce217de878d383fd916a2a4549c900b4a2",
+      "date": "2026-02-24T00:52:35Z",
+      "url": "https://github.com/ggfevans/alseerr/commit/90ddd9ce217de878d383fd916a2a4549c900b4a2"
     },
     {
-      "repo": "Rackula",
-      "message": "Merge branch 'main' into feature/1219-save-vs-save-as",
-      "sha": "b6e222d6e70ac1acf15affef6efd3826867103c2",
-      "date": "2026-02-15T14:42:25Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/b6e222d6e70ac1acf15affef6efd3826867103c2"
-    },
-    {
-      "repo": "claude-delegator",
-      "message": "feat: implement zero-dependency Gemini MCP bridge with multi-turn support",
-      "sha": "a8d1c6d287acdbbc5e85b4b5c69a0858d4c3c1f8",
-      "date": "2026-02-15T14:41:02Z",
-      "url": "https://github.com/ggfevans/claude-delegator/commit/a8d1c6d287acdbbc5e85b4b5c69a0858d4c3c1f8"
+      "repo": "alseerr",
+      "message": "connecting the internet tubes: use proper seerr endpoints",
+      "sha": "52f730b6526275abc623c3238a30ca560f206e46",
+      "date": "2026-02-24T00:50:17Z",
+      "url": "https://github.com/ggfevans/alseerr/commit/52f730b6526275abc623c3238a30ca560f206e46"
     },
     {
       "repo": "Rackula",
-      "message": "fix: extract helper, guard pendingSaveFirst, rename icon Bold",
-      "sha": "8f78c1fa5b6c9253abe4a1539b5e93b67343a9dd",
-      "date": "2026-02-15T14:19:42Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/8f78c1fa5b6c9253abe4a1539b5e93b67343a9dd"
+      "message": "Merge branch 'main' into dependabot/npm_and_yarn/eslint-2e2637830d",
+      "sha": "ea02d3080e7ed8ae0cfb0c35f548ce773bb2b9c2",
+      "date": "2026-02-22T10:32:05Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/ea02d3080e7ed8ae0cfb0c35f548ce773bb2b9c2"
     },
     {
-      "repo": "Rackula",
-      "message": "fix: address remaining CodeRabbit review items on PR #1247",
-      "sha": "4c1052e62acc85dc4c822cd4c1a1976b46cdf3b2",
-      "date": "2026-02-15T13:56:38Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/4c1052e62acc85dc4c822cd4c1a1976b46cdf3b2"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "docs: Align disabled default guidance across files (#9)",
+      "sha": "babbbdf286b890d5885d60ad52de8657a8e0a426",
+      "date": "2026-02-22T10:12:59Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/babbbdf286b890d5885d60ad52de8657a8e0a426"
     },
     {
-      "repo": "claude-delegator",
-      "message": "Merge pull request #1 from ggfevans/feat/gemini-support",
-      "sha": "a40a6349dc952f9eea8bdd3b99e6a9972bf6b0d9",
-      "date": "2026-02-15T13:41:25Z",
-      "url": "https://github.com/ggfevans/claude-delegator/commit/a40a6349dc952f9eea8bdd3b99e6a9972bf6b0d9"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "Merge pull request #8 from ggfevans/feat/changelog",
+      "sha": "6e881caf71ad5e92fecf3f94cea0251c4d4b7e2b",
+      "date": "2026-02-22T10:06:11Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/6e881caf71ad5e92fecf3f94cea0251c4d4b7e2b"
     },
     {
-      "repo": "claude-delegator",
-      "message": "feat: add support for Gemini expert subagents",
-      "sha": "f34157804d6ac1c925af645f2f42bec7879a03b5",
-      "date": "2026-02-15T13:36:59Z",
-      "url": "https://github.com/ggfevans/claude-delegator/commit/f34157804d6ac1c925af645f2f42bec7879a03b5"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "docs: Fix CHANGELOG.md formatting and clarify cache limit",
+      "sha": "2e9604f9d7dec958457613b92e3225e36252d7ae",
+      "date": "2026-02-22T10:03:58Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/2e9604f9d7dec958457613b92e3225e36252d7ae"
     },
     {
-      "repo": "Rackula",
-      "message": "fix: handle pendingSaveFirst in server save path",
-      "sha": "cb17780b015d00f9732f52c6b69a7b3e2208cb3d",
-      "date": "2026-02-15T13:32:51Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/cb17780b015d00f9732f52c6b69a7b3e2208cb3d"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "docs: Populate CHANGELOG with details from v1.0.0 and v1.0.1",
+      "sha": "98862062ea06516c6b06bebd324fef987fe77dcf",
+      "date": "2026-02-22T09:55:17Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/98862062ea06516c6b06bebd324fef987fe77dcf"
     },
     {
-      "repo": "Rackula",
-      "message": "fix(ci): pin actions to commit SHAs in build-lxc.yml",
-      "sha": "1b226d8e1c5b3b3b3fae9a32d51a6720d9627502",
-      "date": "2026-02-15T13:23:39Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/1b226d8e1c5b3b3b3fae9a32d51a6720d9627502"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "docs: Remove redundant temporary changelog",
+      "sha": "196bdbdca5fa38108d86fd63db12c0230075d84b",
+      "date": "2026-02-22T09:53:16Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/196bdbdca5fa38108d86fd63db12c0230075d84b"
     },
     {
-      "repo": "Rackula",
-      "message": "fix: thread slot_position through pointer-based device move events (#1246)",
-      "sha": "e8606977c429a8515c08be243e03b7c3ce258121",
-      "date": "2026-02-15T13:18:26Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/e8606977c429a8515c08be243e03b7c3ce258121"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "docs: Add CHANGELOG.md following Keep a Changelog pattern",
+      "sha": "b63781bf3e297d0ee81b366362620f2fe8ef1918",
+      "date": "2026-02-22T09:53:11Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/b63781bf3e297d0ee81b366362620f2fe8ef1918"
     },
     {
-      "repo": "Rackula",
-      "message": "Merge remote-tracking branch 'origin/main' into fix/1244-slot-position-pointer-drag",
-      "sha": "f765c9a02bcdea3787fc049959b6e111d526c26b",
-      "date": "2026-02-15T13:15:50Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/f765c9a02bcdea3787fc049959b6e111d526c26b"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "docs: Replace temporary changelog with CHANGELOG.md following Keep a Changelog pattern",
+      "sha": "9d08f68661fcc902c87a498b26f1ff7533c0f72f",
+      "date": "2026-02-22T09:52:20Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/9d08f68661fcc902c87a498b26f1ff7533c0f72f"
     },
     {
-      "repo": "Rackula",
-      "message": "feat: separate Save from Save As (#1219)",
-      "sha": "995ae8849ad558d8dc968bba05059e15b364e412",
-      "date": "2026-02-15T13:11:59Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/995ae8849ad558d8dc968bba05059e15b364e412"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "Merge pull request #7 from ggfevans/fix/harden-api-payload",
+      "sha": "263c85a6c733f50cfbe42df80b3b2759256d3308",
+      "date": "2026-02-22T09:44:23Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/263c85a6c733f50cfbe42df80b3b2759256d3308"
     },
     {
-      "repo": "Rackula",
-      "message": "fix(ci): pin actions to commit SHAs in build-lxc.yml",
-      "sha": "4475766eaa37ffc5f0006a0edad53dd8328a9e0f",
-      "date": "2026-02-15T12:48:52Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/4475766eaa37ffc5f0006a0edad53dd8328a9e0f"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "refactor: Improve HMAC handling, slug normalization, and serialization",
+      "sha": "2ecd02dd01c19956820a36917bc27a267f15570b",
+      "date": "2026-02-22T09:38:57Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/2ecd02dd01c19956820a36917bc27a267f15570b"
     },
     {
-      "repo": "Rackula",
-      "message": "Merge pull request #1232 from RackulaLives/chore/1223-playwright-config-hardening",
-      "sha": "7be29612338a25f255c961b1285ed9e050857c89",
-      "date": "2026-02-15T12:45:20Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/7be29612338a25f255c961b1285ed9e050857c89"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "update searx/engines/community_scripts_proxmoxve.py and tests/test_community_scripts_proxmoxve.py",
+      "sha": "b00950eaadd596ba8b7ffcc47b3359cb17fa472e",
+      "date": "2026-02-22T08:05:30Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/b00950eaadd596ba8b7ffcc47b3359cb17fa472e"
     },
     {
-      "repo": "Rackula",
-      "message": "Merge branch 'main' into chore/1223-playwright-config-hardening",
-      "sha": "a9d5ca72fb27385b30d8a14c5b3460ddb5b5f20d",
-      "date": "2026-02-15T12:45:07Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/a9d5ca72fb27385b30d8a14c5b3460ddb5b5f20d"
+      "repo": "gwilym.ca",
+      "message": "chore: add design tokens & clean up widget layout (#36)",
+      "sha": "3011e0b0a3d5e0d0a36d7ff771f725167782ab7b",
+      "date": "2026-02-22T07:11:59Z",
+      "url": "https://github.com/ggfevans/gwilym.ca/commit/3011e0b0a3d5e0d0a36d7ff771f725167782ab7b"
     },
     {
-      "repo": "Rackula",
-      "message": "Merge pull request #1242 from RackulaLives/fix/1191-1195-1193-half-width",
-      "sha": "154503af3b617561168ba358ab75a8901b7a63ad",
-      "date": "2026-02-15T10:51:27Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/154503af3b617561168ba358ab75a8901b7a63ad"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "move test_data_analysis.py to tools",
+      "sha": "c6a44145274a9f1219a351d9a81c74ac5d8164a5",
+      "date": "2026-02-22T06:58:25Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/c6a44145274a9f1219a351d9a81c74ac5d8164a5"
     },
     {
-      "repo": "Rackula",
-      "message": "Merge branch 'main' into fix/1191-1195-1193-half-width",
-      "sha": "1412ce3dad6e6b4bee1682dad28d549edddc7803",
-      "date": "2026-02-15T10:47:39Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/1412ce3dad6e6b4bee1682dad28d549edddc7803"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "fix: update tests and scripts to address feedback",
+      "sha": "44a853e2f38bfa922ce72ca7a70007717fdc8e16",
+      "date": "2026-02-22T06:47:06Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/44a853e2f38bfa922ce72ca7a70007717fdc8e16"
     },
     {
-      "repo": "Rackula",
-      "message": "Merge pull request #1241 from RackulaLives/fix/1203-settings-menu-context",
-      "sha": "41b39e06e441dbeda36c0f7a98a3f00516e4d62c",
-      "date": "2026-02-15T10:47:19Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/41b39e06e441dbeda36c0f7a98a3f00516e4d62c"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "refactor to use searxng networking stack and caching infra",
+      "sha": "30ee3dd2d60d81c0f61b87a569a0d63c46c4b352",
+      "date": "2026-02-22T06:23:35Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/30ee3dd2d60d81c0f61b87a569a0d63c46c4b352"
     },
     {
-      "repo": "Rackula",
-      "message": "Merge branch 'main' into fix/1203-settings-menu-context",
-      "sha": "6e08c727ed1707e47b624d002bc7b00801565df3",
-      "date": "2026-02-15T10:47:07Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/6e08c727ed1707e47b624d002bc7b00801565df3"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "Add test_data_analysis.py",
+      "sha": "d705ea76a1d93bec98f6196a3475c47d16fbfc3b",
+      "date": "2026-02-22T06:23:09Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/d705ea76a1d93bec98f6196a3475c47d16fbfc3b"
     },
     {
-      "repo": "Rackula",
-      "message": "Merge pull request #1243 from RackulaLives/fix/1200-safari-drag-drop",
-      "sha": "13daac08f9bf4b2f0fc48f4fe0d0d0420e8807b2",
-      "date": "2026-02-15T10:46:43Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/13daac08f9bf4b2f0fc48f4fe0d0d0420e8807b2"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "feat: Update ProxmoxVE engine to use SearXNG network stack",
+      "sha": "77d92b707476775d4d37a864180b29fea46efe78",
+      "date": "2026-02-22T05:14:57Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/77d92b707476775d4d37a864180b29fea46efe78"
     },
     {
-      "repo": "Rackula",
-      "message": "Update src/lib/components/Rack.svelte",
-      "sha": "763a543d743ddbac34bf5cbfb6152d49e44b5e8d",
-      "date": "2026-02-15T10:45:53Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/763a543d743ddbac34bf5cbfb6152d49e44b5e8d"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "Fix: Harden API payload in community scripts tests",
+      "sha": "5522b8997249a63b8a65047a272a62c34b8e7d71",
+      "date": "2026-02-22T04:54:04Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/5522b8997249a63b8a65047a272a62c34b8e7d71"
     },
     {
-      "repo": "ProxmoxVE",
-      "message": "fix: restore fork URL in ct/rackula.sh source line",
-      "sha": "32017642e8daa1a9e78c07e38ab816e155bb82ff",
-      "date": "2026-02-15T10:07:33Z",
-      "url": "https://github.com/ggfevans/ProxmoxVE/commit/32017642e8daa1a9e78c07e38ab816e155bb82ff"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "Harden API payload in community_scripts_proxmoxve & add test",
+      "sha": "45a4707fe819c51ad328a90d9631a6e823180bd6",
+      "date": "2026-02-22T04:52:12Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/45a4707fe819c51ad328a90d9631a6e823180bd6"
     },
     {
-      "repo": "Rackula",
-      "message": "chore: apply CodeRabbit review fixes to playwright config",
-      "sha": "07f1258f05e6206d401fe8f8823d03111bae1fd2",
-      "date": "2026-02-15T10:06:27Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/07f1258f05e6206d401fe8f8823d03111bae1fd2"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "Create .gitignore",
+      "sha": "f16290052aca7566dd395abc7ca7ab49cd2e7ea2",
+      "date": "2026-02-22T04:47:15Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/f16290052aca7566dd395abc7ca7ab49cd2e7ea2"
     },
     {
-      "repo": "Rackula",
-      "message": "fix: add text/plain fallback for drag data in Rack drop handlers",
-      "sha": "4caeb900fa7d8a7e0069d9084dd10bf1b5b1f857",
-      "date": "2026-02-15T10:05:48Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/4caeb900fa7d8a7e0069d9084dd10bf1b5b1f857"
+      "repo": "github-json-bourne",
+      "message": "Create LICENSE",
+      "sha": "592ba1fdca19b94973cc4791b42332e6a207c1fd",
+      "date": "2026-02-22T04:41:31Z",
+      "url": "https://github.com/ggfevans/github-json-bourne/commit/592ba1fdca19b94973cc4791b42332e6a207c1fd"
     },
     {
-      "repo": "Rackula",
-      "message": "fix: thread slot_position through device move events and improve context menu",
-      "sha": "1b671b53d99ab42ec46d636910f416d84c80c0ef",
-      "date": "2026-02-15T10:05:03Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/1b671b53d99ab42ec46d636910f416d84c80c0ef"
+      "repo": "github-json-bourne",
+      "message": "Update .gitignore",
+      "sha": "005f3dcd5efcdb8abec47e4398c281aaf5bbe12c",
+      "date": "2026-02-22T04:41:21Z",
+      "url": "https://github.com/ggfevans/github-json-bourne/commit/005f3dcd5efcdb8abec47e4398c281aaf5bbe12c"
     },
     {
-      "repo": "Rackula",
-      "message": "fix(ui): replace GroupHeading with plain span in settings menu",
-      "sha": "589af0839ab98bca74de5a66aa85a31535513064",
-      "date": "2026-02-15T10:04:33Z",
-      "url": "https://github.com/RackulaLives/Rackula/commit/589af0839ab98bca74de5a66aa85a31535513064"
+      "repo": "github-json-bourne",
+      "message": "Create release.yml",
+      "sha": "97c40977c21dbd83e29713464fefc4061325d430",
+      "date": "2026-02-22T04:39:07Z",
+      "url": "https://github.com/ggfevans/github-json-bourne/commit/97c40977c21dbd83e29713464fefc4061325d430"
+    },
+    {
+      "repo": "github-json-bourne",
+      "message": "Add README.md",
+      "sha": "513ad0d5ef5df6088b55bbc2718b3f21782fb377",
+      "date": "2026-02-22T04:35:28Z",
+      "url": "https://github.com/ggfevans/github-json-bourne/commit/513ad0d5ef5df6088b55bbc2718b3f21782fb377"
     }
   ],
   "stats": {
-    "commitsThisWeek": 120,
-    "commitsThisMonth": 120,
+    "commitsThisWeek": 90,
+    "commitsThisMonth": 96,
     "repositoriesThisWeek": 6
   },
   "repositories": [
@@ -222,6 +222,7 @@
       "name": "gvns.ca",
       "description": "",
       "language": "Astro",
+      "languageColor": "#ff5a03",
       "stars": 0,
       "url": "https://github.com/ggfevans/gvns.ca"
     },
@@ -231,6 +232,41 @@
       "language": "Astro",
       "stars": 0,
       "url": "https://github.com/ggfevans/gwilym.ca"
+    },
+    {
+      "name": "alseerr",
+      "description": "",
+      "language": "JavaScript",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/alseerr"
+    },
+    {
+      "name": "SearXNG-Community-Scripts-ProxmoxVE",
+      "description": "SearXNG engine for searching the Proxmox VE Community Scripts catalogue (~480 scripts). Offline, cached, zero dependencies",
+      "language": "Python",
+      "stars": 9,
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE"
+    },
+    {
+      "name": "github-json-bourne",
+      "description": "",
+      "language": "JavaScript",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/github-json-bourne"
+    },
+    {
+      "name": "cloud-observe",
+      "description": "",
+      "language": "TypeScript",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/cloud-observe"
+    },
+    {
+      "name": "endorse",
+      "description": "LinkedIn CLI / TUI. LinkedIn messaging without the feed, the ads, or the \"Thoughts?\" posts.",
+      "language": "Go",
+      "stars": 12,
+      "url": "https://github.com/ggfevans/endorse"
     },
     {
       "name": "trakt-json-bourne",
@@ -247,16 +283,10 @@
       "url": "https://github.com/ggfevans/obsidian-plugin-playbooks"
     },
     {
-      "name": "endorse",
-      "description": "LinkedIn CLI / TUI. LinkedIn messaging without the feed, the ads, or the \"Thoughts?\" posts.",
-      "language": "Go",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/endorse"
-    },
-    {
       "name": "rainforest-EAGLE-commands",
       "description": "",
       "language": "Shell",
+      "languageColor": "#89e051",
       "stars": 1,
       "url": "https://github.com/ggfevans/rainforest-EAGLE-commands"
     },
@@ -271,36 +301,17 @@
       "name": "green-squares-action",
       "description": "",
       "language": "Shell",
+      "languageColor": "#89e051",
+      "stars": 1,
+      "url": "https://github.com/ggfevans/listenbrainz-json-bourne"
+    },
+    {
+      "name": "green-squares-action",
+      "description": "",
+      "language": "Shell",
+      "languageColor": "#89e051",
       "stars": 0,
       "url": "https://github.com/ggfevans/green-squares-action"
-    },
-    {
-      "name": "hardcover-json-bourne",
-      "description": "Fetch your Hardcover.app reading data as JSON for static sites. ",
-      "language": "Shell",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/hardcover-json-bourne"
-    },
-    {
-      "name": "gh-mint",
-      "description": "A gh CLI extension that creates GitHub repos with consistent defaults from named profiles",
-      "language": "Go",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/gh-mint"
-    },
-    {
-      "name": "claude-yolo",
-      "description": "shell alias that makes  claude--dangerously-skip-permissions look as reckless as it is",
-      "language": "",
-      "stars": 1,
-      "url": "https://github.com/ggfevans/claude-yolo"
-    },
-    {
-      "name": "listenbrainz-csv-upload",
-      "description": "Import your Last.fm listening history into ListenBrainz from a CSV export",
-      "language": "Python",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/listenbrainz-csv-upload"
     }
   ]
 }

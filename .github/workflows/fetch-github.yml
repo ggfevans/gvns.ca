@@ -2,7 +2,7 @@ name: Fetch GitHub Data
 
 on:
   schedule:
-    - cron: '17 3 * * *'  # Daily at 3:17 AM UTC (off-peak)
+    - cron: "17 3 * * *"
   workflow_dispatch:
 
 permissions:
@@ -11,175 +11,36 @@ permissions:
 jobs:
   fetch:
     runs-on: ubuntu-latest
-    env:
-      GH_USER: ${{ github.repository_owner }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Fetch GitHub activity
-        id: fetch
-        env:
-          GH_TOKEN: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
-        run: |
-          set -euo pipefail
-
-          mkdir -p src/data
-
-          # --- 1. Recent push events (commits) ---
-          # Fetch up to 3 pages of events to get sufficient history
-          EVENTS="[]"
-          for PAGE in 1 2 3; do
-            PAGE_DATA=$(curl -sf \
-              --connect-timeout 10 \
-              --max-time 30 \
-              -H "Authorization: token ${GH_TOKEN}" \
-              -H "Accept: application/vnd.github+json" \
-              "https://api.github.com/users/${GH_USER}/events?per_page=100&page=${PAGE}" \
-            ) || { echo "::warning::Failed to fetch events page ${PAGE}"; break; }
-
-            echo "$PAGE_DATA" | jq empty 2>/dev/null || { echo "::warning::Invalid JSON on page ${PAGE}"; break; }
-            EVENTS=$(echo "$EVENTS" "$PAGE_DATA" | jq -s '.[0] + .[1]')
-
-            # Stop if fewer than 100 results (last page)
-            COUNT=$(echo "$PAGE_DATA" | jq 'length')
-            if [ "$COUNT" -lt 100 ]; then break; fi
-          done
-
-          EVENT_COUNT=$(echo "$EVENTS" | jq 'length')
-          if [ "$EVENT_COUNT" -eq 0 ]; then
-            echo "::warning::No events fetched — output will be sparse"
-          fi
-
-          # Extract PushEvent before/head pairs (API no longer includes commits in payload)
-          PUSHES=$(echo "$EVENTS" | jq -c '[
-            .[]
-            | select(.type == "PushEvent" and .payload.before != null and .payload.head != null)
-            | {
-                repo: .repo.name,
-                before: .payload.before,
-                head: .payload.head,
-                date: .created_at
-              }
-          ] | unique_by(.head)')
-
-          # Fetch actual commits via Compare API for each push
-          ALL_COMMITS="[]"
-          for PUSH in $(echo "$PUSHES" | jq -c '.[]'); do
-            REPO=$(echo "$PUSH" | jq -r '.repo')
-            BEFORE=$(echo "$PUSH" | jq -r '.before')
-            HEAD=$(echo "$PUSH" | jq -r '.head')
-            DATE=$(echo "$PUSH" | jq -r '.date')
-
-            COMPARE=$(curl -sf \
-              --connect-timeout 10 \
-              --max-time 30 \
-              -H "Authorization: token ${GH_TOKEN}" \
-              -H "Accept: application/vnd.github+json" \
-              "https://api.github.com/repos/${REPO}/compare/${BEFORE}...${HEAD}" \
-            ) || { echo "::warning::Failed to compare ${REPO} ${BEFORE}...${HEAD}"; continue; }
-
-            PUSH_COMMITS=$(echo "$COMPARE" | jq --arg repo "$REPO" --arg date "$DATE" '[
-              .commits[]
-              | {
-                  repo: ($repo | split("/") | last),
-                  message: (.commit.message | split("\n") | first),
-                  sha: .sha,
-                  date: ((.commit.author.date // .commit.committer.date // $date) | if . == "" then $date else . end),
-                  url: .html_url
-                }
-            ]' 2>/dev/null) || continue
-
-            ALL_COMMITS=$(echo "$ALL_COMMITS" "$PUSH_COMMITS" | jq -s '.[0] + .[1]')
-          done
-
-          ALL_COMMITS=$(echo "$ALL_COMMITS" | jq 'unique_by(.sha) | sort_by(.date) | reverse')
-
-          RECENT_COMMITS=$(echo "$ALL_COMMITS" | jq '.[0:30]')
-
-          # --- 2. Stats: commits this week and this month ---
-          WEEK_AGO=$(date -u -d '7 days ago' '+%Y-%m-%dT%H:%M:%SZ' 2>/dev/null \
-            || date -u -v-7d '+%Y-%m-%dT%H:%M:%SZ')
-          MONTH_AGO=$(date -u -d '30 days ago' '+%Y-%m-%dT%H:%M:%SZ' 2>/dev/null \
-            || date -u -v-30d '+%Y-%m-%dT%H:%M:%SZ')
-
-          COMMITS_THIS_WEEK=$(echo "$ALL_COMMITS" | jq --arg since "$WEEK_AGO" \
-            '[.[] | select(.date >= $since)] | length')
-          COMMITS_THIS_MONTH=$(echo "$ALL_COMMITS" | jq --arg since "$MONTH_AGO" \
-            '[.[] | select(.date >= $since)] | length')
-          REPOS_THIS_WEEK=$(echo "$ALL_COMMITS" | jq --arg since "$WEEK_AGO" \
-            '[.[] | select(.date >= $since) | .repo] | unique | length')
-
-          # --- 3. Repositories: public, non-fork, non-archived ---
-          REPOS=$(curl -sf \
-            --connect-timeout 10 \
-            --max-time 30 \
-            -H "Authorization: token ${GH_TOKEN}" \
-            -H "Accept: application/vnd.github+json" \
-            "https://api.github.com/users/${GH_USER}/repos?sort=pushed&per_page=100&type=owner" \
-          ) || { echo "::warning::Failed to fetch repositories"; REPOS="[]"; }
-
-          echo "$REPOS" | jq empty 2>/dev/null || { echo "::warning::Invalid repos JSON"; REPOS="[]"; }
-
-          REPOSITORIES=$(echo "$REPOS" | jq '[
-            .[]
-            | select((.fork // false) == false and (.archived // false) == false)
-            | {
-                name: .name,
-                description: (.description // ""),
-                language: (.language // ""),
-                stars: .stargazers_count,
-                url: .html_url
-              }
-          ] | .[0:12]')
-
-          # --- 4. Assemble final JSON ---
-          jq -n \
-            --arg lastUpdated "$(date -u '+%Y-%m-%dT%H:%M:%SZ')" \
-            --argjson recentCommits "$RECENT_COMMITS" \
-            --argjson commitsThisWeek "$COMMITS_THIS_WEEK" \
-            --argjson commitsThisMonth "$COMMITS_THIS_MONTH" \
-            --argjson repositoriesThisWeek "$REPOS_THIS_WEEK" \
-            --argjson repositories "$REPOSITORIES" \
-            '{
-              lastUpdated: $lastUpdated,
-              recentCommits: $recentCommits,
-              stats: {
-                commitsThisWeek: $commitsThisWeek,
-                commitsThisMonth: $commitsThisMonth,
-                repositoriesThisWeek: $repositoriesThisWeek
-              },
-              repositories: $repositories
-            }' > src/data/github.json
-
-          # --- 5. Summary ---
-          echo "Successfully fetched GitHub data"
-          jq '{
-            recent_commits: (.recentCommits | length),
-            repos: (.repositories | length),
-            commits_this_week: .stats.commitsThisWeek
-          }' src/data/github.json
+        uses: ggfevans/github-json-bourne@50551c5078028c1c678476cc1825811ea24cb28f
+        with:
+          username: ${{ github.repository_owner }}
+          token: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
+          output-path: src/data/github.json
 
       - name: Commit and push if changed
-        if: steps.fetch.outcome == 'success' && hashFiles('src/data/github.json') != ''
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add src/data/github.json
           if ! git diff --staged --quiet; then
             git commit -m "chore: update github activity data"
-
-            MAX_RETRIES=3
-            for i in $(seq 1 $MAX_RETRIES); do
-              git pull --rebase 2>&1 || true
-              if git push 2>&1; then
+            max_retries=3
+            for i in $(seq 1 "$max_retries"); do
+              git pull --rebase || true
+              if git push; then
                 echo "Push succeeded on attempt $i"
                 exit 0
               fi
-              echo "::warning::git push failed (attempt $i/$MAX_RETRIES)"
+              echo "::warning::git push failed (attempt $i/$max_retries)"
               sleep $((i * 5))
             done
-
-            echo "::error::git push failed after $MAX_RETRIES attempts"
+            echo "::error::git push failed after $max_retries attempts"
             exit 1
           else
             echo "No changes to commit"
