@@ -222,6 +222,7 @@
       "name": "gvns.ca",
       "description": "",
       "language": "Astro",
+      "languageColor": "#ff5a03",
       "stars": 0,
       "url": "https://github.com/ggfevans/gvns.ca"
     },
@@ -285,6 +286,7 @@
       "name": "rainforest-EAGLE-commands",
       "description": "",
       "language": "Shell",
+      "languageColor": "#89e051",
       "stars": 1,
       "url": "https://github.com/ggfevans/rainforest-EAGLE-commands"
     },
@@ -299,6 +301,15 @@
       "name": "green-squares-action",
       "description": "",
       "language": "Shell",
+      "languageColor": "#89e051",
+      "stars": 1,
+      "url": "https://github.com/ggfevans/listenbrainz-json-bourne"
+    },
+    {
+      "name": "green-squares-action",
+      "description": "",
+      "language": "Shell",
+      "languageColor": "#89e051",
       "stars": 0,
       "url": "https://github.com/ggfevans/green-squares-action"
     }

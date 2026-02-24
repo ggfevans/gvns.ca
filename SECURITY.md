@@ -6,7 +6,7 @@ If you discover a security vulnerability in this project, please report it respo
 
 **Do not open a public GitHub issue for security vulnerabilities.**
 
-Instead, please email security concerns to: **hi@gvns.ca**
+Instead, please email security concerns to: **hi@gwilym.ca**
 
 ### What to Include
 
@@ -27,7 +27,7 @@ When reporting a vulnerability, please include:
 
 This security policy applies to:
 
-- The gvns.ca website codebase
+- The gwilym.ca website codebase
 
 ### Out of Scope
 

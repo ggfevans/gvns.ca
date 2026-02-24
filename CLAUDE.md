@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Personal writing + work site for gvns.ca. Brand guide aligned and in active build phase.
+Personal writing + work site for gwilym.ca. Brand guide aligned and in active build phase.
 
 ## Tech Stack
 

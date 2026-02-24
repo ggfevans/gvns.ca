@@ -100,12 +100,12 @@ const watchedDate = latestWatch?.watchedDate && !Number.isNaN(new Date(latestWat
   }
 
   .gvns-widget__poster {
-    border-radius: 4px;
+    border-radius: var(--radius-md);
     object-fit: cover;
     flex-shrink: 0;
   }
 
   .gvns-widget-compact--watch {
-    border-top: 3px solid var(--colour-p4-amber);
+    border-top: var(--border-accent) solid var(--colour-p4-amber);
   }
 </style>

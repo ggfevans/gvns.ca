@@ -1,119 +1,134 @@
 ---
-import { getCollection } from 'astro:content';
-import BaseLayout from '@layouts/BaseLayout.astro';
-import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
+import { getCollection } from "astro:content";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from "@utils/json-ld";
 
-const posts = await getCollection('writing', ({ data }) => {
-  return import.meta.env.PROD ? !data.draft : true;
+const posts = await getCollection("writing", ({ data }) => {
+    return import.meta.env.PROD ? !data.draft : true;
 });
 
 // Count posts per tag
 const tagCounts = new Map<string, number>();
 posts.forEach((post) => {
-  post.data.tags.forEach((tag) => {
-    tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1);
-  });
+    post.data.tags.forEach((tag) => {
+        tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1);
+    });
 });
 
 // Sort tags alphabetically
 const sortedTags = [...tagCounts.entries()].sort((a, b) =>
-  a[0].localeCompare(b[0])
+    a[0].localeCompare(b[0]),
 );
 
 const siteUrl = normalizeSiteUrl(Astro.site);
-const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
-  { name: 'Home', url: siteUrl },
-  { name: 'Write', url: `${siteUrl}/write` },
-  { name: 'Tags', url: `${siteUrl}/write/tags` },
-]));
+const breadcrumbJsonLd = toJsonLd(
+    breadcrumbSchema([
+        { name: "Home", url: siteUrl },
+        { name: "Write", url: `${siteUrl}/write` },
+        { name: "Tags", url: `${siteUrl}/write/tags` },
+    ]),
+);
 ---
 
 <BaseLayout
-  title="Tags | gvns.ca"
-  description="Browse all writing tags."
-  accent="p4-amber"
-  breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Write', href: '/write' }, { label: 'Tags' }]}
+    title="Tags | gvns.ca"
+    description="Browse all writing tags."
+    accent="p4-amber"
+    breadcrumbs={[
+        { label: "Home", href: "/" },
+        { label: "Write", href: "/write" },
+        { label: "Tags" },
+    ]}
 >
-  <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />
-  <main id="main-content" class="gvns-tags">
-    <h1>Tags</h1>
-    <p class="intro">Browse posts by topic.</p>
+    <script
+        type="application/ld+json"
+        set:html={breadcrumbJsonLd}
+        slot="head"
+    />
+    <main id="main-content" class="gvns-tags">
+        <h1>Tags</h1>
+        <p class="gvns-tags__intro">Browse posts by topic.</p>
 
-    {sortedTags.length > 0 ? (
-      <ul class="gvns-tags__list">
-        {sortedTags.map(([tag, count]) => (
-          <li>
-            <a href={`/write/tags/${tag}`} class="gvns-tags__link">
-              <span class="gvns-tags__name">{tag}</span>
-              <span class="gvns-tags__count">({count})</span>
-            </a>
-          </li>
-        ))}
-      </ul>
-    ) : (
-      <p class="gvns-tags__empty">No tags yet.</p>
-    )}
-  </main>
+        {
+            sortedTags.length > 0 ? (
+                <ul class="gvns-tags__list">
+                    {sortedTags.map(([tag, count]) => (
+                        <li>
+                            <a
+                                href={`/write/tags/${encodeURIComponent(tag)}`}
+                                class="gvns-tags__link"
+                            >
+                                <span class="gvns-tags__name">{tag}</span>
+                                <span class="gvns-tags__count">({count})</span>
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            ) : (
+                <p class="gvns-tags__empty">No tags yet.</p>
+            )
+        }
+    </main>
 </BaseLayout>
 
 <style>
-  .gvns-tags {
-    max-width: var(--width-content);
-    margin: 0 auto;
-  }
+    .gvns-tags {
+        max-width: var(--width-content);
+        margin: 0 auto;
+    }
 
-  h1 {
-    font-size: var(--text-4xl);
-    line-height: 1.2;
-    letter-spacing: -0.01em;
-    margin-bottom: 0.5rem;
-  }
+    h1 {
+        font-size: var(--text-4xl);
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+        margin-bottom: 0.5rem;
+    }
 
-  .intro {
-    color: var(--colour-text-secondary);
-    margin-bottom: 2rem;
-  }
+    .gvns-tags__intro {
+        color: var(--colour-text-secondary);
+        margin-bottom: 2rem;
+    }
 
-  .gvns-tags__list {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-  }
+    .gvns-tags__list {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
 
-  .gvns-tags__link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.25rem;
-    padding: 0.5rem 0.75rem;
-    background: var(--colour-bg-secondary);
-    border-radius: 6px;
-    text-decoration: none;
-    transition: background-color var(--transition-fast);
-  }
+    .gvns-tags__link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 0.5rem 0.75rem;
+        background: var(--colour-bg-secondary);
+        border-radius: 6px;
+        text-decoration: none;
+        transition: background-color var(--transition-fast);
+    }
 
-  .gvns-tags__link:hover {
-    background: var(--colour-bg-tertiary);
-  }
+    .gvns-tags__link:hover {
+        background: var(--colour-bg-tertiary);
+    }
 
-  .gvns-tags__link:focus-visible {
-    outline: 2px solid var(--colour-accent-primary);
-    outline-offset: 2px;
-  }
+    .gvns-tags__link:focus-visible {
+        outline: 2px solid var(--colour-accent-primary);
+        outline-offset: 2px;
+    }
 
-  .gvns-tags__name {
-    color: var(--colour-accent-primary);
-    font-weight: 500;
-  }
+    .gvns-tags__name {
+        color: var(--colour-accent-primary);
+        font-weight: 500;
+    }
 
-  .gvns-tags__count {
-    color: var(--colour-text-secondary);
-    font-size: var(--text-sm);
-  }
+    .gvns-tags__count {
+        color: var(--colour-text-secondary);
+        font-size: var(--text-sm);
+    }
 
-  .gvns-tags__empty {
-    color: var(--colour-text-secondary);
-    font-style: italic;
-  }
+    .gvns-tags__empty {
+        color: var(--colour-text-secondary);
+        font-style: italic;
+    }
 </style>

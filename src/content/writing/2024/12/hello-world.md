@@ -1,6 +1,6 @@
 ---
 title: "Hello, World!"
-description: "Welcome to gvns.ca — writing on homelab, BJJ, and productivity."
+description: "Welcome to gwilym.ca — writing on homelab, BJJ, and productivity."
 pubDate: 2024-12-09
 tags: ["meta"]
 ---

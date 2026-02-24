@@ -1,369 +1,480 @@
 ---
-import BaseLayout from '@layouts/BaseLayout.astro';
-import ContributionHeatmap from '@components/ContributionHeatmap.astro';
-import ActivityTimeline from '@components/ActivityTimeline.astro';
-import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
-import { formatTimestamp, safeUrl } from '@utils/format';
-import { parseGitHubData, formatStreak, EMPTY_GITHUB_DATA } from '@utils/github';
-import type { GitHubData } from '@utils/github';
+import BaseLayout from "@layouts/BaseLayout.astro";
+import ContributionHeatmap from "@components/ContributionHeatmap.astro";
+import ActivityTimeline from "@components/ActivityTimeline.astro";
+import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from "@utils/json-ld";
+import { formatTimestamp, safeUrl } from "@utils/format";
+import {
+    parseGitHubData,
+    formatStreak,
+    EMPTY_GITHUB_DATA,
+} from "@utils/github";
+import type { GitHubData } from "@utils/github";
 
 let githubData: GitHubData;
 try {
-  const imported = (await import('../../data/github.json')).default;
-  githubData = parseGitHubData(imported);
+    const imported = (await import("../../data/github.json")).default;
+    githubData = parseGitHubData(imported);
 } catch (e) {
-  if (import.meta.env.DEV) console.error('Failed to load GitHub data:', e);
-  githubData = EMPTY_GITHUB_DATA;
+    if (import.meta.env.DEV) console.error("Failed to load GitHub data:", e);
+    githubData = EMPTY_GITHUB_DATA;
 }
 
-const hasData = githubData.recentActivity.length > 0 || githubData.repositories.length > 0;
+const hasData =
+    githubData.recentActivity.length > 0 || githubData.repositories.length > 0;
 const { contributions, streak, stats } = githubData;
 
 const siteUrl = normalizeSiteUrl(Astro.site);
-const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
-  { name: 'Home', url: siteUrl },
-  { name: 'Now', url: `${siteUrl}/now` },
-  { name: 'Code', url: `${siteUrl}/code` },
-]));
-
+const breadcrumbJsonLd = toJsonLd(
+    breadcrumbSchema([
+        { name: "Home", url: siteUrl },
+        { name: "Now", url: `${siteUrl}/now` },
+        { name: "Code", url: `${siteUrl}/code` },
+    ]),
+);
 ---
 
-<BaseLayout title="Code | gvns.ca" description="Building in public on GitHub. Recent commits, active repositories, and coding activity." accent="p1-violet" breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Now', href: '/now' }, { label: 'Code' }]}>
-  <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />
-  <main id="main-content" class="gvns-code" data-pagefind-body>
-    <header class="gvns-code__header">
-      <h1>Code</h1>
-      <p class="gvns-code__subtitle">Building in public on GitHub</p>
-    </header>
+<BaseLayout
+    title="Code | gvns.ca"
+    description="Building in public on GitHub. Recent commits, active repositories, and coding activity."
+    accent="p1-violet"
+    breadcrumbs={[
+        { label: "Home", href: "/" },
+        { label: "Now", href: "/now" },
+        { label: "Code" },
+    ]}
+>
+    <script
+        type="application/ld+json"
+        set:html={breadcrumbJsonLd}
+        slot="head"
+    />
+    <main id="main-content" class="gvns-code" data-pagefind-body>
+        <header class="gvns-code__header">
+            <h1>Code</h1>
+            <p class="gvns-code__subtitle">Building in public on GitHub</p>
+        </header>
 
-    {hasData ? (
-      <div class="gvns-code__content">
-        {/* Stats bar */}
-        <div class="gvns-code__stats">
-          <div class="gvns-code__stats__primary">
-            <span class="gvns-code__stat">
-              <strong class="gvns-code__stat-value">{contributions.total}</strong>
-              contributions
-            </span>
-            <span class="gvns-code__stat-sep" aria-hidden="true">&middot;</span>
-            <span class="gvns-code__stat">
-              <strong class="gvns-code__stat-value">{contributions.commits}</strong>
-              {contributions.commits === 1 ? 'commit' : 'commits'}
-            </span>
-            <span class="gvns-code__stat-sep" aria-hidden="true">&middot;</span>
-            <span class="gvns-code__stat">
-              <strong class="gvns-code__stat-value">{contributions.pullRequests}</strong>
-              {contributions.pullRequests === 1 ? 'PR' : 'PRs'}
-            </span>
-            <span class="gvns-code__stat-sep" aria-hidden="true">&middot;</span>
-            <span class="gvns-code__stat">
-              <strong class="gvns-code__stat-value">{contributions.issues}</strong>
-              {contributions.issues === 1 ? 'issue' : 'issues'}
-            </span>
-          </div>
-          <div class="gvns-code__stats__secondary">
-            {streak.current > 0 && (
-              <span class="gvns-code__stat gvns-code__stat--streak">
-                <span class="gvns-code__streak-dot" aria-hidden="true" />
-                {formatStreak(streak.current)} streak
-              </span>
-            )}
-            <span class="gvns-code__stat">
-              <strong class="gvns-code__stat-value">{stats.contributionsThisWeek}</strong>
-              this week
-            </span>
-            <span class="gvns-code__stat-sep" aria-hidden="true">across</span>
-            <span class="gvns-code__stat">
-              <strong class="gvns-code__stat-value">{stats.repositoriesThisWeek}</strong>
-              {stats.repositoriesThisWeek === 1 ? 'repo' : 'repos'}
-            </span>
-          </div>
-        </div>
+        {
+            hasData ? (
+                <div class="gvns-code__content">
+                    {/* Stats bar */}
+                    <div class="gvns-code__stats">
+                        <div class="gvns-code__stats__primary">
+                            <span class="gvns-code__stat">
+                                <strong class="gvns-code__stat-value">
+                                    {contributions.total}
+                                </strong>
+                                contributions
+                            </span>
+                            <span
+                                class="gvns-code__stat-sep"
+                                aria-hidden="true"
+                            >
+                                &middot;
+                            </span>
+                            <span class="gvns-code__stat">
+                                <strong class="gvns-code__stat-value">
+                                    {contributions.commits}
+                                </strong>
+                                {contributions.commits === 1
+                                    ? "commit"
+                                    : "commits"}
+                            </span>
+                            <span
+                                class="gvns-code__stat-sep"
+                                aria-hidden="true"
+                            >
+                                &middot;
+                            </span>
+                            <span class="gvns-code__stat">
+                                <strong class="gvns-code__stat-value">
+                                    {contributions.pullRequests}
+                                </strong>
+                                {contributions.pullRequests === 1
+                                    ? "PR"
+                                    : "PRs"}
+                            </span>
+                            <span
+                                class="gvns-code__stat-sep"
+                                aria-hidden="true"
+                            >
+                                &middot;
+                            </span>
+                            <span class="gvns-code__stat">
+                                <strong class="gvns-code__stat-value">
+                                    {contributions.issues}
+                                </strong>
+                                {contributions.issues === 1
+                                    ? "issue"
+                                    : "issues"}
+                            </span>
+                        </div>
+                        <div class="gvns-code__stats__secondary">
+                            {streak.current > 0 && (
+                                <span class="gvns-code__stat gvns-code__stat--streak">
+                                    <span
+                                        class="gvns-code__streak-dot"
+                                        aria-hidden="true"
+                                    />
+                                    {formatStreak(streak.current)} streak
+                                </span>
+                            )}
+                            <span class="gvns-code__stat">
+                                <strong class="gvns-code__stat-value">
+                                    {stats.contributionsThisWeek}
+                                </strong>
+                                this week
+                            </span>
+                            <span
+                                class="gvns-code__stat-sep"
+                                aria-hidden="true"
+                            >
+                                across
+                            </span>
+                            <span class="gvns-code__stat">
+                                <strong class="gvns-code__stat-value">
+                                    {stats.repositoriesThisWeek}
+                                </strong>
+                                {stats.repositoriesThisWeek === 1
+                                    ? "repo"
+                                    : "repos"}
+                            </span>
+                        </div>
+                    </div>
 
-        {/* Contribution heatmap */}
-        {githubData.calendar.weeks.length > 0 && (
-          <section class="gvns-code__section">
-            <h2>Contributions</h2>
-            <ContributionHeatmap calendar={githubData.calendar} />
-          </section>
-        )}
-
-        {/* Activity timeline */}
-        {githubData.recentActivity.length > 0 && (
-          <section class="gvns-code__section">
-            <h2>Recent activity</h2>
-            <ActivityTimeline activities={githubData.recentActivity} />
-          </section>
-        )}
-
-        {/* Repositories */}
-        {githubData.repositories.length > 0 && (
-          <section class="gvns-code__section">
-            <h2>Repositories</h2>
-            <div class="gvns-code__repo-grid">
-              {githubData.repositories.map((repo) => (
-                <a href={safeUrl(repo.url) || '#'} class="gvns-code__repo-card" target="_blank" rel="noopener noreferrer">
-                  <h3 class="gvns-code__repo-name">{repo.name}</h3>
-                  {repo.description && (
-                    <p class="gvns-code__repo-desc">{repo.description.length > 100 ? repo.description.slice(0, 100).trimEnd() + '\u2026' : repo.description}</p>
-                  )}
-                  <div class="gvns-code__repo-meta">
-                    {repo.language && (
-                      <span class="gvns-code__repo-lang">
-                        <span
-                          class="gvns-code__lang-dot"
-                          style={repo.languageColor ? `background: ${repo.languageColor}` : undefined}
-                          aria-hidden="true"
-                        />
-                        {repo.language}
-                      </span>
+                    {/* Contribution heatmap */}
+                    {githubData.calendar.weeks.length > 0 && (
+                        <section class="gvns-code__section">
+                            <h2>Contributions</h2>
+                            <ContributionHeatmap
+                                calendar={githubData.calendar}
+                            />
+                        </section>
                     )}
-                    {repo.stars > 0 && (
-                      <span class="gvns-code__repo-stars">
-                        <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-                          <path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z" />
+
+                    {/* Activity timeline */}
+                    {githubData.recentActivity.length > 0 && (
+                        <section class="gvns-code__section">
+                            <h2>Recent activity</h2>
+                            <ActivityTimeline
+                                activities={githubData.recentActivity}
+                            />
+                        </section>
+                    )}
+
+                    {/* Repositories */}
+                    {githubData.repositories.length > 0 && (
+                        <section class="gvns-code__section">
+                            <h2>Repositories</h2>
+                            <div class="gvns-code__repo-grid">
+                                {githubData.repositories.map((repo) => (
+                                    <a
+                                        href={safeUrl(repo.url) || "#"}
+                                        class="gvns-code__repo-card"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <h3 class="gvns-code__repo-name">
+                                            {repo.name}
+                                        </h3>
+                                        {repo.description && (
+                                            <p class="gvns-code__repo-desc">
+                                                {repo.description.length > 100
+                                                    ? repo.description
+                                                          .slice(0, 100)
+                                                          .trimEnd() + "\u2026"
+                                                    : repo.description}
+                                            </p>
+                                        )}
+                                        <div class="gvns-code__repo-meta">
+                                            {repo.language && (
+                                                <span class="gvns-code__repo-lang">
+                                                    <span
+                                                        class="gvns-code__lang-dot"
+                                                        style={
+                                                            repo.languageColor
+                                                                ? `background: ${repo.languageColor}`
+                                                                : undefined
+                                                        }
+                                                        aria-hidden="true"
+                                                    />
+                                                    {repo.language}
+                                                </span>
+                                            )}
+                                            {repo.stars > 0 && (
+                                                <span class="gvns-code__repo-stars">
+                                                    <svg
+                                                        width="14"
+                                                        height="14"
+                                                        viewBox="0 0 16 16"
+                                                        fill="currentColor"
+                                                        aria-hidden="true"
+                                                    >
+                                                        <path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z" />
+                                                    </svg>
+                                                    {repo.stars}
+                                                </span>
+                                            )}
+                                        </div>
+                                    </a>
+                                ))}
+                            </div>
+                        </section>
+                    )}
+
+                    {/* Last updated */}
+                    {githubData.lastUpdated && (
+                        <footer class="gvns-code__updated">
+                            <p>
+                                Last updated:{" "}
+                                <time datetime={githubData.lastUpdated}>
+                                    {formatTimestamp(githubData.lastUpdated)}
+                                </time>
+                            </p>
+                        </footer>
+                    )}
+                </div>
+            ) : (
+                <div class="gvns-code__empty">
+                    <div class="gvns-code__empty-icon" aria-hidden="true">
+                        <svg
+                            width="48"
+                            height="48"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <polyline points="16 18 22 12 16 6" />
+                            <polyline points="8 6 2 12 8 18" />
                         </svg>
-                        {repo.stars}
-                      </span>
-                    )}
-                  </div>
-                </a>
-              ))}
-            </div>
-          </section>
-        )}
-
-        {/* Last updated */}
-        {githubData.lastUpdated && (
-          <footer class="gvns-code__updated">
-            <p>Last updated: <time datetime={githubData.lastUpdated}>{formatTimestamp(githubData.lastUpdated)}</time></p>
-          </footer>
-        )}
-      </div>
-    ) : (
-      <div class="gvns-code__empty">
-        <div class="gvns-code__empty-icon" aria-hidden="true">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="16 18 22 12 16 6" />
-            <polyline points="8 6 2 12 8 18" />
-          </svg>
-        </div>
-        <p class="gvns-code__empty-title">Coming soon</p>
-        <p class="gvns-code__empty-desc">
-          GitHub activity will appear here once the integration is wired up.
-        </p>
-      </div>
-    )}
-  </main>
+                    </div>
+                    <p class="gvns-code__empty-title">Coming soon</p>
+                    <p class="gvns-code__empty-desc">
+                        GitHub activity will appear here once the integration is
+                        wired up.
+                    </p>
+                </div>
+            )
+        }
+    </main>
 </BaseLayout>
 
 <style>
-  .gvns-code {
-    max-width: var(--width-content);
-    margin: 0 auto;
-  }
+    .gvns-code {
+        max-width: var(--width-content);
+        margin: 0 auto;
+    }
 
-  .gvns-code__header {
-    margin-bottom: var(--space-8);
-  }
+    .gvns-code__header {
+        margin-bottom: var(--space-8);
+    }
 
-  .gvns-code__header h1 {
-    font-size: var(--text-4xl);
-    line-height: 1.2;
-    letter-spacing: -0.01em;
-    margin: 0 0 var(--space-2) 0;
-  }
+    .gvns-code__header h1 {
+        font-size: var(--text-4xl);
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+        margin: 0 0 var(--space-2) 0;
+    }
 
-  .gvns-code__subtitle {
-    font-size: var(--text-lg);
-    color: var(--colour-text-secondary);
-    margin: 0;
-  }
+    .gvns-code__subtitle {
+        font-size: var(--text-lg);
+        color: var(--colour-text-secondary);
+        margin: 0;
+    }
 
-  /* Stats bar */
-  .gvns-code__stats {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-    padding: var(--space-4) var(--space-6);
-    background: var(--colour-bg-secondary);
-    border: 1px solid var(--colour-border);
-    border-radius: 8px;
-    font-size: var(--text-sm);
-    color: var(--colour-text-secondary);
-    margin-bottom: var(--space-8);
-  }
+    /* Stats bar */
+    .gvns-code__stats {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        padding: var(--space-4) var(--space-6);
+        background: var(--colour-bg-secondary);
+        border: 1px solid var(--colour-border);
+        border-radius: 8px;
+        font-size: var(--text-sm);
+        color: var(--colour-text-secondary);
+        margin-bottom: var(--space-8);
+    }
 
-  .gvns-code__stats__primary,
-  .gvns-code__stats__secondary {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: var(--space-2);
-  }
+    .gvns-code__stats__primary,
+    .gvns-code__stats__secondary {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: var(--space-2);
+    }
 
-  .gvns-code__stats__secondary {
-    font-size: var(--text-xs);
-    color: var(--colour-text-muted);
-  }
+    .gvns-code__stats__secondary {
+        font-size: var(--text-xs);
+        color: var(--colour-text-muted);
+    }
 
-  .gvns-code__stat-value {
-    font-size: var(--text-lg);
-    font-weight: 600;
-    color: var(--colour-p1-violet);
-  }
+    .gvns-code__stat-value {
+        font-size: var(--text-lg);
+        font-weight: 600;
+        color: var(--colour-p1-violet);
+    }
 
-  .gvns-code__stats__secondary .gvns-code__stat-value {
-    font-size: var(--text-sm);
-  }
+    .gvns-code__stats__secondary .gvns-code__stat-value {
+        font-size: var(--text-sm);
+    }
 
-  .gvns-code__stat-sep {
-    color: var(--colour-text-muted);
-  }
+    .gvns-code__stat-sep {
+        color: var(--colour-text-muted);
+    }
 
-  .gvns-code__stat--streak {
-    display: flex;
-    align-items: center;
-    gap: var(--space-1);
-    color: var(--colour-p1-violet);
-    font-weight: 500;
-  }
+    .gvns-code__stat--streak {
+        display: flex;
+        align-items: center;
+        gap: var(--space-1);
+        color: var(--colour-p1-violet);
+        font-weight: 500;
+    }
 
-  .gvns-code__streak-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--colour-p1-violet);
-    animation: pulse 2s ease-in-out infinite;
-  }
+    .gvns-code__streak-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--colour-p1-violet);
+        animation: pulse 2s ease-in-out infinite;
+    }
 
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
-  }
+    @keyframes pulse {
+        0%,
+        100% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0.4;
+        }
+    }
 
-  /* Sections */
-  .gvns-code__section {
-    margin-bottom: var(--space-10);
-  }
+    /* Sections */
+    .gvns-code__section {
+        margin-bottom: var(--space-10);
+    }
 
-  .gvns-code__section h2 {
-    font-size: var(--text-xl);
-    font-weight: 600;
-    margin: 0 0 var(--space-6) 0;
-    letter-spacing: -0.01em;
-  }
+    .gvns-code__section h2 {
+        font-size: var(--text-xl);
+        font-weight: 600;
+        margin: 0 0 var(--space-6) 0;
+        letter-spacing: -0.01em;
+    }
 
-  /* Repository grid */
-  .gvns-code__repo-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: var(--space-4);
-  }
+    /* Repository grid */
+    .gvns-code__repo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: var(--space-4);
+    }
 
-  .gvns-code__repo-card {
-    display: flex;
-    flex-direction: column;
-    padding: var(--space-6);
-    background: var(--colour-bg-secondary);
-    border: 1px solid var(--colour-border);
-    border-radius: 8px;
-    text-decoration: none;
-    color: inherit;
-    transition: border-color var(--transition-fast);
-  }
+    .gvns-code__repo-card {
+        display: flex;
+        flex-direction: column;
+        padding: var(--space-6);
+        background: var(--colour-bg-secondary);
+        border: 1px solid var(--colour-border);
+        border-radius: 8px;
+        text-decoration: none;
+        color: inherit;
+        transition: border-color var(--transition-fast);
+    }
 
-  .gvns-code__repo-card:hover {
-    border-color: var(--colour-p1-violet);
-  }
+    .gvns-code__repo-card:hover {
+        border-color: var(--colour-p1-violet);
+    }
 
-  .gvns-code__repo-name {
-    font-family: var(--font-mono);
-    font-size: var(--text-base);
-    font-weight: 600;
-    color: var(--colour-p1-violet);
-    margin: 0 0 var(--space-2) 0;
-    transition: color var(--transition-fast);
-  }
+    .gvns-code__repo-name {
+        font-family: var(--font-mono);
+        font-size: var(--text-base);
+        font-weight: 600;
+        color: var(--colour-p1-violet);
+        margin: 0 0 var(--space-2) 0;
+        transition: color var(--transition-fast);
+    }
 
-  .gvns-code__repo-card:hover .gvns-code__repo-name {
-    color: var(--colour-p1-violet-hover);
-  }
+    .gvns-code__repo-card:hover .gvns-code__repo-name {
+        color: var(--colour-p1-violet-hover);
+    }
 
-  .gvns-code__repo-desc {
-    font-size: var(--text-sm);
-    color: var(--colour-text-secondary);
-    margin: 0 0 var(--space-4) 0;
-    flex: 1;
-    line-height: 1.5;
-  }
+    .gvns-code__repo-desc {
+        font-size: var(--text-sm);
+        color: var(--colour-text-secondary);
+        margin: 0 0 var(--space-4) 0;
+        flex: 1;
+        line-height: 1.5;
+    }
 
-  .gvns-code__repo-meta {
-    display: flex;
-    align-items: center;
-    gap: var(--space-4);
-    font-size: var(--text-xs);
-    color: var(--colour-text-muted);
-  }
+    .gvns-code__repo-meta {
+        display: flex;
+        align-items: center;
+        gap: var(--space-4);
+        font-size: var(--text-xs);
+        color: var(--colour-text-muted);
+    }
 
-  .gvns-code__repo-lang {
-    display: flex;
-    align-items: center;
-    gap: var(--space-1);
-  }
+    .gvns-code__repo-lang {
+        display: flex;
+        align-items: center;
+        gap: var(--space-1);
+    }
 
-  .gvns-code__lang-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--colour-p1-violet);
-  }
+    .gvns-code__lang-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--colour-p1-violet);
+    }
 
-  .gvns-code__repo-stars {
-    display: flex;
-    align-items: center;
-    gap: var(--space-1);
-  }
+    .gvns-code__repo-stars {
+        display: flex;
+        align-items: center;
+        gap: var(--space-1);
+    }
 
-  .gvns-code__repo-stars svg {
-    color: var(--colour-text-muted);
-  }
+    .gvns-code__repo-stars svg {
+        color: var(--colour-text-muted);
+    }
 
-  /* Empty state */
-  .gvns-code__empty {
-    text-align: center;
-    padding: var(--space-16) var(--space-6);
-  }
+    /* Empty state */
+    .gvns-code__empty {
+        text-align: center;
+        padding: var(--space-16) var(--space-6);
+    }
 
-  .gvns-code__empty-icon {
-    color: var(--colour-p1-violet);
-    margin-bottom: var(--space-6);
-    opacity: 0.6;
-  }
+    .gvns-code__empty-icon {
+        color: var(--colour-p1-violet);
+        margin-bottom: var(--space-6);
+        opacity: 0.6;
+    }
 
-  .gvns-code__empty-title {
-    font-size: var(--text-xl);
-    font-weight: 600;
-    color: var(--colour-text-primary);
-    margin: 0 0 var(--space-2) 0;
-  }
+    .gvns-code__empty-title {
+        font-size: var(--text-xl);
+        font-weight: 600;
+        color: var(--colour-text-primary);
+        margin: 0 0 var(--space-2) 0;
+    }
 
-  .gvns-code__empty-desc {
-    font-size: var(--text-base);
-    color: var(--colour-text-secondary);
-    margin: 0;
-  }
+    .gvns-code__empty-desc {
+        font-size: var(--text-base);
+        color: var(--colour-text-secondary);
+        margin: 0;
+    }
 
-  /* Last updated */
-  .gvns-code__updated {
-    margin-top: var(--space-8);
-    padding-top: var(--space-4);
-    border-top: 1px solid var(--colour-border);
-  }
+    /* Last updated */
+    .gvns-code__updated {
+        margin-top: var(--space-8);
+        padding-top: var(--space-4);
+        border-top: 1px solid var(--colour-border);
+    }
 
-  .gvns-code__updated p {
-    font-size: var(--text-xs);
-    color: var(--colour-text-muted);
-    margin: 0;
-  }
+    .gvns-code__updated p {
+        font-size: var(--text-xs);
+        color: var(--colour-text-muted);
+        margin: 0;
+    }
 </style>

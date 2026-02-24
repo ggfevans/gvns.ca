@@ -1,572 +1,774 @@
 ---
-import BaseLayout from '@layouts/BaseLayout.astro';
-import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
-import { relativeTime, isValidMbid } from '@utils/format';
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from "@utils/json-ld";
+import { relativeTime, isValidMbid } from "@utils/format";
 
 interface Listen {
-  track: string;
-  artist: string;
-  album?: string;
-  listenedAt?: string;
-  caaReleaseMbid?: string | null;
-  caaId?: number | null;
-  recordingMbid?: string | null;
-  artistMbids?: string[];
+    track: string;
+    artist: string;
+    album?: string;
+    listenedAt?: string;
+    caaReleaseMbid?: string | null;
+    caaId?: number | null;
+    recordingMbid?: string | null;
+    artistMbids?: string[];
 }
 
 interface TopArtist {
-  name: string;
-  listenCount: number;
-  artistMbid?: string | null;
+    name: string;
+    listenCount: number;
+    artistMbid?: string | null;
 }
 
 interface TopTrack {
-  track: string;
-  artist: string;
-  listenCount: number;
-  caaReleaseMbid?: string | null;
-  caaId?: number | null;
-  recordingMbid?: string | null;
+    track: string;
+    artist: string;
+    listenCount: number;
+    caaReleaseMbid?: string | null;
+    caaId?: number | null;
+    recordingMbid?: string | null;
 }
 
 interface TopAlbum {
-  album: string;
-  artist: string;
-  listenCount: number;
-  caaReleaseMbid?: string | null;
-  caaId?: number | null;
+    album: string;
+    artist: string;
+    listenCount: number;
+    caaReleaseMbid?: string | null;
+    caaId?: number | null;
 }
 
-type SectionStatus = 'ok' | 'no_data' | 'error';
+type SectionStatus = "ok" | "no_data" | "error";
 
 interface ListeningData {
-  lastUpdated: string | null;
-  recentListens: Listen[];
-  recentListensStatus: SectionStatus;
-  topArtists: TopArtist[];
-  topArtistsStatus: SectionStatus;
-  topTracks: TopTrack[];
-  topTracksStatus: SectionStatus;
-  topAlbums: TopAlbum[];
-  topAlbumsStatus: SectionStatus;
-  stats: {
-    totalListenCount: number | null;
-    range: string;
-    artistCount: number | null;
-    albumCount: number | null;
-    trackCount: number | null;
-  };
+    lastUpdated: string | null;
+    recentListens: Listen[];
+    recentListensStatus: SectionStatus;
+    topArtists: TopArtist[];
+    topArtistsStatus: SectionStatus;
+    topTracks: TopTrack[];
+    topTracksStatus: SectionStatus;
+    topAlbums: TopAlbum[];
+    topAlbumsStatus: SectionStatus;
+    stats: {
+        totalListenCount: number | null;
+        rangeListenCount: number | null;
+        range: string;
+        artistCount: number | null;
+        albumCount: number | null;
+        trackCount: number | null;
+    };
 }
 
 const emptyData: ListeningData = {
-  lastUpdated: null,
-  recentListens: [],
-  recentListensStatus: 'ok',
-  topArtists: [],
-  topArtistsStatus: 'ok',
-  topTracks: [],
-  topTracksStatus: 'ok',
-  topAlbums: [],
-  topAlbumsStatus: 'ok',
-  stats: { totalListenCount: null, range: 'this_month', artistCount: null, albumCount: null, trackCount: null },
+    lastUpdated: null,
+    recentListens: [],
+    recentListensStatus: "ok",
+    topArtists: [],
+    topArtistsStatus: "ok",
+    topTracks: [],
+    topTracksStatus: "ok",
+    topAlbums: [],
+    topAlbumsStatus: "ok",
+    stats: {
+        totalListenCount: null,
+        rangeListenCount: null,
+        range: "this_month",
+        artistCount: null,
+        albumCount: null,
+        trackCount: null,
+    },
 };
 
 let listeningData: ListeningData = emptyData;
 try {
-  const imported = (await import('../../data/listening.json')).default as Partial<ListeningData>;
-  listeningData = { ...emptyData, ...imported, stats: { ...emptyData.stats, ...(imported.stats || {}) } };
+    const imported = (await import("../../data/listening.json"))
+        .default as Partial<ListeningData>;
+    listeningData = {
+        ...emptyData,
+        ...imported,
+        stats: { ...emptyData.stats, ...(imported.stats || {}) },
+    };
 } catch (e) {
-  if (import.meta.env.DEV) console.error('Failed to load listening data:', e);
+    if (import.meta.env.DEV) console.error("Failed to load listening data:", e);
 }
 
-const hasData = (listeningData.recentListens?.length ?? 0) > 0
-  || (listeningData.topArtists?.length ?? 0) > 0
-  || (listeningData.topTracks?.length ?? 0) > 0
-  || (listeningData.topAlbums?.length ?? 0) > 0;
+const hasData =
+    (listeningData.recentListens?.length ?? 0) > 0 ||
+    (listeningData.topArtists?.length ?? 0) > 0 ||
+    (listeningData.topTracks?.length ?? 0) > 0 ||
+    (listeningData.topAlbums?.length ?? 0) > 0;
+
+const hasAllTimeListenCount = listeningData.stats.totalListenCount != null;
+const hasRangeListenCount = listeningData.stats.rangeListenCount != null;
+const rangeLabel = listeningData.stats.range.replace(/_/g, " ");
 
 /** Construct a Cover Art Archive URL from a release MBID, or return undefined. */
 function coverArtUrl(mbid: string | null | undefined): string | undefined {
-  return isValidMbid(mbid) ? `https://coverartarchive.org/release/${mbid}/front-250` : undefined;
+    return isValidMbid(mbid)
+        ? `https://coverartarchive.org/release/${mbid}/front-250`
+        : undefined;
 }
 
 const siteUrl = normalizeSiteUrl(Astro.site);
-const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
-  { name: 'Home', url: siteUrl },
-  { name: 'Now', url: `${siteUrl}/now` },
-  { name: 'Listen', url: `${siteUrl}/listen` },
-]));
+const breadcrumbJsonLd = toJsonLd(
+    breadcrumbSchema([
+        { name: "Home", url: siteUrl },
+        { name: "Now", url: `${siteUrl}/now` },
+        { name: "Listen", url: `${siteUrl}/listen` },
+    ]),
+);
 ---
 
 <BaseLayout
-  title="Listen | gvns.ca"
-  description="Tracking my music via ListenBrainz."
-  accent="p3-emerald"
-  breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Now', href: '/now' }, { label: 'Listen' }]}
+    title="Listen | gvns.ca"
+    description="Tracking my music via ListenBrainz."
+    accent="p3-emerald"
+    breadcrumbs={[
+        { label: "Home", href: "/" },
+        { label: "Now", href: "/now" },
+        { label: "Listen" },
+    ]}
 >
-  <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />
+    <script
+        type="application/ld+json"
+        set:html={breadcrumbJsonLd}
+        slot="head"
+    />
 
-  <main id="main-content" data-pagefind-body>
-    <div class="gvns-listen-container">
-      <header class="gvns-listen-header">
-        <h1>Listen</h1>
-        <p class="gvns-listen-subtitle">Tracking my music via ListenBrainz.</p>
-      </header>
+    <main id="main-content" data-pagefind-body>
+        <div class="gvns-listen-container">
+            <header class="gvns-listen-header">
+                <h1>Listen</h1>
+                <p class="gvns-listen-subtitle">
+                    Tracking my music via ListenBrainz.
+                </p>
+            </header>
 
-      {hasData ? (
-        <div class="gvns-listen-content">
-          {/* Stats bar */}
-          {listeningData.stats.totalListenCount != null && (
-            <div class="gvns-stats-bar">
-              <span class="gvns-stats-accent">{listeningData.stats.totalListenCount.toLocaleString()} listens</span>
-              {' \u00b7 '}
-              <span>{listeningData.stats.range.replace('_', ' ')}</span>
-            </div>
-          )}
-
-          {/* Recent listens */}
-          {listeningData.recentListens?.length > 0 && listeningData.recentListensStatus === 'ok' && (
-            <section class="gvns-listen-section">
-              <h2>Recent Listens</h2>
-              <ul class="gvns-track-list">
-                {listeningData.recentListens.map((listen) => {
-                  const art = coverArtUrl(listen.caaReleaseMbid);
-                  return (
-                    <li class="gvns-track-item">
-                      <div class="gvns-track-art">
-                        {art ? (
-                          <img
-                            src={art}
-                            alt={`${listen.album || listen.track} album art`}
-                            width="48"
-                            height="48"
-                            loading="lazy"
-                            decoding="async"
-                          />
-                        ) : (
-                          <div class="gvns-track-art-placeholder" aria-hidden="true">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
-                              <path d="M9 18V5l12-2v13" />
-                              <circle cx="6" cy="18" r="3" />
-                              <circle cx="18" cy="16" r="3" />
-                            </svg>
-                          </div>
+            {
+                hasData ? (
+                    <div class="gvns-listen-content">
+                        {/* Stats bar */}
+                        {(hasAllTimeListenCount || hasRangeListenCount) && (
+                            <div class="gvns-stats-bar">
+                                {hasRangeListenCount ? (
+                                    <>
+                                        <span class="gvns-stats-accent">
+                                            {listeningData.stats.rangeListenCount?.toLocaleString()}{" "}
+                                            listens
+                                        </span>
+                                        {" \u00b7 "}
+                                        <span>{rangeLabel}</span>
+                                        {hasAllTimeListenCount && (
+                                            <>
+                                                {" \u00b7 "}
+                                                <span>
+                                                    {listeningData.stats.totalListenCount?.toLocaleString()}{" "}
+                                                    all time
+                                                </span>
+                                            </>
+                                        )}
+                                    </>
+                                ) : (
+                                    <>
+                                        <span class="gvns-stats-accent">
+                                            {listeningData.stats.totalListenCount?.toLocaleString()}{" "}
+                                            listens
+                                        </span>
+                                        {" \u00b7 "}
+                                        <span>all time</span>
+                                    </>
+                                )}
+                            </div>
                         )}
-                      </div>
-                      <div class="gvns-track-info">
-                        <span class="gvns-track-name">{listen.track}</span>
-                        <span class="gvns-track-artist">{listen.artist}</span>
-                      </div>
-                      {listen.listenedAt && (
-                        <time class="gvns-track-time" datetime={listen.listenedAt}>
-                          {relativeTime(listen.listenedAt)}
-                        </time>
-                      )}
-                    </li>
-                  );
-                })}
-              </ul>
-            </section>
-          )}
 
-          {/* Top artists */}
-          {listeningData.topArtists?.length > 0 && listeningData.topArtistsStatus === 'ok' && (
-            <section class="gvns-listen-section">
-              <h2>Top Artists</h2>
-              <div class="gvns-artist-grid">
-                {listeningData.topArtists.map((artist) => (
-                  <div class="gvns-artist-card">
-                    <div class="gvns-artist-image">
-                      <div class="gvns-artist-image-placeholder" aria-hidden="true">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28">
-                          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                          <circle cx="12" cy="7" r="4" />
-                        </svg>
-                      </div>
-                    </div>
-                    <div class="gvns-artist-info">
-                      <span class="gvns-artist-name">{artist.name}</span>
-                      <span class="gvns-artist-plays">{artist.listenCount} plays</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
-          )}
+                        {/* Recent listens */}
+                        {listeningData.recentListens?.length > 0 &&
+                            listeningData.recentListensStatus === "ok" && (
+                                <section class="gvns-listen-section">
+                                    <h2>Recent Listens</h2>
+                                    <ul class="gvns-track-list">
+                                        {listeningData.recentListens.map(
+                                            (listen) => {
+                                                const art = coverArtUrl(
+                                                    listen.caaReleaseMbid,
+                                                );
+                                                return (
+                                                    <li class="gvns-track-item">
+                                                        <div class="gvns-track-art">
+                                                            {art ? (
+                                                                <img
+                                                                    src={art}
+                                                                    alt={`${listen.album || listen.track} album art`}
+                                                                    width="48"
+                                                                    height="48"
+                                                                    loading="lazy"
+                                                                    decoding="async"
+                                                                />
+                                                            ) : (
+                                                                <div
+                                                                    class="gvns-track-art-placeholder"
+                                                                    aria-hidden="true"
+                                                                >
+                                                                    <svg
+                                                                        xmlns="http://www.w3.org/2000/svg"
+                                                                        viewBox="0 0 24 24"
+                                                                        fill="none"
+                                                                        stroke="currentColor"
+                                                                        stroke-width="1.5"
+                                                                        stroke-linecap="round"
+                                                                        stroke-linejoin="round"
+                                                                        width="24"
+                                                                        height="24"
+                                                                    >
+                                                                        <path d="M9 18V5l12-2v13" />
+                                                                        <circle
+                                                                            cx="6"
+                                                                            cy="18"
+                                                                            r="3"
+                                                                        />
+                                                                        <circle
+                                                                            cx="18"
+                                                                            cy="16"
+                                                                            r="3"
+                                                                        />
+                                                                    </svg>
+                                                                </div>
+                                                            )}
+                                                        </div>
+                                                        <div class="gvns-track-info">
+                                                            <span class="gvns-track-name">
+                                                                {listen.track}
+                                                            </span>
+                                                            <span class="gvns-track-artist">
+                                                                {listen.artist}
+                                                            </span>
+                                                        </div>
+                                                        {listen.listenedAt && (
+                                                            <time
+                                                                class="gvns-track-time"
+                                                                datetime={
+                                                                    listen.listenedAt
+                                                                }
+                                                            >
+                                                                {relativeTime(
+                                                                    listen.listenedAt,
+                                                                )}
+                                                            </time>
+                                                        )}
+                                                    </li>
+                                                );
+                                            },
+                                        )}
+                                    </ul>
+                                </section>
+                            )}
 
-          {/* Top tracks */}
-          {listeningData.topTracks?.length > 0 && listeningData.topTracksStatus === 'ok' && (
-            <section class="gvns-listen-section">
-              <h2>Top Tracks</h2>
-              <ul class="gvns-track-list">
-                {listeningData.topTracks.map((track) => {
-                  const art = coverArtUrl(track.caaReleaseMbid);
-                  return (
-                    <li class="gvns-track-item">
-                      <div class="gvns-track-art">
-                        {art ? (
-                          <img
-                            src={art}
-                            alt={`${track.track} album art`}
-                            width="48"
-                            height="48"
-                            loading="lazy"
-                            decoding="async"
-                          />
-                        ) : (
-                          <div class="gvns-track-art-placeholder" aria-hidden="true">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
-                              <path d="M9 18V5l12-2v13" />
-                              <circle cx="6" cy="18" r="3" />
-                              <circle cx="18" cy="16" r="3" />
-                            </svg>
-                          </div>
+                        {/* Top artists */}
+                        {listeningData.topArtists?.length > 0 &&
+                            listeningData.topArtistsStatus === "ok" && (
+                                <section class="gvns-listen-section">
+                                    <h2>Top Artists</h2>
+                                    <div class="gvns-artist-grid">
+                                        {listeningData.topArtists.map(
+                                            (artist) => (
+                                                <div class="gvns-artist-card">
+                                                    <div class="gvns-artist-image">
+                                                        <div
+                                                            class="gvns-artist-image-placeholder"
+                                                            aria-hidden="true"
+                                                        >
+                                                            <svg
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                viewBox="0 0 24 24"
+                                                                fill="none"
+                                                                stroke="currentColor"
+                                                                stroke-width="1.5"
+                                                                stroke-linecap="round"
+                                                                stroke-linejoin="round"
+                                                                width="28"
+                                                                height="28"
+                                                            >
+                                                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                                                <circle
+                                                                    cx="12"
+                                                                    cy="7"
+                                                                    r="4"
+                                                                />
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                    <div class="gvns-artist-info">
+                                                        <span class="gvns-artist-name">
+                                                            {artist.name}
+                                                        </span>
+                                                        <span class="gvns-artist-plays">
+                                                            {artist.listenCount}{" "}
+                                                            plays
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            ),
+                                        )}
+                                    </div>
+                                </section>
+                            )}
+
+                        {/* Top tracks */}
+                        {listeningData.topTracks?.length > 0 &&
+                            listeningData.topTracksStatus === "ok" && (
+                                <section class="gvns-listen-section">
+                                    <h2>Top Tracks</h2>
+                                    <ul class="gvns-track-list">
+                                        {listeningData.topTracks.map(
+                                            (track) => {
+                                                const art = coverArtUrl(
+                                                    track.caaReleaseMbid,
+                                                );
+                                                return (
+                                                    <li class="gvns-track-item">
+                                                        <div class="gvns-track-art">
+                                                            {art ? (
+                                                                <img
+                                                                    src={art}
+                                                                    alt={`${track.track} album art`}
+                                                                    width="48"
+                                                                    height="48"
+                                                                    loading="lazy"
+                                                                    decoding="async"
+                                                                />
+                                                            ) : (
+                                                                <div
+                                                                    class="gvns-track-art-placeholder"
+                                                                    aria-hidden="true"
+                                                                >
+                                                                    <svg
+                                                                        xmlns="http://www.w3.org/2000/svg"
+                                                                        viewBox="0 0 24 24"
+                                                                        fill="none"
+                                                                        stroke="currentColor"
+                                                                        stroke-width="1.5"
+                                                                        stroke-linecap="round"
+                                                                        stroke-linejoin="round"
+                                                                        width="24"
+                                                                        height="24"
+                                                                    >
+                                                                        <path d="M9 18V5l12-2v13" />
+                                                                        <circle
+                                                                            cx="6"
+                                                                            cy="18"
+                                                                            r="3"
+                                                                        />
+                                                                        <circle
+                                                                            cx="18"
+                                                                            cy="16"
+                                                                            r="3"
+                                                                        />
+                                                                    </svg>
+                                                                </div>
+                                                            )}
+                                                        </div>
+                                                        <div class="gvns-track-info">
+                                                            <span class="gvns-track-name">
+                                                                {track.track}
+                                                            </span>
+                                                            <span class="gvns-track-artist">
+                                                                {track.artist}
+                                                            </span>
+                                                        </div>
+                                                        <span class="gvns-track-time">
+                                                            {track.listenCount}{" "}
+                                                            plays
+                                                        </span>
+                                                    </li>
+                                                );
+                                            },
+                                        )}
+                                    </ul>
+                                </section>
+                            )}
+
+                        {/* Top albums */}
+                        {listeningData.topAlbums?.length > 0 &&
+                            listeningData.topAlbumsStatus === "ok" && (
+                                <section class="gvns-listen-section">
+                                    <h2>Top Albums</h2>
+                                    <div class="gvns-artist-grid">
+                                        {listeningData.topAlbums.map(
+                                            (album) => {
+                                                const art = coverArtUrl(
+                                                    album.caaReleaseMbid,
+                                                );
+                                                return (
+                                                    <div class="gvns-artist-card">
+                                                        <div class="gvns-artist-image">
+                                                            {art ? (
+                                                                <img
+                                                                    src={art}
+                                                                    alt={`${album.album} cover art`}
+                                                                    class="gvns-artist-image--square"
+                                                                    width="64"
+                                                                    height="64"
+                                                                    loading="lazy"
+                                                                    decoding="async"
+                                                                />
+                                                            ) : (
+                                                                <div
+                                                                    class="gvns-artist-image-placeholder"
+                                                                    aria-hidden="true"
+                                                                >
+                                                                    <svg
+                                                                        xmlns="http://www.w3.org/2000/svg"
+                                                                        viewBox="0 0 24 24"
+                                                                        fill="none"
+                                                                        stroke="currentColor"
+                                                                        stroke-width="1.5"
+                                                                        stroke-linecap="round"
+                                                                        stroke-linejoin="round"
+                                                                        width="28"
+                                                                        height="28"
+                                                                    >
+                                                                        <path d="M9 18V5l12-2v13" />
+                                                                        <circle
+                                                                            cx="6"
+                                                                            cy="18"
+                                                                            r="3"
+                                                                        />
+                                                                        <circle
+                                                                            cx="18"
+                                                                            cy="16"
+                                                                            r="3"
+                                                                        />
+                                                                    </svg>
+                                                                </div>
+                                                            )}
+                                                        </div>
+                                                        <div class="gvns-artist-info">
+                                                            <span class="gvns-artist-name">
+                                                                {album.album}
+                                                            </span>
+                                                            <span class="gvns-track-artist">
+                                                                {album.artist}
+                                                            </span>
+                                                            <span class="gvns-artist-plays">
+                                                                {
+                                                                    album.listenCount
+                                                                }{" "}
+                                                                plays
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                );
+                                            },
+                                        )}
+                                    </div>
+                                </section>
+                            )}
+
+                        {/* Last updated */}
+                        {listeningData.lastUpdated && (
+                            <p class="gvns-last-updated">
+                                Last updated{" "}
+                                <time datetime={listeningData.lastUpdated}>
+                                    {new Date(
+                                        listeningData.lastUpdated,
+                                    ).toLocaleString("en-CA", {
+                                        day: "numeric",
+                                        month: "long",
+                                        year: "numeric",
+                                        hour: "2-digit",
+                                        minute: "2-digit",
+                                    })}
+                                </time>
+                            </p>
                         )}
-                      </div>
-                      <div class="gvns-track-info">
-                        <span class="gvns-track-name">{track.track}</span>
-                        <span class="gvns-track-artist">{track.artist}</span>
-                      </div>
-                      <span class="gvns-track-time">{track.listenCount} plays</span>
-                    </li>
-                  );
-                })}
-              </ul>
-            </section>
-          )}
-
-          {/* Top albums */}
-          {listeningData.topAlbums?.length > 0 && listeningData.topAlbumsStatus === 'ok' && (
-            <section class="gvns-listen-section">
-              <h2>Top Albums</h2>
-              <div class="gvns-artist-grid">
-                {listeningData.topAlbums.map((album) => {
-                  const art = coverArtUrl(album.caaReleaseMbid);
-                  return (
-                    <div class="gvns-artist-card">
-                      <div class="gvns-artist-image">
-                        {art ? (
-                          <img
-                            src={art}
-                            alt={`${album.album} cover art`}
-                            class="gvns-artist-image--square"
-                            width="64"
-                            height="64"
-                            loading="lazy"
-                            decoding="async"
-                          />
-                        ) : (
-                          <div class="gvns-artist-image-placeholder" aria-hidden="true">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28">
-                              <path d="M9 18V5l12-2v13" />
-                              <circle cx="6" cy="18" r="3" />
-                              <circle cx="18" cy="16" r="3" />
-                            </svg>
-                          </div>
-                        )}
-                      </div>
-                      <div class="gvns-artist-info">
-                        <span class="gvns-artist-name">{album.album}</span>
-                        <span class="gvns-track-artist">{album.artist}</span>
-                        <span class="gvns-artist-plays">{album.listenCount} plays</span>
-                      </div>
                     </div>
-                  );
-                })}
-              </div>
-            </section>
-          )}
-
-          {/* Last updated */}
-          {listeningData.lastUpdated && (
-            <p class="gvns-last-updated">
-              Last updated{' '}
-              <time datetime={listeningData.lastUpdated}>
-                {new Date(listeningData.lastUpdated).toLocaleString('en-CA', {
-                  day: 'numeric',
-                  month: 'long',
-                  year: 'numeric',
-                  hour: '2-digit',
-                  minute: '2-digit',
-                })}
-              </time>
-            </p>
-          )}
+                ) : (
+                    <div class="gvns-listen-empty">
+                        <div class="gvns-empty-icon" aria-hidden="true">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                width="48"
+                                height="48"
+                            >
+                                <path d="M9 18V5l12-2v13" />
+                                <circle cx="6" cy="18" r="3" />
+                                <circle cx="18" cy="16" r="3" />
+                            </svg>
+                        </div>
+                        <p class="gvns-empty-message">
+                            ListenBrainz integration coming soon.
+                        </p>
+                        <p class="gvns-empty-detail">
+                            This page will show what I have been listening to
+                            once the data pipeline is wired up.
+                        </p>
+                    </div>
+                )
+            }
         </div>
-      ) : (
-        <div class="gvns-listen-empty">
-          <div class="gvns-empty-icon" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="48" height="48">
-              <path d="M9 18V5l12-2v13" />
-              <circle cx="6" cy="18" r="3" />
-              <circle cx="18" cy="16" r="3" />
-            </svg>
-          </div>
-          <p class="gvns-empty-message">
-            ListenBrainz integration coming soon.
-          </p>
-          <p class="gvns-empty-detail">
-            This page will show what I have been listening to once the data pipeline is wired up.
-          </p>
-        </div>
-      )}
-    </div>
-  </main>
+    </main>
 </BaseLayout>
 
 <style>
-  .gvns-listen-container {
-    max-width: var(--width-content);
-    margin-inline: auto;
-    padding-inline: var(--space-6);
-  }
+    .gvns-listen-container {
+        max-width: var(--width-content);
+        margin-inline: auto;
+        padding-inline: var(--space-6);
+    }
 
-  .gvns-listen-header {
-    margin-bottom: var(--space-8);
-  }
+    .gvns-listen-header {
+        margin-bottom: var(--space-8);
+    }
 
-  .gvns-listen-header h1 {
-    font-size: var(--text-4xl);
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-    margin-bottom: var(--space-2);
-  }
-
-  .gvns-listen-subtitle {
-    font-size: var(--text-lg);
-    color: var(--colour-text-secondary);
-  }
-
-  /* Stats bar */
-  .gvns-stats-bar {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-1);
-    font-size: var(--text-sm);
-    font-family: var(--font-mono);
-    color: var(--colour-text-secondary);
-    background: var(--colour-bg-secondary);
-    border: 1px solid var(--colour-border);
-    border-radius: 6px;
-    padding: var(--space-2) var(--space-4);
-    margin-bottom: var(--space-8);
-  }
-
-  .gvns-stats-accent {
-    color: var(--colour-p3-emerald);
-    font-weight: 600;
-  }
-
-  /* Sections */
-  .gvns-listen-section {
-    margin-bottom: var(--space-12);
-  }
-
-  .gvns-listen-section h2 {
-    font-size: var(--text-xl);
-    font-weight: 600;
-    margin-bottom: var(--space-6);
-    letter-spacing: -0.01em;
-  }
-
-  /* Track list */
-  .gvns-track-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-1);
-  }
-
-  .gvns-track-item {
-    display: flex;
-    align-items: center;
-    gap: var(--space-4);
-    padding: var(--space-3) var(--space-4);
-    border-radius: 8px;
-    transition: background var(--transition-fast);
-  }
-
-  .gvns-track-item:hover {
-    background: var(--colour-bg-secondary);
-  }
-
-  .gvns-track-art img,
-  .gvns-track-art-placeholder {
-    width: 48px;
-    height: 48px;
-    border-radius: 6px;
-    flex-shrink: 0;
-  }
-
-  .gvns-track-art img {
-    object-fit: cover;
-  }
-
-  .gvns-track-art-placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--colour-bg-tertiary);
-    color: var(--colour-text-muted);
-  }
-
-  .gvns-track-info {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    min-width: 0;
-    flex: 1;
-  }
-
-  .gvns-track-name {
-    font-size: var(--text-base);
-    font-weight: 500;
-    color: var(--colour-text-primary);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .gvns-track-artist {
-    font-size: var(--text-sm);
-    color: var(--colour-text-secondary);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .gvns-track-time {
-    font-size: var(--text-xs);
-    font-family: var(--font-mono);
-    color: var(--colour-text-muted);
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-
-  /* Artist grid */
-  .gvns-artist-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: var(--space-4);
-  }
-
-  .gvns-artist-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-3);
-    padding: var(--space-6) var(--space-4);
-    background: var(--colour-bg-secondary);
-    border: 1px solid var(--colour-border);
-    border-radius: 8px;
-    transition: border-color var(--transition-fast);
-    text-align: center;
-  }
-
-  .gvns-artist-card:hover {
-    border-color: var(--colour-p3-emerald);
-  }
-
-  .gvns-artist-image img,
-  .gvns-artist-image-placeholder {
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-
-  .gvns-artist-image img {
-    object-fit: cover;
-  }
-
-  .gvns-artist-image--square {
-    border-radius: 6px;
-  }
-
-  .gvns-artist-image-placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--colour-bg-tertiary);
-    color: var(--colour-text-muted);
-  }
-
-  .gvns-artist-info {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    min-width: 0;
-    width: 100%;
-  }
-
-  .gvns-artist-name {
-    font-size: var(--text-sm);
-    font-weight: 600;
-    color: var(--colour-text-primary);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .gvns-artist-plays {
-    font-size: var(--text-xs);
-    font-family: var(--font-mono);
-    color: var(--colour-p3-emerald);
-  }
-
-  /* Last updated */
-  .gvns-last-updated {
-    font-size: var(--text-sm);
-    color: var(--colour-text-muted);
-    margin-top: var(--space-8);
-    padding-top: var(--space-4);
-    border-top: 1px solid var(--colour-border);
-  }
-
-  /* Empty state */
-  .gvns-listen-empty {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: var(--space-16) var(--space-6);
-    gap: var(--space-4);
-  }
-
-  .gvns-empty-icon {
-    color: var(--colour-p3-emerald);
-    opacity: 0.6;
-    margin-bottom: var(--space-2);
-  }
-
-  .gvns-empty-message {
-    font-size: var(--text-lg);
-    font-weight: 500;
-    color: var(--colour-text-primary);
-  }
-
-  .gvns-empty-detail {
-    font-size: var(--text-base);
-    color: var(--colour-text-secondary);
-    max-width: 40ch;
-  }
-
-  /* Responsive */
-  @media (max-width: 640px) {
     .gvns-listen-header h1 {
-      font-size: var(--text-3xl);
+        font-size: var(--text-4xl);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        line-height: 1.1;
+        margin-bottom: var(--space-2);
+    }
+
+    .gvns-listen-subtitle {
+        font-size: var(--text-lg);
+        color: var(--colour-text-secondary);
+    }
+
+    /* Stats bar */
+    .gvns-stats-bar {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-1);
+        font-size: var(--text-sm);
+        font-family: var(--font-mono);
+        color: var(--colour-text-secondary);
+        background: var(--colour-bg-secondary);
+        border: 1px solid var(--colour-border);
+        border-radius: 6px;
+        padding: var(--space-2) var(--space-4);
+        margin-bottom: var(--space-8);
+    }
+
+    .gvns-stats-accent {
+        color: var(--colour-p3-emerald);
+        font-weight: 600;
+    }
+
+    /* Sections */
+    .gvns-listen-section {
+        margin-bottom: var(--space-12);
+    }
+
+    .gvns-listen-section h2 {
+        font-size: var(--text-xl);
+        font-weight: 600;
+        margin-bottom: var(--space-6);
+        letter-spacing: -0.01em;
+    }
+
+    /* Track list */
+    .gvns-track-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-1);
+    }
+
+    .gvns-track-item {
+        display: flex;
+        align-items: center;
+        gap: var(--space-4);
+        padding: var(--space-3) var(--space-4);
+        border-radius: 8px;
+        transition: background var(--transition-fast);
+    }
+
+    .gvns-track-item:hover {
+        background: var(--colour-bg-secondary);
     }
 
     .gvns-track-art img,
     .gvns-track-art-placeholder {
-      width: 40px;
-      height: 40px;
+        width: 48px;
+        height: 48px;
+        border-radius: 6px;
+        flex-shrink: 0;
     }
 
-    .gvns-artist-grid {
-      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    .gvns-track-art img {
+        object-fit: cover;
     }
-  }
+
+    .gvns-track-art-placeholder {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--colour-bg-tertiary);
+        color: var(--colour-text-muted);
+    }
+
+    .gvns-track-info {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        min-width: 0;
+        flex: 1;
+    }
+
+    .gvns-track-name {
+        font-size: var(--text-base);
+        font-weight: 500;
+        color: var(--colour-text-primary);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .gvns-track-artist {
+        font-size: var(--text-sm);
+        color: var(--colour-text-secondary);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .gvns-track-time {
+        font-size: var(--text-xs);
+        font-family: var(--font-mono);
+        color: var(--colour-text-muted);
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    /* Artist grid */
+    .gvns-artist-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: var(--space-4);
+    }
+
+    .gvns-artist-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-3);
+        padding: var(--space-6) var(--space-4);
+        background: var(--colour-bg-secondary);
+        border: 1px solid var(--colour-border);
+        border-radius: 8px;
+        transition: border-color var(--transition-fast);
+        text-align: center;
+    }
+
+    .gvns-artist-card:hover {
+        border-color: var(--colour-p3-emerald);
+    }
+
+    .gvns-artist-image img,
+    .gvns-artist-image-placeholder {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+
+    .gvns-artist-image img {
+        object-fit: cover;
+    }
+
+    .gvns-artist-image--square {
+        border-radius: 6px;
+    }
+
+    .gvns-artist-image-placeholder {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--colour-bg-tertiary);
+        color: var(--colour-text-muted);
+    }
+
+    .gvns-artist-info {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        min-width: 0;
+        width: 100%;
+    }
+
+    .gvns-artist-name {
+        font-size: var(--text-sm);
+        font-weight: 600;
+        color: var(--colour-text-primary);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .gvns-artist-plays {
+        font-size: var(--text-xs);
+        font-family: var(--font-mono);
+        color: var(--colour-p3-emerald);
+    }
+
+    /* Last updated */
+    .gvns-last-updated {
+        font-size: var(--text-sm);
+        color: var(--colour-text-muted);
+        margin-top: var(--space-8);
+        padding-top: var(--space-4);
+        border-top: 1px solid var(--colour-border);
+    }
+
+    /* Empty state */
+    .gvns-listen-empty {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: var(--space-16) var(--space-6);
+        gap: var(--space-4);
+    }
+
+    .gvns-empty-icon {
+        color: var(--colour-p3-emerald);
+        opacity: 0.6;
+        margin-bottom: var(--space-2);
+    }
+
+    .gvns-empty-message {
+        font-size: var(--text-lg);
+        font-weight: 500;
+        color: var(--colour-text-primary);
+    }
+
+    .gvns-empty-detail {
+        font-size: var(--text-base);
+        color: var(--colour-text-secondary);
+        max-width: 40ch;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+        .gvns-listen-header h1 {
+            font-size: var(--text-3xl);
+        }
+
+        .gvns-track-art img,
+        .gvns-track-art-placeholder {
+            width: 40px;
+            height: 40px;
+        }
+
+        .gvns-artist-grid {
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        }
+    }
 </style>

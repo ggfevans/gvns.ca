@@ -1,16 +1,16 @@
 ---
 interface Props {
-  title: string;
-  description: string;
-  image?: string;
-  imageWidth?: number;
-  imageHeight?: number;
+    title: string;
+    description: string;
+    image?: string;
+    imageWidth?: number;
+    imageHeight?: number;
 }
 
 const { title, description, image, imageWidth, imageHeight } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const DEFAULT_OG_IMAGE = '/og-default.svg';
+const DEFAULT_OG_IMAGE = "/og-default.svg";
 const DEFAULT_OG_WIDTH = 1200;
 const DEFAULT_OG_HEIGHT = 630;
 
@@ -19,8 +19,8 @@ const ogImageURL = new URL(ogImage, Astro.site);
 const ogWidth = imageWidth || DEFAULT_OG_WIDTH;
 const ogHeight = imageHeight || DEFAULT_OG_HEIGHT;
 
-import interLatin400 from '@fontsource/inter/files/inter-latin-400-normal.woff2?url';
-import interLatin600 from '@fontsource/inter/files/inter-latin-600-normal.woff2?url';
+import interLatin400 from "@fontsource/inter/files/inter-latin-400-normal.woff2?url";
+import interLatin600 from "@fontsource/inter/files/inter-latin-600-normal.woff2?url";
 ---
 
 <!-- Global Metadata -->
@@ -31,14 +31,31 @@ import interLatin600 from '@fontsource/inter/files/inter-latin-600-normal.woff2?
 <meta name="generator" content={Astro.generator} />
 
 <!-- Font Preloading (critical latin subsets only) -->
-<link rel="preload" as="font" type="font/woff2" href={interLatin400} crossorigin="anonymous" />
-<link rel="preload" as="font" type="font/woff2" href={interLatin600} crossorigin="anonymous" />
+<link
+    rel="preload"
+    as="font"
+    type="font/woff2"
+    href={interLatin400}
+    crossorigin="anonymous"
+/>
+<link
+    rel="preload"
+    as="font"
+    type="font/woff2"
+    href={interLatin600}
+    crossorigin="anonymous"
+/>
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
 
 <!-- RSS Autodiscovery -->
-<link rel="alternate" type="application/rss+xml" title="gvns.ca RSS Feed" href="/rss.xml" />
+<link
+    rel="alternate"
+    type="application/rss+xml"
+    title="gvns.ca RSS Feed"
+    href="/rss.xml"
+/>
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>
