@@ -1,6 +1,48 @@
 {
-  "lastUpdated": "2026-02-23T04:07:15Z",
+  "lastUpdated": "2026-02-24T04:03:57Z",
   "recentCommits": [
+    {
+      "repo": "alseerr",
+      "message": "Harden request flow and secure API key handling",
+      "sha": "32b27dc444b92c7e1dbe208a2936850a3c99306d",
+      "date": "2026-02-24T02:43:06Z",
+      "url": "https://github.com/ggfevans/alseerr/commit/32b27dc444b92c7e1dbe208a2936850a3c99306d"
+    },
+    {
+      "repo": "alseerr",
+      "message": "Detect 401/HTML responses — Rework apiGet to capture HTTP status codes using -w flag and detect auth errors or HTML responses",
+      "sha": "f812867d80aeca5150eafb56ce3c3eda4d4d396c",
+      "date": "2026-02-24T01:11:53Z",
+      "url": "https://github.com/ggfevans/alseerr/commit/f812867d80aeca5150eafb56ce3c3eda4d4d396c"
+    },
+    {
+      "repo": "alseerr",
+      "message": "Fix 1: Add uid to Alfred items for result learning",
+      "sha": "47af9cc41c6256b1dd22366cc04ea30ad222d0f8",
+      "date": "2026-02-24T01:11:18Z",
+      "url": "https://github.com/ggfevans/alseerr/commit/47af9cc41c6256b1dd22366cc04ea30ad222d0f8"
+    },
+    {
+      "repo": "alseerr",
+      "message": "change default behaviour: open seerr by default, request on alt",
+      "sha": "deb883a04730953d67524202818ebea13b964b68",
+      "date": "2026-02-24T01:05:41Z",
+      "url": "https://github.com/ggfevans/alseerr/commit/deb883a04730953d67524202818ebea13b964b68"
+    },
+    {
+      "repo": "alseerr",
+      "message": "add configurable keyword",
+      "sha": "90ddd9ce217de878d383fd916a2a4549c900b4a2",
+      "date": "2026-02-24T00:52:35Z",
+      "url": "https://github.com/ggfevans/alseerr/commit/90ddd9ce217de878d383fd916a2a4549c900b4a2"
+    },
+    {
+      "repo": "alseerr",
+      "message": "connecting the internet tubes: use proper seerr endpoints",
+      "sha": "52f730b6526275abc623c3238a30ca560f206e46",
+      "date": "2026-02-24T00:50:17Z",
+      "url": "https://github.com/ggfevans/alseerr/commit/52f730b6526275abc623c3238a30ca560f206e46"
+    },
     {
       "repo": "Rackula",
       "message": "Merge branch 'main' into dependabot/npm_and_yarn/eslint-2e2637830d",
@@ -168,54 +210,12 @@
       "sha": "513ad0d5ef5df6088b55bbc2718b3f21782fb377",
       "date": "2026-02-22T04:35:28Z",
       "url": "https://github.com/ggfevans/github-json-bourne/commit/513ad0d5ef5df6088b55bbc2718b3f21782fb377"
-    },
-    {
-      "repo": "github-json-bourne",
-      "message": "docs: comprehensive README rewrite with schema examples and architecture",
-      "sha": "067befb09c7fb13e68681bf3cae79c74c6f3f434",
-      "date": "2026-02-22T04:18:34Z",
-      "url": "https://github.com/ggfevans/github-json-bourne/commit/067befb09c7fb13e68681bf3cae79c74c6f3f434"
-    },
-    {
-      "repo": "github-json-bourne",
-      "message": "docs: initialize project",
-      "sha": "bb1110b9a27d5b5910018a6607a6e9c4222649b4",
-      "date": "2026-02-22T04:15:03Z",
-      "url": "https://github.com/ggfevans/github-json-bourne/commit/bb1110b9a27d5b5910018a6607a6e9c4222649b4"
-    },
-    {
-      "repo": "github-json-bourne",
-      "message": "docs: map existing codebase",
-      "sha": "20abb75731b7159bef8d3caf3567b9e395be18c2",
-      "date": "2026-02-22T04:13:03Z",
-      "url": "https://github.com/ggfevans/github-json-bourne/commit/20abb75731b7159bef8d3caf3567b9e395be18c2"
-    },
-    {
-      "repo": "github-json-bourne",
-      "message": "Enhance security policy with new sections",
-      "sha": "475e512b74223a3e5c6bc3e5a5c4b891777b1c39",
-      "date": "2026-02-22T04:05:39Z",
-      "url": "https://github.com/ggfevans/github-json-bourne/commit/475e512b74223a3e5c6bc3e5a5c4b891777b1c39"
-    },
-    {
-      "repo": "gwilym.ca",
-      "message": "Bump devalue from 5.6.2 to 5.6.3 (#34)",
-      "sha": "36ee00ebcdc35e9679a4d34988d6f84d5c4c7bfa",
-      "date": "2026-02-22T03:58:50Z",
-      "url": "https://github.com/ggfevans/gwilym.ca/commit/36ee00ebcdc35e9679a4d34988d6f84d5c4c7bfa"
-    },
-    {
-      "repo": "gwilym.ca",
-      "message": "Bump fast-xml-parser from 5.3.4 to 5.3.7 (#33)",
-      "sha": "bf6744324219289a75bb9b1de8f31b0dcc8d4979",
-      "date": "2026-02-22T03:58:40Z",
-      "url": "https://github.com/ggfevans/gwilym.ca/commit/bf6744324219289a75bb9b1de8f31b0dcc8d4979"
     }
   ],
   "stats": {
-    "commitsThisWeek": 56,
-    "commitsThisMonth": 59,
-    "repositoriesThisWeek": 4
+    "commitsThisWeek": 90,
+    "commitsThisMonth": 96,
+    "repositoriesThisWeek": 6
   },
   "repositories": [
     {
@@ -231,6 +231,13 @@
       "language": "Astro",
       "stars": 0,
       "url": "https://github.com/ggfevans/gwilym.ca"
+    },
+    {
+      "name": "alseerr",
+      "description": "",
+      "language": "JavaScript",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/alseerr"
     },
     {
       "name": "SearXNG-Community-Scripts-ProxmoxVE",
@@ -294,13 +301,6 @@
       "language": "Shell",
       "stars": 0,
       "url": "https://github.com/ggfevans/green-squares-action"
-    },
-    {
-      "name": "hardcover-json-bourne",
-      "description": "Fetch your Hardcover.app reading data as JSON for static sites. ",
-      "language": "Shell",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/hardcover-json-bourne"
     }
   ]
 }
