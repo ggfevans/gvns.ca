@@ -1,6 +1,41 @@
 {
-  "lastUpdated": "2026-02-06T00:06:52Z",
+  "lastUpdated": "2026-02-24T00:03:58Z",
   "recentlyWatched": [
+    {
+      "title": "Pluribus — S01E09",
+      "type": "show",
+      "posterUrl": "https://image.tmdb.org/t/p/w342/z7Nga7Q9IGFWs5OEduY2gGFxnX3.jpg",
+      "url": "https://trakt.tv/shows/pluribus",
+      "watchedDate": "2026-02-23T06:22:00.000Z"
+    },
+    {
+      "title": "Sentimental Value",
+      "type": "movie",
+      "posterUrl": "https://image.tmdb.org/t/p/w342/pz9NCWxxOk3o0W3v1Zkhawrwb4i.jpg",
+      "url": "https://trakt.tv/movies/sentimental-value-2025",
+      "watchedDate": "2026-02-16T05:32:00.000Z"
+    },
+    {
+      "title": "Banshee — S03E08",
+      "type": "show",
+      "posterUrl": "https://image.tmdb.org/t/p/w342/5nXFiz8Rn8eezVjSTZBd7HmnF1G.jpg",
+      "url": "https://trakt.tv/shows/banshee",
+      "watchedDate": "2026-02-15T12:24:00.000Z"
+    },
+    {
+      "title": "Detroiters — S02E02",
+      "type": "show",
+      "posterUrl": "https://image.tmdb.org/t/p/w342/hBxeoEzVola4LyhW3C7FjseFeWm.jpg",
+      "url": "https://trakt.tv/shows/detroiters",
+      "watchedDate": "2026-02-13T11:03:00.000Z"
+    },
+    {
+      "title": "Fallout — S02E08",
+      "type": "show",
+      "posterUrl": "https://image.tmdb.org/t/p/w342/c15BtJxCXMrISLVmysdsnZUPQft.jpg",
+      "url": "https://trakt.tv/shows/fallout",
+      "watchedDate": "2026-02-13T10:37:00.000Z"
+    },
     {
       "title": "Ted Lasso — S01E03",
       "type": "show",
@@ -10,7 +45,7 @@
     }
   ],
   "stats": {
-    "moviesThisMonth": 0,
-    "showsThisMonth": 1
+    "moviesThisMonth": 1,
+    "showsThisMonth": 5
   }
 }

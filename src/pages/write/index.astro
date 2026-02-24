@@ -1,72 +1,80 @@
 ---
-import { getCollection } from 'astro:content';
-import BaseLayout from '@layouts/BaseLayout.astro';
-import PostCard from '@components/PostCard.astro';
-import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
+import { getCollection } from "astro:content";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import PostCard from "@components/PostCard.astro";
+import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from "@utils/json-ld";
 
-const posts = (await getCollection('writing'))
-  .filter((post) => import.meta.env.PROD ? !post.data.draft : true)
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const posts = (await getCollection("writing"))
+    .filter((post) => (import.meta.env.PROD ? !post.data.draft : true))
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 const siteUrl = normalizeSiteUrl(Astro.site);
-const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
-  { name: 'Home', url: siteUrl },
-  { name: 'Write', url: `${siteUrl}/write` },
-]));
+const breadcrumbJsonLd = toJsonLd(
+    breadcrumbSchema([
+        { name: "Home", url: siteUrl },
+        { name: "Write", url: `${siteUrl}/write` },
+    ]),
+);
 ---
 
 <BaseLayout
-  title="Write | gvns.ca"
-  description="Thoughts on homelab, web development, BJJ, and productivity."
-  accent="p4-amber"
-  breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Write' }]}
+    title="Write | gvns.ca"
+    description="Thoughts on homelab, web development, BJJ, and productivity."
+    accent="p4-amber"
+    breadcrumbs={[{ label: "Home", href: "/" }, { label: "Write" }]}
 >
-  <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />
-  <main id="main-content" class="writing-listing">
-    <h1>Write</h1>
-    <p class="intro">
-      Thoughts on homelab, web development, BJJ, and productivity.
-    </p>
+    <script
+        type="application/ld+json"
+        set:html={breadcrumbJsonLd}
+        slot="head"
+    />
+    <main id="main-content" class="writing-listing">
+        <h1>Write</h1>
+        <p class="intro">
+            Thoughts on homelab, web development, BJJ, and productivity.
+        </p>
 
-    {posts.length > 0 ? (
-      <div class="post-list">
-        {posts.map((post) => (
-          <PostCard post={post} />
-        ))}
-      </div>
-    ) : (
-      <p class="no-posts">No posts yet. Check back soon!</p>
-    )}
-  </main>
+        {
+            posts.length > 0 ? (
+                <div class="post-list">
+                    {posts.map((post) => (
+                        <PostCard post={post} />
+                    ))}
+                </div>
+            ) : (
+                <p class="no-posts">No posts yet. Check back soon!</p>
+            )
+        }
+    </main>
 </BaseLayout>
 
 <style>
-  .writing-listing {
-    max-width: var(--width-content);
-    margin: 0 auto;
-  }
+    .writing-listing {
+        max-width: var(--width-content);
+        margin: 0 auto;
+    }
 
-  h1 {
-    font-size: var(--text-4xl);
-    line-height: 1.2;
-    letter-spacing: -0.01em;
-    margin-bottom: 0.5rem;
-  }
+    h1 {
+        font-size: var(--text-4xl);
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+        margin-bottom: 0.5rem;
+    }
 
-  .intro {
-    color: var(--colour-text-secondary);
-    font-size: var(--text-lg);
-    margin-bottom: 2rem;
-  }
+    .intro {
+        color: var(--colour-text-secondary);
+        font-size: var(--text-lg);
+        margin-bottom: 2rem;
+    }
 
-  .post-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
+    .post-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
 
-  .no-posts {
-    color: var(--colour-text-secondary);
-    font-style: italic;
-  }
+    .no-posts {
+        color: var(--colour-text-secondary);
+        font-style: italic;
+    }
 </style>

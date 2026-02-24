@@ -1,27 +1,35 @@
-import { getCollection } from 'astro:content';
-import type { APIContext } from 'astro';
+import { getCollection } from "astro:content";
+import type { APIContext } from "astro";
 
 export async function GET(context: APIContext) {
-  const siteUrl = (context.site || 'https://gvns.ca').toString().replace(/\/$/, '');
+  const siteUrl = (context.site || "https://gvns.ca")
+    .toString()
+    .replace(/\/$/, "");
 
-  const posts = (await getCollection('writing'))
+  const posts = (await getCollection("writing"))
     .filter((post) => !post.data.draft)
     .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
-  const projects = await getCollection('work');
+  const projects = await getCollection("work");
 
   const getFilename = (slug: string) => {
-    const parts = slug.split('/');
+    const parts = slug.split("/");
     return parts[parts.length - 1];
   };
 
   const writingLines = posts
-    .map((post) => `- [${post.data.title}](${siteUrl}/write/${getFilename(post.slug)}/): ${post.data.description}`)
-    .join('\n');
+    .map(
+      (post) =>
+        `- [${post.data.title}](${siteUrl}/write/${getFilename(post.slug)}/): ${post.data.description}`,
+    )
+    .join("\n");
 
   const workLines = projects
-    .map((project) => `- [${project.data.title}](${siteUrl}/work/${project.slug}/): ${project.data.description}`)
-    .join('\n');
+    .map(
+      (project) =>
+        `- [${project.data.title}](${siteUrl}/work/${project.slug}/): ${project.data.description}`,
+    )
+    .join("\n");
 
   const body = `# gvns.ca
 
@@ -48,7 +56,7 @@ ${workLines}
 
   return new Response(body, {
     headers: {
-      'content-type': 'text/plain; charset=utf-8',
+      "content-type": "text/plain; charset=utf-8",
     },
   });
 }

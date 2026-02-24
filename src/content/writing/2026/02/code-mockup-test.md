@@ -46,7 +46,7 @@ git commit -m "feat: add code mockup component"
 ## Shell Session
 
 ```sh
-cd ~/projects/gvns.ca
+cd ~/projects/gwilym.ca
 ls -la src/components/
 ```
 

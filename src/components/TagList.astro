@@ -7,22 +7,22 @@ interface Props {
 const { tags, linked = true } = Astro.props;
 ---
 
-<ul class="tag-list">
+<ul class="gvns-tag-list">
   {tags.map((tag) => (
     <li>
       {linked ? (
-        <a href={`/write/tags/${tag}`} class="tag">
+        <a href={`/write/tags/${encodeURIComponent(tag)}`} class="gvns-tag">
           {tag}
         </a>
       ) : (
-        <span class="tag">{tag}</span>
+        <span class="gvns-tag">{tag}</span>
       )}
     </li>
   ))}
 </ul>
 
 <style>
-  .tag-list {
+  .gvns-tag-list {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
@@ -31,7 +31,7 @@ const { tags, linked = true } = Astro.props;
     margin: 0;
   }
 
-  .tag {
+  .gvns-tag {
     display: inline-block;
     padding: 0.25rem 0.5rem;
     font-size: 0.75rem;
@@ -43,7 +43,7 @@ const { tags, linked = true } = Astro.props;
     transition: background-color var(--transition-fast);
   }
 
-  a.tag:hover {
+  a.gvns-tag:hover {
     background: var(--colour-bg-secondary);
   }
 </style>

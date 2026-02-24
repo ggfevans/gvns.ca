@@ -1,191 +1,232 @@
 ---
-import BaseLayout from '@layouts/BaseLayout.astro';
-import BookList from '@components/book-list.astro';
-import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
+import BaseLayout from "@layouts/BaseLayout.astro";
+import BookList from "@components/book-list.astro";
+import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from "@utils/json-ld";
 
 interface Book {
-  title: string;
-  author: string;
-  coverUrl?: string;
-  hardcoverUrl?: string;
-  rating?: number;
-  progress?: number;
-  dateFinished?: string;
+    title: string;
+    author: string;
+    coverUrl?: string;
+    hardcoverUrl?: string;
+    rating?: number;
+    progress?: number;
+    dateFinished?: string;
 }
 
 interface ReadingData {
-  lastUpdated: string | null;
-  currentlyReading: Book[];
-  finished: Book[];
-  wantToRead: Book[];
+    lastUpdated: string | null;
+    currentlyReading: Book[];
+    finished: Book[];
+    wantToRead: Book[];
 }
 
-let readingData: ReadingData = { lastUpdated: null, currentlyReading: [], finished: [], wantToRead: [] };
+let readingData: ReadingData = {
+    lastUpdated: null,
+    currentlyReading: [],
+    finished: [],
+    wantToRead: [],
+};
 try {
-  const imported = (await import('../../data/reading.json')).default as Partial<ReadingData>;
-  readingData = {
-    lastUpdated: imported.lastUpdated ?? null,
-    currentlyReading: Array.isArray(imported.currentlyReading) ? imported.currentlyReading : [],
-    finished: Array.isArray(imported.finished) ? imported.finished : [],
-    wantToRead: Array.isArray(imported.wantToRead) ? imported.wantToRead : [],
-  };
+    const imported = (await import("../../data/reading.json"))
+        .default as Partial<ReadingData>;
+    readingData = {
+        lastUpdated: imported.lastUpdated ?? null,
+        currentlyReading: Array.isArray(imported.currentlyReading)
+            ? imported.currentlyReading
+            : [],
+        finished: Array.isArray(imported.finished) ? imported.finished : [],
+        wantToRead: Array.isArray(imported.wantToRead)
+            ? imported.wantToRead
+            : [],
+    };
 } catch (e) {
-  if (import.meta.env.DEV) console.error('Failed to load reading data:', e);
+    if (import.meta.env.DEV) console.error("Failed to load reading data:", e);
 }
 
-const hasData = readingData.currentlyReading.length > 0 || readingData.finished.length > 0 || readingData.wantToRead.length > 0;
+const hasData =
+    readingData.currentlyReading.length > 0 ||
+    readingData.finished.length > 0 ||
+    readingData.wantToRead.length > 0;
 
 const siteUrl = normalizeSiteUrl(Astro.site);
-const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
-  { name: 'Home', url: siteUrl },
-  { name: 'Now', url: `${siteUrl}/now` },
-  { name: 'Read', url: `${siteUrl}/read` },
-]));
+const breadcrumbJsonLd = toJsonLd(
+    breadcrumbSchema([
+        { name: "Home", url: siteUrl },
+        { name: "Now", url: `${siteUrl}/now` },
+        { name: "Read", url: `${siteUrl}/read` },
+    ]),
+);
 
 let formattedLastUpdated: string | null = null;
 if (readingData.lastUpdated) {
-  const date = new Date(readingData.lastUpdated);
-  if (!Number.isNaN(date.getTime())) {
-    formattedLastUpdated = date.toLocaleDateString('en-CA', {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-    });
-  }
+    const date = new Date(readingData.lastUpdated);
+    if (!Number.isNaN(date.getTime())) {
+        formattedLastUpdated = date.toLocaleDateString("en-CA", {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+        });
+    }
 }
 ---
 
 <BaseLayout
-  title="Read | gvns.ca"
-  description="Tracking my reading via Hardcover. Currently reading, finished, and want to read."
-  accent="p2-rose"
-  breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Now', href: '/now' }, { label: 'Read' }]}
+    title="Read | gvns.ca"
+    description="Tracking my reading via Hardcover. Currently reading, finished, and want to read."
+    accent="p2-rose"
+    breadcrumbs={[
+        { label: "Home", href: "/" },
+        { label: "Now", href: "/now" },
+        { label: "Read" },
+    ]}
 >
-  <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />
+    <script
+        type="application/ld+json"
+        set:html={breadcrumbJsonLd}
+        slot="head"
+    />
 
-  <main id="main-content" class="read-page" data-pagefind-body>
-    <div class="container">
-      <header class="page-header">
-        <h1 class="page-title">Read</h1>
-        <p class="page-subtitle">Tracking my reading via <a href="https://hardcover.app" target="_blank" rel="noopener noreferrer" class="hardcover-link">Hardcover</a></p>
-      </header>
+    <main id="main-content" class="read-page" data-pagefind-body>
+        <div class="container">
+            <header class="page-header">
+                <h1 class="page-title">Read</h1>
+                <p class="page-subtitle">
+                    Tracking my reading via <a
+                        href="https://hardcover.app"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="hardcover-link">Hardcover</a>
+                </p>
+            </header>
 
-      {hasData ? (
-        <div class="book-sections">
-          {readingData.currentlyReading.length > 0 && (
-            <BookList
-              title="Currently Reading"
-              books={readingData.currentlyReading}
-              emptyMessage="Nothing in progress right now."
-              showProgress={true}
-            />
-          )}
-          {readingData.finished.length > 0 && (
-            <BookList
-              title="Finished"
-              books={readingData.finished}
-              emptyMessage="No books finished yet."
-              showRating={true}
-            />
-          )}
-          {readingData.wantToRead.length > 0 && (
-            <BookList
-              title="Want to Read"
-              books={readingData.wantToRead}
-              emptyMessage="The list is empty... for now."
-            />
-          )}
+            {
+                hasData ? (
+                    <div class="book-sections">
+                        {readingData.currentlyReading.length > 0 && (
+                            <BookList
+                                title="Currently Reading"
+                                books={readingData.currentlyReading}
+                                emptyMessage="Nothing in progress right now."
+                                showProgress={true}
+                            />
+                        )}
+                        {readingData.finished.length > 0 && (
+                            <BookList
+                                title="Finished"
+                                books={readingData.finished}
+                                emptyMessage="No books finished yet."
+                                showRating={true}
+                            />
+                        )}
+                        {readingData.wantToRead.length > 0 && (
+                            <BookList
+                                title="Want to Read"
+                                books={readingData.wantToRead}
+                                emptyMessage="The list is empty... for now."
+                            />
+                        )}
+                    </div>
+                ) : (
+                    <div class="coming-soon">
+                        <div class="coming-soon-icon" aria-hidden="true">
+                            &#128218;
+                        </div>
+                        <p class="coming-soon-text">
+                            Reading data is on its way. Once the Hardcover
+                            integration is wired up, this page will show what
+                            I'm reading, what I've finished, and what's on deck.
+                        </p>
+                    </div>
+                )
+            }
+
+            {
+                formattedLastUpdated && (
+                    <footer class="page-footer">
+                        <p class="last-updated">
+                            Last updated:{" "}
+                            <time datetime={readingData.lastUpdated!}>
+                                {formattedLastUpdated}
+                            </time>
+                        </p>
+                    </footer>
+                )
+            }
         </div>
-      ) : (
-        <div class="coming-soon">
-          <div class="coming-soon-icon" aria-hidden="true">&#128218;</div>
-          <p class="coming-soon-text">
-            Reading data is on its way. Once the Hardcover integration is wired up,
-            this page will show what I'm reading, what I've finished, and what's on deck.
-          </p>
-        </div>
-      )}
-
-      {formattedLastUpdated && (
-        <footer class="page-footer">
-          <p class="last-updated">Last updated: <time datetime={readingData.lastUpdated!}>{formattedLastUpdated}</time></p>
-        </footer>
-      )}
-    </div>
-  </main>
+    </main>
 </BaseLayout>
 
 <style>
-  .container {
-    max-width: var(--width-content);
-    margin-inline: auto;
-  }
+    .container {
+        max-width: var(--width-content);
+        margin-inline: auto;
+    }
 
-  .page-header {
-    margin-bottom: var(--space-10);
-  }
+    .page-header {
+        margin-bottom: var(--space-10);
+    }
 
-  .page-title {
-    font-size: var(--text-4xl);
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    margin: 0 0 var(--space-2) 0;
-  }
+    .page-title {
+        font-size: var(--text-4xl);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        margin: 0 0 var(--space-2) 0;
+    }
 
-  .page-subtitle {
-    font-size: var(--text-lg);
-    color: var(--colour-text-secondary);
-    margin: 0;
-  }
+    .page-subtitle {
+        font-size: var(--text-lg);
+        color: var(--colour-text-secondary);
+        margin: 0;
+    }
 
-  .hardcover-link {
-    color: var(--colour-p2-rose);
-    text-decoration: underline;
-    text-decoration-color: transparent;
-    text-underline-offset: 2px;
-    transition: text-decoration-color var(--transition-fast);
-  }
+    .hardcover-link {
+        color: var(--colour-p2-rose);
+        text-decoration: underline;
+        text-decoration-color: transparent;
+        text-underline-offset: 2px;
+        transition: text-decoration-color var(--transition-fast);
+    }
 
-  .hardcover-link:hover {
-    text-decoration-color: var(--colour-p2-rose-hover);
-  }
+    .hardcover-link:hover {
+        text-decoration-color: var(--colour-p2-rose-hover);
+    }
 
-  .book-sections {
-    margin-top: var(--space-8);
-  }
+    .book-sections {
+        margin-top: var(--space-8);
+    }
 
-  .coming-soon {
-    text-align: center;
-    padding: var(--space-16) var(--space-6);
-    background: var(--colour-bg-secondary);
-    border: 1px dashed var(--colour-p2-rose);
-    border-radius: 12px;
-    margin-top: var(--space-8);
-  }
+    .coming-soon {
+        text-align: center;
+        padding: var(--space-16) var(--space-6);
+        background: var(--colour-bg-secondary);
+        border: 1px dashed var(--colour-p2-rose);
+        border-radius: 12px;
+        margin-top: var(--space-8);
+    }
 
-  .coming-soon-icon {
-    font-size: var(--text-4xl);
-    margin-bottom: var(--space-4);
-    opacity: 0.6;
-  }
+    .coming-soon-icon {
+        font-size: var(--text-4xl);
+        margin-bottom: var(--space-4);
+        opacity: 0.6;
+    }
 
-  .coming-soon-text {
-    font-size: var(--text-base);
-    color: var(--colour-text-secondary);
-    max-width: 48ch;
-    margin: 0 auto;
-    line-height: 1.6;
-  }
+    .coming-soon-text {
+        font-size: var(--text-base);
+        color: var(--colour-text-secondary);
+        max-width: 48ch;
+        margin: 0 auto;
+        line-height: 1.6;
+    }
 
-  .page-footer {
-    margin-top: var(--space-12);
-    padding-top: var(--space-6);
-    border-top: 1px solid var(--colour-border);
-  }
+    .page-footer {
+        margin-top: var(--space-12);
+        padding-top: var(--space-6);
+        border-top: 1px solid var(--colour-border);
+    }
 
-  .last-updated {
-    font-size: var(--text-sm);
-    color: var(--colour-text-muted);
-    margin: 0;
-  }
+    .last-updated {
+        font-size: var(--text-sm);
+        color: var(--colour-text-muted);
+        margin: 0;
+    }
 </style>

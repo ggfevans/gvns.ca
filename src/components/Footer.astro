@@ -3,50 +3,68 @@ const currentYear = new Date().getFullYear();
 ---
 
 <footer class="footer">
-  <div class="footer-content">
-    <p>© {currentYear} Gareth Evans</p>
-    <ul class="footer-links">
-      <li><a href="https://github.com/ggfevans" target="_blank" rel="noopener" aria-label="GitHub (opens in new tab)">GitHub</a></li>
-      <li><a href="https://threads.net/@ggfevans" target="_blank" rel="noopener" aria-label="Threads (opens in new tab)">Threads</a></li>
-      <li><a href="https://linkedin.com/in/ggfevans" target="_blank" rel="noopener" aria-label="LinkedIn (opens in new tab)">LinkedIn</a></li>
-      <li><a href="mailto:hi@gvns.ca" aria-label="Email">Email</a></li>
-      <li><a href="/rss.xml" aria-label="RSS feed">RSS</a></li>
-    </ul>
-  </div>
+    <div class="footer-content">
+        <p>© {currentYear} Gareth Evans</p>
+        <ul class="footer-links">
+            <li>
+                <a
+                    href="https://github.com/ggfevans"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="GitHub (opens in new tab)">GitHub</a>
+            </li>
+            <li>
+                <a
+                    href="https://threads.net/@ggfevans"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="Threads (opens in new tab)">Threads</a>
+            </li>
+            <li>
+                <a
+                    href="https://linkedin.com/in/ggfevans"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="LinkedIn (opens in new tab)">LinkedIn</a>
+            </li>
+            <li><a href="mailto:hi@gvns.ca" aria-label="Email">Email</a></li>
+            <li><a href="/rss.xml" aria-label="RSS feed">RSS</a></li>
+        </ul>
+    </div>
 </footer>
 
 <style>
-  .footer {
-    padding: var(--space-8, 2rem) var(--space-6, 1.5rem);
-    border-top: 1px solid var(--colour-border);
-    margin-top: auto;
-  }
+    .footer {
+        padding: var(--space-8, 2rem) var(--space-6, 1.5rem);
+        border-top: 1px solid var(--colour-border);
+        margin-top: auto;
+    }
 
-  .footer-content {
-    max-width: var(--width-content);
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: var(--colour-text-muted);
-    font-size: 0.875rem;
-  }
+    .footer-content {
+        max-width: var(--width-content);
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: var(--colour-text-muted);
+        font-size: 0.875rem;
+    }
 
-  .footer-links {
-    display: flex;
-    gap: var(--space-4, 1rem);
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
+    .footer-links {
+        display: flex;
+        gap: var(--space-4, 1rem);
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
 
-  .footer-links a {
-    color: var(--colour-text-muted);
-    text-decoration: none;
-    transition: color var(--transition-fast);
-  }
+    .footer-links a {
+        color: var(--colour-text-muted);
+        text-decoration: none;
+        transition: color var(--transition-fast);
+    }
 
-  .footer-links a:hover {
-    color: var(--colour-accent-primary);
-  }
+    .footer-links a:hover {
+        color: var(--colour-accent-primary);
+    }
 </style>

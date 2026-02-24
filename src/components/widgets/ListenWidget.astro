@@ -125,7 +125,7 @@ const artUrl = isValidMbid(latestTrack?.caaReleaseMbid)
   .gvns-widget__art {
     width: 64px;
     height: 64px;
-    border-radius: 6px;
+    border-radius: var(--radius-md);
     object-fit: cover;
     flex-shrink: 0;
   }
@@ -133,7 +133,7 @@ const artUrl = isValidMbid(latestTrack?.caaReleaseMbid)
   .gvns-widget__art-placeholder {
     width: 64px;
     height: 64px;
-    border-radius: 6px;
+    border-radius: var(--radius-md);
     background: var(--colour-bg-tertiary);
     color: var(--colour-text-muted);
     display: flex;
@@ -143,10 +143,10 @@ const artUrl = isValidMbid(latestTrack?.caaReleaseMbid)
   }
 
   .gvns-widget-compact--listen {
-    border-top: 3px solid var(--colour-p3-emerald);
+    border-top: var(--border-accent) solid var(--colour-p3-emerald);
   }
 
   .gvns-widget-compact__cover--square {
-    border-radius: 4px;
+    border-radius: var(--radius-md);
   }
 </style>

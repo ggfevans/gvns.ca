@@ -48,77 +48,81 @@ let globalIndex = 0;
 ---
 
 <div class="gvns-timeline">
-  {[...grouped.entries()].map(([dateKey, items]) => (
-    <div class="gvns-timeline__group">
-      <div class="gvns-timeline__date-row">
-        <hr class="gvns-timeline__date-line" aria-hidden="true" />
-        <h3 class="gvns-timeline__date-header">{formatDateHeader(dateKey)}</h3>
-        <hr class="gvns-timeline__date-line" aria-hidden="true" />
-      </div>
+  {activities.length === 0 ? (
+    <p class="gvns-timeline__empty">No recent activity.</p>
+  ) : (
+    [...grouped.entries()].map(([dateKey, items]) => (
+      <div class="gvns-timeline__group">
+        <div class="gvns-timeline__date-row">
+          <hr class="gvns-timeline__date-line" aria-hidden="true" />
+          <h3 class="gvns-timeline__date-header">{formatDateHeader(dateKey)}</h3>
+          <hr class="gvns-timeline__date-line" aria-hidden="true" />
+        </div>
 
-      <ol class="gvns-timeline__list" role="list">
-        {items.map((item) => {
-          const badge = statusBadge(item);
-          const href = safeUrl(item.url);
-          const repoHref = safeUrl(item.repoUrl);
-          const isEven = globalIndex % 2 === 0;
-          globalIndex++;
+        <ol class="gvns-timeline__list" role="list">
+          {items.map((item) => {
+            const badge = statusBadge(item);
+            const href = safeUrl(item.url);
+            const repoHref = safeUrl(item.repoUrl);
+            const isEven = globalIndex % 2 === 0;
+            globalIndex++;
 
-          const contentBlock = (
-            <div class="gvns-timeline__card">
-              <div class="gvns-timeline__header">
-                {repoHref ? (
-                  <a href={repoHref} class="gvns-timeline__repo" target="_blank" rel="noopener noreferrer">
-                    {item.repo}
+            const contentBlock = (
+              <div class="gvns-timeline__card" data-time={relativeTime(item.date)}>
+                <div class="gvns-timeline__header">
+                  {repoHref ? (
+                    <a href={repoHref} class="gvns-timeline__repo" target="_blank" rel="noopener noreferrer">
+                      {item.repo}
+                    </a>
+                  ) : (
+                    <span class="gvns-timeline__repo">{item.repo}</span>
+                  )}
+                  <span class="gvns-timeline__type">{activityLabel(item.type)}</span>
+                  {badge && (
+                    <span class={`gvns-timeline__badge gvns-timeline__badge--${badge}`}>{badge}</span>
+                  )}
+                </div>
+                {href ? (
+                  <a href={href} class="gvns-timeline__title" target="_blank" rel="noopener noreferrer">
+                    {truncate(item.title, 80)}
                   </a>
                 ) : (
-                  <span class="gvns-timeline__repo">{item.repo}</span>
-                )}
-                <span class="gvns-timeline__type">{activityLabel(item.type)}</span>
-                {badge && (
-                  <span class={`gvns-timeline__badge gvns-timeline__badge--${badge}`}>{badge}</span>
+                  <span class="gvns-timeline__title">{truncate(item.title, 80)}</span>
                 )}
               </div>
-              {href ? (
-                <a href={href} class="gvns-timeline__title" target="_blank" rel="noopener noreferrer">
-                  {truncate(item.title, 80)}
-                </a>
-              ) : (
-                <span class="gvns-timeline__title">{truncate(item.title, 80)}</span>
-              )}
-            </div>
-          );
+            );
 
-          const timeBlock = (
-            <time class="gvns-timeline__time" datetime={item.date}>
-              {relativeTime(item.date)}
-            </time>
-          );
+            const timeBlock = (
+              <time class="gvns-timeline__time" datetime={item.date}>
+                {relativeTime(item.date)}
+              </time>
+            );
 
-          return (
-            <li class={`gvns-timeline__item ${isEven ? 'gvns-timeline__item--left' : 'gvns-timeline__item--right'}`}>
-              <div class="gvns-timeline__start">
-                {isEven ? timeBlock : contentBlock}
-              </div>
-
-              <div class="gvns-timeline__middle">
-                <div class={`gvns-timeline__dot gvns-timeline__dot--${item.type}`} aria-hidden="true">
-                  <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-                    <path d={activityIconPath(item.type)} />
-                  </svg>
+            return (
+              <li class={`gvns-timeline__item ${isEven ? 'gvns-timeline__item--left' : 'gvns-timeline__item--right'}`}>
+                <div class="gvns-timeline__start">
+                  {isEven ? timeBlock : contentBlock}
                 </div>
-                <div class="gvns-timeline__connector" aria-hidden="true" />
-              </div>
 
-              <div class="gvns-timeline__end">
-                {isEven ? contentBlock : timeBlock}
-              </div>
-            </li>
-          );
-        })}
-      </ol>
-    </div>
-  ))}
+                <div class="gvns-timeline__middle">
+                  <div class={`gvns-timeline__dot gvns-timeline__dot--${item.type}`} aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                      <path d={activityIconPath(item.type)} />
+                    </svg>
+                  </div>
+                  <div class="gvns-timeline__connector" aria-hidden="true" />
+                </div>
+
+                <div class="gvns-timeline__end">
+                  {isEven ? contentBlock : timeBlock}
+                </div>
+              </li>
+            );
+          })}
+        </ol>
+      </div>
+    ))
+  )}
 </div>
 
 <style>
@@ -126,6 +130,16 @@ let globalIndex = 0;
     display: flex;
     flex-direction: column;
     gap: var(--space-6);
+  }
+
+  .gvns-timeline__empty {
+    margin: 0;
+    padding: var(--space-4);
+    border: 1px dashed var(--colour-border);
+    border-radius: var(--radius-md);
+    color: var(--colour-text-muted);
+    font-size: var(--text-sm);
+    background: var(--colour-bg-secondary);
   }
 
   /* Date header row — centered with lines extending to each side */

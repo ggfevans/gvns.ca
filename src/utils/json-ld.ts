@@ -4,9 +4,9 @@
  * @see https://developers.google.com/search/docs/appearance/structured-data
  */
 
-const SITE_NAME = 'gvns.ca';
-const AUTHOR_NAME = 'Gareth Evans';
-const DEFAULT_SITE_URL = 'https://gvns.ca';
+const SITE_NAME = "gvns.ca";
+const AUTHOR_NAME = "Gareth Evans";
+const DEFAULT_SITE_URL = "https://gvns.ca";
 
 interface ArticleSchema {
   title: string;
@@ -27,7 +27,7 @@ interface BreadcrumbItem {
  */
 export function normalizeSiteUrl(siteUrl: URL | string | undefined): string {
   if (!siteUrl) return DEFAULT_SITE_URL;
-  return siteUrl.toString().replace(/\/$/, '');
+  return siteUrl.toString().replace(/\/$/, "");
 }
 
 /**
@@ -37,16 +37,16 @@ export function normalizeSiteUrl(siteUrl: URL | string | undefined): string {
 export function websiteSchema(siteUrl?: string): object {
   const url = siteUrl || DEFAULT_SITE_URL;
   return {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
+    "@context": "https://schema.org",
+    "@type": "WebSite",
     name: SITE_NAME,
     url,
     author: {
-      '@type': 'Person',
+      "@type": "Person",
       name: AUTHOR_NAME,
     },
     description:
-      'Personal site for writing and shipped work. Notes on homelab, web development, BJJ, and productivity.',
+      "Personal site for writing and shipped work. Notes on homelab, web development, BJJ, and productivity.",
   };
 }
 
@@ -57,18 +57,18 @@ export function websiteSchema(siteUrl?: string): object {
 export function personSchema(siteUrl?: string): object {
   const url = siteUrl || DEFAULT_SITE_URL;
   return {
-    '@context': 'https://schema.org',
-    '@type': 'Person',
+    "@context": "https://schema.org",
+    "@type": "Person",
     name: AUTHOR_NAME,
     url,
-    jobTitle: 'Web Developer',
+    jobTitle: "Web Developer",
     knowsAbout: [
-      'Web Development',
-      'Homelab',
-      'Self-Hosting',
-      'Brazilian Jiu-Jitsu',
+      "Web Development",
+      "Homelab",
+      "Self-Hosting",
+      "Brazilian Jiu-Jitsu",
     ],
-    sameAs: ['https://github.com/ggfevans'],
+    sameAs: ["https://github.com/ggfevans"],
   };
 }
 
@@ -85,25 +85,25 @@ export function articleSchema({
 }: ArticleSchema): object {
   const baseUrl = siteUrl || DEFAULT_SITE_URL;
   return {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
+    "@context": "https://schema.org",
+    "@type": "Article",
     headline: title,
     description,
     author: {
-      '@type': 'Person',
+      "@type": "Person",
       name: AUTHOR_NAME,
       url: baseUrl,
     },
     publisher: {
-      '@type': 'Person',
+      "@type": "Person",
       name: AUTHOR_NAME,
       url: baseUrl,
     },
     datePublished: pubDate.toISOString(),
     dateModified: (updatedDate || pubDate).toISOString(),
     mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': url,
+      "@type": "WebPage",
+      "@id": url,
     },
   };
 }
@@ -113,10 +113,10 @@ export function articleSchema({
  */
 export function breadcrumbSchema(items: BreadcrumbItem[]): object {
   return {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
     itemListElement: items.map((item, index) => ({
-      '@type': 'ListItem',
+      "@type": "ListItem",
       position: index + 1,
       name: item.name,
       item: item.url,
@@ -128,5 +128,5 @@ export function breadcrumbSchema(items: BreadcrumbItem[]): object {
  * Serialize schema object to JSON-LD script content
  */
 export function toJsonLd(schema: object): string {
-  return JSON.stringify(schema);
+  return JSON.stringify(schema).replace(/</g, "\\u003c");
 }

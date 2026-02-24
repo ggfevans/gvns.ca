@@ -1,142 +1,249 @@
 {
-  "lastUpdated": "2026-02-06T03:14:49Z",
+  "lastUpdated": "2026-02-24T03:16:41Z",
   "recentListens": [
     {
-      "track": "Endless Flower",
-      "artist": "Eluvium",
-      "album": "(Whirring Marvels In) Consensus Reality",
-      "listenedAt": "2026-02-04T18:02:57Z",
-      "caaReleaseMbid": "36488850-1230-47bc-9822-34211bbfe47b",
-      "caaId": 36104955971,
-      "recordingMbid": "9b7b54a4-994f-431f-95f6-f0a5a2877a1b",
+      "track": "From You",
+      "artist": "Bonobo",
+      "album": "Fragments",
+      "listenedAt": "2026-02-10T21:08:05Z",
+      "caaReleaseMbid": "5dcaabc0-5038-47fb-bd7d-783793846bc0",
+      "caaId": 31635402236,
+      "recordingMbid": "da1899fd-fcd2-42e1-bd2d-94465ee80e03",
       "artistMbids": [
-        "86139012-695b-42f4-98f1-1f353f7230b4"
+        "9a709693-b4f8-4da9-8cc1-038c911a61be",
+        "8264722b-df00-467a-858e-5c97cda169c9"
       ]
     },
     {
-      "track": "A Floating World of Demons",
-      "artist": "Eluvium",
-      "album": "(Whirring Marvels In) Consensus Reality",
-      "listenedAt": "2026-02-04T17:59:53Z",
-      "caaReleaseMbid": "36488850-1230-47bc-9822-34211bbfe47b",
-      "caaId": 36104955971,
-      "recordingMbid": "3a94a028-f0c9-4782-a6ee-2b55bcd3d753",
+      "track": "From You",
+      "artist": "Bonobo",
+      "album": "Fragments",
+      "listenedAt": "2026-02-10T21:06:40Z",
+      "caaReleaseMbid": "5dcaabc0-5038-47fb-bd7d-783793846bc0",
+      "caaId": 31635402236,
+      "recordingMbid": "da1899fd-fcd2-42e1-bd2d-94465ee80e03",
       "artistMbids": [
-        "86139012-695b-42f4-98f1-1f353f7230b4"
+        "9a709693-b4f8-4da9-8cc1-038c911a61be",
+        "8264722b-df00-467a-858e-5c97cda169c9"
       ]
     },
     {
-      "track": "Mass Lossless Interbeing",
-      "artist": "Eluvium",
-      "album": "(Whirring Marvels In) Consensus Reality",
-      "listenedAt": "2026-02-04T17:56:09Z",
-      "caaReleaseMbid": "36488850-1230-47bc-9822-34211bbfe47b",
-      "caaId": 36104955971,
-      "recordingMbid": "65f8a938-5415-4d7f-9bcd-d3bb947562a0",
+      "track": "Two Thousand and Seventeen",
+      "artist": "Four Tet",
+      "album": "New Energy",
+      "listenedAt": "2026-02-10T21:02:36Z",
+      "caaReleaseMbid": "ad18da95-7c3a-408c-958f-ff3dd7954440",
+      "caaId": 17914296176,
+      "recordingMbid": "59feedf2-8212-4352-80c9-820b00bd36ce",
       "artistMbids": [
-        "86139012-695b-42f4-98f1-1f353f7230b4"
+        "3bcff06f-675a-451f-9075-99e8657047e8"
       ]
     },
     {
-      "track": "Clockwork Fables",
-      "artist": "Eluvium",
-      "album": "(Whirring Marvels In) Consensus Reality",
-      "listenedAt": "2026-02-04T17:53:53Z",
-      "caaReleaseMbid": "36488850-1230-47bc-9822-34211bbfe47b",
-      "caaId": 36104955971,
-      "recordingMbid": "0cbfdcf3-ee1b-4f39-97cd-07237cac7dbd",
+      "track": "Mi swing es tropical",
+      "artist": "Quantic & Nickodemus",
+      "album": "Salsa Style: Latin Beats for Dancing Feets",
+      "listenedAt": "2026-02-10T21:01:34Z",
+      "caaReleaseMbid": "82376b6c-5a13-41c7-888e-a76fb4f648dd",
+      "caaId": 21330531664,
+      "recordingMbid": "c23c6114-2f3f-4eea-9eb7-7d6ddcb8d2f5",
       "artistMbids": [
-        "86139012-695b-42f4-98f1-1f353f7230b4"
+        "f1560407-8826-4ec9-b78f-e0c3fa3ea4f5",
+        "ec475fb8-d454-406e-b473-7f0b0d815f9d"
       ]
     },
     {
-      "track": "Void Manifest",
-      "artist": "Eluvium",
-      "album": "(Whirring Marvels In) Consensus Reality",
-      "listenedAt": "2026-02-04T17:49:42Z",
-      "caaReleaseMbid": "36488850-1230-47bc-9822-34211bbfe47b",
-      "caaId": 36104955971,
-      "recordingMbid": "f2b263bd-c7a7-4472-9df4-4e7aa034cc6b",
+      "track": "Suzuki",
+      "artist": "Tosca",
+      "album": "Suzuki",
+      "listenedAt": "2026-02-10T20:55:29Z",
+      "caaReleaseMbid": "505f0ee9-6113-46aa-b44e-fbae0bcff839",
+      "caaId": 13276098607,
+      "recordingMbid": "f128b4c3-72a3-461e-b5b7-21ffaff31a9a",
       "artistMbids": [
-        "86139012-695b-42f4-98f1-1f353f7230b4"
+        "3231d12a-c42d-4977-b2a4-a6e4d87978e1"
       ]
     },
     {
-      "track": "The Violet Light",
-      "artist": "Eluvium",
-      "album": "(Whirring Marvels In) Consensus Reality",
-      "listenedAt": "2026-02-04T17:47:12Z",
-      "caaReleaseMbid": "36488850-1230-47bc-9822-34211bbfe47b",
-      "caaId": 36104955971,
-      "recordingMbid": "80c293ee-317c-410a-a2c6-686e5b0d9ad1",
+      "track": "Lebanese Blonde",
+      "artist": "Thievery Corporation",
+      "album": "The Mirror Conspiracy",
+      "listenedAt": "2026-02-10T20:50:26Z",
+      "caaReleaseMbid": "1de73c08-5755-3646-ad2c-a6657aa00fd4",
+      "caaId": 1769287326,
+      "recordingMbid": "27a32525-c99d-47d3-8f58-58e924313136",
       "artistMbids": [
-        "86139012-695b-42f4-98f1-1f353f7230b4"
+        "a505bb48-ad65-4af4-ae47-29149715bff9"
       ]
     },
     {
-      "track": "Phantasia Telephonics",
-      "artist": "Eluvium",
-      "album": "(Whirring Marvels In) Consensus Reality",
-      "listenedAt": "2026-02-04T17:41:16Z",
-      "caaReleaseMbid": "36488850-1230-47bc-9822-34211bbfe47b",
-      "caaId": 36104955971,
-      "recordingMbid": "2f5b6333-2ea8-499b-853a-ee6f799c530d",
+      "track": "Time Is the Enemy",
+      "artist": "Quantic",
+      "album": "The 5th Exotic",
+      "listenedAt": "2026-02-10T20:47:23Z",
+      "caaReleaseMbid": "5cbf9bb5-6b4d-4b4e-843e-0db79f8f3a58",
+      "caaId": 4396377486,
+      "recordingMbid": "49ae589f-3af4-4c1c-8205-bdc65be7e001",
       "artistMbids": [
-        "86139012-695b-42f4-98f1-1f353f7230b4"
+        "f1560407-8826-4ec9-b78f-e0c3fa3ea4f5"
       ]
     },
     {
-      "track": "Scatterbrains",
-      "artist": "Eluvium",
-      "album": "(Whirring Marvels In) Consensus Reality",
-      "listenedAt": "2026-02-04T17:37:42Z",
-      "caaReleaseMbid": "36488850-1230-47bc-9822-34211bbfe47b",
-      "caaId": 36104955971,
-      "recordingMbid": "f7727213-3284-4436-ae40-91d358c8b97d",
+      "track": "Tonto Rides the Gain",
+      "artist": "Jon Kennedy",
+      "album": "Corporeal",
+      "listenedAt": "2026-02-10T20:44:20Z",
+      "caaReleaseMbid": "a5b6c32b-2e0a-4122-9114-48910e0e6919",
+      "caaId": 42350940722,
+      "recordingMbid": "512201dc-5ded-47a0-867e-0675a09266b8",
       "artistMbids": [
-        "86139012-695b-42f4-98f1-1f353f7230b4"
+        "69ead53e-b2d4-45f4-b777-71363fdeff28"
       ]
     },
     {
-      "track": "Vibration Consensus Reality (for Spectral Multiband Resonator)",
-      "artist": "Eluvium",
-      "album": "(Whirring Marvels In) Consensus Reality",
-      "listenedAt": "2026-02-04T17:29:41Z",
-      "caaReleaseMbid": "36488850-1230-47bc-9822-34211bbfe47b",
-      "caaId": 36104955971,
-      "recordingMbid": "10f2b81b-bd57-4a24-8285-39cc08267b1a",
+      "track": "C.R.E.A.M.",
+      "artist": "El Michels Affair",
+      "album": "Enter the 37th Chamber",
+      "listenedAt": "2026-02-10T20:41:18Z",
+      "caaReleaseMbid": "9efbc7c3-1d5a-42a4-8230-9afb02abdd04",
+      "caaId": 28388842087,
+      "recordingMbid": "c927b8c8-8fd6-476d-8429-6ece79e0b637",
       "artistMbids": [
-        "86139012-695b-42f4-98f1-1f353f7230b4"
+        "dbf0a5c5-3665-4495-b13b-99438a6a0900"
       ]
     },
     {
-      "track": "Swift Automatons",
-      "artist": "Eluvium",
-      "album": "(Whirring Marvels In) Consensus Reality",
-      "listenedAt": "2026-02-04T17:27:03Z",
-      "caaReleaseMbid": "36488850-1230-47bc-9822-34211bbfe47b",
-      "caaId": 36104955971,
-      "recordingMbid": "f116a888-16b3-4940-a78b-510e7957acf5",
+      "track": "The Sensual Woman",
+      "artist": "The Herbaliser",
+      "album": "Very Mercenary",
+      "listenedAt": "2026-02-10T20:38:15Z",
+      "caaReleaseMbid": "d33ce12c-6973-4b81-bdfe-21ebabedc158",
+      "caaId": 9828849514,
+      "recordingMbid": "145b8ef0-7592-430a-806e-35980e3e195d",
       "artistMbids": [
-        "86139012-695b-42f4-98f1-1f353f7230b4"
+        "bf48d271-9595-4043-9064-52f43707d4ab"
       ]
     }
   ],
   "recentListensStatus": "ok",
   "topArtists": [
     {
+      "name": "Eluvium",
+      "listenCount": 13,
+      "artistMbid": "86139012-695b-42f4-98f1-1f353f7230b4"
+    },
+    {
       "name": "Tycho",
       "listenCount": 11,
       "artistMbid": "cbef45a9-7acb-4325-94c9-70081ac8d1b8"
     },
     {
-      "name": "Eluvium",
-      "listenCount": 11,
-      "artistMbid": "86139012-695b-42f4-98f1-1f353f7230b4"
+      "name": "Amon Tobin",
+      "listenCount": 6,
+      "artistMbid": "630662ea-1c7d-4208-99fd-ba3afec20f0c"
+    },
+    {
+      "name": "Quantic",
+      "listenCount": 5,
+      "artistMbid": "f1560407-8826-4ec9-b78f-e0c3fa3ea4f5"
+    },
+    {
+      "name": "Boards of Canada",
+      "listenCount": 5,
+      "artistMbid": "69158f97-4c07-4c4e-baf8-4e4ab1ed666e"
+    },
+    {
+      "name": "Bonobo",
+      "listenCount": 4,
+      "artistMbid": "9a709693-b4f8-4da9-8cc1-038c911a61be"
+    },
+    {
+      "name": "Thievery Corporation",
+      "listenCount": 2,
+      "artistMbid": "a505bb48-ad65-4af4-ae47-29149715bff9"
+    },
+    {
+      "name": "The Herbaliser",
+      "listenCount": 2,
+      "artistMbid": "bf48d271-9595-4043-9064-52f43707d4ab"
+    },
+    {
+      "name": "Jon Kennedy",
+      "listenCount": 2,
+      "artistMbid": "69ead53e-b2d4-45f4-b777-71363fdeff28"
+    },
+    {
+      "name": "El Michels Affair",
+      "listenCount": 2,
+      "artistMbid": "dbf0a5c5-3665-4495-b13b-99438a6a0900"
     }
   ],
   "topArtistsStatus": "ok",
   "topTracks": [
+    {
+      "track": "Time Is the Enemy",
+      "artist": "Quantic",
+      "listenCount": 3,
+      "recordingMbid": "49ae589f-3af4-4c1c-8205-bdc65be7e001",
+      "caaReleaseMbid": "5cbf9bb5-6b4d-4b4e-843e-0db79f8f3a58",
+      "caaId": 4396377486
+    },
+    {
+      "track": "Tonto Rides the Gain",
+      "artist": "Jon Kennedy",
+      "listenCount": 2,
+      "recordingMbid": "512201dc-5ded-47a0-867e-0675a09266b8",
+      "caaReleaseMbid": "a5b6c32b-2e0a-4122-9114-48910e0e6919",
+      "caaId": 42350940722
+    },
+    {
+      "track": "The Sensual Woman",
+      "artist": "The Herbaliser",
+      "listenCount": 2,
+      "recordingMbid": "145b8ef0-7592-430a-806e-35980e3e195d",
+      "caaReleaseMbid": "d33ce12c-6973-4b81-bdfe-21ebabedc158",
+      "caaId": 9828849514
+    },
+    {
+      "track": "Swift Automatons",
+      "artist": "Eluvium",
+      "listenCount": 2,
+      "recordingMbid": "f116a888-16b3-4940-a78b-510e7957acf5",
+      "caaReleaseMbid": "2b472acf-6751-4d5d-b448-76ca31c1ac6f",
+      "caaId": 37568706791
+    },
+    {
+      "track": "Sisyphus",
+      "artist": "Andrew Bird",
+      "listenCount": 2,
+      "recordingMbid": "adce11b2-de0f-4cb4-9371-a09467f09ad7",
+      "caaReleaseMbid": "488ea3c5-0615-452d-96e4-c2b7e13fda50",
+      "caaId": 22168031137
+    },
+    {
+      "track": "Lebanese Blonde",
+      "artist": "Thievery Corporation",
+      "listenCount": 2,
+      "recordingMbid": "27a32525-c99d-47d3-8f58-58e924313136",
+      "caaReleaseMbid": "1de73c08-5755-3646-ad2c-a6657aa00fd4",
+      "caaId": 1769287326
+    },
+    {
+      "track": "From You",
+      "artist": "Bonobo",
+      "listenCount": 2,
+      "recordingMbid": "da1899fd-fcd2-42e1-bd2d-94465ee80e03",
+      "caaReleaseMbid": "2b50b9a7-84de-45a6-8c73-aeeca446e24c",
+      "caaId": 33344850420
+    },
+    {
+      "track": "Escapement",
+      "artist": "Eluvium",
+      "listenCount": 2,
+      "recordingMbid": "64280736-b571-49b0-a8d2-d5fd41935765",
+      "caaReleaseMbid": "2b472acf-6751-4d5d-b448-76ca31c1ac6f",
+      "caaId": 37568706791
+    },
     {
       "track": "Elegy",
       "artist": "Tycho",
@@ -146,80 +253,23 @@
       "caaId": 23728700898
     },
     {
-      "track": "Void Manifest",
-      "artist": "Eluvium",
-      "listenCount": 1,
-      "recordingMbid": "f2b263bd-c7a7-4472-9df4-4e7aa034cc6b",
-      "caaReleaseMbid": "2b472acf-6751-4d5d-b448-76ca31c1ac6f",
-      "caaId": 37568706791
-    },
-    {
-      "track": "Vibration Consensus Reality (for Spectral Multiband Resonator)",
-      "artist": "Eluvium",
-      "listenCount": 1,
-      "recordingMbid": "10f2b81b-bd57-4a24-8285-39cc08267b1a",
-      "caaReleaseMbid": "2b472acf-6751-4d5d-b448-76ca31c1ac6f",
-      "caaId": 37568706791
-    },
-    {
-      "track": "The Violet Light",
-      "artist": "Eluvium",
-      "listenCount": 1,
-      "recordingMbid": "80c293ee-317c-410a-a2c6-686e5b0d9ad1",
-      "caaReleaseMbid": "2b472acf-6751-4d5d-b448-76ca31c1ac6f",
-      "caaId": 37568706791
-    },
-    {
-      "track": "Swift Automatons",
-      "artist": "Eluvium",
-      "listenCount": 1,
-      "recordingMbid": "f116a888-16b3-4940-a78b-510e7957acf5",
-      "caaReleaseMbid": "2b472acf-6751-4d5d-b448-76ca31c1ac6f",
-      "caaId": 37568706791
-    },
-    {
-      "track": "Scatterbrains",
-      "artist": "Eluvium",
-      "listenCount": 1,
-      "recordingMbid": "f7727213-3284-4436-ae40-91d358c8b97d",
-      "caaReleaseMbid": "2b472acf-6751-4d5d-b448-76ca31c1ac6f",
-      "caaId": 37568706791
-    },
-    {
-      "track": "Phantasia Telephonics",
-      "artist": "Eluvium",
-      "listenCount": 1,
-      "recordingMbid": "2f5b6333-2ea8-499b-853a-ee6f799c530d",
-      "caaReleaseMbid": "2b472acf-6751-4d5d-b448-76ca31c1ac6f",
-      "caaId": 37568706791
-    },
-    {
-      "track": "Melanine",
-      "artist": "Tycho",
-      "listenCount": 1,
-      "recordingMbid": "bf1c34a9-d9b4-4a76-943c-0a55b6579e52",
-      "caaReleaseMbid": "d28ac66c-7fd1-4872-88ae-1a820a9c7e9d",
-      "caaId": 23728700898
-    },
-    {
-      "track": "Mass Lossless Interbeing",
-      "artist": "Eluvium",
-      "listenCount": 1,
-      "recordingMbid": "65f8a938-5415-4d7f-9bcd-d3bb947562a0",
-      "caaReleaseMbid": "2b472acf-6751-4d5d-b448-76ca31c1ac6f",
-      "caaId": 37568706791
-    },
-    {
-      "track": "Hours",
-      "artist": "Tycho",
-      "listenCount": 1,
-      "recordingMbid": "a5b7507a-8f3e-4a1f-a7f0-5c82f4b37a9f",
-      "caaReleaseMbid": "d28ac66c-7fd1-4872-88ae-1a820a9c7e9d",
-      "caaId": 23728700898
+      "track": "C.R.E.A.M.",
+      "artist": "El Michels Affair",
+      "listenCount": 2,
+      "recordingMbid": "c927b8c8-8fd6-476d-8429-6ece79e0b637",
+      "caaReleaseMbid": "9efbc7c3-1d5a-42a4-8230-9afb02abdd04",
+      "caaId": 28388842087
     }
   ],
   "topTracksStatus": "ok",
   "topAlbums": [
+    {
+      "album": "(Whirring Marvels In) Consensus Reality",
+      "artist": "Eluvium",
+      "listenCount": 13,
+      "caaReleaseMbid": "2b472acf-6751-4d5d-b448-76ca31c1ac6f",
+      "caaId": 37568706791
+    },
     {
       "album": "Dive",
       "artist": "Tycho",
@@ -228,19 +278,69 @@
       "caaId": 23728700898
     },
     {
-      "album": "(Whirring Marvels In) Consensus Reality",
-      "artist": "Eluvium",
-      "listenCount": 11,
-      "caaReleaseMbid": "2b472acf-6751-4d5d-b448-76ca31c1ac6f",
-      "caaId": 37568706791
+      "album": "Supermodified",
+      "artist": "Amon Tobin",
+      "listenCount": 5,
+      "caaReleaseMbid": "fc94d683-52f6-4a55-9563-df2cf70da4e5",
+      "caaId": 42901742241
+    },
+    {
+      "album": "Music Has the Right to Children",
+      "artist": "Boards of Canada",
+      "listenCount": 5,
+      "caaReleaseMbid": "cb4f8b4e-4eb7-3a4c-97ea-5f4a134b5248",
+      "caaId": 19310177954
+    },
+    {
+      "album": "The 5th Exotic",
+      "artist": "Quantic",
+      "listenCount": 4,
+      "caaReleaseMbid": "5cbf9bb5-6b4d-4b4e-843e-0db79f8f3a58",
+      "caaId": 4396377486
+    },
+    {
+      "album": "Very Mercenary",
+      "artist": "The Herbaliser",
+      "listenCount": 2,
+      "caaReleaseMbid": "d33ce12c-6973-4b81-bdfe-21ebabedc158",
+      "caaId": 9828849514
+    },
+    {
+      "album": "The Mirror Conspiracy",
+      "artist": "Thievery Corporation",
+      "listenCount": 2,
+      "caaReleaseMbid": "1de73c08-5755-3646-ad2c-a6657aa00fd4",
+      "caaId": 1769287326
+    },
+    {
+      "album": "My Finest Work Yet",
+      "artist": "Andrew Bird",
+      "listenCount": 2,
+      "caaReleaseMbid": "488ea3c5-0615-452d-96e4-c2b7e13fda50",
+      "caaId": 22168031137
+    },
+    {
+      "album": "Fragments",
+      "artist": "Bonobo",
+      "listenCount": 2,
+      "caaReleaseMbid": "2b50b9a7-84de-45a6-8c73-aeeca446e24c",
+      "caaId": 33344850420
+    },
+    {
+      "album": "Enter the 37th Chamber",
+      "artist": "El Michels Affair",
+      "listenCount": 2,
+      "caaReleaseMbid": "9efbc7c3-1d5a-42a4-8230-9afb02abdd04",
+      "caaId": 28388842087
     }
   ],
   "topAlbumsStatus": "ok",
   "stats": {
-    "totalListenCount": 131097,
+    "totalListenCount": 212608,
+    "rangeListenCount": 68,
     "range": "this_month",
-    "artistCount": 2,
-    "albumCount": 2,
-    "trackCount": 21
+    "artistCount": 26,
+    "albumCount": 29,
+    "trackCount": 57
   }
 }
