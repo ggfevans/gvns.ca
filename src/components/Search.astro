@@ -104,34 +104,39 @@ const bundlePath = join(import.meta.env.BASE_URL, 'pagefind/');
     isOpen = false;
   }
 
-  // Cmd/Ctrl+K keyboard shortcut
-  document.addEventListener('keydown', (e) => {
-    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-      e.preventDefault();
-      if (isOpen) {
-        closeDialog();
-      } else {
-        openDialog();
+  // Avoid duplicate global listeners if the Search component is rendered multiple times
+  if (!window.__gvnsSearchInit) {
+    window.__gvnsSearchInit = true;
+
+    // Cmd/Ctrl+K keyboard shortcut
+    document.addEventListener('keydown', (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        if (isOpen) {
+          closeDialog();
+        } else {
+          openDialog();
+        }
       }
-    }
-  });
+    });
 
-  // All trigger buttons open the shared dialog
-  document.querySelectorAll('[data-search-trigger]').forEach((btn) => {
-    btn.addEventListener('click', openDialog);
-  });
+    // All trigger buttons open the shared dialog
+    document.querySelectorAll('[data-search-trigger]').forEach((btn) => {
+      btn.addEventListener('click', openDialog);
+    });
 
-  // Click on backdrop closes
-  getDialog()?.addEventListener('click', (e) => {
-    if (e.target === dialog) {
-      closeDialog();
-    }
-  });
+    // Click on backdrop closes
+    getDialog()?.addEventListener('click', (e) => {
+      if (e.target === dialog) {
+        closeDialog();
+      }
+    });
 
-  // Sync state when dialog is closed via Escape
-  getDialog()?.addEventListener('close', () => {
-    isOpen = false;
-  });
+    // Sync state when dialog is closed via Escape
+    getDialog()?.addEventListener('close', () => {
+      isOpen = false;
+    });
+  }
 </script>
 
 <style>
