@@ -1,4 +1,6 @@
 ---
+import { safeUrl } from '@utils/format';
+
 interface SyndicationEntry {
   platform: 'bluesky' | 'mastodon' | 'threads' | 'linkedin';
   url: string;
@@ -22,6 +24,9 @@ const platformNames: Record<string, string> = {
 
 const shareText = encodeURIComponent(`${postTitle} ${postUrl}`);
 const shareUrl = encodeURIComponent(postUrl);
+const safeSyndication = syndication
+  .map((entry) => ({ ...entry, safeHref: safeUrl(entry.url) }))
+  .filter((entry): entry is SyndicationEntry & { safeHref: string } => Boolean(entry.safeHref));
 
 const shareLinks = [
   {
@@ -36,14 +41,14 @@ const shareLinks = [
 ---
 
 <aside class="gvns-syndication">
-  {syndication.length > 0 && (
+  {safeSyndication.length > 0 && (
     <div class="gvns-syndication-links">
       <span class="gvns-syndication-label">Also posted to:</span>
       <ul>
-        {syndication.map((entry) => (
+        {safeSyndication.map((entry) => (
           <li>
             <a
-              href={entry.url}
+              href={entry.safeHref}
               class="u-syndication"
               rel="noopener noreferrer syndication"
               target="_blank"

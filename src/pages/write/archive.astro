@@ -33,8 +33,8 @@ const breadcrumbJsonLd = toJsonLd(
 ---
 
 <BaseLayout
-    title="Archive | Write | gvns.ca"
-    description="Browse all posts by date on gvns.ca."
+    title="Archive | Write"
+    description="Browse all posts by date."
     accent="p4-amber"
     breadcrumbs={[
         { label: "Home", href: "/" },
@@ -66,13 +66,12 @@ const breadcrumbJsonLd = toJsonLd(
                                 <h3 class="month-heading">{month}</h3>
                                 <div class="month-entries">
                                     {monthPosts.map((post) => {
-                                        const slugParts = post.slug.split("/");
-                                        const filename = slugParts[slugParts.length - 1];
+                                        const canonicalSlug = post.slug.replace(/\/+$/, "");
                                         return (
                                             <article class="timeline-entry">
                                                 <div class="entry-dot" />
                                                 <div class="entry-content">
-                                                    <a href={`/write/${filename}`} class="entry-title">
+                                                    <a href={`/write/${canonicalSlug}/`} class="entry-title">
                                                         {post.data.title}
                                                     </a>
                                                     <time datetime={post.data.pubDate.toISOString()}>
