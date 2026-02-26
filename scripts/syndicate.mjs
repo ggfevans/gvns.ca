@@ -23,7 +23,7 @@ import { createRestAPIClient } from 'masto';
 
 const ROOT = join(fileURLToPath(import.meta.url), '..', '..');
 const WRITING_DIR = join(ROOT, 'src', 'content', 'writing');
-const SITE_URL = 'https://gvns.ca';
+const SITE_URL = (process.env.SITE_URL || 'https://gvns.ca').replace(/\/+$/, '');
 
 const DRY_RUN = process.argv.includes('--dry-run');
 
@@ -59,6 +59,24 @@ function getTargetPlatforms(tags) {
 /** Get the slug from a markdown file path. */
 function getSlug(filePath) {
   return basename(filePath, '.md');
+}
+
+/** Prefer canonicalUrl from frontmatter when available and safe. */
+function getPostUrl(frontmatter, slug) {
+  const canonicalUrl = typeof frontmatter.canonicalUrl === 'string'
+    ? frontmatter.canonicalUrl.trim()
+    : '';
+  if (canonicalUrl) {
+    try {
+      const resolved = new URL(canonicalUrl, `${SITE_URL}/`);
+      if (resolved.protocol === 'http:' || resolved.protocol === 'https:') {
+        return resolved.toString();
+      }
+    } catch {
+      // fall through to default URL
+    }
+  }
+  return `${SITE_URL}/write/${slug}/`;
 }
 
 /** Format post text for syndication. */
@@ -160,7 +178,7 @@ async function main() {
   }
 
   const files = await collectMarkdownFiles(WRITING_DIR);
-  let syndicatedCount = 0;
+  let syndicatedPlatformCount = 0;
 
   for (const filePath of files) {
     const raw = await readFile(filePath, 'utf-8');
@@ -170,7 +188,7 @@ async function main() {
     if (frontmatter.draft) continue;
 
     const slug = getSlug(filePath);
-    const url = `${SITE_URL}/write/${slug}/`;
+    const url = getPostUrl(frontmatter, slug);
     const tags = frontmatter.tags || [];
     const targetPlatforms = getTargetPlatforms(tags);
     const missing = getMissingSyndications(frontmatter, targetPlatforms);
@@ -230,7 +248,7 @@ async function main() {
           await writeSyndicationToFrontmatter(filePath, 'mastodon', syndicationUrl);
         }
 
-        syndicatedCount++;
+        syndicatedPlatformCount++;
       } catch (err) {
         console.error(`   ❌ Failed to post to ${platform}: ${err.message}`);
         // Continue to next platform — one failure doesn't block others
@@ -238,10 +256,10 @@ async function main() {
     }
   }
 
-  if (syndicatedCount === 0 && !DRY_RUN) {
-    console.log('\n✨ All posts are already syndicated — nothing to do.');
+  if (syndicatedPlatformCount === 0 && !DRY_RUN) {
+    console.log('\n✨ No new syndications performed.');
   } else if (!DRY_RUN) {
-    console.log(`\n✨ Syndicated ${syndicatedCount} post(s).`);
+    console.log(`\n✨ Syndicated to ${syndicatedPlatformCount} platform(s).`);
   }
 }
 
