@@ -1,8 +1,8 @@
-# gwilym.ca
+# gvns.ca
 
 Personal site for writing and work by Gareth Evans. Serious work, questionable puns.
 
-Live: https://gwilym.ca
+Live: https://gvns.ca
 
 ## Content
 
