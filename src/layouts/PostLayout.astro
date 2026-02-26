@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import BaseLayout from "./BaseLayout.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
 import ReadingProgress from "@components/ReadingProgress.svelte";
 import TableOfContents from "@components/TableOfContents.svelte";
 import TagList from "@components/TagList.astro";
@@ -101,13 +101,11 @@ const breadcrumbJsonLd = toJsonLd(
                 <slot />
             </div>
             <CopyCodeInit />
-
             <SyndicationLinks
                 syndication={syndication}
                 postUrl={canonicalUrl}
                 postTitle={title}
             />
-
             <footer class="post-footer">
                 <a href="/write">&larr; Back to writing</a>
             </footer>

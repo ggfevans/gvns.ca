@@ -7,13 +7,19 @@ import svelte from "@astrojs/svelte";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import rehypeSlug from "rehype-slug";
+import pagefind from "astro-pagefind";
 
-const shikiTheme = JSON.parse(
-  readFileSync(
-    new URL("./src/styles/shiki-gvns.json", import.meta.url),
-    "utf-8",
-  ),
-);
+let shikiTheme = {};
+try {
+  shikiTheme = JSON.parse(
+    readFileSync(
+      new URL("./src/styles/shiki-gvns.json", import.meta.url),
+      "utf-8",
+    ),
+  );
+} catch (error) {
+  console.warn("Failed to load shiki-gvns.json, falling back to default theme:", error);
+}
 
 // https://astro.build/config
 export default defineConfig({
@@ -26,12 +32,7 @@ export default defineConfig({
   },
   vite: {
     plugins: [tailwindcss()],
-    build: {
-      rollupOptions: {
-        external: ["/pagefind/pagefind-ui.js"],
-      },
-    },
   },
 
-  integrations: [svelte(), react(), sitemap()],
+  integrations: [svelte(), react(), sitemap(), pagefind()],
 });

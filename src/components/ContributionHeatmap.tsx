@@ -10,7 +10,7 @@ interface CalendarDay {
 }
 
 interface Props {
-  days: CalendarDay[];
+  readonly days: readonly CalendarDay[];
 }
 
 const violetTheme = {
