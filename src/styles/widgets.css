@@ -16,7 +16,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--colour-text-muted);
+  color: var(--colour-text-secondary);
 }
 
 .gvns-widget-compact__body {
@@ -58,7 +58,7 @@
 
 .gvns-widget-compact__empty {
   font-size: var(--text-sm);
-  color: var(--colour-text-muted);
+  color: var(--colour-text-secondary);
   font-style: italic;
   margin: 0;
 }

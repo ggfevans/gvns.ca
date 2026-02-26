@@ -7,11 +7,13 @@ import TagList from './TagList.astro';
 interface Props {
   post: CollectionEntry<'writing'>;
   showReadingTime?: boolean;
+  headingLevel?: 'h2' | 'h3';
 }
 
-const { post, showReadingTime = true } = Astro.props;
+const { post, showReadingTime = true, headingLevel = 'h3' } = Astro.props;
 const { title, description, pubDate, tags } = post.data;
 const readingTime = getReadingTime(post.body);
+const HeadingTag = headingLevel;
 
 // Extract just the filename from the full slug path
 // e.g., "2024/12/hello-world" -> "hello-world"
@@ -20,9 +22,9 @@ const filename = slugParts[slugParts.length - 1];
 ---
 
 <article class="post-card">
-  <h3 class="post-title">
+  <HeadingTag class="post-title">
     <a href={`/write/${filename}`}>{title}</a>
-  </h3>
+  </HeadingTag>
   <div class="post-meta">
     <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>
     {showReadingTime && <span class="reading-time">{readingTime} min read</span>}

@@ -40,7 +40,7 @@ const breadcrumbJsonLd = toJsonLd(
             posts.length > 0 ? (
                 <div class="post-list">
                     {posts.map((post) => (
-                        <PostCard post={post} />
+                        <PostCard post={post} headingLevel="h2" />
                     ))}
                 </div>
             ) : (
