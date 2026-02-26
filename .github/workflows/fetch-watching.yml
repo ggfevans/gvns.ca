@@ -13,8 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: ggfevans/trakt-github-action@889ebca81bbd285dd975898226ef558a963c0202 # main
+      - uses: ggfevans/trakt-github-action@889ebca81bbd285dd975898226ef558a963c0202
         with:
           trakt_client_id: ${{ secrets.TRAKT_CLIENT_ID }}
           trakt_username: 'gvns'
@@ -30,7 +32,11 @@ jobs:
 
             MAX_RETRIES=3
             for i in $(seq 1 $MAX_RETRIES); do
-              git pull --rebase 2>&1 || true
+              if ! git pull --rebase 2>&1; then
+                git rebase --abort 2>/dev/null || true
+                echo "::error::git pull --rebase failed on attempt $i/$MAX_RETRIES"
+                exit 1
+              fi
               if git push 2>&1; then
                 echo "Push succeeded on attempt $i"
                 exit 0

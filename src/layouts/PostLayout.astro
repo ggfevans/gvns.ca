@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import BaseLayout from "./BaseLayout.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
 import ReadingProgress from "@components/ReadingProgress.svelte";
 import TableOfContents from "@components/TableOfContents.svelte";
 import TagList from "@components/TagList.astro";
@@ -13,13 +13,14 @@ import {
     toJsonLd,
 } from "@utils/json-ld";
 import CopyCodeInit from "@components/CopyCodeInit.astro";
+import SyndicationLinks from "@components/SyndicationLinks.astro";
 
 interface Props {
     post: CollectionEntry<"writing">;
 }
 
 const { post } = Astro.props;
-const { title, description, pubDate, updatedDate, tags, heroImage } = post.data;
+const { title, description, pubDate, updatedDate, tags, heroImage, syndication } = post.data;
 const readingTime = getReadingTime(post.body);
 
 // Get heroImage metadata if present
@@ -100,7 +101,11 @@ const breadcrumbJsonLd = toJsonLd(
                 <slot />
             </div>
             <CopyCodeInit />
-
+            <SyndicationLinks
+                syndication={syndication}
+                postUrl={canonicalUrl}
+                postTitle={title}
+            />
             <footer class="post-footer">
                 <a href="/write">&larr; Back to writing</a>
             </footer>
