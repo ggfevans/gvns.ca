@@ -2,7 +2,6 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import PostCard from "@components/PostCard.astro";
-import WriteNav from "@components/WriteNav.astro";
 import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from "@utils/json-ld";
 
 const posts = (await getCollection("writing"))
@@ -31,7 +30,6 @@ const breadcrumbJsonLd = toJsonLd(
     />
     <main id="main-content" class="writing-listing">
         <h1>Write</h1>
-        <WriteNav current="posts" />
         <p class="intro">
             Thoughts on homelab, web development, BJJ, and productivity.
         </p>

@@ -11,16 +11,6 @@ const writing = defineCollection({
       tags: z.array(z.string()).min(1).max(4),
       draft: z.boolean().default(false),
       heroImage: image().optional(),
-      canonicalUrl: z.string().url().optional(),
-      syndication: z
-        .array(
-          z.object({
-            platform: z.enum(['bluesky', 'mastodon', 'threads', 'linkedin']),
-            url: z.string().url(),
-            syndicatedAt: z.coerce.date(),
-          })
-        )
-        .optional(),
     }),
 });
 

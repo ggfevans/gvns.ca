@@ -9,17 +9,12 @@ import sitemap from "@astrojs/sitemap";
 import rehypeSlug from "rehype-slug";
 import pagefind from "astro-pagefind";
 
-let shikiTheme = {};
-try {
-  shikiTheme = JSON.parse(
-    readFileSync(
-      new URL("./src/styles/shiki-gvns.json", import.meta.url),
-      "utf-8",
-    ),
-  );
-} catch (error) {
-  console.warn("Failed to load shiki-gvns.json, falling back to default theme:", error);
-}
+const shikiTheme = JSON.parse(
+  readFileSync(
+    new URL("./src/styles/shiki-gvns.json", import.meta.url),
+    "utf-8",
+  ),
+);
 
 // https://astro.build/config
 export default defineConfig({
