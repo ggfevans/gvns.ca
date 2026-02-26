@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import PostCard from "@components/PostCard.astro";
+import WriteNav from "@components/WriteNav.astro";
 import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from "@utils/json-ld";
 
 export async function getStaticPaths() {
@@ -64,6 +65,7 @@ const breadcrumbJsonLd = toJsonLd(
         slot="head"
     />
     <main id="main-content" class="tag-page">
+        <WriteNav current="tags" />
         <header>
             <h1>Posts tagged: <span class="tag-name">{tag}</span></h1>
             <p class="count">

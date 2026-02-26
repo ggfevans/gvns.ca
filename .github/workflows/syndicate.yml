@@ -1,0 +1,65 @@
+# POSSE syndication workflow — cross-posts new writing to Bluesky and Mastodon.
+#
+# Required repository secrets:
+#   BLUESKY_HANDLE        — Bluesky handle (e.g. gvns.ca)
+#   BLUESKY_APP_PASSWORD  — App Password from Bluesky settings
+#   MASTODON_INSTANCE     — Mastodon instance URL (e.g. https://mastodon.social)
+#   MASTODON_TOKEN        — Access token from Mastodon app settings
+
+name: Syndicate Writing
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/content/writing/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  syndicate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Run syndication script
+        env:
+          BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}
+          BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+          MASTODON_INSTANCE: ${{ secrets.MASTODON_INSTANCE }}
+          MASTODON_TOKEN: ${{ secrets.MASTODON_TOKEN }}
+        run: node scripts/syndicate.mjs
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/content/writing/
+          if ! git diff --staged --quiet; then
+            git commit -m "chore: update syndication data"
+            max_retries=3
+            for i in $(seq 1 "$max_retries"); do
+              git pull --rebase || true
+              if git push; then
+                echo "Push succeeded on attempt $i"
+                exit 0
+              fi
+              echo "::warning::git push failed (attempt $i/$max_retries)"
+              sleep $((i * 5))
+            done
+            echo "::error::git push failed after $max_retries attempts"
+            exit 1
+          else
+            echo "No changes to commit"
+          fi
