@@ -4,104 +4,124 @@ import { join } from 'node:path/posix';
 const bundlePath = join(import.meta.env.BASE_URL, 'pagefind/');
 ---
 
-<button
-  data-search-trigger
-  class="search-trigger"
-  aria-label="Search (Cmd+K)"
-  title="Search (Cmd+K)"
->
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="18"
-    height="18"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    aria-hidden="true"
+<div data-search-root>
+  <button
+    data-search-trigger
+    class="search-trigger"
+    aria-label="Search (Cmd+K)"
+    title="Search (Cmd+K)"
   >
-    <circle cx="11" cy="11" r="8"></circle>
-    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-  </svg>
-</button>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <circle cx="11" cy="11" r="8"></circle>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+  </button>
 
-<dialog
-  data-search-dialog
-  class="search-dialog"
-  aria-label="Site search"
-  data-bundle-path={bundlePath}
->
-  <div class="search-dialog-inner">
-    <div class="search-header">
-      <h2 class="search-title">Search</h2>
-      <kbd class="search-kbd">
-        <span class="kbd-symbol">&#8984;</span>K
-      </kbd>
+  <dialog
+    data-search-dialog
+    class="search-dialog"
+    aria-label="Site search"
+    data-bundle-path={bundlePath}
+  >
+    <div class="search-dialog-inner">
+      <div class="search-header">
+        <h2 class="search-title">Search</h2>
+        <kbd class="search-kbd">
+          <span class="kbd-symbol">&#8984;</span>K
+        </kbd>
+      </div>
+      <div class="search-container" data-search-container></div>
     </div>
-    <div class="search-container" data-search-container></div>
-  </div>
-</dialog>
+  </dialog>
+</div>
 
 <script>
   import { PagefindUI } from '@pagefind/default-ui';
 
-  let dialog: HTMLDialogElement | null = null;
-  let container: HTMLElement | null = null;
-  let isOpen = false;
-  let pagefindLoaded = false;
-
-  function getDialog() {
-    if (!dialog) {
-      dialog = document.querySelector('[data-search-dialog]');
-      container = dialog?.querySelector('[data-search-container]') ?? null;
+  declare global {
+    interface Window {
+      __gvnsSearchInit?: boolean;
     }
-    return dialog;
   }
 
-  function loadPagefind() {
-    if (pagefindLoaded) return;
-    const el = getDialog();
-    if (!container || !el) return;
+  let activeDialog: HTMLDialogElement | null = null;
+  let isOpen = false;
+  const loadedContainers = new WeakSet<HTMLElement>();
+
+  function getDialog(root: ParentNode | null = null) {
+    if (root) {
+      return root.querySelector<HTMLDialogElement>('[data-search-dialog]');
+    }
+    return document.querySelector<HTMLDialogElement>('[data-search-dialog]');
+  }
+
+  function getContainer(dialogEl: HTMLDialogElement | null) {
+    return dialogEl?.querySelector<HTMLElement>('[data-search-container]') ?? null;
+  }
+
+  function focusInput(container: HTMLElement | null) {
+    if (!container) return;
+    requestAnimationFrame(() => {
+      container.querySelector<HTMLInputElement>('input')?.focus();
+    });
+  }
+
+  function loadPagefind(dialogEl: HTMLDialogElement, container: HTMLElement) {
+    if (loadedContainers.has(container)) return;
 
     try {
-      const bundlePath = el.getAttribute('data-bundle-path') || '/pagefind/';
+      const currentBundlePath = dialogEl.getAttribute('data-bundle-path') || '/pagefind/';
       new PagefindUI({
         element: container,
         showSubResults: true,
         showImages: false,
-        bundlePath,
+        bundlePath: currentBundlePath,
         translations: { placeholder: '42' },
       });
-      pagefindLoaded = true;
-      requestAnimationFrame(() => {
-        container?.querySelector<HTMLInputElement>('input')?.focus();
-      });
+      loadedContainers.add(container);
+      focusInput(container);
     } catch {
       container.innerHTML =
-        '<p class="search-fallback">Search is not available. Run a production build to enable search.</p>';
+        '<p class="gvns-search-fallback">Search is not available. Run a production build to enable search.</p>';
     }
   }
 
-  function openDialog() {
-    const el = getDialog();
-    if (!el) return;
-    el.showModal();
+  function openDialog(root: ParentNode | null = null) {
+    const dialogEl = getDialog(root);
+    const container = getContainer(dialogEl);
+    if (!dialogEl || !container) return;
+
+    activeDialog = dialogEl;
+    dialogEl.showModal();
     isOpen = true;
-    loadPagefind();
-    if (pagefindLoaded) {
-      requestAnimationFrame(() => {
-        container?.querySelector<HTMLInputElement>('input')?.focus();
-      });
+
+    loadPagefind(dialogEl, container);
+
+    if (loadedContainers.has(container)) {
+      focusInput(container);
     }
   }
 
   function closeDialog() {
-    const el = getDialog();
-    if (!el) return;
-    el.close();
+    if (!activeDialog) return;
+    activeDialog.close();
+  }
+
+  function syncDialogClose(dialogEl: HTMLDialogElement) {
+    if (dialogEl !== activeDialog) return;
     isOpen = false;
+    activeDialog = null;
   }
 
   // Avoid duplicate global listeners if the Search component is rendered multiple times
@@ -115,26 +135,30 @@ const bundlePath = join(import.meta.env.BASE_URL, 'pagefind/');
         if (isOpen) {
           closeDialog();
         } else {
-          openDialog();
+          openDialog(document.querySelector('[data-search-root]'));
         }
       }
     });
 
-    // All trigger buttons open the shared dialog
-    document.querySelectorAll('[data-search-trigger]').forEach((btn) => {
-      btn.addEventListener('click', openDialog);
+    // Trigger buttons open the dialog within the same search root
+    document.querySelectorAll<HTMLElement>('[data-search-trigger]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        openDialog(btn.closest('[data-search-root]'));
+      });
     });
 
-    // Click on backdrop closes
-    getDialog()?.addEventListener('click', (e) => {
-      if (e.target === dialog) {
-        closeDialog();
-      }
-    });
+    document.querySelectorAll<HTMLDialogElement>('[data-search-dialog]').forEach((dialogEl) => {
+      // Click on backdrop closes
+      dialogEl.addEventListener('click', (e) => {
+        if (e.target === dialogEl) {
+          dialogEl.close();
+        }
+      });
 
-    // Sync state when dialog is closed via Escape
-    getDialog()?.addEventListener('close', () => {
-      isOpen = false;
+      // Sync state when dialog is closed via Escape
+      dialogEl.addEventListener('close', () => {
+        syncDialogClose(dialogEl);
+      });
     });
   }
 </script>
@@ -300,7 +324,7 @@ const bundlePath = join(import.meta.env.BASE_URL, 'pagefind/');
 </style>
 
 <style is:global>
-  .search-fallback {
+  .gvns-search-fallback {
     color: var(--colour-text-secondary);
     font-size: var(--text-sm, 0.875rem);
     text-align: center;

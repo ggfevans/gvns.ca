@@ -1,16 +1,21 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import BaseLayout from './BaseLayout.astro';
-import ReadingProgress from '@components/ReadingProgress.svelte';
-import TableOfContents from '@components/TableOfContents.svelte';
-import TagList from '@components/TagList.astro';
-import { formatDate } from '@utils/date';
-import { getReadingTime } from '@utils/reading-time';
-import { articleSchema, breadcrumbSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
-import CopyCodeInit from '@components/CopyCodeInit.astro';
+import type { CollectionEntry } from "astro:content";
+import BaseLayout from "./BaseLayout.astro";
+import ReadingProgress from "@components/ReadingProgress.svelte";
+import TableOfContents from "@components/TableOfContents.svelte";
+import TagList from "@components/TagList.astro";
+import { formatDate } from "@utils/date";
+import { getReadingTime } from "@utils/reading-time";
+import {
+    articleSchema,
+    breadcrumbSchema,
+    normalizeSiteUrl,
+    toJsonLd,
+} from "@utils/json-ld";
+import CopyCodeInit from "@components/CopyCodeInit.astro";
 
 interface Props {
-  post: CollectionEntry<'writing'>;
+    post: CollectionEntry<"writing">;
 }
 
 const { post } = Astro.props;
@@ -25,108 +30,134 @@ const heroImageHeight = heroImage?.height;
 const siteUrl = normalizeSiteUrl(Astro.site);
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
 
-const articleJsonLd = toJsonLd(articleSchema({
-  title,
-  description,
-  pubDate,
-  updatedDate,
-  url: canonicalUrl,
-  siteUrl,
-}));
+const articleJsonLd = toJsonLd(
+    articleSchema({
+        title,
+        description,
+        pubDate,
+        updatedDate,
+        url: canonicalUrl,
+        siteUrl,
+    }),
+);
 
-const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
-  { name: 'Home', url: siteUrl },
-  { name: 'Write', url: `${siteUrl}/write` },
-  { name: title, url: canonicalUrl },
-]));
+const breadcrumbJsonLd = toJsonLd(
+    breadcrumbSchema([
+        { name: "Home", url: siteUrl },
+        { name: "Write", url: `${siteUrl}/write` },
+        { name: title, url: canonicalUrl },
+    ]),
+);
 ---
 
-<BaseLayout title={`${title} | gvns.ca`} description={description} image={heroImageUrl} imageWidth={heroImageWidth} imageHeight={heroImageHeight} accent="p4-amber" breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Write', href: '/write' }, { label: title }]}>
-  <script type="application/ld+json" set:html={articleJsonLd} slot="head" />
-  <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />
-  <ReadingProgress client:idle />
-  <main id="main-content" data-pagefind-body>
-    <article class="post">
-    <header class="post-header">
-      <h1>{title}</h1>
-      <div class="post-meta">
-        <time datetime={pubDate.toISOString()}>
-          {formatDate(pubDate)}
-        </time>
-        {updatedDate && (
-          <span class="updated">
-            (Updated: <time datetime={updatedDate.toISOString()}>{formatDate(updatedDate)}</time>)
-          </span>
-        )}
-        <span class="reading-time">{readingTime} min read</span>
-      </div>
-      <TagList tags={tags} />
-    </header>
+<BaseLayout
+    title={`${title} | gvns.ca`}
+    description={description}
+    image={heroImageUrl}
+    imageWidth={heroImageWidth}
+    imageHeight={heroImageHeight}
+    accent="p4-amber"
+    breadcrumbs={[
+        { label: "Home", href: "/" },
+        { label: "Write", href: "/write" },
+        { label: title },
+    ]}
+>
+    <script type="application/ld+json" set:html={articleJsonLd} slot="head" />
+    <script
+        type="application/ld+json"
+        set:html={breadcrumbJsonLd}
+        slot="head"
+    />
+    <ReadingProgress client:idle />
+    <main id="main-content" data-pagefind-body>
+        <article class="post">
+            <header class="post-header">
+                <h1>{title}</h1>
+                <div class="post-meta">
+                    <time datetime={pubDate.toISOString()}>
+                        {formatDate(pubDate)}
+                    </time>
+                    {
+                        updatedDate && (
+                            <span class="updated">
+                                (Updated:{" "}
+                                <time datetime={updatedDate.toISOString()}>
+                                    {formatDate(updatedDate)}
+                                </time>
+                                )
+                            </span>
+                        )
+                    }
+                    <span class="reading-time">{readingTime} min read</span>
+                </div>
+                <TagList tags={tags} />
+            </header>
 
-    <TableOfContents client:idle />
+            <TableOfContents client:idle />
 
-    <div class="prose">
-      <slot />
-    </div>
-    <CopyCodeInit />
+            <div class="prose">
+                <slot />
+            </div>
+            <CopyCodeInit />
 
-    <footer class="post-footer">
-      <a href="/write">&larr; Back to writing</a>
-    </footer>
-    </article>
-  </main>
+            <footer class="post-footer">
+                <a href="/write">&larr; Back to writing</a>
+            </footer>
+        </article>
+    </main>
 </BaseLayout>
 
 <style>
-  .post {
-    max-width: var(--width-content);
-    margin: 0 auto;
-  }
+    .post {
+        max-width: var(--width-content);
+        margin: 0 auto;
+    }
 
-  .post-header {
-    margin-bottom: 2rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--colour-border);
-  }
+    .post-header {
+        margin-bottom: 2rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid var(--colour-border);
+    }
 
-  .post-header h1 {
-    font-size: var(--text-4xl);
-    line-height: 1.2;
-    letter-spacing: -0.01em;
-    margin-bottom: 0.75rem;
-  }
+    .post-header h1 {
+        font-size: var(--text-4xl);
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+        margin-bottom: 0.75rem;
+    }
 
-  .post-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem 1rem;
-    font-size: 0.875rem;
-    color: var(--colour-text-secondary);
-    margin-bottom: 1rem;
-  }
+    .post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem 1rem;
+        font-size: 0.875rem;
+        color: var(--colour-text-secondary);
+        margin-bottom: 1rem;
+    }
 
-  .reading-time::before {
-    content: "·";
-    margin-right: 1rem;
-  }
+    .reading-time::before {
+        content: "·";
+        margin-right: 1rem;
+    }
 
-  .updated {
-    font-style: italic;
-  }
+    .updated {
+        font-style: italic;
+    }
 
-  .post-footer {
-    margin-top: 3rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--colour-border);
-  }
+    .post-footer {
+        margin-top: 3rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--colour-border);
+    }
 
-  .post-footer a {
-    color: var(--colour-accent-primary);
-    text-decoration: none;
-    transition: color var(--transition-fast);
-  }
+    .post-footer a {
+        color: var(--colour-accent-primary);
+        text-decoration: none;
+        transition: color var(--transition-fast);
+    }
 
-  .post-footer a:hover {
-    color: var(--colour-accent-hover);
-  }
+    .post-footer a:hover {
+        color: var(--colour-accent-hover);
+    }
 </style>

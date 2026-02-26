@@ -94,3 +94,23 @@ export const TAG_CATEGORIES = {
 };
 
 export const VALID_TAGS = Object.values(TAG_CATEGORIES).flat();
+
+/**
+ * Convert Obsidian wikilinks to standard markdown links.
+ *
+ * - [[Post Title]] → [Post Title](/write/post-title/)
+ * - [[Post Title|display text]] → [display text](/write/post-title/)
+ * - Unresolved links (slug not in existingSlugs) become plain text with a console warning.
+ */
+export function convertWikilinks(content, existingSlugs) {
+  return content.replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (match, target, display) => {
+    const slug = slugify(target.trim());
+    const text = (display || target).trim();
+    if (!slug) return text;
+    if (existingSlugs.has(slug)) {
+      return `[${text}](/write/${slug}/)`;
+    }
+    console.warn(`Warning: unresolved wikilink [[${target.trim()}]] — rendered as plain text`);
+    return text;
+  });
+}

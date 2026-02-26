@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-05T04:54:03Z",
+  "lastUpdated": "2026-02-24T00:20:56Z",
   "currentlyReading": [
     {
       "title": "Radicalized: Four Tales of Our Present Moment",
@@ -15,6 +15,14 @@
     }
   ],
   "finished": [
+    {
+      "title": "A Midsummer Night's Dream: Shakespeare: The Critical Tradition, Volume 7",
+      "author": "Judith M. Kennedy",
+      "coverUrl": "https://assets.hardcover.app/external_data/32809286/3e05d1edc109c73683598e323046555da7a544a2.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/a-midsummer-nights-dream",
+      "rating": null,
+      "dateFinished": "2026-02-20T19:47:26.936503+00:00"
+    },
     {
       "title": "A Season for Spies",
       "author": "Iona Whishaw",
@@ -32,10 +40,10 @@
       "dateFinished": "2026-01-29T18:02:01.037162+00:00"
     },
     {
-      "title": "The Collected Stories of Philip K. Dick 1: The Short Happy Life of the Brown Oxford",
+      "title": "The Collected Stories of Philip K. Dick, Volume 1: Beyond Lies the Wub",
       "author": "Philip K. Dick",
-      "coverUrl": "https://assets.hardcover.app/edition/16176412/8de45c787c0a5d0b8388d1c9b31e0ed1d05d84cc.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/the-collected-stories-of-philip-k-dick-1",
+      "coverUrl": "https://assets.hardcover.app/edition/30696287/efba8cba72d4bf4a662ab39fc41dfa84823751ff.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/the-collected-stories-of-philip-k-dick-volume-1-beyond-lies-the-wub",
       "rating": 5.0,
       "dateFinished": "2026-01-20T23:58:31.152564+00:00"
     },
@@ -66,7 +74,7 @@
     {
       "title": "All These Worlds",
       "author": "Dennis E. Taylor",
-      "coverUrl": "https://assets.hardcover.app/book_mappings/7333407/ef076f14108e71996dce509538bb392e356e2938.jpeg",
+      "coverUrl": "https://assets.hardcover.app/edition/28912712/76b99f70-7807-471d-ae69-8d038f4b3ca6.jpg",
       "hardcoverUrl": "https://hardcover.app/books/all-these-worlds",
       "rating": null,
       "dateFinished": "2025-10-01T07:43:13.980302+00:00"
@@ -74,7 +82,7 @@
     {
       "title": "For We Are Many",
       "author": "Dennis E. Taylor",
-      "coverUrl": "https://assets.hardcover.app/edition/31488149/ef06ef458ae3ab9a347040ffe24592e1aa56062f.jpeg",
+      "coverUrl": "https://assets.hardcover.app/edition/30407482/2715fec8-0b67-449d-bf61-327d57ecb4b8.jpg",
       "hardcoverUrl": "https://hardcover.app/books/for-we-are-many",
       "rating": null,
       "dateFinished": "2025-09-22T07:39:24.806107+00:00"
@@ -118,17 +126,69 @@
       "hardcoverUrl": "https://hardcover.app/books/tripwire",
       "rating": null,
       "dateFinished": "2025-07-22T07:42:37.906215+00:00"
-    },
-    {
-      "title": "A Midsummer Night's Dream: Shakespeare: The Critical Tradition, Volume 7",
-      "author": "Judith M. Kennedy",
-      "coverUrl": "https://assets.hardcover.app/external_data/32809286/3e05d1edc109c73683598e323046555da7a544a2.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/a-midsummer-nights-dream-shakespeare-the-critical-tradition-volume-7",
-      "rating": null,
-      "dateFinished": "2025-07-19T01:28:02.979695+00:00"
     }
   ],
   "wantToRead": [
+    {
+      "title": "Game Changer",
+      "author": "Rachel Reid",
+      "coverUrl": "https://assets.hardcover.app/edition/30478872/80c27efd73b01e56e2c6405846656be0e608f959.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/game-changer-2018"
+    },
+    {
+      "title": "The Will of the Many",
+      "author": "James Islington",
+      "coverUrl": "https://assets.hardcover.app/edition/30615590/1fe836a2-7004-4378-add0-dc78b96b2d17.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/the-will-of-the-many-2023"
+    },
+    {
+      "title": "Piranesi",
+      "author": "Susanna Clarke",
+      "coverUrl": "https://assets.hardcover.app/editions/30480426/ec301cb7-b118-48fd-aa3a-5d336e61c182.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/piranesi"
+    },
+    {
+      "title": "Heated Rivalry",
+      "author": "Rachel Reid",
+      "coverUrl": "https://assets.hardcover.app/edition/32508798/62c09422-138d-42ef-81d9-a9599e2fba5c.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/heated-rivalry"
+    },
+    {
+      "title": "The Butcher's Masquerade",
+      "author": "Matt Dinniman",
+      "coverUrl": "https://assets.hardcover.app/editions/32004303/0e11e113-fd6c-4363-9a68-da8999b886f5.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/the-butchers-masquerade"
+    },
+    {
+      "title": "The Gate of the Feral Gods",
+      "author": "Matt Dinniman",
+      "coverUrl": "https://assets.hardcover.app/edition/32402587/413583e40b9333a84f65bc0ee582326ce71b82ee.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/the-gate-of-the-feral-gods"
+    },
+    {
+      "title": "Remarkably Bright Creatures",
+      "author": "Shelby Van Pelt",
+      "coverUrl": "https://assets.hardcover.app/external_data/59670735/818b8dba4df472df4d9153083bdaefcdd670c84b.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/remarkably-bright-creatures"
+    },
+    {
+      "title": "The Plantagenets: The Warrior Kings and Queens Who Made England",
+      "author": "Dan Jones",
+      "coverUrl": "https://assets.hardcover.app/edition/30455082/e0f7f17e50453bb8ec454ab9a6eeb32c5a321046.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/the-plantagenets"
+    },
+    {
+      "title": "A Tree Grows in Brooklyn",
+      "author": "Betty Smith",
+      "coverUrl": "https://assets.hardcover.app/book_mappings/7333021/0b43734baa588dec6c20c5f4e1dbb367405b913c.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/a-tree-grows-in-brooklyn"
+    },
+    {
+      "title": "Broken Angels",
+      "author": "Richard K. Morgan",
+      "coverUrl": "https://assets.hardcover.app/edition/31402171/34a44a919344f25953dd8788677ee747b752b190.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/broken-angels"
+    },
     {
       "title": "Palm Sunday",
       "author": "Kurt Vonnegut",
@@ -260,66 +320,6 @@
       "author": "Lee Child",
       "coverUrl": "https://assets.hardcover.app/edition/19744953/69f4c90c1fa7a96e01a7c37c0ef21b77e8512eb1.jpeg",
       "hardcoverUrl": "https://hardcover.app/books/die-trying-1998"
-    },
-    {
-      "title": "The Goal: A Process of Ongoing Improvement",
-      "author": "Eliyahu M. Goldratt",
-      "coverUrl": "https://assets.hardcover.app/external_data/61729985/331f6217ace8f76533ae76e19e0818afcb82909e.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/the-goal-a-process-of-ongoing-improvement"
-    },
-    {
-      "title": "This Is How You Lose the Time War",
-      "author": "Amal El-Mohtar",
-      "coverUrl": "https://assets.hardcover.app/editions/26220245/ef7105eb-0f93-4580-a0e7-2bf6259c8203.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/this-is-how-you-lose-the-time-war"
-    },
-    {
-      "title": "The Mercy of Gods",
-      "author": "James S. A. Corey",
-      "coverUrl": "https://assets.hardcover.app/edition/31103022/eb1f5d59e1dce085739447bf87fb0aa14d2c9036.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/the-mercy-of-gods"
-    },
-    {
-      "title": "The Extended Mind: The Power of Thinking Outside the Brain",
-      "author": "Annie Murphy Paul",
-      "coverUrl": "https://assets.hardcover.app/external_data/60342815/b99adfc36779da26c6d285bfed3cb6cd61333244.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/the-extended-mind-the-power-of-thinking-outside-the-brain"
-    },
-    {
-      "title": "Children of Time",
-      "author": "Adrian Tchaikovsky",
-      "coverUrl": "https://assets.hardcover.app/editions/30400632/1512151722488735-25563522.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/children-of-time"
-    },
-    {
-      "title": "The Pragmatic Programmer: Your Journey to Mastery, 20th Anniversary Edition",
-      "author": "Andrew Hunt",
-      "coverUrl": "https://assets.hardcover.app/editions/30683445/f6e058b1-c743-4fa0-9ab9-9130c350481c.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/the-pragmatic-programmer"
-    },
-    {
-      "title": "The Mythical Man-Month: Essays on Software Engineering",
-      "author": "Frederick P. Brooks Jr.",
-      "coverUrl": "https://assets.hardcover.app/edition/11238811/7bc708885c26c0e1342f9a450a8a26ace038e4b2.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/the-mythical-man-month-essays-on-software-engineering"
-    },
-    {
-      "title": "Refactoring UI",
-      "author": "Adam Wathan",
-      "coverUrl": "https://assets.hardcover.app/external_data/28441964/d82a244276bb97845de0396bedb25a716463e7a4.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/refactoring-ui"
-    },
-    {
-      "title": "Peopleware",
-      "author": "Tom DeMarco",
-      "coverUrl": "https://assets.hardcover.app/edition/27644271/711893-L.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/peopleware"
-    },
-    {
-      "title": "Observing the User Experience: A Practitioner's Guide to User Research",
-      "author": "Mike Kuniavsky",
-      "coverUrl": "https://assets.hardcover.app/edition/14636838/784336-L.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/observing-the-user-experience"
     }
   ]
 }

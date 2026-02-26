@@ -1,306 +1,317 @@
 {
-  "lastUpdated": "2026-02-05T04:54:27Z",
+  "lastUpdated": "2026-02-24T04:03:57Z",
   "recentCommits": [
     {
-      "repo": "gvns.ca",
-      "message": "fix: case-insensitive .md strip, ambiguous keyword, conditional heading removal",
-      "sha": "8ea950f8d6f17e4add5897788c402ef5cc3ab622",
-      "date": "2026-02-05T03:59:32Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/8ea950f8d6f17e4add5897788c402ef5cc3ab622"
+      "repo": "alseerr",
+      "message": "Harden request flow and secure API key handling",
+      "sha": "32b27dc444b92c7e1dbe208a2936850a3c99306d",
+      "date": "2026-02-24T02:43:06Z",
+      "url": "https://github.com/ggfevans/alseerr/commit/32b27dc444b92c7e1dbe208a2936850a3c99306d"
     },
     {
-      "repo": "gvns.ca",
-      "message": "fix: guard against empty slugs from non-ASCII titles",
-      "sha": "6be6bea622a53cd0806cf1ab25995ca357044620",
-      "date": "2026-02-05T03:55:59Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/6be6bea622a53cd0806cf1ab25995ca357044620"
+      "repo": "alseerr",
+      "message": "Detect 401/HTML responses — Rework apiGet to capture HTTP status codes using -w flag and detect auth errors or HTML responses",
+      "sha": "f812867d80aeca5150eafb56ce3c3eda4d4d396c",
+      "date": "2026-02-24T01:11:53Z",
+      "url": "https://github.com/ggfevans/alseerr/commit/f812867d80aeca5150eafb56ce3c3eda4d4d396c"
     },
     {
-      "repo": "gvns.ca",
-      "message": "refactor: use trakt-github-action instead of inline script",
-      "sha": "bdf07458f2ac9e62c3c3080ead61d421f2c4fb77",
-      "date": "2026-02-05T00:47:47Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/bdf07458f2ac9e62c3c3080ead61d421f2c4fb77"
+      "repo": "alseerr",
+      "message": "Fix 1: Add uid to Alfred items for result learning",
+      "sha": "47af9cc41c6256b1dd22366cc04ea30ad222d0f8",
+      "date": "2026-02-24T01:11:18Z",
+      "url": "https://github.com/ggfevans/alseerr/commit/47af9cc41c6256b1dd22366cc04ea30ad222d0f8"
     },
     {
-      "repo": "trakt-github-action",
-      "message": "ci: set shellcheck severity to warning to ignore notes",
-      "sha": "840686406bb160c82d5bfde1bb9e7f137a3b7b6d",
-      "date": "2026-02-05T00:47:21Z",
-      "url": "https://github.com/ggfevans/trakt-github-action/commit/840686406bb160c82d5bfde1bb9e7f137a3b7b6d"
+      "repo": "alseerr",
+      "message": "change default behaviour: open seerr by default, request on alt",
+      "sha": "deb883a04730953d67524202818ebea13b964b68",
+      "date": "2026-02-24T01:05:41Z",
+      "url": "https://github.com/ggfevans/alseerr/commit/deb883a04730953d67524202818ebea13b964b68"
     },
     {
-      "repo": "gvns.ca",
-      "message": "fix: address additional CodeRabbit feedback",
-      "sha": "0229ecdaedf15dcbfb2c64bb74ebad48f00804b4",
-      "date": "2026-02-05T00:45:06Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/0229ecdaedf15dcbfb2c64bb74ebad48f00804b4"
+      "repo": "alseerr",
+      "message": "add configurable keyword",
+      "sha": "90ddd9ce217de878d383fd916a2a4549c900b4a2",
+      "date": "2026-02-24T00:52:35Z",
+      "url": "https://github.com/ggfevans/alseerr/commit/90ddd9ce217de878d383fd916a2a4549c900b4a2"
     },
     {
-      "repo": "gvns.ca",
-      "message": "fix: address CodeRabbit/linter feedback",
-      "sha": "5e06d39eaa4a36706c7ed71efda75804a8b1c701",
-      "date": "2026-02-05T00:25:58Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/5e06d39eaa4a36706c7ed71efda75804a8b1c701"
+      "repo": "alseerr",
+      "message": "connecting the internet tubes: use proper seerr endpoints",
+      "sha": "52f730b6526275abc623c3238a30ca560f206e46",
+      "date": "2026-02-24T00:50:17Z",
+      "url": "https://github.com/ggfevans/alseerr/commit/52f730b6526275abc623c3238a30ca560f206e46"
     },
     {
-      "repo": "gvns.ca",
-      "message": "Merge pull request #135 from ggfevans/fix/134-security-and-quality",
-      "sha": "6a89af40308178a3a0c662c32cd70a7846db734d",
-      "date": "2026-02-05T00:14:47Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/6a89af40308178a3a0c662c32cd70a7846db734d"
+      "repo": "Rackula",
+      "message": "Merge branch 'main' into dependabot/npm_and_yarn/eslint-2e2637830d",
+      "sha": "ea02d3080e7ed8ae0cfb0c35f548ce773bb2b9c2",
+      "date": "2026-02-22T10:32:05Z",
+      "url": "https://github.com/RackulaLives/Rackula/commit/ea02d3080e7ed8ae0cfb0c35f548ce773bb2b9c2"
     },
     {
-      "repo": "gvns.ca",
-      "message": "chore: add untracked content directory",
-      "sha": "9d6d0ded5b147ef2f26ba817ddb8c0f8c73c2d74",
-      "date": "2026-02-05T00:14:45Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/9d6d0ded5b147ef2f26ba817ddb8c0f8c73c2d74"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "docs: Align disabled default guidance across files (#9)",
+      "sha": "babbbdf286b890d5885d60ad52de8657a8e0a426",
+      "date": "2026-02-22T10:12:59Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/babbbdf286b890d5885d60ad52de8657a8e0a426"
     },
     {
-      "repo": "gvns.ca",
-      "message": "fix: search shows dev mode error in production (#137)",
-      "sha": "07d3c0cd15b26dff4da0b93c5f4743900f0c8b39",
-      "date": "2026-02-05T00:12:47Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/07d3c0cd15b26dff4da0b93c5f4743900f0c8b39"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "Merge pull request #8 from ggfevans/feat/changelog",
+      "sha": "6e881caf71ad5e92fecf3f94cea0251c4d4b7e2b",
+      "date": "2026-02-22T10:06:11Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/6e881caf71ad5e92fecf3f94cea0251c4d4b7e2b"
     },
     {
-      "repo": "gvns.ca",
-      "message": "chore: update watching data",
-      "sha": "e27fa950dd0ee2d851fd40dc0a1cbcff1927dcc4",
-      "date": "2026-02-05T00:09:11Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/e27fa950dd0ee2d851fd40dc0a1cbcff1927dcc4"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "docs: Fix CHANGELOG.md formatting and clarify cache limit",
+      "sha": "2e9604f9d7dec958457613b92e3225e36252d7ae",
+      "date": "2026-02-22T10:03:58Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/2e9604f9d7dec958457613b92e3225e36252d7ae"
     },
     {
-      "repo": "gvns.ca",
-      "message": "docs: document race condition limitation in findUniqueSlug",
-      "sha": "4c931e48a51623bf7408644ef15ae489db20c3ee",
-      "date": "2026-02-04T23:55:41Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/4c931e48a51623bf7408644ef15ae489db20c3ee"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "docs: Populate CHANGELOG with details from v1.0.0 and v1.0.1",
+      "sha": "98862062ea06516c6b06bebd324fef987fe77dcf",
+      "date": "2026-02-22T09:55:17Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/98862062ea06516c6b06bebd324fef987fe77dcf"
     },
     {
-      "repo": "gvns.ca",
-      "message": "docs: document race condition limitation in findUniqueSlug",
-      "sha": "0a41bc55e10bb6a91e607dd5637cd6f228cb768f",
-      "date": "2026-02-04T23:55:41Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/0a41bc55e10bb6a91e607dd5637cd6f228cb768f"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "docs: Remove redundant temporary changelog",
+      "sha": "196bdbdca5fa38108d86fd63db12c0230075d84b",
+      "date": "2026-02-22T09:53:16Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/196bdbdca5fa38108d86fd63db12c0230075d84b"
     },
     {
-      "repo": "gvns.ca",
-      "message": "fix: use case-insensitive .md extension check in collectSlugs",
-      "sha": "a618f199d42ee4817e8c1322fd340ee000dab07b",
-      "date": "2026-02-04T23:53:37Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/a618f199d42ee4817e8c1322fd340ee000dab07b"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "docs: Add CHANGELOG.md following Keep a Changelog pattern",
+      "sha": "b63781bf3e297d0ee81b366362620f2fe8ef1918",
+      "date": "2026-02-22T09:53:11Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/b63781bf3e297d0ee81b366362620f2fe8ef1918"
     },
     {
-      "repo": "gvns.ca",
-      "message": "fix: use case-insensitive .md extension check in collectSlugs",
-      "sha": "935b8a0101bef892dce3307d8ac3fe6962543c06",
-      "date": "2026-02-04T23:53:37Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/935b8a0101bef892dce3307d8ac3fe6962543c06"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "docs: Replace temporary changelog with CHANGELOG.md following Keep a Changelog pattern",
+      "sha": "9d08f68661fcc902c87a498b26f1ff7533c0f72f",
+      "date": "2026-02-22T09:52:20Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/9d08f68661fcc902c87a498b26f1ff7533c0f72f"
     },
     {
-      "repo": "gvns.ca",
-      "message": "fix: improve YAML escaping to handle newlines, tabs, and control chars",
-      "sha": "8b1671a6847a0b504ada5933350f7c4a06bb8d57",
-      "date": "2026-02-04T23:53:19Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/8b1671a6847a0b504ada5933350f7c4a06bb8d57"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "Merge pull request #7 from ggfevans/fix/harden-api-payload",
+      "sha": "263c85a6c733f50cfbe42df80b3b2759256d3308",
+      "date": "2026-02-22T09:44:23Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/263c85a6c733f50cfbe42df80b3b2759256d3308"
     },
     {
-      "repo": "gvns.ca",
-      "message": "fix: improve YAML escaping to handle newlines, tabs, and control chars",
-      "sha": "2a392c010ea3b9e5c8ff9ba6a4908e4ebb014856",
-      "date": "2026-02-04T23:53:19Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/2a392c010ea3b9e5c8ff9ba6a4908e4ebb014856"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "refactor: Improve HMAC handling, slug normalization, and serialization",
+      "sha": "2ecd02dd01c19956820a36917bc27a267f15570b",
+      "date": "2026-02-22T09:38:57Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/2ecd02dd01c19956820a36917bc27a267f15570b"
     },
     {
-      "repo": "gvns.ca",
-      "message": "refactor: extract shared CLI utilities to reduce duplication",
-      "sha": "e4b039dc49d469f0083566b8be5fbf65f2528627",
-      "date": "2026-02-04T23:17:03Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/e4b039dc49d469f0083566b8be5fbf65f2528627"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "update searx/engines/community_scripts_proxmoxve.py and tests/test_community_scripts_proxmoxve.py",
+      "sha": "b00950eaadd596ba8b7ffcc47b3359cb17fa472e",
+      "date": "2026-02-22T08:05:30Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/b00950eaadd596ba8b7ffcc47b3359cb17fa472e"
     },
     {
-      "repo": "gvns.ca",
-      "message": "refactor: extract shared CLI utilities to reduce duplication",
-      "sha": "3c44241b907703367f51ea861913c56f01dc4d4d",
-      "date": "2026-02-04T23:17:03Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/3c44241b907703367f51ea861913c56f01dc4d4d"
+      "repo": "gwilym.ca",
+      "message": "chore: add design tokens & clean up widget layout (#36)",
+      "sha": "3011e0b0a3d5e0d0a36d7ff771f725167782ab7b",
+      "date": "2026-02-22T07:11:59Z",
+      "url": "https://github.com/ggfevans/gwilym.ca/commit/3011e0b0a3d5e0d0a36d7ff771f725167782ab7b"
     },
     {
-      "repo": "gvns.ca",
-      "message": "fix: use word boundary matching for tag suggestions",
-      "sha": "9fe98da4157e16af100eb39bc277f9a003051e43",
-      "date": "2026-02-04T23:05:59Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/9fe98da4157e16af100eb39bc277f9a003051e43"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "move test_data_analysis.py to tools",
+      "sha": "c6a44145274a9f1219a351d9a81c74ac5d8164a5",
+      "date": "2026-02-22T06:58:25Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/c6a44145274a9f1219a351d9a81c74ac5d8164a5"
     },
     {
-      "repo": "gvns.ca",
-      "message": "fix: use word boundary matching for tag suggestions",
-      "sha": "08c2ee0aee6d69957460bff45d8c3fdcef50029b",
-      "date": "2026-02-04T23:05:59Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/08c2ee0aee6d69957460bff45d8c3fdcef50029b"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "fix: update tests and scripts to address feedback",
+      "sha": "44a853e2f38bfa922ce72ca7a70007717fdc8e16",
+      "date": "2026-02-22T06:47:06Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/44a853e2f38bfa922ce72ca7a70007717fdc8e16"
     },
     {
-      "repo": "gvns.ca",
-      "message": "fix: escape backslashes in YAML frontmatter strings",
-      "sha": "fcf941e6dd0c29302fed31b1fa935cc90b56e5b5",
-      "date": "2026-02-04T23:01:13Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/fcf941e6dd0c29302fed31b1fa935cc90b56e5b5"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "refactor to use searxng networking stack and caching infra",
+      "sha": "30ee3dd2d60d81c0f61b87a569a0d63c46c4b352",
+      "date": "2026-02-22T06:23:35Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/30ee3dd2d60d81c0f61b87a569a0d63c46c4b352"
     },
     {
-      "repo": "gvns.ca",
-      "message": "fix: escape backslashes in YAML frontmatter strings",
-      "sha": "5de42e1541fd7ccc31806c3e69fe44396a01f7ab",
-      "date": "2026-02-04T23:01:13Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/5de42e1541fd7ccc31806c3e69fe44396a01f7ab"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "Add test_data_analysis.py",
+      "sha": "d705ea76a1d93bec98f6196a3475c47d16fbfc3b",
+      "date": "2026-02-22T06:23:09Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/d705ea76a1d93bec98f6196a3475c47d16fbfc3b"
     },
     {
-      "repo": "gvns.ca",
-      "message": "fix: improve slug collision detection with incremental suffix",
-      "sha": "d92486e53592fd853417aceaf0367a85229e2698",
-      "date": "2026-02-04T23:00:03Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/d92486e53592fd853417aceaf0367a85229e2698"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "feat: Update ProxmoxVE engine to use SearXNG network stack",
+      "sha": "77d92b707476775d4d37a864180b29fea46efe78",
+      "date": "2026-02-22T05:14:57Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/77d92b707476775d4d37a864180b29fea46efe78"
     },
     {
-      "repo": "gvns.ca",
-      "message": "fix: improve slug collision detection with incremental suffix",
-      "sha": "cc234dd8d09e757e6396b7a2b61e4edef55cbde7",
-      "date": "2026-02-04T23:00:03Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/cc234dd8d09e757e6396b7a2b61e4edef55cbde7"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "Fix: Harden API payload in community scripts tests",
+      "sha": "5522b8997249a63b8a65047a272a62c34b8e7d71",
+      "date": "2026-02-22T04:54:04Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/5522b8997249a63b8a65047a272a62c34b8e7d71"
     },
     {
-      "repo": "gvns.ca",
-      "message": "fix(security): prevent shell injection in EDITOR execution",
-      "sha": "b7df114331e614470bcf41ecd6b76c997a13f6cd",
-      "date": "2026-02-04T22:52:33Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/b7df114331e614470bcf41ecd6b76c997a13f6cd"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "Harden API payload in community_scripts_proxmoxve & add test",
+      "sha": "45a4707fe819c51ad328a90d9631a6e823180bd6",
+      "date": "2026-02-22T04:52:12Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/45a4707fe819c51ad328a90d9631a6e823180bd6"
     },
     {
-      "repo": "gvns.ca",
-      "message": "fix(security): prevent shell injection in EDITOR execution",
-      "sha": "0935cb8a85793e61c701c04a4f3d1e5a29faab76",
-      "date": "2026-02-04T22:52:33Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/0935cb8a85793e61c701c04a4f3d1e5a29faab76"
+      "repo": "SearXNG-Community-Scripts-ProxmoxVE",
+      "message": "Create .gitignore",
+      "sha": "f16290052aca7566dd395abc7ca7ab49cd2e7ea2",
+      "date": "2026-02-22T04:47:15Z",
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/f16290052aca7566dd395abc7ca7ab49cd2e7ea2"
     },
     {
-      "repo": "gvns.ca",
-      "message": "fix: quote key with space in TAG_KEYWORDS object",
-      "sha": "e3b0a4a0d7bf4faf0c7beaf86d80a23aa51df583",
-      "date": "2026-02-04T22:52:00Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/e3b0a4a0d7bf4faf0c7beaf86d80a23aa51df583"
+      "repo": "github-json-bourne",
+      "message": "Create LICENSE",
+      "sha": "592ba1fdca19b94973cc4791b42332e6a207c1fd",
+      "date": "2026-02-22T04:41:31Z",
+      "url": "https://github.com/ggfevans/github-json-bourne/commit/592ba1fdca19b94973cc4791b42332e6a207c1fd"
     },
     {
-      "repo": "gvns.ca",
-      "message": "fix: quote key with space in TAG_KEYWORDS object",
-      "sha": "c21d2e889e06a6ef762e234b9c562321c70a1b93",
-      "date": "2026-02-04T22:52:00Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/c21d2e889e06a6ef762e234b9c562321c70a1b93"
+      "repo": "github-json-bourne",
+      "message": "Update .gitignore",
+      "sha": "005f3dcd5efcdb8abec47e4398c281aaf5bbe12c",
+      "date": "2026-02-22T04:41:21Z",
+      "url": "https://github.com/ggfevans/github-json-bourne/commit/005f3dcd5efcdb8abec47e4398c281aaf5bbe12c"
     },
     {
-      "repo": "gvns.ca",
-      "message": "feat: contextual accent system + homepage activity section (#128)",
-      "sha": "26f5ebcb72a23e4b3c5adc61bd44f4022454c5a8",
-      "date": "2026-02-04T22:39:44Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/26f5ebcb72a23e4b3c5adc61bd44f4022454c5a8"
+      "repo": "github-json-bourne",
+      "message": "Create release.yml",
+      "sha": "97c40977c21dbd83e29713464fefc4061325d430",
+      "date": "2026-02-22T04:39:07Z",
+      "url": "https://github.com/ggfevans/github-json-bourne/commit/97c40977c21dbd83e29713464fefc4061325d430"
     },
     {
-      "repo": "gvns.ca",
-      "message": "feat: add content authoring pipeline CLI tools",
-      "sha": "471f23f348b0ca14db6462e1496d60918bcd028b",
-      "date": "2026-02-04T21:52:42Z",
-      "url": "https://github.com/ggfevans/gvns.ca/commit/471f23f348b0ca14db6462e1496d60918bcd028b"
+      "repo": "github-json-bourne",
+      "message": "Add README.md",
+      "sha": "513ad0d5ef5df6088b55bbc2718b3f21782fb377",
+      "date": "2026-02-22T04:35:28Z",
+      "url": "https://github.com/ggfevans/github-json-bourne/commit/513ad0d5ef5df6088b55bbc2718b3f21782fb377"
     }
   ],
   "stats": {
-    "commitsThisWeek": 97,
-    "commitsThisMonth": 97,
-    "repositoriesThisWeek": 7
+    "commitsThisWeek": 90,
+    "commitsThisMonth": 96,
+    "repositoriesThisWeek": 6
   },
   "repositories": [
     {
       "name": "gvns.ca",
       "description": "",
       "language": "Astro",
+      "languageColor": "#ff5a03",
       "stars": 0,
       "url": "https://github.com/ggfevans/gvns.ca"
     },
     {
-      "name": "hardcover-github-action",
+      "name": "gwilym.ca",
       "description": "",
-      "language": "Shell",
+      "language": "Astro",
       "stars": 0,
-      "url": "https://github.com/ggfevans/hardcover-github-action"
+      "url": "https://github.com/ggfevans/gwilym.ca"
     },
     {
-      "name": "trakt-github-action",
+      "name": "alseerr",
       "description": "",
-      "language": "Shell",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/trakt-github-action"
-    },
-    {
-      "name": "listenbrainz-github-action",
-      "description": "Fetch your ListenBrainz listening data as JSON for static sites. No auth required.",
-      "language": "Shell",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/listenbrainz-github-action"
-    },
-    {
-      "name": "gh-mint",
-      "description": "A gh CLI extension that creates GitHub repos with consistent defaults from named profiles",
-      "language": "Go",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/gh-mint"
-    },
-    {
-      "name": "claude-yolo",
-      "description": "shell alias that makes  claude--dangerously-skip-permissions look as reckless as it is",
-      "language": "",
-      "stars": 1,
-      "url": "https://github.com/ggfevans/claude-yolo"
-    },
-    {
-      "name": "listenbrainz-csv-upload",
-      "description": "Import your Last.fm listening history into ListenBrainz from a CSV export",
-      "language": "Python",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/listenbrainz-csv-upload"
-    },
-    {
-      "name": "searxng-seek-alfred",
-      "description": "Alfred workflow for private web search via SearXNG. Includes inline results, favicons, quick actions",
       "language": "JavaScript",
-      "stars": 3,
-      "url": "https://github.com/ggfevans/searxng-seek-alfred"
+      "stars": 0,
+      "url": "https://github.com/ggfevans/alseerr"
+    },
+    {
+      "name": "SearXNG-Community-Scripts-ProxmoxVE",
+      "description": "SearXNG engine for searching the Proxmox VE Community Scripts catalogue (~480 scripts). Offline, cached, zero dependencies",
+      "language": "Python",
+      "stars": 9,
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE"
+    },
+    {
+      "name": "github-json-bourne",
+      "description": "",
+      "language": "JavaScript",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/github-json-bourne"
+    },
+    {
+      "name": "cloud-observe",
+      "description": "",
+      "language": "TypeScript",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/cloud-observe"
+    },
+    {
+      "name": "endorse",
+      "description": "LinkedIn CLI / TUI. LinkedIn messaging without the feed, the ads, or the \"Thoughts?\" posts.",
+      "language": "Go",
+      "stars": 12,
+      "url": "https://github.com/ggfevans/endorse"
+    },
+    {
+      "name": "trakt-json-bourne",
+      "description": "GitHub Action that turns Trakt watch history into JSON with optional TMDB posters. For use in static sites.",
+      "language": "Shell",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/trakt-json-bourne"
+    },
+    {
+      "name": "obsidian-plugin-playbooks",
+      "description": "Obsidian plugin development skill with CLI playbooks for dev loop and release checks.",
+      "language": "JavaScript",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/obsidian-plugin-playbooks"
     },
     {
       "name": "rainforest-EAGLE-commands",
       "description": "",
       "language": "Shell",
+      "languageColor": "#89e051",
       "stars": 1,
       "url": "https://github.com/ggfevans/rainforest-EAGLE-commands"
     },
     {
-      "name": "claude-prune",
-      "description": "Cleanup tool for Claude Code CLI - removes accumulated cache and state files that cause performance issues and hook delays",
-      "language": "Go",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/claude-prune"
-    },
-    {
-      "name": "searxng-dracula-theme",
-      "description": "",
-      "language": "Less",
-      "stars": 1,
-      "url": "https://github.com/ggfevans/searxng-dracula-theme"
-    },
-    {
-      "name": "things3-reset-script",
-      "description": "Resets a Things 3 installation to a fresh state, without having to hunt around for files.",
+      "name": "listenbrainz-json-bourne",
+      "description": "GitHub Action to grab your ListenBrainz data and dump it to JSON. No auth required. Good Will Hunting for your music data.",
       "language": "Shell",
+      "stars": 1,
+      "url": "https://github.com/ggfevans/listenbrainz-json-bourne"
+    },
+    {
+      "name": "green-squares-action",
+      "description": "",
+      "language": "Shell",
+      "languageColor": "#89e051",
+      "stars": 1,
+      "url": "https://github.com/ggfevans/listenbrainz-json-bourne"
+    },
+    {
+      "name": "green-squares-action",
+      "description": "",
+      "language": "Shell",
+      "languageColor": "#89e051",
       "stars": 0,
-      "url": "https://github.com/ggfevans/things3-reset-script"
+      "url": "https://github.com/ggfevans/green-squares-action"
     }
   ]
 }

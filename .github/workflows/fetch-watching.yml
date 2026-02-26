@@ -12,9 +12,9 @@ jobs:
   fetch:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
 
-      - uses: ggfevans/trakt-github-action@840686406bb160c82d5bfde1bb9e7f137a3b7b6d # main
+      - uses: ggfevans/trakt-github-action@889ebca81bbd285dd975898226ef558a963c0202 # main
         with:
           trakt_client_id: ${{ secrets.TRAKT_CLIENT_ID }}
           trakt_username: 'gvns'
