@@ -30,3 +30,4 @@ pnpm-debug.log*
 # claude-mem context files (keep root CLAUDE.md, ignore all others)
 **/CLAUDE.md
 !/CLAUDE.md
+.env.local
