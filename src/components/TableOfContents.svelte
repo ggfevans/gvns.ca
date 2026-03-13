@@ -26,7 +26,7 @@
     }
     headings = extracted;
 
-    if (headings.length < 3) return;
+    if (extracted.length < 3) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
