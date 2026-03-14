@@ -16,7 +16,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: ggfevans/steam-json-bourne@main # pin to commit SHA after first release
+      - uses: ggfevans/steam-json-bourne@16a0ad5ed045d350a175d124c5100ff14c388a6a # main
         with:
           steam_api_key: ${{ secrets.STEAM_API_KEY }}
           steam_id: '76561197962113454'
