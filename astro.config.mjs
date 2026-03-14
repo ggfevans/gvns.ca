@@ -7,7 +7,7 @@ import svelte from "@astrojs/svelte";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import rehypeSlug from "rehype-slug";
-import pagefind from "astro-pagefind";
+import pagefind from "./src/integrations/pagefind.ts";
 
 let shikiTheme = {};
 try {
