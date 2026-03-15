@@ -11,7 +11,7 @@ const posts = (await getCollection('writing'))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 const latestPost = posts[0] ?? null;
-const postSlug = latestPost ? getPostSlug(latestPost.slug) : undefined;
+const postSlug = latestPost ? getPostSlug(latestPost.id) : undefined;
 ---
 
 {compact ? (

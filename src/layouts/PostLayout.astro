@@ -21,7 +21,7 @@ interface Props {
 
 const { post } = Astro.props;
 const { title, description, pubDate, updatedDate, tags, heroImage, syndication } = post.data;
-const readingTime = getReadingTime(post.body);
+const readingTime = getReadingTime(post.body ?? '');
 
 // Get heroImage metadata if present
 const heroImageUrl = heroImage?.src;
