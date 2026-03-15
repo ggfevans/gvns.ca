@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import { formatDate } from '@utils/date';
+import { getPostSlug } from '@utils/content';
 
 interface Props { compact?: boolean; }
 const { compact = false } = Astro.props;
@@ -10,7 +11,7 @@ const posts = (await getCollection('writing'))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 const latestPost = posts[0] ?? null;
-const postSlug = latestPost?.slug.split('/').pop();
+const postSlug = latestPost ? getPostSlug(latestPost.slug) : undefined;
 ---
 
 {compact ? (

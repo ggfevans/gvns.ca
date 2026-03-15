@@ -5,6 +5,7 @@ import TagList from "@components/TagList.astro";
 import WriteNav from "@components/WriteNav.astro";
 import { formatDate } from "@utils/date";
 import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from "@utils/json-ld";
+import { getPostSlug } from "@utils/content";
 
 const posts = (await getCollection("writing"))
     .filter((post) => (import.meta.env.PROD ? !post.data.draft : true))
@@ -65,13 +66,11 @@ const breadcrumbJsonLd = toJsonLd(
                             <div class="timeline-month">
                                 <h3 class="month-heading">{month}</h3>
                                 <div class="month-entries">
-                                    {monthPosts.map((post) => {
-                                        const canonicalSlug = post.slug.replace(/\/+$/, "");
-                                        return (
+                                    {monthPosts.map((post) => (
                                             <article class="timeline-entry">
                                                 <div class="entry-dot" />
                                                 <div class="entry-content">
-                                                    <a href={`/write/${canonicalSlug}/`} class="entry-title">
+                                                    <a href={`/write/${getPostSlug(post.slug)}/`} class="entry-title">
                                                         {post.data.title}
                                                     </a>
                                                     <time datetime={post.data.pubDate.toISOString()}>
@@ -81,8 +80,7 @@ const breadcrumbJsonLd = toJsonLd(
                                                     <TagList tags={post.data.tags} />
                                                 </div>
                                             </article>
-                                        );
-                                    })}
+                                    ))}
                                 </div>
                             </div>
                         ))}

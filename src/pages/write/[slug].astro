@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import PostLayout from '@layouts/PostLayout.astro';
+import { getPostSlug } from '@utils/content';
 
 export async function getStaticPaths() {
   const posts = await getCollection('writing', ({ data }) => {
@@ -8,13 +9,8 @@ export async function getStaticPaths() {
   });
 
   return posts.map((post) => {
-    // Extract just the filename from the full slug path
-    // e.g., "2024/12/hello-world" -> "hello-world"
-    const slugParts = post.slug.split('/');
-    const filename = slugParts[slugParts.length - 1];
-
     return {
-      params: { slug: filename },
+      params: { slug: getPostSlug(post.slug) },
       props: { post },
     };
   });
