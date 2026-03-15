@@ -32,7 +32,7 @@ const projects = (await getCollection('work'))
       <article class="project-card">
         <div class="card-header">
           <h3>
-            <a href={`/work/${getPostSlug(project.slug)}`}>{project.data.title}</a>
+            <a href={`/work/${getPostSlug(project.id)}`}>{project.data.title}</a>
           </h3>
           <span class={`status status-${project.data.status}`}>{project.data.status}</span>
         </div>

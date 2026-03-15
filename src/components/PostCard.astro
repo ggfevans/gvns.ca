@@ -13,10 +13,10 @@ interface Props {
 
 const { post, showReadingTime = true, headingLevel = 'h3' } = Astro.props;
 const { title, description, pubDate, tags } = post.data;
-const readingTime = getReadingTime(post.body);
+const readingTime = getReadingTime(post.body ?? '');
 const HeadingTag = headingLevel;
 
-const filename = getPostSlug(post.slug);
+const filename = getPostSlug(post.id);
 ---
 
 <article class="post-card">

@@ -16,14 +16,14 @@ export async function GET(context: APIContext) {
   const writingLines = posts
     .map(
       (post) =>
-        `- [${post.data.title}](${siteUrl}/write/${getPostSlug(post.slug)}/): ${post.data.description}`,
+        `- [${post.data.title}](${siteUrl}/write/${getPostSlug(post.id)}/): ${post.data.description}`,
     )
     .join("\n");
 
   const workLines = projects
     .map(
       (project) =>
-        `- [${project.data.title}](${siteUrl}/work/${getPostSlug(project.slug)}/): ${project.data.description}`,
+        `- [${project.data.title}](${siteUrl}/work/${getPostSlug(project.id)}/): ${project.data.description}`,
     )
     .join("\n");
 
