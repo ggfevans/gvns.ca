@@ -1,6 +1,6 @@
 # Keystatic Integration — Claude Code Implementation Prompt
 
-Use this prompt in Claude Code from the project root (`gwilym.ca/`).
+Use this prompt in Claude Code from the project root (`gvns.ca/`).
 
 ---
 

@@ -104,7 +104,7 @@ const TAG_KEYWORDS = {
   zettelkasten: "pkm",
   "note-taking": "pkm",
   "this site": "meta",
-  "gwilym.ca": "meta",
+  "gvns.ca": "meta",
   "behind the scenes": "meta",
   changelog: "meta",
   opinion: "essay",
@@ -236,7 +236,8 @@ async function main() {
     const title = extractedTitle;
     const description = extractDescription(body);
     const suggested = suggestTags(body);
-    const selectedTags = suggested.length > 0 ? suggested.slice(0, 4) : ["meta"];
+    const selectedTags =
+      suggested.length > 0 ? suggested.slice(0, 4) : ["meta"];
 
     let slug = slugify(title);
     if (!slug) slug = slugify(filename.replace(/\.md$/i, ""));
