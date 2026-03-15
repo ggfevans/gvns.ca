@@ -29,7 +29,13 @@ jobs:
         run: |
           MAX_RETRIES=3
           for i in $(seq 1 $MAX_RETRIES); do
-            git pull --rebase 2>&1 || true
+            if ! git pull --rebase 2>&1; then
+                echo "::warning::Rebase failed, checking for conflicts..."
+                if git diff --name-only --diff-filter=U | grep -q .; then
+                    echo "::error::Merge conflicts detected"
+                    exit 1
+                fi
+            fi
             if git push 2>&1; then
               echo "Push succeeded on attempt $i"
               exit 0
