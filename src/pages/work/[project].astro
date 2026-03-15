@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import PageLayout from '@layouts/PageLayout.astro';
 import TagList from '@components/TagList.astro';
 import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
@@ -8,7 +8,7 @@ import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
 export async function getStaticPaths() {
   const projects = await getCollection('work');
   return projects.map((project) => ({
-    params: { project: project.slug },
+    params: { project: project.id },
     props: { project },
   }));
 }
@@ -19,7 +19,7 @@ interface Props {
 
 const { project } = Astro.props;
 const { title, description, url, repo, status, tags } = project.data;
-const { Content } = await project.render();
+const { Content } = await render(project);
 
 const siteUrl = normalizeSiteUrl(Astro.site);
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();

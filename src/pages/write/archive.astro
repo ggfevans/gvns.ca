@@ -70,7 +70,7 @@ const breadcrumbJsonLd = toJsonLd(
                                             <article class="timeline-entry">
                                                 <div class="entry-dot" />
                                                 <div class="entry-content">
-                                                    <a href={`/write/${getPostSlug(post.slug)}/`} class="entry-title">
+                                                    <a href={`/write/${getPostSlug(post.id)}/`} class="entry-title">
                                                         {post.data.title}
                                                     </a>
                                                     <time datetime={post.data.pubDate.toISOString()}>
