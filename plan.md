@@ -2,11 +2,11 @@
 
 ## Overview
 
-Extract gwilym.ca's inline GitHub data fetching workflow into a standalone, reusable GitHub Action. Fix fragility issues, add schema validation, publish to Marketplace, and enhance the consuming components.
+Extract gvns.ca's inline GitHub data fetching workflow into a standalone, reusable GitHub Action. Fix fragility issues, add schema validation, publish to Marketplace, and enhance the consuming components.
 
 **Two repos involved:**
 - `~/code/projects/github-json-bourne` — the Action itself (new repo, already created)
-- `~/code/projects/gwilym.ca` — the consumer (update workflow + enhance components)
+- `~/code/projects/gvns.ca` — the consumer (update workflow + enhance components)
 
 ---
 
@@ -261,7 +261,7 @@ jobs:
 
 ---
 
-## Phase 4: Update gwilym.ca to consume the Action
+## Phase 4: Update gvns.ca to consume the Action
 
 ### 4.1 Replace inline workflow
 
@@ -324,7 +324,7 @@ Key fields to verify:
 
 ---
 
-## Phase 5: Enhance components in gwilym.ca
+## Phase 5: Enhance components in gvns.ca
 
 ### 5.1 ContributionHeatmap — add tooltip
 
@@ -356,7 +356,7 @@ Add a proper empty state when no activities exist (currently the section just do
 ### 5.3 ActivityTimeline — commit grouping (nice-to-have)
 
 When multiple commits in the same repo happen close together, group them:
-- "3 commits to gwilym.ca" with expandable detail
+- "3 commits to gvns.ca" with expandable detail
 - Reduces visual noise for busy days
 
 Can defer if scope feels large.
@@ -395,8 +395,8 @@ Brief guide: develop locally, run tests, build dist.
 | 1 | Bootstrap Action | github-json-bourne | — | — |
 | 2 | Core fetch logic | github-json-bourne | Phase 1 | — |
 | 3 | Tests + build | github-json-bourne | Phase 2 | — |
-| 4 | Update gwilym.ca workflow | gwilym.ca | Phase 3 | Yes (with 6) |
-| 5 | Enhance components | gwilym.ca | Phase 4 | — |
+| 4 | Update gvns.ca workflow | gvns.ca | Phase 3 | Yes (with 6) |
+| 5 | Enhance components | gvns.ca | Phase 4 | — |
 | 6 | Publish + docs | github-json-bourne | Phase 3 | Yes (with 4) |
 
 Phases 4+5 and 6 can run in parallel once Phase 3 is done.
@@ -410,13 +410,13 @@ Phases 4+5 and 6 can run in parallel once Phase 3 is done.
 | Node.js with ncc bundle | Standard for GitHub Actions, fixes date portability, proper error handling |
 | Use `payload.commits[]` from events API | Eliminates N+1 compare API calls (biggest perf fix) |
 | Validate JSON before write | Catches upstream API changes, prevents corrupt data on site |
-| Same JSON schema as existing | Zero changes needed to gwilym.ca components |
+| Same JSON schema as existing | Zero changes needed to gvns.ca components |
 | `dist/` committed | Required by GitHub Actions runtime |
 | Parallel fetching (Promise.all) | Contributions + activity + repos are independent, ~3x faster |
 
 ---
 
-## Files Changed in gwilym.ca
+## Files Changed in gvns.ca
 
 | File | Change |
 |------|--------|

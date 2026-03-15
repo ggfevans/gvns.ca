@@ -121,11 +121,11 @@
       "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE/commit/b00950eaadd596ba8b7ffcc47b3359cb17fa472e"
     },
     {
-      "repo": "gwilym.ca",
+      "repo": "gvns.ca",
       "message": "chore: add design tokens & clean up widget layout (#36)",
       "sha": "3011e0b0a3d5e0d0a36d7ff771f725167782ab7b",
       "date": "2026-02-22T07:11:59Z",
-      "url": "https://github.com/ggfevans/gwilym.ca/commit/3011e0b0a3d5e0d0a36d7ff771f725167782ab7b"
+      "url": "https://github.com/ggfevans/gvns.ca/commit/3011e0b0a3d5e0d0a36d7ff771f725167782ab7b"
     },
     {
       "repo": "SearXNG-Community-Scripts-ProxmoxVE",
@@ -227,11 +227,11 @@
       "url": "https://github.com/ggfevans/gvns.ca"
     },
     {
-      "name": "gwilym.ca",
+      "name": "gvns.ca",
       "description": "",
       "language": "Astro",
       "stars": 0,
-      "url": "https://github.com/ggfevans/gwilym.ca"
+      "url": "https://github.com/ggfevans/gvns.ca"
     },
     {
       "name": "alseerr",
