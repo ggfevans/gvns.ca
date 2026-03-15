@@ -32,7 +32,13 @@ jobs:
             git commit -m "chore: update github activity data"
             max_retries=3
             for i in $(seq 1 "$max_retries"); do
-              git pull --rebase || true
+              if ! git pull --rebase; then
+                  echo "::warning::Rebase failed, checking for conflicts..."
+                  if git diff --name-only --diff-filter=U | grep -q .; then
+                      echo "::error::Merge conflicts detected"
+                      exit 1
+                  fi
+              fi
               if git push; then
                 echo "Push succeeded on attempt $i"
                 exit 0
