@@ -2,6 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 import TagList from './TagList.astro';
 import { safeUrl } from '@utils/format';
+import { getPostSlug } from '@utils/content';
 
 interface Props {
   project: CollectionEntry<'work'>;
@@ -16,7 +17,7 @@ const safeLiveUrl = safeUrl(url);
 <article class="gvns-work-card">
   <div class="gvns-work-card__header">
     <h3>
-      <a href={`/work/${project.slug}`}>{title}</a>
+      <a href={`/work/${getPostSlug(project.slug)}`}>{title}</a>
     </h3>
     <span class={`gvns-work-card__status gvns-work-card__status--${status}`}>{status}</span>
   </div>

@@ -1,5 +1,6 @@
 import { getCollection } from "astro:content";
 import type { APIContext } from "astro";
+import { getPostSlug } from "@utils/content";
 
 export async function GET(context: APIContext) {
   const siteUrl = (context.site || "https://gvns.ca")
@@ -12,22 +13,17 @@ export async function GET(context: APIContext) {
 
   const projects = await getCollection("work");
 
-  const getFilename = (slug: string) => {
-    const parts = slug.split("/");
-    return parts[parts.length - 1];
-  };
-
   const writingLines = posts
     .map(
       (post) =>
-        `- [${post.data.title}](${siteUrl}/write/${getFilename(post.slug)}/): ${post.data.description}`,
+        `- [${post.data.title}](${siteUrl}/write/${getPostSlug(post.slug)}/): ${post.data.description}`,
     )
     .join("\n");
 
   const workLines = projects
     .map(
       (project) =>
-        `- [${project.data.title}](${siteUrl}/work/${project.slug}/): ${project.data.description}`,
+        `- [${project.data.title}](${siteUrl}/work/${getPostSlug(project.slug)}/): ${project.data.description}`,
     )
     .join("\n");
 

@@ -3,6 +3,7 @@ import type { CollectionEntry } from 'astro:content';
 import { formatDate } from '@utils/date';
 import { getReadingTime } from '@utils/reading-time';
 import TagList from './TagList.astro';
+import { getPostSlug } from '@utils/content';
 
 interface Props {
   post: CollectionEntry<'writing'>;
@@ -15,10 +16,7 @@ const { title, description, pubDate, tags } = post.data;
 const readingTime = getReadingTime(post.body);
 const HeadingTag = headingLevel;
 
-// Extract just the filename from the full slug path
-// e.g., "2024/12/hello-world" -> "hello-world"
-const slugParts = post.slug.split('/');
-const filename = slugParts[slugParts.length - 1];
+const filename = getPostSlug(post.slug);
 ---
 
 <article class="post-card">
