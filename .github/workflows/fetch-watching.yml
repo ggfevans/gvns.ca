@@ -16,7 +16,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: ggfevans/trakt-github-action@889ebca81bbd285dd975898226ef558a963c0202
+      - uses: ggfevans/trakt-json-bourne@32396e5fbf699e0cac5af5d5d7cef27bbef20497
         with:
           trakt_client_id: ${{ secrets.TRAKT_CLIENT_ID }}
           trakt_username: 'gvns'
