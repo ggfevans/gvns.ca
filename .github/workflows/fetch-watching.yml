@@ -16,7 +16,7 @@ jobs:
         with:
           token: ${{ secrets.GH_PAT }}
 
-      - uses: ggfevans/trakt-json-bourne@32396e5fbf699e0cac5af5d5d7cef27bbef20497
+      - uses: ggfevans/trakt-json-bourne@79005a28f68a285f6a4295781138423402ec6623
         with:
           trakt_client_id: ${{ secrets.TRAKT_CLIENT_ID }}
           trakt_username: 'gvns'
