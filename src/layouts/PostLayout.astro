@@ -14,6 +14,7 @@ import {
 } from "@utils/json-ld";
 import CopyCodeInit from "@components/CopyCodeInit.astro";
 import SyndicationLinks from "@components/SyndicationLinks.astro";
+import Comments from "@components/Comments.astro";
 
 interface Props {
     post: CollectionEntry<"writing">;
@@ -106,6 +107,7 @@ const breadcrumbJsonLd = toJsonLd(
                 postUrl={canonicalUrl}
                 postTitle={title}
             />
+            <Comments post={post} />
             <footer class="post-footer">
                 <a href="/write">&larr; Back to writing</a>
             </footer>
