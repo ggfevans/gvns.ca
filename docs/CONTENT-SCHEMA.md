@@ -38,6 +38,13 @@ heroImage: "./images/hero.jpg"   # Relative to post file
 | `tags` | string[] | ✓ | 1-4 tags from taxonomy |
 | `draft` | boolean | | Default: false |
 | `heroImage` | string | | Path to hero image |
+| `canonicalUrl` | string | | Canonical URL for SEO |
+| `syndication` | object[] | | Array of cross-post records |
+| `syndication[].platform` | enum | ✓ (if syndication) | One of: `bluesky`, `mastodon`, `threads`, `linkedin` |
+| `syndication[].url` | string | ✓ (if syndication) | URL of the cross-posted content |
+| `syndication[].syndicatedAt` | date | ✓ (if syndication) | Date of cross-post |
+| `syndication[].mediaId` | string | | Threads-specific media ID for API lookups |
+| `syndication[].shortcode` | string | | Threads-specific shortcode for reply intent links |
 
 ## Tag Taxonomy
 
@@ -201,6 +208,18 @@ const writing = defineCollection({
     tags: z.array(z.string()).min(1).max(4),
     draft: z.boolean().default(false),
     heroImage: image().optional(),
+    canonicalUrl: z.string().url().optional(),
+    syndication: z
+      .array(
+        z.object({
+          platform: z.enum(['bluesky', 'mastodon', 'threads', 'linkedin']),
+          url: z.string().url(),
+          syndicatedAt: z.coerce.date(),
+          mediaId: z.string().optional(),
+          shortcode: z.string().optional(),
+        })
+      )
+      .optional(),
   }),
 });
 
