@@ -1,10 +1,12 @@
-# POSSE syndication workflow — cross-posts new writing to Bluesky and Mastodon.
+# POSSE syndication workflow — cross-posts new writing to Bluesky, Mastodon, and Threads.
 #
 # Required repository secrets:
 #   BLUESKY_HANDLE        — Bluesky handle (e.g. gvns.ca)
 #   BLUESKY_APP_PASSWORD  — App Password from Bluesky settings
 #   MASTODON_INSTANCE     — Mastodon instance URL (e.g. https://mastodon.social)
 #   MASTODON_TOKEN        — Access token from Mastodon app settings
+#   THREADS_USER_ID       — Threads user ID (from developer portal)
+#   THREADS_ACCESS_TOKEN  — Long-lived Threads access token (refreshed by refresh-threads-token.yml)
 
 name: Syndicate Writing
 
@@ -45,6 +47,8 @@ jobs:
           BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
           MASTODON_INSTANCE: ${{ secrets.MASTODON_INSTANCE }}
           MASTODON_TOKEN: ${{ secrets.MASTODON_TOKEN }}
+          THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
+          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
         run: node scripts/syndicate.mjs
 
       - uses: ./.github/actions/commit-via-pr
