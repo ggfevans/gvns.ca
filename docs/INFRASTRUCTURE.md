@@ -16,6 +16,8 @@ GitHub Actions (scheduled):
   fetch-reading.yml  → src/data/reading.json   → push → CF Pages rebuild
   fetch-listening.yml → src/data/listening.json → push → CF Pages rebuild
   fetch-github.yml   → src/data/github.json    → push → CF Pages rebuild
+  fetch-comments.yml → src/data/comments/*.json → push → CF Pages rebuild
+  refresh-threads-token.yml → refreshes THREADS_ACCESS_TOKEN secret (twice monthly)
 ```
 
 ## Site Hosting: Cloudflare Pages
@@ -64,6 +66,9 @@ Served via `_headers` file:
 | `fetch-reading.yml` | Daily schedule | Fetch Hardcover data (future) |
 | `fetch-listening.yml` | Daily schedule | Fetch ListenBrainz data (future) |
 | `fetch-github.yml` | Daily schedule | Fetch GitHub activity (future) |
+| `fetch-comments.yml` | Hourly schedule | Fetch Threads replies for syndicated posts |
+| `refresh-threads-token.yml` | Twice monthly | Refresh Threads long-lived access token |
+| `syndicate.yml` | Push to main (writing changes) | Cross-post new writing to Bluesky, Mastodon, Threads |
 
 ### Required Secrets (GitHub Actions)
 
@@ -72,6 +77,15 @@ Served via `_headers` file:
 | `HARDCOVER_TOKEN` | fetch-reading | Hardcover API auth (future) |
 | `HARDCOVER_USER_ID` | fetch-reading | Hardcover user (future) |
 | `LISTENBRAINZ_USERNAME` | fetch-listening | LB user (future) |
+| `THREADS_USER_ID` | syndicate, fetch-comments | Threads user ID |
+| `THREADS_ACCESS_TOKEN` | syndicate, fetch-comments | Long-lived token (refreshed by workflow) |
+| `THREADS_APP_ID` | refresh-threads-token | Threads app ID for token refresh |
+| `THREADS_APP_SECRET` | refresh-threads-token | Threads app secret for token refresh |
+| `BLUESKY_HANDLE` | syndicate | Bluesky handle |
+| `BLUESKY_APP_PASSWORD` | syndicate | Bluesky app password |
+| `MASTODON_INSTANCE` | syndicate | Mastodon instance URL |
+| `MASTODON_TOKEN` | syndicate | Mastodon access token |
+| `GH_PAT` | all data workflows, syndicate | GitHub PAT for pushing and secret management |
 
 No Cloudflare secrets needed in GitHub — deploys are handled by CF Pages native integration.
 
@@ -98,4 +112,4 @@ No Cloudflare secrets needed in GitHub — deploys are handled by CF Pages nativ
 
 ---
 
-*Last updated: 2026-02-03*
+*Last updated: 2026-04-25*
