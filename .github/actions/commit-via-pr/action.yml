@@ -1,0 +1,91 @@
+name: 'Commit via PR'
+description: >-
+  Stage data changes on a temp branch, open a PR, and enable auto-merge once
+  required status checks pass. Designed for scheduled "fetch-and-commit"
+  workflows that target a protected `main` branch.
+
+inputs:
+  paths:
+    description: >-
+      Files or directories to stage, newline-separated. Optional — leave empty
+      if a previous step has already committed the changes.
+    required: false
+    default: ''
+  commit-message:
+    description: 'Commit message (also used as the PR title).'
+    required: true
+  branch-prefix:
+    description: >-
+      Prefix for the temp branch name. The branch will be
+      `auto/<prefix>-<run_id>` to guarantee uniqueness across concurrent runs.
+    required: true
+  pr-body:
+    description: 'PR description.'
+    required: false
+    default: 'Automated update.'
+  github-token:
+    description: >-
+      Token with `repo` and `workflow` scopes (PAT). Used for `git push`,
+      `gh pr create`, and `gh pr merge --auto`. The default `GITHUB_TOKEN`
+      cannot enable auto-merge or trigger downstream workflows on PR branches.
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Configure git identity
+      shell: bash
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+
+    - name: Stage and commit local changes
+      shell: bash
+      env:
+        INPUT_PATHS: ${{ inputs.paths }}
+        COMMIT_MESSAGE: ${{ inputs.commit-message }}
+      run: |
+        if [ -n "$INPUT_PATHS" ]; then
+          while IFS= read -r path; do
+            [ -z "$path" ] && continue
+            git add "$path"
+          done <<< "$INPUT_PATHS"
+        fi
+
+        if ! git diff --staged --quiet; then
+          git commit -m "$COMMIT_MESSAGE"
+        fi
+
+    - name: Check whether HEAD is ahead of origin/main
+      id: ahead
+      shell: bash
+      run: |
+        git fetch origin main --quiet
+        AHEAD=$(git rev-list --count origin/main..HEAD)
+        echo "count=$AHEAD" >> "$GITHUB_OUTPUT"
+        if [ "$AHEAD" -eq 0 ]; then
+          echo "No new commits relative to origin/main — nothing to push."
+        else
+          echo "$AHEAD commit(s) ahead of origin/main."
+        fi
+
+    - name: Push branch, open PR, enable auto-merge
+      if: steps.ahead.outputs.count != '0'
+      shell: bash
+      env:
+        GH_TOKEN: ${{ inputs.github-token }}
+        BRANCH_PREFIX: ${{ inputs.branch-prefix }}
+        COMMIT_MESSAGE: ${{ inputs.commit-message }}
+        PR_BODY: ${{ inputs.pr-body }}
+      run: |
+        BRANCH="auto/${BRANCH_PREFIX}-${GITHUB_RUN_ID}"
+        git checkout -b "$BRANCH"
+        git push origin "$BRANCH"
+
+        gh pr create \
+          --base main \
+          --head "$BRANCH" \
+          --title "$COMMIT_MESSAGE" \
+          --body "$PR_BODY"
+
+        gh pr merge "$BRANCH" --auto --squash --delete-branch

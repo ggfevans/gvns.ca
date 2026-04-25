@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   fetch:
@@ -14,10 +15,13 @@ jobs:
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_PAT }}
 
+      # listenbrainz-json-bourne commits the data file itself when
+      # skip_commit is 'false'. The composite action below detects the
+      # local commit via `git rev-list origin/main..HEAD` and routes it
+      # through a PR.
       - name: Fetch ListenBrainz data
-        id: fetch
         uses: ggfevans/listenbrainz-json-bourne@4fb09726f8311185cc651cb41b480a6c7424009d # v3.1.0
         with:
           username: ${{ secrets.LISTENBRAINZ_USERNAME }}
@@ -27,28 +31,8 @@ jobs:
           recent_count: "10"
           skip_commit: "false"
 
-      - name: Commit and push if changed
-        if: steps.fetch.outputs.changes_detected == 'true'
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-
-          MAX_RETRIES=3
-          for i in $(seq 1 $MAX_RETRIES); do
-            if ! git pull --rebase 2>&1; then
-                echo "::warning::Rebase failed, checking for conflicts..."
-                if git diff --name-only --diff-filter=U | grep -q .; then
-                    echo "::error::Merge conflicts detected"
-                    exit 1
-                fi
-            fi
-            if git push 2>&1; then
-              echo "Push succeeded on attempt $i"
-              exit 0
-            fi
-            echo "::warning::git push failed (attempt $i/$MAX_RETRIES)"
-            sleep $((i * 5))
-          done
-
-          echo "::error::git push failed after $MAX_RETRIES attempts"
-          exit 1
+      - uses: ./.github/actions/commit-via-pr
+        with:
+          commit-message: "chore: update listening data"
+          branch-prefix: update-listening
+          github-token: ${{ secrets.GH_PAT }}
