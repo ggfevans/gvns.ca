@@ -1,0 +1,42 @@
+# One-shot diagnostic — run via Actions tab → "Verify PAT" → "Run workflow".
+# Confirms that GH_PAT has the scopes/permissions the automated workflows need:
+#   - Classic PAT: `repo` scope is sufficient
+#   - Fine-grained PAT: needs Contents: read/write + Pull requests: read/write
+#
+# Safe to keep around, but feel free to delete once verified.
+
+name: Verify PAT
+
+on:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Inspect token scopes / permissions
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          echo "=== Authenticated as ==="
+          gh api user --jq '.login'
+          echo
+
+          echo "=== Token scopes (classic PAT) — look for X-Oauth-Scopes header ==="
+          # `gh api -i` prints response headers. Classic PATs surface scopes in
+          # `X-Oauth-Scopes`; fine-grained PATs return an empty header.
+          gh api -i user 2>&1 | grep -iE '^x-(oauth|accepted-oauth)-scopes:' || echo "(no scope headers — likely a fine-grained PAT)"
+          echo
+
+          echo "=== Repo-level permissions check ==="
+          # If this returns 'true' for both, fine-grained PATs are wired correctly.
+          gh api "repos/${GITHUB_REPOSITORY}" --jq '{push: .permissions.push, admin: .permissions.admin, pull: .permissions.pull}'
+          echo
+
+          echo "=== Probe: can the token list PRs? ==="
+          gh pr list --limit 1 --state all --json number,title >/dev/null && echo "OK — PR read works"
+          echo
+
+          echo "=== Probe: can the token resolve auto-merge prerequisites? ==="
+          # If allow_auto_merge isn't enabled on the repo, gh pr merge --auto fails.
+          gh api "repos/${GITHUB_REPOSITORY}" --jq '{allow_auto_merge: .allow_auto_merge, delete_branch_on_merge: .delete_branch_on_merge}'
