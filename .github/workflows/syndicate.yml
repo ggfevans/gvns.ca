@@ -17,15 +17,20 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   syndicate:
-    if: github.actor != 'github-actions[bot]'
+    # Skip when this run was triggered by the syndicate workflow's own merge to
+    # main (commit message comes from the PR title set by the composite action).
+    # The `|| ''` fallback keeps workflow_dispatch runs working — head_commit
+    # is undefined for that event.
+    if: ${{ !startsWith(github.event.head_commit.message || '', 'chore: update syndication data') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_PAT }}
 
       - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
         with:
@@ -42,29 +47,9 @@ jobs:
           MASTODON_TOKEN: ${{ secrets.MASTODON_TOKEN }}
         run: node scripts/syndicate.mjs
 
-      - name: Commit and push if changed
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add src/content/writing/
-          if ! git diff --staged --quiet; then
-            git commit -m "chore: update syndication data"
-            max_retries=3
-            for i in $(seq 1 "$max_retries"); do
-              if ! git pull --rebase; then
-                git rebase --abort 2>/dev/null || true
-                echo "::error::git pull --rebase failed on attempt $i/$max_retries"
-                exit 1
-              fi
-              if git push; then
-                echo "Push succeeded on attempt $i"
-                exit 0
-              fi
-              echo "::warning::git push failed (attempt $i/$max_retries)"
-              sleep $((i * 5))
-            done
-            echo "::error::git push failed after $max_retries attempts"
-            exit 1
-          else
-            echo "No changes to commit"
-          fi
+      - uses: ./.github/actions/commit-via-pr
+        with:
+          paths: src/content/writing/
+          commit-message: "chore: update syndication data"
+          branch-prefix: update-syndication
+          github-token: ${{ secrets.GH_PAT }}
