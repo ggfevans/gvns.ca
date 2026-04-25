@@ -87,7 +87,6 @@ GitHub Actions runs `ci.yml` for build checks on PRs only. Scheduled data-fetchi
 **Read first:** `docs/SESSION-START.md` — orientation brief for any new Claude session (working agreement, what's in flight, repo map, common gotchas).
 
 Detailed specs in `/docs/`:
-- `SESSION-START.md` - Orientation + working agreement (start here)
 - `ARCHITECTURE.md` - Full tech stack and file organisation
 - `COMPONENT-CONVENTIONS.md` - Patterns for components, pages, widgets
 - `CONTENT-SCHEMA.md` - Frontmatter fields and tag taxonomy
