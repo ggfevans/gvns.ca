@@ -289,10 +289,19 @@ async function main() {
             tags,
           });
           console.log(`   ✅ Threads: ${result.url}`);
-          await writeSyndicationToFrontmatter(filePath, 'threads', result.url, {
-            mediaId: result.mediaId,
-            shortcode: result.shortcode,
-          });
+          try {
+            await writeSyndicationToFrontmatter(filePath, 'threads', result.url, {
+              mediaId: result.mediaId,
+              shortcode: result.shortcode,
+            });
+          } catch (err) {
+            console.error(
+              `   ❌ Threads post published but frontmatter update failed. ` +
+              `Persist manually before rerunning: url=${result.url} mediaId=${result.mediaId} shortcode=${result.shortcode}`
+            );
+            throw err;
+          }
+        }
         }
 
         syndicatedPlatformCount++;
