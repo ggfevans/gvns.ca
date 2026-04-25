@@ -130,7 +130,7 @@ async function main() {
       const response = await getReplies(
         mediaId,
         accessToken,
-        { limit: 50 },
+        { limit: 50 }, // v1 cap; replies beyond this are silently truncated
         REPLY_FIELDS,
         false, // reverse=false → chronological order
       );

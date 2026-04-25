@@ -16,15 +16,21 @@ let data = EMPTY_COMMENTS;
 if (threadsEntry) {
   try {
     const modules = import.meta.glob('../data/comments/*.json', { eager: true });
-    const key = `../data/comments/${post.id}.json`;
+    const slug = post.id.split('/').pop()!;
+    const key = `../data/comments/${slug}.json`;
     if (modules[key]) {
       data = parseCommentsData((modules[key] as { default: unknown }).default);
     }
-  } catch {}
+  } catch (e) {
+    if (import.meta.env.DEV) console.warn(`Failed to load comments for ${post.id}:`, e);
+  }
 }
 
 const count = data.replies.length;
-const intentUrl = `https://www.threads.com/intent/post?reply_post_shortcode=${data.threadShortcode || threadsEntry?.shortcode || ''}`;
+const shortcode = data.threadShortcode || threadsEntry?.shortcode || '';
+const intentUrl = shortcode
+  ? `https://www.threads.com/intent/post?reply_post_shortcode=${shortcode}`
+  : threadsEntry?.url || '';
 ---
 
 {threadsEntry && (
@@ -33,13 +39,20 @@ const intentUrl = `https://www.threads.com/intent/post?reply_post_shortcode=${da
       <h2 id="comments-heading" class="gvns-comments__heading">
         Replies {count > 0 && <span class="gvns-comments__count">{count}</span>}
       </h2>
-      <p class="gvns-comments__cta">
-        Continue the thread on <a href={intentUrl} rel="noopener" target="_blank">Threads ↗</a>.
-      </p>
+      {intentUrl && (
+        <p class="gvns-comments__cta">
+          Continue the thread on <a href={intentUrl} rel="noopener" target="_blank">Threads ↗</a>.
+        </p>
+      )}
     </header>
 
     {count === 0 ? (
-      <p class="gvns-comments__empty">No replies yet — be the first <a href={intentUrl} target="_blank" rel="noopener">on Threads</a>.</p>
+      <p class="gvns-comments__empty">
+        {intentUrl
+          ? <>No replies yet — be the first <a href={intentUrl} target="_blank" rel="noopener">on Threads</a>.</>
+          : <>No replies yet.</>
+        }
+      </p>
     ) : (
       <ol class="gvns-comments__list">
         {data.replies.map((reply) => (
@@ -48,7 +61,10 @@ const intentUrl = `https://www.threads.com/intent/post?reply_post_shortcode=${da
               <a href={`https://www.threads.com/@${reply.username}`} rel="noopener nofollow" target="_blank">
                 @{reply.username}
               </a>
-              <time datetime={reply.timestamp} title={formatDate(new Date(reply.timestamp))}>
+              <time
+                datetime={reply.timestamp}
+                title={Number.isNaN(new Date(reply.timestamp).getTime()) ? reply.timestamp : formatDate(new Date(reply.timestamp))}
+              >
                 {relativeTime(reply.timestamp)}
               </time>
             </header>

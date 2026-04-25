@@ -33,7 +33,9 @@ export function parseCommentsData(raw: unknown): CommentsData {
     threadShortcode: String(data.threadShortcode ?? ''),
     threadUrl: String(data.threadUrl ?? ''),
     replies: Array.isArray(data.replies)
-      ? data.replies.map((r: Record<string, unknown>) => ({
+      ? data.replies
+          .filter((r): r is Record<string, unknown> => r != null && typeof r === 'object')
+          .map((r) => ({
           id: String(r.id ?? ''),
           username: String(r.username ?? ''),
           text: String(r.text ?? ''),

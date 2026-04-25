@@ -257,7 +257,13 @@ async function main() {
             tags,
           });
           console.log(`   ✅ Bluesky: ${syndicationUrl}`);
-          await writeSyndicationToFrontmatter(filePath, 'bluesky', syndicationUrl);
+          try {
+            await writeSyndicationToFrontmatter(filePath, 'bluesky', syndicationUrl);
+          } catch (writeErr) {
+            console.error(`   ❌ CRITICAL: Posted to Bluesky (${syndicationUrl}) but failed to save frontmatter: ${writeErr.message}`);
+            console.error(`   ❌ Manually add syndication entry to prevent duplicate post.`);
+            throw writeErr;
+          }
         }
 
         if (platform === 'mastodon') {
@@ -273,7 +279,13 @@ async function main() {
             tags,
           });
           console.log(`   ✅ Mastodon: ${syndicationUrl}`);
-          await writeSyndicationToFrontmatter(filePath, 'mastodon', syndicationUrl);
+          try {
+            await writeSyndicationToFrontmatter(filePath, 'mastodon', syndicationUrl);
+          } catch (writeErr) {
+            console.error(`   ❌ CRITICAL: Posted to Mastodon (${syndicationUrl}) but failed to save frontmatter: ${writeErr.message}`);
+            console.error(`   ❌ Manually add syndication entry to prevent duplicate post.`);
+            throw writeErr;
+          }
         }
 
         if (platform === 'threads') {
@@ -301,7 +313,6 @@ async function main() {
             );
             throw err;
           }
-        }
         }
 
         syndicatedPlatformCount++;
