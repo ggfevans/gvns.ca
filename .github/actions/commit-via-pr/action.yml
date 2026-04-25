@@ -80,12 +80,20 @@ runs:
       run: |
         BRANCH="auto/${BRANCH_PREFIX}-${GITHUB_RUN_ID}"
         git checkout -b "$BRANCH"
-        git push origin "$BRANCH"
 
-        gh pr create \
+        if ! git push origin "$BRANCH"; then
+          echo "::error::Failed to push branch $BRANCH"
+          exit 1
+        fi
+
+        if ! gh pr create \
           --base main \
           --head "$BRANCH" \
           --title "$COMMIT_MESSAGE" \
-          --body "$PR_BODY"
+          --body "$PR_BODY"; then
+          echo "::error::Failed to create PR for $BRANCH"
+          exit 1
+        fi
 
         gh pr merge "$BRANCH" --auto --squash --delete-branch
+
