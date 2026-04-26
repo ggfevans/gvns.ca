@@ -23,7 +23,7 @@ try {
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://gvns.ca",
+	site: "https://gvns.ca",
   markdown: {
     shikiConfig: {
       theme: shikiTheme,
