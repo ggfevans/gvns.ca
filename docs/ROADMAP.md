@@ -231,7 +231,7 @@ Final pass to bring everything together.
 
 ### Maybe Later
 - [ ] Series navigation for multi-part posts (`series`/`seriesOrder` fields)
-- [ ] Comments (giscus via GitHub Discussions)
+- [x] ~~Comments (giscus via GitHub Discussions)~~ → Shipped as Threads comments via Graph API (ADR-013)
 - [ ] Newsletter signup
 - [ ] Webmentions integration
 - [ ] Now page history/archive
@@ -244,4 +244,4 @@ Final pass to bring everything together.
 
 ---
 
-*Last updated: 2026-02-03*
+*Last updated: 2026-04-25*

@@ -19,6 +19,8 @@ const writing = defineCollection({
             platform: z.enum(['bluesky', 'mastodon', 'threads', 'linkedin']),
             url: z.string().url(),
             syndicatedAt: z.coerce.date(),
+            mediaId: z.string().optional(),
+            shortcode: z.string().optional(),
           })
         )
         .optional(),

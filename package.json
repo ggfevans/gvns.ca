@@ -21,6 +21,7 @@
     "@astrojs/sitemap": "^3.7.2",
     "@astrojs/svelte": "^8.0.5",
     "@atproto/api": "^0.19.3",
+    "@codybrom/denim": "npm:@jsr/codybrom__denim@^2.0.1",
     "@fontsource/inter": "^5.2.8",
     "@fontsource/jetbrains-mono": "^5.2.8",
     "@fontsource/space-grotesk": "^5.2.10",

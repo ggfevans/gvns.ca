@@ -346,6 +346,33 @@ Replace manual Pagefind CLI + Svelte island with **astro-pagefind** integration 
 
 ---
 
+## ADR-013: Threads Comments via Graph API
+
+**Date**: 2026-04-25
+**Status**: Accepted
+
+### Context
+The site needed a comments system for writing posts. Options considered included giscus (GitHub Discussions), Disqus, and native social media APIs. The site already syndicates posts to Threads, Bluesky, and Mastodon via POSSE.
+
+### Decision
+Fetch Threads replies at build time via the Graph API using the denim library. Comments render as static HTML populated from JSON files in `src/data/comments/`, refreshed hourly by a GitHub Action. No client-side JavaScript. Reply CTA uses Threads' intent URL deep-link.
+
+### Rationale
+- Follows the existing build-time data-fetching pattern (reading, listening, GitHub activity)
+- No new architectural primitives — same workflow shape, same commit-via-pr pattern
+- No CSP relaxation needed (no browser-side API calls)
+- No token exposure in the browser
+- Threads-only for v1; extensible to Bluesky/Mastodon replies later
+- Open firehose moderation acceptable for personal site traffic levels
+
+### Consequences
+- New secrets required: `THREADS_USER_ID`, `THREADS_ACCESS_TOKEN`, `THREADS_APP_ID`, `THREADS_APP_SECRET`
+- Token refresh workflow runs twice monthly to prevent 60-day expiry
+- Comments are up to 1 hour stale (acceptable for a personal blog)
+- Spam replies on Threads appear until muted on the platform
+
+---
+
 ## Template for New Decisions
 
 ```markdown
@@ -369,4 +396,4 @@ Replace manual Pagefind CLI + Svelte island with **astro-pagefind** integration 
 
 ---
 
-*Last updated: 2026-02-05*
+*Last updated: 2026-04-25*

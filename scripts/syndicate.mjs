@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * POSSE syndication script — posts unsyndicated writing to Bluesky and Mastodon.
+ * POSSE syndication script — posts unsyndicated writing to Bluesky, Mastodon, and Threads.
  *
  * Usage:
  *   node scripts/syndicate.mjs            # Post unsyndicated content
@@ -12,6 +12,8 @@
  *   BLUESKY_APP_PASSWORD  — Bluesky app password
  *   MASTODON_INSTANCE     — Mastodon instance URL (e.g. https://mastodon.social)
  *   MASTODON_TOKEN        — Mastodon access token
+ *   THREADS_USER_ID       — Threads user ID
+ *   THREADS_ACCESS_TOKEN  — Threads access token
  */
 
 import { readdir, readFile, writeFile, stat } from 'node:fs/promises';
@@ -20,6 +22,7 @@ import { fileURLToPath } from 'node:url';
 import matter from 'gray-matter';
 import { BskyAgent, RichText } from '@atproto/api';
 import { createRestAPIClient } from 'masto';
+import { createThreadsContainer, publishThreadsContainer } from '@codybrom/denim';
 
 const ROOT = join(fileURLToPath(import.meta.url), '..', '..');
 const WRITING_DIR = join(ROOT, 'src', 'content', 'writing');
@@ -53,7 +56,7 @@ async function collectMarkdownFiles(dir) {
 function getTargetPlatforms(tags) {
   const hasMastodonOnly = tags.some((t) => MASTODON_ONLY_TAGS.has(t));
   if (hasMastodonOnly) return ['mastodon'];
-  return ['bluesky', 'mastodon'];
+  return ['bluesky', 'mastodon', 'threads'];
 }
 
 /** Get the slug from a markdown file path. */
@@ -146,11 +149,42 @@ async function postToMastodon({ title, description, url, tags }) {
   return status.url;
 }
 
+async function postToThreads({ title, description, url, tags }) {
+  const text = formatPostText({ title, description, url, tags });
+
+  const containerId = await createThreadsContainer({
+    userId: process.env.THREADS_USER_ID,
+    accessToken: process.env.THREADS_ACCESS_TOKEN,
+    mediaType: 'TEXT',
+    text,
+    linkAttachment: url,
+  });
+
+  const result = await publishThreadsContainer(
+    process.env.THREADS_USER_ID,
+    process.env.THREADS_ACCESS_TOKEN,
+    containerId,
+    true, // getPermalink
+  );
+
+  // permalink format: https://www.threads.com/@user/post/SHORTCODE
+  if (!result.permalink || typeof result.permalink !== 'string') {
+    throw new Error(`Threads API returned no permalink for container ${containerId}`);
+  }
+  const postMatch = result.permalink.match(/\/post\/([^/?#]+)/);
+  if (!postMatch) {
+    throw new Error(`Unexpected Threads permalink format: ${result.permalink}`);
+  }
+  const shortcode = postMatch[1];
+
+  return { url: result.permalink, mediaId: result.id, shortcode };
+}
+
 // ---------------------------------------------------------------------------
 // Frontmatter update
 // ---------------------------------------------------------------------------
 
-async function writeSyndicationToFrontmatter(filePath, platform, syndicationUrl) {
+async function writeSyndicationToFrontmatter(filePath, platform, syndicationUrl, extraFields = {}) {
   const raw = await readFile(filePath, 'utf-8');
   const { data, content } = matter(raw);
 
@@ -162,6 +196,7 @@ async function writeSyndicationToFrontmatter(filePath, platform, syndicationUrl)
     platform,
     url: syndicationUrl,
     syndicatedAt: new Date().toISOString().split('T')[0],
+    ...extraFields,
   });
 
   const updated = matter.stringify(content, data);
@@ -229,7 +264,13 @@ async function main() {
             tags,
           });
           console.log(`   ✅ Bluesky: ${syndicationUrl}`);
-          await writeSyndicationToFrontmatter(filePath, 'bluesky', syndicationUrl);
+          try {
+            await writeSyndicationToFrontmatter(filePath, 'bluesky', syndicationUrl);
+          } catch (writeErr) {
+            console.error(`   ❌ CRITICAL: Posted to Bluesky (${syndicationUrl}) but failed to save frontmatter: ${writeErr.message}`);
+            console.error(`   ❌ Manually add syndication entry to prevent duplicate post.`);
+            throw writeErr;
+          }
         }
 
         if (platform === 'mastodon') {
@@ -245,7 +286,40 @@ async function main() {
             tags,
           });
           console.log(`   ✅ Mastodon: ${syndicationUrl}`);
-          await writeSyndicationToFrontmatter(filePath, 'mastodon', syndicationUrl);
+          try {
+            await writeSyndicationToFrontmatter(filePath, 'mastodon', syndicationUrl);
+          } catch (writeErr) {
+            console.error(`   ❌ CRITICAL: Posted to Mastodon (${syndicationUrl}) but failed to save frontmatter: ${writeErr.message}`);
+            console.error(`   ❌ Manually add syndication entry to prevent duplicate post.`);
+            throw writeErr;
+          }
+        }
+
+        if (platform === 'threads') {
+          if (!process.env.THREADS_USER_ID || !process.env.THREADS_ACCESS_TOKEN) {
+            console.error(`   ❌ Skipping Threads — missing THREADS_USER_ID or THREADS_ACCESS_TOKEN`);
+            continue;
+          }
+          console.log(`   ⏳ Posting to Threads...`);
+          const result = await postToThreads({
+            title: frontmatter.title,
+            description: frontmatter.description || '',
+            url,
+            tags,
+          });
+          console.log(`   ✅ Threads: ${result.url}`);
+          try {
+            await writeSyndicationToFrontmatter(filePath, 'threads', result.url, {
+              mediaId: result.mediaId,
+              shortcode: result.shortcode,
+            });
+          } catch (err) {
+            console.error(
+              `   ❌ Threads post published but frontmatter update failed. ` +
+              `Persist manually before rerunning: url=${result.url} mediaId=${result.mediaId} shortcode=${result.shortcode}`
+            );
+            throw err;
+          }
         }
 
         syndicatedPlatformCount++;
