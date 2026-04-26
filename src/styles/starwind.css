@@ -1,4 +1,4 @@
-@import "tailwindcss";
+/* tailwindcss is intentionally not imported here — already loaded via global.css */
 @import "tw-animate-css";
 @plugin "@tailwindcss/forms";
 
