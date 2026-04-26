@@ -4,7 +4,7 @@ import type { APIContext } from "astro";
 import { getPostSlug } from "@utils/content";
 
 export async function GET(context: APIContext) {
-  const posts = (await getCollection("writing"))
+  const posts = (await getCollection("posts"))
     .filter((post) => !post.data.draft)
     .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
@@ -17,7 +17,7 @@ export async function GET(context: APIContext) {
       title: post.data.title,
       pubDate: post.data.pubDate,
       description: post.data.description,
-      link: `/write/${getPostSlug(post.id)}/`,
+      link: `/posts/${getPostSlug(post.id)}/`,
       categories: post.data.tags,
     })),
     customData: "<language>en-CA</language>",

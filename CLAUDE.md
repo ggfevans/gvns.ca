@@ -31,7 +31,7 @@ npm run preview  # Preview production build
 src/
 ├── components/     # Astro components (.astro) and Svelte islands (.svelte)
 ├── content/
-│   ├── writing/    # Markdown posts organised by date (YYYY/MM/)
+│   ├── posts/      # Markdown posts organised by date (YYYY/MM/)
 │   └── config.ts   # Content collection schemas
 ├── layouts/        # BaseLayout, PostLayout, PageLayout
 ├── pages/          # Route files including write/[slug].astro
@@ -69,7 +69,7 @@ Blog posts require:
 Optional: `updatedDate`, `series`, `seriesOrder`, `draft`, `heroImage`
 
 Post URLs derive from filename, not folder structure:
-`src/content/writing/2024/12/my-post.md` → `/write/my-post/`
+`src/content/posts/2024/12/my-post.md` → `/posts/my-post/`
 
 ## Design System
 

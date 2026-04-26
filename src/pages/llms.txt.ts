@@ -7,7 +7,7 @@ export async function GET(context: APIContext) {
     .toString()
     .replace(/\/$/, "");
 
-  const posts = (await getCollection("writing"))
+  const posts = (await getCollection("posts"))
     .filter((post) => !post.data.draft)
     .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
@@ -16,7 +16,7 @@ export async function GET(context: APIContext) {
   const writingLines = posts
     .map(
       (post) =>
-        `- [${post.data.title}](${siteUrl}/write/${getPostSlug(post.id)}/): ${post.data.description}`,
+        `- [${post.data.title}](${siteUrl}/posts/${getPostSlug(post.id)}/): ${post.data.description}`,
     )
     .join("\n");
 
@@ -46,7 +46,7 @@ ${workLines}
 
 ## Optional
 
-- [Tags](${siteUrl}/write/tags/): Browse writing by topic
+- [Tags](${siteUrl}/posts/tags/): Browse posts by topic
 - [Reading](${siteUrl}/read/): What I'm reading
 `;
 

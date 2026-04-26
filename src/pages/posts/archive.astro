@@ -7,7 +7,7 @@ import { formatDate } from "@utils/date";
 import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from "@utils/json-ld";
 import { getPostSlug } from "@utils/content";
 
-const posts = (await getCollection("writing"))
+const posts = (await getCollection("posts"))
     .filter((post) => (import.meta.env.PROD ? !post.data.draft : true))
     .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
@@ -27,19 +27,19 @@ const siteUrl = normalizeSiteUrl(Astro.site);
 const breadcrumbJsonLd = toJsonLd(
     breadcrumbSchema([
         { name: "Home", url: siteUrl },
-        { name: "Write", url: `${siteUrl}/write` },
-        { name: "Archive", url: `${siteUrl}/write/archive` },
+        { name: "Posts", url: `${siteUrl}/posts` },
+        { name: "Archive", url: `${siteUrl}/posts/archive` },
     ]),
 );
 ---
 
 <BaseLayout
-    title="Archive | Write"
+    title="Archive | Posts"
     description="Browse all posts by date."
     accent="p4-amber"
     breadcrumbs={[
         { label: "Home", href: "/" },
-        { label: "Write", href: "/write" },
+        { label: "Posts", href: "/posts" },
         { label: "Archive" },
     ]}
 >
@@ -70,7 +70,7 @@ const breadcrumbJsonLd = toJsonLd(
                                             <article class="timeline-entry">
                                                 <div class="entry-dot" />
                                                 <div class="entry-content">
-                                                    <a href={`/write/${getPostSlug(post.id)}/`} class="entry-title">
+                                                    <a href={`/posts/${getPostSlug(post.id)}/`} class="entry-title">
                                                         {post.data.title}
                                                     </a>
                                                     <time datetime={post.data.pubDate.toISOString()}>

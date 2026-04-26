@@ -6,7 +6,7 @@ import WriteNav from "@components/WriteNav.astro";
 import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from "@utils/json-ld";
 
 export async function getStaticPaths() {
-    const posts = await getCollection("writing", ({ data }) => {
+    const posts = await getCollection("posts", ({ data }) => {
         return import.meta.env.PROD ? !data.draft : true;
     });
 
@@ -32,7 +32,7 @@ export async function getStaticPaths() {
 
 interface Props {
     tag: string;
-    posts: Awaited<ReturnType<typeof getCollection<"writing">>>;
+    posts: Awaited<ReturnType<typeof getCollection<"posts">>>;
 }
 
 const { tag, posts } = Astro.props;
@@ -41,9 +41,9 @@ const siteUrl = normalizeSiteUrl(Astro.site);
 const breadcrumbJsonLd = toJsonLd(
     breadcrumbSchema([
         { name: "Home", url: siteUrl },
-        { name: "Write", url: `${siteUrl}/write` },
-        { name: "Tags", url: `${siteUrl}/write/tags` },
-        { name: tag, url: `${siteUrl}/write/tags/${encodeURIComponent(tag)}` },
+        { name: "Posts", url: `${siteUrl}/posts` },
+        { name: "Tags", url: `${siteUrl}/posts/tags` },
+        { name: tag, url: `${siteUrl}/posts/tags/${encodeURIComponent(tag)}` },
     ]),
 );
 ---
@@ -54,8 +54,8 @@ const breadcrumbJsonLd = toJsonLd(
     accent="p4-amber"
     breadcrumbs={[
         { label: "Home", href: "/" },
-        { label: "Write", href: "/write" },
-        { label: "Tags", href: "/write/tags" },
+        { label: "Posts", href: "/posts" },
+        { label: "Tags", href: "/posts/tags" },
         { label: tag },
     ]}
 >

@@ -11,7 +11,7 @@ const { tags, linked = true } = Astro.props;
   {tags.map((tag) => (
     <li>
       {linked ? (
-        <a href={`/write/tags/${encodeURIComponent(tag)}`} class="gvns-tag">
+        <a href={`/posts/tags/${encodeURIComponent(tag)}`} class="gvns-tag">
           {tag}
         </a>
       ) : (

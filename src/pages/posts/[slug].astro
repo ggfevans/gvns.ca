@@ -4,7 +4,7 @@ import PostLayout from '@layouts/PostLayout.astro';
 import { getPostSlug } from '@utils/content';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('writing', ({ data }) => {
+  const posts = await getCollection('posts', ({ data }) => {
     return import.meta.env.PROD ? !data.draft : true;
   });
 

@@ -11,7 +11,7 @@ import CodeWidget from '@components/widgets/CodeWidget.astro';
 import { websiteSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
 import '@styles/widgets.css';
 
-const posts = (await getCollection('writing'))
+const posts = (await getCollection('posts'))
   .filter((post) => (import.meta.env.PROD ? !post.data.draft : true))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3);
@@ -55,8 +55,8 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
 
     <section class="recent-writing" aria-labelledby="writing-heading">
       <div class="section-header">
-        <h2 id="writing-heading">Recent Writing</h2>
-        <a href="/write" class="view-all">Explore all posts &rarr;</a>
+        <h2 id="writing-heading">Recent Posts</h2>
+        <a href="/posts" class="view-all">Explore all posts &rarr;</a>
       </div>
       {
         posts.length > 0 ? (
