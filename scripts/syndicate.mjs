@@ -168,7 +168,14 @@ async function postToThreads({ title, description, url, tags }) {
   );
 
   // permalink format: https://www.threads.com/@user/post/SHORTCODE
-  const shortcode = result.permalink.split('/post/').pop();
+  if (!result.permalink || typeof result.permalink !== 'string') {
+    throw new Error(`Threads API returned no permalink for container ${containerId}`);
+  }
+  const postMatch = result.permalink.match(/\/post\/([^/?#]+)/);
+  if (!postMatch) {
+    throw new Error(`Unexpected Threads permalink format: ${result.permalink}`);
+  }
+  const shortcode = postMatch[1];
 
   return { url: result.permalink, mediaId: result.id, shortcode };
 }
