@@ -16,6 +16,7 @@ let data = EMPTY_COMMENTS;
 if (threadsEntry) {
   try {
     const modules = import.meta.glob('../data/comments/*.json', { eager: true });
+    // post.id is always at least the filename, so .pop() is guaranteed to return a string
     const slug = post.id.split('/').pop()!;
     const key = `../data/comments/${slug}.json`;
     if (modules[key]) {
