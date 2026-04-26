@@ -1,0 +1,281 @@
+---
+import "@styles/global.css";
+import "@styles/starwind.css";
+import "@styles/sandbox-lab.css";
+import Button from "@components/starwind/button/Button.astro";
+import Card from "@components/starwind/card/Card.astro";
+import CardHeader from "@components/starwind/card/CardHeader.astro";
+import CardTitle from "@components/starwind/card/CardTitle.astro";
+import CardDescription from "@components/starwind/card/CardDescription.astro";
+import CardContent from "@components/starwind/card/CardContent.astro";
+import CardFooter from "@components/starwind/card/CardFooter.astro";
+import Dialog from "@components/starwind/dialog/Dialog.astro";
+import DialogTrigger from "@components/starwind/dialog/DialogTrigger.astro";
+import DialogContent from "@components/starwind/dialog/DialogContent.astro";
+import DialogHeader from "@components/starwind/dialog/DialogHeader.astro";
+import DialogTitle from "@components/starwind/dialog/DialogTitle.astro";
+import DialogDescription from "@components/starwind/dialog/DialogDescription.astro";
+import DialogFooter from "@components/starwind/dialog/DialogFooter.astro";
+import DialogClose from "@components/starwind/dialog/DialogClose.astro";
+
+const accents = [
+  { key: "p1-violet", label: "P1", color: "#8b5cf6" },
+  { key: "p2-rose",   label: "P2", color: "#f43f5e" },
+  { key: "p3-emerald",label: "P3", color: "#10b981" },
+  { key: "p4-amber",  label: "P4", color: "#f59e0b" },
+  { key: "p5-sky",    label: "P5", color: "#0ea5e9" },
+] as const;
+
+const buttonVariants = [
+  { v: "default",   label: "default"   },
+  { v: "primary",   label: "primary"   },
+  { v: "secondary", label: "secondary" },
+  { v: "outline",   label: "outline"   },
+  { v: "ghost",     label: "ghost"     },
+] as const;
+
+const semanticVariants = [
+  { v: "info",    label: "info"    },
+  { v: "success", label: "success" },
+  { v: "warning", label: "warning" },
+  { v: "error",   label: "error"   },
+] as const;
+---
+
+<!doctype html>
+<html lang="en" class="dark" data-accent="p1-violet">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Starwind · Component Lab</title>
+  </head>
+  <body>
+
+    <!-- ── Top bar ─────────────────────────────────────────────────── -->
+    <header class="lab-bar">
+      <div class="lab-bar__identity">
+        <span class="lab-bar__wordmark">starwind</span>
+        <span class="lab-bar__sep">·</span>
+        <span class="lab-bar__sub">component lab</span>
+      </div>
+
+      <div class="lab-bar__controls">
+        <span class="lab-bar__ctrl-label">accent</span>
+        <div class="accent-strip">
+          {accents.map((a) => (
+            <button
+              class="accent-dot"
+              data-accent-key={a.key}
+              style={`--dot: ${a.color}`}
+              title={a.key}
+              onclick={`setAccent('${a.key}')`}
+              aria-label={`Set accent to ${a.key}`}
+            />
+          ))}
+        </div>
+
+        <div class="lab-bar__divider" />
+
+        <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">
+          <span class="theme-toggle__track">
+            <span class="theme-toggle__thumb" />
+          </span>
+          <span class="theme-toggle__label" id="theme-label">dark</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- ── Main content ────────────────────────────────────────────── -->
+    <main class="lab-main">
+
+      <!-- Buttons ── all variants -->
+      <section class="lab-cell">
+        <header class="lab-cell__header">
+          <span class="lab-cell__tag">01</span>
+          <h2 class="lab-cell__title">Button</h2>
+          <span class="lab-cell__meta">variant × size</span>
+        </header>
+
+        <div class="lab-cell__body">
+          <div class="btn-matrix">
+            <!-- Size header row -->
+            <div class="btn-matrix__corner" />
+            <span class="btn-matrix__col-label">sm</span>
+            <span class="btn-matrix__col-label">md</span>
+            <span class="btn-matrix__col-label">lg</span>
+
+            {buttonVariants.map(({ v, label }) => (
+              <>
+                <span class="btn-matrix__row-label">{label}</span>
+                <Button variant={v} size="sm">{label}</Button>
+                <Button variant={v} size="md">{label}</Button>
+                <Button variant={v} size="lg">{label}</Button>
+              </>
+            ))}
+          </div>
+
+          <div class="lab-cell__divider" />
+
+          <div class="lab-cell__row">
+            <span class="lab-cell__inline-label">semantic</span>
+            <div class="swatch-row">
+              {semanticVariants.map(({ v, label }) => (
+                <Button variant={v} size="sm">{label}</Button>
+              ))}
+            </div>
+          </div>
+
+          <div class="lab-cell__row">
+            <span class="lab-cell__inline-label">states</span>
+            <div class="swatch-row">
+              <Button variant="primary">enabled</Button>
+              <Button variant="primary" disabled>disabled</Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cards -->
+      <section class="lab-cell">
+        <header class="lab-cell__header">
+          <span class="lab-cell__tag">02</span>
+          <h2 class="lab-cell__title">Card</h2>
+          <span class="lab-cell__meta">size: default · sm</span>
+        </header>
+
+        <div class="lab-cell__body">
+          <div class="card-grid">
+            <Card>
+              <CardHeader>
+                <CardTitle>Default card</CardTitle>
+                <CardDescription>Standard padding, ring-1 border.</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p class="lab-prose">Body content. Uses <code>bg-card</code> background and <code>card-foreground</code> text. Both map to <code>--colour-bg-secondary</code> and <code>--colour-text-primary</code>.</p>
+              </CardContent>
+              <CardFooter>
+                <Button variant="primary" size="sm">Action</Button>
+                <Button variant="ghost" size="sm">Dismiss</Button>
+              </CardFooter>
+            </Card>
+
+            <Card size="sm">
+              <CardHeader>
+                <CardTitle>Small card</CardTitle>
+                <CardDescription>Compact size variant.</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p class="lab-prose">Reduced padding and smaller text rhythm — useful for dense UIs.</p>
+              </CardContent>
+              <CardFooter>
+                <Button variant="outline" size="sm">View</Button>
+              </CardFooter>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dialog -->
+      <section class="lab-cell">
+        <header class="lab-cell__header">
+          <span class="lab-cell__tag">03</span>
+          <h2 class="lab-cell__title">Dialog</h2>
+          <span class="lab-cell__meta">JS-driven overlay · accent-aware</span>
+        </header>
+
+        <div class="lab-cell__body">
+          <p class="lab-prose lab-prose--muted">
+            Change the accent above <em>before</em> opening — the confirm button's <code>bg-primary</code> should shift colour to match the active section accent.
+          </p>
+
+          <div class="swatch-row" style="margin-top: 1.25rem;">
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button variant="primary">Open dialog</Button>
+              </DialogTrigger>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>Confirm action</DialogTitle>
+                  <DialogDescription>
+                    This dialog uses <code>bg-background</code> (popover) and the primary accent for its confirm button. Switch accent and reopen to verify token inheritance.
+                  </DialogDescription>
+                </DialogHeader>
+                <div class="dialog-body">
+                  <p>Dialog body content — <code>bg-background</code> maps to <code>--colour-bg-primary</code>, text uses <code>--colour-text-primary</code>.</p>
+                </div>
+                <DialogFooter>
+                  <DialogClose asChild>
+                    <Button variant="outline">Cancel</Button>
+                  </DialogClose>
+                  <Button variant="primary">Confirm</Button>
+                </DialogFooter>
+              </DialogContent>
+            </Dialog>
+          </div>
+        </div>
+      </section>
+
+      <!-- Token audit -->
+      <section class="lab-cell">
+        <header class="lab-cell__header">
+          <span class="lab-cell__tag">04</span>
+          <h2 class="lab-cell__title">Token audit</h2>
+          <span class="lab-cell__meta">live — updates with accent + theme</span>
+        </header>
+
+        <div class="lab-cell__body">
+          <div class="token-grid">
+            {[
+              { name: "background",   token: "var(--background)"          },
+              { name: "foreground",   token: "var(--foreground)"           },
+              { name: "card",         token: "var(--card)"                 },
+              { name: "popover",      token: "var(--popover)"              },
+              { name: "primary",      token: "var(--primary)"              },
+              { name: "primary-fg",   token: "var(--primary-foreground)"   },
+              { name: "secondary",    token: "var(--secondary)"            },
+              { name: "muted",        token: "var(--muted)"                },
+              { name: "muted-fg",     token: "var(--muted-foreground)"     },
+              { name: "border",       token: "var(--border)"               },
+              { name: "input",        token: "var(--input)"                },
+              { name: "success",      token: "var(--success)"              },
+              { name: "warning",      token: "var(--warning)"              },
+              { name: "error",        token: "var(--error)"                },
+              { name: "info",         token: "var(--info)"                 },
+            ].map(({ name, token }) => (
+              <div class="token-row">
+                <div class="token-swatch" style={`background: ${token};`} />
+                <span class="token-name">{name}</span>
+                <code class="token-var">{token}</code>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <script is:inline>
+      function setAccent(key) {
+        document.documentElement.setAttribute("data-accent", key);
+        document.querySelectorAll(".accent-dot").forEach((el) => {
+          el.classList.toggle("is-active", el.dataset.accentKey === key);
+        });
+      }
+
+      function toggleTheme() {
+        const html = document.documentElement;
+        const isDark = html.classList.toggle("dark");
+        const label = document.getElementById("theme-label");
+        if (label) label.textContent = isDark ? "dark" : "light";
+        document.querySelector(".theme-toggle")?.classList.toggle("is-light", !isDark);
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const current = document.documentElement.getAttribute("data-accent") || "p1-violet";
+        setAccent(current);
+      });
+    </script>
+
+  </body>
+</html>

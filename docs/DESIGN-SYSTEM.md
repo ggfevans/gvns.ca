@@ -379,4 +379,50 @@ Use [Lucide](https://lucide.dev/) icons via inline SVG.
 
 ---
 
-*Last updated: 2026-02-02*
+## Using Starwind UI
+
+Starwind UI Pro is adopted as a component library (shadcn-style — components are copied into the codebase, not imported from a package). Install components on demand via the CLI:
+
+```bash
+npx starwind@latest add <component>
+```
+
+Components land in `src/components/starwind/<name>/` and can be forked freely.
+
+### When to use Starwind vs hand-rolled components
+
+Use Starwind for interactive primitives with accessibility requirements: buttons, dialogs, tabs, accordions, dropdowns, toasts. Continue hand-rolling for layout components, section-specific UI, and anything that needs tight design-system integration out of the box.
+
+### Token mapping
+
+`src/styles/starwind.css` bridges Starwind's variable names to the site's `--colour-*` tokens. Key mappings:
+
+| Starwind token | Site token | Effect |
+|----------------|------------|--------|
+| `--primary` | `var(--colour-accent-primary)` | Follows dynamic section accent |
+| `--primary-foreground` | `var(--colour-text-inverse)` | Correct contrast in both modes |
+| `--primary-accent` | `var(--colour-accent-hover)` | Hover/active state |
+| `--background` | `var(--colour-bg-primary)` | Page background |
+| `--foreground` | `var(--colour-text-primary)` | Body text |
+| `--card` | `var(--colour-bg-secondary)` | Card surfaces |
+| `--muted` / `--accent` | `var(--colour-bg-tertiary)` | Subtle backgrounds |
+| `--muted-foreground` | `var(--colour-text-secondary)` | Subdued text |
+| `--border` / `--input` | `var(--colour-border)` | Borders |
+
+Because these reference `--colour-*` tokens (which swap via `:root:not(.dark)` in `global.css`), Starwind components inherit both dark/light theme switching and per-section accent changes automatically — no extra CSS needed.
+
+### Dark-first override
+
+Starwind ships light-first (`:root` = light tokens, `.dark` = dark). The site is dark-first. `starwind.css` is rewritten so `:root` maps to `var(--colour-*)`, which already carry dark values by default. There is no separate `.dark {}` block in `starwind.css`.
+
+### Radius notes
+
+Starwind's `@theme inline` normally redefines `--radius-sm/md/lg/xl` as `calc(var(--radius) ± n)`. These are intentionally omitted from `starwind.css` to preserve the site's fixed pixel radii (`2px`, `4px`, `8px`, `12px`). The Starwind-only tiers (`--radius-xs`, `--radius-2xl`, `--radius-3xl`) are kept.
+
+### Forms plugin
+
+`@plugin "@tailwindcss/forms"` is loaded in `starwind.css`. All existing native form elements (Pagefind search input) use `!important` style overrides and are unaffected.
+
+---
+
+*Last updated: 2026-04-25*
