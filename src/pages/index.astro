@@ -28,25 +28,25 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
   <script type="application/ld+json" set:html={jsonLd} slot="head" />
   <main id="main-content" class="home">
     <section class="hero" aria-labelledby="hero-heading">
-      <div class="hero-text">
+      <div class="hero-headline">
         <h1 id="hero-heading">Hi, I'm Gareth</h1>
-        <p class="tagline">Serious work, questionable puns.</p>
-        <p class="intro">
-          Tech Tinkerer based in Qualicum Beach, Canada. I write about homelab,
-          self-hosting, networking, BJJ, and the occasional life observation.
-        </p>
+        <picture class="hero-avatar">
+          <source srcset="/avatar.webp" type="image/webp" />
+          <img
+            src="/avatar.jpg"
+            alt="Gareth Evans, smiling"
+            width="120"
+            height="120"
+            loading="eager"
+            decoding="async"
+          />
+        </picture>
       </div>
-      <picture class="hero-avatar">
-        <source srcset="/avatar.webp" type="image/webp" />
-        <img
-          src="/avatar.jpg"
-          alt="Gareth Evans, smiling"
-          width="96"
-          height="96"
-          loading="eager"
-          decoding="async"
-        />
-      </picture>
+      <p class="tagline">Serious work, questionable puns.</p>
+      <p class="intro">
+        Tech Tinkerer based in Qualicum Beach, Canada. I write about homelab,
+        self-hosting, networking, BJJ, and the occasional life observation.
+      </p>
     </section>
 
     <section class="status-section" aria-label="Current status">
@@ -98,15 +98,18 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
     max-width: var(--width-content);
     margin: 0 auto;
     padding: var(--space-16) 0 var(--space-12);
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: start;
+  }
+  .hero-headline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     gap: var(--space-6);
+    margin-bottom: var(--space-4);
   }
   .hero-avatar {
     display: block;
-    width: 96px;
-    height: 96px;
+    width: 120px;
+    height: 120px;
     border-radius: 9999px;
     overflow: hidden;
     background: var(--colour-bg-secondary);
@@ -119,30 +122,25 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
     object-fit: cover;
     display: block;
   }
-  .hero-text {
-    min-width: 0;
-  }
   @media (max-width: 640px) {
     .hero {
-      grid-template-columns: 1fr;
-      justify-items: center;
       text-align: center;
+    }
+    .hero-headline {
+      flex-direction: column-reverse;
+      align-items: center;
       gap: var(--space-4);
     }
-    .hero-text {
-      order: 2;
-    }
     .hero-avatar {
-      order: 1;
-      width: 80px;
-      height: 80px;
+      width: 88px;
+      height: 88px;
     }
   }
   h1 {
     font-size: var(--text-4xl);
     line-height: 1.2;
     letter-spacing: -0.025em;
-    margin-bottom: var(--space-4);
+    margin-bottom: 0;
   }
   .tagline {
     font-size: var(--text-lg);
