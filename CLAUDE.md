@@ -8,8 +8,9 @@ Personal writing + work site for gvns.ca. Brand guide aligned and in active buil
 
 ## Tech Stack
 
-- **Framework**: Astro 5.x with Svelte 5 islands for interactivity
+- **Framework**: Astro 6.x with Svelte 5 islands for interactivity
 - **Styling**: Tailwind CSS 4.x with P1-P5 accent palette (violet/rose/emerald/amber/sky) + zinc neutrals
+- **Components**: Starwind UI Pro (shadcn-style, copied into `src/components/starwind/`; add via `npx starwind@latest add <component>`)
 - **Content**: Astro Content Collections (type-safe markdown)
 - **Hosting**: Cloudflare Pages (auto-deploy from GitHub)
 - **Analytics**: None (Umami removed)

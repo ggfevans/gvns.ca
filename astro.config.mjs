@@ -23,7 +23,7 @@ try {
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://gvns.ca",
+	site: "https://gvns.ca",
   markdown: {
     shikiConfig: {
       theme: shikiTheme,
@@ -34,5 +34,5 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
 
-  integrations: [svelte(), react(), sitemap(), pagefind()],
+  integrations: [svelte(), react(), sitemap({ filter: (page) => !page.includes("/sandbox/") }), pagefind()],
 });
