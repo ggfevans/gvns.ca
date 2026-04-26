@@ -6,10 +6,10 @@ interface Props {
 const { current } = Astro.props;
 ---
 
-<nav class="gvns-write-nav" aria-label="Posts section">
-    <a href="/posts" class:list={["gvns-write-nav__link", { active: current === "posts" }]}>Posts</a>
-    <a href="/posts/archive" class:list={["gvns-write-nav__link", { active: current === "archive" }]}>Archive</a>
-    <a href="/posts/tags" class:list={["gvns-write-nav__link", { active: current === "tags" }]}>Tags</a>
+<nav class="gvns-posts-nav" aria-label="Posts section">
+    <a href="/posts" class:list={["gvns-posts-nav__link", { active: current === "posts" }]}>Posts</a>
+    <a href="/posts/archive" class:list={["gvns-posts-nav__link", { active: current === "archive" }]}>Archive</a>
+    <a href="/posts/tags" class:list={["gvns-posts-nav__link", { active: current === "tags" }]}>Tags</a>
     <a href="/rss.xml" class="gvns-write-nav__link" target="_blank" rel="noopener noreferrer">RSS</a>
 </nav>
 
