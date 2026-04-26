@@ -1,0 +1,178 @@
+---
+import "@styles/global.css";
+import "@/styles/starwind.css";
+import Button from "@/components/starwind/button/Button.astro";
+import Card from "@/components/starwind/card/Card.astro";
+import CardHeader from "@/components/starwind/card/CardHeader.astro";
+import CardTitle from "@/components/starwind/card/CardTitle.astro";
+import CardDescription from "@/components/starwind/card/CardDescription.astro";
+import CardContent from "@/components/starwind/card/CardContent.astro";
+import CardFooter from "@/components/starwind/card/CardFooter.astro";
+import Dialog from "@/components/starwind/dialog/Dialog.astro";
+import DialogTrigger from "@/components/starwind/dialog/DialogTrigger.astro";
+import DialogContent from "@/components/starwind/dialog/DialogContent.astro";
+import DialogHeader from "@/components/starwind/dialog/DialogHeader.astro";
+import DialogTitle from "@/components/starwind/dialog/DialogTitle.astro";
+import DialogDescription from "@/components/starwind/dialog/DialogDescription.astro";
+import DialogFooter from "@/components/starwind/dialog/DialogFooter.astro";
+import DialogClose from "@/components/starwind/dialog/DialogClose.astro";
+
+// Sandbox page — internal harness only, not linked from anywhere
+const accents = ["p1-violet", "p2-rose", "p3-emerald", "p4-amber", "p5-sky"] as const;
+const buttonVariants = ["default", "primary", "secondary", "outline", "ghost"] as const;
+---
+
+<!doctype html>
+<html lang="en" class="dark" data-accent="p1-violet">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Starwind Sandbox — internal</title>
+    <style>
+      .sandbox-section {
+        border-top: 1px solid var(--colour-border);
+        padding-block: 2rem;
+      }
+      .sandbox-label {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--colour-text-muted);
+        margin-bottom: 1rem;
+      }
+      .swatch-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Accent switcher -->
+    <div style="position:fixed;top:1rem;right:1rem;z-index:50;display:flex;gap:0.5rem;flex-wrap:wrap;">
+      {accents.map((a) => (
+        <button
+          onclick={`document.documentElement.setAttribute('data-accent','${a}')`}
+          style="background:var(--colour-accent-primary);padding:0.25rem 0.75rem;border-radius:4px;color:var(--colour-text-inverse);font-size:0.75rem;cursor:pointer;border:none;"
+          data-accent-target={a}
+        >
+          {a}
+        </button>
+      ))}
+      <button
+        onclick="document.documentElement.classList.toggle('dark')"
+        style="background:var(--colour-bg-tertiary);padding:0.25rem 0.75rem;border-radius:4px;color:var(--colour-text-primary);font-size:0.75rem;cursor:pointer;border:1px solid var(--colour-border);"
+      >
+        toggle dark
+      </button>
+    </div>
+
+    <main style="max-width:60rem;margin-inline:auto;padding:4rem 1.5rem;">
+      <h1 style="font-family:var(--font-heading);font-size:2rem;font-weight:700;margin-bottom:0.5rem;color:var(--colour-text-primary);">
+        Starwind UI Sandbox
+      </h1>
+      <p style="color:var(--colour-text-secondary);margin-bottom:2rem;">
+        Internal harness — not linked from the site. Verifies token mapping across themes and section accents.
+      </p>
+
+      <!-- Buttons -->
+      <div class="sandbox-section">
+        <div class="sandbox-label">Button variants</div>
+        <div class="swatch-row">
+          {buttonVariants.map((v) => (
+            <Button variant={v}>{v}</Button>
+          ))}
+        </div>
+        <div class="swatch-row">
+          {buttonVariants.map((v) => (
+            <Button variant={v} size="sm">{v} sm</Button>
+          ))}
+        </div>
+        <div class="swatch-row">
+          <Button variant="primary" size="lg">Primary large</Button>
+          <Button variant="primary" disabled>Disabled</Button>
+        </div>
+      </div>
+
+      <!-- Cards -->
+      <div class="sandbox-section">
+        <div class="sandbox-label">Card</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(18rem,1fr));gap:1.5rem;">
+          <Card>
+            <CardHeader>
+              <CardTitle>Card title</CardTitle>
+              <CardDescription>Card description text goes here.</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p style="color:var(--colour-text-secondary);">Card body content. Should use bg-card background and card-foreground text.</p>
+            </CardContent>
+            <CardFooter>
+              <Button variant="primary" size="sm">Action</Button>
+              <Button variant="ghost" size="sm">Cancel</Button>
+            </CardFooter>
+          </Card>
+          <Card size="sm">
+            <CardHeader>
+              <CardTitle>Small card</CardTitle>
+              <CardDescription>Compact variant.</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p style="color:var(--colour-text-secondary);">Smaller padding and text.</p>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+
+      <!-- Dialog -->
+      <div class="sandbox-section">
+        <div class="sandbox-label">Dialog</div>
+        <Dialog>
+          <DialogTrigger>
+            <Button variant="primary">Open dialog</Button>
+          </DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Dialog title</DialogTitle>
+              <DialogDescription>
+                This dialog should inherit the current accent via --primary. Toggle the accent buttons above before opening to verify.
+              </DialogDescription>
+            </DialogHeader>
+            <div style="padding:0 1.5rem;color:var(--colour-text-secondary);">
+              Dialog body content. Background should be popover (bg-tertiary), text should be foreground.
+            </div>
+            <DialogFooter>
+              <DialogClose>
+                <Button variant="outline">Cancel</Button>
+              </DialogClose>
+              <Button variant="primary">Confirm</Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
+      </div>
+
+      <!-- Token audit -->
+      <div class="sandbox-section">
+        <div class="sandbox-label">Token audit — current accent</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(12rem,1fr));gap:0.75rem;font-size:0.8rem;">
+          {[
+            ["background","var(--background)"],
+            ["foreground","var(--foreground)"],
+            ["card","var(--card)"],
+            ["primary","var(--primary)"],
+            ["primary-fg","var(--primary-foreground)"],
+            ["muted","var(--muted)"],
+            ["border","var(--border)"],
+          ].map(([name, token]) => (
+            <div style={`display:flex;align-items:center;gap:0.5rem;`}>
+              <div style={`width:2rem;height:2rem;border-radius:4px;background:${token};border:1px solid var(--colour-border);flex-shrink:0;`}></div>
+              <span style="color:var(--colour-text-secondary);">{name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
