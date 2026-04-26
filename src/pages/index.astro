@@ -27,10 +27,10 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
 >
   <script type="application/ld+json" set:html={jsonLd} slot="head" />
   <main id="main-content" class="home">
-    <section class="hero" aria-labelledby="hero-heading">
-      <div class="hero-headline">
+    <section class="gvns-hero" aria-labelledby="hero-heading">
+      <div class="gvns-hero-headline">
         <h1 id="hero-heading">Hi, I'm Gareth</h1>
-        <picture class="hero-avatar">
+        <picture class="gvns-hero-avatar">
           <source srcset="/avatar.webp" type="image/webp" />
           <img
             src="/avatar.jpg"
@@ -94,20 +94,20 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
   }
 
   /* Hero */
-  .hero {
+  .gvns-hero {
     max-width: var(--width-content);
     margin: 0 auto;
     padding: var(--space-16) 0 var(--space-12);
     text-align: center;
   }
-  .hero-headline {
+  .gvns-hero-headline {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: var(--space-6);
     margin-bottom: var(--space-4);
   }
-  .hero-avatar {
+  .gvns-hero-avatar {
     display: block;
     width: 120px;
     height: 120px;
@@ -117,22 +117,22 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
     border: 1px solid var(--colour-border);
     flex-shrink: 0;
   }
-  .hero-avatar img {
+  .gvns-hero-avatar img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
   }
   @media (max-width: 640px) {
-    .hero {
+    .gvns-hero {
       text-align: center;
     }
-    .hero-headline {
+    .gvns-hero-headline {
       flex-direction: column-reverse;
       align-items: center;
       gap: var(--space-4);
     }
-    .hero-avatar {
+    .gvns-hero-avatar {
       width: 88px;
       height: 88px;
     }
