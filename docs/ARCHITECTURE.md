@@ -152,9 +152,11 @@ See `INFRASTRUCTURE.md` for server configuration details.
 
 ### Naming
 
-- **Files**: `kebab-case.astro`, `kebab-case.md`
-- **Components**: `PascalCase.astro` or `PascalCase.svelte`
+- **Components** (`src/components/**/*.astro`, `*.svelte`): `PascalCase.astro` / `PascalCase.svelte`
+- **Pages, layouts, utils, content, styles**: `kebab-case.{astro,ts,md,css}`
 - **CSS classes**: Tailwind utilities; custom classes use `gvns-` prefix
+
+See `COMPONENT-CONVENTIONS.md` for the full split-naming rule.
 
 ### Imports
 

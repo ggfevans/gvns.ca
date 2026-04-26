@@ -53,7 +53,13 @@ src/
 - **Astro components**: Default for static content
 - **Svelte islands**: Only for client-side interactivity (theme toggle, search)
 - Custom CSS classes use `gvns-` prefix
-- Files: `kebab-case.astro`, components: `PascalCase.astro`
+
+### Naming
+
+- **Components** (`src/components/**/*.astro`, `*.svelte`): `PascalCase` (e.g. `BookList.astro`, `ThemeToggle.svelte`). Matches Astro/Svelte community norm and Starwind UI Pro output.
+- **Pages, routes, layouts, utils, content, styles**: `kebab-case` (e.g. `src/pages/read/index.astro`, `src/utils/reading-time.ts`). Keeps URLs and import paths clean.
+
+See `docs/COMPONENT-CONVENTIONS.md` for full rationale and examples.
 
 ## Content Schema
 
