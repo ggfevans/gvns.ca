@@ -34,11 +34,6 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
         Web developer on Vancouver Island. I write about homelab, self-hosting,
         web development, BJJ, and the occasional life observation.
       </p>
-      <nav class="hero-cta" aria-label="Quick links">
-        <a href="/write" class="cta-link">Writing</a>
-        <a href="/work" class="cta-link">Work</a>
-        <a href="/now" class="cta-link">Now</a>
-      </nav>
     </section>
 
     <section class="status-section" aria-label="Current status">
@@ -109,22 +104,6 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
     line-height: 1.6;
     margin-bottom: var(--space-8);
   }
-  .hero-cta {
-    display: flex;
-    gap: var(--space-6);
-    justify-content: center;
-  }
-  .cta-link {
-    color: var(--colour-accent-primary);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: var(--text-lg);
-    transition: color var(--transition-fast);
-  }
-  .cta-link:hover {
-    color: var(--colour-accent-hover);
-  }
-
   /* Status — these :global() selectors target StatusWidget's internal classes
      to restyle it inline on the homepage. Update if StatusWidget class names change. */
   .status-section {
