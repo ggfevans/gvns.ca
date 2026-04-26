@@ -28,6 +28,14 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
   <script type="application/ld+json" set:html={jsonLd} slot="head" />
   <main id="main-content" class="home">
     <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-text">
+        <h1 id="hero-heading">Hi, I'm Gareth</h1>
+        <p class="tagline">Serious work, questionable puns.</p>
+        <p class="intro">
+          Tech Tinkerer based in Qualicum Beach, Canada. I write about homelab,
+          self-hosting, networking, BJJ, and the occasional life observation.
+        </p>
+      </div>
       <picture class="hero-avatar">
         <source srcset="/avatar.webp" type="image/webp" />
         <img
@@ -39,14 +47,6 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
           decoding="async"
         />
       </picture>
-      <div class="hero-text">
-        <h1 id="hero-heading">Hi, I'm Gareth</h1>
-        <p class="tagline">Serious work, questionable puns.</p>
-        <p class="intro">
-          Tech Tinkerer based in Qualicum Beach, Canada. I write about homelab,
-          self-hosting, networking, BJJ, and the occasional life observation.
-        </p>
-      </div>
     </section>
 
     <section class="status-section" aria-label="Current status">
@@ -99,7 +99,7 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
     margin: 0 auto;
     padding: var(--space-16) 0 var(--space-12);
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 1fr auto;
     align-items: start;
     gap: var(--space-6);
   }
@@ -129,7 +129,11 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
       text-align: center;
       gap: var(--space-4);
     }
+    .hero-text {
+      order: 2;
+    }
     .hero-avatar {
+      order: 1;
       width: 80px;
       height: 80px;
     }
