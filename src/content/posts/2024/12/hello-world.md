@@ -1,8 +1,11 @@
 ---
-title: "Hello, World!"
-description: "Welcome to gvns.ca — writing on homelab, BJJ, and productivity."
+title: Hello, World!
+description: Welcome to gvns.ca — writing on homelab, BJJ, and productivity.
 pubDate: 2024-12-09
-tags: ["meta"]
+tags:
+  - meta
+updatedDate: ''
+canonicalUrl: ''
 ---
 
 Welcome to my corner of the internet.
