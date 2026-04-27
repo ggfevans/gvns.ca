@@ -32,3 +32,6 @@ pnpm-debug.log*
 **/CLAUDE.md
 !/CLAUDE.md
 .worktrees
+
+# wrangler local state
+.wrangler/
