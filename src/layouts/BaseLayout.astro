@@ -16,12 +16,15 @@ interface Props {
 }
 
 const { title, description, image, imageWidth, imageHeight, accent, breadcrumbs } = Astro.props;
+
+const SITE_SUFFIX = ' | gvns.ca';
+const fullTitle = title.endsWith(SITE_SUFFIX) ? title : `${title}${SITE_SUFFIX}`;
 ---
 
 <!doctype html>
 <html lang="en" data-accent={accent}>
   <head>
-    <BaseHead title={title} description={description} image={image} imageWidth={imageWidth} imageHeight={imageHeight} />
+    <BaseHead title={fullTitle} description={description} image={image} imageWidth={imageWidth} imageHeight={imageHeight} />
     <slot name="head" />
     <script is:inline>
       // Initialize theme before page renders to prevent flash
