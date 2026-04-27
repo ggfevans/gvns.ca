@@ -19,7 +19,10 @@ function collectSlugs(dir) {
       const p = join(d, entry);
       const s = statSync(p);
       if (s.isDirectory()) walk(p);
-      else if (extname(entry) === ".md") slugs.add(basename(entry, ".md"));
+      else {
+        const ext = extname(entry);
+        if (ext === ".md" || ext === ".mdx") slugs.add(basename(entry, ext));
+      }
     }
   }
   walk(dir);
