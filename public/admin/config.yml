@@ -1,0 +1,99 @@
+backend:
+  name: github
+  repo: ggfevans/gvns.ca
+  branch: main
+  base_url: https://auth.gvns.ca
+  auth_endpoint: auth
+
+site_url: https://gvns.ca
+display_url: https://gvns.ca
+
+media_folder_relative: true
+media_folder: src/content/posts/{{year}}/{{month}}/images
+public_folder: /images
+
+collections:
+  - name: posts
+    label: Posts
+    label_singular: Post
+    folder: src/content/posts
+    path: "{{year}}/{{month}}/{{slug}}"
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    format: frontmatter
+    editor:
+      preview: false
+    fields:
+      - {
+          name: title,
+          label: Title,
+          widget: string,
+          required: true,
+          pattern: ["^.{1,100}$", "Max 100 characters"],
+        }
+      - {
+          name: description,
+          label: Description,
+          widget: text,
+          required: true,
+          pattern: ['^[\s\S]{1,200}$', "Max 200 characters"],
+        }
+      - {
+          name: pubDate,
+          label: Publish date,
+          widget: datetime,
+          format: "YYYY-MM-DD",
+          date_format: "YYYY-MM-DD",
+          time_format: false,
+          required: true,
+          default: "",
+        }
+      - name: tags
+        label: Tags
+        widget: select
+        multiple: true
+        min: 1
+        max: 4
+        options:
+          - homelab
+          - docker
+          - linux
+          - networking
+          - automation
+          - web-dev
+          - bjj
+          - movement
+          - training
+          - adhd
+          - productivity
+          - pkm
+          - essay
+          - tutorial
+          - til
+          - meta
+      - {
+          name: updatedDate,
+          label: Updated date,
+          widget: datetime,
+          format: "YYYY-MM-DD",
+          date_format: "YYYY-MM-DD",
+          time_format: false,
+          required: false,
+        }
+      - { name: draft, label: Draft, widget: boolean, default: false }
+      - {
+          name: heroImage,
+          label: Hero image,
+          widget: image,
+          required: false,
+          choose_url: false,
+        }
+      - {
+          name: canonicalUrl,
+          label: Canonical URL,
+          widget: string,
+          required: false,
+          hint: "Full URL of the original post if cross-published (validated at build by Zod).",
+        }
+      - { name: body, label: Body, widget: markdown }

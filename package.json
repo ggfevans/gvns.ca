@@ -8,8 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "new-post": "node scripts/new-post.mjs",
-    "ingest": "node scripts/ingest.mjs",
+    "wikilinks": "node scripts/wikilink-convert.mjs",
     "syndicate": "node scripts/syndicate.mjs"
   },
   "engines": {

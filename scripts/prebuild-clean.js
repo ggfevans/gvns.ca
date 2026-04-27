@@ -9,8 +9,21 @@
  * Upstream bug: https://github.com/thedotmack/claude-mem/issues/760
  */
 
-import { readdirSync, unlinkSync } from 'node:fs';
+import { readdirSync, rmSync, unlinkSync } from 'node:fs';
 import { join } from 'node:path';
+
+// Clear stale Astro content data-store cache. Workers Builds restores this
+// across runs, so deleted entries (and references to images they used) live
+// on indefinitely and break builds. Cheap to regenerate (~1s); always wipe.
+for (const dir of ['.astro', 'node_modules/.astro']) {
+  try {
+    rmSync(dir, { recursive: true, force: true });
+  } catch (err) {
+    if (err.code !== 'ENOENT') {
+      console.error(`Warning: failed to clear ${dir}: ${err.message}`);
+    }
+  }
+}
 
 const targetFile = 'CLAUDE.md';
 

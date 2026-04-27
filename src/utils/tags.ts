@@ -1,12 +1,9 @@
 /**
- * Canonical tag taxonomy for gvns.ca writing collection.
+ * Canonical tag taxonomy for gvns.ca posts collection.
  *
  * SOURCE OF TRUTH: This file defines the authoritative tag taxonomy.
- * The CLI scripts (scripts/lib/cli-utils.mjs, scripts/ingest.mjs) duplicate
- * these definitions because .mjs cannot import .ts without a build step.
  * When modifying tags here, also update:
- *   - scripts/lib/cli-utils.mjs (TAG_CATEGORIES, VALID_TAGS)
- *   - scripts/ingest.mjs (TAG_KEYWORDS)
+ *   - public/admin/config.yml (Sveltia CMS tag select widget options)
  */
 
 export const VALID_TAGS = [
