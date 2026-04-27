@@ -88,8 +88,6 @@ collections:
           widget: image,
           required: false,
           choose_url: false,
-          media_folder: images,
-          public_folder: ./images,
         }
       - {
           name: canonicalUrl,
