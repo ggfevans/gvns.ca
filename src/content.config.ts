@@ -1,6 +1,8 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
+const emptyToUndefined = (v: unknown) => (v === '' || v === null ? undefined : v);
+
 const posts = defineCollection({
   loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: './src/content/posts' }),
   schema: ({ image }) =>
@@ -8,11 +10,11 @@ const posts = defineCollection({
       title: z.string().max(100),
       description: z.string().max(200),
       pubDate: z.coerce.date(),
-      updatedDate: z.coerce.date().optional(),
+      updatedDate: z.preprocess(emptyToUndefined, z.coerce.date().optional()),
       tags: z.array(z.string()).min(1).max(4),
       draft: z.boolean().default(false),
-      heroImage: image().optional(),
-      canonicalUrl: z.string().url().optional(),
+      heroImage: z.preprocess(emptyToUndefined, image().optional()),
+      canonicalUrl: z.preprocess(emptyToUndefined, z.string().url().optional()),
       syndication: z
         .array(
           z.object({
