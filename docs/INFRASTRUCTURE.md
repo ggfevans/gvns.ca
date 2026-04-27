@@ -8,7 +8,7 @@
 │                                                     │
 │   gvns.ca ──────────► Workers (Static Assets + SSR) │
 │                                                     │
-│   www.gvns.ca ────────► 301 → gvns.ca (_redirects) │
+│   www.gvns.ca ────► 301 → gvns.ca (CF Redirect Rule) │
 │                                                     │
 └─────────────────────────────────────────────────────┘
 
@@ -39,7 +39,7 @@ GitHub Actions (scheduled):
 | Domain | Purpose |
 |--------|---------|
 | `gvns.ca` | Primary (apex) — bound to `gvns-ca` Worker |
-| `www.gvns.ca` | Redirects to apex via `_redirects` |
+| `www.gvns.ca` | Redirects to apex via a Cloudflare Redirect Rule (see below) |
 
 ### How Deploys Work
 
@@ -57,6 +57,20 @@ npm run build
 ```
 
 The `--config dist/server/wrangler.json` flag points wrangler at the adapter-generated config (which has the resolved `main: entry.mjs` and `assets.directory: ../client`). The root `wrangler.jsonc` intentionally omits `main` because `@cloudflare/vite-plugin` validates that path during `astro build` before the SSR bundle exists.
+
+### www → Apex Redirect
+
+Configured as a Cloudflare **Redirect Rule** (Rules → Redirect Rules), not in `_redirects`:
+
+| Field | Value |
+|---|---|
+| If: | `Hostname` equals `www.gvns.ca` |
+| Then | Static redirect, `301`, target: `concat("https://gvns.ca", http.request.uri.path)` |
+| Preserve query string | ✓ |
+
+Workers Static Assets rejects absolute URLs in `_redirects` (validation error 10021), so the previous `https://www.gvns.ca/* https://gvns.ca/:splat 301` rule could not be carried forward. A path-only `/*` rule in `_redirects` would also fire on apex requests since both hostnames route to the same Worker, breaking `gvns.ca`. Cloudflare Redirect Rules run at the edge before the Worker sees the request, which is the correct layer for hostname-based redirects.
+
+`public/_redirects` is retained for any future *path-relative* redirects.
 
 ### Security Headers
 
