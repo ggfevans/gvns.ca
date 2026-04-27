@@ -2,7 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import TagList from "@components/TagList.astro";
-import WriteNav from "@components/WriteNav.astro";
+import PostsNav from "@components/PostsNav.astro";
 import { formatDate } from "@utils/date";
 import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from "@utils/json-ld";
 import { getPostSlug } from "@utils/content";
@@ -50,7 +50,7 @@ const breadcrumbJsonLd = toJsonLd(
     />
     <main id="main-content" class="archive-page">
         <h1>Archive</h1>
-        <WriteNav current="archive" />
+        <PostsNav current="archive" />
         <p class="intro">All posts, organised by date.</p>
 
         {posts.length === 0 && (

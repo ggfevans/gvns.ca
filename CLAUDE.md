@@ -34,7 +34,7 @@ src/
 │   ├── posts/      # Markdown posts organised by date (YYYY/MM/)
 │   └── config.ts   # Content collection schemas
 ├── layouts/        # BaseLayout, PostLayout, PageLayout
-├── pages/          # Route files including write/[slug].astro
+├── pages/          # Route files including posts/[slug].astro
 ├── styles/         # global.css with Tailwind imports
 └── utils/          # Helpers (date formatting, reading time)
 ```

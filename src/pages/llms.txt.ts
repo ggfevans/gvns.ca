@@ -13,7 +13,7 @@ export async function GET(context: APIContext) {
 
   const projects = await getCollection("work");
 
-  const writingLines = posts
+  const postsLines = posts
     .map(
       (post) =>
         `- [${post.data.title}](${siteUrl}/posts/${getPostSlug(post.id)}/): ${post.data.description}`,
@@ -31,9 +31,9 @@ export async function GET(context: APIContext) {
 
 > Personal site of Gareth Evans — writing on software, design, and technology, plus a portfolio of work.
 
-## Writing
+## Posts
 
-${writingLines}
+${postsLines}
 
 ## Work
 

@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import WriteNav from "@components/WriteNav.astro";
+import PostsNav from "@components/PostsNav.astro";
 import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from "@utils/json-ld";
 
 const posts = await getCollection("posts", ({ data }) => {
@@ -33,7 +33,7 @@ const breadcrumbJsonLd = toJsonLd(
 
 <BaseLayout
     title="Tags | gvns.ca"
-    description="Browse all writing tags."
+    description="Browse all post tags."
     accent="p4-amber"
     breadcrumbs={[
         { label: "Home", href: "/" },
@@ -48,7 +48,7 @@ const breadcrumbJsonLd = toJsonLd(
     />
     <main id="main-content" class="gvns-tags">
         <h1>Tags</h1>
-        <WriteNav current="tags" />
+        <PostsNav current="tags" />
         <p class="gvns-tags__intro">Browse posts by topic.</p>
 
         {
