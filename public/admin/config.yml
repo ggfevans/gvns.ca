@@ -10,7 +10,7 @@ display_url: https://gvns.ca
 
 media_folder_relative: true
 media_folder: src/content/posts/{{year}}/{{month}}/images
-public_folder: images
+public_folder: /images
 
 collections:
   - name: posts
