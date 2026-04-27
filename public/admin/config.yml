@@ -94,6 +94,6 @@ collections:
           label: Canonical URL,
           widget: string,
           required: false,
-          pattern: ["^https?://", "Must be a URL"],
+          hint: "Full URL of the original post if cross-published (validated at build by Zod).",
         }
       - { name: body, label: Body, widget: markdown }
