@@ -2,10 +2,10 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import PostCard from "@components/PostCard.astro";
-import WriteNav from "@components/WriteNav.astro";
+import PostsNav from "@components/PostsNav.astro";
 import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from "@utils/json-ld";
 
-const posts = (await getCollection("writing"))
+const posts = (await getCollection("posts"))
     .filter((post) => (import.meta.env.PROD ? !post.data.draft : true))
     .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
@@ -13,16 +13,16 @@ const siteUrl = normalizeSiteUrl(Astro.site);
 const breadcrumbJsonLd = toJsonLd(
     breadcrumbSchema([
         { name: "Home", url: siteUrl },
-        { name: "Write", url: `${siteUrl}/write` },
+        { name: "Posts", url: `${siteUrl}/posts` },
     ]),
 );
 ---
 
 <BaseLayout
-    title="Write | gvns.ca"
+    title="Posts | gvns.ca"
     description="Thoughts on homelab, web development, BJJ, and productivity."
     accent="p4-amber"
-    breadcrumbs={[{ label: "Home", href: "/" }, { label: "Write" }]}
+    breadcrumbs={[{ label: "Home", href: "/" }, { label: "Posts" }]}
 >
     <script
         type="application/ld+json"
@@ -30,8 +30,8 @@ const breadcrumbJsonLd = toJsonLd(
         slot="head"
     />
     <main id="main-content" class="writing-listing">
-        <h1>Write</h1>
-        <WriteNav current="posts" />
+        <h1>Posts</h1>
+        <PostsNav current="posts" />
         <p class="intro">
             Thoughts on homelab, web development, BJJ, and productivity.
         </p>

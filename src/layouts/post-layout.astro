@@ -14,10 +14,10 @@ import {
 } from "@utils/json-ld";
 import CopyCodeInit from "@components/CopyCodeInit.astro";
 import SyndicationLinks from "@components/SyndicationLinks.astro";
-import Comments from "@components/comments.astro";
+import Comments from "@components/Comments.astro";
 
 interface Props {
-    post: CollectionEntry<"writing">;
+    post: CollectionEntry<"posts">;
 }
 
 const { post } = Astro.props;
@@ -46,7 +46,7 @@ const articleJsonLd = toJsonLd(
 const breadcrumbJsonLd = toJsonLd(
     breadcrumbSchema([
         { name: "Home", url: siteUrl },
-        { name: "Write", url: `${siteUrl}/write` },
+        { name: "Posts", url: `${siteUrl}/posts` },
         { name: title, url: canonicalUrl },
     ]),
 );
@@ -61,7 +61,7 @@ const breadcrumbJsonLd = toJsonLd(
     accent="p4-amber"
     breadcrumbs={[
         { label: "Home", href: "/" },
-        { label: "Write", href: "/write" },
+        { label: "Posts", href: "/posts" },
         { label: title },
     ]}
 >
@@ -109,7 +109,7 @@ const breadcrumbJsonLd = toJsonLd(
             />
             <Comments post={post} />
             <footer class="post-footer">
-                <a href="/write">&larr; Back to writing</a>
+                <a href="/posts">&larr; Back to posts</a>
             </footer>
         </article>
     </main>

@@ -6,7 +6,7 @@ import TagList from './TagList.astro';
 import { getPostSlug } from '@utils/content';
 
 interface Props {
-  post: CollectionEntry<'writing'>;
+  post: CollectionEntry<'posts'>;
   showReadingTime?: boolean;
   headingLevel?: 'h2' | 'h3';
 }
@@ -21,7 +21,7 @@ const filename = getPostSlug(post.id);
 
 <article class="post-card">
   <HeadingTag class="post-title">
-    <a href={`/write/${filename}`}>{title}</a>
+    <a href={`/posts/${filename}`}>{title}</a>
   </HeadingTag>
   <div class="post-meta">
     <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>

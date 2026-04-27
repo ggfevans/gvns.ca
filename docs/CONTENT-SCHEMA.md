@@ -97,7 +97,7 @@ Use **one primary tag** per post, plus 1-3 secondary tags.
 ### File Structure
 
 ```
-src/content/writing/
+src/content/posts/
 ├── 2024/
 │   ├── 12/
 │   │   ├── my-first-post.md
@@ -117,7 +117,7 @@ src/content/writing/
 ### URL Generation
 
 Posts generate URLs from filename:
-- `src/content/writing/2024/12/my-first-post.md` → `/write/my-first-post/`
+- `src/content/posts/2024/12/my-first-post.md` → `/posts/my-first-post/`
 - Date folders are for organisation only, not in URL
 
 ## Content Guidelines
@@ -198,7 +198,7 @@ Supports:
 // src/content/config.ts
 import { defineCollection, z } from 'astro:content';
 
-const writing = defineCollection({
+const posts = defineCollection({
   type: 'content',
   schema: ({ image }) => z.object({
     title: z.string().max(100),
@@ -237,7 +237,7 @@ const work = defineCollection({
   }),
 });
 
-export const collections = { writing, work };
+export const collections = { posts, work };
 ```
 
 ---

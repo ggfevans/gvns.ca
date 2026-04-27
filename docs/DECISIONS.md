@@ -275,18 +275,18 @@ Use **Inter** (weights: 400, 500, 600, 700) and **JetBrains Mono** (400), self-h
 Content pages used gerund-form URLs (`/writing`, `/reading`). The site spec establishes a verb-based naming convention for all pages: present-tense verbs consistently.
 
 ### Decision
-Use **verb-based URLs**: `/write`, `/read`, `/listen`, `/watch`, `/code`.
+Use **verb-based URLs**: `/read`, `/listen`, `/watch`, `/code`. Exception: the writing section uses `/posts` for clarity.
 
 ### Rationale
 - Consistent voice across the entire site
 - Shorter, punchier URLs
-- Matches nav labels (Write, not Writing)
 - Activity pages use verbs as brand identity — "Read" not "Reading" or "Books"
+- `/posts` exception chosen over `/write` because "Posts" reads more naturally as a section name
 
 ### Consequences
-- Existing `/writing` and `/reading` routes need redirects
+- Existing `/writing` routes redirect to `/posts`; `/reading` redirects to `/read`
 - Internal links updated across all components and content
-- RSS feed URL may change
+- RSS feed items link to `/posts/...`
 - SEO: 301 redirects preserve link equity
 
 ---

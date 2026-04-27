@@ -6,7 +6,7 @@ import { getPostSlug } from '@utils/content';
 interface Props { compact?: boolean; }
 const { compact = false } = Astro.props;
 
-const posts = (await getCollection('writing'))
+const posts = (await getCollection('posts'))
   .filter((p) => (import.meta.env.PROD ? !p.data.draft : true))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
@@ -18,7 +18,7 @@ const postSlug = latestPost ? getPostSlug(latestPost.id) : undefined;
   <article class="gvns-widget-compact gvns-widget-compact--write">
     <div class="gvns-widget-compact__label">Latest Post</div>
     {latestPost ? (
-      <a href={`/write/${postSlug}`} class="gvns-widget-compact__body">
+      <a href={`/posts/${postSlug}`} class="gvns-widget-compact__body">
         <div class="gvns-widget-compact__info">
           <p class="gvns-widget-compact__title">{latestPost.data.title}</p>
           <p class="gvns-widget-compact__subtitle">{formatDate(latestPost.data.pubDate)}</p>
@@ -30,10 +30,10 @@ const postSlug = latestPost ? getPostSlug(latestPost.id) : undefined;
   </article>
 ) : (
   <article class="gvns-widget gvns-widget--write">
-    <div class="gvns-widget__label">Write</div>
+    <div class="gvns-widget__label">Posts</div>
     {latestPost ? (
       <div class="gvns-widget__content">
-        <a href={`/write/${postSlug}`} class="gvns-widget__post-link">
+        <a href={`/posts/${postSlug}`} class="gvns-widget__post-link">
           <p class="gvns-widget__detail gvns-widget__detail--bold">{latestPost.data.title}</p>
         </a>
         <time class="gvns-widget__time" datetime={latestPost.data.pubDate.toISOString()}>
@@ -44,7 +44,7 @@ const postSlug = latestPost ? getPostSlug(latestPost.id) : undefined;
     ) : (
       <p class="gvns-widget__empty">No posts yet.</p>
     )}
-    <a href="/write" class="gvns-widget__link">
+    <a href="/posts" class="gvns-widget__link">
       View Full Activity <span aria-hidden="true">&rarr;</span>
     </a>
   </article>

@@ -1,10 +1,10 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import WriteNav from "@components/WriteNav.astro";
+import PostsNav from "@components/PostsNav.astro";
 import { breadcrumbSchema, normalizeSiteUrl, toJsonLd } from "@utils/json-ld";
 
-const posts = await getCollection("writing", ({ data }) => {
+const posts = await getCollection("posts", ({ data }) => {
     return import.meta.env.PROD ? !data.draft : true;
 });
 
@@ -25,19 +25,19 @@ const siteUrl = normalizeSiteUrl(Astro.site);
 const breadcrumbJsonLd = toJsonLd(
     breadcrumbSchema([
         { name: "Home", url: siteUrl },
-        { name: "Write", url: `${siteUrl}/write` },
-        { name: "Tags", url: `${siteUrl}/write/tags` },
+        { name: "Posts", url: `${siteUrl}/posts` },
+        { name: "Tags", url: `${siteUrl}/posts/tags` },
     ]),
 );
 ---
 
 <BaseLayout
     title="Tags | gvns.ca"
-    description="Browse all writing tags."
+    description="Browse all post tags."
     accent="p4-amber"
     breadcrumbs={[
         { label: "Home", href: "/" },
-        { label: "Write", href: "/write" },
+        { label: "Posts", href: "/posts" },
         { label: "Tags" },
     ]}
 >
@@ -48,7 +48,7 @@ const breadcrumbJsonLd = toJsonLd(
     />
     <main id="main-content" class="gvns-tags">
         <h1>Tags</h1>
-        <WriteNav current="tags" />
+        <PostsNav current="tags" />
         <p class="gvns-tags__intro">Browse posts by topic.</p>
 
         {
@@ -57,7 +57,7 @@ const breadcrumbJsonLd = toJsonLd(
                     {sortedTags.map(([tag, count]) => (
                         <li>
                             <a
-                                href={`/write/tags/${encodeURIComponent(tag)}`}
+                                href={`/posts/tags/${encodeURIComponent(tag)}`}
                                 class="gvns-tags__link"
                             >
                                 <span class="gvns-tags__name">{tag}</span>

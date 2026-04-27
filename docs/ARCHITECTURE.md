@@ -16,10 +16,10 @@
 ```
 gvns.ca/
 ├── /                   # Home — intro + recent posts
-├── /write/             # Write index — all posts, filterable by tag
-├── /write/[slug]/      # Individual post
-├── /write/tags/        # Tag listing page
-├── /write/tags/[tag]/  # Posts filtered by tag
+├── /posts/             # Posts index — all posts, filterable by tag
+├── /posts/[slug]/      # Individual post
+├── /posts/tags/        # Tag listing page
+├── /posts/tags/[tag]/  # Posts filtered by tag
 ├── /work/              # Project showcase
 ├── /work/[project]/    # Project detail
 ├── /about/             # About
@@ -46,7 +46,7 @@ src/
 │   └── ThemeToggle.svelte  # Dark/light toggle (island)
 │
 ├── content/
-│   ├── writing/            # Writing posts (markdown)
+│   ├── posts/              # Writing posts (markdown)
 │   │   └── *.md
 │   ├── work/               # Work entries (markdown)
 │   │   └── *.md
@@ -62,8 +62,8 @@ src/
 │   ├── about/              # About
 │   ├── resume/             # Resume
 │   ├── work/               # Work index + detail
-│   ├── writing/
-│   │   ├── index.astro     # Writing listing
+│   ├── posts/
+│   │   ├── index.astro     # Posts listing
 │   │   ├── [slug].astro    # Dynamic post pages
 │   │   └── tags/
 │   │       ├── index.astro # All tags
@@ -87,7 +87,7 @@ src/
 // src/content/config.ts
 import { defineCollection, z } from 'astro:content';
 
-const writing = defineCollection({
+const posts = defineCollection({
   type: 'content',
   schema: ({ image }) => z.object({
     title: z.string().max(100),
@@ -114,7 +114,7 @@ const work = defineCollection({
   }),
 });
 
-export const collections = { writing, work };
+export const collections = { posts, work };
 ```
 
 See `CONTENT-SCHEMA.md` for full frontmatter specification and tag taxonomy.

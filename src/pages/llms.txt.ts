@@ -7,16 +7,16 @@ export async function GET(context: APIContext) {
     .toString()
     .replace(/\/$/, "");
 
-  const posts = (await getCollection("writing"))
+  const posts = (await getCollection("posts"))
     .filter((post) => !post.data.draft)
     .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
   const projects = await getCollection("work");
 
-  const writingLines = posts
+  const postsLines = posts
     .map(
       (post) =>
-        `- [${post.data.title}](${siteUrl}/write/${getPostSlug(post.id)}/): ${post.data.description}`,
+        `- [${post.data.title}](${siteUrl}/posts/${getPostSlug(post.id)}/): ${post.data.description}`,
     )
     .join("\n");
 
@@ -31,9 +31,9 @@ export async function GET(context: APIContext) {
 
 > Personal site of Gareth Evans — writing on software, design, and technology, plus a portfolio of work.
 
-## Writing
+## Posts
 
-${writingLines}
+${postsLines}
 
 ## Work
 
@@ -46,7 +46,7 @@ ${workLines}
 
 ## Optional
 
-- [Tags](${siteUrl}/write/tags/): Browse writing by topic
+- [Tags](${siteUrl}/posts/tags/): Browse posts by topic
 - [Reading](${siteUrl}/read/): What I'm reading
 `;
 
