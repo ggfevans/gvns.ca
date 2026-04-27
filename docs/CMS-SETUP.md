@@ -21,10 +21,10 @@ public_folder: /uploads
 
 We tried `media_folder_relative: true` with a per-collection nested layout. Sveltia's entry-folder resolution treats `path: "{{year}}/{{month}}/{{slug}}"` as a folder (not a file path), so uploads always nest under a slug-named subdirectory and the public path Sveltia writes does not match where the file lands. See issue #264.
 
-The trade-off: hero images bypass Astro's per-image optimisation. If we want optimised heroes later, options are:
+The trade-off: hero images bypass Astro's per-image optimisation. We mitigate this on two fronts:
 
-- Run a build step that copies `public/uploads/*` through `astro:assets` and rewrites frontmatter, or
-- Restructure post collections to folder-style (`{slug}/index.md`) so Sveltia's relative resolution lines up — at the cost of breaking the current URL-from-filename convention.
+1. **At upload (in this PR):** Sveltia converts raster uploads to WebP @ q85 and resizes to max 2048px in the browser before commit. Config lives under `media_libraries.default.config.transformations.raster_image` in `admin/config.yml`. SVGs are untouched.
+2. **At render (planned, follow-up):** add `@unpic/astro` with the Cloudflare provider so `<Image src="/uploads/...">` is rewritten to `/cdn-cgi/image/...` URLs, giving responsive srcset + format=auto at the edge (free up to 5K unique transforms/month on Cloudflare's free tier).
 
 ### Schema
 

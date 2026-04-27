@@ -17,6 +17,22 @@ display_url: https://gvns.ca
 media_folder: public/uploads
 public_folder: /uploads
 
+# Client-side image optimisation: Sveltia converts raster uploads to WebP
+# at quality 85 and resizes to max 2048px (long edge) before commit. This
+# mitigates the loss of Astro's image() pipeline for heroes (#264) — large
+# phone JPEGs land already-compressed. SVGs untouched. Per-field overrides
+# can be added later if needed.
+# Source: https://github.com/sveltia/sveltia-cms (media-libraries integration)
+media_libraries:
+  default:
+    config:
+      transformations:
+        raster_image:
+          format: webp
+          quality: 85
+          width: 2048
+          height: 2048
+
 collections:
   - name: posts
     label: Posts
