@@ -5,6 +5,8 @@ backend:
   base_url: https://auth.gvns.ca
   auth_endpoint: auth
 
+publish_mode: editorial_workflow
+
 site_url: https://gvns.ca
 display_url: https://gvns.ca
 
