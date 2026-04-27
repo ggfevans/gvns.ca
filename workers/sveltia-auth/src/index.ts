@@ -8,6 +8,8 @@ export interface Env {
 }
 
 const STATE_COOKIE = "sveltia_oauth_state";
+// Cap GitHub token-exchange to keep us comfortably under the Workers CPU limit.
+const TOKEN_EXCHANGE_TIMEOUT_MS = 8000;
 
 function parseOrigins(env: Env): string[] {
   return env.AUTH_ALLOWED_ORIGINS.split(",").map((s) => s.trim()).filter(Boolean);
@@ -23,8 +25,14 @@ function pickOrigin(referer: string | null, allowed: string[]): string | null {
   }
 }
 
+// Token-bearing HTML: never cache. SameSite/HttpOnly handled at the cookie layer.
 function htmlResponse(body: string): Response {
-  return new Response(body, { headers: { "Content-Type": "text/html; charset=utf-8" } });
+  return new Response(body, {
+    headers: {
+      "Content-Type": "text/html; charset=utf-8",
+      "Cache-Control": "no-store",
+    },
+  });
 }
 
 function postMessageHTML(targetOrigin: string, status: "success" | "error", payload: unknown): string {
@@ -38,6 +46,23 @@ function postMessageHTML(targetOrigin: string, status: "success" | "error", payl
   </script></body></html>`;
 }
 
+// Emit an OAuth error. If we can't safely identify a target origin (e.g. the
+// allowlist is empty or the cookie was tampered with), refuse outright instead
+// of falling back to "*" — that fallback would let any popup-opener page
+// receive the postMessage.
+function originErrorResponse(targetOrigin: string | null, allowed: string[], message: string): Response {
+  if (targetOrigin && allowed.includes(targetOrigin)) {
+    return htmlResponse(postMessageHTML(targetOrigin, "error", { message }));
+  }
+  if (allowed[0]) {
+    return htmlResponse(postMessageHTML(allowed[0], "error", { message }));
+  }
+  return new Response("Origin not allowed", {
+    status: 400,
+    headers: { "Cache-Control": "no-store" },
+  });
+}
+
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
@@ -45,6 +70,12 @@ export default {
 
     if (url.pathname === "/auth") {
       const origin = pickOrigin(request.headers.get("Referer"), allowed) ?? allowed[0];
+      if (!origin) {
+        return new Response("Origin not allowed", {
+          status: 400,
+          headers: { "Cache-Control": "no-store" },
+        });
+      }
       const state = crypto.randomUUID();
       const cookieValue = `${state}|${encodeURIComponent(origin)}`;
       const params = new URLSearchParams({
@@ -58,6 +89,7 @@ export default {
         headers: {
           Location: `https://github.com/login/oauth/authorize?${params}`,
           "Set-Cookie": `${STATE_COOKIE}=${cookieValue}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=600`,
+          "Cache-Control": "no-store",
         },
       });
     }
@@ -69,25 +101,51 @@ export default {
         .split(";").map((s) => s.trim())
         .find((c) => c.startsWith(`${STATE_COOKIE}=`))?.split("=")[1] || "";
       const [cookieState, cookieOriginEnc] = cookie.split("|");
-      const targetOrigin = decodeURIComponent(cookieOriginEnc || "");
+
+      // Malformed percent-encoding crashes decodeURIComponent. Treat any
+      // decode failure as "no valid origin" so the error path fires cleanly.
+      let targetOrigin: string | null = null;
+      try {
+        targetOrigin = decodeURIComponent(cookieOriginEnc || "");
+      } catch {
+        targetOrigin = null;
+      }
 
       if (!targetOrigin || !allowed.includes(targetOrigin)) {
-        return htmlResponse(postMessageHTML(allowed[0] || "*", "error", { message: "Origin not allowed" }));
+        return originErrorResponse(targetOrigin, allowed, "Origin not allowed");
       }
       if (!code || !state || state !== cookieState) {
         return htmlResponse(postMessageHTML(targetOrigin, "error", { message: "Invalid state" }));
       }
 
-      const tokenRes = await fetch("https://github.com/login/oauth/access_token", {
-        method: "POST",
-        headers: { Accept: "application/json", "Content-Type": "application/json" },
-        body: JSON.stringify({
-          client_id: env.GITHUB_CLIENT_ID,
-          client_secret: env.GITHUB_CLIENT_SECRET,
-          code,
-        }),
-      });
-      const data = (await tokenRes.json()) as { access_token?: string; error?: string };
+      // Robust token exchange: bound the request, check status, and treat any
+      // network/parse failure as a controlled OAuth error rather than a 500.
+      let data: { access_token?: string; error?: string } = {};
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), TOKEN_EXCHANGE_TIMEOUT_MS);
+      try {
+        const tokenRes = await fetch("https://github.com/login/oauth/access_token", {
+          method: "POST",
+          headers: { Accept: "application/json", "Content-Type": "application/json" },
+          body: JSON.stringify({
+            client_id: env.GITHUB_CLIENT_ID,
+            client_secret: env.GITHUB_CLIENT_SECRET,
+            code,
+          }),
+          signal: controller.signal,
+        });
+        if (!tokenRes.ok) {
+          return htmlResponse(
+            postMessageHTML(targetOrigin, "error", { message: `Token endpoint returned ${tokenRes.status}` }),
+          );
+        }
+        data = (await tokenRes.json()) as { access_token?: string; error?: string };
+      } catch {
+        return htmlResponse(postMessageHTML(targetOrigin, "error", { message: "Token exchange failed" }));
+      } finally {
+        clearTimeout(timeout);
+      }
+
       if (!data.access_token) {
         return htmlResponse(postMessageHTML(targetOrigin, "error", { message: data.error || "No token" }));
       }

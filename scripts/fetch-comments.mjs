@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
 /**
- * Fetch Threads replies for syndicated writing posts.
+ * Fetch Threads replies for syndicated posts.
  *
- * Walks src/content/writing/ for non-draft posts with a Threads syndication
+ * Walks src/content/posts/ for non-draft posts with a Threads syndication
  * entry that includes a mediaId, fetches top-level replies via denim, and
  * writes normalised JSON to src/data/comments/{slug}.json.
  *
@@ -25,7 +25,7 @@ import matter from 'gray-matter';
 import { getReplies } from '@codybrom/denim';
 
 const ROOT = join(fileURLToPath(import.meta.url), '..', '..');
-const WRITING_DIR = join(ROOT, 'src', 'content', 'writing');
+const POSTS_DIR = join(ROOT, 'src', 'content', 'posts');
 const COMMENTS_DIR = join(ROOT, 'src', 'data', 'comments');
 
 // Fields to request from the Threads API
@@ -91,7 +91,7 @@ async function main() {
   // Ensure the output directory exists
   await mkdir(COMMENTS_DIR, { recursive: true });
 
-  const files = await collectMarkdownFiles(WRITING_DIR);
+  const files = await collectMarkdownFiles(POSTS_DIR);
 
   // Collect qualifying posts (non-draft, has Threads syndication with mediaId)
   const qualifying = [];
