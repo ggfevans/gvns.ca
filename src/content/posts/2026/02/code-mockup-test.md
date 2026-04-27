@@ -1,9 +1,12 @@
 ---
-title: "Code Mockup Test"
-description: "Testing the macOS-style code block rendering with various languages and edge cases."
+title: Code Mockup Test
+description: Testing the macOS-style code block rendering with various languages and edge cases.
 pubDate: 2026-02-04
-tags: ["meta"]
-draft: true
+tags:
+  - meta
+updatedDate: ''
+draft: false
+canonicalUrl: ''
 ---
 
 Testing the gvns-code-mockup component across different languages and scenarios.
@@ -62,7 +65,7 @@ ls -la src/components/
 
 ## Plain Text (No Language)
 
-```
+```plain
 Just some plain text in a fenced code block.
 No syntax highlighting here.
 ```
