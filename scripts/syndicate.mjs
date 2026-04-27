@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * POSSE syndication script — posts unsyndicated writing to Bluesky, Mastodon, and Threads.
+ * POSSE syndication script — posts unsyndicated posts to Bluesky, Mastodon, and Threads.
  *
  * Usage:
  *   node scripts/syndicate.mjs            # Post unsyndicated content
@@ -25,7 +25,7 @@ import { createRestAPIClient } from 'masto';
 import { createThreadsContainer, publishThreadsContainer } from '@codybrom/denim';
 
 const ROOT = join(fileURLToPath(import.meta.url), '..', '..');
-const WRITING_DIR = join(ROOT, 'src', 'content', 'writing');
+const POSTS_DIR = join(ROOT, 'src', 'content', 'posts');
 const SITE_URL = (process.env.SITE_URL || 'https://gvns.ca').replace(/\/+$/, '');
 
 const DRY_RUN = process.argv.includes('--dry-run');
@@ -79,7 +79,7 @@ function getPostUrl(frontmatter, slug) {
       // fall through to default URL
     }
   }
-  return `${SITE_URL}/write/${slug}/`;
+  return `${SITE_URL}/posts/${slug}/`;
 }
 
 /** Format post text for syndication. */
@@ -212,7 +212,7 @@ async function main() {
     console.log('🏃 DRY RUN — no posts will be published\n');
   }
 
-  const files = await collectMarkdownFiles(WRITING_DIR);
+  const files = await collectMarkdownFiles(POSTS_DIR);
   let syndicatedPlatformCount = 0;
 
   for (const filePath of files) {
