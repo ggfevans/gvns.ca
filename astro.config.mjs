@@ -1,6 +1,6 @@
 // @ts-check
 import { readFileSync } from "node:fs";
-import { defineConfig } from "astro/config";
+import { defineConfig, envField } from "astro/config";
 
 import tailwindcss from "@tailwindcss/vite";
 import svelte from "@astrojs/svelte";
@@ -38,4 +38,15 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   integrations: [svelte(), react(), sitemap({ filter: (page) => !page.includes("/sandbox/") }), pagefind()],
+  env: {
+    schema: {
+      // Cloudflare Turnstile public site key — safe to expose in client bundles.
+      // Referenced via import.meta.env.PUBLIC_TURNSTILE_SITE_KEY in Svelte/Astro components.
+      PUBLIC_TURNSTILE_SITE_KEY: envField.string({
+        context: "client",
+        access: "public",
+        optional: true,
+      }),
+    },
+  },
 });
