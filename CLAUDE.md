@@ -18,10 +18,13 @@ Personal writing + work site for gvns.ca. Brand guide aligned and in active buil
 ## Development Commands
 
 ```bash
-npm run dev      # Dev server at localhost:4321
-npm run build    # Build to ./dist
-npm run preview  # Preview production build
+npm run dev          # Dev server at localhost:4321
+npm run build        # Build to ./dist
+npm run preview      # Preview production build
+npm run wikilinks    # Convert Obsidian [[wikilinks]] to /posts/<slug>/ links (stdin → stdout)
 ```
+
+**Authoring posts:** use the Sveltia CMS at `gvns.ca/admin` (works on mobile). For Obsidian-drafted content, pipe through `npm run wikilinks` before pasting into the CMS.
 
 ## Architecture
 
@@ -31,8 +34,8 @@ npm run preview  # Preview production build
 src/
 ├── components/     # Astro components (.astro) and Svelte islands (.svelte)
 ├── content/
-│   ├── posts/      # Markdown posts organised by date (YYYY/MM/)
-│   └── config.ts   # Content collection schemas
+│   └── posts/      # Markdown posts organised by date (YYYY/MM/)
+├── content.config.ts  # Content collection schemas (Zod)
 ├── layouts/        # BaseLayout, PostLayout, PageLayout
 ├── pages/          # Route files including posts/[slug].astro
 ├── styles/         # global.css with Tailwind imports
@@ -66,7 +69,7 @@ See `docs/COMPONENT-CONVENTIONS.md` for full rationale and examples.
 Blog posts require:
 - `title`, `description`, `pubDate`, `tags` (1-4 from defined taxonomy)
 
-Optional: `updatedDate`, `series`, `seriesOrder`, `draft`, `heroImage`
+Optional: `updatedDate`, `draft`, `heroImage`, `canonicalUrl`
 
 Post URLs derive from filename, not folder structure:
 `src/content/posts/2024/12/my-post.md` → `/posts/my-post/`
@@ -101,5 +104,6 @@ Detailed specs in `/docs/`:
 - `DESIGN-SYSTEM.md` - Colours, typography, spacing, components
 - `INFRASTRUCTURE.md` - Server config, CI/CD
 - `DECISIONS.md` - Architecture Decision Records
-- `OBSIDIAN-SETUP.md` - Drafting → ingest pipeline
+- `CMS-SETUP.md` - Sveltia CMS at `gvns.ca/admin` + `auth.gvns.ca` Worker
+- `OBSIDIAN-SETUP.md` - Optional drafting in Obsidian → `npm run wikilinks` → paste into CMS
 - `ROADMAP.md` - Phases 6–10, what's done vs not
