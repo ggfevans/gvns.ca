@@ -203,6 +203,16 @@ async function writeSyndicationToFrontmatter(filePath, platform, syndicationUrl,
   await writeFile(filePath, updated, 'utf-8');
 }
 
+async function persistSyndicationOrFail(filePath, platform, syndicationUrl, extraFields = {}) {
+  try {
+    await writeSyndicationToFrontmatter(filePath, platform, syndicationUrl, extraFields);
+  } catch (err) {
+    console.error(`   ❌ CRITICAL: Posted to ${platform} (${syndicationUrl}) but failed to save frontmatter: ${err.message}`);
+    console.error(`   ❌ Manually add syndication entry to prevent duplicate post.`);
+    process.exit(1);
+  }
+}
+
 // ---------------------------------------------------------------------------
 // Main
 // ---------------------------------------------------------------------------
@@ -264,13 +274,7 @@ async function main() {
             tags,
           });
           console.log(`   ✅ Bluesky: ${syndicationUrl}`);
-          try {
-            await writeSyndicationToFrontmatter(filePath, 'bluesky', syndicationUrl);
-          } catch (writeErr) {
-            console.error(`   ❌ CRITICAL: Posted to Bluesky (${syndicationUrl}) but failed to save frontmatter: ${writeErr.message}`);
-            console.error(`   ❌ Manually add syndication entry to prevent duplicate post.`);
-            throw writeErr;
-          }
+          await persistSyndicationOrFail(filePath, 'bluesky', syndicationUrl);
         }
 
         if (platform === 'mastodon') {
@@ -286,13 +290,7 @@ async function main() {
             tags,
           });
           console.log(`   ✅ Mastodon: ${syndicationUrl}`);
-          try {
-            await writeSyndicationToFrontmatter(filePath, 'mastodon', syndicationUrl);
-          } catch (writeErr) {
-            console.error(`   ❌ CRITICAL: Posted to Mastodon (${syndicationUrl}) but failed to save frontmatter: ${writeErr.message}`);
-            console.error(`   ❌ Manually add syndication entry to prevent duplicate post.`);
-            throw writeErr;
-          }
+          await persistSyndicationOrFail(filePath, 'mastodon', syndicationUrl);
         }
 
         if (platform === 'threads') {
@@ -308,18 +306,10 @@ async function main() {
             tags,
           });
           console.log(`   ✅ Threads: ${result.url}`);
-          try {
-            await writeSyndicationToFrontmatter(filePath, 'threads', result.url, {
-              mediaId: result.mediaId,
-              shortcode: result.shortcode,
-            });
-          } catch (err) {
-            console.error(
-              `   ❌ Threads post published but frontmatter update failed. ` +
-              `Persist manually before rerunning: url=${result.url} mediaId=${result.mediaId} shortcode=${result.shortcode}`
-            );
-            throw err;
-          }
+          await persistSyndicationOrFail(filePath, 'threads', result.url, {
+            mediaId: result.mediaId,
+            shortcode: result.shortcode,
+          });
         }
 
         syndicatedPlatformCount++;
