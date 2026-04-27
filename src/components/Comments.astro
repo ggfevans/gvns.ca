@@ -1,0 +1,192 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { parseCommentsData, EMPTY_COMMENTS } from '@utils/comments';
+import { relativeTime } from '@utils/format';
+import { formatDate } from '@utils/date';
+
+interface Props {
+  post: CollectionEntry<'posts'>;
+}
+
+const { post } = Astro.props;
+
+const threadsEntry = post.data.syndication?.find((s) => s.platform === 'threads');
+
+let data = EMPTY_COMMENTS;
+if (threadsEntry) {
+  try {
+    const modules = import.meta.glob('../data/comments/*.json', { eager: true });
+    // post.id is always at least the filename, so .pop() is guaranteed to return a string
+    const slug = post.id.split('/').pop()!;
+    const key = `../data/comments/${slug}.json`;
+    if (modules[key]) {
+      data = parseCommentsData((modules[key] as { default: unknown }).default);
+    }
+  } catch (e) {
+    if (import.meta.env.DEV) console.warn(`Failed to load comments for ${post.id}:`, e);
+  }
+}
+
+const count = data.replies.length;
+const shortcode = data.threadShortcode || threadsEntry?.shortcode || '';
+const intentUrl = shortcode
+  ? `https://www.threads.com/intent/post?reply_post_shortcode=${shortcode}`
+  : threadsEntry?.url || '';
+---
+
+{threadsEntry && (
+  <aside class="gvns-comments" aria-labelledby="comments-heading">
+    <header class="gvns-comments__header">
+      <h2 id="comments-heading" class="gvns-comments__heading">
+        Replies {count > 0 && <span class="gvns-comments__count">{count}</span>}
+      </h2>
+      {intentUrl && (
+        <p class="gvns-comments__cta">
+          Continue the thread on <a href={intentUrl} rel="noopener" target="_blank">Threads ↗</a>.
+        </p>
+      )}
+    </header>
+
+    {count === 0 ? (
+      <p class="gvns-comments__empty">
+        {intentUrl
+          ? <>No replies yet — be the first <a href={intentUrl} target="_blank" rel="noopener">on Threads</a>.</>
+          : <>No replies yet.</>
+        }
+      </p>
+    ) : (
+      <ol class="gvns-comments__list">
+        {data.replies.map((reply) => (
+          <li class="gvns-comments__item">
+            <header class="gvns-comments__meta">
+              <a href={`https://www.threads.com/@${reply.username}`} rel="noopener nofollow" target="_blank">
+                @{reply.username}
+              </a>
+              <time
+                datetime={reply.timestamp}
+                title={Number.isNaN(new Date(reply.timestamp).getTime()) ? reply.timestamp : formatDate(new Date(reply.timestamp))}
+              >
+                {relativeTime(reply.timestamp)}
+              </time>
+            </header>
+            <p class="gvns-comments__body">{reply.text}</p>
+            {reply.hasReplies && (
+              <a class="gvns-comments__more" href={reply.permalink} rel="noopener" target="_blank">
+                Continue this reply on Threads →
+              </a>
+            )}
+          </li>
+        ))}
+      </ol>
+    )}
+  </aside>
+)}
+
+<style>
+  .gvns-comments {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border-left: 3px solid var(--colour-p4-amber);
+  }
+
+  .gvns-comments__heading {
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+
+  .gvns-comments__count {
+    color: var(--colour-text-secondary);
+    font-weight: 400;
+    font-size: var(--text-lg);
+  }
+
+  .gvns-comments__cta {
+    font-size: 0.875rem;
+    color: var(--colour-text-secondary);
+    margin-bottom: 1.5rem;
+  }
+
+  .gvns-comments__cta a {
+    color: var(--colour-accent-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .gvns-comments__cta a:hover {
+    color: var(--colour-accent-hover);
+  }
+
+  .gvns-comments__empty {
+    font-style: italic;
+    color: var(--colour-text-secondary);
+  }
+
+  .gvns-comments__empty a {
+    color: var(--colour-accent-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .gvns-comments__empty a:hover {
+    color: var(--colour-accent-hover);
+  }
+
+  .gvns-comments__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .gvns-comments__item {
+    padding: 1rem;
+    background: var(--colour-bg-secondary);
+    border-radius: 0.5rem;
+  }
+
+  .gvns-comments__meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .gvns-comments__meta a {
+    color: var(--colour-accent-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color var(--transition-fast);
+  }
+
+  .gvns-comments__meta a:hover {
+    color: var(--colour-accent-hover);
+  }
+
+  .gvns-comments__meta time {
+    color: var(--colour-text-secondary);
+  }
+
+  .gvns-comments__body {
+    color: var(--colour-text-primary);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .gvns-comments__more {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--colour-accent-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .gvns-comments__more:hover {
+    color: var(--colour-accent-hover);
+  }
+</style>
