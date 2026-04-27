@@ -3,6 +3,16 @@ import { glob } from 'astro/loaders';
 
 const emptyToUndefined = (v: unknown) => (v === '' || v === null ? undefined : v);
 
+// Shared validation for CMS-uploaded media paths. Sveltia writes absolute
+// /uploads/... URLs into frontmatter (see docs/CMS-SETUP.md, issue #264).
+const uploadsPathSchema = z.preprocess(
+  emptyToUndefined,
+  z
+    .string()
+    .regex(/^\/uploads\/.+/, 'heroImage must be an absolute /uploads/... path')
+    .optional()
+);
+
 const posts = defineCollection({
   loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: './src/content/posts' }),
   schema: () =>
@@ -13,13 +23,7 @@ const posts = defineCollection({
       updatedDate: z.preprocess(emptyToUndefined, z.coerce.date().optional()),
       tags: z.array(z.string()).min(1).max(4),
       draft: z.boolean().default(false),
-      heroImage: z.preprocess(
-        emptyToUndefined,
-        z
-          .string()
-          .regex(/^\/uploads\//, 'heroImage must be an absolute /uploads/... path')
-          .optional()
-      ),
+      heroImage: uploadsPathSchema,
       canonicalUrl: z.preprocess(emptyToUndefined, z.string().url().optional()),
       syndication: z
         .array(
@@ -45,13 +49,7 @@ const work = defineCollection({
       repo: z.string().url().optional(),
       status: z.enum(['active', 'maintained', 'archived']),
       tags: z.array(z.string()).min(1).max(6),
-      heroImage: z.preprocess(
-        emptyToUndefined,
-        z
-          .string()
-          .regex(/^\/uploads\//, 'heroImage must be an absolute /uploads/... path')
-          .optional()
-      ),
+      heroImage: uploadsPathSchema,
       featured: z.boolean().default(false),
     }),
 });

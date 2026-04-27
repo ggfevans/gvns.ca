@@ -6,7 +6,7 @@ tags:
   - tutorial
 updatedDate: ''
 draft: false
-heroImage: risk.jpg
+heroImage: /uploads/risk.jpg
 canonicalUrl: ''
 ---
 

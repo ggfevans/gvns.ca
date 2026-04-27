@@ -23,7 +23,7 @@ We tried `media_folder_relative: true` with a per-collection nested layout. Svel
 
 The trade-off: hero images bypass Astro's per-image optimisation. We mitigate this on two fronts:
 
-1. **At upload (in this PR):** Sveltia converts raster uploads to WebP @ q85 and resizes to max 2048px in the browser before commit. Config lives under `media_libraries.default.config.transformations.raster_image` in `admin/config.yml`. SVGs are untouched.
+1. **At upload (in this PR):** Sveltia converts raster uploads to WebP @ q85 and resizes to max 2048px in the browser before commit. Config lives under `media_libraries.default.config.transformations.raster_image` in `public/admin/config.yml`. SVGs are untouched.
 2. **At render (planned, follow-up):** add `@unpic/astro` with the Cloudflare provider so `<Image src="/uploads/...">` is rewritten to `/cdn-cgi/image/...` URLs, giving responsive srcset + format=auto at the edge (free up to 5K unique transforms/month on Cloudflare's free tier).
 
 ### Schema
@@ -31,10 +31,12 @@ The trade-off: hero images bypass Astro's per-image optimisation. We mitigate th
 `heroImage` is validated as a string starting with `/uploads/` (see `src/content.config.ts`):
 
 ```ts
-heroImage: z.preprocess(
+const uploadsPathSchema = z.preprocess(
   emptyToUndefined,
-  z.string().regex(/^\/uploads\//).optional()
-)
+  z.string().regex(/^\/uploads\/.+/).optional()
+);
+// ...
+heroImage: uploadsPathSchema,
 ```
 
 Empty strings written by the CMS for unset fields are coerced to `undefined`.
