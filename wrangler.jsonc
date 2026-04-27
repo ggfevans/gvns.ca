@@ -4,7 +4,7 @@
   "compatibility_date": "2026-04-01",
   "compatibility_flags": ["nodejs_compat"],
   "assets": {
-    "directory": "./dist",
+    "directory": "./dist/client",
     "binding": "ASSETS",
     "not_found_handling": "404-page"
   },
@@ -12,3 +12,9 @@
     "enabled": true
   }
 }
+// Note: `main` is intentionally omitted from this root config.
+// The @astrojs/cloudflare adapter generates `dist/server/wrangler.json` with the
+// resolved `main: entry.mjs` and matching `assets.directory: ../client` after build.
+// Use `--config dist/server/wrangler.json` for `wrangler dev` and `wrangler deploy`.
+// Including `main` here breaks `astro build` because @cloudflare/vite-plugin validates
+// the path before the SSR bundle is emitted.
