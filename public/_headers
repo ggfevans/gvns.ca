@@ -4,7 +4,6 @@
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=()
-  Content-Security-Policy: default-src 'self'; script-src 'self' https://analytics.gvns.ca https://static.cloudflareinsights.com 'unsafe-inline' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self' data:; connect-src 'self' https://analytics.gvns.ca; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
 
 /_astro/*
   Cache-Control: public, max-age=31536000, immutable
@@ -14,3 +13,20 @@
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
 
+/
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://analytics.gvns.ca https://static.cloudflareinsights.com 'unsafe-inline' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self' data:; connect-src 'self' https://analytics.gvns.ca; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+
+/posts/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://analytics.gvns.ca https://static.cloudflareinsights.com 'unsafe-inline' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self' data:; connect-src 'self' https://analytics.gvns.ca; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+
+/read/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://analytics.gvns.ca https://static.cloudflareinsights.com 'unsafe-inline' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self' data:; connect-src 'self' https://analytics.gvns.ca; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+
+/listen/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://analytics.gvns.ca https://static.cloudflareinsights.com 'unsafe-inline' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self' data:; connect-src 'self' https://analytics.gvns.ca; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+
+/watch/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://analytics.gvns.ca https://static.cloudflareinsights.com 'unsafe-inline' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self' data:; connect-src 'self' https://analytics.gvns.ca; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+
+/status/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://analytics.gvns.ca https://static.cloudflareinsights.com 'unsafe-inline' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self' data:; connect-src 'self' https://analytics.gvns.ca; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
