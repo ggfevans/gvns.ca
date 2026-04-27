@@ -24,10 +24,9 @@ const { post } = Astro.props;
 const { title, description, pubDate, updatedDate, tags, heroImage, syndication } = post.data;
 const readingTime = getReadingTime(post.body ?? '');
 
-// Get heroImage metadata if present
-const heroImageUrl = heroImage?.src;
-const heroImageWidth = heroImage?.width;
-const heroImageHeight = heroImage?.height;
+// heroImage is an absolute /uploads/... URL written by the CMS; width/height
+// are not known without the Astro image pipeline (intentional — see #264).
+const heroImageUrl = heroImage;
 
 const siteUrl = normalizeSiteUrl(Astro.site);
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
@@ -56,8 +55,6 @@ const breadcrumbJsonLd = toJsonLd(
     title={title}
     description={description}
     image={heroImageUrl}
-    imageWidth={heroImageWidth}
-    imageHeight={heroImageHeight}
     accent="p4-amber"
     breadcrumbs={[
         { label: "Home", href: "/" },

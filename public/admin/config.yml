@@ -8,16 +8,14 @@ backend:
 site_url: https://gvns.ca
 display_url: https://gvns.ca
 
-# Media uploads are co-located with each post for Astro's image() pipeline.
-# media_folder_relative: true makes Sveltia compute paths relative to the
-# entry, so an upload from a post at YYYY/MM/<slug>.md lands in the sibling
-# YYYY/MM/images/ folder. The top-level public_folder is a Sveltia-required
-# placeholder (it insists on an absolute path) but is unused at runtime —
-# any future image widget MUST set its own per-field media_folder /
-# public_folder rather than rely on these defaults.
-media_folder_relative: true
-media_folder: src/content/posts/{{year}}/{{month}}/images
-public_folder: /images
+# Media uploads land in /public/uploads/ and are referenced by absolute URL
+# in frontmatter (e.g. heroImage: /uploads/foo.jpg). This sidesteps Sveltia's
+# entry-relative media-folder resolution, which always nests uploads under a
+# slug-named subfolder for `path: "{{year}}/{{month}}/{{slug}}"` collections
+# (see issue #264). Trade-off: hero images bypass Astro's image() pipeline
+# (no per-image optimisation), but the config is robust and predictable.
+media_folder: public/uploads
+public_folder: /uploads
 
 collections:
   - name: posts
