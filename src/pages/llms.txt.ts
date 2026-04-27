@@ -2,6 +2,8 @@ import { getCollection } from "astro:content";
 import type { APIContext } from "astro";
 import { getPostSlug } from "@utils/content";
 
+export const prerender = true;
+
 export async function GET(context: APIContext) {
   const siteUrl = (context.site || "https://gvns.ca")
     .toString()
