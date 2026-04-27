@@ -32,7 +32,7 @@ GitHub Actions (scheduled):
 | **Worker config (deploy)** | `dist/server/wrangler.json` — adapter-generated, includes resolved `main` |
 | **Node version** | 20 (via `.nvmrc`) |
 | **Production branch** | `main` |
-| **Preview deploys** | Enabled (auto on PRs via Workers Builds) |
+| **Preview deploys** | Non-`main` branches deploy via `wrangler versions upload` (versioned URL, no prod promotion) |
 
 ### Custom Domains
 
@@ -43,9 +43,26 @@ GitHub Actions (scheduled):
 
 ### How Deploys Work
 
-1. Push to `main` → Workers Builds auto-builds and deploys.
-2. PR opened → Workers Builds creates a preview deploy on a unique URL.
-3. Scheduled GH Actions fetch external data → commit JSON → push → triggers Workers Builds rebuild (same model as the previous Pages setup).
+Workers Builds runs a branch-aware deploy command — `main` promotes to production, every other branch produces a versioned preview URL without touching `gvns.ca`.
+
+The command is set in **Cloudflare → Workers & Pages → gvns-ca → Builds → Build settings**:
+
+```bash
+if [ "$WORKERS_CI_BRANCH" = "main" ]; then
+  npx wrangler deploy --config dist/server/wrangler.json
+else
+  npx wrangler versions upload --config dist/server/wrangler.json
+fi
+```
+
+> **Why `if/else` instead of `A && B || C`:** the short-circuit form silently falls through to the preview command if `wrangler deploy` fails on `main`, masking production failures. The explicit conditional propagates the exit code correctly.
+
+- **Push to `main`** → `wrangler deploy` promotes the build to the live `gvns-ca` Worker (`gvns.ca`).
+- **Push to any other branch** → `wrangler versions upload` returns a versioned preview URL of the form `<hash>-gvns-ca.<account>.workers.dev`. Production is unaffected.
+- **PR check** surfaces the preview URL in the Workers Builds log.
+- **Scheduled GH Actions** fetch external data → commit JSON → push to `main` → triggers a normal production build.
+
+Before this change, every branch ran `wrangler deploy` and overwrote production — discovered during #247 (CMS adoption). See #262 for context.
 
 No deploy workflow needed in `.github/workflows/`. No Cloudflare secrets in GitHub — Workers Builds uses the native git integration.
 
@@ -142,4 +159,4 @@ No Cloudflare secrets needed in GitHub — deploys are handled by Workers Builds
 
 ---
 
-*Last updated: 2026-04-26*
+*Last updated: 2026-04-27*
