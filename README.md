@@ -6,7 +6,7 @@ Live: https://gvns.ca
 
 ## Content
 
-- Writing posts: `src/content/writing/`
+- Posts: `src/content/posts/`
 - Work entries: `src/content/work/`
 - Routes: `/writing`, `/work`, `/about`, `/resume`, `/reading`
 - RSS: `/rss.xml`
