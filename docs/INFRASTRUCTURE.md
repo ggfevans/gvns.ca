@@ -6,55 +6,71 @@
 ┌─────────────────────────────────────────────────────┐
 │                    Cloudflare                        │
 │                                                     │
-│   gvns.ca ──────────► CF Pages (static site)       │
+│   gvns.ca ──────────► Workers (Static Assets + SSR) │
 │                                                     │
 │   www.gvns.ca ────────► 301 → gvns.ca (_redirects) │
 │                                                     │
 └─────────────────────────────────────────────────────┘
 
 GitHub Actions (scheduled):
-  fetch-reading.yml  → src/data/reading.json   → push → CF Pages rebuild
-  fetch-listening.yml → src/data/listening.json → push → CF Pages rebuild
-  fetch-github.yml   → src/data/github.json    → push → CF Pages rebuild
-  fetch-comments.yml → src/data/comments/*.json → push → CF Pages rebuild
+  fetch-reading.yml  → src/data/reading.json   → push → Workers Builds rebuild
+  fetch-listening.yml → src/data/listening.json → push → Workers Builds rebuild
+  fetch-github.yml   → src/data/github.json    → push → Workers Builds rebuild
+  fetch-comments.yml → src/data/comments/*.json → push → Workers Builds rebuild
   refresh-threads-token.yml → refreshes THREADS_ACCESS_TOKEN secret (twice monthly)
 ```
 
-## Site Hosting: Cloudflare Pages
+## Site Hosting: Cloudflare Workers
 
 | Setting | Value |
 |---------|-------|
-| **Provider** | Cloudflare Pages (free tier) |
+| **Provider** | Cloudflare Workers (Static Assets + SSR) |
+| **Adapter** | `@astrojs/cloudflare` (`output: 'server'`, all current routes prerendered) |
 | **Build command** | `npm run build` |
-| **Output directory** | `dist` |
+| **Output** | `dist/client/` (static assets) + `dist/server/` (SSR Worker bundle) |
+| **Worker config (root)** | `wrangler.jsonc` — assets binding + compat flags |
+| **Worker config (deploy)** | `dist/server/wrangler.json` — adapter-generated, includes resolved `main` |
 | **Node version** | 20 (via `.nvmrc`) |
 | **Production branch** | `main` |
-| **Preview deploys** | Enabled (auto on PRs) |
+| **Preview deploys** | Enabled (auto on PRs via Workers Builds) |
 
 ### Custom Domains
 
 | Domain | Purpose |
 |--------|---------|
-| `gvns.ca` | Primary (apex) |
+| `gvns.ca` | Primary (apex) — bound to `gvns-ca` Worker |
 | `www.gvns.ca` | Redirects to apex via `_redirects` |
 
 ### How Deploys Work
 
-1. Push to `main` → CF Pages auto-builds and deploys
-2. PR opened → CF Pages creates preview deploy with unique URL
-3. Scheduled GH Actions fetch external data → commit JSON → push → triggers rebuild
+1. Push to `main` → Workers Builds auto-builds and deploys.
+2. PR opened → Workers Builds creates a preview deploy on a unique URL.
+3. Scheduled GH Actions fetch external data → commit JSON → push → triggers Workers Builds rebuild (same model as the previous Pages setup).
 
-No deploy workflow needed. No wrangler. No secrets for deploys.
+No deploy workflow needed in `.github/workflows/`. No Cloudflare secrets in GitHub — Workers Builds uses the native git integration.
+
+### Local Worker Development
+
+```bash
+npm run build
+./node_modules/.bin/wrangler dev --config dist/server/wrangler.json
+```
+
+The `--config dist/server/wrangler.json` flag points wrangler at the adapter-generated config (which has the resolved `main: entry.mjs` and `assets.directory: ../client`). The root `wrangler.jsonc` intentionally omits `main` because `@cloudflare/vite-plugin` validates that path during `astro build` before the SSR bundle exists.
 
 ### Security Headers
 
-Served via `_headers` file:
+Served via `_headers` file (copied from `public/` to `dist/client/` during build):
 - `Content-Security-Policy`
 - `Strict-Transport-Security` with preload
 - `X-Content-Type-Options: nosniff`
 - `X-Frame-Options: DENY`
 - `Referrer-Policy: strict-origin-when-cross-origin`
 - `Permissions-Policy: camera=(), microphone=(), geolocation=()`
+
+### Migration History
+
+Migrated from Cloudflare Pages to Workers in 2026-04 (issue #249). Pages project retained for a 2-week soak window post-cutover, then archived.
 
 ## CI/CD
 
@@ -87,14 +103,14 @@ Served via `_headers` file:
 | `MASTODON_TOKEN` | syndicate | Mastodon access token |
 | `GH_PAT` | all data workflows, syndicate | GitHub PAT for pushing and secret management |
 
-No Cloudflare secrets needed in GitHub — deploys are handled by CF Pages native integration.
+No Cloudflare secrets needed in GitHub — deploys are handled by Workers Builds' native git integration.
 
 ## DNS Records (Cloudflare)
 
 | Type | Name | Content | Proxy |
 |------|------|---------|-------|
-| CNAME | `gvns.ca` | `<project>.pages.dev` | Proxied |
-| CNAME | `www` | `<project>.pages.dev` | Proxied |
+| CNAME | `gvns.ca` | (managed by CF — Worker custom domain) | Proxied |
+| CNAME | `www` | (managed by CF — Worker custom domain) | Proxied |
 
 ## Backups
 
@@ -106,10 +122,10 @@ No Cloudflare secrets needed in GitHub — deploys are handled by CF Pages nativ
 
 | Item | Monthly |
 |------|---------|
-| Cloudflare Pages | $0 |
+| Cloudflare Workers (Free tier) | $0 |
 | Domain | ~$1 (amortised) |
 | **Total** | **~$1/month** |
 
 ---
 
-*Last updated: 2026-04-25*
+*Last updated: 2026-04-26*
