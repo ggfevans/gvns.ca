@@ -1,7 +1,6 @@
 ---
 import yaml from 'js-yaml';
-import fs from 'node:fs';
-import path from 'node:path';
+import timelineSource from '../data/timeline.yaml?raw';
 
 interface TimelineEntry {
   date: string;
@@ -9,10 +8,7 @@ interface TimelineEntry {
   description: string;
 }
 
-// Load timeline data from YAML
-const timelinePath = path.join(process.cwd(), 'src/data/timeline.yaml');
-const timelineContent = fs.readFileSync(timelinePath, 'utf-8');
-const entries = yaml.load(timelineContent) as TimelineEntry[];
+const entries = yaml.load(timelineSource) as TimelineEntry[];
 
 // Sort by date descending (newest first)
 const sortedEntries = entries.sort((a, b) =>

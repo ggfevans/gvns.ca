@@ -1,2 +1,5 @@
-# Redirect www to apex domain
-https://www.gvns.ca/* https://gvns.ca/:splat 301
+# www → apex redirect is handled by a Cloudflare Redirect Rule (dashboard:
+# Rules → Redirect Rules → "If hostname equals www.gvns.ca → 301 to
+# https://gvns.ca/$1"). Workers Static Assets rejects absolute URLs in
+# _redirects (error 10021), and a path-only `/*` rule here would also fire
+# on apex requests. Keep this file for any future path-relative redirects.

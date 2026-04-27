@@ -6,6 +6,7 @@ import tailwindcss from "@tailwindcss/vite";
 import svelte from "@astrojs/svelte";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
+import cloudflare from "@astrojs/cloudflare";
 import rehypeSlug from "rehype-slug";
 import pagefind from "./src/integrations/pagefind.ts";
 
@@ -21,9 +22,12 @@ try {
   console.warn("Failed to load shiki-gvns.json, falling back to default theme:", error);
 }
 
-// https://astro.build/config
 export default defineConfig({
-	site: "https://gvns.ca",
+  site: "https://gvns.ca",
+  output: "server",
+  adapter: cloudflare({
+    imageService: "compile",
+  }),
   markdown: {
     shikiConfig: {
       theme: shikiTheme,
@@ -33,6 +37,5 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-
   integrations: [svelte(), react(), sitemap({ filter: (page) => !page.includes("/sandbox/") }), pagefind()],
 });

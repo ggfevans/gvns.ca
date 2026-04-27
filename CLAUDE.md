@@ -12,7 +12,7 @@ Personal writing + work site for gvns.ca. Brand guide aligned and in active buil
 - **Styling**: Tailwind CSS 4.x with P1-P5 accent palette (violet/rose/emerald/amber/sky) + zinc neutrals
 - **Components**: Starwind UI Pro (shadcn-style, copied into `src/components/starwind/`; add via `npx starwind@latest add <component>`)
 - **Content**: Astro Content Collections (type-safe markdown)
-- **Hosting**: Cloudflare Pages (auto-deploy from GitHub)
+- **Hosting**: Cloudflare Workers via Workers Builds (auto-deploy from GitHub); `@astrojs/cloudflare` adapter in `output: 'server'` mode with all current routes prerendered
 - **Analytics**: None (Umami removed)
 
 ## Development Commands
@@ -85,9 +85,9 @@ Dark-first with `.dark` class toggle (Tailwind `dark:` variant via `@custom-vari
 
 ## Deployment
 
-Cloudflare Pages auto-deploys on push to main via native Git integration (no GH Actions deploy step). PR pushes generate preview deploy URLs.
+Cloudflare Workers (via Workers Builds) auto-deploys on push to main using its native Git integration (no GH Actions deploy step). PR pushes generate preview deploy URLs. Worker config lives in `wrangler.jsonc` (root) plus the adapter-generated `dist/server/wrangler.json`.
 
-GitHub Actions runs `ci.yml` for build checks on PRs only. Scheduled data-fetching workflows commit to `src/data/` and push, triggering CF Pages rebuilds.
+GitHub Actions runs `ci.yml` for build checks on PRs only. Scheduled data-fetching workflows commit to `src/data/` and push, triggering Workers Builds rebuilds.
 
 ## Documentation
 
