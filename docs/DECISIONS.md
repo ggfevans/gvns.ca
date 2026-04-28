@@ -373,6 +373,52 @@ Fetch Threads replies at build time via the Graph API using the denim library. C
 
 ---
 
+## ADR-014: Sveltia CMS Image Handling — Survey & Status Quo
+
+**Date**: 2026-04-27
+**Status**: Accepted
+
+### Context
+After landing the `/public/uploads/` workaround for #264 (broken `heroImage` resolution under our nested `path: "{{year}}/{{month}}/{{slug}}"` template), we needed to know whether the Astro+Sveltia community had already solved the same problems before committing to the inline-image spike (#278) or the validation work (#279). Survey was time-boxed to 90 minutes (issue #282).
+
+Eight repos surveyed plus the Sveltia upstream issue tracker. Key data:
+
+| Repo | path template | media_folder | slugify_filename | transformations | image() pipeline |
+|---|---|---|---|---|---|
+| ggfevans/gvns.ca (us) | `{{year}}/{{month}}/{{slug}}` | `public/uploads` (abs) | not set | WebP/q85/2048 | bypassed |
+| thiagopaixao/astro_sveltia | flat | `public/uploads` (abs) | **true** | not set | bypassed |
+| Snugug/sveltia-cms-astro-demo | flat | `public/media` (abs) | not set | not set | bypassed |
+| majesticostudio/astro-sveltia-cms | flat | `@assets/images/post` (alias) | not set | not set | attempted (underbaked) |
+| MattFM/giveback-guide | flat | `public/images/blog` (abs) + Cloudinary | **true** | not set (Cloudinary) | bypassed |
+| shiomiyan/blog | `{{slug}}/index` (bundle) | `public/media` (abs) | not set | not set | bypassed |
+| makmonty/makmonty.com | flat | `public/images/cms` (abs) | not set; uses top-level `slug.encoding: ascii` | not set | bypassed |
+| yacosta738/astro-cms | `{{year}}/{{month}}/{{day}}/{{slug}}` | `src/assets/images` | not set; uses top-level `slug.encoding: ascii` | not set | **used** (Sharp on `src/assets/`) |
+
+**Upstream finding (most consequential):** the #264 symptom is a known regression — Sveltia issue [#672](https://github.com/sveltia/sveltia-cms/issues/672), introduced in v0.140.4, fixed in **v0.146.7**. We're pinned at **v0.157.1** (`public/admin/sveltia-cms-0.157.1.js`), so the bug should already be resolved in our setup. Sveltia's recommended pattern for nested-path collections is entry-relative bundles: `media_folder: ""` + `public_folder: ""`, which co-locates uploads with the entry and auto-deletes them on entry removal. `slugify_filename` defaults to `false` in Sveltia (diverges from Decap).
+
+### Decision
+1. **Keep the current `/public/uploads/` absolute pattern** as the baseline. The spike (#278) should still validate the entry-relative bundle approach now that v0.157.1 has the #672 fix, but we don't pre-emptively switch — the absolute pattern is stable, predictable, and officially supported.
+2. **Add `media_libraries.default.config.slugify_filename: true`** in a small standalone PR before #278. This eliminates URL-encoded filenames (e.g. `No%20Ragrets...png`) at upload time and is independent of any inline-image architecture choice.
+3. **Defer the `@assets/`-alias / Astro `image()` pipeline approach** (yacosta738's pattern) to #278's evaluation. It's the only surveyed pattern that keeps `image()` benefits with a nested path, but adoption requires schema, Vite alias, and CMS-preview plumbing changes that are out of scope for a one-line config tweak.
+
+### Rationale
+- We're not the first to hit nested-path media bugs; we're the first to keep the nested path AND the absolute-uploads workaround. Two of three real-world blogs sidestep nested paths entirely (date-in-filename or `{{slug}}/index` bundles); only yacosta738 keeps deep nesting and pairs it with `src/assets/`-rooted media.
+- Our `media_libraries.transformations` (WebP/q85/2048) is ahead of every surveyed config — no prior art for gotchas, but no cautionary tales either.
+- `slugify_filename: true` is the canonical fix per upstream (#422) and is already in production use in two surveyed repos (thiagopaixao, MattFM). Low blast radius: only affects new uploads with non-ASCII / spaced names.
+- The upstream maintainer (kyoshino) is responsive on regressions (#666 was fixed within a day), so re-testing entry-relative on v0.157.1 in #278 is cheap and de-risked.
+
+### Consequences
+- A small follow-up PR adds `slugify_filename: true` under `media_libraries.default.config` in `public/admin/config.yml`. New uploads with spaces or accents will arrive on disk slugified; existing files unchanged.
+- #278 spike scope expands to include a re-test of entry-relative (`media_folder: ""`) on v0.157.1. If it works cleanly, #278 may produce a follow-up ADR that supersedes this one.
+- #279 (validation) is unaffected — Zod schema work is orthogonal to the media-folder decision.
+- #277 (tracking) is partially mitigated: `slugify_filename: true` removes one class of bug, narrowing what tracking needs to surface.
+- We deliberately do NOT adopt the alias-based `@assets/...` pattern. yacosta738/astro-cms is the only surveyed repo using it under a nested path, and the surveyed config did not include the matching Vite/tsconfig alias plumbing — suggests the pattern is fragile in practice.
+
+### Survey artefacts
+Raw findings and per-repo notes captured in this ADR; no separate research file. Sveltia upstream issues referenced: [#672](https://github.com/sveltia/sveltia-cms/issues/672), [#666](https://github.com/sveltia/sveltia-cms/issues/666), [#422](https://github.com/sveltia/sveltia-cms/issues/422), [#728](https://github.com/sveltia/sveltia-cms/issues/728), [#735](https://github.com/sveltia/sveltia-cms/issues/735).
+
+---
+
 ## Template for New Decisions
 
 ```markdown
@@ -396,4 +442,4 @@ Fetch Threads replies at build time via the Graph API using the denim library. C
 
 ---
 
-*Last updated: 2026-04-25*
+*Last updated: 2026-04-27*
