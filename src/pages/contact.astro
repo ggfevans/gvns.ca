@@ -9,7 +9,7 @@ const errorCode = Astro.url.searchParams.get('error') ?? '';
 const errorMessages: Record<string, string> = {
   validation: 'Please check your inputs and try again.',
   verification: 'Verification failed. Please reload and retry.',
-  rate_limited: "You've sent too many messages — try again in a minute.",
+  rate_limited: "You've sent too many messages. Try again in a minute.",
   server: 'Something went wrong on our end. Please try again.',
   bad_request: "That request couldn't be processed.",
 };
@@ -48,7 +48,7 @@ Astro.response.headers.set(
 
   {sent && (
     <div role="status" class="mb-6 rounded-md border border-emerald-500/40 bg-emerald-500/10 px-4 py-3 text-emerald-200">
-      Thanks — your message is on its way.
+      Thanks. Your message is on its way.
     </div>
   )}
 
@@ -58,7 +58,7 @@ Astro.response.headers.set(
     </div>
   )}
 
-  <p>Drop a line below — I read everything.</p>
+  <p>Drop a line below. I read everything.</p>
 
   <ContactForm client:load />
 </PageLayout>
