@@ -15,7 +15,7 @@ export function buildContactEmail(input: ContactInput): {
 
   msg.setSender({ name: FROM_NAME, addr: FROM_ADDRESS });
   msg.setTo(TO_ADDRESS);
-  msg.setHeader('Reply-To', input.email);
+  msg.setHeader('Reply-To', { addr: input.email, name: input.name });
   msg.setSubject(`${SUBJECT_PREFIX} ${input.subject}`);
 
   const body = [
