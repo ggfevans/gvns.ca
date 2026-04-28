@@ -6,8 +6,12 @@ dist/
 # dependencies
 node_modules/
 
-# internal docs
-docs/
+# internal docs scratch — canonical docs (top-level docs/*.md) are tracked
+docs/.claude/
+docs/notes/
+docs/plans/
+docs/research/
+docs/superpowers/
 
 # logs
 npm-debug.log*
