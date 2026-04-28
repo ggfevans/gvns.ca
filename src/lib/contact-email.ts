@@ -1,4 +1,4 @@
-import { createMimeMessage } from 'mimetext';
+import { createMimeMessage, Mailbox } from 'mimetext';
 import type { ContactInput } from './contact-schema';
 
 const FROM_ADDRESS = 'noreply@gvns.ca';
@@ -15,7 +15,7 @@ export function buildContactEmail(input: ContactInput): {
 
   msg.setSender({ name: FROM_NAME, addr: FROM_ADDRESS });
   msg.setTo(TO_ADDRESS);
-  msg.setHeader('Reply-To', { addr: input.email, name: input.name });
+  msg.setHeader('Reply-To', new Mailbox({ addr: input.email, name: input.name }));
   msg.setSubject(`${SUBJECT_PREFIX} ${input.subject}`);
 
   const body = [
