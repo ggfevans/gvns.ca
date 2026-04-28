@@ -10,4 +10,4 @@ heroImage: ''
 canonicalUrl: ''
 ---
 
-Cuin![](No%20Ragrets%203%20Hilarious%20Facts%20From%20We%27re%20The%20Millers%20CineSnipe.png)
+Cuin
