@@ -48,8 +48,8 @@
     "typescript": "^5.9.3"
   },
   "devDependencies": {
-    "@inquirer/prompts": "^8.4.1",
+    "@inquirer/prompts": "^8.4.2",
     "starwind": "^1.16.2",
-    "wrangler": "^4.85.0"
+    "wrangler": "^4.86.0"
   }
 }
