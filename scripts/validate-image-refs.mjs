@@ -10,9 +10,9 @@ import { UPLOADS_PATH_REGEX } from '../src/uploads-path.mjs';
 const REPO_ROOT = path.resolve(fileURLToPath(import.meta.url), '../..');
 const CONTENT_DIR = path.join(REPO_ROOT, 'src', 'content');
 const DIMS_MANIFEST = path.join(REPO_ROOT, 'src', 'data', 'uploads-dims.json');
-// Capture the URL only — strip surrounding whitespace, optional <...> brackets,
-// and an optional Markdown title in single/double quotes or parentheses.
-const INLINE_RE = /!\[[^\]]*\]\(\s*<?([^\s"'<>)]+)>?(?:\s+(?:"[^"]*"|'[^']*'|\([^)]*\)))?\s*\)/g;
+// Capture the URL only. Two forms: <...> (may contain spaces) or bare token
+// (no spaces). Optional Markdown title in quotes or parens after whitespace.
+const INLINE_RE = /!\[[^\]]*\]\(\s*(?:<([^>]+)>|([^\s"'<>)]+))(?:\s+(?:"[^"]*"|'[^']*'|\([^)]*\)))?\s*\)/g;
 
 const dirCache = new Map();
 
@@ -33,10 +33,8 @@ async function listDir(dir) {
 // listing so wrong casing in intermediate segments fails locally too.
 async function existsCaseSensitive(absPath) {
   const rel = path.relative(REPO_ROOT, absPath);
-  if (rel.startsWith('..') || path.isAbsolute(rel)) {
-    const entries = await listDir(path.dirname(absPath));
-    return entries ? entries.includes(path.basename(absPath)) : false;
-  }
+  // Refuse paths that escape the repo root (absolute or `..`-prefixed).
+  if (rel.startsWith('..') || path.isAbsolute(rel)) return false;
   const segments = rel.split(path.sep).filter(Boolean);
   let cursor = REPO_ROOT;
   for (const seg of segments) {
@@ -105,7 +103,7 @@ async function validateFile(file, misses, heroDims) {
   for (const m of parsed.content.matchAll(INLINE_RE)) {
     const absOffset = bodyOffset + m.index;
     const line = raw.slice(0, absOffset).split('\n').length;
-    refs.push({ ref: m[1].trim(), line, isHero: false });
+    refs.push({ ref: (m[1] ?? m[2]).trim(), line, isHero: false });
   }
 
   for (const { ref, line, isHero } of refs) {
