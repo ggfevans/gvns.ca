@@ -26,6 +26,11 @@ public_folder: /uploads
 media_libraries:
   default:
     config:
+      # Slugify upload filenames so frontmatter doesn't end up with
+      # URL-encoded paths (e.g. "No Ragrets.png" → "no-ragrets.png"
+      # instead of "No%20Ragrets.png"). Sveltia defaults to false;
+      # canonical fix per upstream #422 / ADR-014.
+      slugify_filename: true
       transformations:
         raster_image:
           format: webp
