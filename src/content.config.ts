@@ -22,7 +22,7 @@ const uploadsPathSchema = z.preprocess(
 
 const posts = defineCollection({
   loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: './src/content/posts' }),
-  schema: () =>
+  schema: ({ image }) =>
     z.object({
       title: z.string().max(100),
       description: z.string().max(200),
@@ -30,7 +30,7 @@ const posts = defineCollection({
       updatedDate: z.preprocess(emptyToUndefined, z.coerce.date().optional()),
       tags: z.array(z.string()).min(1).max(4),
       draft: z.boolean().default(false),
-      heroImage: uploadsPathSchema,
+      heroImage: z.preprocess(emptyToUndefined, image().optional()),
       heroImageAlt: z.preprocess(trimToUndefined, z.string().max(250).optional()),
       canonicalUrl: z.preprocess(emptyToUndefined, z.string().url().optional()),
       syndication: z

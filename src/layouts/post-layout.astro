@@ -15,7 +15,7 @@ import {
 import CopyCodeInit from "@components/CopyCodeInit.astro";
 import SyndicationLinks from "@components/SyndicationLinks.astro";
 import Comments from "@components/Comments.astro";
-import getImageDims from "@utils/image-dims";
+import { Image } from "astro:assets";
 
 interface Props {
     post: CollectionEntry<"posts">;
@@ -24,11 +24,6 @@ interface Props {
 const { post } = Astro.props;
 const { title, description, pubDate, updatedDate, tags, heroImage, heroImageAlt, syndication } = post.data;
 const readingTime = getReadingTime(post.body ?? '');
-
-// heroImage is an absolute /uploads/... URL written by the CMS; we probe the
-// file at build time to recover width/height for layout stability.
-const heroImageUrl = heroImage;
-const heroDims = getImageDims(heroImageUrl);
 
 const siteUrl = normalizeSiteUrl(Astro.site);
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
@@ -56,10 +51,10 @@ const breadcrumbJsonLd = toJsonLd(
 <BaseLayout
     title={title}
     description={description}
-    image={heroImageUrl}
+    image={heroImage?.src}
     imageAlt={heroImageAlt}
-    imageWidth={heroDims?.width}
-    imageHeight={heroDims?.height}
+    imageWidth={heroImage?.width}
+    imageHeight={heroImage?.height}
     accent="p4-amber"
     breadcrumbs={[
         { label: "Home", href: "/" },
@@ -76,16 +71,15 @@ const breadcrumbJsonLd = toJsonLd(
     <ReadingProgress client:idle />
     <main id="main-content" data-pagefind-body>
         <article class="post">
-            {heroImageUrl && (
+            {heroImage && (
                 <figure class="hero">
-                    <img
-                        src={heroImageUrl}
+                    <Image
+                        src={heroImage}
                         alt={heroImageAlt ?? ''}
                         loading="eager"
                         fetchpriority="high"
-                        decoding="async"
-                        width={heroDims?.width}
-                        height={heroDims?.height}
+                        widths={[480, 800, 1200, 1800]}
+                        sizes="(min-width: 1200px) 1100px, 100vw"
                     />
                 </figure>
             )}
