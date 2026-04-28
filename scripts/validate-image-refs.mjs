@@ -102,7 +102,6 @@ async function validateFile(file, misses) {
       misses.push(
         `${rel}:${lineOf(raw, 'heroImage:')}: posts use bundle layout — heroImage should be a bare filename, not '${hero}'. Drop the leading slash and place the file next to the post's index.md.`,
       );
-      return;
     }
     refs.push({ ref: hero, line: lineOf(raw, 'heroImage:') });
   }
@@ -135,7 +134,7 @@ async function main() {
     for (const m of misses) console.error(m);
     process.exit(1);
   }
-  console.log(`validate-image-refs: ${files.length} posts scanned, all refs resolved`);
+  console.log(`validate-image-refs: ${files.length} files scanned, all refs resolved`);
 }
 
 main().catch((err) => {

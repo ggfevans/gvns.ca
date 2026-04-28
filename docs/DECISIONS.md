@@ -426,6 +426,7 @@ Raw findings and per-repo notes captured in this ADR; no separate research file.
 **Supersedes**: ADR-014 decision #1 (the `/public/uploads/` absolute baseline)
 
 ### Context
+
 Issue [#278](https://github.com/ggfevans/gvns.ca/issues/278) — spike on the Sveltia inline-image workflow. Browser testing on Sveltia v0.157.1 with the existing `path: "{{year}}/{{month}}/{{slug}}"` template revealed an asymmetry between the two upload entry points:
 
 | Path | Saved frontmatter / markdown ref | File location |
@@ -445,11 +446,13 @@ Source-code findings that informed the fix:
 - All three insertion paths share one code path (`insertImages` in `rich-text-editor.svelte`), so identical behaviour for button / drag-drop / paste. Confirmed in browser.
 
 ### Decision
+
 Switch the `posts` collection to **bundle layout**: `path: "{{year}}/{{month}}/{{slug}}/index"`. Each post is `<...>/<slug>/index.md` and any uploaded assets land beside it as siblings. Drop the global `media_folder` / `public_folder` from `public/admin/config.yml`. `heroImage` becomes a bare-filename frontmatter field, validated through Astro's `image()` schema helper, which auto-resolves the file relative to the entry's directory and runs it through the build-time image pipeline. Inline body images Just Work because the bare `![](file.webp)` ref Sveltia writes resolves correctly when post and asset share a directory.
 
 Scope: `posts` collection only. The `work` collection retains `uploadsPathSchema` and the `/uploads/...` absolute pattern; it is not currently CMS-managed in the same flow.
 
 ### Rationale
+
 - **One shape everywhere.** Both `heroImage` and body inline images use the same bare-relative ref pattern. The validator has one rule. The author has one mental model.
 - **Goes with the grain of Sveltia.** v0.157.1 has the #672 fix; entry-relative bundles are now reliable. ADR-014's blocker (the v0.140.4–v0.146.6 regression) is gone.
 - **Astro's `image()` pipeline is now in scope for hero images** for free — width/height come from the schema, no more dim-cache probe (`src/utils/image-dims.ts` retired).
@@ -457,6 +460,7 @@ Scope: `posts` collection only. The `work` collection retains `uploadsPathSchema
 - **No new validator complexity.** `scripts/validate-image-refs.mjs:79-84` already resolves bare refs against the post's directory; no change needed.
 
 ### Consequences
+
 - The 4 throwaway test posts (`testy.md`, `heroimage.md`, `jvcc.md`, `inline-image-probe.md`) and `public/uploads/risk.jpg` are deleted as part of this change. No real content was migrated.
 - `public/uploads/` is retained (with `.gitkeep`) for any ad-hoc absolute uploads outside the CMS flow.
 - `src/utils/image-dims.ts`, `src/data/uploads-dims.json`, and the validator's dim-cache writer are retired — `image()` schema replaces them.
@@ -467,6 +471,7 @@ Scope: `posts` collection only. The `work` collection retains `uploadsPathSchema
 - ADR-014 decisions #2 (`slugify_filename: true`) and #3 (defer `@assets/`-alias) remain in force. The body inline images don't need the alias because Astro's default markdown image transform optimises relative refs that sit beside the entry.
 
 ### Verification
+
 The end-to-end browser checklist is captured in the implementation PR. Critical confirmations:
 - Inline body image upload → file at `<bundle>/file.webp`, ref `![](file.webp)`, resolves and renders.
 - heroImage upload → file at `<bundle>/file.webp`, frontmatter `heroImage: file.webp`, schema validates, `<Image>` renders fingerprinted variant.
