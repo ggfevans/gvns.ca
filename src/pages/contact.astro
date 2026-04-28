@@ -13,6 +13,23 @@ const errorMessages: Record<string, string> = {
   server: 'Something went wrong on our end. Please try again.',
   bad_request: "That request couldn't be processed.",
 };
+
+// public/_headers only attaches CSP to static asset responses; this page is
+// SSR (prerender = false) so we set the header from the worker. Mirrors the
+// site CSP and adds Turnstile origins for script-src and frame-src.
+Astro.response.headers.set(
+  'Content-Security-Policy',
+  "default-src 'self'; " +
+    "script-src 'self' https://analytics.gvns.ca https://static.cloudflareinsights.com https://challenges.cloudflare.com 'unsafe-inline' 'wasm-unsafe-eval'; " +
+    "style-src 'self' 'unsafe-inline'; " +
+    "img-src 'self' https: data:; " +
+    "font-src 'self' data:; " +
+    "connect-src 'self' https://analytics.gvns.ca; " +
+    'frame-src https://challenges.cloudflare.com; ' +
+    "frame-ancestors 'none'; " +
+    "base-uri 'self'; " +
+    "form-action 'self'",
+);
 ---
 
 <PageLayout
