@@ -1,14 +1,8 @@
 import { z } from 'astro/zod';
 
-/** Returns true if the string contains no CR, LF, or NUL characters. */
-export function isCRLFFree(s: string): boolean {
+function isCRLFFree(s: string): boolean {
   return !/[\r\n\0]/.test(s);
 }
-
-const noCRLF = (fieldName: string) =>
-  z.string().refine(isCRLFFree, {
-    message: `${fieldName}: Invalid characters`,
-  });
 
 export const contactSchema = z.object({
   name: z
