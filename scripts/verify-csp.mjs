@@ -27,6 +27,7 @@ const expectations = [
   { path: "/now/",   marker: "connect-src 'self' https://analytics.gvns.ca",    label: "site"  },
   { path: "/work/",  marker: "connect-src 'self' https://analytics.gvns.ca",    label: "site"  },
   { path: "/admin/", marker: "https://api.github.com",                          label: "admin" },
+  { path: "/contact", marker: "frame-src https://challenges.cloudflare.com",    label: "contact" },
 ];
 
 let failures = 0;

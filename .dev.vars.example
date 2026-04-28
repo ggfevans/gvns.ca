@@ -1,0 +1,6 @@
+# Cloudflare Worker secrets (ignored by git via .dev.vars)
+# Copy this to .dev.vars locally; set production values via `wrangler secret put`.
+
+# Turnstile (https://challenges.cloudflare.com)
+# Use the test secret in dev — it always validates.
+TURNSTILE_SECRET_KEY=1x0000000000000000000000000000000AA

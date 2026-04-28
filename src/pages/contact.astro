@@ -1,0 +1,47 @@
+---
+export const prerender = false;
+
+import PageLayout from '@layouts/PageLayout.astro';
+import ContactForm from '@components/ContactForm.svelte';
+
+const sent = Astro.url.searchParams.get('sent') === '1';
+const errorCode = Astro.url.searchParams.get('error') ?? '';
+const errorMessages: Record<string, string> = {
+  validation: 'Please check your inputs and try again.',
+  verification: 'Verification failed. Please reload and retry.',
+  rate_limited: "You've sent too many messages — try again in a minute.",
+  server: 'Something went wrong on our end. Please try again.',
+  bad_request: "That request couldn't be processed.",
+};
+---
+
+<PageLayout
+  title="Contact"
+  description="Get in touch."
+  accent="p1-violet"
+  breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Contact' }]}
+>
+  <script
+    src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+    async
+    defer
+    is:inline
+    slot="head"
+  ></script>
+
+  {sent && (
+    <div role="status" class="mb-6 rounded-md border border-emerald-500/40 bg-emerald-500/10 px-4 py-3 text-emerald-200">
+      Thanks — your message is on its way.
+    </div>
+  )}
+
+  {errorCode && errorMessages[errorCode] && (
+    <div role="alert" class="mb-6 rounded-md border border-rose-500/40 bg-rose-500/10 px-4 py-3 text-rose-200">
+      {errorMessages[errorCode]}
+    </div>
+  )}
+
+  <p>Drop a line below — I read everything.</p>
+
+  <ContactForm client:load />
+</PageLayout>
