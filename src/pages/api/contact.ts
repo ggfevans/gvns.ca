@@ -2,12 +2,9 @@ import type { APIRoute } from 'astro';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore — cloudflare:workers is a Cloudflare runtime module, not a Node module
 import { env } from 'cloudflare:workers';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore — cloudflare:email is a Cloudflare runtime module, not a Node module
-import { EmailMessage } from 'cloudflare:email';
 
 import { contactSchema } from '../../lib/contact-schema';
-import { buildContactEmail } from '../../lib/contact-email';
+import { buildResendPayload } from '../../lib/contact-email';
 
 export const prerender = false;
 
@@ -20,11 +17,9 @@ interface RateLimiter {
 }
 
 interface CloudflareEnv {
-  SEND_EMAIL: {
-    send: (message: unknown) => Promise<void>;
-  };
   RATE_LIMITER: RateLimiter;
   TURNSTILE_SECRET_KEY: string;
+  RESEND_API_KEY: string;
 }
 
 // ---------------------------------------------------------------------------
@@ -35,6 +30,8 @@ const BODY_SIZE_LIMIT = 10240; // 10 KB
 
 const TURNSTILE_VERIFY_URL =
   'https://challenges.cloudflare.com/turnstile/v0/siteverify';
+
+const RESEND_SEND_URL = 'https://api.resend.com/emails';
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -262,17 +259,38 @@ export const POST: APIRoute = async (context) => {
 
   const input = parsed.data;
 
-  // 10. Build MIME
-  const { from, to, raw } = buildContactEmail(input);
+  // 10. Build payload
+  const payload = buildResendPayload(input);
 
-  // 11. Send
+  // 11. Send via Resend
+  const sendController = new AbortController();
+  const sendTimeout = setTimeout(() => sendController.abort(), 10000);
   try {
-    const message = new EmailMessage(from, to, raw);
-    await cfEnv.SEND_EMAIL.send(message);
+    const sendRes = await fetch(RESEND_SEND_URL, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${cfEnv.RESEND_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+      signal: sendController.signal,
+    });
+
+    if (!sendRes.ok) {
+      const errText = await sendRes.text().catch(() => '');
+      log('send_failed', `stage=email status=${sendRes.status} body=${JSON.stringify(errText.slice(0, 500))}`);
+      return errorResponse(fmt, 500, 'Something went wrong, please try again', 'server');
+    }
   } catch (err: unknown) {
     const e = err as Error & { code?: string };
+    if (e.name === 'AbortError') {
+      log('send_failed', 'stage=email error=timeout');
+      return errorResponse(fmt, 504, 'Sending timed out, please try again', 'server');
+    }
     log('send_failed', `stage=email error=${e.name} message=${JSON.stringify(e.message)}`);
     return errorResponse(fmt, 500, 'Something went wrong, please try again', 'server');
+  } finally {
+    clearTimeout(sendTimeout);
   }
 
   log('ok');

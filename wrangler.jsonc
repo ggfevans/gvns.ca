@@ -16,9 +16,6 @@
   "observability": {
     "enabled": true
   },
-  "send_email": [
-    { "name": "SEND_EMAIL", "destination_address": "hi@gvns.ca" }
-  ],
   "ratelimits": [
     {
       // namespace_id is any positive integer unique within this account.

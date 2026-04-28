@@ -1,4 +1,3 @@
-import { createMimeMessage, Mailbox } from 'mimetext';
 import type { ContactInput } from './contact-schema';
 
 const FROM_ADDRESS = 'noreply@gvns.ca';
@@ -6,19 +5,21 @@ const FROM_NAME = 'gvns.ca contact';
 const TO_ADDRESS = 'hi@gvns.ca';
 const SUBJECT_PREFIX = '[contact]';
 
-export function buildContactEmail(input: ContactInput): {
+export interface ResendPayload {
   from: string;
-  to: string;
-  raw: string;
-} {
-  const msg = createMimeMessage();
+  to: string[];
+  reply_to: string;
+  subject: string;
+  text: string;
+}
 
-  msg.setSender({ name: FROM_NAME, addr: FROM_ADDRESS });
-  msg.setTo(TO_ADDRESS);
-  msg.setHeader('Reply-To', new Mailbox({ addr: input.email, name: input.name }));
-  msg.setSubject(`${SUBJECT_PREFIX} ${input.subject}`);
+function quoteDisplayName(name: string): string {
+  if (/[",<>@]/.test(name)) return `"${name.replace(/(["\\])/g, '\\$1')}"`;
+  return name;
+}
 
-  const body = [
+export function buildResendPayload(input: ContactInput): ResendPayload {
+  const text = [
     `From: ${input.name} <${input.email}>`,
     `Subject: ${input.subject}`,
     '',
@@ -27,15 +28,11 @@ export function buildContactEmail(input: ContactInput): {
     input.message,
   ].join('\n');
 
-  msg.addMessage({
-    contentType: 'text/plain',
-    charset: 'utf-8',
-    data: body,
-  });
-
   return {
-    from: FROM_ADDRESS,
-    to: TO_ADDRESS,
-    raw: msg.asRaw(),
+    from: `${quoteDisplayName(FROM_NAME)} <${FROM_ADDRESS}>`,
+    to: [TO_ADDRESS],
+    reply_to: `${quoteDisplayName(input.name)} <${input.email}>`,
+    subject: `${SUBJECT_PREFIX} ${input.subject}`,
+    text,
   };
 }
