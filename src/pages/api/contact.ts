@@ -204,7 +204,7 @@ export const POST: APIRoute = async (context) => {
     }
   } catch (err: unknown) {
     const e = err as Error & { code?: string };
-    log('send_failed', `error=${e.name}`);
+    log('send_failed', `stage=ratelimit error=${e.name} message=${JSON.stringify(e.message)}`);
     return errorResponse(fmt, 500, 'Something went wrong, please try again', 'server');
   }
 
@@ -242,7 +242,7 @@ export const POST: APIRoute = async (context) => {
       log('turnstile_failed', 'error=timeout');
       return errorResponse(fmt, 504, 'Verification timed out, please try again', 'verification');
     }
-    log('send_failed', `error=${e.name}`);
+    log('send_failed', `stage=turnstile_fetch error=${e.name} message=${JSON.stringify(e.message)}`);
     return errorResponse(fmt, 500, 'Something went wrong, please try again', 'server');
   } finally {
     clearTimeout(verifyTimeout);
@@ -271,7 +271,7 @@ export const POST: APIRoute = async (context) => {
     await cfEnv.SEND_EMAIL.send(message);
   } catch (err: unknown) {
     const e = err as Error & { code?: string };
-    log('send_failed', `error=${e.name}`);
+    log('send_failed', `stage=email error=${e.name} message=${JSON.stringify(e.message)}`);
     return errorResponse(fmt, 500, 'Something went wrong, please try again', 'server');
   }
 

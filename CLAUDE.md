@@ -59,8 +59,8 @@ src/
 
 ### Naming
 
-- **Components** (`src/components/**/*.astro`, `*.svelte`): `PascalCase` (e.g. `BookList.astro`, `ThemeToggle.svelte`). Matches Astro/Svelte community norm and Starwind UI Pro output.
-- **Pages, routes, layouts, utils, content, styles**: `kebab-case` (e.g. `src/pages/read/index.astro`, `src/utils/reading-time.ts`). Keeps URLs and import paths clean.
+- **Components and layouts** (`src/components/**/*.astro`, `*.svelte`, `src/layouts/*.astro`): `PascalCase` (e.g. `BookList.astro`, `ThemeToggle.svelte`, `BaseLayout.astro`). Matches Astro/Svelte community norm and Starwind UI Pro output; layouts are imported and consumed exactly like components.
+- **Pages, routes, utils, content, styles**: `kebab-case` (e.g. `src/pages/read/index.astro`, `src/utils/reading-time.ts`). Keeps URLs and import paths clean.
 
 See `docs/COMPONENT-CONVENTIONS.md` for full rationale and examples.
 
