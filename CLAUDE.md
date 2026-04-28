@@ -105,5 +105,6 @@ Detailed specs in `/docs/`:
 - `INFRASTRUCTURE.md` - Server config, CI/CD
 - `DECISIONS.md` - Architecture Decision Records
 - `CMS-SETUP.md` - Sveltia CMS at `gvns.ca/admin` + `auth.gvns.ca` Worker
+- `CONTACT-FORM.md` - `/contact` → Turnstile + rate limit + Resend HTTP API; debug recipe and known failure modes
 - `OBSIDIAN-SETUP.md` - Optional drafting in Obsidian → `npm run wikilinks` → paste into CMS
 - `ROADMAP.md` - Phases 6–10, what's done vs not
