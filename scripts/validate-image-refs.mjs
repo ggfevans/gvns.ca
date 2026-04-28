@@ -1,15 +1,14 @@
 #!/usr/bin/env node
 
-import { readdir, readFile, writeFile } from 'node:fs/promises';
+import { readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import matter from 'gray-matter';
-import { imageSize } from 'image-size';
 import { UPLOADS_PATH_REGEX } from '../src/uploads-path.mjs';
 
 const REPO_ROOT = path.resolve(fileURLToPath(import.meta.url), '../..');
 const CONTENT_DIR = path.join(REPO_ROOT, 'src', 'content');
-const DIMS_MANIFEST = path.join(REPO_ROOT, 'src', 'data', 'uploads-dims.json');
+const POSTS_DIR = path.join(CONTENT_DIR, 'posts');
 // Capture the URL only. Two forms: <...> (may contain spaces) or bare token
 // (no spaces). Optional Markdown title in quotes or parens after whitespace.
 const INLINE_RE = /!\[[^\]]*\]\(\s*(?:<([^>]+)>|([^\s"'<>)]+))(?:\s+(?:"[^"]*"|'[^']*'|\([^)]*\)))?\s*\)/g;
@@ -88,44 +87,39 @@ function isExternal(ref) {
   return /^(https?:|data:)/i.test(ref);
 }
 
-async function validateFile(file, misses, heroDims) {
+async function validateFile(file, misses) {
   const raw = await readFile(file, 'utf8');
   const parsed = matter(raw);
   const rel = path.relative(REPO_ROOT, file);
+  const isPost = file.startsWith(POSTS_DIR + path.sep);
 
   const refs = [];
   const hero = parsed.data?.heroImage;
   if (typeof hero === 'string' && hero.trim() !== '') {
-    refs.push({ ref: hero, line: lineOf(raw, 'heroImage:'), isHero: true });
+    // Posts use bundle layout — heroImage must be a bare filename. Catch
+    // legacy `/uploads/...` paths loudly so authors know to drop the prefix.
+    if (isPost && hero.startsWith('/')) {
+      misses.push(
+        `${rel}:${lineOf(raw, 'heroImage:')}: posts use bundle layout — heroImage should be a bare filename, not '${hero}'. Drop the leading slash and place the file next to the post's index.md.`,
+      );
+    }
+    refs.push({ ref: hero, line: lineOf(raw, 'heroImage:') });
   }
 
   const bodyOffset = raw.length - parsed.content.length;
   for (const m of parsed.content.matchAll(INLINE_RE)) {
     const absOffset = bodyOffset + m.index;
     const line = raw.slice(0, absOffset).split('\n').length;
-    refs.push({ ref: (m[1] ?? m[2]).trim(), line, isHero: false });
+    refs.push({ ref: (m[1] ?? m[2]).trim(), line });
   }
 
-  for (const { ref, line, isHero } of refs) {
+  for (const { ref, line } of refs) {
     if (!ref || isExternal(ref)) continue;
     const decoded = decode(ref);
     if (!decoded.trim()) continue;
     const abs = resolveRef(decoded, file);
     if (!(await existsCaseSensitive(abs))) {
       misses.push(`${rel}:${line}: missing image '${ref}'`);
-      continue;
-    }
-    const dimsKey = stripQS(decoded);
-    if (isHero && UPLOADS_PATH_REGEX.test(dimsKey) && !heroDims.has(dimsKey)) {
-      try {
-        const buf = await readFile(abs);
-        const { width, height } = imageSize(buf);
-        if (typeof width === 'number' && typeof height === 'number') {
-          heroDims.set(dimsKey, [width, height]);
-        }
-      } catch {
-        // Probe is best-effort. Render falls back to no width/height.
-      }
     }
   }
 }
@@ -133,19 +127,14 @@ async function validateFile(file, misses, heroDims) {
 async function main() {
   const files = await collectMarkdown(CONTENT_DIR);
   const misses = [];
-  const heroDims = new Map();
   for (const f of files) {
-    await validateFile(f, misses, heroDims);
+    await validateFile(f, misses);
   }
   if (misses.length > 0) {
     for (const m of misses) console.error(m);
     process.exit(1);
   }
-  const dimsObj = Object.fromEntries([...heroDims.entries()].sort());
-  await writeFile(DIMS_MANIFEST, JSON.stringify(dimsObj, null, 2) + '\n', 'utf8');
-  console.log(
-    `validate-image-refs: ${files.length} posts scanned, ${heroDims.size} hero dims cached`,
-  );
+  console.log(`validate-image-refs: ${files.length} files scanned, all refs resolved`);
 }
 
 main().catch((err) => {

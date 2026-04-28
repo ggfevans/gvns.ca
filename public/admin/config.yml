@@ -8,20 +8,16 @@ backend:
 site_url: https://gvns.ca
 display_url: https://gvns.ca
 
-# Media uploads land in /public/uploads/ and are referenced by absolute URL
-# in frontmatter (e.g. heroImage: /uploads/foo.jpg). This sidesteps Sveltia's
-# entry-relative media-folder resolution, which always nests uploads under a
-# slug-named subfolder for `path: "{{year}}/{{month}}/{{slug}}"` collections
-# (see issue #264). Trade-off: hero images bypass Astro's image() pipeline
-# (no per-image optimisation), but the config is robust and predictable.
-media_folder: public/uploads
-public_folder: /uploads
+# No top-level media_folder/public_folder. Posts use bundle layout
+# (`<...>/<slug>/index.md`), so Sveltia's default entry-relative resolution
+# co-locates uploaded media with the post that references it. The bare
+# `![](file.webp)` refs Sveltia writes resolve correctly because post and
+# assets share the same directory. heroImage frontmatter is also a bare
+# basename, validated through Astro's image() schema. See ADR-015.
 
 # Client-side image optimisation: Sveltia converts raster uploads to WebP
-# at quality 85 and resizes to max 2048px (long edge) before commit. This
-# mitigates the loss of Astro's image() pipeline for heroes (#264) — large
-# phone JPEGs land already-compressed. SVGs untouched. Per-field overrides
-# can be added later if needed.
+# at quality 85 and resizes to max 2048px (long edge) before commit. Applies
+# globally to all uploads regardless of where they land. SVGs untouched.
 # Source: https://github.com/sveltia/sveltia-cms (media-libraries integration)
 media_libraries:
   default:
@@ -43,7 +39,7 @@ collections:
     label: Posts
     label_singular: Post
     folder: src/content/posts
-    path: "{{year}}/{{month}}/{{slug}}"
+    path: "{{year}}/{{month}}/{{slug}}/index"
     create: true
     slug: "{{slug}}"
     extension: md
