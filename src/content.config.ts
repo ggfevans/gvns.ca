@@ -1,7 +1,14 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
+import { UPLOADS_PATH_REGEX } from './uploads-path.mjs';
 
 const emptyToUndefined = (v: unknown) => (v === '' || v === null ? undefined : v);
+
+const trimToUndefined = (v: unknown) => {
+  if (typeof v !== 'string') return v ?? undefined;
+  const trimmed = v.trim();
+  return trimmed === '' ? undefined : trimmed;
+};
 
 // Shared validation for CMS-uploaded media paths. Sveltia writes absolute
 // /uploads/... URLs into frontmatter (see docs/CMS-SETUP.md, issue #264).
@@ -9,7 +16,7 @@ const uploadsPathSchema = z.preprocess(
   emptyToUndefined,
   z
     .string()
-    .regex(/^\/uploads\/.+/, 'heroImage must be an absolute /uploads/... path')
+    .regex(UPLOADS_PATH_REGEX, 'heroImage must be an absolute /uploads/... path')
     .optional()
 );
 
@@ -24,6 +31,7 @@ const posts = defineCollection({
       tags: z.array(z.string()).min(1).max(4),
       draft: z.boolean().default(false),
       heroImage: uploadsPathSchema,
+      heroImageAlt: z.preprocess(trimToUndefined, z.string().max(250).optional()),
       canonicalUrl: z.preprocess(emptyToUndefined, z.string().url().optional()),
       syndication: z
         .array(
@@ -50,6 +58,7 @@ const work = defineCollection({
       status: z.enum(['active', 'maintained', 'archived']),
       tags: z.array(z.string()).min(1).max(6),
       heroImage: uploadsPathSchema,
+      heroImageAlt: z.preprocess(trimToUndefined, z.string().max(250).optional()),
       featured: z.boolean().default(false),
     }),
 });

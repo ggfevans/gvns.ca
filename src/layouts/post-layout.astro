@@ -15,18 +15,20 @@ import {
 import CopyCodeInit from "@components/CopyCodeInit.astro";
 import SyndicationLinks from "@components/SyndicationLinks.astro";
 import Comments from "@components/Comments.astro";
+import getImageDims from "@utils/image-dims";
 
 interface Props {
     post: CollectionEntry<"posts">;
 }
 
 const { post } = Astro.props;
-const { title, description, pubDate, updatedDate, tags, heroImage, syndication } = post.data;
+const { title, description, pubDate, updatedDate, tags, heroImage, heroImageAlt, syndication } = post.data;
 const readingTime = getReadingTime(post.body ?? '');
 
-// heroImage is an absolute /uploads/... URL written by the CMS; width/height
-// are not known without the Astro image pipeline (intentional — see #264).
+// heroImage is an absolute /uploads/... URL written by the CMS; we probe the
+// file at build time to recover width/height for layout stability.
 const heroImageUrl = heroImage;
+const heroDims = getImageDims(heroImageUrl);
 
 const siteUrl = normalizeSiteUrl(Astro.site);
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
@@ -55,6 +57,9 @@ const breadcrumbJsonLd = toJsonLd(
     title={title}
     description={description}
     image={heroImageUrl}
+    imageAlt={heroImageAlt}
+    imageWidth={heroDims?.width}
+    imageHeight={heroDims?.height}
     accent="p4-amber"
     breadcrumbs={[
         { label: "Home", href: "/" },
@@ -71,6 +76,19 @@ const breadcrumbJsonLd = toJsonLd(
     <ReadingProgress client:idle />
     <main id="main-content" data-pagefind-body>
         <article class="post">
+            {heroImageUrl && (
+                <figure class="hero">
+                    <img
+                        src={heroImageUrl}
+                        alt={heroImageAlt ?? ''}
+                        loading="eager"
+                        fetchpriority="high"
+                        decoding="async"
+                        width={heroDims?.width}
+                        height={heroDims?.height}
+                    />
+                </figure>
+            )}
             <header class="post-header">
                 <h1>{title}</h1>
                 <div class="post-meta">
@@ -116,6 +134,17 @@ const breadcrumbJsonLd = toJsonLd(
     .post {
         max-width: var(--width-content);
         margin: 0 auto;
+    }
+
+    .hero {
+        margin: 0 0 2rem;
+    }
+
+    .hero img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: var(--radius-lg);
     }
 
     .post-header {

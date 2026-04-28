@@ -11,11 +11,12 @@ interface Props {
   image?: string;
   imageWidth?: number;
   imageHeight?: number;
+  imageAlt?: string;
   accent?: 'p1-violet' | 'p2-rose' | 'p3-emerald' | 'p4-amber' | 'p5-sky' | 'neutral';
   breadcrumbs?: { label: string; href?: string }[];
 }
 
-const { title, description, image, imageWidth, imageHeight, accent, breadcrumbs } = Astro.props;
+const { title, description, image, imageWidth, imageHeight, imageAlt, accent, breadcrumbs } = Astro.props;
 
 const SITE_SUFFIX = ' | gvns.ca';
 const fullTitle = title.endsWith(SITE_SUFFIX) ? title : `${title}${SITE_SUFFIX}`;
@@ -24,7 +25,7 @@ const fullTitle = title.endsWith(SITE_SUFFIX) ? title : `${title}${SITE_SUFFIX}`
 <!doctype html>
 <html lang="en" data-accent={accent}>
   <head>
-    <BaseHead title={fullTitle} description={description} image={image} imageWidth={imageWidth} imageHeight={imageHeight} />
+    <BaseHead title={fullTitle} description={description} image={image} imageWidth={imageWidth} imageHeight={imageHeight} imageAlt={imageAlt} />
     <slot name="head" />
     <script is:inline>
       // Initialize theme before page renders to prevent flash

@@ -116,6 +116,14 @@ collections:
           choose_url: false,
         }
       - {
+          name: heroImageAlt,
+          label: Hero image alt text,
+          widget: string,
+          required: false,
+          pattern: ['^.{0,250}$', "Keep alt text under 250 characters."],
+          hint: "Describe the image for screen readers + social previews (max 250 chars). Leave blank if purely decorative.",
+        }
+      - {
           name: canonicalUrl,
           label: Canonical URL,
           widget: string,
