@@ -34,11 +34,12 @@ export const contactSchema = z.object({
     .max(5000, 'Message must be 5000 characters or fewer'),
 
   // Honeypot — must be absent or empty; bots fill this in.
-  website: z
+  // Field is named hp_field (not "website") to avoid browser autofill.
+  hp_field: z
     .string()
     .optional()
     .refine((val) => !val || val === '', {
-      message: 'website: must be empty',
+      message: 'hp_field: must be empty',
     }),
 
   'cf-turnstile-response': z.string().min(1, 'Turnstile token is required'),
