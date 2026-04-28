@@ -13,8 +13,6 @@ export async function GET(context: APIContext) {
     .filter((post) => !post.data.draft)
     .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
-  const projects = await getCollection("work");
-
   const postsLines = posts
     .map(
       (post) =>
@@ -22,24 +20,13 @@ export async function GET(context: APIContext) {
     )
     .join("\n");
 
-  const workLines = projects
-    .map(
-      (project) =>
-        `- [${project.data.title}](${siteUrl}/work/${getPostSlug(project.id)}/): ${project.data.description}`,
-    )
-    .join("\n");
-
   const body = `# gvns.ca
 
-> Personal site of Gareth Evans — writing on software, design, and technology, plus a portfolio of work.
+> Personal site of Gareth Evans — writing on software, design, and technology.
 
 ## Posts
 
 ${postsLines}
-
-## Work
-
-${workLines}
 
 ## About
 
