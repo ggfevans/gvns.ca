@@ -164,7 +164,7 @@ export const POST: APIRoute = async (context) => {
     return errorResponse(fmt, 413, 'Payload Too Large', 'bad_request');
   }
 
-  if (rawBody.length > BODY_SIZE_LIMIT) {
+  if (new TextEncoder().encode(rawBody).length > BODY_SIZE_LIMIT) {
     log('payload_too_large');
     return errorResponse(fmt, 413, 'Payload Too Large', 'bad_request');
   }
@@ -173,7 +173,12 @@ export const POST: APIRoute = async (context) => {
   let fields: Record<string, unknown>;
   try {
     if (ct === 'application/json') {
-      fields = JSON.parse(rawBody);
+      const parsed: unknown = JSON.parse(rawBody);
+      if (typeof parsed !== 'object' || parsed === null || Array.isArray(parsed)) {
+        log('bad_request');
+        return errorResponse(fmt, 400, 'Bad Request', 'bad_request');
+      }
+      fields = parsed as Record<string, unknown>;
     } else {
       const params = new URLSearchParams(rawBody);
       fields = Object.fromEntries(params.entries());
@@ -210,6 +215,8 @@ export const POST: APIRoute = async (context) => {
       ? fields['cf-turnstile-response']
       : '';
 
+  const verifyController = new AbortController();
+  const verifyTimeout = setTimeout(() => verifyController.abort(), 5000);
   try {
     const verifyBody = new URLSearchParams({
       secret: cfEnv.TURNSTILE_SECRET_KEY,
@@ -222,6 +229,7 @@ export const POST: APIRoute = async (context) => {
       method: 'POST',
       body: verifyBody,
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      signal: verifyController.signal,
     });
 
     const verifyJson = (await verifyRes.json()) as { success: boolean };
@@ -231,8 +239,14 @@ export const POST: APIRoute = async (context) => {
     }
   } catch (err: unknown) {
     const e = err as Error & { code?: string };
+    if (e.name === 'AbortError') {
+      log('turnstile_failed', 'error=timeout');
+      return errorResponse(fmt, 504, 'Verification timed out, please try again', 'verification');
+    }
     log('send_failed', `error=${e.name}`);
     return errorResponse(fmt, 500, 'Something went wrong, please try again', 'server');
+  } finally {
+    clearTimeout(verifyTimeout);
   }
 
   // 9. Zod parse

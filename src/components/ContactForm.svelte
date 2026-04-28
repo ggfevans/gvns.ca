@@ -8,6 +8,11 @@
   let serverMessage = $state('');
   let fieldErrors = $state<Record<string, string>>({});
 
+  function resetTurnstile() {
+    const turnstile = (globalThis as { turnstile?: { reset: () => void } }).turnstile;
+    turnstile?.reset();
+  }
+
   async function handleSubmit(event: SubmitEvent) {
     event.preventDefault();
     const form = event.currentTarget as HTMLFormElement;
@@ -32,10 +37,12 @@
         status = 'error';
         serverMessage = json.message ?? 'Something went wrong.';
         if (json.errors) fieldErrors = json.errors;
+        resetTurnstile();
       }
     } catch {
       status = 'error';
       serverMessage = 'Network error. Please try again.';
+      resetTurnstile();
     }
   }
 </script>
