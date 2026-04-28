@@ -2,35 +2,29 @@
 
 A one-page distillation of `CONTENT-SCHEMA.md` and `OBSIDIAN-SETUP.md` — for getting a post or work entry written and published without bouncing between docs.
 
-> **Need the full reference?** `CONTENT-SCHEMA.md` for the schema spec, `OBSIDIAN-SETUP.md` for the drafting pipeline. This file is the cheat sheet.
+> **Need the full reference?** `CONTENT-SCHEMA.md` for the schema spec, `CMS-SETUP.md` for the Sveltia admin, `OBSIDIAN-SETUP.md` for the drafting pipeline.
 
 ---
 
-## Three ways to start a post
+## Three ways to write a post
 
-```bash
-# 1. Interactive scaffold — fastest for posts not drafted in Obsidian
-npm run new-post
-npm run new-post -- "My Post Title"
-
-# 2. Obsidian draft → ingest
-npm run ingest -- ~/notes/gVault/02-AREAS/writing/drafts/my-draft.md
-
-# 3. Manual — create the file directly at:
-#    src/content/writing/YYYY/MM/my-post.md
-```
-
-The ingest script extracts the title from the first `# heading`, converts `[[wikilinks]]` to `/write/<slug>/` links, suggests tags, and prompts for the rest.
+1. **Sveltia CMS at `gvns.ca/admin`** (recommended; works on mobile). New Post → fill the form → save. The CMS commits a markdown file to `src/content/posts/YYYY/MM/<slug>.md` via the GitHub backend.
+2. **Obsidian draft → wikilinks → CMS.** Draft in your vault, then:
+   ```bash
+   npm run wikilinks < ~/notes/draft.md | pbcopy
+   ```
+   Paste into a new Sveltia post. The script converts `[[wikilinks]]` to `/posts/<slug>/` links.
+3. **Manual.** Create the file directly at `src/content/posts/YYYY/MM/<slug>.md` with valid frontmatter (schema below). Commit and push.
 
 ---
 
-## Frontmatter — required
+## Frontmatter — required (posts collection)
 
 ```yaml
 ---
 title: "Your Post Title"               # max 100 chars
-description: "1–2 sentences for SEO."  # max 200 chars (~150–160 ideal)
-pubDate: 2026-04-24                    # YYYY-MM-DD
+description: "1–2 sentences for SEO."  # max 200 chars
+pubDate: 2026-04-27                    # YYYY-MM-DD
 tags: ["adhd", "productivity"]         # 1–4 from the taxonomy below
 ---
 ```
@@ -40,13 +34,17 @@ tags: ["adhd", "productivity"]         # 1–4 from the taxonomy below
 ```yaml
 updatedDate: 2026-04-30                # Shows "Updated" badge
 draft: true                            # Excludes from production build
-heroImage: "./images/hero.jpg"         # Relative to the post file
+heroImage: /uploads/foo.jpg            # MUST be absolute /uploads/... — Zod-enforced
 canonicalUrl: "https://example.com/x"  # If post is syndicated FROM elsewhere
 syndication:                           # POSSE — populated by `npm run syndicate`
-  - platform: bluesky                  # Don't fill manually
+  - platform: bluesky                  # one of: bluesky | mastodon | threads | linkedin
     url: "https://bsky.app/..."
     syndicatedAt: 2026-04-25T10:00:00Z
+    mediaId: "..."                     # platform-specific (optional)
+    shortcode: "..."                   # platform-specific (optional)
 ```
+
+`heroImage` is validated by regex (`^/uploads/.+`) in `content.config.ts`. Sveltia uploads land at `public/uploads/` and are referenced as `/uploads/<filename>`. Relative or `src/assets/` paths will fail the build — see ADR-014 / issue #264.
 
 ---
 
@@ -55,8 +53,8 @@ syndication:                           # POSSE — populated by `npm run syndica
 Post URL is derived from the **filename only**, not the folder.
 
 ```
-src/content/writing/2024/12/hello-world.md   →  /write/hello-world/
-src/content/writing/2026/02/code-mockup.md   →  /write/code-mockup/
+src/content/posts/2024/12/hello-world.md   →  /posts/hello-world/
+src/content/posts/2026/04/code-mockup.md   →  /posts/code-mockup/
 ```
 
 The `YYYY/MM/` folders are organisation only. Two posts with the same filename in different folders will collide — choose unique slugs.
@@ -65,7 +63,7 @@ The `YYYY/MM/` folders are organisation only. Two posts with the same filename i
 
 ## Tag taxonomy
 
-Use **one primary** + 1–3 secondary tags. Kebab-case only.
+Use **one primary** + 1–3 secondary tags. Kebab-case only. The Sveltia CMS exposes the same list as a multi-select with min 1, max 4.
 
 | Group | Tags |
 |---|---|
@@ -74,63 +72,39 @@ Use **one primary** + 1–3 secondary tags. Kebab-case only.
 | **Productivity & Life** | `adhd` · `productivity` · `pkm` |
 | **Meta & Essays** | `essay` · `tutorial` · `til` · `meta` |
 
-> Adding a new tag is a content-architecture decision — propose it (and the rationale) before using it.
+> Adding a new tag is a content-architecture decision — propose it (and the rationale) before using it. Update both `public/admin/config.yml` and `CONTENT-SCHEMA.md`.
 
 ---
 
 ## Voice and style
 
 - **Canadian spelling** — colour, organise, optimise, behaviour.
-- **Verb-form section names** — "Write", "Read", "Listen", never the gerund.
-- **Brand persona** (from site spec): minimal, refined, technical; information-dense but scannable; developer-focused with design sensibility. "Serious work, questionable puns" is the README's framing.
-- **Conversational but precise.** Site-spec example:
+- **Verb-form section names** — "Write", "Read", "Listen", "Watch", "Code". ADR-010.
+- **Conversational but precise.**
   - ✅ "Tracking my music discovery via ListenBrainz"
   - ❌ "My music listening stats powered by ListenBrainz API"
 
 ---
 
-## Writing flow (recommended)
+## Work collection (separate from posts)
 
-1. **Draft** in Obsidian (`~/notes/gVault/02-AREAS/writing/drafts/`) or via `npm run new-post`. Wikilinks are fine — ingest converts them.
-2. **Ingest** if drafted in Obsidian: `npm run ingest -- <path>`. Confirm the suggested title, slug, and tags at the prompts.
-3. **Preview** locally: `npm run dev`, hit `http://localhost:4321/write/<slug>/`.
-4. **Iterate** in `src/content/writing/YYYY/MM/<slug>.md` — the file is the source of truth from this point.
-5. **Publish:** remove `draft: true`, commit, push to `main`. Cloudflare Pages auto-deploys.
-6. **Syndicate** (optional): `npm run syndicate` posts to configured platforms and writes the `syndication` array back to the post.
+`src/content/work/` has its own schema with required `status` (`active` / `maintained` / `archived`) and 1–6 tags, plus optional `url`, `repo`, `featured`, and the same `/uploads/...`-validated `heroImage`. URL pattern is `/work/<slug>/`. Authored via the Sveltia CMS.
 
 ---
 
-## Work entries
+## Publishing flow
 
-`src/content/work/<project>.md` with this schema:
-
-```yaml
----
-title: "Project Name"
-description: "1–2 sentences."
-url: "https://example.com"            # optional — live URL
-repo: "https://github.com/..."        # optional — source repo
-status: active                        # active | maintained | archived
-tags: ["Astro", "Svelte", "Tailwind"] # 1–6, free-form (not the post taxonomy)
-heroImage: "./images/hero.jpg"        # optional
-featured: true                        # optional — surfaces on home + work index
----
-
-Body — short narrative about the project. Used on the work detail page.
-```
-
-Work entries route as `/work/<filename>/` (no nested folders).
+1. **Draft** in Sveltia (or Obsidian → wikilinks → Sveltia).
+2. **Preview** locally if needed: `npm run dev`, hit `http://localhost:4321/posts/<slug>/`. Set `draft: true` while iterating.
+3. **Publish:** remove `draft: true`, save in CMS (or commit if manual). Push to `main` triggers Cloudflare Workers Builds; preview deploys spin up automatically for PR pushes.
+4. **Syndicate** (optional): `npm run syndicate` posts to configured platforms and writes the `syndication` array back to the post.
 
 ---
 
-## Common gotchas
+## Common fixes
 
-- **Post not appearing?** Check `draft: true` is removed, file is in `src/content/writing/YYYY/MM/`, frontmatter parses cleanly. `npm run build` will surface schema errors.
-- **Tag rejected?** It's not in the taxonomy or it's not kebab-case. Either fix the tag or propose adding it.
-- **Image not loading?** `heroImage` paths are **relative to the post file**, not the project root. Co-locate images with the post: `src/content/writing/2026/04/post.md` + `src/content/writing/2026/04/images/hero.jpg`.
-- **Wikilink didn't resolve?** The ingest script logs a warning when `[[Foo]]` doesn't match an existing post slug — the link becomes plain text. Either fix the link or accept it before publishing.
-- **Description over 200 chars?** Schema validation will fail the build. Trim to ~150–160 for the social-card sweet spot.
-
----
-
-*Last updated: 2026-04-24*
+- **"heroImage must be an absolute /uploads/... path"** — you wrote a relative path or pointed at `src/assets/`. Move the image to `public/uploads/` (Sveltia does this automatically) and use `/uploads/<filename>`.
+- **Build error on tags** — schema requires 1–4. Empty array or 5+ tags will fail.
+- **Post not appearing on the site** — check `draft: false` and that `pubDate` isn't in the future.
+- **URL collision** — two posts with the same filename in different `YYYY/MM/` folders. Rename one.
+- **Wikilinks rendered as raw `[[text]]`** — you skipped `npm run wikilinks`. Convert before pasting into the CMS.
