@@ -29,13 +29,22 @@ async function listDir(dir) {
 }
 
 // macOS APFS is case-insensitive; fs.existsSync would pass for wrong-case names.
-// Compare basename against actual directory listing for a case-sensitive check.
+// Walk every path segment beneath REPO_ROOT against the actual directory
+// listing so wrong casing in intermediate segments fails locally too.
 async function existsCaseSensitive(absPath) {
-  const dir = path.dirname(absPath);
-  const base = path.basename(absPath);
-  const entries = await listDir(dir);
-  if (!entries) return false;
-  return entries.includes(base);
+  const rel = path.relative(REPO_ROOT, absPath);
+  if (rel.startsWith('..') || path.isAbsolute(rel)) {
+    const entries = await listDir(path.dirname(absPath));
+    return entries ? entries.includes(path.basename(absPath)) : false;
+  }
+  const segments = rel.split(path.sep).filter(Boolean);
+  let cursor = REPO_ROOT;
+  for (const seg of segments) {
+    const entries = await listDir(cursor);
+    if (!entries || !entries.includes(seg)) return false;
+    cursor = path.join(cursor, seg);
+  }
+  return true;
 }
 
 async function collectMarkdown(dir) {

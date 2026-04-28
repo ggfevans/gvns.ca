@@ -120,7 +120,8 @@ collections:
           label: Hero image alt text,
           widget: string,
           required: false,
-          hint: "Describe the image for screen readers + social previews. Leave blank if purely decorative.",
+          pattern: ['^.{0,250}$', "Keep alt text under 250 characters."],
+          hint: "Describe the image for screen readers + social previews (max 250 chars). Leave blank if purely decorative.",
         }
       - {
           name: canonicalUrl,
