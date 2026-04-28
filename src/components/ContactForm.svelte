@@ -63,7 +63,7 @@
     role="status"
     class="rounded-md border border-emerald-500/40 bg-emerald-500/10 px-4 py-3 text-emerald-200"
   >
-    Thanks — your message is on its way.
+    Thanks. Your message is on its way.
   </div>
 {:else}
   {#if status === 'error' && serverMessage}
