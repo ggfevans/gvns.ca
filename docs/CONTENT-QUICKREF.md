@@ -10,9 +10,11 @@ A one-page distillation of `CONTENT-SCHEMA.md` and `OBSIDIAN-SETUP.md` — for g
 
 1. **Sveltia CMS at `gvns.ca/admin`** (recommended; works on mobile). New Post → fill the form → save. The CMS commits a markdown file to `src/content/posts/YYYY/MM/<slug>.md` via the GitHub backend.
 2. **Obsidian draft → wikilinks → CMS.** Draft in your vault, then:
+
    ```bash
    npm run wikilinks < ~/notes/draft.md | pbcopy
    ```
+
    Paste into a new Sveltia post. The script converts `[[wikilinks]]` to `/posts/<slug>/` links.
 3. **Manual.** Create the file directly at `src/content/posts/YYYY/MM/<slug>.md` with valid frontmatter (schema below). Commit and push.
 
@@ -52,7 +54,7 @@ syndication:                           # POSSE — populated by `npm run syndica
 
 Post URL is derived from the **filename only**, not the folder.
 
-```
+```text
 src/content/posts/2024/12/hello-world.md   →  /posts/hello-world/
 src/content/posts/2026/04/code-mockup.md   →  /posts/code-mockup/
 ```

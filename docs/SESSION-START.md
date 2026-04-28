@@ -44,7 +44,7 @@ Colour discipline matters. Code = violet. Read = rose. Don't mix.
 
 ## Repo map (where to look first)
 
-```
+```text
 gvns.ca/
 ├── CLAUDE.md                    # Lean overview — kept short on purpose
 ├── docs/
