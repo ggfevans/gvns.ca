@@ -376,7 +376,7 @@ Fetch Threads replies at build time via the Graph API using the denim library. C
 ## ADR-014: Sveltia CMS Image Handling — Survey & Status Quo
 
 **Date**: 2026-04-27
-**Status**: Accepted
+**Status**: Decision #1 superseded by ADR-015 (2026-04-28); decisions #2 and #3 still in force
 
 ### Context
 After landing the `/public/uploads/` workaround for #264 (broken `heroImage` resolution under our nested `path: "{{year}}/{{month}}/{{slug}}"` template), we needed to know whether the Astro+Sveltia community had already solved the same problems before committing to the inline-image spike (#278) or the validation work (#279). Survey was time-boxed to 90 minutes (issue #282).
@@ -419,6 +419,61 @@ Raw findings and per-repo notes captured in this ADR; no separate research file.
 
 ---
 
+## ADR-015: Bundle Layout for Posts + Entry-Relative Media
+
+**Date**: 2026-04-28
+**Status**: Accepted
+**Supersedes**: ADR-014 decision #1 (the `/public/uploads/` absolute baseline)
+
+### Context
+Issue [#278](https://github.com/ggfevans/gvns.ca/issues/278) — spike on the Sveltia inline-image workflow. Browser testing on Sveltia v0.157.1 with the existing `path: "{{year}}/{{month}}/{{slug}}"` template revealed an asymmetry between the two upload entry points:
+
+| Path | Saved frontmatter / markdown ref | File location |
+|---|---|---|
+| `heroImage` (image widget) | `/uploads/fine.webp` (absolute) | `public/uploads/fine.webp` ✅ |
+| Body inline (button / drag / paste) | `![](rusty.webp)` (bare) | `src/content/posts/2026/04/<slug>/rusty.webp` |
+
+Cause: Sveltia's [`getAssetLibraryFolderMap`](https://github.com/sveltia/sveltia-cms/blob/main/src/lib/services/contents/fields/file/helper.js) iterates `field → entry → file → collection → global` and stops at the first enabled slot. With `{{slug}}` in our path template, `entry.enabled = true` (`hasTemplateTags`), so inline images go entry-relative regardless of the global `media_folder`. The image widget for `heroImage` evidently routes through a different selection path in `file-editor.svelte` and lands at the global folder. ADR-014 sidestepped this by keeping the global pattern only (heroImage worked, body was undefined territory).
+
+This produced two unsolved problems for #278:
+1. **Bare refs didn't resolve.** Post at `<dir>/<slug>.md`; asset at `<dir>/<slug>/file.webp`; ref `![](file.webp)` resolves to `<dir>/file.webp`. Image broken.
+2. **Two media-flow shapes** doubled the validator surface and forced a split mental model.
+
+Source-code findings that informed the fix:
+- WebP transform DOES rewrite the file extension on success ([`transformFile`](https://github.com/sveltia/sveltia-cms/blob/main/src/lib/services/integrations/media-libraries/default/index.js)) — `risk.jpg` → `risk.webp`. Confirmed in browser.
+- Per-widget `media_folder` overrides on the markdown editor's image component ([sveltia/sveltia-cms#497](https://github.com/sveltia/sveltia-cms/issues/497), closed 2025-11-02) only apply to user-configured widgets, not to the hardcoded `IMAGE_COMPONENT.src` field inside the markdown editor. Not user-configurable.
+- All three insertion paths share one code path (`insertImages` in `rich-text-editor.svelte`), so identical behaviour for button / drag-drop / paste. Confirmed in browser.
+
+### Decision
+Switch the `posts` collection to **bundle layout**: `path: "{{year}}/{{month}}/{{slug}}/index"`. Each post is `<...>/<slug>/index.md` and any uploaded assets land beside it as siblings. Drop the global `media_folder` / `public_folder` from `public/admin/config.yml`. `heroImage` becomes a bare-filename frontmatter field, validated through Astro's `image()` schema helper, which auto-resolves the file relative to the entry's directory and runs it through the build-time image pipeline. Inline body images Just Work because the bare `![](file.webp)` ref Sveltia writes resolves correctly when post and asset share a directory.
+
+Scope: `posts` collection only. The `work` collection retains `uploadsPathSchema` and the `/uploads/...` absolute pattern; it is not currently CMS-managed in the same flow.
+
+### Rationale
+- **One shape everywhere.** Both `heroImage` and body inline images use the same bare-relative ref pattern. The validator has one rule. The author has one mental model.
+- **Goes with the grain of Sveltia.** v0.157.1 has the #672 fix; entry-relative bundles are now reliable. ADR-014's blocker (the v0.140.4–v0.146.6 regression) is gone.
+- **Astro's `image()` pipeline is now in scope for hero images** for free — width/height come from the schema, no more dim-cache probe (`src/utils/image-dims.ts` retired).
+- **Clean source layout.** Browse `src/content/posts/2026/04/<slug>/` and see the post and all of its assets together. Delete the directory and the post is gone with no orphans in `public/uploads/`.
+- **No new validator complexity.** `scripts/validate-image-refs.mjs:79-84` already resolves bare refs against the post's directory; no change needed.
+
+### Consequences
+- The 4 throwaway test posts (`testy.md`, `heroimage.md`, `jvcc.md`, `inline-image-probe.md`) and `public/uploads/risk.jpg` are deleted as part of this change. No real content was migrated.
+- `public/uploads/` is retained (with `.gitkeep`) for any ad-hoc absolute uploads outside the CMS flow.
+- `src/utils/image-dims.ts`, `src/data/uploads-dims.json`, and the validator's dim-cache writer are retired — `image()` schema replaces them.
+- `getPostSlug` in `src/utils/content.ts` now strips a trailing `index` segment so post URLs remain `/posts/<slug>/`, not `/posts/<slug>/index/`.
+- `image-size` remains as a `package.json` dep but is no longer imported. Prune in a follow-up.
+- `editor.preview: true` is left as a separate follow-up — independent UX decision.
+- The `work` collection migration is deferred. When `work` is brought into the CMS, a follow-up ADR can extend the bundle pattern.
+- ADR-014 decisions #2 (`slugify_filename: true`) and #3 (defer `@assets/`-alias) remain in force. The body inline images don't need the alias because Astro's default markdown image transform optimises relative refs that sit beside the entry.
+
+### Verification
+The end-to-end browser checklist is captured in the implementation PR. Critical confirmations:
+- Inline body image upload → file at `<bundle>/file.webp`, ref `![](file.webp)`, resolves and renders.
+- heroImage upload → file at `<bundle>/file.webp`, frontmatter `heroImage: file.webp`, schema validates, `<Image>` renders fingerprinted variant.
+- Sveltia round-trips the saved post correctly when re-opened.
+
+---
+
 ## Template for New Decisions
 
 ```markdown
@@ -442,4 +497,4 @@ Raw findings and per-repo notes captured in this ADR; no separate research file.
 
 ---
 
-*Last updated: 2026-04-27*
+*Last updated: 2026-04-28*
