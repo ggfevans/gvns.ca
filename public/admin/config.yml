@@ -116,6 +116,13 @@ collections:
           choose_url: false,
         }
       - {
+          name: heroImageAlt,
+          label: Hero image alt text,
+          widget: string,
+          required: false,
+          hint: "Describe the image for screen readers + social previews. Leave blank if purely decorative.",
+        }
+      - {
           name: canonicalUrl,
           label: Canonical URL,
           widget: string,
