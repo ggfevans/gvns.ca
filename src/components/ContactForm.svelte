@@ -83,13 +83,15 @@
     onsubmit={handleSubmit}
     class="space-y-5"
   >
-    <!-- Honeypot: off-screen, not display:none so bots still interact with it -->
+    <!-- Honeypot: off-screen, not display:none so bots still interact with it.
+         Field name is intentionally non-semantic so browser autofill (notably
+         Firefox) doesn't populate it for real users. -->
     <div class="absolute left-[-9999px] w-px h-px overflow-hidden" aria-hidden="true">
-      <label for="contact-website">Leave this empty</label>
+      <label for="contact-hp-field">Leave this empty</label>
       <input
         type="text"
-        id="contact-website"
-        name="website"
+        id="contact-hp-field"
+        name="hp_field"
         tabindex="-1"
         autocomplete="off"
       />

@@ -188,7 +188,7 @@ export const POST: APIRoute = async (context) => {
   }
 
   // 6. Honeypot check
-  const honeypot = typeof fields.website === 'string' ? fields.website : '';
+  const honeypot = typeof fields.hp_field === 'string' ? fields.hp_field : '';
   if (honeypot !== '') {
     log('honeypot');
     // Return fake success — do NOT call rate limiter or send email
