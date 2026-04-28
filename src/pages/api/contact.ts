@@ -123,10 +123,9 @@ export const POST: APIRoute = async (context) => {
   const cfEnv = env as CloudflareEnv;
 
   const ip = request.headers.get('CF-Connecting-IP') ?? 'unknown';
-  const ua = request.headers.get('User-Agent') ?? 'unknown';
 
   function log(outcome: string, extra?: string) {
-    const base = `[contact] outcome=${outcome} ip=${ip} ua=${ua}`;
+    const base = `[contact] outcome=${outcome} ip=${ip}`;
     console.log(extra ? `${base} ${extra}` : base);
   }
 

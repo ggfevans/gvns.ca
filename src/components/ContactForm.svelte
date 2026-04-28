@@ -1,8 +1,12 @@
 <script lang="ts">
   // Turnstile site key — PUBLIC_ prefix means it's safe to expose in client code.
-  // Falls back to the Cloudflare test key so the form renders in dev without an env var.
-  const TURNSTILE_SITE_KEY =
-    import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? '1x00000000000000000000AA';
+  // In dev, fall back to Cloudflare's always-pass test key. In production, a missing
+  // key is a deploy-time misconfiguration we surface loudly rather than silently
+  // sending submissions that will fail server-side verification.
+  const PUBLIC_KEY = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
+  const TURNSTILE_SITE_KEY: string =
+    PUBLIC_KEY ?? (import.meta.env.DEV ? '1x00000000000000000000AA' : '');
+  const KEY_MISSING = !TURNSTILE_SITE_KEY;
 
   let status = $state<'idle' | 'pending' | 'success' | 'error'>('idle');
   let serverMessage = $state('');
@@ -47,7 +51,14 @@
   }
 </script>
 
-{#if status === 'success'}
+{#if KEY_MISSING}
+  <div
+    role="alert"
+    class="rounded-md border border-rose-500/40 bg-rose-500/10 px-4 py-3 text-rose-200"
+  >
+    Contact form unavailable: PUBLIC_TURNSTILE_SITE_KEY is not configured. In the meantime, email <a class="underline" href="mailto:hi@gvns.ca">hi@gvns.ca</a> directly.
+  </div>
+{:else if status === 'success'}
   <div
     role="status"
     class="rounded-md border border-emerald-500/40 bg-emerald-500/10 px-4 py-3 text-emerald-200"
