@@ -47,11 +47,16 @@ export const badge = tv({
   defaultVariants: { variant: "default", size: "md", isLink: false },
 });
 
-const { variant, size, class: className, ...rest } = Astro.props;
-const isLink = Astro.props.href ? true : false;
-const Tag = Astro.props.href ? "a" : "div";
+const { variant, size, class: className, href, ...rest } = Astro.props;
+const isLink = href ? true : false;
+const Tag = isLink ? "a" : "div";
 ---
 
-<Tag class={badge({ variant, size, isLink, class: className })} data-slot="badge" {...rest}>
+<Tag
+  class={badge({ variant, size, isLink, class: className })}
+  data-slot="badge"
+  {...(isLink ? { href } : {})}
+  {...rest}
+>
   <slot />
 </Tag>
