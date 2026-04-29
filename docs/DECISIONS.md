@@ -531,6 +531,29 @@ Replaced `src/components/Footer.astro` with the Footer 9 shell — large fading 
 
 ---
 
+## ADR-018: Swap Footer 9 → Starwind Pro Footer 1 (Socials)
+
+**Date**: 2026-04-28
+**Status**: Accepted (supersedes ADR-017 — Footer 9)
+
+### Context
+ADR-017 adopted Footer 9 (Fading Large Text) globally, which placed a giant fading "gvns.ca" wordmark at the bottom of every page. On a personal site the wordmark felt visually heavy and dominated each page's closing element — an effect better suited to a brand homepage than a content-led personal site.
+
+### Decision
+Swap the global footer to Starwind Pro **Footer 1 — Socials** (`@starwind-pro/footer-01`). `src/components/Footer.astro` now uses the Footer 1 shell: a top border, a centred row of icon links, and a centred copyright line. All five existing links are preserved (GitHub, Threads, LinkedIn, Email → `/contact`, RSS → `/rss.xml`) with Tabler icons; external links keep `target="_blank" rel="noopener"` and an `aria-label` indicating they open in a new tab. Old `src/components/starwind-pro/footer-09/` reference files were deleted.
+
+### Rationale
+- Restraint: a compact icon row reads as a polite sign-off rather than a brand statement.
+- Accent-aware: link hovers use `--colour-accent-primary` so they continue to follow the per-page `data-accent`.
+- Shell, not skin: kept Footer 1's structure; bridged colours via `--colour-*` tokens in component-scoped styles, no fork of the block.
+
+### Consequences
+- Footer 9 reference files are gone; if we ever want a wordmark variant again, we'd reinstall via the CLI.
+- The footer now has zero CLS risk from oversized type — its height is bounded by the icon row + copyright.
+- ADR-017 (Footer 9) is superseded; the original entry is left in place for history.
+
+---
+
 ## Template for New Decisions
 
 ```markdown
