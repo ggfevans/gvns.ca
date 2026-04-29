@@ -508,14 +508,12 @@ Wrap the structure of `@starwind-pro/blog-06` (image-left, content-right) in a n
 
 ---
 
-## ADR-017: Adopt Starwind Pro Profile 1 (Centered Clean) on /about
+## ADR-017: Adopt Starwind Pro Footer 9 (Fading Large Text) Globally
 
 **Date**: 2026-04-28
 **Status**: Accepted
 
-Issue [#291](https://github.com/ggfevans/gvns.ca/issues/291), under epic [#290](https://github.com/ggfevans/gvns.ca/issues/290). `/about` adopts `@starwind-pro/profile-01` (centred avatar + name + role + social links + content slot) wrapped over `BaseLayout` (PageLayout dropped here to avoid double `<h1>`); the block's `Prose` import is replaced with a plain slot so our custom `.prose` rules in `src/styles/global.css` continue to style the body. Avatar reuses `/avatar.jpg` from the homepage hero; tokens bridge through `src/styles/starwind.css` (no hardcoded colours — `data-accent="p5-sky"` drives the accent). `Timeline` renders below the block, separated by a Starwind `Separator`.
-
-**Fork deltas from upstream `Profile1.astro`**: (1) `Prose` import replaced with a plain slot; (2) `Image` swapped for native `<img>`; (3) social links pass `href`/`target`/`rel` directly to `<Button>` (which polymorphs to `<a>`) instead of wrapping an inner `<a>` — fixes nested-interactive-element bug from PR #314 review.
+Replaced `src/components/Footer.astro` with the Footer 9 shell — large fading "gvns.ca" wordmark, copyright, and the existing five links (GitHub, Threads, LinkedIn, Email, RSS). Wordmark uses `--colour-text-muted` so it stays subdued in light + dark modes; link hovers use `--colour-accent-primary` so they track the per-page `data-accent`. Block source kept under `src/components/starwind-pro/footer-09/` for reference; project-flavoured copy lives in `src/components/Footer.astro` per the "shell, not skin" working principle.
 
 ---
 
