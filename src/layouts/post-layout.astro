@@ -186,10 +186,14 @@ const breadcrumbJsonLd = toJsonLd(
     .gvns-post-shell {
         display: grid;
         grid-template-columns: minmax(0, 1fr);
+        grid-template-areas:
+            "sidebar"
+            "content";
         gap: 2rem;
     }
 
     .gvns-post-content {
+        grid-area: content;
         min-width: 0;
         max-width: var(--width-content);
         margin-inline: auto;
@@ -197,12 +201,14 @@ const breadcrumbJsonLd = toJsonLd(
     }
 
     .gvns-post-sidebar {
+        grid-area: sidebar;
         min-width: 0;
     }
 
     @media (min-width: 1024px) {
         .gvns-post-shell {
             grid-template-columns: minmax(0, 1fr) 240px;
+            grid-template-areas: "content sidebar";
             gap: 3rem;
             align-items: start;
         }
