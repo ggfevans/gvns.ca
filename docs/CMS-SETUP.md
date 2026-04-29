@@ -4,22 +4,33 @@ Sveltia CMS is mounted at `gvns.ca/admin`. Auth is brokered by the `auth.gvns.ca
 
 ## Auth flow
 
-The Worker runs the standard GitHub web flow with the App's `client_id` / `client_secret`. The shape is identical to OAuth Apps with two differences:
+The Worker brokers a multi-step flow so CMS commits land as the App's bot identity (`gvns-ca-cms[bot]`) rather than as the human user. That actor distinction is what makes branch protection on `main` enforceable for CLI work without breaking the CMS.
 
-1. **No `scope` param** on `/login/oauth/authorize` — App permissions are fixed at App definition.
-2. **Tokens expire** ("Expire user authorization tokens" enabled on the App). The Worker passes `refresh_token` and `expires_in` through to Sveltia in the success postMessage and exposes a `POST /refresh` endpoint that proxies refresh-token exchanges to GitHub. Sveltia drives the refresh client-side.
-
-The Worker uses **user-to-server** tokens only — no JWTs, no installation tokens, no private key. A user can only commit to repos where (a) the App is installed AND (b) the user has access. Both hold for `ggfevans/gvns.ca`.
+1. **OAuth user-flow** — `/auth` redirects to `https://github.com/login/oauth/authorize` with the App's client_id (no `scope` — App permissions are fixed at App definition). The user authorises and bounces back to `/callback` with a code.
+2. **Code → user-to-server token** — `/callback` exchanges the code for a user-to-server access_token via `client_secret`. This token represents the human, not the App.
+3. **Push-access verification** — the Worker calls `GET /user` and `GET /repos/<repo>/collaborators/<login>/permission` with the user-to-server token. Only `admin` / `maintain` / `write` proceed; anything else is rejected.
+4. **Installation token mint** — the Worker signs a short-lived RS256 JWT with the App's private key, then calls `POST /app/installations/<id>/access_tokens` to mint a ~1h **installation access token**. Commits made with this token attribute to the App's bot identity. **This** is what Sveltia receives — never the user-to-server token.
+5. **Refresh** — installation tokens aren't refreshable. The Worker hands Sveltia the user-to-server *refresh_token* (useless without our `client_secret`). On `POST /refresh`, the Worker re-exchanges that refresh_token for a fresh user-to-server token, re-runs push-access verification (catches mid-session access revocation), and mints a new installation token.
 
 ### Worker secrets (`workers/sveltia-auth`)
 
 ```bash
-wrangler secret put GITHUB_CLIENT_ID         # App's Client ID (Iv23...)
-wrangler secret put GITHUB_CLIENT_SECRET     # App's Client Secret (generate from App settings)
-wrangler secret put AUTH_ALLOWED_ORIGINS     # https://gvns.ca[,https://<preview>...]
+wrangler secret put GITHUB_CLIENT_ID         --config ./wrangler.toml  # App's Client ID (Iv23...)
+wrangler secret put GITHUB_CLIENT_SECRET     --config ./wrangler.toml  # App's Client Secret
+wrangler secret put GITHUB_APP_ID            --config ./wrangler.toml  # numeric App ID (App settings → "About")
+wrangler secret put GITHUB_APP_PRIVATE_KEY   --config ./wrangler.toml  # PEM contents (paste full key incl. headers)
+wrangler secret put GITHUB_APP_INSTALLATION_ID --config ./wrangler.toml  # numeric installation ID
+wrangler secret put GITHUB_APP_REPO          --config ./wrangler.toml  # "ggfevans/gvns.ca"
+wrangler secret put AUTH_ALLOWED_ORIGINS     --config ./wrangler.toml  # https://gvns.ca[,...]
 ```
 
-The App's **Callback URL** must be `https://auth.gvns.ca/callback` (matches the route the Worker handles).
+The App's **Callback URL** must be `https://auth.gvns.ca/callback`.
+
+> **Why `--config`:** the repo root has `wrangler.jsonc` (the site Worker), and wrangler walks upward to find config. Pass `--config ./wrangler.toml` from `workers/sveltia-auth/` so secrets land on the right Worker.
+
+#### Finding the installation ID
+
+Visit `https://github.com/settings/installations`, click "Configure" next to the App. The numeric ID at the end of the URL (`/installations/<id>`) is `GITHUB_APP_INSTALLATION_ID`.
 
 ### Re-rotating from OAuth App to GitHub App
 
