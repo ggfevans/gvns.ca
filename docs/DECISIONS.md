@@ -552,7 +552,7 @@ Wire `@unpic/astro` as Astro's image service with `fallbackService: "cloudflare"
 - **Format negotiation.** `f=auto` picks AVIF/WebP based on `Accept` headers — no build-time encoder pinning.
 - **Smaller deploys.** No `/_astro/<hash>.webp` variants in the Worker bundle.
 - **Consistent API.** unpic generates a sensible default `widths` array from layout + intrinsic dimensions, so component-level `widths={...}` props become advisory rather than load-bearing.
-- **Cost.** Cloudflare Image Transformations pricing/free-tier limits apply; our expected hero usage should stay comfortably within budget for a personal site.
+- **Cost.** Cloudflare Image Transformations is included with the `gvns.ca` Workers plan; expected hero traffic stays well within tier limits for a personal site. See the Cloudflare pricing page for current quotas.
 - **CLS preserved.** unpic emits explicit `width`/`height` and an `aspect-ratio` style on the rendered `<img>`, so layout doesn't shift on load.
 
 ### Consequences
@@ -562,8 +562,11 @@ Wire `@unpic/astro` as Astro's image service with `fallbackService: "cloudflare"
 - Fallback path: if the source isn't recognised as a CDN-hosted image, unpic falls back to the Cloudflare provider, which still produces `/cdn-cgi/image/...` URLs for same-origin assets like `/_astro/...`.
 - The rendered `<img>` includes an inline `style="...max-width:...;aspect-ratio:..."` from unpic's TransformProps. That inline aspect-ratio styling (along with emitted width/height) is what gives us CLS protection.
 - Installed with `--legacy-peer-deps` because `@unpic/astro@1.0.2` declares `astro@^2 || ^3 || ^4 || ^5.0.0-beta` as its peer range; Astro 6 isn't listed yet but the runtime API used (`getURL`/`getHTMLAttributes`) is unchanged. Track upstream and drop the flag once 6 lands in the peer range.
-- Future absolute-fill `<Image>` consumers (e.g. `class="size-full object-cover"`) will need to opt out of the global `layout: "constrained"` default by passing `layout="fullWidth"` per-instance — unpic injects inline `width`/`height`/`aspect-ratio` that override Tailwind size utilities. Verify affected consumers if/when adding new `<Image>` usages.
-## ADR-018: Swap Footer 9 → Starwind Pro Footer 1 (Socials)
+- Absolute-fill `<Image>` consumers (e.g. `class="size-full object-cover"` inside an aspect-ratio container) need `layout="fullWidth"` to skip unpic's inline `aspect-ratio` injection — otherwise the image renders at its intrinsic ratio and fights the parent. Current state: `src/components/HorizontalPostCard.astro` (homepage post cards) sets `layout="fullWidth"` for this reason. `src/components/starwind-pro/feature-13/Feature13.astro` would also be affected but is vendor reference material that the project doesn't import. When adding new `<Image>` usages, grep `rg 'size-full|inset-0' src/**/*.astro` against `astro:assets` imports to catch absolute-fill cases.
+
+---
+
+## ADR-019: Swap Footer 9 → Starwind Pro Footer 1 (Socials)
 
 **Date**: 2026-04-28
 **Status**: Accepted (supersedes ADR-017 — Footer 9)
@@ -610,4 +613,4 @@ Swap the global footer to Starwind Pro **Footer 1 — Socials** (`@starwind-pro/
 
 ---
 
-*Last updated: 2026-04-28 (ADR-018)*
+*Last updated: 2026-04-29 (ADR-019)*

@@ -33,9 +33,10 @@ const HeadingTag = headingLevel;
             alt={heroImageAlt ?? ''}
             widths={[288, 320, 480, 640, 800]}
             sizes="(min-width: 1024px) 320px, (min-width: 768px) 288px, 100vw"
+            layout="fullWidth"
             loading="lazy"
             decoding="async"
-            class="size-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+            class="gvns-horizontal-card-image size-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
           />
         </div>
       )}
@@ -77,3 +78,13 @@ const HeadingTag = headingLevel;
     </div>
   </Card>
 </article>
+
+<style>
+  /* unpic emits inline `aspect-ratio` + `height:<intrinsic>px` for `layout="fullWidth"`.
+     Defeat both so the parent's aspect-[16/9] container governs sizing and `object-cover` crops correctly.
+     See ADR-018 (Render-Time Hero Optimisation). */
+  .gvns-horizontal-card-image {
+    aspect-ratio: auto !important;
+    height: 100% !important;
+  }
+</style>
