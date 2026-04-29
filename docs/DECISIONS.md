@@ -515,6 +515,8 @@ Wrap the structure of `@starwind-pro/blog-06` (image-left, content-right) in a n
 
 Issue [#291](https://github.com/ggfevans/gvns.ca/issues/291), under epic [#290](https://github.com/ggfevans/gvns.ca/issues/290). `/about` adopts `@starwind-pro/profile-01` (centred avatar + name + role + social links + content slot) wrapped over `BaseLayout` (PageLayout dropped here to avoid double `<h1>`); the block's `Prose` import is replaced with a plain slot so our custom `.prose` rules in `src/styles/global.css` continue to style the body. Avatar reuses `/avatar.jpg` from the homepage hero; tokens bridge through `src/styles/starwind.css` (no hardcoded colours — `data-accent="p5-sky"` drives the accent). `Timeline` renders below the block, separated by a Starwind `Separator`.
 
+**Fork deltas from upstream `Profile1.astro`**: (1) `Prose` import replaced with a plain slot; (2) `Image` swapped for native `<img>`; (3) social links pass `href`/`target`/`rel` directly to `<Button>` (which polymorphs to `<a>`) instead of wrapping an inner `<a>` — fixes nested-interactive-element bug from PR #314 review.
+
 ---
 
 ## Template for New Decisions

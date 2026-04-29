@@ -95,14 +95,11 @@ const {
             size="icon"
             class="size-10 rounded-full"
             aria-label={social.name}
+            href={social.href}
+            target={social.href.startsWith("mailto:") ? undefined : "_blank"}
+            rel={social.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
           >
-            <a
-              href={social.href}
-              target={social.href.startsWith("mailto:") ? undefined : "_blank"}
-              rel={social.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
-            >
-              <social.icon class="size-5" />
-            </a>
+            <social.icon class="size-5" />
           </Button>
         ))}
       </div>
