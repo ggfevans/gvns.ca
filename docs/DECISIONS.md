@@ -552,7 +552,7 @@ Wire `@unpic/astro` as Astro's image service with `fallbackService: "cloudflare"
 - **Format negotiation.** `f=auto` picks AVIF/WebP based on `Accept` headers — no build-time encoder pinning.
 - **Smaller deploys.** No `/_astro/<hash>.webp` variants in the Worker bundle.
 - **Consistent API.** unpic generates a sensible default `widths` array from layout + intrinsic dimensions, so component-level `widths={...}` props become advisory rather than load-bearing.
-- **Cost.** Cloudflare's free tier is 5,000 unique transforms/month, billed per unique output per month with cache hits free — comfortably within budget for a personal site.
+- **Cost.** Cloudflare Image Transformations pricing/free-tier limits apply; our expected hero usage should stay comfortably within budget for a personal site.
 - **CLS preserved.** unpic emits explicit `width`/`height` and an `aspect-ratio` style on the rendered `<img>`, so layout doesn't shift on load.
 
 ### Consequences
