@@ -58,13 +58,13 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
     <section class="recent-writing" aria-label="Recent posts">
       {
         posts.length > 0 ? (
-          <div class="post-list">
+          <div class="gvns-post-list">
             {posts.map((post) => (
               <HorizontalPostCard post={post} />
             ))}
           </div>
         ) : (
-          <p class="empty-state">
+          <p class="gvns-empty-state">
             Currently drafting in private. See what I'm up to on <a href="/now">/now</a>.
           </p>
         )
@@ -75,8 +75,8 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
       <ActivityBar />
     </div>
 
-    <section class="activity-widgets" aria-label="Current activity">
-      <div class="activity-grid">
+    <section class="gvns-activity-widgets" aria-label="Current activity">
+      <div class="gvns-activity-grid">
         <ReadWidget compact />
         <ListenWidget compact />
         <WatchWidget compact />
@@ -193,21 +193,21 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
   }
 
   /* Activity widget grid */
-  .activity-widgets {
+  .gvns-activity-widgets {
     padding: var(--space-8) 0;
   }
-  .activity-grid {
+  .gvns-activity-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: var(--space-4);
   }
   @media (max-width: 1024px) {
-    .activity-grid {
+    .gvns-activity-grid {
       grid-template-columns: repeat(2, 1fr);
     }
   }
   @media (max-width: 640px) {
-    .activity-grid {
+    .gvns-activity-grid {
       grid-template-columns: 1fr;
     }
   }
@@ -219,12 +219,12 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
     padding: var(--space-12) 0;
     border-top: 1px solid var(--colour-border);
   }
-  .post-list {
+  .gvns-post-list {
     display: flex;
     flex-direction: column;
     gap: var(--space-6);
   }
-  .empty-state {
+  .gvns-empty-state {
     color: var(--colour-text-secondary);
     font-style: italic;
   }
