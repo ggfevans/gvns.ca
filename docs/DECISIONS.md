@@ -485,18 +485,22 @@ The end-to-end browser checklist is captured in the implementation PR. Critical 
 **Status**: Accepted
 
 ### Context
+
 Issues [#281](https://github.com/ggfevans/gvns.ca/issues/281) and [#288](https://github.com/ggfevans/gvns.ca/issues/288), under epic [#290](https://github.com/ggfevans/gvns.ca/issues/290). The homepage's `Recent Posts` list used the bespoke text-only `PostCard.astro`; with `heroImage` now flowing through Astro's `image()` pipeline (ADR-015), the homepage was the right surface to introduce a hero-thumb layout.
 
 ### Decision
+
 Wrap the structure of `@starwind-pro/blog-06` (image-left, content-right) in a new `src/components/HorizontalPostCard.astro` and use it on `/` only. `PostCard.astro` remains for `/posts` and `/posts/tags/[tag]` — separate decision once homepage adoption is proven.
 
 ### Rationale
-- Shell, not skin: take the Pro block's flex / @container layout; map its tokens (`--card`, `--border`, `--primary`, `--muted-foreground`) to our `--colour-*` palette via `src/styles/starwind.css` — no fork.
+
+- Shell, not skin: take the Pro block's flex / viewport-breakpoint layout; map its tokens (`--card`, `--border`, `--primary`, `--muted-foreground`) to our `--colour-*` palette via `src/styles/starwind.css` — no fork.
 - Reuse over re-implement: existing `formatDate`, `getReadingTime`, `getPostSlug`, and Starwind `Badge` / `Button` / `Card` primitives compose the body — TagList stays for other surfaces.
 - Posts without `heroImage` render a content-only row (no broken `<img>`, no layout collapse) — the homepage gracefully tolerates the optional schema.
-- Hero images use Astro `<Image>` with `widths={[320,480,640,800]}` and `loading="lazy"` (off-screen below the hero). Per-viewport srcset comes from the existing pipeline, not unpic — that's #272.
+- Hero images use Astro `<Image>` with `widths={[288, 320, 480, 640, 800]}` and `loading="lazy"` (off-screen below the hero). Per-viewport srcset comes from the existing pipeline, not unpic — that's #272.
 
 ### Consequences
+
 - Pro init is now persisted (`@starwind-pro` registry already configured at the npm/auth layer; no `pro: true` field in `starwind.config.json` because none exists).
 - `STARWIND_LICENSE_KEY` is required in `.env.local` for any Pro `add` to succeed; documented in `.env.example`.
 - `badge` (free primitive, v1.4.2) is now installed and available for #289 / #291 / #292 / #293.
