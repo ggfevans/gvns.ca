@@ -1,6 +1,49 @@
 # CMS Setup
 
-Sveltia CMS is mounted at `gvns.ca/admin`. Auth is brokered by the `auth.gvns.ca` Worker (GitHub OAuth).
+Sveltia CMS is mounted at `gvns.ca/admin`. Auth is brokered by the `auth.gvns.ca` Worker, backed by a **GitHub App** (used as the OAuth provider — see "Why a GitHub App if it's just OAuth" below).
+
+## Auth flow
+
+The Worker runs the standard GitHub web flow with the App's `client_id` / `client_secret`. The shape is identical to OAuth Apps with two differences:
+
+1. **No `scope` param** on `/login/oauth/authorize` — App permissions are fixed at App definition.
+2. **Tokens expire** ("Expire user authorization tokens" enabled on the App). The Worker passes `refresh_token` and `expires_in` through to Sveltia in the success postMessage and exposes a `POST /refresh` endpoint that proxies refresh-token exchanges to GitHub. Sveltia drives the refresh client-side.
+
+The Worker uses **user-to-server** tokens only — no JWTs, no installation tokens, no private key. A user can only commit to repos where (a) the App is installed AND (b) the user has access. Both hold for `ggfevans/gvns.ca`.
+
+### Worker secrets (`workers/sveltia-auth`)
+
+```bash
+wrangler secret put GITHUB_CLIENT_ID         --config ./wrangler.toml  # App's Client ID (Iv23...)
+wrangler secret put GITHUB_CLIENT_SECRET     --config ./wrangler.toml  # App's Client Secret
+wrangler secret put AUTH_ALLOWED_ORIGINS     --config ./wrangler.toml  # https://gvns.ca[,https://<preview>...]
+```
+
+The App's **Callback URL** must be `https://auth.gvns.ca/callback`.
+
+> **Why `--config`:** the repo root has `wrangler.jsonc` (the site Worker), and wrangler walks upward to find config. Pass `--config ./wrangler.toml` from `workers/sveltia-auth/` so secrets land on the right Worker.
+
+## Why a GitHub App if it's just OAuth
+
+A GitHub App is overkill for OAuth alone — an OAuth App would cover this. We tried using the App's *installation tokens* to make CMS commits attribute to the bot identity (`gvns-ca-cms[bot]`) and unlock actor-separated branch protection (#263). It doesn't work: Sveltia's GitHub backend calls `/user` after sign-in to populate the user identity, and installation tokens are server-to-server — they can't access user-scoped endpoints (HTTP 403 "Resource not accessible by integration"). Sveltia treats this as a sign-in failure.
+
+So we kept the App for the OAuth side only. If we ever switch CMSes (or Sveltia adds installation-token support), the App is already in place.
+
+## Branch protection posture
+
+Sveltia commits as the human user (the only path that works given the `/user` requirement above), so we *cannot* combine PR-required protection with bypass-the-CMS — the bypass would have to apply to the human, which would also bypass CLI pushes.
+
+Posture instead — the **`protect da goods` ruleset** on `main`:
+
+- **`deletion`** rule only: prevents accidental branch delete / force-push of an empty ref. That's it.
+- **No required status checks.** Tried; created a circular dependency: Sveltia's fresh commits don't have a passing check yet (Workers Builds runs *after* the push), so the rule rejected every CMS save.
+- **No PR-required rule.** Sveltia (and CLI) push directly.
+
+Workers Builds still runs on every push to `main`. A failing build just doesn't deploy — last successful build stays live. Site stays up even if a bad commit lands; the cost is a messy `git log` until the next good commit.
+
+For the watching/fetch workflows: `gh pr merge --auto` requires a `required_status_checks` rule on `main` (`enablePullRequestAutoMerge` GraphQL precondition). Since we don't have one, those workflows must use immediate merge — change `gh pr merge --auto --squash --delete-branch` to `gh pr merge --squash --delete-branch` in `.github/actions/commit-via-pr/action.yml`.
+
+See [#263](https://github.com/ggfevans/gvns.ca/issues/263) for the full investigation and rejected alternatives.
 
 ## Posts use the bundle layout
 
