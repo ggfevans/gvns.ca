@@ -55,11 +55,7 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
       <StatusWidget />
     </section>
 
-    <section class="recent-writing" aria-labelledby="writing-heading">
-      <div class="section-header">
-        <h2 id="writing-heading">Writing</h2>
-        <a href="/posts" class="view-all">Explore all posts &rarr;</a>
-      </div>
+    <section class="recent-writing" aria-label="Recent posts">
       {
         posts.length > 0 ? (
           <div class="post-list">
@@ -216,33 +212,12 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
     }
   }
 
-  /* Recent Writing */
+  /* Recent posts */
   .recent-writing {
     max-width: var(--width-content);
     margin: 0 auto;
     padding: var(--space-12) 0;
     border-top: 1px solid var(--colour-border);
-  }
-  .section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: var(--space-8);
-  }
-  .section-header h2 {
-    font-size: var(--text-2xl);
-    font-weight: 700;
-    letter-spacing: -0.025em;
-  }
-  .view-all {
-    color: var(--colour-accent-primary);
-    text-decoration: none;
-    font-size: var(--text-sm);
-    transition: color var(--transition-fast);
-    white-space: nowrap;
-  }
-  .view-all:hover {
-    color: var(--colour-accent-hover);
   }
   .post-list {
     display: flex;
