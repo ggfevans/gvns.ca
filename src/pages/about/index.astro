@@ -1,9 +1,16 @@
 ---
 export const prerender = true;
 
-import PageLayout from '@layouts/PageLayout.astro';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Profile1, { type ProfileSocialLink } from '@components/starwind-pro/profile-01/Profile1.astro';
+import { Separator } from '@components/starwind/separator';
 import Timeline from '@components/Timeline.astro';
 import { personSchema, breadcrumbSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
+
+import IconBrandGithub from '@tabler/icons/outline/brand-github.svg';
+import IconBrandThreads from '@tabler/icons/outline/brand-threads.svg';
+import IconBrandLinkedin from '@tabler/icons/outline/brand-linkedin.svg';
+import IconRss from '@tabler/icons/outline/rss.svg';
 
 const siteUrl = normalizeSiteUrl(Astro.site);
 const personJsonLd = toJsonLd(personSchema(siteUrl));
@@ -11,9 +18,16 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
   { name: 'Home', url: siteUrl },
   { name: 'About', url: `${siteUrl}/about` },
 ]));
+
+const socials: ProfileSocialLink[] = [
+  { name: 'GitHub', icon: IconBrandGithub, href: 'https://github.com/ggfevans' },
+  { name: 'Threads', icon: IconBrandThreads, href: 'https://threads.net/@ggfevans' },
+  { name: 'LinkedIn', icon: IconBrandLinkedin, href: 'https://linkedin.com/in/ggfevans' },
+  { name: 'RSS', icon: IconRss, href: '/rss.xml' },
+];
 ---
 
-<PageLayout
+<BaseLayout
   title="About"
   description="Web developer on Vancouver Island. Writing about homelab, web development, BJJ, and whatever catches my attention."
   accent="p5-sky"
@@ -21,39 +35,67 @@ const breadcrumbJsonLd = toJsonLd(breadcrumbSchema([
 >
   <script type="application/ld+json" set:html={personJsonLd} slot="head" />
   <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />
-  <p>
-    Hi, I'm Gareth — a web developer based on Vancouver Island, Canada.
-  </p>
 
-  <p>
-    I build things for the web by day, and tinker with homelabs and self-hosting
-    by night. When I'm not at a keyboard, you'll find me on the mats training
-    Brazilian Jiu-Jitsu.
-  </p>
+  <main id="main-content" class="gvns-about" data-pagefind-body>
+    <Profile1
+      name="Gareth Evans"
+      jobTitle="Web developer · Vancouver Island"
+      image="/avatar.jpg"
+      socials={socials}
+    >
+      <div class="prose">
+        <p>
+          Hi, I'm Gareth — a web developer based on Vancouver Island, Canada.
+        </p>
 
-  <h2>What I Write About</h2>
+        <p>
+          I build things for the web by day, and tinker with homelabs and self-hosting
+          by night. When I'm not at a keyboard, you'll find me on the mats training
+          Brazilian Jiu-Jitsu.
+        </p>
 
-  <ul>
-    <li><strong>Homelab &amp; Self-Hosting</strong> — Docker, Linux, networking, automation</li>
-    <li><strong>Web Development</strong> — Mostly frontend, sometimes fullstack</li>
-    <li><strong>BJJ</strong> — Training logs, technique notes, competition prep</li>
-    <li><strong>Productivity</strong> — ADHD strategies, PKM workflows, tools that work</li>
-  </ul>
+        <h2>What I Write About</h2>
 
-  <h2>Elsewhere</h2>
+        <ul>
+          <li><strong>Homelab &amp; Self-Hosting</strong> — Docker, Linux, networking, automation</li>
+          <li><strong>Web Development</strong> — Mostly frontend, sometimes fullstack</li>
+          <li><strong>BJJ</strong> — Training logs, technique notes, competition prep</li>
+          <li><strong>Productivity</strong> — ADHD strategies, PKM workflows, tools that work</li>
+        </ul>
 
-  <ul>
-    <li><a href="https://github.com/ggfevans">GitHub</a> — Code and projects</li>
-  </ul>
+        <h2>Elsewhere</h2>
 
-  <h2>About This Site</h2>
+        <ul>
+          <li><a href="https://github.com/ggfevans">GitHub</a> — Code and projects</li>
+        </ul>
 
-  <p>
-    Built with <a href="https://astro.build">Astro</a>, styled with
-    <a href="https://tailwindcss.com">Tailwind CSS</a> and a custom GVNS
-    design system. Typography is Inter and JetBrains Mono. Self-hosted
-    on <a href="https://pages.cloudflare.com">Cloudflare Pages</a>.
-  </p>
+        <h2>About This Site</h2>
 
-  <Timeline />
-</PageLayout>
+        <p>
+          Built with <a href="https://astro.build">Astro</a>, styled with
+          <a href="https://tailwindcss.com">Tailwind CSS</a> and a custom GVNS
+          design system. Typography is Inter and JetBrains Mono. Self-hosted
+          on <a href="https://pages.cloudflare.com">Cloudflare Pages</a>.
+        </p>
+      </div>
+    </Profile1>
+
+    <div class="gvns-about-divider" aria-hidden="true">
+      <Separator />
+    </div>
+
+    <Timeline />
+  </main>
+</BaseLayout>
+
+<style>
+  .gvns-about {
+    max-width: var(--width-content);
+    margin: 0 auto;
+  }
+
+  .gvns-about-divider {
+    max-width: var(--width-content);
+    margin: 2rem auto;
+  }
+</style>

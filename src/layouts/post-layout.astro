@@ -70,9 +70,9 @@ const breadcrumbJsonLd = toJsonLd(
     />
     <ReadingProgress client:idle />
     <main id="main-content" data-pagefind-body>
-        <article class="post">
+        <article class="gvns-post">
             {heroImage && (
-                <figure class="hero">
+                <figure class="gvns-post-hero">
                     <Image
                         src={heroImage}
                         alt={heroImageAlt ?? ''}
@@ -83,15 +83,15 @@ const breadcrumbJsonLd = toJsonLd(
                     />
                 </figure>
             )}
-            <header class="post-header">
+            <header class="gvns-post-header">
                 <h1>{title}</h1>
-                <div class="post-meta">
+                <div class="gvns-post-meta">
                     <time datetime={pubDate.toISOString()}>
                         {formatDate(pubDate)}
                     </time>
                     {
                         updatedDate && (
-                            <span class="updated">
+                            <span class="gvns-post-updated">
                                 (Updated:{" "}
                                 <time datetime={updatedDate.toISOString()}>
                                     {formatDate(updatedDate)}
@@ -100,61 +100,71 @@ const breadcrumbJsonLd = toJsonLd(
                             </span>
                         )
                     }
-                    <span class="reading-time">{readingTime} min read</span>
+                    <span class="gvns-post-reading-time">{readingTime} min read</span>
                 </div>
                 <TagList tags={tags} />
             </header>
 
-            <TableOfContents client:idle />
-
-            <div class="prose">
-                <slot />
+            <div class="gvns-post-shell">
+                <div class="gvns-post-content">
+                    <div class="prose">
+                        <slot />
+                    </div>
+                    <CopyCodeInit />
+                    <SyndicationLinks
+                        syndication={syndication}
+                        postUrl={canonicalUrl}
+                        postTitle={title}
+                    />
+                    <Comments post={post} />
+                    <footer class="gvns-post-footer">
+                        <a href="/posts">&larr; Back to posts</a>
+                    </footer>
+                </div>
+                <aside class="gvns-post-sidebar" aria-label="Article navigation">
+                    <div class="gvns-post-sidebar-sticky">
+                        <TableOfContents client:idle />
+                    </div>
+                </aside>
             </div>
-            <CopyCodeInit />
-            <SyndicationLinks
-                syndication={syndication}
-                postUrl={canonicalUrl}
-                postTitle={title}
-            />
-            <Comments post={post} />
-            <footer class="post-footer">
-                <a href="/posts">&larr; Back to posts</a>
-            </footer>
         </article>
     </main>
 </BaseLayout>
 
 <style>
-    .post {
-        max-width: var(--width-content);
+    /* Outer wrapper allows wide grid; inner columns enforce 65ch reading. */
+    .gvns-post {
+        max-width: var(--width-wide, 80rem);
         margin: 0 auto;
     }
 
-    .hero {
-        margin: 0 0 2rem;
+    .gvns-post-hero {
+        margin: 0 auto 2rem;
+        max-width: var(--width-content);
     }
 
-    .hero img {
+    .gvns-post-hero img {
         width: 100%;
         height: auto;
         display: block;
         border-radius: var(--radius-lg);
     }
 
-    .post-header {
-        margin-bottom: 2rem;
+    .gvns-post-header {
+        margin: 0 auto 2rem;
         padding-bottom: 1.5rem;
         border-bottom: 1px solid var(--colour-border);
+        max-width: var(--width-content);
     }
 
-    .post-header h1 {
+    .gvns-post-header h1 {
         font-size: var(--text-4xl);
         line-height: 1.2;
         letter-spacing: -0.01em;
         margin-bottom: 0.75rem;
     }
 
-    .post-meta {
+    .gvns-post-meta {
         display: flex;
         flex-wrap: wrap;
         gap: 0.5rem 1rem;
@@ -163,28 +173,72 @@ const breadcrumbJsonLd = toJsonLd(
         margin-bottom: 1rem;
     }
 
-    .reading-time::before {
+    .gvns-post-reading-time::before {
         content: "·";
         margin-right: 1rem;
     }
 
-    .updated {
+    .gvns-post-updated {
         font-style: italic;
     }
 
-    .post-footer {
+    /* Shell: single column < 1024px, content + sticky sidebar at >= 1024px */
+    .gvns-post-shell {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas:
+            "sidebar"
+            "content";
+        gap: 2rem;
+    }
+
+    .gvns-post-content {
+        grid-area: content;
+        min-width: 0;
+        max-width: var(--width-content);
+        margin-inline: auto;
+        width: 100%;
+    }
+
+    .gvns-post-sidebar {
+        grid-area: sidebar;
+        min-width: 0;
+    }
+
+    @media (min-width: 1024px) {
+        .gvns-post-shell {
+            grid-template-columns: minmax(0, 1fr) 240px;
+            grid-template-areas: "content sidebar";
+            gap: 3rem;
+            align-items: start;
+        }
+
+        /* Content stays anchored inside its grid column; 65ch cap holds. */
+        .gvns-post-content {
+            margin-inline: 0;
+        }
+
+        .gvns-post-sidebar-sticky {
+            position: sticky;
+            top: 5rem;
+            max-height: calc(100vh - 6rem);
+            overflow-y: auto;
+        }
+    }
+
+    .gvns-post-footer {
         margin-top: 3rem;
         padding-top: 1.5rem;
         border-top: 1px solid var(--colour-border);
     }
 
-    .post-footer a {
+    .gvns-post-footer a {
         color: var(--colour-accent-primary);
         text-decoration: none;
         transition: color var(--transition-fast);
     }
 
-    .post-footer a:hover {
+    .gvns-post-footer a:hover {
         color: var(--colour-accent-hover);
     }
 </style>
