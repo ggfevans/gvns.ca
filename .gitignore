@@ -29,6 +29,9 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
+# editor / IDE — Starwind init drops a snippets file here, but it's not project-specific
+.vscode/
+
 # git worktrees
 .worktree/
 .worktrees/
