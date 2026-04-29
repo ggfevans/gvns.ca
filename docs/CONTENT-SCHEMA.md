@@ -196,7 +196,7 @@ Supports:
 
 - **Hero image**: bare filename in frontmatter (e.g. `heroImage: cover.jpg`); the file sits next to `index.md`. Astro's `image()` helper validates it and runs the asset pipeline.
 - **Inline images**: entry-relative paths (`./filename.ext`) inside the bundle directory.
-- **Alt text**: required, descriptive. For the hero image, set `heroImageAlt` in frontmatter.
+- **Alt text**: inline `![alt](...)` markdown alt text is required and should be descriptive. For the hero image, set `heroImageAlt` in frontmatter — optional, but recommended whenever `heroImage` is set.
 - **Format**: WebP preferred, PNG for screenshots, JPG for photos.
 - **Size**: Max 1200px wide, optimised for web.
 
