@@ -509,6 +509,7 @@ Wrap the structure of `@starwind-pro/blog-06` (image-left, content-right) in a n
 ---
 
 ## ADR-017: Adopt Starwind Pro Feature 13 Bento Grid for /now
+## ADR-017: Adopt Starwind Pro Footer 9 (Fading Large Text) Globally
 
 **Date**: 2026-04-28
 **Status**: Accepted
@@ -526,6 +527,7 @@ Adopt the Starwind Pro **Feature 13 — Bento Grid** layout shell on `/now`. Tak
 
 ### Consequences
 - The `Feature13.astro` / `Feature13Demo.astro` source files installed by the Starwind CLI are kept under `src/components/starwind-pro/feature-13/` for future reference but are not imported anywhere — `/now` reimplements the grid pattern with `gvns-` prefixed classes per project conventions.
+Replaced `src/components/Footer.astro` with the Footer 9 shell — large fading "gvns.ca" wordmark, copyright, and the existing five links (GitHub, Threads, LinkedIn, Email, RSS). Wordmark uses `--colour-text-muted` so it stays subdued in light + dark modes; link hovers use `--colour-accent-primary` so they track the per-page `data-accent`. Block source kept under `src/components/starwind-pro/footer-09/` for reference; project-flavoured copy lives in `src/components/Footer.astro` per the "shell, not skin" working principle.
 
 ---
 
