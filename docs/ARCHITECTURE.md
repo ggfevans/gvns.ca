@@ -84,34 +84,48 @@ src/
 ### Writing Collection Schema
 
 ```typescript
-// src/content/config.ts
+// src/content.config.ts (excerpt — see file for full source)
 import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders';
+import { UPLOADS_PATH_REGEX } from './uploads-path.mjs';
+
+const uploadsPathSchema = z
+  .string()
+  .regex(UPLOADS_PATH_REGEX, 'heroImage must be an absolute /uploads/... path')
+  .optional();
 
 const posts = defineCollection({
-  type: 'content',
-  schema: ({ image }) => z.object({
-    title: z.string().max(100),
-    description: z.string().max(200),
-    pubDate: z.coerce.date(),
-    updatedDate: z.coerce.date().optional(),
-    tags: z.array(z.string()).min(1).max(4),
-    draft: z.boolean().default(false),
-    heroImage: image().optional(),
-  }),
+  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: './src/content/posts' }),
+  // Bundle layout (ADR-015): heroImage is a bare filename validated by
+  // Astro's image() helper, relative to the post's index.md.
+  schema: ({ image }) =>
+    z.object({
+      title: z.string().max(100),
+      description: z.string().max(200),
+      pubDate: z.coerce.date(),
+      updatedDate: z.coerce.date().optional(),
+      tags: z.array(z.string()).min(1).max(4),
+      draft: z.boolean().default(false),
+      heroImage: image().optional(),
+      heroImageAlt: z.string().max(250).optional(),
+    }),
 });
 
 const work = defineCollection({
-  type: 'content',
-  schema: ({ image }) => z.object({
-    title: z.string().max(100),
-    description: z.string().max(200),
-    url: z.string().url().optional(),
-    repo: z.string().url().optional(),
-    status: z.enum(['active', 'maintained', 'archived']),
-    tags: z.array(z.string()).min(1).max(6),
-    heroImage: image().optional(),
-    featured: z.boolean().default(false),
-  }),
+  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: './src/content/work' }),
+  // Work still uses absolute /uploads/... URLs written by Sveltia.
+  schema: () =>
+    z.object({
+      title: z.string().max(100),
+      description: z.string().max(200),
+      url: z.string().url().optional(),
+      repo: z.string().url().optional(),
+      status: z.enum(['active', 'maintained', 'archived']),
+      tags: z.array(z.string()).min(1).max(6),
+      heroImage: uploadsPathSchema,
+      heroImageAlt: z.string().max(250).optional(),
+      featured: z.boolean().default(false),
+    }),
 });
 
 export const collections = { posts, work };

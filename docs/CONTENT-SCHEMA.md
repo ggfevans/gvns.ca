@@ -23,9 +23,12 @@ pubDate: 2024-12-09
 updatedDate: 2024-12-15          # Shows "Updated" badge
 tags: ["homelab", "docker"]
 draft: true                      # Excludes from build
-heroImage: "./images/hero.jpg"   # Relative to post file
+heroImage: "cover.jpg"           # Bare filename — sits beside index.md in the post bundle
+heroImageAlt: "Short description of the hero image"
 ---
 ```
+
+> **Posts vs work:** the `posts` collection uses Astro's bundle layout — `heroImage` is a bare filename resolved relative to the post's `index.md` and validated through Astro's `image()` helper. The `work` collection still writes absolute `/uploads/...` paths (Sveltia uploads to `public/uploads/`). See ADR-014 / ADR-015 in `docs/DECISIONS.md` for rationale.
 
 ### Field Specifications
 
@@ -37,7 +40,8 @@ heroImage: "./images/hero.jpg"   # Relative to post file
 | `updatedDate` | date | | Last significant update |
 | `tags` | string[] | ✓ | 1-4 tags from taxonomy |
 | `draft` | boolean | | Default: false |
-| `heroImage` | string | | Path to hero image |
+| `heroImage` | string | | **Posts:** bare filename (e.g. `cover.jpg`) sitting next to `index.md`, validated by Astro's `image()` helper. **Work:** absolute `/uploads/...` URL written by Sveltia. |
+| `heroImageAlt` | string | | Alt text for the hero image (max 250 chars). Recommended whenever `heroImage` is set. |
 | `canonicalUrl` | string | | Canonical URL for SEO |
 | `syndication` | object[] | | Array of cross-post records |
 | `syndication[].platform` | enum | ✓ (if syndication) | One of: `bluesky`, `mastodon`, `threads`, `linkedin` |
@@ -100,24 +104,24 @@ Use **one primary tag** per post, plus 1-3 secondary tags.
 src/content/posts/
 ├── 2024/
 │   ├── 12/
-│   │   ├── my-first-post.md
-│   │   └── my-first-post/
-│   │       └── images/
-│   │           └── hero.jpg
+│   │   └── my-first-post/        # Bundle directory (== slug)
+│   │       ├── index.md          # Post body + frontmatter
+│   │       ├── cover.jpg         # heroImage (bare filename in frontmatter)
+│   │       └── diagram.png       # Inline image, referenced as ./diagram.png
 │   └── ...
 └── ...
 ```
 
 ### Naming Conventions
 
-- **Post files**: `kebab-case-title.md`
-- **Image folders**: Same name as post file (without `.md`)
-- **Images**: Descriptive kebab-case (`docker-compose-diagram.png`)
+- **Bundle directory**: `kebab-case-slug/` — the directory name becomes the URL slug.
+- **Post body**: always `index.md` inside the bundle.
+- **Images**: bare filename in frontmatter (`heroImage: cover.jpg`); inline images use entry-relative paths (`![alt](./diagram.png)`).
 
 ### URL Generation
 
-Posts generate URLs from filename:
-- `src/content/posts/2024/12/my-first-post.md` → `/posts/my-first-post/`
+Posts generate URLs from the bundle directory name (Sveltia is configured with `path: "{{year}}/{{month}}/{{slug}}/index"`):
+- `src/content/posts/2024/12/my-first-post/index.md` → `/posts/my-first-post/`
 - Date folders are for organisation only, not in URL
 
 ## Content Guidelines
@@ -184,57 +188,82 @@ Supports:
 
 ### Images
 
+**Sveltia CMS is the canonical authoring path for posts.** When you upload a hero image or drop an inline image into the editor, Sveltia writes the file into the post's bundle directory (next to `index.md`) and references it using a bare filename (hero) or an entry-relative path (inline). The `validate-image-refs.mjs` prebuild check rejects manually-authored `/uploads/...` paths in the `posts` collection — drafting frontmatter by hand with absolute paths is **not supported** for posts.
+
 ```markdown
-![Alt text describing the image](./images/screenshot.png)
+![Alt text describing the image](./diagram.png)
 ```
 
-- **Alt text**: Required, descriptive
-- **Format**: WebP preferred, PNG for screenshots, JPG for photos
-- **Size**: Max 1200px wide, optimised for web
+- **Hero image**: bare filename in frontmatter (e.g. `heroImage: cover.jpg`); the file sits next to `index.md`. Astro's `image()` helper validates it and runs the asset pipeline.
+- **Inline images**: entry-relative paths (`./filename.ext`) inside the bundle directory.
+- **Alt text**: required, descriptive. For the hero image, set `heroImageAlt` in frontmatter.
+- **Format**: WebP preferred, PNG for screenshots, JPG for photos.
+- **Size**: Max 1200px wide, optimised for web.
+
+**Why bundles?** ADR-015 (`docs/DECISIONS.md`) — Sveltia's entry-relative upload path goes with the grain of the CMS once `{{slug}}` is in the path template. ADR-014 documents the earlier `/public/uploads/` baseline and why decision #1 was superseded.
+
+The `work` collection still uses absolute `/uploads/...` URLs (validated by `UPLOADS_PATH_REGEX` in `src/uploads-path.mjs`); that flow has not migrated to bundles.
 
 ## Zod Schema Reference
 
+Excerpted from `src/content.config.ts` (the live source — check the file for the full version with `preprocess` helpers and the `glob` loader configuration).
+
 ```typescript
-// src/content/config.ts
+// src/content.config.ts
 import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders';
+import { UPLOADS_PATH_REGEX } from './uploads-path.mjs';
+
+// Work-collection media: Sveltia writes absolute /uploads/... URLs.
+const uploadsPathSchema = z
+  .string()
+  .regex(UPLOADS_PATH_REGEX, 'heroImage must be an absolute /uploads/... path')
+  .optional();
 
 const posts = defineCollection({
-  type: 'content',
-  schema: ({ image }) => z.object({
-    title: z.string().max(100),
-    description: z.string().max(200),
-    pubDate: z.coerce.date(),
-    updatedDate: z.coerce.date().optional(),
-    tags: z.array(z.string()).min(1).max(4),
-    draft: z.boolean().default(false),
-    heroImage: image().optional(),
-    canonicalUrl: z.string().url().optional(),
-    syndication: z
-      .array(
-        z.object({
-          platform: z.enum(['bluesky', 'mastodon', 'threads', 'linkedin']),
-          url: z.string().url(),
-          syndicatedAt: z.coerce.date(),
-          mediaId: z.string().optional(),
-          shortcode: z.string().optional(),
-        })
-      )
-      .optional(),
-  }),
+  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: './src/content/posts' }),
+  // Posts use the bundle layout (ADR-015): heroImage is a bare filename
+  // resolved by Astro's image() helper relative to the post's index.md.
+  schema: ({ image }) =>
+    z.object({
+      title: z.string().max(100),
+      description: z.string().max(200),
+      pubDate: z.coerce.date(),
+      updatedDate: z.coerce.date().optional(),
+      tags: z.array(z.string()).min(1).max(4),
+      draft: z.boolean().default(false),
+      heroImage: image().optional(),
+      heroImageAlt: z.string().max(250).optional(),
+      canonicalUrl: z.string().url().optional(),
+      syndication: z
+        .array(
+          z.object({
+            platform: z.enum(['bluesky', 'mastodon', 'threads', 'linkedin']),
+            url: z.string().url(),
+            syndicatedAt: z.coerce.date(),
+            mediaId: z.string().optional(),
+            shortcode: z.string().optional(),
+          })
+        )
+        .optional(),
+    }),
 });
 
 const work = defineCollection({
-  type: 'content',
-  schema: ({ image }) => z.object({
-    title: z.string().max(100),
-    description: z.string().max(200),
-    url: z.string().url().optional(),
-    repo: z.string().url().optional(),
-    status: z.enum(['active', 'maintained', 'archived']),
-    tags: z.array(z.string()).min(1).max(6),
-    heroImage: image().optional(),
-    featured: z.boolean().default(false),
-  }),
+  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: './src/content/work' }),
+  // Work entries still use absolute /uploads/... URLs written by Sveltia.
+  schema: () =>
+    z.object({
+      title: z.string().max(100),
+      description: z.string().max(200),
+      url: z.string().url().optional(),
+      repo: z.string().url().optional(),
+      status: z.enum(['active', 'maintained', 'archived']),
+      tags: z.array(z.string()).min(1).max(6),
+      heroImage: uploadsPathSchema,
+      heroImageAlt: z.string().max(250).optional(),
+      featured: z.boolean().default(false),
+    }),
 });
 
 export const collections = { posts, work };
@@ -242,4 +271,4 @@ export const collections = { posts, work };
 
 ---
 
-*Last updated: 2026-02-02*
+*Last updated: 2026-04-28*
