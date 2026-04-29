@@ -605,7 +605,7 @@ The site has active runway for more Pro adoptions (Hero block on the homepage pl
 3. Reimplement-from-pattern (`gvns-` classes only, no Pro markup carried) remains allowed for layout-only adoptions; its lineage header notes "no upstream sync required."
 4. Lineage header is standardised:
 
-   ```
+   ```text
    Project component derived from @starwind-pro/<block-id>.
    Reference: src/components/starwind-pro/<block-id>/<File>.astro
    ADR: docs/DECISIONS.md#adr-XXX
@@ -653,4 +653,4 @@ As part of this ADR, `Profile1` was forked into `src/components/Profile.astro` a
 
 ---
 
-*Last updated: 2026-04-28 (ADR-018)*
+*Last updated: 2026-04-29 (ADR-019)*
