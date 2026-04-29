@@ -1,141 +1,118 @@
 ---
 /*
- * Footer — adopts Starwind Pro Footer 9 (Fading Large Text) shell.
- * Block source: src/components/starwind-pro/footer-09/Footer9.astro.
+ * Footer — adopts Starwind Pro Footer 1 (Socials) shell.
+ * Block source: src/components/starwind-pro/footer-01/Footer1.astro.
  *
- * This is the project's customised version: links, copyright and tokens
- * map to the site's `--colour-*` variables so the wordmark stays subdued
- * and link hovers respect the per-page `data-accent`.
+ * "Shell, not skin": we keep Footer 1's structure (border-t row of icons +
+ * centred copyright) and bridge tokens via classes/CSS vars rather than
+ * forking the block. Link hovers respect per-page `data-accent` through
+ * `--colour-accent-primary`.
  */
-const currentYear = new Date().getFullYear();
-const wordmark = "gvns.ca";
+import IconBrandGithub from "@tabler/icons/outline/brand-github.svg";
+import IconBrandLinkedin from "@tabler/icons/outline/brand-linkedin.svg";
+import IconBrandThreads from "@tabler/icons/outline/brand-threads.svg";
+import IconMail from "@tabler/icons/outline/mail.svg";
+import IconRss from "@tabler/icons/outline/rss.svg";
 
-const externalLinks = [
-    { label: "GitHub", href: "https://github.com/ggfevans" },
-    { label: "Threads", href: "https://threads.net/@ggfevans" },
-    { label: "LinkedIn", href: "https://linkedin.com/in/ggfevans" },
+const currentYear = new Date().getFullYear();
+
+// Astro's @tabler/icons/*.svg imports resolve to a renderable Astro component.
+// Use typeof one of the icons to preserve type safety across the link list.
+type IconComponent = typeof IconBrandGithub;
+
+interface FooterLink {
+    name: string;
+    href: string;
+    icon: IconComponent;
+    external: boolean;
+}
+
+const links: FooterLink[] = [
+    {
+        name: "GitHub",
+        href: "https://github.com/ggfevans",
+        icon: IconBrandGithub,
+        external: true,
+    },
+    {
+        name: "Threads",
+        href: "https://threads.net/@ggfevans",
+        icon: IconBrandThreads,
+        external: true,
+    },
+    {
+        name: "LinkedIn",
+        href: "https://linkedin.com/in/ggfevans",
+        icon: IconBrandLinkedin,
+        external: true,
+    },
+    { name: "Email", href: "/contact", icon: IconMail, external: false },
+    { name: "RSS", href: "/rss.xml", icon: IconRss, external: false },
 ];
 ---
 
-<footer class="gvns-footer">
-    <div class="gvns-footer-inner">
-        <div class="gvns-footer-bottom">
-            <p class="gvns-footer-copyright">© {currentYear} Gareth Evans</p>
-
-            <ul class="gvns-footer-links">
-                {externalLinks.map((link) => (
-                    <li>
-                        <a
-                            href={link.href}
-                            target="_blank"
-                            rel="noopener"
-                            aria-label={`${link.label} (opens in new tab)`}
-                        >
-                            {link.label}
-                        </a>
-                    </li>
-                ))}
-                <li><a href="/contact">Email</a></li>
-                <li><a href="/rss.xml" aria-label="RSS feed">RSS</a></li>
+<footer class="gvns-footer @container w-full border-t py-12">
+    <div class="mx-auto w-full max-w-7xl px-4">
+        <div class="flex flex-col items-center gap-6">
+            <ul class="gvns-footer-links flex gap-6">
+                {
+                    links.map((link) => (
+                        <li>
+                            <a
+                                href={link.href}
+                                class="gvns-footer-link transition-colors"
+                                aria-label={
+                                    link.external
+                                        ? `${link.name} (opens in new tab)`
+                                        : link.name
+                                }
+                                {...(link.external
+                                    ? { target: "_blank", rel: "noopener" }
+                                    : {})}
+                            >
+                                <link.icon
+                                    class="size-5.5"
+                                    aria-hidden="true"
+                                />
+                            </a>
+                        </li>
+                    ))
+                }
             </ul>
-        </div>
 
-        <div class="gvns-footer-wordmark-wrap">
-            <h2 class="gvns-footer-wordmark" aria-hidden="true">
-                {wordmark.split("").map((letter) => (
-                    <span class="gvns-footer-wordmark-letter">{letter}</span>
-                ))}
-            </h2>
+            <p class="gvns-footer-copyright text-center text-sm">
+                © {currentYear} Gareth Evans
+            </p>
         </div>
     </div>
 </footer>
 
 <style>
     .gvns-footer {
-        position: relative;
-        width: 100%;
         margin-top: auto;
-        padding-top: var(--space-12, 3rem);
-        border-top: 1px solid var(--colour-border);
-        overflow: hidden;
-        container-type: inline-size;
-    }
-
-    .gvns-footer-inner {
-        max-width: var(--width-content);
-        margin: 0 auto;
-        padding: 0 var(--space-6, 1.5rem);
-    }
-
-    .gvns-footer-bottom {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-4, 1rem);
-        padding-bottom: var(--space-6, 1.5rem);
-        color: var(--colour-text-secondary);
-        font-size: 0.875rem;
-    }
-
-    @container (min-width: 640px) {
-        .gvns-footer-bottom {
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
-        }
-    }
-
-    .gvns-footer-copyright {
-        margin: 0;
+        border-color: var(--colour-border);
     }
 
     .gvns-footer-links {
-        display: flex;
-        flex-wrap: wrap;
-        gap: var(--space-4, 1rem);
         list-style: none;
         margin: 0;
         padding: 0;
     }
 
-    .gvns-footer-links a {
+    .gvns-footer-link {
+        display: inline-flex;
         color: var(--colour-text-secondary);
         text-decoration: none;
         transition: color var(--transition-fast, 150ms ease);
     }
 
-    .gvns-footer-links a:hover,
-    .gvns-footer-links a:focus-visible {
+    .gvns-footer-link:hover,
+    .gvns-footer-link:focus-visible {
         color: var(--colour-accent-primary);
     }
 
-    .gvns-footer-wordmark-wrap {
-        position: relative;
-        width: 100%;
-    }
-
-    .gvns-footer-wordmark {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
+    .gvns-footer-copyright {
         margin: 0;
-        font-family: var(--font-heading, "Space Grotesk", sans-serif);
-        font-weight: 700;
-        line-height: 1;
-        text-transform: uppercase;
-        pointer-events: none;
-        user-select: none;
-    }
-
-    .gvns-footer-wordmark-letter {
-        font-size: clamp(2rem, 16cqi, 12rem);
-        background-image: linear-gradient(
-            to bottom,
-            var(--colour-text-muted) 0%,
-            transparent 80%
-        );
-        background-clip: text;
-        -webkit-background-clip: text;
-        color: transparent;
-        -webkit-text-fill-color: transparent;
+        color: var(--colour-text-secondary);
     }
 </style>

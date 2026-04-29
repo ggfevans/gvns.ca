@@ -1,0 +1,68 @@
+---
+import IconBrandGithub from "@tabler/icons/filled/brand-github.svg";
+import IconBrandLinkedin from "@tabler/icons/filled/brand-linkedin.svg";
+import IconBrandYoutube from "@tabler/icons/filled/brand-youtube.svg";
+import IconBrandX from "@tabler/icons/outline/brand-x.svg";
+import type { HTMLAttributes } from "astro/types";
+import { tv } from "tailwind-variants";
+
+export interface SocialLink {
+  name: string;
+  href: string;
+  icon: any;
+}
+
+interface Props extends HTMLAttributes<"footer"> {
+  /** Array of social media links */
+  socialLinks?: SocialLink[];
+  /** Company name for copyright */
+  companyName?: string;
+}
+
+const footer1Styles = tv({
+  base: "@container w-full border-t py-12",
+});
+
+const {
+  socialLinks = [
+    { name: "Twitter", href: "https://twitter.com", icon: IconBrandX },
+    { name: "GitHub", href: "https://github.com", icon: IconBrandGithub },
+    { name: "LinkedIn", href: "https://linkedin.com", icon: IconBrandLinkedin },
+    { name: "YouTube", href: "https://youtube.com", icon: IconBrandYoutube },
+  ],
+  companyName = "Your Company",
+  class: className,
+  ...rest
+} = Astro.props;
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class={footer1Styles({ class: className })} {...rest}>
+  <div class="mx-auto w-full max-w-7xl px-4">
+    <div class="flex flex-col items-center gap-6">
+      <!-- Social Links -->
+      <div class="flex gap-6">
+        {
+          socialLinks.map((social) => (
+            <a
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-muted-foreground hover:text-foreground transition-colors"
+              aria-label={social.name}
+            >
+              <social.icon class="size-5.5" aria-hidden="true" />
+            </a>
+          ))
+        }
+      </div>
+
+      <!-- Copyright -->
+      <p class="text-muted-foreground text-center text-sm">
+        © {currentYear}
+        {companyName}. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
