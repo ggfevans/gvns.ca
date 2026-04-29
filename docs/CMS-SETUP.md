@@ -27,7 +27,7 @@ The Hero image field writes a bare filename into frontmatter:
 heroImage: hero.webp
 ```
 
-The schema for `posts.heroImage` is Astro's [`image()`](https://docs.astro.build/en/guides/images/#images-in-content-collections) helper, which auto-imports the file from the entry's directory and runs it through the build-time image pipeline (Sharp via the Cloudflare adapter's `imageService: "compile"`). At render time `<Image>` from `astro:assets` produces fingerprinted, responsive variants under `/_astro/...`.
+The schema for `posts.heroImage` is Astro's [`image()`](https://docs.astro.build/en/guides/images/#images-in-content-collections) helper, which auto-imports the file from the entry's directory. At render time `<Image>` from `astro:assets` uses the `@unpic/astro` service (configured in `astro.config.mjs` with `fallbackService: "cloudflare"` and the adapter set to `imageService: "custom"`), producing Cloudflare Image Transformations URLs.
 
 ### Inline body images
 
@@ -59,7 +59,21 @@ If the in-browser transform fails for a given file, Sveltia falls back to commit
 
 The `work` collection still uses the legacy `/uploads/...` absolute pattern (`uploadsPathSchema` in `src/content.config.ts`). Work entries are not authored via the CMS in the same flow. Migrate to the bundle pattern in a future PR if that changes.
 
+## Render-time hero optimisation
+
+Heroes are served through **Cloudflare Image Transformations** at render time. The pipeline:
+
+1. The CMS uploads (and pre-transforms — WebP @ q85, max 2048px) the hero into the post's bundle directory as a sibling of `index.md`.
+2. `posts.heroImage` is an Astro `image()` ESM import; the markdown frontmatter holds a bare filename (`heroImage: hero.webp`).
+3. At render, `<Image>` from `astro:assets` runs through the [`@unpic/astro`](https://unpic.pics/img/astro/) image service (configured in `astro.config.mjs` with `fallbackService: "cloudflare"`), which rewrites every `src` and `srcset` entry to `/cdn-cgi/image/width=<n>,f=auto,fit=cover/_astro/<hash>.<ext>`.
+4. Cloudflare's edge serves AVIF/WebP per the request's `Accept` header (`f=auto`), caches each unique output per zone, and bills per unique output per month with cache hits free (free tier: 5,000/month).
+
+The `@astrojs/cloudflare` adapter is configured with `imageService: "custom"` so it doesn't override `image.service`. If you later swap unpic for Sharp or the adapter's built-in service, update the adapter's `imageService` to `"compile"` (Sharp) or `"cloudflare"` (the adapter's built-in CF Image Transformations service) accordingly.
+
+Cloudflare Image Transformations must be enabled on the zone (Speed → Optimization → Image Transformations). See ADR-018.
+
 ## History
 
 - ADR-014 — original survey, kept absolute `/uploads/...` as the baseline due to a Sveltia regression on entry-relative bundles.
 - ADR-015 — supersedes ADR-014's decision #1; switches `posts` to bundle layout now that Sveltia v0.157.1 has the entry-relative fix.
+- ADR-018 — adopts `@unpic/astro` + Cloudflare Image Transformations for render-time hero optimisation.

@@ -531,6 +531,38 @@ Replaced `src/components/Footer.astro` with the Footer 9 shell — large fading 
 
 ---
 
+## ADR-018: Render-Time Hero Optimisation via @unpic/astro + Cloudflare Image Transformations
+
+**Date**: 2026-04-28
+**Status**: Accepted
+
+### Context
+
+After ADR-015 moved heroes back into the bundle layout (Astro `image()` ESM imports), the Cloudflare adapter's default build pipeline (`imageService: "compile"`) ran Sharp at build time and emitted multiple `/_astro/<hash>.webp` variants. That works, but it (a) ties the variants we ship to whatever `widths={...}` arrays we hard-code in components, (b) bakes the encoder choice into the build, and (c) repeats the image bytes across every Worker deploy.
+
+Cloudflare Image Transformations is now enabled on the `gvns.ca` zone, which exposes `/cdn-cgi/image/<params>/<source>` URL-based transforms with `format=auto` (AVIF/WebP negotiation) and per-variant edge caching. We want render-time URLs against the original asset rather than build-time variants.
+
+### Decision
+
+Wire `@unpic/astro` as Astro's image service with `fallbackService: "cloudflare"`, and pass `imageService: "custom"` to `@astrojs/cloudflare` so it leaves `image.service` alone (the adapter otherwise overrides it).
+
+### Rationale
+
+- **Single source per hero.** One asset per post bundle, transformed at the edge per request.
+- **Format negotiation.** `f=auto` picks AVIF/WebP based on `Accept` headers — no build-time encoder pinning.
+- **Smaller deploys.** No `/_astro/<hash>.webp` variants in the Worker bundle.
+- **Consistent API.** unpic generates a sensible default `widths` array from layout + intrinsic dimensions, so component-level `widths={...}` props become advisory rather than load-bearing.
+- **Cost.** Cloudflare Image Transformations pricing/free-tier limits apply; our expected hero usage should stay comfortably within budget for a personal site.
+- **CLS preserved.** unpic emits explicit `width`/`height` and an `aspect-ratio` style on the rendered `<img>`, so layout doesn't shift on load.
+
+### Consequences
+
+- The Cloudflare adapter is configured with `imageService: "custom"` instead of `"compile"`. If unpic is ever removed, that needs to flip back.
+- Component-level `widths={...}` props on `<Image>` are ignored by unpic in favour of its layout-derived array. The hero contract from #276 (`loading="eager"`, `fetchpriority="high"`, `alt={heroImageAlt ?? ''}`) is preserved.
+- Fallback path: if the source isn't recognised as a CDN-hosted image, unpic falls back to the Cloudflare provider, which still produces `/cdn-cgi/image/...` URLs for same-origin assets like `/_astro/...`.
+- The rendered `<img>` includes an inline `style="...max-width:...;aspect-ratio:..."` from unpic's TransformProps. That inline aspect-ratio styling (along with emitted width/height) is what gives us CLS protection.
+- Installed with `--legacy-peer-deps` because `@unpic/astro@1.0.2` declares `astro@^2 || ^3 || ^4 || ^5.0.0-beta` as its peer range; Astro 6 isn't listed yet but the runtime API used (`getURL`/`getHTMLAttributes`) is unchanged. Track upstream and drop the flag once 6 lands in the peer range.
+- Future absolute-fill `<Image>` consumers (e.g. `class="size-full object-cover"`) will need to opt out of the global `layout: "constrained"` default by passing `layout="fullWidth"` per-instance — unpic injects inline `width`/`height`/`aspect-ratio` that override Tailwind size utilities. Verify affected consumers if/when adding new `<Image>` usages.
 ## ADR-018: Swap Footer 9 → Starwind Pro Footer 1 (Socials)
 
 **Date**: 2026-04-28
@@ -577,4 +609,4 @@ Swap the global footer to Starwind Pro **Footer 1 — Socials** (`@starwind-pro/
 
 ---
 
-*Last updated: 2026-04-28*
+*Last updated: 2026-04-28 (ADR-018)*

@@ -7,6 +7,7 @@ import svelte from "@astrojs/svelte";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import cloudflare from "@astrojs/cloudflare";
+import { imageService } from "@unpic/astro/service";
 import rehypeSlug from "rehype-slug";
 import pagefind from "./src/integrations/pagefind.ts";
 
@@ -26,8 +27,22 @@ export default defineConfig({
   site: "https://gvns.ca",
   output: "server",
   adapter: cloudflare({
-    imageService: "compile",
+    // "custom" tells the Cloudflare adapter to leave `image.service` alone
+    // so the unpic service configured below stays in place (the adapter
+    // would otherwise override it with one of its built-in services).
+    imageService: "custom",
   }),
+  // Render-time image optimisation:
+  // - Bundled post heroes (Astro `image()` ESM imports) get URL-based transforms via
+  //   Cloudflare Image Transformations (`/cdn-cgi/image/...`) at the edge.
+  // - Local/static srcs fall back to Cloudflare.
+  // See docs/CMS-SETUP.md and docs/DECISIONS.md (ADR-018) for context.
+  image: {
+    service: imageService({
+      fallbackService: "cloudflare",
+      layout: "constrained",
+    }),
+  },
   markdown: {
     shikiConfig: {
       theme: shikiTheme,
