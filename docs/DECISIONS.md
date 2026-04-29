@@ -551,6 +551,7 @@ Swap the global footer to Starwind Pro **Footer 1 — Socials** (`@starwind-pro/
 - Footer 9 reference files are gone; if we ever want a wordmark variant again, we'd reinstall via the CLI.
 - The footer now has zero CLS risk from oversized type — its height is bounded by the icon row + copyright.
 - ADR-017 (Footer 9) is superseded; the original entry is left in place for history.
+- Issue #318's spec was minimal (`rel="noopener"`); a follow-up aligns Footer external links to the sitewide `rel="noopener noreferrer"` convention used by `WorkCard`, `BookCard`, `SyndicationLinks`, and `/read/index` — `noreferrer` blocks `Referer` leakage to external destinations.
 
 ---
 
