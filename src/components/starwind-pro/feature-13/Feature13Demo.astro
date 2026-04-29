@@ -1,0 +1,46 @@
+---
+import IconBrain from "@tabler/icons/outline/brain.svg";
+import IconChartLine from "@tabler/icons/outline/chart-line.svg";
+import IconCode from "@tabler/icons/outline/code.svg";
+import IconShieldCheck from "@tabler/icons/outline/shield-check.svg";
+
+import Feature13, { type BentoFeature } from "./Feature13.astro";
+
+// Layout: 2x+1x top row, 1x+2x bottom row (4 items total)
+const features: BentoFeature[] = [
+  {
+    icon: IconBrain,
+    badge: "AI Powered",
+    title: "Intelligent Automation",
+    description:
+      "Leverage AI to automate repetitive tasks and optimize workflows. Our machine learning models continuously improve based on your usage patterns.",
+    image: {
+      src: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop",
+      alt: "AI automation",
+    },
+  },
+  {
+    icon: IconShieldCheck,
+    title: "Enterprise Security",
+    description: "SOC 2 compliant with end-to-end encryption and comprehensive audit logs.",
+  },
+  {
+    icon: IconChartLine,
+    badge: "Analytics",
+    title: "Real-time Insights",
+    description:
+      "Track every metric that matters with our comprehensive analytics dashboard. Visualize trends and make data-driven decisions.",
+    image: {
+      src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
+      alt: "Analytics dashboard",
+    },
+  },
+  {
+    icon: IconCode,
+    title: "Developer Tools",
+    description: "Modern APIs, SDKs, and CLI tools designed for seamless integration.",
+  },
+];
+---
+
+<Feature13 features={features} />

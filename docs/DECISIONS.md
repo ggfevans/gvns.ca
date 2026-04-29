@@ -508,11 +508,25 @@ Wrap the structure of `@starwind-pro/blog-06` (image-left, content-right) in a n
 
 ---
 
+## ADR-017: Adopt Starwind Pro Feature 13 Bento Grid for /now
 ## ADR-017: Adopt Starwind Pro Footer 9 (Fading Large Text) Globally
 
 **Date**: 2026-04-28
 **Status**: Accepted
 
+### Context
+`/now` previously used a flat 12-col grid where every widget got equal weight. With six widgets of varying content density (CodeWidget's heatmap vs StatusWidget's single line), uniform sizing buried the richer content.
+
+### Decision
+Adopt the Starwind Pro **Feature 13 — Bento Grid** layout shell on `/now`. Take the grid pattern only ("shell, not skin") — keep all `gvns-widget` components and `gvns-widget__*` styles unchanged. Cell-size mapping: CodeWidget large (2x2), ReadWidget + ListenWidget wide (2x1), WriteWidget + WatchWidget + StatusWidget standard (1x1). Mobile collapses to one column, tablet to two, desktop (>=1024px) renders the full bento.
+
+### Rationale
+- Visual hierarchy now matches content density.
+- Existing widget styling (heatmaps, progress bars, hover states) is untouched.
+- Tokens stay sourced from the gvns design system (`--colour-bg-secondary`, `--colour-border`, etc.); accent stays driven by `data-accent="p5-sky"`.
+
+### Consequences
+- The `Feature13.astro` / `Feature13Demo.astro` source files installed by the Starwind CLI are kept under `src/components/starwind-pro/feature-13/` for future reference but are not imported anywhere — `/now` reimplements the grid pattern with `gvns-` prefixed classes per project conventions.
 Replaced `src/components/Footer.astro` with the Footer 9 shell — large fading "gvns.ca" wordmark, copyright, and the existing five links (GitHub, Threads, LinkedIn, Email, RSS). Wordmark uses `--colour-text-muted` so it stays subdued in light + dark modes; link hovers use `--colour-accent-primary` so they track the per-page `data-accent`. Block source kept under `src/components/starwind-pro/footer-09/` for reference; project-flavoured copy lives in `src/components/Footer.astro` per the "shell, not skin" working principle.
 
 ---
