@@ -1,70 +1,141 @@
 ---
+/*
+ * Footer — adopts Starwind Pro Footer 9 (Fading Large Text) shell.
+ * Block source: src/components/starwind-pro/footer-09/Footer9.astro.
+ *
+ * This is the project's customised version: links, copyright and tokens
+ * map to the site's `--colour-*` variables so the wordmark stays subdued
+ * and link hovers respect the per-page `data-accent`.
+ */
 const currentYear = new Date().getFullYear();
+const wordmark = "gvns.ca";
+
+const externalLinks = [
+    { label: "GitHub", href: "https://github.com/ggfevans" },
+    { label: "Threads", href: "https://threads.net/@ggfevans" },
+    { label: "LinkedIn", href: "https://linkedin.com/in/ggfevans" },
+];
 ---
 
-<footer class="footer">
-    <div class="footer-content">
-        <p>© {currentYear} Gareth Evans</p>
-        <ul class="footer-links">
-            <li>
-                <a
-                    href="https://github.com/ggfevans"
-                    target="_blank"
-                    rel="noopener"
-                    aria-label="GitHub (opens in new tab)">GitHub</a>
-            </li>
-            <li>
-                <a
-                    href="https://threads.net/@ggfevans"
-                    target="_blank"
-                    rel="noopener"
-                    aria-label="Threads (opens in new tab)">Threads</a>
-            </li>
-            <li>
-                <a
-                    href="https://linkedin.com/in/ggfevans"
-                    target="_blank"
-                    rel="noopener"
-                    aria-label="LinkedIn (opens in new tab)">LinkedIn</a>
-            </li>
-            <li><a href="/contact">Email</a></li>
-            <li><a href="/rss.xml" aria-label="RSS feed">RSS</a></li>
-        </ul>
+<footer class="gvns-footer">
+    <div class="gvns-footer-inner">
+        <div class="gvns-footer-bottom">
+            <p class="gvns-footer-copyright">© {currentYear} Gareth Evans</p>
+
+            <ul class="gvns-footer-links">
+                {externalLinks.map((link) => (
+                    <li>
+                        <a
+                            href={link.href}
+                            target="_blank"
+                            rel="noopener"
+                            aria-label={`${link.label} (opens in new tab)`}
+                        >
+                            {link.label}
+                        </a>
+                    </li>
+                ))}
+                <li><a href="/contact">Email</a></li>
+                <li><a href="/rss.xml" aria-label="RSS feed">RSS</a></li>
+            </ul>
+        </div>
+
+        <div class="gvns-footer-wordmark-wrap">
+            <h2 class="gvns-footer-wordmark" aria-hidden="true">
+                {wordmark.split("").map((letter) => (
+                    <span class="gvns-footer-wordmark-letter">{letter}</span>
+                ))}
+            </h2>
+        </div>
     </div>
 </footer>
 
 <style>
-    .footer {
-        padding: var(--space-8, 2rem) var(--space-6, 1.5rem);
-        border-top: 1px solid var(--colour-border);
+    .gvns-footer {
+        position: relative;
+        width: 100%;
         margin-top: auto;
+        padding-top: var(--space-12, 3rem);
+        border-top: 1px solid var(--colour-border);
+        overflow: hidden;
+        container-type: inline-size;
     }
 
-    .footer-content {
+    .gvns-footer-inner {
         max-width: var(--width-content);
         margin: 0 auto;
+        padding: 0 var(--space-6, 1.5rem);
+    }
+
+    .gvns-footer-bottom {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        flex-direction: column;
+        gap: var(--space-4, 1rem);
+        padding-bottom: var(--space-6, 1.5rem);
         color: var(--colour-text-secondary);
         font-size: 0.875rem;
     }
 
-    .footer-links {
+    @container (min-width: 640px) {
+        .gvns-footer-bottom {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+
+    .gvns-footer-copyright {
+        margin: 0;
+    }
+
+    .gvns-footer-links {
         display: flex;
+        flex-wrap: wrap;
         gap: var(--space-4, 1rem);
         list-style: none;
         margin: 0;
         padding: 0;
     }
 
-    .footer-links a {
+    .gvns-footer-links a {
         color: var(--colour-text-secondary);
         text-decoration: none;
-        transition: color var(--transition-fast);
+        transition: color var(--transition-fast, 150ms ease);
     }
 
-    .footer-links a:hover {
+    .gvns-footer-links a:hover,
+    .gvns-footer-links a:focus-visible {
         color: var(--colour-accent-primary);
+    }
+
+    .gvns-footer-wordmark-wrap {
+        position: relative;
+        width: 100%;
+    }
+
+    .gvns-footer-wordmark {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin: 0;
+        font-family: var(--font-heading, "Space Grotesk", sans-serif);
+        font-weight: 700;
+        line-height: 1;
+        text-transform: uppercase;
+        pointer-events: none;
+        user-select: none;
+    }
+
+    .gvns-footer-wordmark-letter {
+        font-size: clamp(2rem, 16cqi, 12rem);
+        background-image: linear-gradient(
+            to bottom,
+            var(--colour-text-muted) 0%,
+            transparent 80%
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
     }
 </style>
