@@ -477,6 +477,10 @@ The end-to-end browser checklist is captured in the implementation PR. Critical 
 - heroImage upload → file at `<bundle>/file.webp`, frontmatter `heroImage: file.webp`, schema validates, `<Image>` renders fingerprinted variant.
 - Sveltia round-trips the saved post correctly when re-opened.
 
+### Addendum (2026-04-29)
+
+Issue [#328](https://github.com/ggfevans/gvns.ca/issues/328): Sveltia's config validator rejects a config with no `media_folder` at any level — `/admin` fails to load with "The media folder is not defined." The ADR's intent (entry-relative resolution via the `{{slug}}` template tag) is correct, but the operational instruction to "drop the global `media_folder`" was incomplete: the field must be declared per-collection. Fixed by setting `media_folder: ""` and `public_folder: ""` on the `posts` collection. Behaviour is unchanged — uploads still co-locate with the entry file, and the validator is satisfied. Pinned bundle bumped from v0.157.1 → v0.158.1 in the same PR.
+
 ---
 
 ## ADR-016: Adopt Starwind Pro Blog 6 (Horizontal Cards) on the Homepage
