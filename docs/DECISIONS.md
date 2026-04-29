@@ -562,8 +562,7 @@ Wire `@unpic/astro` as Astro's image service with `fallbackService: "cloudflare"
 - Fallback path: if the source isn't recognised as a CDN-hosted image, unpic falls back to the Cloudflare provider, which still produces `/cdn-cgi/image/...` URLs for same-origin assets like `/_astro/...`.
 - The rendered `<img>` includes an inline `style="...max-width:...;aspect-ratio:..."` from unpic's TransformProps. That inline aspect-ratio styling (along with emitted width/height) is what gives us CLS protection.
 - Installed with `--legacy-peer-deps` because `@unpic/astro@1.0.2` declares `astro@^2 || ^3 || ^4 || ^5.0.0-beta` as its peer range; Astro 6 isn't listed yet but the runtime API used (`getURL`/`getHTMLAttributes`) is unchanged. Track upstream and drop the flag once 6 lands in the peer range.
-- Future absolute-fill `<Image>` consumers (e.g. `class="size-full object-cover"`) will need to opt out of the global `layout: "constrained"` default by passing `layout="fullWidth"` per-instance — unpic injects inline `width`/`height`/`aspect-ratio` that override Tailwind size utilities. No current consumer is affected (`Profile1.astro` uses a plain `<img>`, not `<Image>`).
-
+- Future absolute-fill `<Image>` consumers (e.g. `class="size-full object-cover"`) will need to opt out of the global `layout: "constrained"` default by passing `layout="fullWidth"` per-instance — unpic injects inline `width`/`height`/`aspect-ratio` that override Tailwind size utilities. Verify affected consumers if/when adding new `<Image>` usages.
 ## ADR-018: Swap Footer 9 → Starwind Pro Footer 1 (Socials)
 
 **Date**: 2026-04-28
