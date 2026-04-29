@@ -35,6 +35,10 @@
     {
       "name": "badge",
       "version": "1.4.2"
+    },
+    {
+      "name": "image",
+      "version": "1.0.1"
     }
   ]
 }
