@@ -95,5 +95,9 @@ runs:
           exit 1
         fi
 
-        gh pr merge "$BRANCH" --auto --squash --delete-branch
+        # Immediate merge: enablePullRequestAutoMerge requires a
+        # required_status_checks rule on main, which we removed (#263 — it
+        # blocked Sveltia's direct CMS commits, see docs/CMS-SETUP.md).
+        # Workers Builds runs after merge; failed builds simply don't deploy.
+        gh pr merge "$BRANCH" --squash --delete-branch
 

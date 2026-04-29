@@ -33,12 +33,15 @@ So we kept the App for the OAuth side only. If we ever switch CMSes (or Sveltia 
 
 Sveltia commits as the human user (the only path that works given the `/user` requirement above), so we *cannot* combine PR-required protection with bypass-the-CMS — the bypass would have to apply to the human, which would also bypass CLI pushes.
 
-Posture instead:
+Posture instead — the **`protect da goods` ruleset** on `main`:
 
-- **Required status checks** on `main` (Workers Builds): blocks broken commits, supports auto-merge for fetch workflows that open PRs from a side branch.
-- **No PR-required rule.** Sveltia (and CLI) push directly; commits land if checks pass.
+- **`deletion`** rule only: prevents accidental branch delete / force-push of an empty ref. That's it.
+- **No required status checks.** Tried; created a circular dependency: Sveltia's fresh commits don't have a passing check yet (Workers Builds runs *after* the push), so the rule rejected every CMS save.
+- **No PR-required rule.** Sveltia (and CLI) push directly.
 
-This is "block broken builds," not "force PR review." Honest tradeoff per #263.
+Workers Builds still runs on every push to `main`. A failing build just doesn't deploy — last successful build stays live. Site stays up even if a bad commit lands; the cost is a messy `git log` until the next good commit.
+
+For the watching/fetch workflows: `gh pr merge --auto` requires a `required_status_checks` rule on `main` (`enablePullRequestAutoMerge` GraphQL precondition). Since we don't have one, those workflows must use immediate merge — change `gh pr merge --auto --squash --delete-branch` to `gh pr merge --squash --delete-branch` in `.github/actions/commit-via-pr/action.yml`.
 
 See [#263](https://github.com/ggfevans/gvns.ca/issues/263) for the full investigation and rejected alternatives.
 
