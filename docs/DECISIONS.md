@@ -477,6 +477,10 @@ The end-to-end browser checklist is captured in the implementation PR. Critical 
 - heroImage upload → file at `<bundle>/file.webp`, frontmatter `heroImage: file.webp`, schema validates, `<Image>` renders fingerprinted variant.
 - Sveltia round-trips the saved post correctly when re-opened.
 
+### Addendum (2026-04-29)
+
+Issue [#328](https://github.com/ggfevans/gvns.ca/issues/328): the original ADR-015 instruction to drop the global `media_folder` broke `/admin` with "The media folder is not defined." Sveltia's config validator (`parseMediaConfig` in `src/lib/services/config/parser/media.js`) checks **top-level** `media_folder` only — per-collection overrides are invisible to that check. The first attempt at this fix (declaring only per-collection `media_folder: ""`) didn't satisfy the validator and the preview deploy still threw the same error. Final fix: keep top-level `media_folder: public/uploads` and `public_folder: /uploads` as the validator-required baseline, then override per-collection with `media_folder: ""` + `public_folder: ""` on `posts` to force entry-relative resolution (bundle layout). The collection-level empty string sets `entryRelative = true` in `folders/assets.js#normalizeAssetFolder`, so post uploads still co-locate with the entry file. Behaviour for the `posts` collection is unchanged from ADR-015's design; the global only kicks in for ad-hoc uploads outside any collection. Pinned bundle bumped v0.157.1 → v0.158.1 in the same PR.
+
 ---
 
 ## ADR-016: Adopt Starwind Pro Blog 6 (Horizontal Cards) on the Homepage

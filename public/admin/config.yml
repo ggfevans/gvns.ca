@@ -8,12 +8,17 @@ backend:
 site_url: https://gvns.ca
 display_url: https://gvns.ca
 
-# No top-level media_folder/public_folder. Posts use bundle layout
-# (`<...>/<slug>/index.md`), so Sveltia's default entry-relative resolution
-# co-locates uploaded media with the post that references it. The bare
-# `![](file.webp)` refs Sveltia writes resolve correctly because post and
-# assets share the same directory. heroImage frontmatter is also a bare
-# basename, validated through Astro's image() schema. See ADR-015.
+# Sveltia's config validator (parseMediaConfig in
+# src/lib/services/config/parser/media.js) requires top-level
+# `media_folder` regardless of per-collection overrides. We point the
+# global at `public/uploads` as a fallback for any ad-hoc upload outside
+# a collection, then override per-collection below to force entry-relative
+# resolution for posts (bundle layout). The bare `![](file.webp)` refs
+# Sveltia writes resolve correctly because post and assets share the same
+# directory. heroImage frontmatter is a bare basename, validated through
+# Astro's image() schema. See ADR-015 + 2026-04-29 addendum.
+media_folder: public/uploads
+public_folder: /uploads
 
 # Client-side image optimisation: Sveltia converts raster uploads to WebP
 # at quality 85 and resizes to max 2048px (long edge) before commit. Applies
@@ -40,6 +45,8 @@ collections:
     label_singular: Post
     folder: src/content/posts
     path: "{{year}}/{{month}}/{{slug}}/index"
+    media_folder: ""
+    public_folder: ""
     create: true
     slug: "{{slug}}"
     extension: md
