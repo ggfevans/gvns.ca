@@ -2,7 +2,7 @@
 export const prerender = true;
 
 import BaseLayout from '@layouts/BaseLayout.astro';
-import Profile1, { type ProfileSocialLink } from '@components/starwind-pro/profile-01/Profile1.astro';
+import Profile, { type ProfileSocialLink } from '@components/Profile.astro';
 import { Separator } from '@components/starwind/separator';
 import Timeline from '@components/Timeline.astro';
 import { personSchema, breadcrumbSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
@@ -37,7 +37,7 @@ const socials: ProfileSocialLink[] = [
   <script type="application/ld+json" set:html={breadcrumbJsonLd} slot="head" />
 
   <main id="main-content" class="gvns-about" data-pagefind-body>
-    <Profile1
+    <Profile
       name="Gareth Evans"
       jobTitle="Web developer · Vancouver Island"
       image="/avatar.jpg"
@@ -78,7 +78,7 @@ const socials: ProfileSocialLink[] = [
           on <a href="https://pages.cloudflare.com">Cloudflare Pages</a>.
         </p>
       </div>
-    </Profile1>
+    </Profile>
 
     <div class="gvns-about-divider" aria-hidden="true">
       <Separator />

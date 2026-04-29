@@ -1,12 +1,14 @@
 ---
-/*
- * Footer — adopts Starwind Pro Footer 1 (Socials) shell.
- * Block source: src/components/starwind-pro/footer-01/Footer1.astro.
+/**
+ * Project component derived from @starwind-pro/footer-01.
+ * Reference: (none — reference dir removed; re-add via
+ *   `npx starwind@latest add @starwind-pro/footer-01` if needed for diff)
+ * ADR: docs/DECISIONS.md#adr-018
+ * Last upstream sync: 2026-04-28
  *
- * "Shell, not skin": we keep Footer 1's structure (border-t row of icons +
- * centred copyright) and bridge tokens via classes/CSS vars rather than
- * forking the block. Link hovers respect per-page `data-accent` through
- * `--colour-accent-primary`.
+ * "Shell, not skin": keeps Footer 1's structure (border-t row of icons +
+ * centred copyright) and bridges tokens via component-scoped CSS vars.
+ * Link hovers respect per-page `data-accent` through `--colour-accent-primary`.
  */
 import IconBrandGithub from "@tabler/icons/outline/brand-github.svg";
 import IconBrandLinkedin from "@tabler/icons/outline/brand-linkedin.svg";

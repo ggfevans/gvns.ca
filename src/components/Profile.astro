@@ -1,20 +1,16 @@
 ---
 /**
- * REFERENCE ONLY — do not import.
- *
- * This is the upstream `@starwind-pro/profile-01` block, kept so future
- * upstream releases can be diffed against `src/components/Profile.astro`
- * (the project component derived from it).
- *
- * To import in a page or layout, use `@components/Profile.astro` instead.
- * See `docs/PRO-BLOCKS.md` for the add/update flow.
+ * Project component derived from @starwind-pro/profile-01.
+ * Reference: src/components/starwind-pro/profile-01/Profile1.astro
+ * ADR: docs/DECISIONS.md#adr-019
+ * Last upstream sync: 2026-04-29
  */
 import type { HTMLAttributes } from "astro/types";
 import { tv } from "tailwind-variants";
 
-import { Badge } from "@/components/starwind/badge";
-import { Button } from "@/components/starwind/button";
-import { Separator } from "@/components/starwind/separator";
+import { Badge } from "@components/starwind/badge";
+import { Button } from "@components/starwind/button";
+import { Separator } from "@components/starwind/separator";
 
 /** Social link for a profile */
 export interface ProfileSocialLink {
@@ -99,19 +95,22 @@ const {
   {
     socials.length > 0 && (
       <div class="mt-6 flex justify-center gap-2">
-        {socials.map((social) => (
-          <Button
-            variant="outline"
-            size="icon"
-            class="size-10 rounded-full"
-            aria-label={social.name}
-            href={social.href}
-            target={social.href.startsWith("mailto:") ? undefined : "_blank"}
-            rel={social.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
-          >
-            <social.icon class="size-5" />
-          </Button>
-        ))}
+        {socials.map((social) => {
+          const isExternal = /^https?:\/\//i.test(social.href);
+          return (
+            <Button
+              variant="outline"
+              size="icon"
+              class="size-10 rounded-full"
+              aria-label={social.name}
+              href={social.href}
+              target={isExternal ? "_blank" : undefined}
+              rel={isExternal ? "noopener noreferrer" : undefined}
+            >
+              <social.icon class="size-5" />
+            </Button>
+          );
+        })}
       </div>
     )
   }
