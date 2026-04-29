@@ -3,7 +3,7 @@ export const prerender = true;
 
 import { getCollection } from 'astro:content';
 import BaseLayout from '@layouts/BaseLayout.astro';
-import PostCard from '@components/PostCard.astro';
+import HorizontalPostCard from '@components/HorizontalPostCard.astro';
 import StatusWidget from '@components/widgets/StatusWidget.astro';
 import ActivityBar from '@components/ActivityBar.astro';
 import ReadWidget from '@components/widgets/ReadWidget.astro';
@@ -77,7 +77,7 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
         posts.length > 0 ? (
           <div class="post-list">
             {posts.map((post) => (
-              <PostCard post={post} />
+              <HorizontalPostCard post={post} />
             ))}
           </div>
         ) : (
