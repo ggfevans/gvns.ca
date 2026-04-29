@@ -1,6 +1,38 @@
 # CMS Setup
 
-Sveltia CMS is mounted at `gvns.ca/admin`. Auth is brokered by the `auth.gvns.ca` Worker (GitHub OAuth).
+Sveltia CMS is mounted at `gvns.ca/admin`. Auth is brokered by the `auth.gvns.ca` Worker, backed by a **GitHub App** (`gvns-ca-cms[bot]`). The App is the actor on every CMS commit, which keeps it distinct from the human's `git push` and lets branch protection on `main` allow CMS commits while still requiring PRs from a CLI session (#263).
+
+## Auth flow
+
+The Worker runs the standard GitHub web flow with the App's `client_id` / `client_secret`. The shape is identical to OAuth Apps with two differences:
+
+1. **No `scope` param** on `/login/oauth/authorize` — App permissions are fixed at App definition.
+2. **Tokens expire** ("Expire user authorization tokens" enabled on the App). The Worker passes `refresh_token` and `expires_in` through to Sveltia in the success postMessage and exposes a `POST /refresh` endpoint that proxies refresh-token exchanges to GitHub. Sveltia drives the refresh client-side.
+
+The Worker uses **user-to-server** tokens only — no JWTs, no installation tokens, no private key. A user can only commit to repos where (a) the App is installed AND (b) the user has access. Both hold for `ggfevans/gvns.ca`.
+
+### Worker secrets (`workers/sveltia-auth`)
+
+```bash
+wrangler secret put GITHUB_CLIENT_ID         # App's Client ID (Iv23...)
+wrangler secret put GITHUB_CLIENT_SECRET     # App's Client Secret (generate from App settings)
+wrangler secret put AUTH_ALLOWED_ORIGINS     # https://gvns.ca[,https://<preview>...]
+```
+
+The App's **Callback URL** must be `https://auth.gvns.ca/callback` (matches the route the Worker handles).
+
+### Re-rotating from OAuth App to GitHub App
+
+If you ever need to rotate or replace the backing identity:
+
+1. Create / update the GitHub App; install on `ggfevans/gvns.ca`.
+2. Update the three secrets above with `wrangler secret put`.
+3. Redeploy the Worker (`npm run deploy` in `workers/sveltia-auth`).
+4. Test `gvns.ca/admin` login end-to-end before flipping branch protection.
+
+## Branch protection posture
+
+`main` is protected via a **ruleset**: PRs required, Workers Builds status check required, with the GitHub App on the **bypass list**. The CMS publishes directly to `main` (Sveltia does not support editorial workflow); the human user is *not* on the bypass list, so `git push origin main` from a CLI session is rejected and must go through a PR. See [#263](https://github.com/ggfevans/gvns.ca/issues/263) for context.
 
 ## Posts use the bundle layout
 
