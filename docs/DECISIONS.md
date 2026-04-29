@@ -593,11 +593,13 @@ Swap the global footer to Starwind Pro **Footer 1 — Socials** (`@starwind-pro/
 **Status**: Accepted
 
 ### Context
+
 Three patterns existed in the repo for "using a Pro block": direct import (`Profile1.astro`), fork-with-lineage-comment (`Footer.astro`, per ADR-018), and reimplement-from-pattern (`HorizontalPostCard.astro` per ADR-016, `/now` bento per ADR-017). The inconsistency made future-me's choice ambiguous when adopting the next block, and `Profile1` was the lone direct-import outlier — locked to upstream markup with no project-flavoured fork.
 
 The site has active runway for more Pro adoptions (Hero block on the homepage planned next). Without a single canonical path, each adoption re-litigates the question.
 
 ### Decision
+
 **Fork on adopt** is the canonical path going forward:
 
 1. Every Pro block adoption becomes a project-prefixed component (`Footer.astro`, `Profile.astro`, eventually `Hero.astro`). Direct imports from `src/components/starwind-pro/` are forbidden in pages and layouts.
@@ -617,12 +619,14 @@ The site has active runway for more Pro adoptions (Hero block on the homepage pl
 As part of this ADR, `Profile1` was forked into `src/components/Profile.astro` and `/about` updated to import the project component. Dead reference dirs (`feature-13/`, `footer-01/`) were deleted; their corresponding project components stand alone, with re-add via CLI documented as the path back to upstream when needed.
 
 ### Rationale
+
 - **Solo author, ADHD context**: a single canonical path removes a recurring decision point. The trigger ("Last upstream sync older than ~6 months") replaces ad-hoc judgement with a date check.
 - **Upstream-trackable**: keeping reference dirs for actively-forked blocks preserves the diff path without locking project markup. Pattern-only adoptions skip this overhead because there's no markup to sync.
 - **Tree noise reduction**: dead reference dirs (`feature-13/`, `footer-01/`) added cognitive overhead with no benefit; deleted, with CLI re-add as the cheap recovery path.
 - **Consistency**: closes the loop on ADR-016/017/018 with a single rule that retroactively explains all three.
 
 ### Consequences
+
 - `src/components/Profile.astro` is now the import surface for `/about`; `Profile1.astro` is reference-only.
 - `src/components/starwind-pro/profile-01/` is the only reference dir remaining. Future Pro adoptions add a sibling dir each.
 - Updating an adopted block requires a deliberate `npx starwind add` + diff step rather than silent drift — explicit cost, but predictable.
