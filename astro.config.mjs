@@ -35,8 +35,8 @@ export default defineConfig({
   // Render-time image optimisation:
   // - Bundled post heroes (Astro `image()` ESM imports) get URL-based transforms via
   //   Cloudflare Image Transformations (`/cdn-cgi/image/...`) at the edge.
-  // - Local/static srcs fall back to Sharp via the adapter's "compile" service.
-  // See docs/CMS-SETUP.md and docs/DECISIONS.md (ADR-016) for context.
+  // - Local/static srcs fall back to Cloudflare.
+  // See docs/CMS-SETUP.md and docs/DECISIONS.md (ADR-018) for context.
   image: {
     service: imageService({
       fallbackService: "cloudflare",
