@@ -2,9 +2,12 @@
 
 **Status:** Spec, awaiting implementation
 **Drafted:** 2026-04-29
-**Revised:** 2026-04-30 — featured-card pattern (selectable text + inline expand), hero dropped, navbar redesigned. See §10 Revision history.
+**Revised:** 2026-04-30 (a) — featured-card pattern (selectable text + inline expand), hero dropped, navbar redesigned.
+**Revised:** 2026-04-30 (b) — first branding pass: masthead extras (stripe + tagline) + footer signature with wordmark/swatches.
+**Revised:** 2026-04-30 (c) — branding tightened after mockup review: stripe-only masthead (no tagline), brutalist top-stripe Featured card, minimal footer with gradient line + dual-licence legal. (b) is **superseded** by (c).
+See §11 Revision history.
 **Companion docs:** `docs/research/personal-blog-inspiration.md`, `docs/research/mitchellh-com-analysis.md`
-**Mockups referenced:** B1 (home, compact widget strip) + C2 (`/now`, short prose intro + bento). The hero portion of B1 is **superseded by §2 of this spec** — see §10.
+**Mockups referenced:** B1 (home, compact widget strip) + C2 (`/now`, short prose intro + bento). The hero portion of B1 is **superseded by §2 of this spec** — see §11.
 
 ---
 
@@ -12,8 +15,9 @@
 
 | Question | Decision |
 |---|---|
-| Home pairing | **B1, hero-less variant.** No identity hero; page leads with Featured post. 3-up recent, activity bar, compact 4-up widget strip below. Identity moves into the navbar (see §4). |
-| Featured card pattern | **Selectable text, no stretched anchor.** Title is the link to `/posts/<slug>/`. `<details>` trigger expands the card in place to render the full post body. `Read full post →` permalink visible only when expanded. ~500 chars of body shown collapsed (configurable; clamps at paragraph boundary). See §2.3. |
+| Home pairing | **B1, hero-less variant with stripe-only masthead.** No identity hero; page leads with Featured post. Brand work happens at two touchpoints: a 2px P1–P5 stripe directly below the nav (site-wide), and a closing 80×2px gradient line in the footer. 3-up recent, compact 4-up widget strip, footer below the Featured. See §4 (masthead) and §10 (footer). |
+| Branding strategy | **Two visual touchpoints, no on-page tagline.** Above-the-fold: 2px P1–P5 stripe directly under the nav (site-wide). Below-the-fold: short P1–P5 gradient line in the footer that visually rhymes with the masthead stripe. The mid-page activity bar is **removed** (one stripe, repurposed). No tagline rendered anywhere on-page — the bio sentence ships only in `<head>` meta and `/about`. Identity work is carried by the navbar (avatar + name) and the palette signature. |
+| Featured card pattern | **Brutalist top-stripe, selectable text, inline expand.** Filled card with 2px rose **top** stripe (not left border), zero radius. Eyebrow row: muted tag + ISO date — no "Featured" word, the stripe carries the signal. 22px title with -0.012em tracking. Excerpt at 14px capped at 60ch. Hairline footer divider with reading time (mono, muted) on the left and `keep reading ↓` (mono, rose) on the right. Title is a real link to `/posts/<slug>/`; `<details>` trigger expands the card in place. See §2.3. |
 | Recent post cards | **Same pattern site-wide.** Drop the absolute stretched-link from `HorizontalPostCard` and any new `MiniPostCard`. Title links to the post; the surrounding card hover-styles via `:has(a:hover)`. Text always selectable. See §2.4. |
 | `/now` pairing | **C2** — short prose intro + freshness date, existing bento layout preserved below. |
 | Navbar | **Justified three-cluster layout.** Left: avatar 24px + "Gareth Evans" wordmark (replaces "GVNS"). Centre: existing nav links. Right: status pill · theme toggle · search. Status pill collapses to dot-only below 1024px. See §4. |
@@ -23,7 +27,7 @@
 | Bio prose policy | Bio / `/now` intro / `/about` prose stays human-written. Live data only via widgets, never interpolated into prose. (See `feedback_gvns_bio_static.md` in Claude memory.) |
 | Self-description | Standardised on **"Tech tinkerer · Qualicum Beach"** across `/about` Profile, BaseLayout meta description, OG/Twitter cards. (Home hero removed — no longer rendered visually on `/`, but lives in head meta.) |
 
-Decision rationale lives in the inspiration scan (`docs/research/personal-blog-inspiration.md`, §3 Recommendations), the conversation transcript that produced this spec, and the 2026-04-30 follow-up critique (§10).
+Decision rationale lives in the inspiration scan (`docs/research/personal-blog-inspiration.md`, §3 Recommendations), the conversation transcript that produced this spec, and the 2026-04-30 follow-up critique (§11).
 
 ---
 
@@ -31,14 +35,16 @@ Decision rationale lives in the inspiration scan (`docs/research/personal-blog-i
 
 ### 2.1 Layout (top to bottom)
 
-1. **Header** — existing component, **redesigned** (see §4). Status pill, avatar, name wordmark all live here now.
-2. **Featured post** — single most recent published post. Selectable text, inline-expandable. See §2.3.
-3. **Recent (3-up row)** — posts 2–4 (i.e. `posts.slice(1, 4)` after sorting). Same selectable-text pattern. See §2.4.
-4. **Activity bar** — existing `ActivityBar` component, 2px tall P1–P5 strip.
+1. **Header (nav)** — existing component, **redesigned** (see §4.1–4.5). Three-cluster justified nav with avatar + name, links, status pill + tools.
+2. **Masthead stripe (site-wide)** — 2px P1–P5 stripe directly below the nav (see §4.6). Visual brand mark, no text. Renders on every page, not just `/`.
+3. **Featured post** — single most recent published post. Brutalist top-stripe pattern, selectable text, inline-expandable. See §2.3.
+4. **Recent (3-up row)** — posts 2–4 (i.e. `posts.slice(1, 4)` after sorting). Same selectable-text rule. See §2.4.
 5. **Compact widget strip (4-up)** — Read, Listen, Watch, Code in a row. Mobile: 2×2. See §2.5.
-6. **Footer** — existing.
+6. **Footer** — **rewritten** (see §10). Existing 5-icon row + 80×2px P1–P5 gradient line + dual-licence legal line.
 
-**Hero is removed.** No "Hi, I'm Gareth", no avatar block, no intro paragraph. The bio sentence ("Tech tinkerer in Qualicum Beach…") still ships in `<head>` meta description and OG/Twitter tags — but is no longer rendered on the page. Identity cues come from the navbar (avatar + name) and `/about`.
+**Hero is removed.** No "Hi, I'm Gareth", no avatar block, no intro paragraph rendered on `/`. Identity cues come from three places now: the navbar (avatar + name), the masthead stripe (visual brand mark, site-wide), and the footer's closing gradient line (visual rhyme with the masthead). The bio sentence still ships in `<head>` meta description and OG/Twitter tags.
+
+**Mid-page activity bar removed.** The previous draft kept a mid-page `ActivityBar` between recent posts and the widget strip and added a separate masthead stripe — two stripes doing two jobs. After mockup review, that was tightened to one stripe in the masthead position. The transition between recent posts and widget strip is now handled by spacing, with no horizontal divider.
 
 ### 2.2 Container widths
 
@@ -46,16 +52,16 @@ Use `--width-content` for the entire `<main>`. The current `--width-wide` outer 
 
 ### 2.3 Featured post card — pattern
 
-**Goals:** text is selectable, the user can read 500-ish chars without clicking through, and they can expand the full body in place if they want to read more without leaving the homepage.
+**Goals:** text is selectable, the user can read ~500 chars without clicking through, and they can expand the full body in place. Visual treatment is **brutalist top-stripe** — filled card, zero radius, 2px rose top accent (not left border), hairline footer divider. The 2px stripe carries the "this is the featured post" signal so the eyebrow drops the word "Featured" entirely.
 
 **Markup contract (excerpt outside `<details>`; summary is the expand trigger):**
 
 ```astro
 <article class="gvns-featured" data-post-slug={slug}>
   <header class="gvns-featured__header">
-    <span class="gvns-featured__eyebrow">Featured · {primaryTag}</span>
-    <time datetime={pubDate.toISOString()} class="gvns-featured__meta">
-      {formattedDate} · {readingTime} min read
+    <span class="gvns-featured__tag">{primaryTag}</span>
+    <time datetime={pubDate.toISOString()} class="gvns-featured__date">
+      {formattedDate}
     </time>
   </header>
 
@@ -67,8 +73,11 @@ Use `--width-content` for the entire `<main>`. The current `--width-wide` outer 
 
   <details class="gvns-featured__body">
     <summary class="gvns-featured__expand">
-      <span data-when="closed">Read more ↓</span>
-      <span data-when="open">Collapse ↑</span>
+      <span class="gvns-featured__reading-time">{readingTime} min read</span>
+      <span class="gvns-featured__cue">
+        <span data-when="closed">keep reading ↓</span>
+        <span data-when="open">collapse ↑</span>
+      </span>
     </summary>
     <div class="gvns-featured__expanded prose">
       <Content />
@@ -83,28 +92,38 @@ Use `--width-content` for the entire `<main>`. The current `--width-wide` outer 
 **Why this shape:**
 
 - The excerpt sits **outside** `<details>` so selecting text inside it doesn't toggle the disclosure (the click-up that ends a selection-drag would otherwise expand the card — a known `<summary>` UX gotcha).
-- When `<details>` is open, the `<Content />` re-renders the same opening paragraphs the excerpt showed. We hide the standalone excerpt when the card is expanded so the same prose doesn't appear twice. CSS: `.gvns-featured:has(details[open]) .gvns-featured__excerpt { display: none; }`. `:has()` has solid 2026 support; with no fallback, the duplication is cosmetic and tolerable.
-- The `<summary>` content is intentionally minimal — only the toggle label, no phrasing content that the user might want to select. That keeps interaction crisp.
+- The `<summary>` is the entire footer row (reading time + expand cue) — clicking anywhere along that row toggles the card. The inner spans are styled with a top hairline `border-top: 1px solid var(--colour-border)` so the footer reads as a divided meta strip, not an obvious button.
+- When `<details>` is open, `<Content />` re-renders the same opening paragraphs the excerpt showed. Hide the standalone excerpt with CSS: `.gvns-featured:has(details[open]) .gvns-featured__excerpt { display: none; }`. `:has()` has solid 2026 support; with no fallback, the duplication is cosmetic and tolerable.
+- The eyebrow is just **tag + date** — "Featured" word is gone because the 2px rose top stripe is the unambiguous featured signal.
 
 **Implementation notes:**
 
 - **Excerpt source.** Render the first ~500 characters of `post.body` (Markdown), stripped of frontmatter, clamped to the nearest paragraph or sentence boundary so we never cut a word mid-stream. Helper: `src/utils/excerpt.ts` (new) — `getExcerpt(markdown: string, maxChars = 500): string`. Reuse for any future preview surface.
 - **Full body.** Use Astro 6's content layer `render()`: `const { Content } = await render(post)`. The rendered `<Content />` lives inside the `<details>` expanded block. Markdown's existing styles (headings, code blocks, etc.) need to scope to the homepage prose context — wrap in `.prose` and apply the same prose tokens used by `PostLayout.astro`.
-- **No JS required.** `<details>` handles open/close, keyboard, ARIA. The "Read more ↓ / Collapse ↑" labels are pure CSS, swapped via `details[open] [data-when="closed"] { display: none }` and its inverse. Strip the default disclosure marker with `summary { list-style: none } summary::-webkit-details-marker { display: none }`.
-- **Selectable text.** Removing the absolute stretched anchor (in `HorizontalPostCard.astro` and any new card) is the entire fix. `user-select` defaults to `auto` everywhere; nothing to toggle. The card is no longer a click-target — only the title link and the `<summary>` are.
-- **Hover affordance for the card.** Use `:has()` so the card lifts/borders when the title or summary is hovered: `.gvns-featured:has(:is(a:hover, summary:hover)) { box-shadow: …; }`. Falls back gracefully where `:has()` isn't supported.
+- **No JS required.** `<details>` handles open/close, keyboard, ARIA. The "keep reading ↓ / collapse ↑" labels are pure CSS, swapped via `details[open] [data-when="closed"] { display: none }` and its inverse. Strip the default disclosure marker with `summary { list-style: none } summary::-webkit-details-marker { display: none }`.
+- **Selectable text.** Removing the absolute stretched anchor (in `HorizontalPostCard.astro` and any new card) is the entire fix. `user-select` defaults to `auto` everywhere; nothing to toggle.
+- **Hover affordance for the card.** Use `:has()` so the card subtly emphasises when the title or summary is hovered: `.gvns-featured:has(:is(a:hover, summary:hover)) .gvns-featured__title a { color: var(--colour-p2-rose-hover); }`. The card itself stays still — the type does the talking.
 - **SEO/duplication guardrail.** The post's canonical URL stays on `/posts/<slug>/`. Don't claim `BlogPosting` schema on the homepage Featured — wrap the homepage card in `<article itemscope itemtype="https://schema.org/CreativeWork">` and let the post page own the `BlogPosting` markup. Signals "showcase, see canonical" to crawlers.
 
-**Visual:**
+**Visual specification:**
 
-- Container: `background: var(--colour-bg-secondary)`, `border-left: 2px solid var(--colour-p2-rose)`, no top/right/bottom border, radius `0 6px 6px 0`. (Unchanged from previous spec.)
-- Eyebrow: `Featured · <primary tag>` in P2 rose caps (`text-xs`, `font-weight: 600`, `letter-spacing: 0.1em`).
-- Date + reading time: JetBrains Mono on the right, baseline-aligned with eyebrow.
-- Title: Space Grotesk 600, 22px desktop / 20px mobile, line-height 1.25. Title link inherits primary text colour, hover → `--colour-p2-rose-hover`.
-- Excerpt: Inter 400, secondary colour, line-height 1.6.
-- Expand button: small inline pill (Inter 500 12px, `--colour-p2-rose-hover`), bottom-right of the summary block. No bg, no border — colour + caret carry it.
+- Container: `background: var(--colour-bg-secondary)`, `border-top: 2px solid var(--colour-p2-rose)`. **No radius**, no other borders. `padding: 1.25rem 1.5rem` (20px 24px) desktop, `1rem 1.125rem` mobile.
+- Eyebrow row: flex with `justify-content: space-between`, `align-items: baseline`, `margin-bottom: 0.875rem`.
+  - Tag: muted caps. `font-size: 11px`, `font-weight: 500`, `letter-spacing: 0.08em`, `text-transform: uppercase`, `color: var(--colour-text-secondary)`. **No "Featured" prefix** — just the tag.
+  - Date: ISO format (`YYYY-MM-DD`), JetBrains Mono, `font-size: 11px`, `color: var(--colour-text-muted)`, `letter-spacing: 0.02em`. Reading time moves to the footer row.
+- Title: Space Grotesk 500, 22px desktop / 20px mobile, line-height 1.22, `letter-spacing: -0.012em`, `margin: 0 0 0.875rem`. Title link inherits primary text colour; hover migrates to `--colour-p2-rose-hover`.
+- Excerpt: Inter 400, 14px, line-height 1.65, `color: var(--colour-text-secondary)`, `max-width: 60ch`, `margin: 0 0 1rem`.
+- Footer (`<summary>`): flex, `justify-content: space-between`, `align-items: baseline`, `padding-top: 0.875rem`, `border-top: 1px solid var(--colour-border)`. `cursor: pointer`.
+  - Reading time: JetBrains Mono, 11px, `color: var(--colour-text-muted)`, left side.
+  - Expand cue: JetBrains Mono, 12px, `font-weight: 500`, `color: var(--colour-p2-rose-hover)`, right side. "keep reading ↓" / "collapse ↑".
 - Expanded prose: respects `PostLayout` typography tokens. Top spacing of 1rem above the rendered content.
-- Permalink line at the bottom of the expanded body: muted Inter 400, P2 rose accent.
+- Permalink: muted Inter 400, P2 rose accent. Sits at the bottom of the expanded body with `padding-top: 0.625rem; border-top: 1px solid var(--colour-border)`.
+
+**Mobile-specific tweaks:**
+
+- Padding tightens (`1rem 1.125rem`).
+- Title scales to 20px.
+- Eyebrow date drops to a separate line below the tag — too tight at narrow widths to keep them on one row at small font sizes.
 
 ### 2.4 Recent posts (3-up) — pattern
 
@@ -118,6 +137,8 @@ The same "no stretched anchor, title-as-link" rule applies. Each card:
 - No description/excerpt at this size — title + tag + date is sufficient.
 - Mobile: stack to one column.
 
+> **Open question — visual harmony with Featured.** Featured is now zero-radius brutalist; recent cards keep `border-radius: 6px`. The contrast might read as deliberate (Featured is the loud one, recents are quieter cards) or as accidental (radii drift). Worth a riff before PR 6 ships — see follow-up issue. If recent cards adopt zero-radius too, drop the radius and the visual rhythm becomes: stripe → Featured (top stripe + zero radius) → 3 mini cards (zero radius) → widget strip (4 cards with 2px coloured top accents and zero-radius bottoms). One coherent rectangular language.
+
 ### 2.5 Compact widget strip (4-up) — unchanged
 
 - Each cell: `bg-secondary`, full border, **2px top accent in the activity colour** (rose / emerald / amber / violet), radius `0 0 4px 4px` (square top, rounded bottom — top accent reads as a colour bar, not a border).
@@ -129,12 +150,13 @@ The same "no stretched anchor, title-as-link" rule applies. Each card:
 
 | File | Action |
 |---|---|
-| `src/pages/index.astro` | Rewrite — drop hero, lead with `<FeaturedPostCard>`, then `<RecentPostsRow>`, then activity bar, then widget strip |
+| `src/pages/index.astro` | Rewrite — drop hero, lead with `<FeaturedPostCard>`, then `<RecentPostsRow>`, then widget strip. **Mid-page `<ActivityBar />` removed** — masthead stripe takes its place |
 | `src/components/Hero.astro` | **Do not create** — no longer in the design |
-| `src/components/FeaturedPostCard.astro` | **New** — rose-accented featured card with `<details>` expand. Renders `<Content />` via Astro 6 `render()`. Internally uses Starwind `Card` primitives where useful; the `<details>` element stays semantic. |
+| `src/components/FeaturedPostCard.astro` | **New** — brutalist top-stripe card (filled, zero radius, 2px rose top, hairline footer divider). `<details>` expand wired to Astro 6 `render()`. Internally bespoke (the `<details>` semantics rule out a stock Starwind `Card` wrapper). |
 | `src/components/RecentPostsRow.astro` | **New** — 3-up grid wrapper for `MiniPostCard` |
-| `src/components/MiniPostCard.astro` | **New** — small card variant. Title-as-link, no stretched anchor. |
+| `src/components/MiniPostCard.astro` | **New** — small card variant. Title-as-link, no stretched anchor. Radius pending the harmony question in §2.4. |
 | `src/components/HorizontalPostCard.astro` | Edit — drop the absolute stretched-link pattern (`<a class="absolute inset-0">`). Title becomes the link; hover state migrates to `:has(a:hover)`. Used on `/posts` listing. |
+| `src/components/ActivityBar.astro` | **No longer rendered on `/`** — but stays available for any other page that wants a section divider. The masthead stripe in `Header.astro` consumes the same `--gvns-activity-gradient` variable so the look stays unified. |
 | `src/components/widgets/{Read,Listen,Watch,Code}Widget.astro` | Verify `compact` mode renders to spec; adjust if needed |
 | `src/utils/excerpt.ts` | **New** — `getExcerpt(markdown: string, maxChars = 500): string` helper |
 
@@ -225,32 +247,61 @@ The navbar is the new home for site identity (since the homepage hero is gone) a
 - Avatar `alt=""` because the wordmark is the accessible name; the avatar is decorative within the link.
 - Wordmark hides at very narrow widths (<640px) — avatar only on the smallest mobile bar to save space, full name returns from 640px up.
 
-### 4.6 Data source for status
+### 4.6 Masthead stripe — site-wide
+
+A single 2px P1–P5 stripe rendered directly below the nav, on every page. Visual brand mark, no text. This **replaces** the previous mid-page `ActivityBar` rather than duplicating it — one stripe doing one job (brand), positioned at the masthead so it announces the site instead of dividing content.
+
+**Markup:**
+
+```astro
+<header class="gvns-navbar">
+  <nav>...</nav>
+  <div class="gvns-masthead-stripe" aria-hidden="true"></div>
+</header>
+```
+
+**Stripe (`gvns-masthead-stripe`):**
+
+- Height: 2px. Width: 100%, edge-to-edge (full viewport, ignores `--width-content`).
+- Background: 5-stop linear-gradient using P1–P5 tokens, hard stops at 20/40/60/80 %, no blending. Reuses the existing `ActivityBar` colour logic — extract that gradient into a CSS variable so the masthead stripe, the footer gradient line (§10), and any standalone `ActivityBar` instance share one source of truth. Helper: add `--gvns-activity-gradient` to `global.css`.
+- `aria-hidden="true"` — pure decoration, no semantic content.
+- Renders site-wide: home, `/about`, `/now`, `/posts`, individual post pages, `/contact`. On post pages the centre nav still swaps to breadcrumbs as today; the stripe sits below regardless.
+
+**No tagline.** Earlier drafts of this spec proposed a 1-line tagline alongside the stripe. After mockup review, the tagline was dropped from the page render — the bio sentence ships only in `<head>` meta description and `/about`. See §11 revision history (c) for the why.
+
+**No JS, no island.** Static markup + CSS.
+
+### 4.7 Data source for status
 
 Hardcode `status: "open"` in `Header.astro` (or pass via prop from `BaseLayout`) for now. When `StatusWidget` becomes the canonical source of truth, the pill subscribes to the same data — see `StatusWidget.astro`. Do **not** duplicate two separate "current status" stores; pick one and have both surfaces read from it.
 
-### 4.7 Files
+### 4.8 Files
 
 | File | Action |
 |---|---|
-| `src/components/Header.astro` | Rewrite — three-cluster layout, brand swap, status pill in right cluster |
+| `src/components/Header.astro` | Rewrite — three-cluster nav layout, brand swap, status pill, masthead stripe below the nav |
 | `src/components/MobileNav.svelte` | Edit — accept `statusOpen` prop, render the status pill as the top mobile menu item when true |
+| `src/styles/global.css` | Add `--gvns-activity-gradient` CSS variable so the masthead stripe (§4.6), footer gradient line (§10), and any remaining `ActivityBar` consumer share one source of truth |
+| `src/components/ActivityBar.astro` | Refactor to consume `--gvns-activity-gradient` (no visual change; deduplication only). Component still exists for any non-home page that wants a mid-page section divider. |
 | `public/avatar.webp` / `public/avatar.jpg` | No change — already exists, reused at 24px |
 
 ---
 
 ## 5. Self-description drift fix
 
-With the homepage hero removed, the canonical surfaces for the bio sentence are `/about`, head meta, and OG/Twitter cards. The hero sentence still ships in `<head>` for crawlers and link unfurls — it just isn't rendered visually on `/`.
+With the homepage hero removed and **no on-page tagline** rendered (see §4.6 and §10), the bio sentence lives in two places only: head meta (BaseLayout default + OG/Twitter cards) and `/about`. One canonical string covers both.
+
+- **Site bio sentence:** *"Tech tinkerer in Qualicum Beach. I write about homelab, self-hosting, networking, and BJJ."*
+- Housed as `SITE_BIO` in `src/utils/site.ts` — single source of truth so a future copy edit happens in one file.
 
 | Location | Current | New |
 |---|---|---|
-| `src/pages/index.astro` hero | "Tech Tinkerer based in Qualicum Beach, Canada. I write about homelab, self-hosting, networking, BJJ, and the occasional life observation." | **Removed from page render.** The sentence below moves to `BaseLayout` meta description for `/`. |
-| `src/pages/index.astro` `<BaseLayout description={…}>` | "Personal site for writing and shipped work. Serious work, questionable puns." | "Tech tinkerer in Qualicum Beach. I write about homelab, self-hosting, networking, and BJJ." |
+| `src/pages/index.astro` hero | "Tech Tinkerer based in Qualicum Beach, Canada. I write about homelab, self-hosting, networking, BJJ, and the occasional life observation." | **Removed from page render.** No replacement on `/` — see §2.1 (hero deleted). |
+| `src/pages/index.astro` `<BaseLayout description={…}>` | "Personal site for writing and shipped work. Serious work, questionable puns." | `SITE_BIO` |
 | `src/pages/about/index.astro` Profile `jobTitle` | "Web developer · Vancouver Island" | "Tech tinkerer · Qualicum Beach" |
 | `src/pages/about/index.astro` body prose | "Hi, I'm Gareth — a web developer based on Vancouver Island, Canada." | Rewrite paragraph to lead with "tech tinkerer" framing. (Keep BJJ, homelab, etc. content as-is.) |
-| `BaseLayout` default meta description | (review for consistency) | "Tech tinkerer in Qualicum Beach. Writing about homelab, self-hosting, networking, and BJJ." (used as fallback only; pages that pass an explicit `description` prop continue to override) |
-| OG/Twitter card description | (review for consistency) | Same sentence as `BaseLayout` default meta description |
+| `BaseLayout` default meta description | (review for consistency) | `SITE_BIO` (used as fallback only; pages that pass an explicit `description` prop continue to override) |
+| OG/Twitter card description | (review for consistency) | `SITE_BIO` |
 
 ---
 
@@ -269,29 +320,41 @@ With the homepage hero removed, the canonical surfaces for the bio sentence are 
 
 The redesign ships when:
 
-1. `/` leads with the Featured post (no hero rendered). 3-up recent posts, activity bar, compact 4-up widget strip below. All within `--width-content`. No production mismatches between outer/inner widths.
-2. **Featured card.** Title is a real link (`<a href="/posts/<slug>/">`). Excerpt is selectable text (`getExcerpt(post.body)` ≈500 chars). `<details>` expand reveals the full body via Astro 6 `render()` and shows a `Read full post →` permalink. No JS island used. Keyboard tab-order: title link → expand control → permalink (when open).
-3. **Recent post cards.** No absolute stretched anchor. Title links to the post; text inside the card is selectable. `HorizontalPostCard` updated in place; `MiniPostCard` follows the same rule from inception.
+1. `/` leads with the Featured post (no hero rendered). 3-up recent posts, compact 4-up widget strip, footer below. All within `--width-content`. No production mismatches between outer/inner widths. **No mid-page activity bar** — the masthead stripe replaces it.
+2. **Featured card (brutalist top-stripe).** Filled card with `border-top: 2px solid var(--colour-p2-rose)`, zero radius. Eyebrow is muted tag + ISO date (no "Featured" word). 22px Space Grotesk title with -0.012em tracking, real `<a>` link to `/posts/<slug>/`. 14px excerpt at `max-width: 60ch`, selectable text via `getExcerpt(post.body)` ≈500 chars. Hairline footer divider with mono reading time + `keep reading ↓` cue. `<details>` expand reveals the full body via Astro 6 `render()` and a `Read full post →` permalink. No JS island used. Keyboard tab-order: title link → summary toggle → permalink (when open).
+3. **Recent post cards.** No absolute stretched anchor. Title links to the post; text inside the card is selectable. `HorizontalPostCard` updated in place; `MiniPostCard` follows the same rule from inception. Radius pending §2.4 follow-up.
 4. **Navbar.** Three-cluster justified layout: avatar 24px + "Gareth Evans" wordmark on the left; existing nav links centred; status pill · theme toggle · search on the right. Status pill collapses to dot-only at 768–1023px, hides entirely when status is not `open`. On post pages, breadcrumbs replace the centre cluster as today.
-5. `/now` matches C2: heading row with mono date, 2-paragraph prose intro from `src/data/now-intro.md`, existing bento preserved below. Updated date is sourced from frontmatter, not hardcoded.
-6. **Self-description drift** is resolved: `/about` Profile + body, BaseLayout default meta, and the homepage's `<BaseLayout description>` prop all use the "Tech tinkerer · Qualicum Beach" framing. Verify OG/Twitter card unfurls render the new sentence.
-7. **Accessibility.** `axe-core` clean run on `/` and `/now`. Featured `<details>` operable by keyboard. Status pill has accurate `aria-label`. Avatar in nav has empty `alt` (decorative within a labelled link).
-8. **No regression.** Lighthouse (or equivalent) shows no regression in performance, accessibility, best-practices vs current production. Bundle size for `/` shrinks (no Hero, no JS for expand).
-9. All changes pass `npm run build` cleanly. No new console warnings.
+5. **Masthead stripe (site-wide).** A 2px P1–P5 stripe renders directly below the nav on every page. Sources its gradient from `--gvns-activity-gradient`. `aria-hidden="true"`. **No on-page tagline** under the stripe — bio sentence ships only in head meta.
+6. **Footer.** Existing 5-icon row preserved. Below the icons: an 80×2px P1–P5 gradient line (uses the same gradient variable as the masthead stripe). Below that: a single legal line in JetBrains Mono 11px reading `© {currentYear} Gareth Evans · code MIT · words CC BY 4.0`. No wordmark, no tagline, no swatch circles. See §10.
+7. `/now` matches C2: heading row with mono date, 2-paragraph prose intro from `src/data/now-intro.md`, existing bento preserved below. Updated date is sourced from frontmatter, not hardcoded.
+8. **Self-description drift** is resolved: `SITE_BIO` lives in `src/utils/site.ts`; all consumers (BaseLayout default meta, homepage `description` prop, OG/Twitter cards) read from it. `/about` Profile + body prose match the "Tech tinkerer · Qualicum Beach" framing. Verify OG/Twitter card unfurls render the new sentence.
+9. **Accessibility.** `axe-core` clean run on `/` and `/now`. Featured `<details>` operable by keyboard. Status pill has accurate `aria-label`. Avatar in nav has empty `alt` (decorative within a labelled link). Masthead stripe and footer gradient line both have `aria-hidden="true"`.
+10. **No regression.** Lighthouse (or equivalent) shows no regression in performance, accessibility, best-practices vs current production. Bundle size for `/` shrinks (no Hero, no JS for expand).
+11. All changes pass `npm run build` cleanly. No new console warnings.
 
 ---
 
 ## 8. Implementation order (suggested)
 
-PR 1 — **Self-description drift** (pure copy edits, low risk; unblocks meta fix).
-PR 2 — **Navbar redesign** (Header.astro rewrite, MobileNav update, status pill, brand swap). Visible site-wide change, ships independently of homepage rebuild.
-PR 3 — **`/now` prose intro** (additive, doesn't change the bento).
-PR 4 — **Featured card pattern + excerpt utility** (`FeaturedPostCard.astro`, `src/utils/excerpt.ts`). Can be unit-tested via a Storybook-equivalent route or just visual review.
-PR 5 — **Recent post cards refactor** (`MiniPostCard.astro`, drop stretched-link in `HorizontalPostCard.astro`). Touches `/posts` listing too — call it out in the PR description.
-PR 6 — **Home page rebuild** (`src/pages/index.astro`). Drops hero, wires PR 4 + PR 5 components, sets the new `BaseLayout description` prop.
-PR 7 — **CMS wiring for `now-intro.md`** (quality-of-life follow-up; can ship after the page is live).
+PR 1 — **`SITE_BIO` + self-description drift** (`src/utils/site.ts` with `SITE_BIO`, plus `/about` profile + prose updates and BaseLayout meta wiring). Pure copy + a tiny utility module; low risk.
+PR 2 — **Activity gradient extraction + LICENSE file** (`--gvns-activity-gradient` in `global.css`; `ActivityBar.astro` consumes it; commit a top-level `LICENSE` (MIT) file so the footer's "code MIT" claim is truthful when PR 5 ships). No visual change. Tiny PR.
+PR 3 — **Navbar redesign + masthead stripe** (`Header.astro` rewrite, `MobileNav.svelte` update, status pill, brand swap, 2px masthead stripe below the nav). Visible site-wide change. Depends on PR 2 (consumes the gradient variable).
+PR 4 — **`/now` prose intro** (additive, doesn't change the bento). Independent of the others.
+PR 5 — **Footer rewrite** (see §10). Adds 80×2px gradient line below the existing icon row; updates the legal line to `© {year} Gareth Evans · code MIT · words CC BY 4.0`. Depends on PR 2 (gradient variable + LICENSE file).
+PR 6 — **Featured card pattern + excerpt utility** (`FeaturedPostCard.astro` with brutalist top-stripe treatment, `src/utils/excerpt.ts`). Visual review against a draft post.
+PR 7 — **Recent post cards refactor** (`MiniPostCard.astro`, drop stretched-link in `HorizontalPostCard.astro`). Touches `/posts` listing too — call it out in the PR description. **Resolve §2.4 radius question** before this lands.
+PR 8 — **Home page rebuild** (`src/pages/index.astro`). Drops hero, wires PR 6 + PR 7 components, removes mid-page `<ActivityBar />`, sets the new `BaseLayout description` prop.
+PR 9 — **CMS wiring for `now-intro.md`** (quality-of-life follow-up; can ship after the page is live).
 
-Each step is small enough to be its own PR. Branching off `main`, expected to take ~1–2 dev sessions per item depending on widget polish. PRs 1–3 are independent and can ship in any order; PR 6 depends on PRs 4–5; PR 7 depends on PR 3.
+Each step is small enough to be its own PR. Branching off `main`, expected to take ~1–2 dev sessions per item depending on widget polish.
+
+**Dependency graph:**
+- PR 1 (`SITE_BIO`) is consumed by PR 8 (BaseLayout description).
+- PR 2 (gradient + LICENSE) is consumed by PRs 3 and 5.
+- PR 6 → PR 7 → PR 8 is the home-page chain.
+- PR 4 (`/now` intro) and PR 9 (CMS wiring) form their own little track.
+
+**Recommended landing order:** 1 → 2 → 3 (early site-wide brand win) → 5 → 4 → 6 → 7 → 8 → 9.
 
 ---
 
@@ -315,9 +378,132 @@ Things this redesign deliberately uses (or deliberately avoids) from the platfor
 
 ---
 
-## 10. Revision history
+## 10. Footer
 
-**2026-04-30 — featured-card pattern + nav redesign + hero drop.**
+Minimal session-end footer. Restraint over signature. The existing icon row stays unchanged; one new visual element (a short P1–P5 gradient line) and a tightened legal line are the only additions. The line visually rhymes with the masthead stripe at the top of every page — bookending the page with the same colour signature, sized differently.
+
+### 10.1 Layout
+
+```
+┌────────────────────────────────────────────────────────────────────┐
+│                                                                    │
+│              [GH]   [Th]   [Li]   [@]   [RSS]                      │
+│                                                                    │
+│                       ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓                              │
+│                                                                    │
+│      © 2026 Gareth Evans · code MIT · words CC BY 4.0              │
+│                                                                    │
+└────────────────────────────────────────────────────────────────────┘
+```
+
+Three rows inside `--width-content`, centred:
+
+1. **Icon row** — existing `Footer.astro` link list. GitHub, Threads, LinkedIn, Email (→ `/contact`), RSS. Same icons, same order, same external/internal handling. **Unchanged**.
+2. **Gradient line** — 80×2px P1–P5 strip. New. Visual rhyme with the masthead stripe (§4.6). `aria-hidden="true"`.
+3. **Legal line** — single line in JetBrains Mono 11px, tertiary text colour. New copy: `© {currentYear} Gareth Evans · code MIT · words CC BY 4.0`. Replaces the current `© {currentYear} Gareth Evans` text.
+
+No wordmark added. No tagline added. No swatch circles. The footer's job is shortcuts to the person elsewhere (icons), one piece of brand callback (gradient line), and licence/copyright. That's it.
+
+### 10.2 Markup sketch
+
+```astro
+<footer class="gvns-footer">
+  <div class="gvns-footer__inner">
+    <ul class="gvns-footer-links" aria-label="Off-site presence">
+      ...existing icon links unchanged...
+    </ul>
+
+    <div class="gvns-footer__gradient" aria-hidden="true"></div>
+
+    <p class="gvns-footer__legal">
+      © {currentYear} Gareth Evans · code MIT · words CC BY 4.0
+    </p>
+  </div>
+</footer>
+```
+
+### 10.3 Styling notes
+
+- Container: existing `padding-block` and `border-top: 1px solid var(--colour-border)` preserved.
+- `.gvns-footer__inner`: flex column, `align-items: center`, `gap: 0.875rem` (~14px between icon row → gradient line → legal line).
+- Gradient line: `width: 80px; height: 2px; background: var(--gvns-activity-gradient);` — same variable the masthead stripe consumes (§4.6, set up in PR 2).
+- Legal line: `font-family: var(--font-mono); font-size: 11px; color: var(--colour-text-muted); letter-spacing: 0.02em; margin: 0;`. Use a real `·` (middle dot, U+00B7) between segments, not pipes.
+- Mobile: same vertical stack, same proportions. Gradient line and legal line both fit comfortably in narrow viewports without wrapping.
+
+### 10.4 Files
+
+| File | Action |
+|---|---|
+| `src/components/Footer.astro` | Edit — keep the existing icon link list verbatim. Add the `<div class="gvns-footer__gradient">` and rewrite the `<p>` legal line copy. Component-scoped CSS picks up the new gradient + legal line styles. |
+| `src/utils/site.ts` | No new constants needed — the legal line is short enough to live inline in the template; year is computed from `new Date().getFullYear()` as today |
+| `LICENSE` (repo root) | **New** — commit a standard MIT LICENSE file before this PR ships, so the "code MIT" claim in the footer is truthful. Tracked as PR 2. |
+
+### 10.5 Open question — content licence anchor
+
+The legal line states "words CC BY 4.0" but doesn't link anywhere. Decide before PR 5 ships whether to:
+
+- (a) Leave the claim unlinked. The text is authoritative on its own.
+- (b) Add a `/licence` page that explains the licence, link to it from the footer line.
+- (c) Document the licence in `/about` instead and point to it.
+
+Default for the spec: **(a)** — leave unlinked, ship the line as-is. Revisit if a reader asks for clarification in the wild.
+
+---
+
+## 11. Revision history
+
+**2026-04-30 (c) — branding tightened after mockup review.** *(Supersedes (b).)*
+
+A round of visual mockups in conversation surfaced that the 2026-04-30 (b) direction (masthead with stripe + tagline; footer with wordmark, swatches, signature line, dual-tagline strings) was over-built relative to the rest of the site's restraint. This revision walks the brand work back toward minimal — one stripe at the top, one rhyming gradient line at the bottom, no on-page tagline anywhere. A separate riff on the Featured card landed the brutalist top-stripe direction in the same pass.
+
+What changed from (b):
+
+- **§1** Branding strategy row rewritten: two visual touchpoints (masthead stripe + footer gradient line), no on-page tagline. "Three touchpoints with tagline" framing dropped.
+- **§1** Featured card pattern row updated to brutalist top-stripe (filled, zero radius, 2px rose top, hairline footer divider, no "Featured" word).
+- **§2.1** Mid-page activity bar **removed** (was previously kept as a section divider). The "two stripes are intentional" justification is gone — there's now one stripe, in the masthead position.
+- **§2.3** Featured card markup contract and visual spec rewritten end-to-end. New eyebrow (muted tag + ISO date, no "Featured"), 22px title with -0.012em tracking, 60ch excerpt cap, summary-as-footer with reading time + `keep reading ↓` cue.
+- **§2.4** New open question added: recent-card radius harmony with the brutalist Featured. Flagged for resolution before PR 7.
+- **§2.6 Files** Reflects mid-page `ActivityBar` removal on `/`; Featured component note updated.
+- **§4.6** Masthead extras shrank to **stripe-only**. No tagline. No two-stripe justification. Section title renamed "Masthead stripe".
+- **§4.8 Files** Drops `SITE_TAGLINE_SHORT`/`SITE_TAGLINE_FULL` references from the navbar's responsibilities.
+- **§5** Self-description drift simplified back to a single string (`SITE_BIO`) housed in `src/utils/site.ts`. The dual-tagline (short + full) framing from (b) is gone. No on-page tagline consumer to feed.
+- **§7** Acceptance criteria revised: AC #1 explicitly removes the mid-page activity bar; AC #2 captures the brutalist Featured spec; AC #5 says "stripe only, no tagline"; AC #6 captures the new minimal footer.
+- **§8** PR list re-shuffled. PR 1 simplifies (one constant instead of two). PR 2 absorbs the LICENSE file commitment alongside the gradient extraction. PR 3 drops "tagline" wording. PR 5 (footer) shrinks to icon-row + gradient line + legal line — no wordmark, no swatches, no tagline.
+- **§10** Footer section fully rewritten to the minimal direction. Three rows: icons, gradient line, legal line. Open question added (10.5) about anchoring the content licence claim.
+
+What stayed the same:
+
+- Featured `<details>` mechanics (selectable excerpt outside details, `:has(details[open])` to hide excerpt when expanded).
+- Recent cards "no stretched anchor, title-as-link" rule.
+- Navbar three-cluster layout, brand swap, status pill behaviour.
+- `/now` design (§3) — short prose intro + bento.
+- §6 out-of-scope items.
+
+---
+
+**2026-04-30 (b) — branding strategy: masthead extras + footer signature.** *(Superseded by (c) above.)*
+
+Follow-up to the 2026-04-30 (a) revision below. The "drop the hero" decision was sound but left a brand gap. This revision answered: where does identity show up now? Answer was: stripe + tagline at top, signature + swatches + tagline at bottom. Mockup review for the next round determined that was too much chrome — see (c).
+
+What changed in (b):
+
+- **§1** Added "Branding strategy" decision row.
+- **§2.1** Expanded layout to include the masthead extras (stripe + tagline) and call out the rewritten footer. Two stripes (masthead brand + mid-page divider) explicitly justified.
+- **§4.6 (new)** Masthead extras: 2px P1–P5 stripe + tagline directly below the nav, site-wide, no JS. Renumbered the rest of §4.
+- **§4.8 Files** Added `global.css` + `ActivityBar.astro` refactor to share the gradient via `--gvns-activity-gradient`.
+- **§5** Self-description drift now references two strings (`SITE_TAGLINE_SHORT` for rendered surfaces, `SITE_TAGLINE_FULL` for meta), both housed in `src/utils/site.ts`.
+- **§7** Added acceptance criteria for masthead extras (#5) and footer signature (#6); renumbered the rest.
+- **§8** Implementation order grew from 7 to 9 PRs to absorb the constants + gradient extraction + footer pieces. Dependency graph documented.
+- **§10 (new)** Footer signature spec: signature line + palette swatches + key links + legal line.
+
+What stayed the same:
+
+- Featured card pattern, recent cards, nav cluster layout, status pill behaviour, `/now` design.
+- "No greeting, no first-person" rule for above-the-fold copy.
+
+---
+
+**2026-04-30 (a) — featured-card pattern + nav redesign + hero drop.**
 
 What changed from the 2026-04-29 draft:
 
