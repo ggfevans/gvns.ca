@@ -16,29 +16,47 @@ const navItems = [
 ];
 
 const currentPath = Astro.url.pathname;
+
+// Hardcoded for v1; will read from StatusWidget when that lands.
+const status: 'open' | 'closed' = 'open';
+const statusOpen = status === 'open';
 ---
 
 <header class="gvns-navbar">
   <!-- Desktop Navigation -->
   <nav class="gvns-navbar__nav" aria-label="Main navigation">
     <div class="gvns-navbar__start">
-      <a href="/" class="gvns-navbar__logo" aria-label="GVNS home">GVNS</a>
+      <a href="/" class="gvns-navbar__brand" aria-label="Home — Gareth Evans">
+        <picture>
+          <source srcset="/avatar.webp" type="image/webp" />
+          <img
+            src="/avatar.jpg"
+            alt=""
+            width="24"
+            height="24"
+            loading="eager"
+            decoding="async"
+            class="gvns-navbar__avatar"
+          />
+        </picture>
+        <span class="gvns-navbar__wordmark">Gareth Evans</span>
+      </a>
     </div>
 
     <div class="gvns-navbar__center">
       {breadcrumbs ? (
         <ol class="gvns-breadcrumbs" aria-label="Breadcrumb">
-            {breadcrumbs.map((item, i) => (
-              <li class="gvns-breadcrumbs__item">
-                {i > 0 && <span class="gvns-breadcrumbs__separator" aria-hidden="true">/</span>}
-                {item.href ? (
-                  <a href={item.href} class="gvns-breadcrumbs__link">{item.label}</a>
-                ) : (
-                  <span class="gvns-breadcrumbs__current" aria-current="page">{item.label}</span>
-                )}
-              </li>
-            ))}
-          </ol>
+          {breadcrumbs.map((item, i) => (
+            <li class="gvns-breadcrumbs__item">
+              {i > 0 && <span class="gvns-breadcrumbs__separator" aria-hidden="true">/</span>}
+              {item.href ? (
+                <a href={item.href} class="gvns-breadcrumbs__link">{item.label}</a>
+              ) : (
+                <span class="gvns-breadcrumbs__current" aria-current="page">{item.label}</span>
+              )}
+            </li>
+          ))}
+        </ol>
       ) : (
         <ul class="gvns-navbar__links">
           {navItems.map(({ href, label }) => {
@@ -60,6 +78,16 @@ const currentPath = Astro.url.pathname;
     </div>
 
     <div class="gvns-navbar__end">
+      {statusOpen && (
+        <a
+          class="gvns-status-pill"
+          href="/contact"
+          aria-label="Open to freelance work — contact me"
+        >
+          <span class="gvns-status-pill__dot" aria-hidden="true"></span>
+          <span class="gvns-status-pill__label">Open to freelance work</span>
+        </a>
+      )}
       <ThemeToggle client:load />
       <Search />
     </div>
@@ -67,12 +95,34 @@ const currentPath = Astro.url.pathname;
 
   <!-- Mobile Navigation -->
   <div class="gvns-navbar__mobile">
-    <a href="/" class="gvns-navbar__logo" aria-label="GVNS home">GVNS</a>
+    <a href="/" class="gvns-navbar__brand" aria-label="Home — Gareth Evans">
+      <picture>
+        <source srcset="/avatar.webp" type="image/webp" />
+        <img
+          src="/avatar.jpg"
+          alt=""
+          width="24"
+          height="24"
+          loading="eager"
+          decoding="async"
+          class="gvns-navbar__avatar"
+        />
+      </picture>
+      <span class="gvns-navbar__wordmark">Gareth Evans</span>
+    </a>
     <div class="gvns-navbar__mobile-actions">
       <Search />
-      <MobileNav client:load navItems={navItems} currentPath={currentPath} />
+      <MobileNav
+        client:load
+        navItems={navItems}
+        currentPath={currentPath}
+        statusOpen={statusOpen}
+      />
     </div>
   </div>
+
+  <!-- Masthead stripe: full-viewport-wide P1–P5 gradient -->
+  <div class="gvns-masthead-stripe" aria-hidden="true"></div>
 </header>
 
 <style>
@@ -89,6 +139,7 @@ const currentPath = Astro.url.pathname;
     display: none;
     align-items: center;
     justify-content: space-between;
+    gap: var(--space-4);
   }
 
   @media (min-width: 768px) {
@@ -97,14 +148,48 @@ const currentPath = Astro.url.pathname;
     }
   }
 
-  /* Start: Logo */
-  .gvns-navbar__logo {
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
+  /* Start: Brand */
+  .gvns-navbar__start {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .gvns-navbar__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     color: var(--colour-text-primary);
     text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .gvns-navbar__brand:hover {
+    color: var(--colour-accent-primary);
+  }
+
+  .gvns-navbar__avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 9999px;
+    object-fit: cover;
+    display: block;
     flex-shrink: 0;
+  }
+
+  .gvns-navbar__wordmark {
+    font-family: var(--font-sans, 'Inter', sans-serif);
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  /* Hide wordmark below 640px (mobile compact) */
+  @media (max-width: 639px) {
+    .gvns-navbar__wordmark {
+      display: none;
+    }
   }
 
   /* Center: Nav links or breadcrumbs */
@@ -175,12 +260,57 @@ const currentPath = Astro.url.pathname;
     white-space: nowrap;
   }
 
-  /* End: Theme toggle + Search */
+  /* End: Status pill + Theme toggle + Search */
   .gvns-navbar__end {
     display: flex;
     align-items: center;
     gap: var(--space-4);
     flex-shrink: 0;
+  }
+
+  /* Status pill */
+  .gvns-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.1875rem 0.625rem;
+    border: 1px solid var(--colour-border);
+    border-radius: 9999px;
+    background: var(--gvns-status-tint);
+    color: var(--colour-text-secondary);
+    text-decoration: none;
+    font-size: var(--text-sm);
+    line-height: 1;
+    transition:
+      color var(--transition-fast),
+      border-color var(--transition-fast);
+  }
+
+  .gvns-status-pill:hover {
+    color: var(--colour-text-primary);
+  }
+
+  .gvns-status-pill__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 9999px;
+    background: var(--colour-p5-sky);
+    flex-shrink: 0;
+  }
+
+  /* Tablet (768–1023px): collapse pill to dot-only */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .gvns-status-pill {
+      padding: 0.25rem;
+      width: 24px;
+      height: 24px;
+      justify-content: center;
+      gap: 0;
+    }
+
+    .gvns-status-pill__label {
+      display: none;
+    }
   }
 
   /* Mobile Navigation */
@@ -202,5 +332,17 @@ const currentPath = Astro.url.pathname;
     .gvns-navbar__mobile {
       display: none;
     }
+  }
+
+  /* Masthead stripe — edge-to-edge P1–P5 gradient */
+  .gvns-masthead-stripe {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px; /* sits over the 1px border for a clean line */
+    height: 2px;
+    width: 100%;
+    background: var(--gvns-activity-gradient);
+    pointer-events: none;
   }
 </style>
