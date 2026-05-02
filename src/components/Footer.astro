@@ -55,7 +55,7 @@ const links: FooterLink[] = [
 
 <footer class="gvns-footer @container w-full border-t py-12">
     <div class="mx-auto w-full max-w-7xl px-4">
-        <div class="flex flex-col items-center gap-6">
+        <div class="gvns-footer__inner">
             <ul class="gvns-footer-links flex gap-6">
                 {
                     links.map((link) => (
@@ -82,8 +82,10 @@ const links: FooterLink[] = [
                 }
             </ul>
 
-            <p class="gvns-footer-copyright text-center text-sm">
-                © {currentYear} Gareth Evans
+            <div class="gvns-footer__gradient" aria-hidden="true"></div>
+
+            <p class="gvns-footer__legal">
+                © {currentYear} Gareth Evans · code MIT · words CC BY 4.0
             </p>
         </div>
     </div>
@@ -93,6 +95,13 @@ const links: FooterLink[] = [
     .gvns-footer {
         margin-top: auto;
         border-color: var(--colour-border);
+    }
+
+    .gvns-footer__inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.875rem;
     }
 
     .gvns-footer-links {
@@ -113,8 +122,19 @@ const links: FooterLink[] = [
         color: var(--colour-accent-primary);
     }
 
-    .gvns-footer-copyright {
+    .gvns-footer__gradient {
+        width: 80px;
+        height: 2px;
+        background: var(--gvns-activity-gradient);
+    }
+
+    .gvns-footer__legal {
         margin: 0;
-        color: var(--colour-text-secondary);
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--colour-text-muted);
+        letter-spacing: 0.02em;
+        text-align: center;
+        white-space: nowrap;
     }
 </style>
