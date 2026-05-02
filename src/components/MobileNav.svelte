@@ -229,7 +229,7 @@
   }
 
   .gvns-status-pill:hover {
-    color: var(--colour-accent-primary);
+    color: var(--colour-text-primary);
   }
 
   .gvns-status-pill__dot {
