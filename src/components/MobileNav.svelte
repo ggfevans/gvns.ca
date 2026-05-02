@@ -9,9 +9,10 @@
   interface Props {
     navItems: NavItem[];
     currentPath: string;
+    statusOpen?: boolean;
   }
 
-  let { navItems, currentPath }: Props = $props();
+  let { navItems, currentPath, statusOpen = false }: Props = $props();
 
   let isOpen = $state(false);
   let menuRef = $state<HTMLElement | null>(null);
@@ -98,6 +99,17 @@
     class:open={isOpen}
     aria-hidden={!isOpen}
   >
+    {#if statusOpen}
+      <a
+        class="status-pill"
+        href="/contact"
+        aria-label="Open to freelance work — contact me"
+        onclick={close}
+      >
+        <span class="status-pill__dot" aria-hidden="true"></span>
+        <span class="status-pill__label">Open to freelance work</span>
+      </a>
+    {/if}
     <ul class="nav-links">
       {#each navItems as { href, label }}
         <li>
@@ -196,6 +208,36 @@
   .nav-link.active {
     color: var(--colour-accent-primary);
     background: var(--colour-bg-secondary);
+  }
+
+  .status-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid var(--colour-border);
+    border-radius: 9999px;
+    background: rgb(14 165 233 / 0.06);
+    color: var(--colour-text-secondary);
+    text-decoration: none;
+    font-size: var(--text-sm);
+    transition:
+      color var(--transition-fast),
+      background-color var(--transition-fast);
+  }
+
+  .status-pill:hover {
+    color: var(--colour-accent-primary);
+  }
+
+  .status-pill__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 9999px;
+    background: var(--colour-p5-sky);
+    flex-shrink: 0;
   }
 
   .menu-footer {
