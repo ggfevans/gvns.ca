@@ -34,6 +34,17 @@
     --colour-p5-sky: #0ea5e9; /* sky-500 — status */
     --colour-p5-sky-hover: #38bdf8; /* sky-400 */
 
+    /* Activity gradient — 5-stop hard-stop linear gradient using P1–P5.
+       Single source of truth for masthead stripe (PR 3) and footer line (PR 5). */
+    --gvns-activity-gradient: linear-gradient(
+        90deg,
+        var(--colour-p1-violet) 0% 20%,
+        var(--colour-p2-rose) 20% 40%,
+        var(--colour-p3-emerald) 40% 60%,
+        var(--colour-p4-amber) 60% 80%,
+        var(--colour-p5-sky) 80% 100%
+    );
+
     /* Neutral accent */
     --colour-accent-neutral: #a1a1aa;
     --colour-accent-neutral-hover: #d4d4d8;
