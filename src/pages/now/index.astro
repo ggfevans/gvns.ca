@@ -9,8 +9,18 @@ import ListenWidget from "@components/widgets/ListenWidget.astro";
 import WatchWidget from "@components/widgets/WatchWidget.astro";
 import WriteWidget from "@components/widgets/WriteWidget.astro";
 import StatusWidget from "@components/widgets/StatusWidget.astro";
+import { Content as NowIntroContent, frontmatter as nowIntroFrontmatter } from "../../data/now-intro.md";
 
 const siteUrl = normalizeSiteUrl(Astro.site);
+
+const lastUpdatedDate = new Date(nowIntroFrontmatter.lastUpdated);
+const lastUpdatedFormatted = new Intl.DateTimeFormat("en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    timeZone: "UTC",
+}).format(lastUpdatedDate);
+const lastUpdatedISO = lastUpdatedDate.toISOString().slice(0, 10);
 const breadcrumbJsonLd = toJsonLd(
     breadcrumbSchema([
         { name: "Home", url: siteUrl },
@@ -34,8 +44,18 @@ const breadcrumbJsonLd = toJsonLd(
     <main id="main-content" class="gvns-now" data-pagefind-body>
         <div class="gvns-now__container">
             <header class="gvns-now__header">
-                <h1>Now</h1>
-                <p class="gvns-now__subtitle">What I'm up to right now.</p>
+                <div class="gvns-now__heading-row">
+                    <h1>Now</h1>
+                    <time
+                        class="gvns-now__updated"
+                        datetime={lastUpdatedISO}
+                    >
+                        Updated {lastUpdatedFormatted}
+                    </time>
+                </div>
+                <div class="gvns-now__intro">
+                    <NowIntroContent />
+                </div>
             </header>
 
             <div class="gvns-now__bento">
@@ -73,18 +93,43 @@ const breadcrumbJsonLd = toJsonLd(
         margin-bottom: var(--space-10);
     }
 
+    .gvns-now__heading-row {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: var(--space-4);
+        flex-wrap: wrap;
+        margin-bottom: var(--space-6);
+    }
+
     .gvns-now__header h1 {
-        font-size: var(--text-4xl);
+        font-family: var(--font-display, "Space Grotesk"), sans-serif;
+        font-size: 32px;
         font-weight: 700;
         letter-spacing: -0.02em;
         line-height: 1.1;
-        margin-bottom: var(--space-2);
+        margin: 0;
     }
 
-    .gvns-now__subtitle {
-        font-size: var(--text-lg);
+    .gvns-now__updated {
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
         color: var(--colour-text-secondary);
-        margin: 0;
+    }
+
+    .gvns-now__intro :global(p) {
+        font-size: var(--text-base);
+        line-height: 1.6;
+        margin: 0 0 var(--space-4) 0;
+        color: var(--colour-text-primary);
+    }
+
+    .gvns-now__intro :global(p:last-child) {
+        margin-bottom: 0;
+    }
+
+    .gvns-now__intro :global(p:nth-of-type(2)) {
+        color: var(--colour-text-secondary);
     }
 
     /*
