@@ -11,6 +11,7 @@ import ListenWidget from '@components/widgets/ListenWidget.astro';
 import WatchWidget from '@components/widgets/WatchWidget.astro';
 import CodeWidget from '@components/widgets/CodeWidget.astro';
 import { websiteSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
+import { SITE_BIO } from '@utils/site';
 import '@styles/widgets.css';
 
 const posts = (await getCollection('posts'))
@@ -24,7 +25,7 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
 
 <BaseLayout
   title="Gareth Evans"
-  description="Personal site for writing and shipped work. Serious work, questionable puns."
+  description={SITE_BIO}
   accent="neutral"
 >
   <script type="application/ld+json" set:html={jsonLd} slot="head" />
