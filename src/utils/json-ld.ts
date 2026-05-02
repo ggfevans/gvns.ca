@@ -4,6 +4,8 @@
  * @see https://developers.google.com/search/docs/appearance/structured-data
  */
 
+import { SITE_BIO } from "./site";
+
 const SITE_NAME = "gvns.ca";
 const AUTHOR_NAME = "Gareth Evans";
 const DEFAULT_SITE_URL = "https://gvns.ca";
@@ -45,8 +47,7 @@ export function websiteSchema(siteUrl?: string): object {
       "@type": "Person",
       name: AUTHOR_NAME,
     },
-    description:
-      "Personal site for writing and shipped work. Notes on homelab, web development, BJJ, and productivity.",
+    description: SITE_BIO,
   };
 }
 
@@ -61,7 +62,7 @@ export function personSchema(siteUrl?: string): object {
     "@type": "Person",
     name: AUTHOR_NAME,
     url,
-    jobTitle: "Web Developer",
+    jobTitle: "Tech tinkerer",
     knowsAbout: [
       "Web Development",
       "Homelab",
