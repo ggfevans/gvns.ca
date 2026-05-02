@@ -219,7 +219,7 @@
     margin-bottom: 0.5rem;
     border: 1px solid var(--colour-border);
     border-radius: 9999px;
-    background: rgb(14 165 233 / 0.06);
+    background: rgb(from var(--colour-p5-sky) r g b / 0.06);
     color: var(--colour-text-secondary);
     text-decoration: none;
     font-size: var(--text-sm);
