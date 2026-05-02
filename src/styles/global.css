@@ -45,6 +45,11 @@
         var(--colour-p5-sky) 80% 100%
     );
 
+    /* Status surfaces — P5 sky tinted to 0.06 alpha for the "open to work"
+       pill background (Header + MobileNav). Single source of truth so any
+       future status surface (banner, badge, etc.) reads from the same value. */
+    --gvns-status-tint: rgb(from var(--colour-p5-sky) r g b / 0.06);
+
     /* Neutral accent */
     --colour-accent-neutral: #a1a1aa;
     --colour-accent-neutral-hover: #d4d4d8;
