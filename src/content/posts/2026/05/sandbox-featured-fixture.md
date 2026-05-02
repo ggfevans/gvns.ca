@@ -2,7 +2,7 @@
 title: A measured note on rectangular things
 description: Sandbox fixture used to demo the FeaturedPostCard component during PR review.
 pubDate: 2026-05-01
-tags: [code]
+tags: [meta]
 draft: true
 ---
 

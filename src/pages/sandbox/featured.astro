@@ -26,6 +26,9 @@ const post = fixture ?? fallback;
   description="PR 6 review surface — FeaturedPostCard component"
   accent="p2-rose"
 >
+  <Fragment slot="head">
+    <meta name="robots" content="noindex, nofollow" />
+  </Fragment>
   {
     post ? (
       <>
