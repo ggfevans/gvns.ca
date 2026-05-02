@@ -1,0 +1,51 @@
+---
+export const prerender = true;
+
+import { getCollection } from 'astro:content';
+import PageLayout from '@layouts/PageLayout.astro';
+import FeaturedPostCard from '@components/FeaturedPostCard.astro';
+
+// Pick the sandbox fixture if present, otherwise fall back to the most
+// recent non-draft post in the collection.
+const allPosts = await getCollection('posts');
+const fixture = allPosts.find((p) =>
+  p.id.includes('sandbox-featured-fixture')
+);
+const fallback = allPosts
+  .filter((p) => !p.data.draft)
+  .sort(
+    (a, b) =>
+      new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
+  )[0];
+
+const post = fixture ?? fallback;
+---
+
+<PageLayout
+  title="Featured post card sandbox"
+  description="PR 6 review surface — FeaturedPostCard component"
+  accent="p2-rose"
+>
+  {
+    post ? (
+      <>
+        <p>
+          Manual checks: click-drag select text inside the excerpt and
+          release — the disclosure must remain closed. Tab through the card
+          and confirm the order: title link → summary toggle → permalink
+          (when open). Toggle the disclosure to verify the standalone
+          excerpt hides via <code>:has(details[open])</code>.
+        </p>
+        <hr />
+        <div class="not-prose">
+          <FeaturedPostCard post={post} />
+        </div>
+      </>
+    ) : (
+      <p>
+        No posts available in the collection. Add a fixture under{' '}
+        <code>src/content/posts/</code> to demo the component.
+      </p>
+    )
+  }
+</PageLayout>

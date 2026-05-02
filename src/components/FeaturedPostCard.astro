@@ -1,0 +1,227 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+import { getExcerpt } from '@utils/excerpt';
+import { getReadingTime } from '@utils/reading-time';
+import { getPostSlug } from '@utils/content';
+
+interface Props {
+  post: CollectionEntry<'posts'>;
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const excerpt500 = getExcerpt(post.body ?? '');
+const primaryTag = post.data.tags[0];
+const isoDate = new Date(post.data.pubDate).toISOString().slice(0, 10);
+const datetimeAttr = new Date(post.data.pubDate).toISOString();
+const readingTime = getReadingTime(post.body ?? '');
+const slug = getPostSlug(post.id);
+const href = `/posts/${slug}/`;
+---
+
+<article
+  class="gvns-featured"
+  data-post-slug={slug}
+  itemscope
+  itemtype="https://schema.org/CreativeWork"
+>
+  <header class="gvns-featured__header">
+    <span class="gvns-featured__tag">{primaryTag}</span>
+    <time datetime={datetimeAttr} class="gvns-featured__date">{isoDate}</time>
+  </header>
+
+  <h2 class="gvns-featured__title" itemprop="headline">
+    <a href={href} itemprop="url">{post.data.title}</a>
+  </h2>
+
+  <p class="gvns-featured__excerpt">{excerpt500}</p>
+
+  <details class="gvns-featured__body">
+    <summary class="gvns-featured__expand">
+      <span class="gvns-featured__reading-time">{readingTime} min read</span>
+      <span class="gvns-featured__cue">
+        <span data-when="closed">keep reading ↓</span>
+        <span data-when="open">collapse ↑</span>
+      </span>
+    </summary>
+    <div class="gvns-featured__expanded prose">
+      <Content />
+      <p class="gvns-featured__permalink">
+        <a href={href}>Read full post →</a>
+      </p>
+    </div>
+  </details>
+</article>
+
+<style>
+  .gvns-featured {
+    background: var(--colour-bg-secondary);
+    border-top: 2px solid var(--colour-p2-rose);
+    border-radius: 0;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .gvns-featured__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin-bottom: 0.875rem;
+  }
+
+  .gvns-featured__tag {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--colour-text-secondary);
+  }
+
+  .gvns-featured__date {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 11px;
+    color: var(--colour-text-muted);
+    letter-spacing: 0.02em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .gvns-featured__title {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.22;
+    letter-spacing: -0.012em;
+    margin: 0 0 0.875rem;
+  }
+
+  .gvns-featured__title a {
+    color: var(--colour-text-primary);
+    text-decoration: none;
+    transition: color 120ms ease;
+  }
+
+  .gvns-featured__title a:hover,
+  .gvns-featured__title a:focus-visible {
+    color: var(--colour-p2-rose-hover);
+  }
+
+  /* Type-leads-the-talk hover: hovering title link OR summary tints title. */
+  .gvns-featured:has(:is(a:hover, summary:hover)) .gvns-featured__title a {
+    color: var(--colour-p2-rose-hover);
+  }
+
+  .gvns-featured__excerpt {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--colour-text-secondary);
+    max-width: 60ch;
+    margin: 0 0 1rem;
+  }
+
+  /* Hide the standalone excerpt when the details element is open so the
+     full body owns the card. */
+  .gvns-featured:has(details[open]) .gvns-featured__excerpt {
+    display: none;
+  }
+
+  .gvns-featured__body {
+    margin: 0;
+  }
+
+  /* Strip default disclosure marker across browsers. */
+  .gvns-featured__expand {
+    list-style: none;
+  }
+  .gvns-featured__expand::-webkit-details-marker {
+    display: none;
+  }
+  .gvns-featured__expand::marker {
+    display: none;
+    content: '';
+  }
+
+  .gvns-featured__expand {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.75rem;
+    /* WCAG 2.5.8: target ≥ 24×24 CSS px. padding-block + line-height
+       on 11/12px type comfortably exceeds 24px. */
+    padding-top: 0.875rem;
+    padding-bottom: 0.25rem;
+    min-height: 24px;
+    border-top: 1px solid var(--colour-border);
+    cursor: pointer;
+  }
+
+  .gvns-featured__expand:focus-visible {
+    outline: 2px solid var(--colour-p2-rose);
+    outline-offset: 2px;
+  }
+
+  .gvns-featured__reading-time {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 11px;
+    color: var(--colour-text-muted);
+    letter-spacing: 0.02em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .gvns-featured__cue {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--colour-p2-rose-hover);
+  }
+
+  /* CSS-only open/closed label swap. */
+  details[open] [data-when='closed'] {
+    display: none;
+  }
+  details:not([open]) [data-when='open'] {
+    display: none;
+  }
+
+  .gvns-featured__expanded {
+    padding-top: 1rem;
+  }
+
+  .gvns-featured__permalink {
+    margin: 0;
+    padding-top: 0.625rem;
+    border-top: 1px solid var(--colour-border);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 14px;
+    color: var(--colour-text-muted);
+  }
+
+  .gvns-featured__permalink a {
+    color: var(--colour-p2-rose-hover);
+    text-decoration: none;
+  }
+
+  .gvns-featured__permalink a:hover,
+  .gvns-featured__permalink a:focus-visible {
+    text-decoration: underline;
+  }
+
+  /* Mobile: tighten padding, scale title down, allow eyebrow to wrap so
+     the date can drop to its own line. */
+  @media (max-width: 640px) {
+    .gvns-featured {
+      padding: 1rem 1.125rem;
+    }
+
+    .gvns-featured__title {
+      font-size: 20px;
+    }
+
+    .gvns-featured__header {
+      flex-wrap: wrap;
+    }
+  }
+</style>
