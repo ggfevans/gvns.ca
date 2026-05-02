@@ -6,6 +6,7 @@ import Profile, { type ProfileSocialLink } from '@components/Profile.astro';
 import { Separator } from '@components/starwind/separator';
 import Timeline from '@components/Timeline.astro';
 import { personSchema, breadcrumbSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
+import { SITE_BIO } from '@utils/site';
 
 import IconBrandGithub from '@tabler/icons/outline/brand-github.svg';
 import IconBrandThreads from '@tabler/icons/outline/brand-threads.svg';
@@ -29,7 +30,7 @@ const socials: ProfileSocialLink[] = [
 
 <BaseLayout
   title="About"
-  description="Web developer on Vancouver Island. Writing about homelab, web development, BJJ, and whatever catches my attention."
+  description={SITE_BIO}
   accent="p5-sky"
   breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'About' }]}
 >
@@ -39,19 +40,20 @@ const socials: ProfileSocialLink[] = [
   <main id="main-content" class="gvns-about" data-pagefind-body>
     <Profile
       name="Gareth Evans"
-      jobTitle="Web developer · Vancouver Island"
+      jobTitle="Tech tinkerer · Qualicum Beach"
       image="/avatar.jpg"
       socials={socials}
     >
       <div class="prose">
         <p>
-          Hi, I'm Gareth — a web developer based on Vancouver Island, Canada.
+          Hi, I'm Gareth — a tech tinkerer based in Qualicum Beach, Canada. I write
+          about homelab, self-hosting, networking, and BJJ.
         </p>
 
         <p>
-          I build things for the web by day, and tinker with homelabs and self-hosting
-          by night. When I'm not at a keyboard, you'll find me on the mats training
-          Brazilian Jiu-Jitsu.
+          By day I work in IT infrastructure; by night I tinker with homelabs,
+          self-hosting, and networking gear. When I'm not at a keyboard, you'll
+          find me on the mats training Brazilian Jiu-Jitsu.
         </p>
 
         <h2>What I Write About</h2>

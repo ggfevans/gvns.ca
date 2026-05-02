@@ -2,12 +2,13 @@
 import BaseHead from '@components/BaseHead.astro';
 import Header from '@components/Header.astro';
 import Footer from '@components/Footer.astro';
+import { SITE_BIO } from '@utils/site';
 import '@styles/global.css';
 import "@styles/starwind.css";
 
 interface Props {
   title: string;
-  description: string;
+  description?: string;
   image?: string;
   imageWidth?: number;
   imageHeight?: number;
@@ -16,7 +17,7 @@ interface Props {
   breadcrumbs?: { label: string; href?: string }[];
 }
 
-const { title, description, image, imageWidth, imageHeight, imageAlt, accent, breadcrumbs } = Astro.props;
+const { title, description = SITE_BIO, image, imageWidth, imageHeight, imageAlt, accent, breadcrumbs } = Astro.props;
 
 const SITE_SUFFIX = ' | gvns.ca';
 const fullTitle = title.endsWith(SITE_SUFFIX) ? title : `${title}${SITE_SUFFIX}`;
