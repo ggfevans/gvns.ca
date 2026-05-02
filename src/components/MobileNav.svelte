@@ -101,13 +101,13 @@
   >
     {#if statusOpen}
       <a
-        class="status-pill"
+        class="gvns-status-pill"
         href="/contact"
         aria-label="Open to freelance work — contact me"
         onclick={close}
       >
-        <span class="status-pill__dot" aria-hidden="true"></span>
-        <span class="status-pill__label">Open to freelance work</span>
+        <span class="gvns-status-pill__dot" aria-hidden="true"></span>
+        <span class="gvns-status-pill__label">Open to freelance work</span>
       </a>
     {/if}
     <ul class="nav-links">
@@ -210,7 +210,7 @@
     background: var(--colour-bg-secondary);
   }
 
-  .status-pill {
+  .gvns-status-pill {
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -228,11 +228,11 @@
       background-color var(--transition-fast);
   }
 
-  .status-pill:hover {
+  .gvns-status-pill:hover {
     color: var(--colour-accent-primary);
   }
 
-  .status-pill__dot {
+  .gvns-status-pill__dot {
     width: 6px;
     height: 6px;
     border-radius: 9999px;
