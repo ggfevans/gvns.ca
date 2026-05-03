@@ -3,9 +3,8 @@ export const prerender = true;
 
 import { getCollection } from 'astro:content';
 import BaseLayout from '@layouts/BaseLayout.astro';
-import HorizontalPostCard from '@components/HorizontalPostCard.astro';
-import StatusWidget from '@components/widgets/StatusWidget.astro';
-import ActivityBar from '@components/ActivityBar.astro';
+import FeaturedPostCard from '@components/FeaturedPostCard.astro';
+import RecentPostsRow from '@components/RecentPostsRow.astro';
 import ReadWidget from '@components/widgets/ReadWidget.astro';
 import ListenWidget from '@components/widgets/ListenWidget.astro';
 import WatchWidget from '@components/widgets/WatchWidget.astro';
@@ -17,7 +16,7 @@ import '@styles/widgets.css';
 const posts = (await getCollection('posts'))
   .filter((post) => (import.meta.env.PROD ? !post.data.draft : true))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 5);
+  .slice(0, 4);
 
 const siteUrl = normalizeSiteUrl(Astro.site);
 const jsonLd = toJsonLd(websiteSchema(siteUrl));
@@ -29,53 +28,17 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
   accent="neutral"
 >
   <script type="application/ld+json" set:html={jsonLd} slot="head" />
-  <main id="main-content" class="home">
-    <section class="gvns-hero" aria-labelledby="hero-heading">
-      <div class="gvns-hero-headline">
-        <h1 id="hero-heading">Hi, I'm Gareth</h1>
-        <picture class="gvns-hero-avatar">
-          <source srcset="/avatar.webp" type="image/webp" />
-          <img
-            src="/avatar.jpg"
-            alt="Gareth Evans, smiling"
-            width="120"
-            height="120"
-            loading="eager"
-            decoding="async"
-          />
-        </picture>
-      </div>
-      <p class="tagline">Serious work, questionable puns.</p>
-      <p class="intro">
-        Tech Tinkerer based in Qualicum Beach, Canada. I write about homelab,
-        self-hosting, networking, BJJ, and the occasional life observation.
+  <main id="main-content" class="gvns-home">
+    {posts.length > 0 ? (
+      <>
+        <FeaturedPostCard post={posts[0]} />
+        {posts.length > 1 && <RecentPostsRow posts={posts.slice(1, 4)} />}
+      </>
+    ) : (
+      <p class="gvns-empty-state">
+        Currently drafting in private. See what I'm up to on <a href="/now">/now</a>.
       </p>
-    </section>
-
-    <section class="status-section" aria-label="Current status">
-      <StatusWidget />
-    </section>
-
-    <section class="recent-writing" aria-label="Recent posts">
-      {
-        posts.length > 0 ? (
-          <div class="gvns-post-list">
-            {posts.map((post) => (
-              <HorizontalPostCard post={post} />
-            ))}
-          </div>
-        ) : (
-          <p class="gvns-empty-state">
-            Currently drafting in private. See what I'm up to on <a href="/now">/now</a>.
-          </p>
-        )
-      }
-    </section>
-
-    <div class="activity-bar-wrapper">
-      <ActivityBar />
-    </div>
-
+    )}
     <section class="gvns-activity-widgets" aria-label="Current activity">
       <div class="gvns-activity-grid">
         <ReadWidget compact />
@@ -88,114 +51,24 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
 </BaseLayout>
 
 <style>
-  .home {
-    max-width: var(--width-wide);
+  .gvns-home {
+    max-width: var(--width-content);
     margin: 0 auto;
     padding-inline: var(--space-4);
-  }
-
-  /* Hero */
-  .gvns-hero {
-    max-width: var(--width-content);
-    margin: 0 auto;
-    padding: var(--space-16) 0 var(--space-12);
-    text-align: center;
-  }
-  .gvns-hero-headline {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
     gap: var(--space-6);
-    margin-bottom: var(--space-4);
-  }
-  .gvns-hero-avatar {
-    display: block;
-    width: 120px;
-    height: 120px;
-    border-radius: 9999px;
-    overflow: hidden;
-    background: var(--colour-bg-secondary);
-    border: 1px solid var(--colour-border);
-    flex-shrink: 0;
-  }
-  .gvns-hero-avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  @media (max-width: 640px) {
-    .gvns-hero {
-      text-align: center;
-    }
-    .gvns-hero-headline {
-      flex-direction: column-reverse;
-      align-items: center;
-      gap: var(--space-4);
-    }
-    .gvns-hero-avatar {
-      width: 88px;
-      height: 88px;
-    }
-  }
-  h1 {
-    font-size: var(--text-4xl);
-    line-height: 1.2;
-    letter-spacing: -0.025em;
-    margin-bottom: 0;
-  }
-  .tagline {
-    font-size: var(--text-lg);
-    color: var(--colour-text-secondary);
-    margin-bottom: var(--space-4);
-  }
-  .intro {
-    font-size: var(--text-lg);
-    color: var(--colour-text-secondary);
-    line-height: 1.6;
-    margin-bottom: var(--space-8);
-  }
-  /* Status — these :global() selectors target StatusWidget's internal classes
-     to restyle it inline on the homepage. Update if StatusWidget class names change. */
-  .status-section {
-    max-width: var(--width-content);
-    margin: 0 auto;
-    padding-bottom: var(--space-8);
-  }
-  .status-section :global(.gvns-widget) {
-    background: transparent;
-    border: none;
-    padding: 0;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-3);
-  }
-  .status-section :global(.gvns-widget__label) {
-    font-size: var(--text-xs);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--colour-text-secondary);
-  }
-  .status-section :global(.gvns-widget__content) {
-    flex: none;
-  }
-  .status-section :global(.gvns-widget__detail) {
-    font-size: var(--text-sm);
-    color: var(--colour-text-secondary);
-    margin: 0;
+    padding-block: var(--space-8);
   }
 
-  /* Activity bar */
-  .activity-bar-wrapper {
-    padding: var(--space-4) 0;
+  .gvns-empty-state {
+    color: var(--colour-text-secondary);
+    font-style: italic;
   }
 
   /* Activity widget grid */
   .gvns-activity-widgets {
-    padding: var(--space-8) 0;
+    padding: var(--space-4) 0;
   }
   .gvns-activity-grid {
     display: grid;
@@ -211,22 +84,5 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
     .gvns-activity-grid {
       grid-template-columns: 1fr;
     }
-  }
-
-  /* Recent posts */
-  .recent-writing {
-    max-width: var(--width-content);
-    margin: 0 auto;
-    padding: var(--space-12) 0;
-    border-top: 1px solid var(--colour-border);
-  }
-  .gvns-post-list {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-6);
-  }
-  .gvns-empty-state {
-    color: var(--colour-text-secondary);
-    font-style: italic;
   }
 </style>
