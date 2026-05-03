@@ -1,7 +1,7 @@
 ---
-lastUpdated: 2026-05-02
+lastUpdated: 2026-05-04
 ---
 
-This is placeholder copy that Gareth will rewrite. The first paragraph sits in primary text and is meant to capture what's actively in flight right now — current projects, the work that's pulling focus this week, and anything new that's recently landed on the bench worth flagging.
+This page is a snapshot, not a status report. Most weeks the bench is louder than the blog — new VMs, half-finished playbooks, a switch config that wants one more pass before it ships. If the posts feed has gone quiet, this is usually where the noise actually lives.
 
-The second paragraph drops to secondary colour and covers the slower-burn stuff: what's resting on the back burner, the books on the nightstand, the album on repeat, and any longer-running thread that hasn't been retired but isn't getting daily attention either.
+Below the fold: the slow lane. A book on the nightstand, an album that's outstayed its welcome, and a handful of threads I'll get back to when the urgent stuff stops shouting. Everything is pulled from real activity and refreshed whenever I remember to push.
