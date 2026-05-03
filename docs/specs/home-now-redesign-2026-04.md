@@ -5,6 +5,7 @@
 **Revised:** 2026-04-30 (a) — featured-card pattern (selectable text + inline expand), hero dropped, navbar redesigned.
 **Revised:** 2026-04-30 (b) — first branding pass: masthead extras (stripe + tagline) + footer signature with wordmark/swatches.
 **Revised:** 2026-04-30 (c) — branding tightened after mockup review: stripe-only masthead (no tagline), brutalist top-stripe Featured card, minimal footer with gradient line + dual-licence legal. (b) is **superseded** by (c).
+**Superseded (partial):** 2026-05-03 — §2.4 (3-up recents row) and §3 (page outline / Featured width) are superseded by [ADR-020](../DECISIONS.md#adr-020-adopt-starwind-pro-blog-5-split-layout-on-the-homepage) (issue [#368](https://github.com/ggfevans/gvns.ca/issues/368)). Home `/` now uses a 2fr/1fr Blog 5 split: Featured left, 4-item vertical hairline-divider recents list right (`RecentPostsList` + `MiniPostRow`); widget strip unchanged.
 See §11 Revision history.
 **Companion docs:** `docs/research/personal-blog-inspiration.md`, `docs/research/mitchellh-com-analysis.md`
 **Mockups referenced:** B1 (home, compact widget strip) + C2 (`/now`, short prose intro + bento). The hero portion of B1 is **superseded by §2 of this spec** — see §11.

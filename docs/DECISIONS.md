@@ -641,6 +641,47 @@ As part of this ADR, `Profile1` was forked into `src/components/Profile.astro` a
 
 ---
 
+## ADR-020: Adopt Starwind Pro Blog 5 Split Layout on the Homepage
+
+**Date**: 2026-05-03
+**Status**: Accepted
+**Supersedes (in part)**: `docs/specs/home-now-redesign-2026-04.md` §2.4 (3-up recents row)
+
+### Context
+
+Issue [#368](https://github.com/ggfevans/gvns.ca/issues/368). After PR [#367](https://github.com/ggfevans/gvns.ca/pull/367) widened the home wrapper to align with the widget strip (~80rem), the Featured card spanned the full width but its inner prose stayed capped at 60ch — leaving the right ~40% of the card as solid black void. The 3-up recents row beneath compounded the issue: three small floating cards in a wide container that didn't earn their horizontal extent.
+
+### Decision
+
+Restructure the home page from stacked single-column (Featured → 3-up Recents → widgets) to a Starwind Pro **Blog 5 — Featured & List Cards** split:
+
+- Desktop (≥1024px): CSS grid `grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: var(--space-6);`. Featured fills the left 2fr column; a vertical hairline-divider list of 4 recents fills the right 1fr column. Widget strip remains full-width below.
+- Mobile (≤1023px): single column — Featured → recents → widgets.
+- Pattern only ("shell, not skin"): no Pro block install — `@starwind-pro/blog-05` is reference for the layout intent only.
+
+### Component changes
+
+- `RecentPostsRow.astro` → renamed to `RecentPostsList.astro`. Repurposed from 3-up grid to a vertical hairline-divider list. `:has(a:hover)` lifts the active row's divider colour to `--colour-border-hover`.
+- New `MiniPostRow.astro`: thin row with no border box, 1px `--colour-border` divider beneath each row except the last. JetBrains Mono 12px eyebrow (tag · date) + Inter 500 14px title. Hover brightens title to `#ffffff` (matches existing `MiniPostCard` / `HorizontalPostCard` hover convention).
+- `FeaturedPostCard.astro`: dropped internal `max-width: 60ch` on `.gvns-featured__body` — the parent column is now naturally column-shaped by the `2fr` track, so the cap fights the layout.
+- `MiniPostCard.astro`: left in the codebase (potentially useful elsewhere); stop using on `/`.
+
+Recents count is **4** (`posts.slice(1, 5)`) — right column ~280px tall, sits comfortably alongside Featured without overflow on shorter posts. No "Recent Articles" heading — rectangular language carries the signal.
+
+### Rationale
+
+- **Editorial / quiet maximalism**: the split *itself* is the gesture; everything inside stays restrained. Type-weight contrast and the absence of card backgrounds keep the eye returning to Featured.
+- **Density**: list rows ~60–72px tall with 12px vertical padding — denser than a 3-up grid, scannable as an index.
+- **Reuse**: existing tokens, fonts, and hover patterns. No new CSS variables; no JS.
+
+### Consequences
+
+- The 3-up recents row pattern from the 2026-04 redesign spec is retired on `/`. Spec updated with a supersession note.
+- `MiniPostCard.astro` stays in the codebase as unused-on-home; revisit if no other surface adopts it.
+- The `.gvns-home__split` and `.gvns-activity-grid` media queries both use `max-width: 1023px` for a consistent breakpoint at 1024px.
+
+---
+
 ## Template for New Decisions
 
 ```markdown
