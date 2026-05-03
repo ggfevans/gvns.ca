@@ -30,14 +30,16 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
   <script type="application/ld+json" set:html={jsonLd} slot="head" />
   <main id="main-content" class="gvns-home">
     {posts.length > 0 ? (
-      <>
+      <section class="gvns-home__posts" aria-label="Recent posts">
         <FeaturedPostCard post={posts[0]} />
         {posts.length > 1 && <RecentPostsRow posts={posts.slice(1, 4)} />}
-      </>
+      </section>
     ) : (
-      <p class="gvns-empty-state">
-        Currently drafting in private. See what I'm up to on <a href="/now">/now</a>.
-      </p>
+      <section class="gvns-home__posts gvns-home__posts--empty" aria-label="Recent posts">
+        <p class="gvns-empty-state">
+          Currently drafting in private. See what I'm up to on <a href="/now">/now</a>.
+        </p>
+      </section>
     )}
     <section class="gvns-activity-widgets" aria-label="Current activity">
       <div class="gvns-activity-grid">
@@ -52,37 +54,50 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
 
 <style>
   .gvns-home {
-    max-width: var(--width-content);
+    max-width: var(--width-wide);
     margin: 0 auto;
     padding-inline: var(--space-4);
     display: flex;
     flex-direction: column;
+    gap: var(--space-10);
+    padding-block: var(--space-10);
+  }
+
+  /* Posts column constrained to readable width; widgets get full main width */
+  .gvns-home__posts {
+    max-width: var(--width-content);
+    margin-inline: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
     gap: var(--space-6);
+  }
+  .gvns-home__posts--empty {
     padding-block: var(--space-8);
   }
 
   .gvns-empty-state {
     color: var(--colour-text-secondary);
     font-style: italic;
+    margin: 0;
   }
 
-  /* Activity widget grid */
   .gvns-activity-widgets {
-    padding: var(--space-4) 0;
+    padding-block: var(--space-2);
   }
   .gvns-activity-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: var(--space-4);
   }
   @media (max-width: 1024px) {
     .gvns-activity-grid {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
   @media (max-width: 640px) {
     .gvns-activity-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
     }
   }
 </style>
