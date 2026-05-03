@@ -15,6 +15,7 @@
     --colour-bg-secondary: #18181b; /* zinc-900 */
     --colour-bg-tertiary: #27272a; /* zinc-800 */
     --colour-border: #3f3f46; /* zinc-700 */
+    --colour-border-hover: #71717a; /* zinc-500 */
 
     /* Text Hierarchy */
     --colour-text-primary: #f4f4f5; /* zinc-100 */
@@ -123,6 +124,7 @@
     --colour-bg-secondary: #ffffff;
     --colour-bg-tertiary: #f4f4f5; /* zinc-100 */
     --colour-border: #e4e4e7; /* zinc-200 */
+    --colour-border-hover: #a1a1aa; /* zinc-400 */
 
     --colour-text-primary: #18181b; /* zinc-900 */
     --colour-text-secondary: #52525b; /* zinc-600 */

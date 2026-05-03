@@ -23,12 +23,11 @@ const { post, headingLevel = 'h3' } = Astro.props;
 const { title, description, pubDate, tags, heroImage, heroImageAlt } = post.data;
 const readingTime = getReadingTime(post.body ?? '');
 const slug = getPostSlug(post.id);
-const href = `/posts/${slug}`;
+const href = `/posts/${slug}/`;
 const HeadingTag = headingLevel;
 ---
 
 <article class="group relative isolate block">
-  <a class="absolute inset-0 z-1 rounded-xl" href={href} aria-label={title}></a>
   <Card class="overflow-hidden py-0 transition-colors group-hover:ring-primary">
     <div class="flex flex-col md:flex-row">
       {heroImage && (
@@ -67,8 +66,8 @@ const HeadingTag = headingLevel;
             </time>
           </div>
           <div>
-            <HeadingTag class="font-heading text-xl md:text-2xl leading-snug font-medium mb-1 group-hover:text-primary transition-colors">
-              {title}
+            <HeadingTag class="font-heading text-xl md:text-2xl leading-snug font-medium mb-1">
+              <a href={href} class="gvns-hpc-title-link">{title}</a>
             </HeadingTag>
             <p class="text-muted-foreground line-clamp-2">{description}</p>
           </div>
@@ -91,5 +90,13 @@ const HeadingTag = headingLevel;
   .gvns-horizontal-card-image {
     aspect-ratio: auto !important;
     height: 100% !important;
+  }
+  .gvns-hpc-title-link {
+    color: var(--colour-text-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+  article:has(a:hover) .gvns-hpc-title-link {
+    color: #ffffff;
   }
 </style>
