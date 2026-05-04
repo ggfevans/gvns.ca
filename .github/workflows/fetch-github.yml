@@ -18,7 +18,7 @@ jobs:
           token: ${{ secrets.GH_PAT }}
 
       - name: Fetch GitHub activity
-        uses: ggfevans/github-json-bourne@344e0c014a458ef1612051454fa5a046653d4c3b
+        uses: ggfevans/github-json-bourne@13123bb406351c007d686820a3977624d833b294
         with:
           username: ${{ github.repository_owner }}
           token: ${{ secrets.GH_PAT }}
