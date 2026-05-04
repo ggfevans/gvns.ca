@@ -1,0 +1,81 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getPostSlug } from '@utils/content';
+
+interface Props {
+  post: CollectionEntry<'posts'>;
+}
+
+const { post } = Astro.props;
+const { title, pubDate, tags } = post.data;
+const slug = getPostSlug(post.id);
+const href = `/posts/${slug}/`;
+const isoDate = pubDate.toISOString().slice(0, 10);
+const primaryTag = tags[0] ?? null;
+---
+
+<article class="gvns-mini-row">
+  <div class="gvns-mini-row__eyebrow">
+    {primaryTag && <span class="gvns-mini-row__tag">{primaryTag}</span>}
+    {primaryTag && <span class="gvns-mini-row__sep" aria-hidden="true">·</span>}
+    <time class="gvns-mini-row__date" datetime={pubDate.toISOString()}>{isoDate}</time>
+  </div>
+  <h3 class="gvns-mini-row__title">
+    <a href={href}>{title}</a>
+  </h3>
+</article>
+
+<style>
+  .gvns-mini-row {
+    padding-block: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .gvns-mini-row__eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--colour-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .gvns-mini-row__tag {
+    /* no extra styling — inherits from eyebrow */
+  }
+
+  .gvns-mini-row__sep {
+    opacity: 0.5;
+  }
+
+  .gvns-mini-row__date {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .gvns-mini-row__title {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.35;
+    margin: 0;
+  }
+
+  .gvns-mini-row__title a {
+    color: var(--colour-text-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .gvns-mini-row:has(a:hover) .gvns-mini-row__title a {
+    color: #ffffff;
+  }
+
+  .gvns-mini-row__title a:focus-visible {
+    outline: 2px solid var(--colour-accent-primary);
+    outline-offset: 2px;
+  }
+</style>

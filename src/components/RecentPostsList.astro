@@ -1,0 +1,45 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import MiniPostRow from '@components/MiniPostRow.astro';
+
+interface Props {
+  posts: CollectionEntry<'posts'>[];
+}
+
+const { posts } = Astro.props;
+---
+
+<ol class="gvns-recent-posts-list" role="list">
+  {posts.map((post) => (
+    <li class="gvns-recent-posts-list__item">
+      <MiniPostRow post={post} />
+    </li>
+  ))}
+</ol>
+
+<style>
+  .gvns-recent-posts-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .gvns-recent-posts-list__item {
+    border-top: 1px solid var(--colour-border);
+    transition: border-color var(--transition-fast);
+  }
+
+  .gvns-recent-posts-list__item:first-child {
+    border-top: none;
+  }
+
+  /* Hover: lift the dividers around the actively-hovered row */
+  .gvns-recent-posts-list__item:has(a:hover) {
+    border-color: var(--colour-border-hover);
+  }
+  .gvns-recent-posts-list__item:has(a:hover) + .gvns-recent-posts-list__item {
+    border-color: var(--colour-border-hover);
+  }
+</style>
