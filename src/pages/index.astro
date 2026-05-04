@@ -29,16 +29,18 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
 >
   <script type="application/ld+json" set:html={jsonLd} slot="head" />
   <main id="main-content" class="gvns-home">
-    {posts.length > 0 ? (
+    {posts.length > 1 ? (
       <section class="gvns-home__split" aria-label="Recent posts">
         <div class="gvns-home__featured">
           <FeaturedPostCard post={posts[0]} />
         </div>
-        {posts.length > 1 && (
-          <div class="gvns-home__list">
-            <RecentPostsList posts={posts.slice(1, 5)} />
-          </div>
-        )}
+        <div class="gvns-home__list">
+          <RecentPostsList posts={posts.slice(1, 5)} />
+        </div>
+      </section>
+    ) : posts.length === 1 ? (
+      <section class="gvns-home__posts" aria-label="Recent posts">
+        <FeaturedPostCard post={posts[0]} />
       </section>
     ) : (
       <section class="gvns-home__posts gvns-home__posts--empty" aria-label="Recent posts">

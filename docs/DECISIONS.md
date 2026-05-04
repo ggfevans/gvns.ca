@@ -705,4 +705,4 @@ Recents count is **4** (`posts.slice(1, 5)`) — right column ~280px tall, sits 
 
 ---
 
-*Last updated: 2026-04-29 (ADR-019)*
+*Last updated: 2026-05-03 (ADR-020)*
