@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-05-04T07:25:38.573Z",
+  "lastUpdated": "2026-05-05T04:24:05.125Z",
   "contributions": {
-    "total": 7779,
-    "commits": 2846,
-    "pullRequests": 918,
+    "total": 7812,
+    "commits": 2848,
+    "pullRequests": 920,
     "pullRequestReviews": 10,
     "issues": 1331,
-    "restricted": 2591
+    "restricted": 2620
   },
   "calendar": {
     "weeks": [
@@ -2042,12 +2042,12 @@
         "days": [
           {
             "date": "2026-05-03",
-            "count": 38,
+            "count": 39,
             "level": 1
           },
           {
             "date": "2026-05-04",
-            "count": 3,
+            "count": 35,
             "level": 1
           }
         ]
@@ -2057,7 +2057,7 @@
   "streak": {
     "current": 15,
     "longest": 132,
-    "today": true
+    "today": false
   },
   "recentActivity": [
     {
@@ -2257,46 +2257,13 @@
       "meta": {
         "state": "CLOSED"
       }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "epic: fetching workflows — fix broken sources, add gaming UI, consolidate",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/337",
-      "date": "2026-05-01T06:19:31Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "spike(fetch): consolidate per-source fetch workflows into a single workflow",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/336",
-      "date": "2026-05-01T06:19:11Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "feat(home): add gaming/Steam activity widget",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/335",
-      "date": "2026-05-01T06:18:53Z",
-      "meta": {
-        "state": "OPEN"
-      }
     }
   ],
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 299,
-    "contributionsThisMonth": 624,
+    "contributionsThisWeek": 263,
+    "contributionsThisMonth": 651,
     "repositoriesThisWeek": 2
   },
   "repositories": [
