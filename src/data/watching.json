@@ -1,6 +1,13 @@
 {
-  "lastUpdated": "2026-05-05T00:22:56Z",
+  "lastUpdated": "2026-05-07T00:22:39Z",
   "recentlyWatched": [
+    {
+      "title": "Chernobyl — S01E02",
+      "type": "show",
+      "posterUrl": "https://image.tmdb.org/t/p/w342/hlLXt2tOPT6RRnjiUmoxyG1LTFi.jpg",
+      "url": "https://trakt.tv/shows/chernobyl",
+      "watchedDate": "2026-05-05T08:51:00.000Z"
+    },
     {
       "title": "Wake Up Dead Man: A Knives Out Mystery",
       "type": "movie",
@@ -95,6 +102,6 @@
   ],
   "stats": {
     "moviesThisMonth": 0,
-    "showsThisMonth": 0
+    "showsThisMonth": 1
   }
 }

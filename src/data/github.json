@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-05-05T04:24:05.125Z",
+  "lastUpdated": "2026-05-07T04:29:50.436Z",
   "contributions": {
-    "total": 7812,
-    "commits": 2848,
-    "pullRequests": 920,
+    "total": 7852,
+    "commits": 2870,
+    "pullRequests": 925,
     "pullRequestReviews": 10,
     "issues": 1331,
-    "restricted": 2620
+    "restricted": 2631
   },
   "calendar": {
     "weeks": [
@@ -2047,7 +2047,17 @@
           },
           {
             "date": "2026-05-04",
-            "count": 35,
+            "count": 39,
+            "level": 1
+          },
+          {
+            "date": "2026-05-05",
+            "count": 14,
+            "level": 1
+          },
+          {
+            "date": "2026-05-06",
+            "count": 22,
             "level": 1
           }
         ]
@@ -2055,11 +2065,33 @@
     ]
   },
   "streak": {
-    "current": 15,
+    "current": 17,
     "longest": 132,
     "today": false
   },
   "recentActivity": [
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "CI Alert: Deploy Prod failed for v0.9.4",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1644",
+      "date": "2026-05-05T18:05:52Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Full E2E test suite failing",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1546",
+      "date": "2026-05-05T18:05:52Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
     {
       "type": "issue",
       "repo": "gvns.ca",
@@ -2262,11 +2294,19 @@
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 263,
-    "contributionsThisMonth": 651,
+    "contributionsThisWeek": 224,
+    "contributionsThisMonth": 667,
     "repositoriesThisWeek": 2
   },
   "repositories": [
+    {
+      "name": "zed-hujson",
+      "description": "",
+      "language": "Shell",
+      "languageColor": "#89e051",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/zed-hujson"
+    },
     {
       "name": "gvns.ca",
       "description": "",
@@ -2274,6 +2314,14 @@
       "languageColor": "#ff5a03",
       "stars": 0,
       "url": "https://github.com/ggfevans/gvns.ca"
+    },
+    {
+      "name": "tree-sitter-hujson",
+      "description": "",
+      "language": "JavaScript",
+      "languageColor": "#f1e05a",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/tree-sitter-hujson"
     },
     {
       "name": "github-json-bourne",
@@ -2316,14 +2364,6 @@
       "url": "https://github.com/ggfevans/listenbrainz-csv-upload"
     },
     {
-      "name": "zed-hujson",
-      "description": "",
-      "language": "JavaScript",
-      "languageColor": "#f1e05a",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/zed-hujson"
-    },
-    {
       "name": "route-to-art",
       "description": "Transform GPX route files into visual artwork — CLI and web interface for GPS art generation",
       "language": "Python",
@@ -2354,14 +2394,6 @@
       "languageColor": "#3572A5",
       "stars": 3,
       "url": "https://github.com/ggfevans/ggfevans"
-    },
-    {
-      "name": "config-nix-mac",
-      "description": "",
-      "language": "Nix",
-      "languageColor": "#7e7eff",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/config-nix-mac"
     }
   ]
 }
