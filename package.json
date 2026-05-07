@@ -51,6 +51,6 @@
     "@inquirer/prompts": "^8.4.2",
     "@unpic/astro": "^1.0.2",
     "starwind": "^1.16.2",
-    "wrangler": "^4.86.0"
+    "wrangler": "^4.88.0"
   }
 }
