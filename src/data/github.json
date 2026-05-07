@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-05-06T04:29:55.592Z",
+  "lastUpdated": "2026-05-07T04:29:50.436Z",
   "contributions": {
-    "total": 7828,
-    "commits": 2854,
-    "pullRequests": 922,
+    "total": 7852,
+    "commits": 2870,
+    "pullRequests": 925,
     "pullRequestReviews": 10,
     "issues": 1331,
-    "restricted": 2628
+    "restricted": 2631
   },
   "calendar": {
     "weeks": [
@@ -2052,7 +2052,12 @@
           },
           {
             "date": "2026-05-05",
-            "count": 12,
+            "count": 14,
+            "level": 1
+          },
+          {
+            "date": "2026-05-06",
+            "count": 22,
             "level": 1
           }
         ]
@@ -2060,7 +2065,7 @@
     ]
   },
   "streak": {
-    "current": 16,
+    "current": 17,
     "longest": 132,
     "today": false
   },
@@ -2289,11 +2294,19 @@
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 256,
-    "contributionsThisMonth": 663,
+    "contributionsThisWeek": 224,
+    "contributionsThisMonth": 667,
     "repositoriesThisWeek": 2
   },
   "repositories": [
+    {
+      "name": "zed-hujson",
+      "description": "",
+      "language": "Shell",
+      "languageColor": "#89e051",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/zed-hujson"
+    },
     {
       "name": "gvns.ca",
       "description": "",
@@ -2303,12 +2316,12 @@
       "url": "https://github.com/ggfevans/gvns.ca"
     },
     {
-      "name": "zed-hujson",
+      "name": "tree-sitter-hujson",
       "description": "",
       "language": "JavaScript",
       "languageColor": "#f1e05a",
       "stars": 0,
-      "url": "https://github.com/ggfevans/zed-hujson"
+      "url": "https://github.com/ggfevans/tree-sitter-hujson"
     },
     {
       "name": "github-json-bourne",
@@ -2381,14 +2394,6 @@
       "languageColor": "#3572A5",
       "stars": 3,
       "url": "https://github.com/ggfevans/ggfevans"
-    },
-    {
-      "name": "config-nix-mac",
-      "description": "",
-      "language": "Nix",
-      "languageColor": "#7e7eff",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/config-nix-mac"
     }
   ]
 }
