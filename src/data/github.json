@@ -1,54 +1,15 @@
 {
-  "lastUpdated": "2026-05-10T04:35:44.634Z",
+  "lastUpdated": "2026-05-11T04:43:19.424Z",
   "contributions": {
-    "total": 7930,
-    "commits": 2892,
-    "pullRequests": 938,
+    "total": 7940,
+    "commits": 2895,
+    "pullRequests": 941,
     "pullRequestReviews": 10,
     "issues": 1331,
-    "restricted": 2674
+    "restricted": 2678
   },
   "calendar": {
     "weeks": [
-      {
-        "days": [
-          {
-            "date": "2025-05-04",
-            "count": 1,
-            "level": 1
-          },
-          {
-            "date": "2025-05-05",
-            "count": 8,
-            "level": 1
-          },
-          {
-            "date": "2025-05-06",
-            "count": 4,
-            "level": 1
-          },
-          {
-            "date": "2025-05-07",
-            "count": 7,
-            "level": 1
-          },
-          {
-            "date": "2025-05-08",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-05-09",
-            "count": 18,
-            "level": 1
-          },
-          {
-            "date": "2025-05-10",
-            "count": 11,
-            "level": 1
-          }
-        ]
-      },
       {
         "days": [
           {
@@ -2072,7 +2033,16 @@
           },
           {
             "date": "2026-05-09",
-            "count": 14,
+            "count": 19,
+            "level": 1
+          }
+        ]
+      },
+      {
+        "days": [
+          {
+            "date": "2026-05-10",
+            "count": 5,
             "level": 1
           }
         ]
@@ -2080,7 +2050,7 @@
     ]
   },
   "streak": {
-    "current": 20,
+    "current": 21,
     "longest": 132,
     "today": false
   },
@@ -2216,58 +2186,14 @@
       "meta": {
         "state": "CLOSED"
       }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "feat: footer rewrite — gradient line + dual-licence legal",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/345",
-      "date": "2026-05-02T11:55:42Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "chore: SITE_BIO constant + self-description drift fix",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/341",
-      "date": "2026-05-02T11:28:03Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "feat: /now prose intro from src/data/now-intro.md",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/344",
-      "date": "2026-05-02T11:25:01Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "chore: extract --gvns-activity-gradient + commit LICENSE (MIT)",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/342",
-      "date": "2026-05-02T11:24:29Z",
-      "meta": {
-        "state": "CLOSED"
-      }
     }
   ],
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 192,
-    "contributionsThisMonth": 707,
-    "repositoriesThisWeek": 2
+    "contributionsThisWeek": 162,
+    "contributionsThisMonth": 664,
+    "repositoriesThisWeek": 1
   },
   "repositories": [
     {
