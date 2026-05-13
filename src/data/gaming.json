@@ -1,0 +1,640 @@
+{
+  "lastUpdated": "2026-05-13T09:02:53.540Z",
+  "profile": {
+    "steamId": "76561197962113454",
+    "personaName": "Gareth",
+    "avatarUrl": "https://avatars.steamstatic.com/baf3f1e4fe88fff5f7b21b537acda40c52ec0d56_full.jpg",
+    "profileUrl": "https://steamcommunity.com/id/Gareth/"
+  },
+  "recentlyPlayed": [
+    {
+      "name": "DEATH STRANDING 2: ON THE BEACH",
+      "appId": 3280350,
+      "headerUrl": "https://cdn.akamai.steamstatic.com/steam/apps/3280350/header.jpg",
+      "capsuleUrl": "https://cdn.akamai.steamstatic.com/steam/apps/3280350/capsule_231x87.jpg",
+      "portraitUrl": "https://cdn.akamai.steamstatic.com/steam/apps/3280350/library_600x900.jpg",
+      "playtimeForeverMinutes": 3443,
+      "playtime2WeeksMinutes": 766,
+      "lastPlayed": "2026-05-09T11:42:12.000Z",
+      "playtimeByPlatform": {
+        "windows": 3443,
+        "mac": 0,
+        "linux": 0,
+        "deck": 0
+      }
+    },
+    {
+      "name": "DEATH STRANDING DIRECTOR'S CUT",
+      "appId": 1850570,
+      "headerUrl": "https://cdn.akamai.steamstatic.com/steam/apps/1850570/header.jpg",
+      "capsuleUrl": "https://cdn.akamai.steamstatic.com/steam/apps/1850570/capsule_231x87.jpg",
+      "portraitUrl": "https://cdn.akamai.steamstatic.com/steam/apps/1850570/library_600x900.jpg",
+      "playtimeForeverMinutes": 6809,
+      "playtime2WeeksMinutes": 0,
+      "lastPlayed": "2026-04-11T07:46:07.000Z",
+      "playtimeByPlatform": {
+        "windows": 6809,
+        "mac": 0,
+        "linux": 0,
+        "deck": 0
+      }
+    },
+    {
+      "name": "Battlefield™ 6",
+      "appId": 2807960,
+      "headerUrl": "https://cdn.akamai.steamstatic.com/steam/apps/2807960/header.jpg",
+      "capsuleUrl": "https://cdn.akamai.steamstatic.com/steam/apps/2807960/capsule_231x87.jpg",
+      "portraitUrl": "https://cdn.akamai.steamstatic.com/steam/apps/2807960/library_600x900.jpg",
+      "playtimeForeverMinutes": 470,
+      "playtime2WeeksMinutes": 0,
+      "lastPlayed": "2026-03-07T11:14:06.000Z",
+      "playtimeByPlatform": {
+        "windows": 470,
+        "mac": 0,
+        "linux": 0,
+        "deck": 0
+      }
+    },
+    {
+      "name": "Half Sword Demo",
+      "appId": 2642680,
+      "headerUrl": "https://cdn.akamai.steamstatic.com/steam/apps/2642680/header.jpg",
+      "capsuleUrl": "https://cdn.akamai.steamstatic.com/steam/apps/2642680/capsule_231x87.jpg",
+      "portraitUrl": "https://cdn.akamai.steamstatic.com/steam/apps/2642680/library_600x900.jpg",
+      "playtimeForeverMinutes": 70,
+      "playtime2WeeksMinutes": 0,
+      "lastPlayed": "2026-02-28T13:18:29.000Z",
+      "playtimeByPlatform": {
+        "windows": 70,
+        "mac": 0,
+        "linux": 0,
+        "deck": 0
+      }
+    },
+    {
+      "name": "Osmos",
+      "appId": 29180,
+      "headerUrl": "https://cdn.akamai.steamstatic.com/steam/apps/29180/header.jpg",
+      "capsuleUrl": "https://cdn.akamai.steamstatic.com/steam/apps/29180/capsule_231x87.jpg",
+      "portraitUrl": "https://cdn.akamai.steamstatic.com/steam/apps/29180/library_600x900.jpg",
+      "playtimeForeverMinutes": 36,
+      "playtime2WeeksMinutes": 0,
+      "lastPlayed": "2026-02-14T09:41:40.000Z",
+      "playtimeByPlatform": {
+        "windows": 0,
+        "mac": 36,
+        "linux": 0,
+        "deck": 0
+      }
+    },
+    {
+      "name": "Max Payne 3",
+      "appId": 204100,
+      "headerUrl": "https://cdn.akamai.steamstatic.com/steam/apps/204100/header.jpg",
+      "capsuleUrl": "https://cdn.akamai.steamstatic.com/steam/apps/204100/capsule_231x87.jpg",
+      "portraitUrl": "https://cdn.akamai.steamstatic.com/steam/apps/204100/library_600x900.jpg",
+      "playtimeForeverMinutes": 15838,
+      "playtime2WeeksMinutes": 0,
+      "lastPlayed": "2025-11-02T08:35:19.000Z",
+      "playtimeByPlatform": {
+        "windows": 284,
+        "mac": 0,
+        "linux": 0,
+        "deck": 0
+      }
+    },
+    {
+      "name": "Team Fortress 2",
+      "appId": 440,
+      "headerUrl": "https://cdn.akamai.steamstatic.com/steam/apps/440/header.jpg",
+      "capsuleUrl": "https://cdn.akamai.steamstatic.com/steam/apps/440/capsule_231x87.jpg",
+      "portraitUrl": "https://cdn.akamai.steamstatic.com/steam/apps/440/library_600x900.jpg",
+      "playtimeForeverMinutes": 19343,
+      "playtime2WeeksMinutes": 0,
+      "lastPlayed": "2025-10-31T08:37:47.000Z",
+      "playtimeByPlatform": {
+        "windows": 253,
+        "mac": 0,
+        "linux": 0,
+        "deck": 0
+      }
+    },
+    {
+      "name": "Half-Life: Alyx",
+      "appId": 546560,
+      "headerUrl": "https://cdn.akamai.steamstatic.com/steam/apps/546560/header.jpg",
+      "capsuleUrl": "https://cdn.akamai.steamstatic.com/steam/apps/546560/capsule_231x87.jpg",
+      "portraitUrl": "https://cdn.akamai.steamstatic.com/steam/apps/546560/library_600x900.jpg",
+      "playtimeForeverMinutes": 109,
+      "playtime2WeeksMinutes": 0,
+      "lastPlayed": "2025-10-22T06:37:18.000Z",
+      "playtimeByPlatform": {
+        "windows": 109,
+        "mac": 0,
+        "linux": 0,
+        "deck": 0
+      }
+    },
+    {
+      "name": "Baldur's Gate 3",
+      "appId": 1086940,
+      "headerUrl": "https://cdn.akamai.steamstatic.com/steam/apps/1086940/header.jpg",
+      "capsuleUrl": "https://cdn.akamai.steamstatic.com/steam/apps/1086940/capsule_231x87.jpg",
+      "portraitUrl": "https://cdn.akamai.steamstatic.com/steam/apps/1086940/library_600x900.jpg",
+      "playtimeForeverMinutes": 15136,
+      "playtime2WeeksMinutes": 0,
+      "lastPlayed": "2025-10-18T08:02:08.000Z",
+      "playtimeByPlatform": {
+        "windows": 15136,
+        "mac": 0,
+        "linux": 0,
+        "deck": 0
+      }
+    },
+    {
+      "name": "Portal with RTX",
+      "appId": 2012840,
+      "headerUrl": "https://cdn.akamai.steamstatic.com/steam/apps/2012840/header.jpg",
+      "capsuleUrl": "https://cdn.akamai.steamstatic.com/steam/apps/2012840/capsule_231x87.jpg",
+      "portraitUrl": "https://cdn.akamai.steamstatic.com/steam/apps/2012840/library_600x900.jpg",
+      "playtimeForeverMinutes": 167,
+      "playtime2WeeksMinutes": 0,
+      "lastPlayed": "2025-10-15T07:04:10.000Z",
+      "playtimeByPlatform": {
+        "windows": 167,
+        "mac": 0,
+        "linux": 0,
+        "deck": 0
+      }
+    }
+  ],
+  "stats": {
+    "totalGamesOwned": 118,
+    "totalGamesPlayed": 66,
+    "totalPlaytimeMinutes": 210969,
+    "totalPlaytimeHours": 3516.2,
+    "gamesPlayedLast2Weeks": 1,
+    "minutesLast2Weeks": 766
+  },
+  "dailyLog": [
+    {
+      "date": "2026-05-13",
+      "totalMinutes": 210969,
+      "games": [
+        {
+          "name": "The Witcher 3: Wild Hunt",
+          "appId": 292030,
+          "minutesPlayed": 29513
+        },
+        {
+          "name": "Team Fortress 2",
+          "appId": 440,
+          "minutesPlayed": 19343
+        },
+        {
+          "name": "XCOM: Enemy Unknown",
+          "appId": 200510,
+          "minutesPlayed": 16228
+        },
+        {
+          "name": "Max Payne 3",
+          "appId": 204100,
+          "minutesPlayed": 15838
+        },
+        {
+          "name": "Baldur's Gate 3",
+          "appId": 1086940,
+          "minutesPlayed": 15136
+        },
+        {
+          "name": "Fallout 4",
+          "appId": 377160,
+          "minutesPlayed": 10157
+        },
+        {
+          "name": "The Elder Scrolls V: Skyrim",
+          "appId": 72850,
+          "minutesPlayed": 9812
+        },
+        {
+          "name": "Assassin's Creed Revelations",
+          "appId": 201870,
+          "minutesPlayed": 9221
+        },
+        {
+          "name": "Assassin's Creed II",
+          "appId": 33230,
+          "minutesPlayed": 7461
+        },
+        {
+          "name": "DEATH STRANDING DIRECTOR'S CUT",
+          "appId": 1850570,
+          "minutesPlayed": 6809
+        },
+        {
+          "name": "Battlefield: Bad Company™ 2",
+          "appId": 24960,
+          "minutesPlayed": 6307
+        },
+        {
+          "name": "Sid Meier's Civilization V",
+          "appId": 8930,
+          "minutesPlayed": 6269
+        },
+        {
+          "name": "Call of Duty: Black Ops - Multiplayer",
+          "appId": 42710,
+          "minutesPlayed": 6242
+        },
+        {
+          "name": "Far Cry® 3",
+          "appId": 220240,
+          "minutesPlayed": 6112
+        },
+        {
+          "name": "Assassin's Creed Brotherhood",
+          "appId": 48190,
+          "minutesPlayed": 5611
+        },
+        {
+          "name": "Left 4 Dead 2",
+          "appId": 550,
+          "minutesPlayed": 4836
+        },
+        {
+          "name": "DEATH STRANDING 2: ON THE BEACH",
+          "appId": 3280350,
+          "minutesPlayed": 3443
+        },
+        {
+          "name": "Left 4 Dead",
+          "appId": 500,
+          "minutesPlayed": 3204
+        },
+        {
+          "name": "Borderlands 2",
+          "appId": 49520,
+          "minutesPlayed": 3057
+        },
+        {
+          "name": "Scythe: Digital Edition",
+          "appId": 718560,
+          "minutesPlayed": 2494
+        },
+        {
+          "name": "Assassin's Creed® III",
+          "appId": 208480,
+          "minutesPlayed": 2316
+        },
+        {
+          "name": "HELLDIVERS™ 2",
+          "appId": 553850,
+          "minutesPlayed": 2143
+        },
+        {
+          "name": "Mass Effect 2 (2010)",
+          "appId": 24980,
+          "minutesPlayed": 2051
+        },
+        {
+          "name": "Company of Heroes: Tales of Valor",
+          "appId": 20540,
+          "minutesPlayed": 2021
+        },
+        {
+          "name": "BRINK",
+          "appId": 22350,
+          "minutesPlayed": 1729
+        },
+        {
+          "name": "Warhammer 40,000: Dawn of War II - Anniversary Edition",
+          "appId": 15620,
+          "minutesPlayed": 1425
+        },
+        {
+          "name": "Shattered Horizon",
+          "appId": 18110,
+          "minutesPlayed": 1297
+        },
+        {
+          "name": "Audiosurf",
+          "appId": 12900,
+          "minutesPlayed": 1141
+        },
+        {
+          "name": "Mafia II (Classic)",
+          "appId": 50130,
+          "minutesPlayed": 916
+        },
+        {
+          "name": "Rising Storm/Red Orchestra 2 Multiplayer",
+          "appId": 35450,
+          "minutesPlayed": 911
+        },
+        {
+          "name": "Portal 2",
+          "appId": 620,
+          "minutesPlayed": 909
+        },
+        {
+          "name": "XCOM 2",
+          "appId": 268500,
+          "minutesPlayed": 837
+        },
+        {
+          "name": "Dead Space 2",
+          "appId": 47780,
+          "minutesPlayed": 646
+        },
+        {
+          "name": "Frozen Synapse",
+          "appId": 98200,
+          "minutesPlayed": 518
+        },
+        {
+          "name": "Battlefield™ 6",
+          "appId": 2807960,
+          "minutesPlayed": 470
+        },
+        {
+          "name": "Burnout Paradise: The Ultimate Box",
+          "appId": 24740,
+          "minutesPlayed": 447
+        },
+        {
+          "name": "Poker Night at the Inventory (2010 Original Version)",
+          "appId": 31280,
+          "minutesPlayed": 382
+        },
+        {
+          "name": "Killing Floor",
+          "appId": 1250,
+          "minutesPlayed": 361
+        },
+        {
+          "name": "Left 4 Dead 2 Demo",
+          "appId": 590,
+          "minutesPlayed": 323
+        },
+        {
+          "name": "Sid Meier's Civilization IV",
+          "appId": 3900,
+          "minutesPlayed": 315
+        },
+        {
+          "name": "Counter-Strike: Source",
+          "appId": 240,
+          "minutesPlayed": 271
+        },
+        {
+          "name": "Tom Clancy's Rainbow Six Siege",
+          "appId": 359550,
+          "minutesPlayed": 266
+        },
+        {
+          "name": "Dragon Age II (Retired)",
+          "appId": 47900,
+          "minutesPlayed": 263
+        },
+        {
+          "name": "Age of Empires II (2013)",
+          "appId": 221380,
+          "minutesPlayed": 255
+        },
+        {
+          "name": "Breach",
+          "appId": 72300,
+          "minutesPlayed": 200
+        },
+        {
+          "name": "Batman: Arkham City GOTY",
+          "appId": 200260,
+          "minutesPlayed": 189
+        },
+        {
+          "name": "Portal with RTX",
+          "appId": 2012840,
+          "minutesPlayed": 167
+        },
+        {
+          "name": "Dungeon Defenders",
+          "appId": 65800,
+          "minutesPlayed": 154
+        },
+        {
+          "name": "DogFighter",
+          "appId": 42500,
+          "minutesPlayed": 148
+        },
+        {
+          "name": "Natural Selection 2",
+          "appId": 4920,
+          "minutesPlayed": 109
+        },
+        {
+          "name": "Half-Life: Alyx",
+          "appId": 546560,
+          "minutesPlayed": 109
+        },
+        {
+          "name": "Alien Shooter 2: Reloaded",
+          "appId": 33120,
+          "minutesPlayed": 86
+        },
+        {
+          "name": "DEFCON",
+          "appId": 1520,
+          "minutesPlayed": 80
+        },
+        {
+          "name": "War Thunder",
+          "appId": 236390,
+          "minutesPlayed": 73
+        },
+        {
+          "name": "Half Sword Demo",
+          "appId": 2642680,
+          "minutesPlayed": 70
+        },
+        {
+          "name": "Call of Duty 4: Modern Warfare (2007)",
+          "appId": 7940,
+          "minutesPlayed": 60
+        },
+        {
+          "name": "Call of Duty: Black Ops",
+          "appId": 42700,
+          "minutesPlayed": 60
+        },
+        {
+          "name": "Osmos",
+          "appId": 29180,
+          "minutesPlayed": 36
+        },
+        {
+          "name": "Half-Life 2",
+          "appId": 220,
+          "minutesPlayed": 34
+        },
+        {
+          "name": "Counter-Strike",
+          "appId": 10,
+          "minutesPlayed": 25
+        },
+        {
+          "name": "Cogs",
+          "appId": 26500,
+          "minutesPlayed": 25
+        },
+        {
+          "name": "Tabletop Simulator",
+          "appId": 286160,
+          "minutesPlayed": 10
+        },
+        {
+          "name": "RUSH",
+          "appId": 38720,
+          "minutesPlayed": 8
+        },
+        {
+          "name": "Portal",
+          "appId": 400,
+          "minutesPlayed": 7
+        },
+        {
+          "name": "Hacker Evolution",
+          "appId": 70100,
+          "minutesPlayed": 7
+        },
+        {
+          "name": "BIT.TRIP BEAT",
+          "appId": 63700,
+          "minutesPlayed": 6
+        }
+      ]
+    }
+  ],
+  "snapshot": {
+    "date": "2026-05-13",
+    "games": {
+      "10": 25,
+      "20": 0,
+      "30": 0,
+      "40": 0,
+      "50": 0,
+      "60": 0,
+      "70": 0,
+      "130": 0,
+      "220": 34,
+      "240": 271,
+      "320": 0,
+      "360": 0,
+      "400": 7,
+      "440": 19343,
+      "500": 3204,
+      "550": 4836,
+      "590": 323,
+      "620": 909,
+      "1250": 361,
+      "1520": 80,
+      "1523": 0,
+      "3900": 315,
+      "3990": 0,
+      "4920": 109,
+      "7670": 0,
+      "7940": 60,
+      "8800": 0,
+      "8930": 6269,
+      "12900": 1141,
+      "15500": 0,
+      "15520": 0,
+      "15540": 0,
+      "15620": 1425,
+      "18110": 1297,
+      "18500": 0,
+      "20540": 2021,
+      "20570": 0,
+      "22300": 0,
+      "22350": 1729,
+      "24740": 447,
+      "24960": 6307,
+      "24980": 2051,
+      "26500": 25,
+      "26800": 0,
+      "29180": 36,
+      "31280": 382,
+      "33120": 86,
+      "33230": 7461,
+      "34440": 0,
+      "34450": 0,
+      "34460": 0,
+      "35420": 0,
+      "35450": 911,
+      "35460": 0,
+      "38700": 0,
+      "38720": 8,
+      "38900": 0,
+      "40700": 0,
+      "40800": 0,
+      "42500": 148,
+      "42700": 60,
+      "42710": 6242,
+      "44320": 0,
+      "47780": 646,
+      "47900": 263,
+      "48000": 0,
+      "48190": 5611,
+      "49520": 3057,
+      "49600": 0,
+      "50130": 916,
+      "56400": 0,
+      "57300": 0,
+      "61310": 0,
+      "63700": 6,
+      "65800": 154,
+      "67000": 0,
+      "70100": 7,
+      "72300": 200,
+      "72850": 9812,
+      "80310": 0,
+      "93200": 0,
+      "97000": 0,
+      "98200": 518,
+      "98800": 0,
+      "111400": 0,
+      "116120": 0,
+      "200260": 189,
+      "200510": 16228,
+      "200900": 0,
+      "201870": 9221,
+      "204100": 15838,
+      "208480": 2316,
+      "220240": 6112,
+      "221380": 255,
+      "228200": 0,
+      "236390": 73,
+      "236830": 0,
+      "268500": 837,
+      "286160": 10,
+      "292030": 29513,
+      "321040": 0,
+      "359550": 266,
+      "377160": 10157,
+      "409710": 0,
+      "546560": 109,
+      "553850": 2143,
+      "623990": 0,
+      "718560": 2494,
+      "1030830": 0,
+      "1086940": 15136,
+      "1238040": 0,
+      "1850570": 6809,
+      "2012840": 167,
+      "2362420": 0,
+      "2642680": 70,
+      "2708610": 0,
+      "2807960": 470,
+      "3280350": 3443
+    }
+  }
+}
