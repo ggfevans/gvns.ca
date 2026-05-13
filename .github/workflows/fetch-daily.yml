@@ -1,0 +1,110 @@
+name: Fetch Daily
+
+on:
+  schedule:
+    - cron: "0 3 * * *" # Daily at 03:00 UTC (off-peak, single window)
+  workflow_dispatch:
+
+concurrency:
+  group: fetch-daily
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        with:
+          token: ${{ github.token }}
+          persist-credentials: false
+
+      - id: gaming
+        name: Fetch Steam data
+        continue-on-error: true
+        uses: ggfevans/steam-json-bourne@16a0ad5ed045d350a175d124c5100ff14c388a6a # main
+        with:
+          steam_api_key: ${{ secrets.STEAM_API_KEY }}
+          steam_id: "76561197962113454"
+          output_path: src/data/gaming.json
+          recent_count: "10"
+          daily_log_days: "90"
+          skip_commit: "true"
+
+      - id: github
+        name: Fetch GitHub activity
+        continue-on-error: true
+        uses: ggfevans/github-json-bourne@13123bb406351c007d686820a3977624d833b294
+        with:
+          username: ${{ github.repository_owner }}
+          token: ${{ secrets.GH_PAT }}
+          output-path: src/data/github.json
+
+      - id: listening
+        name: Fetch ListenBrainz data
+        continue-on-error: true
+        uses: ggfevans/listenbrainz-json-bourne@4fb09726f8311185cc651cb41b480a6c7424009d # v3.1.0
+        with:
+          username: ${{ secrets.LISTENBRAINZ_USERNAME }}
+          output_path: src/data/listening.json
+          stats_range: this_month
+          top_count: "10"
+          recent_count: "10"
+          skip_commit: "true"
+
+      - id: reading
+        name: Fetch Hardcover data
+        continue-on-error: true
+        uses: ggfevans/hardcover-github-action@f68d44fb791e471a33a52f04f61052faa8654cb4 # v1
+        with:
+          token: ${{ secrets.HARDCOVER_TOKEN }}
+          user_id: ${{ secrets.HARDCOVER_USER_ID }}
+          output_path: src/data/reading.json
+
+      - id: watching
+        name: Fetch Trakt data
+        continue-on-error: true
+        uses: ggfevans/trakt-json-bourne@79005a28f68a285f6a4295781138423402ec6623
+        with:
+          trakt_client_id: ${{ secrets.TRAKT_CLIENT_ID }}
+          trakt_username: "gvns"
+          tmdb_api_key: ${{ secrets.TMDB_API_KEY }}
+          output_path: src/data/watching.json
+
+      - name: Commit and open PR
+        if: always()
+        uses: ./.github/actions/commit-via-pr
+        with:
+          paths: src/data/
+          commit-message: "chore: update daily fetch data"
+          branch-prefix: update-daily
+          github-token: ${{ github.token }}
+
+      - name: Fail run if any fetcher failed
+        if: always()
+        run: |
+          declare -A outcomes=(
+            [gaming]="${{ steps.gaming.outcome }}"
+            [github]="${{ steps.github.outcome }}"
+            [listening]="${{ steps.listening.outcome }}"
+            [reading]="${{ steps.reading.outcome }}"
+            [watching]="${{ steps.watching.outcome }}"
+          )
+          {
+            echo "### Fetch outcomes"
+            for k in "${!outcomes[@]}"; do
+              echo "- $k: ${outcomes[$k]}"
+            done
+          } >> "$GITHUB_STEP_SUMMARY"
+          failed=()
+          for k in "${!outcomes[@]}"; do
+            [ "${outcomes[$k]}" = "failure" ] && failed+=("$k")
+          done
+          if [ ${#failed[@]} -gt 0 ]; then
+            echo "Failed fetchers: ${failed[*]}" >&2
+            exit 1
+          fi
