@@ -25,19 +25,26 @@ inputs:
     default: 'Automated update.'
   github-token:
     description: >-
-      Token with `repo` and `workflow` scopes (PAT). Used for `git push`,
-      `gh pr create`, and `gh pr merge --auto`. The default `GITHUB_TOKEN`
-      cannot enable auto-merge or trigger downstream workflows on PR branches.
+      Token used for `git push`, `gh pr create`, and `gh pr merge`. The
+      default `GITHUB_TOKEN` works (auto-merge isn't used and required
+      status checks were removed on `main` — see #263); a PAT is only
+      needed if downstream workflows must fire from the resulting PR.
     required: true
 
 runs:
   using: 'composite'
   steps:
-    - name: Configure git identity
+    - name: Configure git identity and auth
       shell: bash
+      env:
+        GH_TOKEN: ${{ inputs.github-token }}
       run: |
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
+        # Set up git to authenticate with the input token via gh's credential
+        # helper. Lets callers pass `persist-credentials: false` to checkout so
+        # the token isn't readable by intervening third-party action steps.
+        gh auth setup-git
 
     - name: Stage and commit local changes
       shell: bash
