@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-05-13T04:34:48.273Z",
+  "lastUpdated": "2026-05-14T04:20:58.372Z",
   "contributions": {
-    "total": 7906,
-    "commits": 2866,
-    "pullRequests": 936,
+    "total": 7926,
+    "commits": 2869,
+    "pullRequests": 939,
     "pullRequestReviews": 10,
     "issues": 1331,
-    "restricted": 2679
+    "restricted": 2693
   },
   "calendar": {
     "weeks": [
@@ -2052,7 +2052,12 @@
           },
           {
             "date": "2026-05-12",
-            "count": 4,
+            "count": 9,
+            "level": 1
+          },
+          {
+            "date": "2026-05-13",
+            "count": 15,
             "level": 1
           }
         ]
@@ -2060,11 +2065,33 @@
     ]
   },
   "streak": {
-    "current": 23,
+    "current": 24,
     "longest": 132,
     "today": false
   },
   "recentActivity": [
+    {
+      "type": "issue",
+      "repo": "gvns.ca",
+      "repoUrl": "https://github.com/ggfevans/gvns.ca",
+      "title": "spike(fetch): consolidate per-source fetch workflows into a single workflow",
+      "url": "https://github.com/ggfevans/gvns.ca/issues/336",
+      "date": "2026-05-13T09:35:43Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "gvns.ca",
+      "repoUrl": "https://github.com/ggfevans/gvns.ca",
+      "title": "fix(fetch): gaming/Steam fetch broken — no data in src/data/",
+      "url": "https://github.com/ggfevans/gvns.ca/issues/334",
+      "date": "2026-05-13T09:04:06Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
     {
       "type": "issue",
       "repo": "Rackula",
@@ -2152,36 +2179,14 @@
       "meta": {
         "state": "CLOSED"
       }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "feat: home page rebuild — drop hero, remove mid-page ActivityBar, wire new components",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/348",
-      "date": "2026-05-03T09:31:20Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "chore: drop stretched-anchor pattern across post cards (selectable text site-wide)",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/347",
-      "date": "2026-05-03T09:26:23Z",
-      "meta": {
-        "state": "CLOSED"
-      }
     }
   ],
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 124,
-    "contributionsThisMonth": 666,
-    "repositoriesThisWeek": 0
+    "contributionsThisWeek": 117,
+    "contributionsThisMonth": 682,
+    "repositoriesThisWeek": 1
   },
   "repositories": [
     {
