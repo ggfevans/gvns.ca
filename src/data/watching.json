@@ -1,6 +1,13 @@
 {
-  "lastUpdated": "2026-05-14T04:21:13Z",
+  "lastUpdated": "2026-05-14T10:07:41Z",
   "recentlyWatched": [
+    {
+      "title": "Ride with Norman Reedus — S02E02",
+      "type": "show",
+      "posterUrl": "https://image.tmdb.org/t/p/w342/dQyDwNVO88PK2l8rQLaGR2mW6od.jpg",
+      "url": "https://trakt.tv/shows/ride-with-norman-reedus",
+      "watchedDate": "2026-05-14T10:01:00.000Z"
+    },
     {
       "title": "The Audacity — S01E03",
       "type": "show",
@@ -100,7 +107,7 @@
       "watchedDate": "2026-02-13T10:37:00.000Z"
     },
     {
-      "title": "Ted Lasso — S01E05",
+      "title": "Ted Lasso — S01E08",
       "type": "show",
       "posterUrl": "https://image.tmdb.org/t/p/w342/5fhZdwP1DVJ0FyVH6vrFdHwpXIn.jpg",
       "url": "https://trakt.tv/shows/ted-lasso",
@@ -109,6 +116,6 @@
   ],
   "stats": {
     "moviesThisMonth": 0,
-    "showsThisMonth": 2
+    "showsThisMonth": 3
   }
 }
