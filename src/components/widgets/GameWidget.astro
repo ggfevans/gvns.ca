@@ -41,7 +41,8 @@ const profileUrl = safeUrl(data.profile?.profileUrl) ?? 'https://store.steampowe
 const lastPlayedDate = latestGame?.lastPlayed && !Number.isNaN(new Date(latestGame.lastPlayed).getTime())
   ? latestGame.lastPlayed
   : null;
-const totalHours = latestGame ? Math.round(latestGame.playtimeForeverMinutes / 60) : 0;
+const rawMinutes = Number.isFinite(latestGame?.playtimeForeverMinutes) ? latestGame!.playtimeForeverMinutes : 0;
+const totalHours = Math.round(rawMinutes / 60);
 ---
 
 {compact ? (
