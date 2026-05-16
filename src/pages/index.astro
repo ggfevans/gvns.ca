@@ -9,6 +9,7 @@ import ReadWidget from '@components/widgets/ReadWidget.astro';
 import ListenWidget from '@components/widgets/ListenWidget.astro';
 import WatchWidget from '@components/widgets/WatchWidget.astro';
 import CodeWidget from '@components/widgets/CodeWidget.astro';
+import GameWidget from '@components/widgets/GameWidget.astro';
 import { websiteSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
 import { SITE_BIO } from '@utils/site';
 import '@styles/widgets.css';
@@ -55,6 +56,7 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
         <ListenWidget compact />
         <WatchWidget compact />
         <CodeWidget compact />
+        <GameWidget compact />
       </div>
     </section>
   </main>
@@ -99,8 +101,13 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
   }
   .gvns-activity-grid {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: var(--space-4);
+  }
+  @media (max-width: 1279px) {
+    .gvns-activity-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
   }
   @media (max-width: 1023px) {
     .gvns-activity-grid {
