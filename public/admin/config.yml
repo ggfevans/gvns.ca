@@ -134,3 +134,25 @@ collections:
           hint: "Full URL of the original post if cross-published (validated at build by Zod).",
         }
       - { name: body, label: Body, widget: markdown }
+
+  - name: now-intro
+    label: "/now intro"
+    files:
+      - name: now-intro
+        label: "/now intro content"
+        file: src/data/now-intro.md
+        fields:
+          - {
+              name: lastUpdated,
+              label: "Last updated",
+              widget: datetime,
+              format: "YYYY-MM-DD",
+              date_format: "YYYY-MM-DD",
+              time_format: false,
+              required: true,
+            }
+          - {
+              name: body,
+              label: "Body (markdown, 2 paragraphs)",
+              widget: markdown,
+            }
