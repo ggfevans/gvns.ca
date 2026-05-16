@@ -156,3 +156,78 @@ collections:
               label: "Body (markdown, 2 paragraphs)",
               widget: markdown,
             }
+
+  - name: work
+    label: Work
+    label_singular: Project
+    folder: src/content/work
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    format: frontmatter
+    editor:
+      preview: false
+    fields:
+      - {
+          name: title,
+          label: Title,
+          widget: string,
+          required: true,
+          pattern: ["^.{1,100}$", "Max 100 characters"],
+        }
+      - {
+          name: description,
+          label: Description,
+          widget: text,
+          required: true,
+          pattern: ['^[\s\S]{1,200}$', "Max 200 characters"],
+        }
+      - {
+          name: url,
+          label: URL,
+          widget: string,
+          required: false,
+          pattern: ['^https?://.+', "Must be a full URL (http(s)://...)."],
+          hint: "Live URL of the project (optional).",
+        }
+      - {
+          name: repo,
+          label: Repository URL,
+          widget: string,
+          required: false,
+          pattern: ['^https?://.+', "Must be a full URL (http(s)://...)."],
+          hint: "Source code repository URL (optional).",
+        }
+      - name: status
+        label: Status
+        widget: select
+        required: true
+        default: active
+        options:
+          - active
+          - maintained
+          - archived
+      - name: tags
+        label: Tags
+        widget: list
+        min: 1
+        max: 6
+        hint: "Technologies or labels (e.g. Astro, Svelte, Tailwind)."
+      - {
+          name: heroImage,
+          label: Hero image,
+          widget: image,
+          required: false,
+          choose_url: false,
+          hint: "Uploads land in /uploads/. Schema requires absolute /uploads/... path.",
+        }
+      - {
+          name: heroImageAlt,
+          label: Hero image alt text,
+          widget: string,
+          required: false,
+          pattern: ['^.{0,250}$', "Keep alt text under 250 characters."],
+          hint: "Describe the image for screen readers + social previews (max 250 chars). Leave blank if purely decorative.",
+        }
+      - { name: featured, label: Featured, widget: boolean, default: false }
+      - { name: body, label: Body, widget: markdown }

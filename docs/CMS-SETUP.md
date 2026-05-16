@@ -100,7 +100,21 @@ If the in-browser transform fails for a given file, Sveltia falls back to commit
 
 ## The `work` collection
 
-The `work` collection still uses the legacy `/uploads/...` absolute pattern (`uploadsPathSchema` in `src/content.config.ts`). Work entries are not authored via the CMS in the same flow. Migrate to the bundle pattern in a future PR if that changes.
+The `work` collection is editable from `/admin` alongside `posts` (#260). It uses the legacy `/uploads/...` absolute pattern (`uploadsPathSchema` in `src/content.config.ts`) rather than the bundle layout — work entries live as flat files in `src/content/work/<slug>.md`, and their hero images are committed under `public/uploads/`. Migration to bundle layout is a future-PR option if work entries grow inline image assets.
+
+Field shape (mirrors the Zod schema in `src/content.config.ts`):
+
+- `title` (string, max 100)
+- `description` (text, max 200)
+- `url` / `repo` (string, optional, http(s) URL)
+- `status` (select: `active` / `maintained` / `archived`)
+- `tags` (list, 1–6 free-form strings — typically technology names)
+- `heroImage` (image, optional — writes `/uploads/<file>`)
+- `heroImageAlt` (string, max 250, optional)
+- `featured` (boolean, default false)
+- `body` (markdown)
+
+The CMS does NOT set a per-collection `media_folder` override here (unlike `posts`, which overrides to `""` for bundle layout). Uploads from the work editor fall through to the top-level `media_folder: public/uploads` / `public_folder: /uploads` config, producing absolute `/uploads/...` refs in frontmatter — which is what `uploadsPathSchema` validates.
 
 ## Render-time hero optimisation
 
