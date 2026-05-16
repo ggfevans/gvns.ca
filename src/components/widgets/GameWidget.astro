@@ -1,0 +1,114 @@
+---
+import { relativeTime, safeUrl } from '@utils/format';
+
+interface Props { compact?: boolean; }
+const { compact = false } = Astro.props;
+
+interface GameEntry {
+  name: string;
+  appId: number;
+  headerUrl?: string;
+  capsuleUrl?: string;
+  portraitUrl?: string;
+  playtimeForeverMinutes: number;
+  playtime2WeeksMinutes?: number;
+  lastPlayed?: string;
+}
+
+interface GamingData {
+  lastUpdated: string | null;
+  recentlyPlayed: GameEntry[];
+  profile?: { profileUrl?: string };
+  stats?: { totalPlaytimeHours?: number };
+}
+
+let data: GamingData = { lastUpdated: null, recentlyPlayed: [] };
+try {
+  const imported = (await import('../../data/gaming.json')).default as Partial<GamingData>;
+  data = {
+    lastUpdated: imported.lastUpdated ?? null,
+    recentlyPlayed: Array.isArray(imported.recentlyPlayed) ? imported.recentlyPlayed : [],
+    profile: imported.profile,
+    stats: imported.stats,
+  };
+} catch (e) {
+  if (import.meta.env.DEV) console.error('Failed to load gaming data for GameWidget:', e);
+}
+
+const latestGame = data.recentlyPlayed[0] ?? null;
+const coverSrc = safeUrl(latestGame?.portraitUrl);
+const profileUrl = safeUrl(data.profile?.profileUrl) ?? 'https://store.steampowered.com/';
+const lastPlayedDate = latestGame?.lastPlayed && !Number.isNaN(new Date(latestGame.lastPlayed).getTime())
+  ? latestGame.lastPlayed
+  : null;
+const rawMinutes = Number.isFinite(latestGame?.playtimeForeverMinutes) ? latestGame!.playtimeForeverMinutes : 0;
+const totalHours = Math.round(rawMinutes / 60);
+---
+
+{compact ? (
+  <article class="gvns-widget-compact gvns-widget-compact--game">
+    <div class="gvns-widget-compact__label">Now Playing</div>
+    {latestGame ? (
+      <a href={profileUrl} class="gvns-widget-compact__body" target="_blank" rel="noopener noreferrer">
+        {coverSrc && (
+          <img src={coverSrc} alt={`Cover art for ${latestGame.name}`} class="gvns-widget-compact__cover" width="40" height="60" loading="lazy" decoding="async" />
+        )}
+        <div class="gvns-widget-compact__info">
+          <p class="gvns-widget-compact__title">{latestGame.name}</p>
+          <p class="gvns-widget-compact__subtitle">{totalHours}h played</p>
+        </div>
+      </a>
+    ) : (
+      <p class="gvns-widget-compact__empty">Nothing recent.</p>
+    )}
+  </article>
+) : (
+  <article class="gvns-widget gvns-widget--game">
+    <div class="gvns-widget__label">Game</div>
+    {latestGame ? (
+      <div class="gvns-widget__content gvns-widget__content--row">
+        {coverSrc && (
+          <img
+            src={coverSrc}
+            alt={`Cover art for ${latestGame.name}`}
+            class="gvns-widget__poster"
+            width="48"
+            height="72"
+            loading="lazy"
+            decoding="async"
+          />
+        )}
+        <div>
+          <p class="gvns-widget__detail gvns-widget__detail--bold">{latestGame.name}</p>
+          <p class="gvns-widget__meta">{totalHours}h played</p>
+          {lastPlayedDate && (
+            <time class="gvns-widget__time" datetime={lastPlayedDate}>
+              {relativeTime(lastPlayedDate)}
+            </time>
+          )}
+        </div>
+      </div>
+    ) : (
+      <p class="gvns-widget__empty">Nothing played recently.</p>
+    )}
+    <a href={profileUrl} class="gvns-widget__link" target="_blank" rel="noopener noreferrer">
+      Steam Profile <span aria-hidden="true">&rarr;</span>
+    </a>
+  </article>
+)}
+
+<style>
+  /* P5 Sky — chosen to not conflict with P1 Violet (code), P2 Rose (read),
+     P3 Emerald (listen), or P4 Amber (watch) */
+  .gvns-widget--game {
+    border-left-color: var(--colour-p5-sky);
+  }
+
+  .gvns-widget--game .gvns-widget__link:hover {
+    color: var(--colour-p5-sky);
+  }
+
+  .gvns-widget-compact--game {
+    border-top: var(--border-accent) solid var(--colour-p5-sky);
+  }
+</style>
