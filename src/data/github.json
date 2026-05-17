@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-05-16T04:14:46.451Z",
+  "lastUpdated": "2026-05-17T04:25:54.999Z",
   "contributions": {
-    "total": 8063,
-    "commits": 2879,
-    "pullRequests": 945,
+    "total": 8117,
+    "commits": 2886,
+    "pullRequests": 950,
     "pullRequestReviews": 10,
-    "issues": 1332,
-    "restricted": 2813
+    "issues": 1335,
+    "restricted": 2852
   },
   "calendar": {
     "weeks": [
@@ -2067,19 +2067,167 @@
           },
           {
             "date": "2026-05-15",
-            "count": 73,
-            "level": 2
+            "count": 95,
+            "level": 3
+          },
+          {
+            "date": "2026-05-16",
+            "count": 32,
+            "level": 1
           }
         ]
       }
     ]
   },
   "streak": {
-    "current": 26,
+    "current": 27,
     "longest": 132,
     "today": false
   },
   "recentActivity": [
+    {
+      "type": "issue",
+      "repo": "gvns.ca",
+      "repoUrl": "https://github.com/ggfevans/gvns.ca",
+      "title": "feat(home): add gaming/Steam activity widget",
+      "url": "https://github.com/ggfevans/gvns.ca/issues/335",
+      "date": "2026-05-16T14:59:20Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "gvns.ca",
+      "repoUrl": "https://github.com/ggfevans/gvns.ca",
+      "title": "epic: Home + /now redesign — 2026-04",
+      "url": "https://github.com/ggfevans/gvns.ca/issues/340",
+      "date": "2026-05-16T12:55:21Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "gvns.ca",
+      "repoUrl": "https://github.com/ggfevans/gvns.ca",
+      "title": "post: \"start with no\"",
+      "url": "https://github.com/ggfevans/gvns.ca/issues/251",
+      "date": "2026-05-16T12:55:01Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "gvns.ca",
+      "repoUrl": "https://github.com/ggfevans/gvns.ca",
+      "title": "content: homelab post",
+      "url": "https://github.com/ggfevans/gvns.ca/issues/250",
+      "date": "2026-05-16T12:55:01Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "gvns.ca",
+      "repoUrl": "https://github.com/ggfevans/gvns.ca",
+      "title": "epic: fetching workflows — fix broken sources, add gaming UI, consolidate",
+      "url": "https://github.com/ggfevans/gvns.ca/issues/337",
+      "date": "2026-05-16T12:54:35Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "gvns.ca",
+      "repoUrl": "https://github.com/ggfevans/gvns.ca",
+      "title": "epic: adopt Starwind UI Pro blocks site-wide",
+      "url": "https://github.com/ggfevans/gvns.ca/issues/290",
+      "date": "2026-05-16T12:53:49Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "gvns.ca",
+      "repoUrl": "https://github.com/ggfevans/gvns.ca",
+      "title": "feat(cms): add work collection to Sveltia CMS",
+      "url": "https://github.com/ggfevans/gvns.ca/issues/260",
+      "date": "2026-05-16T12:53:21Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "PNG export does not respect 'Front Only' device view settings",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1681",
+      "date": "2026-05-16T11:43:57Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "bug: resize validator reports stale/invalid U position (e.g. U228 on a 42U rack)",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1683",
+      "date": "2026-05-16T11:42:00Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "gvns.ca",
+      "repoUrl": "https://github.com/ggfevans/gvns.ca",
+      "title": "broken: fetching workflows",
+      "url": "https://github.com/ggfevans/gvns.ca/issues/255",
+      "date": "2026-05-16T11:33:16Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "gvns.ca",
+      "repoUrl": "https://github.com/ggfevans/gvns.ca",
+      "title": "chore: wire now-intro.md into Sveltia CMS as a single-file collection",
+      "url": "https://github.com/ggfevans/gvns.ca/issues/349",
+      "date": "2026-05-16T11:31:40Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "PNG export breaks half width devices",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1660",
+      "date": "2026-05-16T09:05:42Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Half-width device on right side is unclickable when paired at same U",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1680",
+      "date": "2026-05-16T08:59:56Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
     {
       "type": "issue",
       "repo": "Rackula",
@@ -2112,90 +2260,13 @@
       "meta": {
         "state": "CLOSED"
       }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "CI Alert: Deploy Prod failed for v0.9.4",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1644",
-      "date": "2026-05-05T18:05:52Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Full E2E test suite failing",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1546",
-      "date": "2026-05-05T18:05:52Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "feat(home): adopt Blog 5 split layout — Featured left, recents list right",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/368",
-      "date": "2026-05-04T00:12:49Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "fix(home): Featured + recents column should match widget strip width",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/360",
-      "date": "2026-05-03T10:08:38Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "chore(featured): drop collapse/details, render article inline",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/364",
-      "date": "2026-05-03T10:06:15Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "fix(featured): remove rose top stripe from FeaturedPostCard",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/363",
-      "date": "2026-05-03T10:06:15Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "chore(nav): increase navbar avatar size by ~10%",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/362",
-      "date": "2026-05-03T10:04:18Z",
-      "meta": {
-        "state": "CLOSED"
-      }
     }
   ],
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 196,
-    "contributionsThisMonth": 805,
+    "contributionsThisWeek": 231,
+    "contributionsThisMonth": 846,
     "repositoriesThisWeek": 2
   },
   "repositories": [
