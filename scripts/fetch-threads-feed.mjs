@@ -33,31 +33,31 @@ function normalise(raw) {
 }
 
 try {
-  // 1. Probe with cheapest possible call.
-  const [latest] = await api('fields=id&limit=1');
-  if (!latest) {
-    console.log('No posts on account.');
-    process.exit(0);
-  }
-
-  // 2. Compare against last-seen id.
+  // 1. Load existing data.
   let existing = { lastUpdated: null, posts: [] };
   try {
     const content = await readFile(OUT, 'utf8');
     existing = JSON.parse(content);
   } catch {}
 
-  if (String(existing.posts?.[0]?.id) === String(latest.id)) {
-    console.log(`Top post unchanged (${latest.id}); short-circuit.`);
+  // 2. Pull 5 posts with all needed fields, filter to match persisted representation.
+  const raw = await api(`fields=${FIELDS}&limit=5`);
+  if (!raw.length) {
+    console.log('No posts on account.');
     process.exit(0);
   }
 
-  // 3. Pull 5 posts with all needed fields, filter, write atomically.
-  const raw = await api(`fields=${FIELDS}&limit=5`);
   const posts = raw
     .map(normalise)
     .filter(p => !p.isQuotePost && p.mediaType !== 'REPOST_FACADE')
     .slice(0, 5);
+
+  // 3. Compare filtered top post against last-seen id.
+  const filteredTopId = String(posts[0]?.id ?? '');
+  if (filteredTopId && String(existing.posts?.[0]?.id) === filteredTopId) {
+    console.log(`Top post unchanged (${filteredTopId}); short-circuit.`);
+    process.exit(0);
+  }
 
   const payload = {
     lastUpdated: new Date().toISOString(),
