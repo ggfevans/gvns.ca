@@ -46,8 +46,8 @@ try {
     const content = await readFile(OUT, 'utf8');
     existing = JSON.parse(content);
   } catch {}
-  
-  if (existing.posts?.[0]?.id === latest.id) {
+
+  if (String(existing.posts?.[0]?.id) === String(latest.id)) {
     console.log(`Top post unchanged (${latest.id}); short-circuit.`);
     process.exit(0);
   }
