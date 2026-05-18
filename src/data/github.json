@@ -1,54 +1,15 @@
 {
-  "lastUpdated": "2026-05-17T04:25:54.999Z",
+  "lastUpdated": "2026-05-18T04:30:18.458Z",
   "contributions": {
-    "total": 8117,
-    "commits": 2886,
-    "pullRequests": 950,
+    "total": 8168,
+    "commits": 2898,
+    "pullRequests": 952,
     "pullRequestReviews": 10,
-    "issues": 1335,
-    "restricted": 2852
+    "issues": 1336,
+    "restricted": 2886
   },
   "calendar": {
     "weeks": [
-      {
-        "days": [
-          {
-            "date": "2025-05-11",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-05-12",
-            "count": 3,
-            "level": 1
-          },
-          {
-            "date": "2025-05-13",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-05-14",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-05-15",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-05-16",
-            "count": 1,
-            "level": 1
-          },
-          {
-            "date": "2025-05-17",
-            "count": 0,
-            "level": 0
-          }
-        ]
-      },
       {
         "days": [
           {
@@ -2023,7 +1984,7 @@
           },
           {
             "date": "2026-05-07",
-            "count": 35,
+            "count": 36,
             "level": 1
           },
           {
@@ -2072,7 +2033,16 @@
           },
           {
             "date": "2026-05-16",
-            "count": 32,
+            "count": 60,
+            "level": 2
+          }
+        ]
+      },
+      {
+        "days": [
+          {
+            "date": "2026-05-17",
+            "count": 22,
             "level": 1
           }
         ]
@@ -2080,11 +2050,44 @@
     ]
   },
   "streak": {
-    "current": 27,
+    "current": 28,
     "longest": 132,
     "today": false
   },
   "recentActivity": [
+    {
+      "type": "issue",
+      "repo": "gvns.ca",
+      "repoUrl": "https://github.com/ggfevans/gvns.ca",
+      "title": "spike: Threads post feed widget for home page (@ggfevans)",
+      "url": "https://github.com/ggfevans/gvns.ca/issues/519",
+      "date": "2026-05-18T01:54:04Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Persist rack view state to storage",
+      "url": "https://github.com/RackulaLives/Rackula/issues/118",
+      "date": "2026-05-17T16:48:39Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "refactor: Add route mounting helper to prevent /api/* alias drift",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1020",
+      "date": "2026-05-17T05:09:09Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
     {
       "type": "issue",
       "repo": "gvns.ca",
@@ -2265,8 +2268,8 @@
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 231,
-    "contributionsThisMonth": 846,
+    "contributionsThisWeek": 273,
+    "contributionsThisMonth": 897,
     "repositoriesThisWeek": 2
   },
   "repositories": [
@@ -2279,20 +2282,36 @@
       "url": "https://github.com/ggfevans/gvns.ca"
     },
     {
+      "name": "ai-disclosure",
+      "description": "A lightweight, machine-readable convention for declaring AI involvement in source code",
+      "language": "",
+      "languageColor": "",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/ai-disclosure"
+    },
+    {
+      "name": "tree-sitter-hujson",
+      "description": "A tree-sitter grammar for HuJSON (Human JSON)",
+      "language": "JavaScript",
+      "languageColor": "#f1e05a",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/tree-sitter-hujson"
+    },
+    {
+      "name": "swiftbar-qmd",
+      "description": "",
+      "language": "",
+      "languageColor": "",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/swiftbar-qmd"
+    },
+    {
       "name": "gwilym.ca",
       "description": "",
       "language": "Astro",
       "languageColor": "#ff5a03",
       "stars": 0,
       "url": "https://github.com/ggfevans/gwilym.ca"
-    },
-    {
-      "name": "tree-sitter-hujson",
-      "description": "",
-      "language": "JavaScript",
-      "languageColor": "#f1e05a",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/tree-sitter-hujson"
     },
     {
       "name": "zed-hujson",
@@ -2349,22 +2368,6 @@
       "languageColor": "#3572A5",
       "stars": 11,
       "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE"
-    },
-    {
-      "name": "irc-topic-notify",
-      "description": "Never miss when someone finally updates the channel topic. Push notifications for IRC topic changes. The bot stays quiet.",
-      "language": "Python",
-      "languageColor": "#3572A5",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/irc-topic-notify"
-    },
-    {
-      "name": "ggfevans",
-      "description": "",
-      "language": "Python",
-      "languageColor": "#3572A5",
-      "stars": 3,
-      "url": "https://github.com/ggfevans/ggfevans"
     }
   ]
 }
