@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-19T04:26:59.032Z",
+  "lastUpdated": "2026-05-19T18:40:05.830Z",
   "profile": {
     "steamId": "76561197962113454",
     "personaName": "Gareth",
@@ -10,8 +10,8 @@
     {
       "name": "DEATH STRANDING 2: ON THE BEACH",
       "appId": 3280350,
-      "headerUrl": "https://cdn.akamai.steamstatic.com/steam/apps/3280350/header.jpg",
-      "capsuleUrl": "https://cdn.akamai.steamstatic.com/steam/apps/3280350/capsule_231x87.jpg",
+      "headerUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3280350/6270c77b0729e2df0a17d660286eeddfd9169386/header.jpg?t=1774022345",
+      "capsuleUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3280350/6e07f61e2585bae97d2406d45666a7ee70543792/capsule_231x87.jpg?t=1774022345",
       "portraitUrl": "https://cdn.akamai.steamstatic.com/steam/apps/3280350/library_600x900.jpg",
       "playtimeForeverMinutes": 3718,
       "playtime2WeeksMinutes": 629,
@@ -26,8 +26,8 @@
     {
       "name": "DEATH STRANDING DIRECTOR'S CUT",
       "appId": 1850570,
-      "headerUrl": "https://cdn.akamai.steamstatic.com/steam/apps/1850570/header.jpg",
-      "capsuleUrl": "https://cdn.akamai.steamstatic.com/steam/apps/1850570/capsule_231x87.jpg",
+      "headerUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1850570/header.jpg?t=1773400635",
+      "capsuleUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1850570/f98586104479ed55cdb3de18c42b0dc6120691fe/capsule_231x87.jpg?t=1773400635",
       "portraitUrl": "https://cdn.akamai.steamstatic.com/steam/apps/1850570/library_600x900.jpg",
       "playtimeForeverMinutes": 6809,
       "playtime2WeeksMinutes": 0,
@@ -42,8 +42,8 @@
     {
       "name": "Battlefield™ 6",
       "appId": 2807960,
-      "headerUrl": "https://cdn.akamai.steamstatic.com/steam/apps/2807960/header.jpg",
-      "capsuleUrl": "https://cdn.akamai.steamstatic.com/steam/apps/2807960/capsule_231x87.jpg",
+      "headerUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2807960/c12d12ce3c7d217398d3fcad77427bfc9d57c570/header.jpg?t=1778612637",
+      "capsuleUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2807960/d7ae078e0a543a97ff5a5d72165999535b0b1cdc/capsule_231x87.jpg?t=1778612637",
       "portraitUrl": "https://cdn.akamai.steamstatic.com/steam/apps/2807960/library_600x900.jpg",
       "playtimeForeverMinutes": 470,
       "playtime2WeeksMinutes": 0,
@@ -58,8 +58,8 @@
     {
       "name": "Half Sword Demo",
       "appId": 2642680,
-      "headerUrl": "https://cdn.akamai.steamstatic.com/steam/apps/2642680/header.jpg",
-      "capsuleUrl": "https://cdn.akamai.steamstatic.com/steam/apps/2642680/capsule_231x87.jpg",
+      "headerUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2642680/3af0df9baa6a6388a7c54d66aa07d24ef28ac3ad/header.jpg?t=1745312642",
+      "capsuleUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2642680/capsule_231x87.jpg?t=1745312642",
       "portraitUrl": "https://cdn.akamai.steamstatic.com/steam/apps/2642680/library_600x900.jpg",
       "playtimeForeverMinutes": 70,
       "playtime2WeeksMinutes": 0,
@@ -74,8 +74,8 @@
     {
       "name": "Osmos",
       "appId": 29180,
-      "headerUrl": "https://cdn.akamai.steamstatic.com/steam/apps/29180/header.jpg",
-      "capsuleUrl": "https://cdn.akamai.steamstatic.com/steam/apps/29180/capsule_231x87.jpg",
+      "headerUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/29180/header.jpg?t=1602721579",
+      "capsuleUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/29180/capsule_231x87.jpg?t=1602721579",
       "portraitUrl": "https://cdn.akamai.steamstatic.com/steam/apps/29180/library_600x900.jpg",
       "playtimeForeverMinutes": 36,
       "playtime2WeeksMinutes": 0,
@@ -90,8 +90,8 @@
     {
       "name": "Max Payne 3",
       "appId": 204100,
-      "headerUrl": "https://cdn.akamai.steamstatic.com/steam/apps/204100/header.jpg",
-      "capsuleUrl": "https://cdn.akamai.steamstatic.com/steam/apps/204100/capsule_231x87.jpg",
+      "headerUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/204100/header.jpg?t=1718391374",
+      "capsuleUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/204100/capsule_231x87.jpg?t=1718391374",
       "portraitUrl": "https://cdn.akamai.steamstatic.com/steam/apps/204100/library_600x900.jpg",
       "playtimeForeverMinutes": 15838,
       "playtime2WeeksMinutes": 0,
@@ -106,8 +106,8 @@
     {
       "name": "Team Fortress 2",
       "appId": 440,
-      "headerUrl": "https://cdn.akamai.steamstatic.com/steam/apps/440/header.jpg",
-      "capsuleUrl": "https://cdn.akamai.steamstatic.com/steam/apps/440/capsule_231x87.jpg",
+      "headerUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/440/header.jpg?t=1757348372",
+      "capsuleUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/440/capsule_231x87.jpg?t=1757348372",
       "portraitUrl": "https://cdn.akamai.steamstatic.com/steam/apps/440/library_600x900.jpg",
       "playtimeForeverMinutes": 19343,
       "playtime2WeeksMinutes": 0,
@@ -122,8 +122,8 @@
     {
       "name": "Half-Life: Alyx",
       "appId": 546560,
-      "headerUrl": "https://cdn.akamai.steamstatic.com/steam/apps/546560/header.jpg",
-      "capsuleUrl": "https://cdn.akamai.steamstatic.com/steam/apps/546560/capsule_231x87.jpg",
+      "headerUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/546560/header.jpg?t=1762986588",
+      "capsuleUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/546560/capsule_231x87.jpg?t=1762986588",
       "portraitUrl": "https://cdn.akamai.steamstatic.com/steam/apps/546560/library_600x900.jpg",
       "playtimeForeverMinutes": 109,
       "playtime2WeeksMinutes": 0,
@@ -138,8 +138,8 @@
     {
       "name": "Baldur's Gate 3",
       "appId": 1086940,
-      "headerUrl": "https://cdn.akamai.steamstatic.com/steam/apps/1086940/header.jpg",
-      "capsuleUrl": "https://cdn.akamai.steamstatic.com/steam/apps/1086940/capsule_231x87.jpg",
+      "headerUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1086940/48a2fcbda8565bb45025e98fd8ebde8a7203f6a0/header.jpg?t=1777363040",
+      "capsuleUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1086940/3dd81008e9c385caf68152450c22353f6a8abec9/capsule_231x87.jpg?t=1777363040",
       "portraitUrl": "https://cdn.akamai.steamstatic.com/steam/apps/1086940/library_600x900.jpg",
       "playtimeForeverMinutes": 15136,
       "playtime2WeeksMinutes": 0,
@@ -154,8 +154,8 @@
     {
       "name": "Portal with RTX",
       "appId": 2012840,
-      "headerUrl": "https://cdn.akamai.steamstatic.com/steam/apps/2012840/header.jpg",
-      "capsuleUrl": "https://cdn.akamai.steamstatic.com/steam/apps/2012840/capsule_231x87.jpg",
+      "headerUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2012840/header.jpg?t=1747634461",
+      "capsuleUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2012840/capsule_231x87.jpg?t=1747634461",
       "portraitUrl": "https://cdn.akamai.steamstatic.com/steam/apps/2012840/library_600x900.jpg",
       "playtimeForeverMinutes": 167,
       "playtime2WeeksMinutes": 0,
@@ -177,17 +177,6 @@
     "minutesLast2Weeks": 629
   },
   "dailyLog": [
-    {
-      "date": "2026-05-19",
-      "totalMinutes": 105,
-      "games": [
-        {
-          "name": "DEATH STRANDING 2: ON THE BEACH",
-          "appId": 3280350,
-          "minutesPlayed": 105
-        }
-      ]
-    },
     {
       "date": "2026-05-17",
       "totalMinutes": 170,
