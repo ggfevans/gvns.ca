@@ -1,0 +1,49 @@
+name: 'Fetch Hardcover'
+description: 'Fetch reading data from Hardcover and write to JSON'
+author: 'ggfevans'
+
+branding:
+  icon: 'book-open'
+  color: 'purple'
+
+inputs:
+  token:
+    description: 'Hardcover API token'
+    required: true
+  user_id:
+    description: 'Hardcover user ID (positive integer)'
+    required: true
+  output_path:
+    description: 'Path to write the JSON file'
+    required: false
+    default: 'src/data/reading.json'
+  limit:
+    description: 'Maximum number of books to fetch'
+    required: false
+    default: '50'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Fetch reading data
+      shell: bash
+      run: bash "${{ github.action_path }}/scripts/fetch-reading.sh"
+      env:
+        HC_TOKEN: ${{ inputs.token }}
+        HC_USER_ID: ${{ inputs.user_id }}
+        HC_LIMIT: ${{ inputs.limit }}
+        HC_TMPDIR: ${{ runner.temp }}/hardcover-${{ github.run_id }}
+
+    - name: Build JSON
+      shell: bash
+      run: bash "${{ github.action_path }}/scripts/build-json.sh"
+      env:
+        HC_OUTPUT_PATH: ${{ inputs.output_path }}
+        HC_TMPDIR: ${{ runner.temp }}/hardcover-${{ github.run_id }}
+
+    - name: Cleanup
+      if: always()
+      shell: bash
+      run: rm -rf "$HC_TMPDIR"
+      env:
+        HC_TMPDIR: ${{ runner.temp }}/hardcover-${{ github.run_id }}

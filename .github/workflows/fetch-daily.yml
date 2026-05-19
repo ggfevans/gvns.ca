@@ -58,7 +58,7 @@ jobs:
       - id: reading
         name: Fetch Hardcover data
         continue-on-error: true
-        uses: ggfevans/hardcover-github-action@f68d44fb791e471a33a52f04f61052faa8654cb4 # v1
+        uses: ./.github/actions/fetch-hardcover
         with:
           token: ${{ secrets.HARDCOVER_TOKEN }}
           user_id: ${{ secrets.HARDCOVER_USER_ID }}
