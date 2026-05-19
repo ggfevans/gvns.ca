@@ -33,17 +33,18 @@ Based on the GVNS site spec. Dark-first, light-available. Each activity section 
 | Muted | `zinc-500` | `zinc-500` | Labels, metadata (same both modes) |
 | Subtle | `zinc-600` | `zinc-400` | Timestamps, tertiary |
 
-### Accent Colours (P1–P5)
+### Accent Colours (P1–P6)
 
 Each activity section has a dedicated colour. Maintain this consistently.
 
-| Name | Activity | Dark (500) | Light (600) | BG tint (50) |
-|------|----------|------------|-------------|--------------|
+| Name | Activity | Dark (500) | Light (600/700) | BG tint (50) |
+|------|----------|------------|-----------------|--------------|
 | **Violet** | Code, primary brand | `#8b5cf6` | `#7c3aed` | `#f5f3ff` |
 | **Rose** | Read | `#f43f5e` | `#e11d48` | `#fff1f2` |
 | **Emerald** | Listen | `#10b981` | `#059669` | `#ecfdf5` |
 | **Amber** | Write, Watch | `#f59e0b` | `#d97706` | `#fffbeb` |
 | **Sky** | Status indicators | `#0ea5e9` | `#0284c7` | `#f0f9ff` |
+| **Crimson** | Move (Whoop) | `#dc143c` | `#be123c` | `#fff1f2` |
 
 ### Colour Discipline
 
@@ -55,6 +56,7 @@ Each activity section has a dedicated colour. Maintain this consistently.
 > - Watch → Amber
 > - Write → Amber
 > - Status → Sky
+> - Move → Crimson
 
 ### Interactive States
 
