@@ -1,0 +1,127 @@
+---
+interface Props {
+  sport: string;
+  start: string;            // ISO timestamp
+  durationMinutes: number;
+  strain: number;
+  scoreState: string;        // SCORED / PENDING_SCORE / UNSCORABLE
+}
+
+const { sport, start, durationMinutes, strain, scoreState } = Astro.props;
+
+const startDate = new Date(start);
+const startIso = Number.isNaN(startDate.getTime()) ? '' : startDate.toISOString().slice(0, 10);
+const startLabel = Number.isNaN(startDate.getTime())
+  ? '—'
+  : startDate.toLocaleDateString('en-CA', {
+      day: '2-digit',
+      month: 'short',
+      year: 'numeric',
+    });
+
+const isScored = scoreState === 'SCORED';
+const strainLabel = isScored ? strain.toFixed(1) : 'pending';
+
+// Strain bar width is the 0-21 scale clamped to 0-100%. Hidden when
+// pending so we don't imply a value that doesn't exist.
+const strainBarWidth = isScored ? Math.min(100, Math.max(0, (strain / 21) * 100)) : 0;
+---
+
+<li class="gvns-workout-row">
+  <span class="gvns-workout-row__sport">{sport}</span>
+  <time class="gvns-workout-row__date" datetime={startIso}>{startLabel}</time>
+  <span class="gvns-workout-row__duration">{durationMinutes} min</span>
+  <span class="gvns-workout-row__strain" aria-label={isScored ? `Strain ${strainLabel} out of 21` : 'Pending score'}>
+    <span class="gvns-workout-row__strain-value">{strainLabel}</span>
+    {isScored && (
+      <span class="gvns-workout-row__strain-track" aria-hidden="true">
+        <span class="gvns-workout-row__strain-fill" style={`width: ${strainBarWidth}%`}></span>
+      </span>
+    )}
+  </span>
+</li>
+
+<style>
+  .gvns-workout-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 0.7fr) minmax(0, 1.2fr);
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-3) 0;
+    border-bottom: 1px solid var(--colour-border);
+    font-size: var(--text-sm);
+  }
+
+  .gvns-workout-row:last-child {
+    border-bottom: none;
+  }
+
+  .gvns-workout-row__sport {
+    color: var(--colour-text-primary);
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .gvns-workout-row__date {
+    color: var(--colour-text-secondary);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+  }
+
+  .gvns-workout-row__duration {
+    color: var(--colour-text-secondary);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .gvns-workout-row__strain {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--colour-text-primary);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .gvns-workout-row__strain-value {
+    font-weight: 500;
+    min-width: 2.5ch;
+    text-align: right;
+  }
+
+  .gvns-workout-row__strain-track {
+    flex: 1;
+    height: 4px;
+    background: var(--colour-bg-tertiary);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .gvns-workout-row__strain-fill {
+    display: block;
+    height: 100%;
+    background: var(--colour-p6-crimson);
+    border-radius: 2px;
+  }
+
+  @media (max-width: 640px) {
+    .gvns-workout-row {
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      grid-template-rows: auto auto;
+      row-gap: var(--space-1);
+    }
+    .gvns-workout-row__sport {
+      grid-column: 1 / -1;
+    }
+    .gvns-workout-row__date {
+      grid-column: 1;
+    }
+    .gvns-workout-row__duration {
+      grid-column: 2;
+      text-align: right;
+    }
+    .gvns-workout-row__strain {
+      grid-column: 1 / -1;
+    }
+  }
+</style>

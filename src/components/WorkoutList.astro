@@ -1,0 +1,74 @@
+---
+import WorkoutRow from '@components/WorkoutRow.astro';
+
+interface Workout {
+  id: string;
+  sport: string;
+  start: string;
+  durationMinutes: number;
+  strain: number;
+  scoreState: string;
+}
+
+interface Props {
+  title?: string;
+  workouts?: Workout[];
+  emptyMessage?: string;
+}
+
+const {
+  title = 'Recent workouts',
+  workouts = [],
+  emptyMessage = 'No sessions logged yet.',
+} = Astro.props;
+---
+
+<section class="gvns-workout-list" aria-labelledby="workout-list-title">
+  <h2 class="gvns-workout-list__title" id="workout-list-title">{title}</h2>
+  {workouts.length > 0 ? (
+    <ul class="gvns-workout-list__items" role="list">
+      {workouts.map((w) => (
+        <WorkoutRow
+          sport={w.sport}
+          start={w.start}
+          durationMinutes={w.durationMinutes}
+          strain={w.strain}
+          scoreState={w.scoreState}
+        />
+      ))}
+    </ul>
+  ) : (
+    <p class="gvns-workout-list__empty">{emptyMessage}</p>
+  )}
+</section>
+
+<style>
+  .gvns-workout-list {
+    margin-block: var(--space-8);
+  }
+
+  .gvns-workout-list__title {
+    font-size: var(--text-xl);
+    font-weight: 600;
+    color: var(--colour-text-primary);
+    margin: 0 0 var(--space-4) 0;
+  }
+
+  .gvns-workout-list__items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--colour-border);
+  }
+
+  .gvns-workout-list__empty {
+    color: var(--colour-text-muted);
+    font-size: var(--text-sm);
+    font-style: italic;
+    margin: 0;
+    padding: var(--space-4);
+    background: var(--colour-bg-secondary);
+    border: 1px dashed var(--colour-border);
+    border-radius: var(--radius-lg);
+  }
+</style>
