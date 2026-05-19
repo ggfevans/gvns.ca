@@ -1,0 +1,80 @@
+name: 'Fetch Trakt'
+description: 'Fetch watch history from Trakt and write to JSON with optional TMDB poster enrichment'
+branding:
+  icon: 'film'
+  color: 'red'
+
+inputs:
+  trakt_client_id:
+    description: 'Trakt API client ID (from https://trakt.tv/oauth/applications)'
+    required: true
+  trakt_username:
+    description: 'Trakt username to fetch history for'
+    required: true
+  tmdb_api_key:
+    description: 'TMDB API key for poster enrichment (optional)'
+    required: false
+    default: ''
+  output_path:
+    description: 'Path to write the JSON file'
+    required: false
+    default: 'src/data/watching.json'
+  history_limit:
+    description: 'Number of history items to fetch'
+    required: false
+    default: '30'
+
+outputs:
+  posters_status:
+    description: 'Status of poster enrichment (ok, skipped, partial, error)'
+    value: ${{ steps.posters.outputs.status }}
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Validate inputs
+      shell: bash
+      run: |
+        source "${{ github.action_path }}/scripts/validate-inputs.sh"
+        validate_required "trakt_client_id" "$TRAKT_CLIENT_ID"
+        validate_username "$TRAKT_USERNAME"
+        validate_positive_integer "history_limit" "$TRAKT_HISTORY_LIMIT"
+        validate_output_path "$TRAKT_OUTPUT_PATH"
+        validate_tmdb_api_key "$TMDB_API_KEY"
+      env:
+        TRAKT_CLIENT_ID: ${{ inputs.trakt_client_id }}
+        TRAKT_USERNAME: ${{ inputs.trakt_username }}
+        TRAKT_HISTORY_LIMIT: ${{ inputs.history_limit }}
+        TRAKT_OUTPUT_PATH: ${{ inputs.output_path }}
+        TMDB_API_KEY: ${{ inputs.tmdb_api_key }}
+
+    - name: Fetch Trakt history
+      shell: bash
+      run: bash "${{ github.action_path }}/scripts/fetch-history.sh"
+      env:
+        TRAKT_CLIENT_ID: ${{ inputs.trakt_client_id }}
+        TRAKT_USERNAME: ${{ inputs.trakt_username }}
+        TRAKT_HISTORY_LIMIT: ${{ inputs.history_limit }}
+        TRAKT_TMPDIR: ${{ runner.temp }}/trakt-${{ github.run_id }}
+
+    - name: Fetch TMDB posters
+      id: posters
+      shell: bash
+      run: bash "${{ github.action_path }}/scripts/fetch-posters.sh"
+      env:
+        TMDB_API_KEY: ${{ inputs.tmdb_api_key }}
+        TRAKT_TMPDIR: ${{ runner.temp }}/trakt-${{ github.run_id }}
+
+    - name: Build JSON
+      shell: bash
+      run: bash "${{ github.action_path }}/scripts/build-json.sh"
+      env:
+        TRAKT_OUTPUT_PATH: ${{ inputs.output_path }}
+        TRAKT_TMPDIR: ${{ runner.temp }}/trakt-${{ github.run_id }}
+
+    - name: Cleanup
+      if: always()
+      shell: bash
+      run: rm -rf "$TRAKT_TMPDIR"
+      env:
+        TRAKT_TMPDIR: ${{ runner.temp }}/trakt-${{ github.run_id }}
