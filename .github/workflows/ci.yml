@@ -24,3 +24,10 @@ jobs:
 
       - name: Build site
         run: npm run build
+
+      - name: Install action dependencies
+        run: npm ci
+        working-directory: .github/actions/fetch-github
+
+      - name: Run action tests
+        run: npm test
