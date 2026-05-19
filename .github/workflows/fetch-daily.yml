@@ -66,7 +66,7 @@ jobs:
       - id: watching
         name: Fetch Trakt data
         continue-on-error: true
-        uses: ggfevans/trakt-json-bourne@79005a28f68a285f6a4295781138423402ec6623
+        uses: ./.github/actions/fetch-trakt
         with:
           trakt_client_id: ${{ secrets.TRAKT_CLIENT_ID }}
           trakt_username: "gvns"
