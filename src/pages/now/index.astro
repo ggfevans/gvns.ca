@@ -9,6 +9,7 @@ import ListenWidget from "@components/widgets/ListenWidget.astro";
 import WatchWidget from "@components/widgets/WatchWidget.astro";
 import WriteWidget from "@components/widgets/WriteWidget.astro";
 import StatusWidget from "@components/widgets/StatusWidget.astro";
+import MoveWidget from "@components/widgets/MoveWidget.astro";
 import { Content as NowIntroContent, frontmatter as nowIntroFrontmatter } from "../../data/now-intro.md";
 
 const siteUrl = normalizeSiteUrl(Astro.site);
@@ -70,6 +71,9 @@ const breadcrumbJsonLd = toJsonLd(
                 </div>
                 <div class="gvns-now__cell">
                     <WriteWidget />
+                </div>
+                <div class="gvns-now__cell">
+                    <MoveWidget />
                 </div>
                 <div class="gvns-now__cell">
                     <WatchWidget />
