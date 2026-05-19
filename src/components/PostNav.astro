@@ -1,0 +1,120 @@
+---
+import { formatDate } from '@utils/date';
+
+export interface AdjacentPost {
+  slug: string;
+  title: string;
+  pubDate: Date;
+}
+
+interface Props {
+  prev?: AdjacentPost;
+  next?: AdjacentPost;
+}
+
+const { prev, next } = Astro.props;
+const hasNav = Boolean(prev || next);
+---
+
+{hasNav && (
+  <nav class="gvns-post-nav" aria-label="Post navigation">
+    {prev ? (
+      <a class="gvns-post-nav-card gvns-post-nav-card--prev" href={`/posts/${prev.slug}/`} rel="prev">
+        <span class="gvns-post-nav-label">&larr; Previous</span>
+        <span class="gvns-post-nav-title">{prev.title}</span>
+        <time class="gvns-post-nav-date" datetime={prev.pubDate.toISOString()}>
+          {formatDate(prev.pubDate)}
+        </time>
+      </a>
+    ) : (
+      <span class="gvns-post-nav-spacer" aria-hidden="true"></span>
+    )}
+
+    {next ? (
+      <a class="gvns-post-nav-card gvns-post-nav-card--next" href={`/posts/${next.slug}/`} rel="next">
+        <span class="gvns-post-nav-label">Next &rarr;</span>
+        <span class="gvns-post-nav-title">{next.title}</span>
+        <time class="gvns-post-nav-date" datetime={next.pubDate.toISOString()}>
+          {formatDate(next.pubDate)}
+        </time>
+      </a>
+    ) : (
+      <span class="gvns-post-nav-spacer" aria-hidden="true"></span>
+    )}
+  </nav>
+)}
+
+<style>
+  .gvns-post-nav {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--colour-border);
+  }
+
+  @media (min-width: 640px) {
+    .gvns-post-nav {
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+  }
+
+  .gvns-post-nav-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--colour-border);
+    border-radius: 8px;
+    background: var(--colour-bg-secondary);
+    color: var(--colour-text-primary);
+    text-decoration: none;
+    transition: border-color var(--transition-fast), background-color var(--transition-fast);
+  }
+
+  .gvns-post-nav-card:hover {
+    border-color: var(--colour-accent-primary);
+    background: var(--colour-bg-tertiary);
+  }
+
+  .gvns-post-nav-card:focus-visible {
+    outline: 2px solid var(--colour-accent-primary);
+    outline-offset: 2px;
+  }
+
+  .gvns-post-nav-card--next {
+    text-align: right;
+  }
+
+  .gvns-post-nav-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--colour-accent-primary);
+  }
+
+  .gvns-post-nav-title {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--colour-text-primary);
+    line-height: 1.35;
+  }
+
+  .gvns-post-nav-date {
+    font-size: 0.75rem;
+    color: var(--colour-text-secondary);
+  }
+
+  .gvns-post-nav-spacer {
+    display: none;
+  }
+
+  @media (min-width: 640px) {
+    .gvns-post-nav-spacer {
+      display: block;
+    }
+  }
+</style>
