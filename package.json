@@ -9,7 +9,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "wikilinks": "node scripts/wikilink-convert.mjs",
-    "syndicate": "node scripts/syndicate.mjs"
+    "syndicate": "node scripts/syndicate.mjs",
+    "test": "cd .github/actions/fetch-github && npm test"
   },
   "engines": {
     "node": ">=20"

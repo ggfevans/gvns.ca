@@ -38,7 +38,7 @@ jobs:
       - id: github
         name: Fetch GitHub activity
         continue-on-error: true
-        uses: ggfevans/github-json-bourne@13123bb406351c007d686820a3977624d833b294
+        uses: ./.github/actions/fetch-github
         with:
           username: ${{ github.repository_owner }}
           token: ${{ secrets.GH_PAT }}

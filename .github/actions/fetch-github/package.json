@@ -1,0 +1,14 @@
+{
+  "name": "fetch-github-action",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test src/__tests__/*.test.js"
+  },
+  "dependencies": {
+    "@actions/core": "^3.0.0",
+    "@octokit/graphql": "^8.2.1",
+    "@octokit/rest": "^21.1.1"
+  }
+}
