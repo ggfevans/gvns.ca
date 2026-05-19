@@ -47,14 +47,13 @@ jobs:
       - id: listening
         name: Fetch ListenBrainz data
         continue-on-error: true
-        uses: ggfevans/listenbrainz-json-bourne@4fb09726f8311185cc651cb41b480a6c7424009d # v3.1.0
+        uses: ./.github/actions/fetch-listenbrainz
         with:
           username: ${{ secrets.LISTENBRAINZ_USERNAME }}
           output_path: src/data/listening.json
           stats_range: this_month
           top_count: "10"
           recent_count: "10"
-          skip_commit: "true"
 
       - id: reading
         name: Fetch Hardcover data
