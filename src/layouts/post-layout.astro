@@ -22,21 +22,12 @@ interface Props {
     post: CollectionEntry<"posts">;
     prev?: AdjacentPost;
     next?: AdjacentPost;
+    showToc?: boolean;
 }
 
-const { post, prev, next } = Astro.props;
+const { post, prev, next, showToc = false } = Astro.props;
 const { title, description, pubDate, updatedDate, tags, heroImage, heroImageAlt, syndication } = post.data;
-const body = post.body ?? '';
-const readingTime = getReadingTime(body);
-
-// Count rendered h2/h3 headings in the markdown so we can mirror
-// TableOfContents.svelte's `headings.length >= 3` threshold at render time.
-// Strip fenced code blocks first so `##` inside code samples is ignored.
-const headingMatches = body
-    .replace(/```[\s\S]*?```/g, '')
-    .match(/^#{2,3}\s/gm);
-const headingCount = headingMatches ? headingMatches.length : 0;
-const showToc = headingCount >= 3;
+const readingTime = getReadingTime(post.body ?? '');
 
 const siteUrl = normalizeSiteUrl(Astro.site);
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();

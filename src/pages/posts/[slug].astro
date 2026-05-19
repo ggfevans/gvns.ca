@@ -37,9 +37,16 @@ export async function getStaticPaths() {
 }
 
 const { post, prev, next } = Astro.props;
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
+
+// Mirror TableOfContents.svelte's `headings.length >= 3` threshold using the
+// same rendered-heading source the TOC component reads from the DOM. Using
+// `render()`'s headings (sourced from the markdown processor) avoids drift
+// between layout decisions and TOC rendering on non-ATX heading syntax.
+const tocHeadings = headings.filter((h) => h.depth === 2 || h.depth === 3);
+const showToc = tocHeadings.length >= 3;
 ---
 
-<PostLayout post={post} prev={prev} next={next}>
+<PostLayout post={post} prev={prev} next={next} showToc={showToc}>
   <Content />
 </PostLayout>
