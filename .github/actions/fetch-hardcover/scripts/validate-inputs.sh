@@ -32,7 +32,7 @@ validate_output_path() {
   elif resolved="$(python3 -c "import os,sys; print(os.path.realpath(sys.argv[1]))" "$1" 2>/dev/null)"; then
     :
   else
-    resolved="$(cd "$(dirname "$1")" 2>/dev/null && pwd)/$(basename "$1")"
+    resolved="$(cd "$(dirname "$1")" 2>/dev/null && pwd -P)/$(basename "$1")"
   fi
   if [ -n "${GITHUB_WORKSPACE:-}" ]; then
     if [[ "$resolved" != "${GITHUB_WORKSPACE}"/* ]]; then

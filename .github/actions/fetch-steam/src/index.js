@@ -201,8 +201,15 @@ async function run() {
     const steamId = core.getInput('steam_id', { required: true });
     const outputPath = core.getInput('output_path') || 'src/data/gaming.json';
     const includeFree = core.getInput('include_free_games') !== 'false';
-    const recentCount = parseInt(core.getInput('recent_count') || '10', 10);
-    const dailyLogDays = parseInt(core.getInput('daily_log_days') || '90', 10);
+    const parsePositiveInt = (name, raw, max) => {
+      const n = parseInt(raw, 10);
+      if (!Number.isFinite(n) || n < 1 || (max && n > max)) {
+        throw new Error(`Invalid ${name}: '${raw}' (expected positive integer${max ? ` <= ${max}` : ''})`);
+      }
+      return n;
+    };
+    const recentCount = parsePositiveInt('recent_count', core.getInput('recent_count') || '10', 50);
+    const dailyLogDays = parsePositiveInt('daily_log_days', core.getInput('daily_log_days') || '90');
 
     core.info(`Fetching Steam data for ID ${steamId}...`);
 
