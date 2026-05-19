@@ -1,0 +1,63 @@
+name: 'Fetch Steam'
+description: 'Fetch Steam gameplay data — playtime snapshots, daily deltas, and recently played games with artwork'
+author: 'ggfevans'
+
+branding:
+  icon: 'play'
+  color: 'blue'
+
+inputs:
+  steam_api_key:
+    description: 'Steam Web API key (https://steamcommunity.com/dev/apikey)'
+    required: true
+  steam_id:
+    description: 'Steam 64-bit numeric ID'
+    required: true
+  output_path:
+    description: 'Path to write the output JSON file'
+    required: false
+    default: 'src/data/gaming.json'
+  include_free_games:
+    description: 'Include free-to-play games in owned games list'
+    required: false
+    default: 'true'
+  recent_count:
+    description: 'Number of recently played games to include'
+    required: false
+    default: '10'
+  daily_log_days:
+    description: 'Number of days of daily playtime history to retain'
+    required: false
+    default: '90'
+
+outputs:
+  changes_detected:
+    description: 'Whether any playtime changes were detected since last run'
+    value: ${{ steps.run-fetcher.outputs.changes_detected }}
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '25'
+
+    - name: Install action dependencies
+      shell: bash
+      working-directory: ${{ github.action_path }}
+      run: npm ci
+
+    - name: Run fetcher
+      id: run-fetcher
+      shell: bash
+      env:
+        # All inputs use POSIX-legal underscores, so @actions/core.getInput()
+        # reads INPUT_* env vars directly — no entrypoint shim needed.
+        INPUT_STEAM_API_KEY: ${{ inputs.steam_api_key }}
+        INPUT_STEAM_ID: ${{ inputs.steam_id }}
+        INPUT_OUTPUT_PATH: ${{ inputs.output_path }}
+        INPUT_INCLUDE_FREE_GAMES: ${{ inputs.include_free_games }}
+        INPUT_RECENT_COUNT: ${{ inputs.recent_count }}
+        INPUT_DAILY_LOG_DAYS: ${{ inputs.daily_log_days }}
+      run: node ${{ github.action_path }}/src/index.js

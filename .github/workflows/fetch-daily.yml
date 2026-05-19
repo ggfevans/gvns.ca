@@ -26,14 +26,13 @@ jobs:
       - id: gaming
         name: Fetch Steam data
         continue-on-error: true
-        uses: ggfevans/steam-json-bourne@16a0ad5ed045d350a175d124c5100ff14c388a6a # main
+        uses: ./.github/actions/fetch-steam
         with:
           steam_api_key: ${{ secrets.STEAM_API_KEY }}
           steam_id: "76561197962113454"
           output_path: src/data/gaming.json
           recent_count: "10"
           daily_log_days: "90"
-          skip_commit: "true"
 
       - id: github
         name: Fetch GitHub activity
