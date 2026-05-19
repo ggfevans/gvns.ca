@@ -52,6 +52,11 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
         </p>
       </section>
     )}
+    {posts.length <= 1 && (
+      <section class="gvns-home__threads-solo" aria-label="Recent Threads">
+        <ThreadsWidget compact />
+      </section>
+    )}
     <section class="gvns-activity-widgets" aria-label="Current activity">
       <div class="gvns-activity-grid">
         <ReadWidget compact />
@@ -93,6 +98,10 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
     flex-direction: column;
     gap: var(--space-6);
     min-width: 0;
+  }
+
+  .gvns-home__threads-solo {
+    max-width: 24rem;
   }
 
   .gvns-home__posts--empty {
