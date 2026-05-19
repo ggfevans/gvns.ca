@@ -35,8 +35,10 @@ inputs:
 outputs:
   json-path:
     description: 'Path to the generated JSON file'
+    value: ${{ steps.run-fetcher.outputs.json-path }}
   last-updated:
     description: 'ISO timestamp of when data was fetched'
+    value: ${{ steps.run-fetcher.outputs.last-updated }}
 
 runs:
   using: 'composite'
@@ -52,12 +54,16 @@ runs:
       run: npm ci
 
     - name: Run fetcher
+      id: run-fetcher
       shell: bash
       env:
+        # POSIX-legal env-var names only (bash + GitHub Actions friendly).
+        # entrypoint.js then maps the underscore-named values to the hyphenated
+        # names @actions/core.getInput expects, without modifying index.js.
         INPUT_USERNAME: ${{ inputs.username }}
         INPUT_TOKEN: ${{ inputs.token }}
         INPUT_OUTPUT_PATH: ${{ inputs.output-path }}
         INPUT_MAX_REPOS: ${{ inputs.max-repos }}
         INPUT_MAX_ACTIVITIES: ${{ inputs.max-activities }}
         INPUT_MAX_PAGES: ${{ inputs.max-pages }}
-      run: node ${{ github.action_path }}/src/index.js
+      run: node ${{ github.action_path }}/src/entrypoint.js
