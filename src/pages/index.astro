@@ -10,6 +10,7 @@ import ListenWidget from '@components/widgets/ListenWidget.astro';
 import WatchWidget from '@components/widgets/WatchWidget.astro';
 import CodeWidget from '@components/widgets/CodeWidget.astro';
 import GameWidget from '@components/widgets/GameWidget.astro';
+import ThreadsWidget from '@components/widgets/ThreadsWidget.astro';
 import { websiteSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
 import { SITE_BIO } from '@utils/site';
 import '@styles/widgets.css';
@@ -57,6 +58,7 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
         <WatchWidget compact />
         <CodeWidget compact />
         <GameWidget compact />
+        <ThreadsWidget compact />
       </div>
     </section>
   </main>

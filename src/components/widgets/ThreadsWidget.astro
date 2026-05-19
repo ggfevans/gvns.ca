@@ -1,0 +1,98 @@
+---
+import { relativeTime, truncate } from '@utils/format';
+
+interface Props {
+  compact?: boolean;
+}
+
+const { compact = false } = Astro.props;
+
+interface ThreadsPost {
+  id: string;
+  text: string;
+  permalink: string;
+  timestamp: string;
+  mediaType: string;
+  isQuotePost: boolean;
+}
+
+interface ThreadsData {
+  lastUpdated: string | null;
+  posts: ThreadsPost[];
+}
+
+let data: ThreadsData = { lastUpdated: null, posts: [] };
+try {
+  const imported = (await import('../../data/threads.json')).default as Partial<ThreadsData>;
+  data = {
+    lastUpdated: imported.lastUpdated ?? null,
+    posts: imported.posts ?? [],
+  };
+} catch (e) {
+  if (import.meta.env.DEV) console.error('ThreadsWidget: failed to load data', e);
+}
+
+const posts = data.posts
+  .filter(p => !p.isQuotePost && p.mediaType !== 'REPOST_FACADE')
+  .slice(0, 3);
+const mediaBadge: Record<string, string> = {
+  IMAGE: '[image]',
+  VIDEO: '[video]',
+  CAROUSEL_ALBUM: '[album]',
+  AUDIO: '[audio]',
+};
+---
+
+<article class={`gvns-widget-compact gvns-widget-compact--threads ${!compact ? 'gvns-widget-full' : ''}`}>
+  <div class="gvns-widget-compact__label">Recent Threads</div>
+  
+  {posts.length === 0 ? (
+    <div class="gvns-widget-compact__empty">Quiet on Threads.</div>
+  ) : (
+    <div class="gvns-widget-compact__content">
+      {posts.map((p) => (
+        <a href={p.permalink} target="_blank" rel="noopener noreferrer" class="gvns-widget-compact__body">
+          <div class="gvns-widget-compact__info">
+            <p class="gvns-widget-compact__title">{truncate(p.text || '', 140)}</p>
+            <div class="gvns-widget-compact__meta">
+              {mediaBadge[p.mediaType] && <span class="gvns-widget-compact__badge">{mediaBadge[p.mediaType]}</span>}
+              <span class="gvns-widget-compact__timestamp">{relativeTime(p.timestamp)}</span>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  )}
+  
+  <a 
+    class="gvns-widget-compact__footer" 
+    href="https://www.threads.net/@ggfevans" 
+    target="_blank" 
+    rel="noopener noreferrer"
+  >
+    See more on Threads &rarr;
+  </a>
+</article>
+
+<style>
+  .gvns-widget-compact--threads {
+    border-top: var(--border-accent) solid var(--colour-p5-sky);
+  }
+  
+  .gvns-widget-compact__meta {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    font-size: 0.75rem;
+    opacity: 0.7;
+  }
+
+  .gvns-widget-compact__badge {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    padding: 0 0.25rem;
+    border-radius: 0.125rem;
+    background: var(--colour-bg-tertiary);
+    color: var(--colour-text-secondary);
+  }
+</style>
