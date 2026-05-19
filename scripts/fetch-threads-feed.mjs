@@ -49,7 +49,8 @@ try {
 
   // 3. Compare full rendered ID list against existing to decide short-circuit.
   const renderedIds = posts.map(p => p.id);
-  const existingIds = (existing.posts ?? []).map(p => p.id);
+  const existingPosts = Array.isArray(existing.posts) ? existing.posts : [];
+  const existingIds = existingPosts.map(p => String(p?.id ?? ''));
   const unchanged =
     renderedIds.length === existingIds.length &&
     renderedIds.every((id, i) => id === existingIds[i]);
