@@ -1,0 +1,157 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# fetch-stats.sh
+# Fetches top artists, recordings, releases, and listening activity from the ListenBrainz stats API.
+# This is NOT on the critical path — individual stat failures are non-fatal.
+#
+# Required env vars:
+#   LB_USERNAME    - ListenBrainz username
+#   LB_STATS_RANGE - Stats time range (e.g. this_week, this_month, this_year, all_time)
+#   LB_TOP_COUNT   - Number of top items to fetch
+#   LB_TMPDIR      - Temporary directory for intermediate files
+
+API_BASE="https://api.listenbrainz.org/1/stats/user"
+
+# ---------------------------------------------------------------------------
+# Validate required environment variables
+# ---------------------------------------------------------------------------
+: "${LB_USERNAME:?must be set}"
+: "${LB_STATS_RANGE:?must be set}"
+: "${LB_TOP_COUNT:?must be set}"
+: "${LB_TMPDIR:?must be set}"
+
+# shellcheck source=scripts/validate-inputs.sh
+source "$(dirname "$0")/validate-inputs.sh"
+# shellcheck source=scripts/http.sh
+source "$(dirname "$0")/http.sh"
+validate_username "$LB_USERNAME"
+validate_stats_range "$LB_STATS_RANGE"
+validate_positive_integer "top_count" "$LB_TOP_COUNT"
+
+# ---------------------------------------------------------------------------
+# Create temp directory if it doesn't exist
+# ---------------------------------------------------------------------------
+mkdir -p "$LB_TMPDIR"
+
+# ---------------------------------------------------------------------------
+# fetch_stat: Fetch a single stat type from the API
+#
+# Arguments:
+#   $1 - endpoint suffix (e.g. "artists")
+#   $2 - response array key (e.g. "artists")
+#   $3 - jq filter for reshaping items
+#   $4 - output filename base (e.g. "artists")
+#   $5 - total count key (e.g. "total_artist_count")
+# ---------------------------------------------------------------------------
+fetch_stat() {
+  local endpoint="$1"
+  local array_key="$2"
+  local jq_filter="$3"
+  local output_name="$4"
+  local total_key="$5"
+
+  local url="${API_BASE}/${LB_USERNAME}/${endpoint}?range=${LB_STATS_RANGE}&count=${LB_TOP_COUNT}"
+  local tmp_file="$LB_TMPDIR/${output_name}-response.tmp"
+
+  echo "Fetching ${output_name} for user: ${LB_USERNAME} (range: ${LB_STATS_RANGE}, count: ${LB_TOP_COUNT})"
+
+  local http_status
+  http_status=$(fetch_url "$url" "$tmp_file")
+
+  if [ "$http_status" -eq 200 ]; then
+    if jq empty "$tmp_file" 2>/dev/null && \
+       jq "[.payload.${array_key}[] | ${jq_filter}]" "$tmp_file" > "$LB_TMPDIR/${output_name}.json" 2>/dev/null; then
+      echo "ok" > "$LB_TMPDIR/${output_name}-status.txt"
+      jq ".payload.${total_key}" "$tmp_file" > "$LB_TMPDIR/${output_name}-total.txt" 2>/dev/null || echo "null" > "$LB_TMPDIR/${output_name}-total.txt"
+
+      # Capture the time window for this stats range (used to filter listening activity to the same range)
+      jq '.payload.from_ts // null' "$tmp_file" > "$LB_TMPDIR/stats-from-ts.json" 2>/dev/null || true
+      jq '.payload.to_ts // null' "$tmp_file" > "$LB_TMPDIR/stats-to-ts.json" 2>/dev/null || true
+
+      local count
+      count=$(jq length "$LB_TMPDIR/${output_name}.json")
+      echo "Wrote ${count} ${output_name} to ${LB_TMPDIR}/${output_name}.json"
+    else
+      echo "[]" > "$LB_TMPDIR/${output_name}.json"
+      echo "error" > "$LB_TMPDIR/${output_name}-status.txt"
+      echo "null" > "$LB_TMPDIR/${output_name}-total.txt"
+      echo "Warning: Failed to parse ${output_name} response as expected JSON" >&2
+    fi
+  elif [ "$http_status" -eq 204 ]; then
+    echo "[]" > "$LB_TMPDIR/${output_name}.json"
+    echo "no_data" > "$LB_TMPDIR/${output_name}-status.txt"
+    echo "null" > "$LB_TMPDIR/${output_name}-total.txt"
+    echo "No ${output_name} data available (HTTP 204)" >&2
+  else
+    echo "[]" > "$LB_TMPDIR/${output_name}.json"
+    echo "error" > "$LB_TMPDIR/${output_name}-status.txt"
+    echo "null" > "$LB_TMPDIR/${output_name}-total.txt"
+    echo "Warning: ListenBrainz API returned HTTP ${http_status} for ${output_name} endpoint" >&2
+  fi
+
+  rm -f "$tmp_file"
+}
+
+# ---------------------------------------------------------------------------
+# fetch_listening_activity: Fetch listening activity and compute a range listen count
+# ---------------------------------------------------------------------------
+fetch_listening_activity() {
+  local url="${API_BASE}/${LB_USERNAME}/listening-activity?range=${LB_STATS_RANGE}"
+  local tmp_file="$LB_TMPDIR/listening-activity-response.tmp"
+
+  echo "Fetching listening activity for user: ${LB_USERNAME} (range: ${LB_STATS_RANGE})"
+
+  local http_status
+  http_status=$(fetch_url "$url" "$tmp_file")
+
+  if [ "$http_status" -eq 200 ]; then
+    local from_ts
+    local to_ts
+    from_ts="$(cat "$LB_TMPDIR/stats-from-ts.json" 2>/dev/null || echo null)"
+    to_ts="$(cat "$LB_TMPDIR/stats-to-ts.json" 2>/dev/null || echo null)"
+
+    if jq empty "$tmp_file" 2>/dev/null && \
+       jq --argjson fromTs "$from_ts" --argjson toTs "$to_ts" '
+          if ($fromTs == null or $toTs == null) then
+            [.payload.listening_activity[]?.listen_count] | add // 0
+          else
+            [.payload.listening_activity[]? | select(.from_ts >= $fromTs and .to_ts < $toTs) | .listen_count] | add // 0
+          end
+        ' "$tmp_file" > "$LB_TMPDIR/range-listen-count.json" 2>/dev/null; then
+      local count
+      count=$(cat "$LB_TMPDIR/range-listen-count.json")
+      echo "Range listen count: ${count}"
+    else
+      echo "null" > "$LB_TMPDIR/range-listen-count.json"
+      echo "Warning: Failed to parse listening-activity response as expected JSON" >&2
+    fi
+  elif [ "$http_status" -eq 204 ]; then
+    echo "null" > "$LB_TMPDIR/range-listen-count.json"
+    echo "No listening activity data available (HTTP 204)" >&2
+  else
+    echo "null" > "$LB_TMPDIR/range-listen-count.json"
+    echo "Warning: ListenBrainz API returned HTTP ${http_status} for listening-activity endpoint" >&2
+  fi
+
+  rm -f "$tmp_file"
+}
+
+# ---------------------------------------------------------------------------
+# Fetch each stat type
+# ---------------------------------------------------------------------------
+fetch_stat "artists" "artists" \
+  '{name: .artist_name, listenCount: .listen_count, artistMbid: (.artist_mbid // null)}' \
+  "artists" "total_artist_count"
+
+fetch_stat "recordings" "recordings" \
+  '{track: .track_name, artist: .artist_name, listenCount: .listen_count, recordingMbid: (.recording_mbid // null), caaReleaseMbid: (.caa_release_mbid // null), caaId: (.caa_id // null)}' \
+  "recordings" "total_recording_count"
+
+fetch_stat "releases" "releases" \
+  '{album: .release_name, artist: .artist_name, listenCount: .listen_count, caaReleaseMbid: (.caa_release_mbid // null), caaId: (.caa_id // null)}' \
+  "releases" "total_release_count"
+
+fetch_listening_activity
+
+echo "fetch-stats.sh completed successfully"
