@@ -4,6 +4,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import ReadingProgress from "@components/ReadingProgress.svelte";
 import TableOfContents from "@components/TableOfContents.svelte";
 import TagList from "@components/TagList.astro";
+import PostNav, { type AdjacentPost } from "@components/PostNav.astro";
 import { formatDate } from "@utils/date";
 import { getReadingTime } from "@utils/reading-time";
 import {
@@ -19,11 +20,23 @@ import { Image } from "astro:assets";
 
 interface Props {
     post: CollectionEntry<"posts">;
+    prev?: AdjacentPost;
+    next?: AdjacentPost;
 }
 
-const { post } = Astro.props;
+const { post, prev, next } = Astro.props;
 const { title, description, pubDate, updatedDate, tags, heroImage, heroImageAlt, syndication } = post.data;
-const readingTime = getReadingTime(post.body ?? '');
+const body = post.body ?? '';
+const readingTime = getReadingTime(body);
+
+// Count rendered h2/h3 headings in the markdown so we can mirror
+// TableOfContents.svelte's `headings.length >= 3` threshold at render time.
+// Strip fenced code blocks first so `##` inside code samples is ignored.
+const headingMatches = body
+    .replace(/```[\s\S]*?```/g, '')
+    .match(/^#{2,3}\s/gm);
+const headingCount = headingMatches ? headingMatches.length : 0;
+const showToc = headingCount >= 3;
 
 const siteUrl = normalizeSiteUrl(Astro.site);
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
@@ -89,23 +102,22 @@ const breadcrumbJsonLd = toJsonLd(
                     <time datetime={pubDate.toISOString()}>
                         {formatDate(pubDate)}
                     </time>
-                    {
-                        updatedDate && (
-                            <span class="gvns-post-updated">
-                                (Updated:{" "}
-                                <time datetime={updatedDate.toISOString()}>
-                                    {formatDate(updatedDate)}
-                                </time>
-                                )
-                            </span>
-                        )
-                    }
                     <span class="gvns-post-reading-time">{readingTime} min read</span>
                 </div>
+                {
+                    updatedDate && (
+                        <p class="gvns-post-updated">
+                            Last updated{' '}
+                            <time datetime={updatedDate.toISOString()}>
+                                {formatDate(updatedDate)}
+                            </time>
+                        </p>
+                    )
+                }
                 <TagList tags={tags} />
             </header>
 
-            <div class="gvns-post-shell">
+            <div class:list={["gvns-post-shell", { "gvns-post-shell--with-toc": showToc }]}>
                 <div class="gvns-post-content">
                     <div class="prose">
                         <slot />
@@ -117,15 +129,18 @@ const breadcrumbJsonLd = toJsonLd(
                         postTitle={title}
                     />
                     <Comments post={post} />
+                    <PostNav prev={prev} next={next} />
                     <footer class="gvns-post-footer">
-                        <a href="/posts">&larr; Back to posts</a>
+                        <a href="/posts">&larr; Back to all posts</a>
                     </footer>
                 </div>
-                <aside class="gvns-post-sidebar" aria-label="Article navigation">
-                    <div class="gvns-post-sidebar-sticky">
-                        <TableOfContents client:idle />
-                    </div>
-                </aside>
+                {showToc && (
+                    <aside class="gvns-post-sidebar" aria-label="Article navigation">
+                        <div class="gvns-post-sidebar-sticky">
+                            <TableOfContents client:idle />
+                        </div>
+                    </aside>
+                )}
             </div>
         </article>
     </main>
@@ -151,8 +166,8 @@ const breadcrumbJsonLd = toJsonLd(
     }
 
     .gvns-post-header {
-        margin: 0 auto 2rem;
-        padding-bottom: 1.5rem;
+        margin: 0 auto 1.5rem;
+        padding-bottom: 1rem;
         border-bottom: 1px solid var(--colour-border);
         max-width: var(--width-content);
     }
@@ -170,7 +185,7 @@ const breadcrumbJsonLd = toJsonLd(
         gap: 0.5rem 1rem;
         font-size: 0.875rem;
         color: var(--colour-text-secondary);
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
     }
 
     .gvns-post-reading-time::before {
@@ -179,46 +194,55 @@ const breadcrumbJsonLd = toJsonLd(
     }
 
     .gvns-post-updated {
+        font-size: 0.8125rem;
         font-style: italic;
+        color: var(--colour-text-secondary);
+        margin: 0 0 0.75rem;
     }
 
-    /* Shell: single column < 1024px, content + sticky sidebar at >= 1024px */
+    /* Shell: single content track by default; 2-col TOC grid only when showToc. */
     .gvns-post-shell {
         display: grid;
         grid-template-columns: minmax(0, 1fr);
-        grid-template-areas:
-            "sidebar"
-            "content";
         gap: 2rem;
     }
 
+    .gvns-post-shell--with-toc {
+        grid-template-areas:
+            "sidebar"
+            "content";
+    }
+
     .gvns-post-content {
-        grid-area: content;
         min-width: 0;
         max-width: var(--width-content);
         margin-inline: auto;
         width: 100%;
     }
 
-    .gvns-post-sidebar {
+    .gvns-post-shell--with-toc .gvns-post-content {
+        grid-area: content;
+    }
+
+    .gvns-post-shell--with-toc .gvns-post-sidebar {
         grid-area: sidebar;
         min-width: 0;
     }
 
     @media (min-width: 1024px) {
-        .gvns-post-shell {
+        .gvns-post-shell--with-toc {
             grid-template-columns: minmax(0, 1fr) 240px;
             grid-template-areas: "content sidebar";
             gap: 3rem;
             align-items: start;
         }
 
-        /* Content stays anchored inside its grid column; 65ch cap holds. */
-        .gvns-post-content {
+        /* Content anchors left of its grid column when paired with the sidebar. */
+        .gvns-post-shell--with-toc .gvns-post-content {
             margin-inline: 0;
         }
 
-        .gvns-post-sidebar-sticky {
+        .gvns-post-shell--with-toc .gvns-post-sidebar-sticky {
             position: sticky;
             top: 5rem;
             max-height: calc(100vh - 6rem);
@@ -227,15 +251,15 @@ const breadcrumbJsonLd = toJsonLd(
     }
 
     .gvns-post-footer {
-        margin-top: 3rem;
-        padding-top: 1.5rem;
-        border-top: 1px solid var(--colour-border);
+        margin-top: 2rem;
+        padding-top: 1rem;
     }
 
     .gvns-post-footer a {
         color: var(--colour-accent-primary);
         text-decoration: none;
         transition: color var(--transition-fast);
+        font-size: 0.875rem;
     }
 
     .gvns-post-footer a:hover {

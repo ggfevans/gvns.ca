@@ -4,24 +4,42 @@ export const prerender = true;
 import { getCollection, render } from 'astro:content';
 import PostLayout from '@layouts/post-layout.astro';
 import { getPostSlug } from '@utils/content';
+import type { AdjacentPost } from '@components/PostNav.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts', ({ data }) => {
     return import.meta.env.PROD ? !data.draft : true;
   });
 
-  return posts.map((post) => {
+  const sorted = [...posts].sort(
+    (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+  );
+
+  const toAdjacent = (entry: (typeof sorted)[number]): AdjacentPost => ({
+    slug: getPostSlug(entry.id),
+    title: entry.data.title,
+    pubDate: entry.data.pubDate,
+  });
+
+  return sorted.map((post, index) => {
+    const newer = index > 0 ? sorted[index - 1] : undefined;
+    const older = index < sorted.length - 1 ? sorted[index + 1] : undefined;
+
     return {
       params: { slug: getPostSlug(post.id) },
-      props: { post },
+      props: {
+        post,
+        prev: older ? toAdjacent(older) : undefined,
+        next: newer ? toAdjacent(newer) : undefined,
+      },
     };
   });
 }
 
-const { post } = Astro.props;
+const { post, prev, next } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<PostLayout post={post}>
+<PostLayout post={post} prev={prev} next={next}>
   <Content />
 </PostLayout>
