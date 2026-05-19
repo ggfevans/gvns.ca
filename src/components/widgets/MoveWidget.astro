@@ -1,0 +1,102 @@
+---
+import { relativeTime } from '@utils/format';
+
+interface Props { compact?: boolean; }
+const { compact = false } = Astro.props;
+
+interface WorkoutEntry {
+  id: string;
+  sport: string;
+  sportRaw: string;
+  start: string;
+  end: string;
+  durationMinutes: number;
+  strain: number;
+  scoreState: 'SCORED' | 'PENDING_SCORE' | 'UNSCORABLE' | string;
+}
+
+interface WhoopData {
+  lastUpdated: string | null;
+  profile?: { profileUrl?: string };
+  recentWorkouts: WorkoutEntry[];
+}
+
+let data: WhoopData = { lastUpdated: null, recentWorkouts: [] };
+try {
+  const imported = (await import('../../data/whoop.json')).default as Partial<WhoopData>;
+  data = {
+    lastUpdated: imported.lastUpdated ?? null,
+    profile: imported.profile,
+    recentWorkouts: Array.isArray(imported.recentWorkouts) ? imported.recentWorkouts : [],
+  };
+} catch (e) {
+  if (import.meta.env.DEV) console.error('Failed to load Whoop data for MoveWidget:', e);
+}
+
+const latest = data.recentWorkouts[0] ?? null;
+const isScored = latest?.scoreState === 'SCORED';
+const strainText = latest && isScored ? `strain ${latest.strain.toFixed(1)}` : '(pending score)';
+const durationText = latest ? `${latest.durationMinutes} min` : '';
+const startedAt = latest?.start && !Number.isNaN(new Date(latest.start).getTime())
+  ? latest.start
+  : null;
+---
+
+{compact ? (
+  <article class="gvns-widget-compact gvns-widget-compact--move">
+    <div class="gvns-widget-compact__label">Move</div>
+    {latest ? (
+      <a href="/move" class="gvns-widget-compact__body gvns-widget-compact__body--stack" aria-label={`Latest workout: ${latest.sport}, ${durationText}, ${strainText}`}>
+        <p class="gvns-widget-compact__title">{latest.sport}</p>
+        <p class="gvns-widget-compact__subtitle">{durationText} · {strainText}</p>
+      </a>
+    ) : (
+      <p class="gvns-widget-compact__empty">No recent sessions.</p>
+    )}
+  </article>
+) : (
+  <article class="gvns-widget gvns-widget--move">
+    <div class="gvns-widget__label">Move</div>
+    {latest ? (
+      <div class="gvns-widget__content">
+        <p class="gvns-widget__detail gvns-widget__detail--bold">{latest.sport}</p>
+        <p class="gvns-widget__meta">{durationText} · {strainText}</p>
+        {startedAt && (
+          <time class="gvns-widget__time" datetime={startedAt}>
+            {relativeTime(startedAt)}
+          </time>
+        )}
+      </div>
+    ) : (
+      <p class="gvns-widget__empty">No sessions logged yet.</p>
+    )}
+    <a href="/move" class="gvns-widget__link">
+      View movement <span aria-hidden="true">&rarr;</span>
+    </a>
+  </article>
+)}
+
+<style>
+  /* P6 Crimson — distinct from P2 Rose (read) so the home strip
+     reads as six discrete activities, not two flavours of pink. */
+  .gvns-widget--move {
+    border-left-color: var(--colour-p6-crimson);
+  }
+
+  .gvns-widget--move .gvns-widget__link:hover {
+    color: var(--colour-p6-crimson);
+  }
+
+  .gvns-widget-compact--move {
+    border-top: var(--border-accent) solid var(--colour-p6-crimson);
+  }
+
+  /* Compact body without poster art — stack title + subtitle vertically,
+     no flex row (matches the no-cover variant used by Watch/Listen
+     when artwork is missing). */
+  .gvns-widget-compact__body--stack {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+</style>
