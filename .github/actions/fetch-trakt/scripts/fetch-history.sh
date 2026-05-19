@@ -57,7 +57,7 @@ jq -r '[
   elif .type == "episode" then
     { tmdb_id: (.show.ids.tmdb // empty), media_type: "tv" }
   else empty end
-] | unique_by(.tmdb_id) | .[] | "\(.tmdb_id) \(.media_type)"' \
+] | unique_by([.media_type, .tmdb_id]) | .[] | "\(.tmdb_id) \(.media_type)"' \
   "$TRAKT_TMPDIR/history-response.tmp" > "$TRAKT_TMPDIR/tmdb-ids.txt" 2>/dev/null || true
 
 TMDB_COUNT=$(wc -l < "$TRAKT_TMPDIR/tmdb-ids.txt" | tr -d ' ')
