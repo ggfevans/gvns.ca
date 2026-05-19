@@ -131,8 +131,24 @@ Migrated from Cloudflare Pages to Workers in 2026-04 (issue #249). Pages project
 | `MASTODON_INSTANCE` | syndicate | Mastodon instance URL |
 | `MASTODON_TOKEN` | syndicate | Mastodon access token |
 | `GH_PAT` | all data workflows, syndicate | GitHub PAT for pushing and secret management |
+| `WHOOP_CLIENT_ID` | fetch-daily (whoop step) | Whoop OAuth client ID (`e888c435-…`) |
+| `WHOOP_CLIENT_SECRET` | fetch-daily (whoop step) | Whoop OAuth client secret (1Password) |
+| `WHOOP_REFRESH_TOKEN` | fetch-daily (whoop step) | Whoop refresh token — rotated on every workflow run |
+| `WHOOP_ACCESS_TOKEN` | fetch-daily (whoop step) | Whoop access token — also rotated each run (script can re-derive from refresh) |
 
 No Cloudflare secrets needed in GitHub — deploys are handled by Workers Builds' native git integration.
+
+### In-repo fetch pattern (Whoop = first instance)
+
+`scripts/fetch-whoop.mjs` is the prototype of the consolidated in-repo fetch shape that will eventually replace the `*-json-bourne` sibling repos (steam / github / hardcover / listenbrainz / trakt). Key conventions:
+
+- **Script lives in `scripts/`**, written as Node ESM, dependency-free where possible (uses native `fetch`, `node:child_process`, `node:fs/promises`).
+- **Refresh-first, rotate-immediately.** OAuth refresh tokens that rotate per use (Whoop, Threads) must be persisted back to the GH secret before any subsequent fetch can fail — otherwise the chain breaks and bootstrap is required. See `scripts/fetch-whoop.mjs` §4 of the spec.
+- **Pipe secrets via stdin** to `gh secret set --body-file -` to keep them out of `argv`, workflow logs, and shell history.
+- **Failure surfacing as issues.** Any error opens or comments on an open issue titled `[<integration>-auth] …` so failures are visible in normal triage rather than only in workflow logs.
+- **`continue-on-error: true`** on each fetch step so one integration's outage doesn't fail the whole daily run; the final summary block surfaces per-step status.
+
+If/when the `*-json-bourne` migrations land, the composite-action shape under `.github/actions/fetch-*/` will probably replace this simpler "script + run" form. For now the Whoop integration's flow is the template for any *new* in-repo fetcher.
 
 ## DNS Records (Cloudflare)
 
