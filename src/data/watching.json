@@ -1,6 +1,20 @@
 {
-  "lastUpdated": "2026-05-18T04:30:31Z",
+  "lastUpdated": "2026-05-19T04:27:15Z",
   "recentlyWatched": [
+    {
+      "title": "The Punisher: One Last Kill",
+      "type": "movie",
+      "posterUrl": "https://image.tmdb.org/t/p/w342/qQclTgLMDvGBuUBFGHRipxkEwWR.jpg",
+      "url": "https://trakt.tv/movies/the-punisher-one-last-kill-2026",
+      "watchedDate": "2026-05-18T08:27:00.000Z"
+    },
+    {
+      "title": "Are We Good?",
+      "type": "movie",
+      "posterUrl": "https://image.tmdb.org/t/p/w342/1fl4e4wySmJuqLUHO4LNqn2TOrr.jpg",
+      "url": "https://trakt.tv/movies/are-we-good-2025",
+      "watchedDate": "2026-05-18T08:27:00.000Z"
+    },
     {
       "title": "Ride with Norman Reedus — S02E02",
       "type": "show",
@@ -107,7 +121,7 @@
       "watchedDate": "2026-02-13T10:37:00.000Z"
     },
     {
-      "title": "Ted Lasso — S01E08",
+      "title": "Ted Lasso — S01E10",
       "type": "show",
       "posterUrl": "https://image.tmdb.org/t/p/w342/5fhZdwP1DVJ0FyVH6vrFdHwpXIn.jpg",
       "url": "https://trakt.tv/shows/ted-lasso",
@@ -115,7 +129,7 @@
     }
   ],
   "stats": {
-    "moviesThisMonth": 0,
+    "moviesThisMonth": 2,
     "showsThisMonth": 3
   }
 }

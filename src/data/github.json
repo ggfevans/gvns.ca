@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-05-18T04:30:18.458Z",
+  "lastUpdated": "2026-05-19T04:27:01.176Z",
   "contributions": {
-    "total": 8168,
-    "commits": 2898,
-    "pullRequests": 952,
+    "total": 8267,
+    "commits": 2969,
+    "pullRequests": 972,
     "pullRequestReviews": 10,
-    "issues": 1336,
-    "restricted": 2886
+    "issues": 1337,
+    "restricted": 2893
   },
   "calendar": {
     "weeks": [
@@ -1633,7 +1633,7 @@
           },
           {
             "date": "2026-03-05",
-            "count": 31,
+            "count": 32,
             "level": 1
           },
           {
@@ -1691,12 +1691,12 @@
         "days": [
           {
             "date": "2026-03-15",
-            "count": 43,
+            "count": 45,
             "level": 2
           },
           {
             "date": "2026-03-16",
-            "count": 17,
+            "count": 21,
             "level": 1
           },
           {
@@ -1969,7 +1969,7 @@
           },
           {
             "date": "2026-05-04",
-            "count": 39,
+            "count": 38,
             "level": 1
           },
           {
@@ -1979,7 +1979,7 @@
           },
           {
             "date": "2026-05-06",
-            "count": 27,
+            "count": 28,
             "level": 1
           },
           {
@@ -2042,26 +2042,251 @@
         "days": [
           {
             "date": "2026-05-17",
-            "count": 22,
-            "level": 1
+            "count": 70,
+            "level": 2
+          },
+          {
+            "date": "2026-05-18",
+            "count": 48,
+            "level": 2
           }
         ]
       }
     ]
   },
   "streak": {
-    "current": 28,
+    "current": 29,
     "longest": 132,
     "today": false
   },
   "recentActivity": [
     {
       "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Enable file chooser E2E tests with clickLoad helper",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1403",
+      "date": "2026-05-19T02:41:01Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "bug: device/device-type removal loses images permanently — undo cannot restore them",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1477",
+      "date": "2026-05-19T02:39:39Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "bug: addBayedRackGroup and duplicateRack bypass undo/redo",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1476",
+      "date": "2026-05-19T02:39:34Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "bug: addBayToGroup creates orphan rack on undo",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1475",
+      "date": "2026-05-19T02:39:30Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "fix: Safari pointer drag handleDragEnd ignores container-drop and invalid actions",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1461",
+      "date": "2026-05-19T02:39:26Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "bug: duplicateRack uses shallow copy — nested device state shared between original and copy",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1474",
+      "date": "2026-05-19T02:39:23Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Bug: updateRackRaw has layout name sync side effect in raw mutator",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1481",
+      "date": "2026-05-19T02:37:59Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Bug: metadata.name not synchronized when first rack is created",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1482",
+      "date": "2026-05-19T02:37:59Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Bug: Dangling cable endpoints when device type is deleted",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1483",
+      "date": "2026-05-19T02:37:21Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "feat: port position validation for half-depth devices",
+      "url": "https://github.com/RackulaLives/Rackula/issues/254",
+      "date": "2026-05-18T16:52:19Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "bug: Pointer-drag events lack SVG bounds check in multi-rack layouts",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1467",
+      "date": "2026-05-18T13:18:14Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "refactor: Split api/src/security.ts into focused modules",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1611",
+      "date": "2026-05-18T12:29:26Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "CI cache save collision for binfmt image",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1029",
+      "date": "2026-05-18T12:27:16Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "gvns.ca",
+      "repoUrl": "https://github.com/ggfevans/gvns.ca",
+      "title": "epic: fetching workflows — fix broken sources, add gaming UI, consolidate",
+      "url": "https://github.com/ggfevans/gvns.ca/issues/337",
+      "date": "2026-05-18T09:14:23Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "gvns.ca",
+      "repoUrl": "https://github.com/ggfevans/gvns.ca",
+      "title": "fix(home): post cards have whole-card click target; need normal text post layout + ~25% wider",
+      "url": "https://github.com/ggfevans/gvns.ca/issues/333",
+      "date": "2026-05-18T09:05:41Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
       "repo": "gvns.ca",
       "repoUrl": "https://github.com/ggfevans/gvns.ca",
       "title": "spike: Threads post feed widget for home page (@ggfevans)",
       "url": "https://github.com/ggfevans/gvns.ca/issues/519",
-      "date": "2026-05-18T01:54:04Z",
+      "date": "2026-05-18T06:43:21Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "gvns.ca",
+      "repoUrl": "https://github.com/ggfevans/gvns.ca",
+      "title": "feat: Threads post feed widget on home page (@ggfevans)",
+      "url": "https://github.com/ggfevans/gvns.ca/issues/525",
+      "date": "2026-05-18T06:42:56Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "swiftbar-qmd",
+      "repoUrl": "https://github.com/ggfevans/swiftbar-qmd",
+      "title": "Action runner: tighten PID-file lock atomicity + failure ordering (D8+D9)",
+      "url": "https://github.com/ggfevans/swiftbar-qmd/issues/2",
+      "date": "2026-05-18T06:39:25Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Half-width device on right side is unclickable when paired at same U",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1680",
+      "date": "2026-05-18T06:32:36Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Cannot resize rack after placing devices",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1624",
+      "date": "2026-05-18T06:31:57Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "bug: resize validator reports stale/invalid U position (e.g. U228 on a 42U rack)",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1683",
+      "date": "2026-05-18T06:31:56Z",
       "meta": {
         "state": "OPEN"
       }
@@ -2136,17 +2361,6 @@
       "type": "issue",
       "repo": "gvns.ca",
       "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "epic: fetching workflows — fix broken sources, add gaming UI, consolidate",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/337",
-      "date": "2026-05-16T12:54:35Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
       "title": "epic: adopt Starwind UI Pro blocks site-wide",
       "url": "https://github.com/ggfevans/gvns.ca/issues/290",
       "date": "2026-05-16T12:53:49Z",
@@ -2175,102 +2389,14 @@
       "meta": {
         "state": "CLOSED"
       }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "bug: resize validator reports stale/invalid U position (e.g. U228 on a 42U rack)",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1683",
-      "date": "2026-05-16T11:42:00Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "broken: fetching workflows",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/255",
-      "date": "2026-05-16T11:33:16Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "chore: wire now-intro.md into Sveltia CMS as a single-file collection",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/349",
-      "date": "2026-05-16T11:31:40Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "PNG export breaks half width devices",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1660",
-      "date": "2026-05-16T09:05:42Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Half-width device on right side is unclickable when paired at same U",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1680",
-      "date": "2026-05-16T08:59:56Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "fix(ci): claude-code-review fails OIDC on fork PRs",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1669",
-      "date": "2026-05-15T06:00:04Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "spike(fetch): consolidate per-source fetch workflows into a single workflow",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/336",
-      "date": "2026-05-13T09:35:43Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "fix(fetch): gaming/Steam fetch broken — no data in src/data/",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/334",
-      "date": "2026-05-13T09:04:06Z",
-      "meta": {
-        "state": "CLOSED"
-      }
     }
   ],
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 273,
-    "contributionsThisMonth": 897,
-    "repositoriesThisWeek": 2
+    "contributionsThisWeek": 361,
+    "contributionsThisMonth": 993,
+    "repositoriesThisWeek": 3
   },
   "repositories": [
     {
@@ -2280,6 +2406,30 @@
       "languageColor": "#ff5a03",
       "stars": 0,
       "url": "https://github.com/ggfevans/gvns.ca"
+    },
+    {
+      "name": "zed-hujson",
+      "description": "HuJSON language grammar for Zed",
+      "language": "Shell",
+      "languageColor": "#89e051",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/zed-hujson"
+    },
+    {
+      "name": "swiftbar-qmd",
+      "description": "qmd state in your macOS menubar",
+      "language": "TypeScript",
+      "languageColor": "#3178c6",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/swiftbar-qmd"
+    },
+    {
+      "name": "steam-json-bourne",
+      "description": "",
+      "language": "JavaScript",
+      "languageColor": "#f1e05a",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/steam-json-bourne"
     },
     {
       "name": "ai-disclosure",
@@ -2298,14 +2448,6 @@
       "url": "https://github.com/ggfevans/tree-sitter-hujson"
     },
     {
-      "name": "swiftbar-qmd",
-      "description": "",
-      "language": "",
-      "languageColor": "",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/swiftbar-qmd"
-    },
-    {
       "name": "gwilym.ca",
       "description": "",
       "language": "Astro",
@@ -2314,28 +2456,12 @@
       "url": "https://github.com/ggfevans/gwilym.ca"
     },
     {
-      "name": "zed-hujson",
-      "description": "",
-      "language": "Shell",
-      "languageColor": "#89e051",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/zed-hujson"
-    },
-    {
       "name": "github-json-bourne",
       "description": "",
       "language": "JavaScript",
       "languageColor": "#f1e05a",
       "stars": 1,
       "url": "https://github.com/ggfevans/github-json-bourne"
-    },
-    {
-      "name": "steam-json-bourne",
-      "description": "",
-      "language": "JavaScript",
-      "languageColor": "#f1e05a",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/steam-json-bourne"
     },
     {
       "name": "endorse",
