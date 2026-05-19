@@ -36,8 +36,9 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
         <div class="gvns-home__featured">
           <FeaturedPostCard post={posts[0]} />
         </div>
-        <div class="gvns-home__list">
+        <div class="gvns-home__sidebar">
           <RecentPostsList posts={posts.slice(1, 5)} />
+          <ThreadsWidget compact />
         </div>
       </section>
     ) : posts.length === 1 ? (
@@ -58,7 +59,6 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
         <WatchWidget compact />
         <CodeWidget compact />
         <GameWidget compact />
-        <ThreadsWidget compact />
       </div>
     </section>
   </main>
@@ -86,6 +86,13 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
     .gvns-home__split {
       grid-template-columns: minmax(0, 1fr);
     }
+  }
+
+  .gvns-home__sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    min-width: 0;
   }
 
   .gvns-home__posts--empty {
