@@ -1,45 +1,4 @@
 {
-  "lastUpdated": "2026-05-18T12:00:00Z",
-  "posts": [
-    {
-      "id": "1",
-      "text": "This is a test original post on Threads. It should appear in the widget with a nice truncation and relative time.",
-      "permalink": "https://www.threads.net/@ggfevans/post/1",
-      "timestamp": "2026-05-18T11:00:00Z",
-      "mediaType": "TEXT_POST",
-      "isQuotePost": false
-    },
-    {
-      "id": "2",
-      "text": "Checking out a cool new feature in Astro 6. The build times are incredible!",
-      "permalink": "https://www.threads.net/@ggfevans/post/2",
-      "timestamp": "2026-05-17T10:00:00Z",
-      "mediaType": "IMAGE",
-      "isQuotePost": false
-    },
-    {
-      "id": "3",
-      "text": "Just finished the Threads widget implementation. Logic for idempotency and atomic writes is a must.",
-      "permalink": "https://www.threads.net/@ggfevans/post/3",
-      "timestamp": "2026-05-16T09:00:00Z",
-      "mediaType": "VIDEO",
-      "isQuotePost": false
-    },
-    {
-      "id": "4",
-      "text": "This post should be hidden because it's a quote.",
-      "permalink": "https://www.threads.net/@ggfevans/post/4",
-      "timestamp": "2026-05-15T08:00:00Z",
-      "mediaType": "TEXT_POST",
-      "isQuotePost": true
-    },
-    {
-      "id": "5",
-      "text": "This post should be hidden because it's a repost.",
-      "permalink": "https://www.threads.net/@ggfevans/post/5",
-      "timestamp": "2026-05-14T07:00:00Z",
-      "mediaType": "REPOST_FACADE",
-      "isQuotePost": false
-    }
-  ]
+  "lastUpdated": null,
+  "posts": []
 }
