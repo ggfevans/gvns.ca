@@ -73,6 +73,20 @@ jobs:
           tmdb_api_key: ${{ secrets.TMDB_API_KEY }}
           output_path: src/data/watching.json
 
+      - id: whoop
+        name: Fetch Whoop data
+        continue-on-error: true
+        env:
+          WHOOP_CLIENT_ID: ${{ secrets.WHOOP_CLIENT_ID }}
+          WHOOP_CLIENT_SECRET: ${{ secrets.WHOOP_CLIENT_SECRET }}
+          WHOOP_REFRESH_TOKEN: ${{ secrets.WHOOP_REFRESH_TOKEN }}
+          # GH_PAT (fine-grained, repo Secrets: read/write) is required so
+          # the script can persist rotated refresh + access tokens back to
+          # secrets — see scripts/fetch-whoop.mjs preamble (§4.4 of the spec).
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/fetch-whoop.mjs
+
       - name: Commit and open PR
         if: always()
         uses: ./.github/actions/commit-via-pr
@@ -91,6 +105,7 @@ jobs:
             [listening]="${{ steps.listening.outcome }}"
             [reading]="${{ steps.reading.outcome }}"
             [watching]="${{ steps.watching.outcome }}"
+            [whoop]="${{ steps.whoop.outcome }}"
           )
           {
             echo "### Fetch outcomes"
