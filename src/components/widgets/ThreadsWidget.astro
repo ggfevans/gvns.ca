@@ -33,7 +33,7 @@ try {
 }
 
 const posts = data.posts
-  .filter(p => !p.isQuotePost && p.mediaType !== 'REPOST_FACADE')
+  .filter(p => !p.isQuotePost && p.mediaType !== 'REPOST_FACADE' && /^https?:\/\//i.test(p.permalink))
   .slice(0, 3);
 const mediaBadge: Record<string, string> = {
   IMAGE: '[image]',
@@ -51,7 +51,7 @@ const mediaBadge: Record<string, string> = {
   ) : (
     <div class="gvns-widget-compact__content">
       {posts.map((p) => (
-        <a href={p.permalink} target="_blank" rel="noopener noreferrer" class="gvns-widget-compact__body">
+        <a href={p.permalink} target="_blank" rel="noopener noreferrer" class="gvns-widget-compact__link">
           <div class="gvns-widget-compact__info">
             <p class="gvns-widget-compact__title">{truncate(p.text || '', 140)}</p>
             <div class="gvns-widget-compact__meta">
@@ -76,9 +76,10 @@ const mediaBadge: Record<string, string> = {
 
 <style>
   .gvns-widget-compact--threads {
-    border-top: var(--border-accent) solid var(--colour-p5-sky);
+    padding: var(--space-4);
+    border-top: 2px solid var(--widget-accent);
   }
-  
+
   .gvns-widget-compact__meta {
     display: flex;
     gap: 0.5rem;
