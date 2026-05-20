@@ -4,7 +4,7 @@
 **Date:** 2026-05-19
 **Sources:** [Whoop developer docs](https://developer.whoop.com/docs/introduction) — specifically [OAuth 2.0](https://developer.whoop.com/docs/developing/oauth), [v1→v2 migration](https://developer.whoop.com/docs/developing/v1-v2-migration), [Workout data type](https://developer.whoop.com/docs/developing/user-data/workout), and [Pagination](https://developer.whoop.com/docs/developing/pagination).
 
-This document confirms or revises every assumption in `docs/specs/train-widget-whoop-2026-05.md` §4–5 against the live Whoop docs. Where the spec is wrong, this doc is right.
+This document confirms or revises every assumption in `docs/specs/move-widget-whoop-2026-05.md` §4–5 against the live Whoop docs. Where the spec is wrong, this doc is right.
 
 ---
 
@@ -39,7 +39,7 @@ Token     : https://api.prod.whoop.com/oauth/oauth2/token   (also handles refres
 
 ### 2.3 Scopes
 
-The OAuth docs reference scopes generically and link to the API spec for the full list. From the migration guide, the v2 scope constants are `READ_WORKOUT`, `READ_SLEEP`, `READ_CYCLES` — string form in OAuth requests is conventionally lowercase-colon (`read:workout`, etc.). For the Train widget v1 we request:
+The OAuth docs reference scopes generically and link to the API spec for the full list. From the migration guide, the v2 scope constants are `READ_WORKOUT`, `READ_SLEEP`, `READ_CYCLES` — string form in OAuth requests is conventionally lowercase-colon (`read:workout`, etc.). For the Move widget v1 we request:
 
 - `read:workout` — required for the `/v2/activity/workout` endpoint
 - `read:profile` — for the User endpoint (currently used only for the future "link to Whoop profile" idea; could drop if we never link out)
@@ -152,7 +152,7 @@ Key fields for the widget:
 - **`score_state`** — `SCORED` / `PENDING_SCORE` / `UNSCORABLE`. **Only show in widget when `SCORED`.** Pending or unscorable workouts have no `score` object and can't render strain.
 - **`score.strain`** — float, 0–21 logarithmic. Render to one decimal place per spec §3.4.
 
-Fields we deliberately ignore for v1: `average_heart_rate`, `max_heart_rate`, `kilojoule`, `percent_recorded`, `distance_meter`, `altitude_*`, `zone_durations`. They're available if we want them later on `/train`.
+Fields we deliberately ignore for v1: `average_heart_rate`, `max_heart_rate`, `kilojoule`, `percent_recorded`, `distance_meter`, `altitude_*`, `zone_durations`. They're available if we want them later on `/move`.
 
 ### 3.4 Pagination
 
@@ -171,7 +171,7 @@ Iterate until `next_token` is empty string. We're capping at 30 entries in `whoo
 
 v2 returns recovery activities through the workouts endpoint. The sport_name values likely include things like `"Activity"` (sport_id -1) for generic, plus things like `"Meditation"`, `"Ice Bath"`, `"Stretching"`, `"Sauna"` from the v1 sport-id table that look like recovery, not training. For the headline "latest workout" framing, those would be noise.
 
-**Recommendation:** during the fetch script, filter the response down to a sport allowlist for the headline / widget. Keep the full unfiltered list available in `whoop.json` for `/train` if we want to surface recovery activities there later.
+**Recommendation:** during the fetch script, filter the response down to a sport allowlist for the headline / widget. Keep the full unfiltered list available in `whoop.json` for `/move` if we want to surface recovery activities there later.
 
 Initial allowlist (training-coded sports — refine based on what the user's account actually returns):
 
