@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-05-20T04:28:12.689Z",
+  "lastUpdated": "2026-05-20T09:44:02.784Z",
   "contributions": {
-    "total": 8438,
-    "commits": 3033,
-    "pullRequests": 1007,
+    "total": 8466,
+    "commits": 3044,
+    "pullRequests": 1012,
     "pullRequestReviews": 11,
     "issues": 1386,
-    "restricted": 2916
+    "restricted": 2928
   },
   "calendar": {
     "weeks": [
@@ -288,7 +288,7 @@
           {
             "date": "2025-07-06",
             "count": 80,
-            "level": 3
+            "level": 2
           },
           {
             "date": "2025-07-07",
@@ -298,7 +298,7 @@
           {
             "date": "2025-07-08",
             "count": 41,
-            "level": 2
+            "level": 1
           },
           {
             "date": "2025-07-09",
@@ -1185,7 +1185,7 @@
           {
             "date": "2025-12-14",
             "count": 81,
-            "level": 3
+            "level": 2
           },
           {
             "date": "2025-12-15",
@@ -1200,7 +1200,7 @@
           {
             "date": "2025-12-17",
             "count": 81,
-            "level": 3
+            "level": 2
           },
           {
             "date": "2025-12-18",
@@ -1278,7 +1278,7 @@
           {
             "date": "2025-12-31",
             "count": 81,
-            "level": 3
+            "level": 2
           },
           {
             "date": "2026-01-01",
@@ -1341,7 +1341,7 @@
           {
             "date": "2026-01-11",
             "count": 41,
-            "level": 2
+            "level": 1
           },
           {
             "date": "2026-01-12",
@@ -1361,7 +1361,7 @@
           {
             "date": "2026-01-15",
             "count": 81,
-            "level": 3
+            "level": 2
           },
           {
             "date": "2026-01-16",
@@ -1371,7 +1371,7 @@
           {
             "date": "2026-01-17",
             "count": 79,
-            "level": 3
+            "level": 2
           }
         ]
       },
@@ -1395,7 +1395,7 @@
           {
             "date": "2026-01-21",
             "count": 120,
-            "level": 4
+            "level": 3
           },
           {
             "date": "2026-01-22",
@@ -1458,7 +1458,7 @@
           {
             "date": "2026-02-01",
             "count": 41,
-            "level": 2
+            "level": 1
           },
           {
             "date": "2026-02-02",
@@ -1965,7 +1965,7 @@
           {
             "date": "2026-05-03",
             "count": 40,
-            "level": 2
+            "level": 1
           },
           {
             "date": "2026-05-04",
@@ -2052,19 +2052,101 @@
           },
           {
             "date": "2026-05-19",
-            "count": 146,
+            "count": 164,
             "level": 4
+          },
+          {
+            "date": "2026-05-20",
+            "count": 10,
+            "level": 1
           }
         ]
       }
     ]
   },
   "streak": {
-    "current": 30,
+    "current": 31,
     "longest": 132,
-    "today": false
+    "today": true
   },
   "recentActivity": [
+    {
+      "type": "issue",
+      "repo": "gvns.ca",
+      "repoUrl": "https://github.com/ggfevans/gvns.ca",
+      "title": "Add trivy weekly & manual scan workflow",
+      "url": "https://github.com/ggfevans/gvns.ca/issues/555",
+      "date": "2026-05-20T07:44:49Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "gvns.ca",
+      "repoUrl": "https://github.com/ggfevans/gvns.ca",
+      "title": "Epic: Move widget (Whoop integration)",
+      "url": "https://github.com/ggfevans/gvns.ca/issues/553",
+      "date": "2026-05-20T06:52:55Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "gvns.ca",
+      "repoUrl": "https://github.com/ggfevans/gvns.ca",
+      "title": "Move widget — UX exploration + mockups",
+      "url": "https://github.com/ggfevans/gvns.ca/issues/564",
+      "date": "2026-05-20T06:52:55Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "gvns.ca",
+      "repoUrl": "https://github.com/ggfevans/gvns.ca",
+      "title": "Whoop API research spike",
+      "url": "https://github.com/ggfevans/gvns.ca/issues/563",
+      "date": "2026-05-20T06:52:55Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "gvns.ca",
+      "repoUrl": "https://github.com/ggfevans/gvns.ca",
+      "title": "refactor: activity widgets to Option C hero-card layout",
+      "url": "https://github.com/ggfevans/gvns.ca/issues/586",
+      "date": "2026-05-20T06:27:37Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "gvns.ca",
+      "repoUrl": "https://github.com/ggfevans/gvns.ca",
+      "title": "chore: bump cover image source resolutions (CAA / OL / TMDB)",
+      "url": "https://github.com/ggfevans/gvns.ca/issues/588",
+      "date": "2026-05-20T06:27:37Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "gvns.ca",
+      "repoUrl": "https://github.com/ggfevans/gvns.ca",
+      "title": "chore: resolve P5 Sky dual-purpose (Status/now vs Play)",
+      "url": "https://github.com/ggfevans/gvns.ca/issues/589",
+      "date": "2026-05-20T06:27:37Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
     {
       "type": "issue",
       "repo": "gvns.ca",
@@ -2118,39 +2200,6 @@
       "date": "2026-05-19T23:47:25Z",
       "meta": {
         "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "chore: resolve P5 Sky dual-purpose (Status/now vs Play)",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/589",
-      "date": "2026-05-19T23:47:07Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "chore: bump cover image source resolutions (CAA / OL / TMDB)",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/588",
-      "date": "2026-05-19T23:46:51Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "refactor: activity widgets to Option C hero-card layout",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/586",
-      "date": "2026-05-19T23:46:36Z",
-      "meta": {
-        "state": "OPEN"
       }
     },
     {
@@ -2350,68 +2399,16 @@
       "meta": {
         "state": "OPEN"
       }
-    },
-    {
-      "type": "issue",
-      "repo": "zed-hujson",
-      "repoUrl": "https://github.com/ggfevans/zed-hujson",
-      "title": "feature: Schema validation (LSP) — diagnostics and completions for JWCC documents",
-      "url": "https://github.com/ggfevans/zed-hujson/issues/12",
-      "date": "2026-05-19T20:39:23Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "zed-hujson",
-      "repoUrl": "https://github.com/ggfevans/zed-hujson",
-      "title": "feature: Formatter integration — wire hujsonfmt as a language server",
-      "url": "https://github.com/ggfevans/zed-hujson/issues/11",
-      "date": "2026-05-19T20:39:21Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "chore(ts): Remove @ts-nocheck from test helpers — 2 files, 4 errors",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1708",
-      "date": "2026-05-19T20:19:40Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "chore(ts): Remove @ts-nocheck from components — 9 files, 23 errors",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1707",
-      "date": "2026-05-19T20:18:32Z",
-      "meta": {
-        "state": "OPEN"
-      }
     }
   ],
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 525,
-    "contributionsThisMonth": 1166,
-    "repositoriesThisWeek": 5
+    "contributionsThisWeek": 553,
+    "contributionsThisMonth": 1194,
+    "repositoriesThisWeek": 4
   },
   "repositories": [
-    {
-      "name": "zed-hujson",
-      "description": "HuJSON language grammar for Zed",
-      "language": "Shell",
-      "languageColor": "#89e051",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/zed-hujson"
-    },
     {
       "name": "gvns.ca",
       "description": "",
@@ -2419,6 +2416,14 @@
       "languageColor": "#ff5a03",
       "stars": 0,
       "url": "https://github.com/ggfevans/gvns.ca"
+    },
+    {
+      "name": "zed-hujson",
+      "description": "HuJSON language grammar for Zed",
+      "language": "Shell",
+      "languageColor": "#89e051",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/zed-hujson"
     },
     {
       "name": "qmd-swiftbar",
