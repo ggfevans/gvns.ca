@@ -6,7 +6,11 @@
 fetch_url() {
   local url="$1" output="$2" max_attempts=3 attempt=0 status
   while [ $attempt -lt $max_attempts ]; do
-    status=$(curl -sL --max-redirs 3 -w "%{http_code}" -o "$output" \
+    # --compressed: TMDB (and many CDN-fronted APIs) return gzip-encoded bodies to HTTP/2
+    # clients by default. Without this flag curl writes the raw compressed bytes to $output,
+    # downstream jq silently fails to parse, and callers see "HTTP 200 but no fields" —
+    # which broke poster enrichment without surfacing as a failure (0/N fetched, 0 failed).
+    status=$(curl -sL --compressed --max-redirs 3 -w "%{http_code}" -o "$output" \
       --max-time 30 --connect-timeout 10 "$url") || status="000"
     if [ "$status" -eq 429 ]; then
       local wait=$((2 ** attempt))
@@ -30,7 +34,7 @@ fetch_url_with_headers() {
   shift 2
   local max_attempts=3 attempt=0 status
   while [ $attempt -lt $max_attempts ]; do
-    status=$(curl -sL --max-redirs 3 -w "%{http_code}" -o "$output" \
+    status=$(curl -sL --compressed --max-redirs 3 -w "%{http_code}" -o "$output" \
       --max-time 30 --connect-timeout 10 "$@" "$url") || status="000"
     if [ "$status" -eq 429 ]; then
       local wait=$((2 ** attempt))
