@@ -36,7 +36,18 @@ try {
 }
 
 const latestGame = data.recentlyPlayed[0] ?? null;
-const coverSrc = safeUrl(latestGame?.portraitUrl);
+const portraitSrc = safeUrl(latestGame?.portraitUrl);
+const headerSrc = safeUrl(latestGame?.headerUrl);
+const capsuleSrc = safeUrl(latestGame?.capsuleUrl);
+// Steam's library_600x900.jpg is missing for many newer titles (e.g. DEATH STRANDING 2, appId 3280350 → 404).
+// Prefer portrait, fall back to header → capsule. Runtime onerror swaps to the next candidate if portrait 404s.
+const coverCandidates = [portraitSrc, headerSrc, capsuleSrc].filter((u): u is string => Boolean(u));
+const coverSrc = coverCandidates[0];
+const coverIsPortrait = coverSrc !== undefined && coverSrc === portraitSrc;
+const coverFallbacks = coverCandidates.slice(1);
+const onCoverError = coverFallbacks.length > 0
+  ? `var i=parseInt(this.dataset.fbi||'0',10);var f=${JSON.stringify(coverFallbacks)};if(i<f.length){this.dataset.fbi=String(i+1);this.src=f[i];}else{this.onerror=null;}`
+  : undefined;
 const profileUrl = safeUrl(data.profile?.profileUrl) ?? 'https://store.steampowered.com/';
 const lastPlayedDate = latestGame?.lastPlayed && !Number.isNaN(new Date(latestGame.lastPlayed).getTime())
   ? latestGame.lastPlayed
@@ -48,8 +59,17 @@ const totalHours = Math.round(rawMinutes / 60);
 {compact ? (
   <article class="gvns-widget-compact gvns-widget-compact--game">
     <div class="gvns-widget-compact__frame">
-      {coverSrc && (
-        <img src={coverSrc} alt={`Cover art for ${latestGame.name}`} class="gvns-widget-compact__image" loading="lazy" decoding="async" />
+      {coverSrc ? (
+        <img
+          src={coverSrc}
+          alt={`Cover art for ${latestGame.name}`}
+          class:list={['gvns-widget-compact__image', !coverIsPortrait && 'gvns-widget-compact__image--fill']}
+          loading="lazy"
+          decoding="async"
+          onerror={onCoverError}
+        />
+      ) : (
+        <svg class="gvns-widget-compact__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" y1="11" x2="10" y2="11"></line><line x1="8" y1="9" x2="8" y2="13"></line><line x1="15" y1="12" x2="15.01" y2="12"></line><line x1="18" y1="10" x2="18.01" y2="10"></line><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258A4 4 0 0 0 17.32 5z"></path></svg>
       )}
     </div>
     <div class="gvns-widget-compact__body">
@@ -78,6 +98,7 @@ const totalHours = Math.round(rawMinutes / 60);
             height="72"
             loading="lazy"
             decoding="async"
+            onerror={onCoverError}
           />
         )}
         <div>

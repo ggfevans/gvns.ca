@@ -31,11 +31,13 @@
   object-fit: cover;
 }
 
-/* Slot icons for text-only widgets (Code) — 33% of frame width, capped at 120px */
+/* Slot icons for text-only widgets (Code, Move) and missing-image fallbacks (Watch, Game) —
+   inherit the widget's accent colour so the bento reads as a cohesive palette, not muted greys. */
 .gvns-widget-compact__icon {
   width: 33%;
   max-width: 120px;
-  color: var(--colour-text-muted);
+  color: var(--widget-accent, var(--colour-text-muted));
+  opacity: 0.7;
 }
 
 /* Hero-card body — text section below frame with accent strip */
