@@ -136,6 +136,10 @@ Migrated from Cloudflare Pages to Workers in 2026-04 (issue #249). Pages project
 | `MASTODON_INSTANCE` | syndicate | Mastodon instance URL |
 | `MASTODON_TOKEN` | syndicate | Mastodon access token |
 | `GH_PAT` | all data workflows, syndicate | GitHub PAT for pushing and secret management |
+| `WHOOP_CLIENT_ID` | fetch-daily (whoop step) | Whoop OAuth client ID (`e888c435-…`) |
+| `WHOOP_CLIENT_SECRET` | fetch-daily (whoop step) | Whoop OAuth client secret (1Password) |
+| `WHOOP_REFRESH_TOKEN` | fetch-daily (whoop step) | Whoop refresh token — rotated on every workflow run |
+| `WHOOP_ACCESS_TOKEN` | fetch-daily (whoop step) | Whoop access token — also rotated each run (script can re-derive from refresh) |
 
 No Cloudflare secrets needed in GitHub — deploys are handled by Workers Builds' native git integration.
 
@@ -144,11 +148,17 @@ No Cloudflare secrets needed in GitHub — deploys are handled by Workers Builds
 As of 2026-05, new data-fetching integrations (starting with Whoop) follow an "in-repo" pattern to consolidate logic and avoid sibling-repo overhead.
 
 ### Conventions
-1. **Single ESM Script**: Logic lives in `scripts/fetch-*.mjs` using Node ESM.
-2. **Refresh-First Rotation**: For OAuth2 flows with single-use refresh tokens, the script MUST refresh the token and persist the new `access` and `refresh` tokens to GitHub Secrets via `gh secret set` on stdin *before* attempting the data fetch. This prevents the auth chain from breaking if the fetch fails.
-3. **Failure as Issue**: Fetch errors trigger an automated GitHub issue or comment using a `[service-auth] …` prefix (e.g., `[whoop-auth] Token refresh failed`).
-4. **Non-Blocking Workflows**: Workflows use `continue-on-error: true` for fetch steps so a third-party API outage doesn't block the entire daily sync.
+1. **Single ESM Script**: Logic lives in `scripts/fetch-*.mjs` using Node ESM, dependency-free where possible (uses native `fetch`, `node:child_process`, `node:fs/promises`).
+2. **Refresh-First Rotation**: For OAuth2 flows with single-use refresh tokens (Whoop, Threads), the script MUST refresh the token and persist the new `access` and `refresh` tokens to GitHub Secrets via `gh secret set` on stdin *before* attempting the data fetch. This prevents the auth chain from breaking if the fetch fails.
+3. **Failure as Issue**: Fetch errors trigger an automated GitHub issue or comment using a `[<integration>-auth] …` prefix (e.g., `[whoop-auth] Token refresh failed`) so failures are visible in normal triage rather than only in workflow logs.
+4. **Non-Blocking Workflows**: Workflows use `continue-on-error: true` for fetch steps so a third-party API outage doesn't block the entire daily sync; the final summary block surfaces per-step status.
 5. **Fixture-First Development**: Initial PRs include a `src/data/*.json` fixture with `"_fixture": true`. The fetch script detects this flag to overwrite the file cleanly on the first real run.
+
+### Whoop = first instance
+
+`scripts/fetch-whoop.mjs` is the prototype of the consolidated in-repo fetch shape that will eventually replace the `*-json-bourne` sibling repos (steam / github / hardcover / listenbrainz / trakt). See `docs/specs/move-widget-whoop-2026-05.md` §4 for the full Whoop pipeline design.
+
+If/when the `*-json-bourne` migrations land, the composite-action shape under `.github/actions/fetch-*/` will probably replace this simpler "script + run" form. For now the Whoop integration's flow is the template for any *new* in-repo fetcher.
 
 ## DNS Records (Cloudflare)
 

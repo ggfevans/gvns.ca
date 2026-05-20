@@ -1,0 +1,180 @@
+---
+/**
+ * 90-day strain heatmap — pure Astro/CSS, no JS island.
+ *
+ * Layout: 7 rows (days of week, Mon–Sun) × ~13 columns (calendar weeks).
+ * Each cell is the *max* strain across all workouts that day; days with
+ * no workout render as the empty-level cell.
+ *
+ * Strain is Whoop's 0–21 logarithmic scale. Buckets correspond to the
+ * conventional zones (light / moderate / strenuous / all-out):
+ *
+ *   level 0 : no workout that day              → neutral fill
+ *   level 1 : 0  < strain ≤ 8                  → 25% P6 crimson
+ *   level 2 : 8  < strain ≤ 13                 → 50%
+ *   level 3 : 13 < strain ≤ 17                 → 75%
+ *   level 4 :       strain > 17                → 100%
+ */
+interface Workout {
+  start: string;
+  strain: number;
+  scoreState: string;
+}
+
+interface Props {
+  workouts?: Workout[];
+  days?: number;            // default 90
+}
+
+const { workouts = [], days = 90 } = Astro.props;
+
+function bucketLevel(strain: number): 0 | 1 | 2 | 3 | 4 {
+  if (strain <= 0) return 0;
+  if (strain <= 8) return 1;
+  if (strain <= 13) return 2;
+  if (strain <= 17) return 3;
+  return 4;
+}
+
+// Build a Map<YYYY-MM-DD, maxStrain> from the workouts list.
+const byDay = new Map<string, number>();
+for (const w of workouts) {
+  if (w.scoreState !== 'SCORED') continue;
+  const d = new Date(w.start);
+  if (Number.isNaN(d.getTime())) continue;
+  const key = d.toISOString().slice(0, 10);
+  const prev = byDay.get(key) ?? 0;
+  if (w.strain > prev) byDay.set(key, w.strain);
+}
+
+// Build the cell array: oldest day first → newest day last.
+// Anchor the grid so the rightmost column ends today.
+const today = new Date();
+today.setUTCHours(0, 0, 0, 0);
+
+interface Cell {
+  iso: string;             // YYYY-MM-DD
+  strain: number;
+  level: 0 | 1 | 2 | 3 | 4;
+  isoWeekday: number;       // 1 (Mon) – 7 (Sun)
+}
+
+const cells: Cell[] = [];
+for (let i = days - 1; i >= 0; i -= 1) {
+  const d = new Date(today);
+  d.setUTCDate(today.getUTCDate() - i);
+  const iso = d.toISOString().slice(0, 10);
+  const strain = byDay.get(iso) ?? 0;
+  // Convert JS Sunday=0 → ISO Monday=1 .. Sunday=7
+  const jsDay = d.getUTCDay();
+  const isoWeekday = jsDay === 0 ? 7 : jsDay;
+  cells.push({ iso, strain, level: bucketLevel(strain), isoWeekday });
+}
+
+// Pad the start so the first column aligns to Monday.
+const leadingPad = cells.length > 0 ? (cells[0].isoWeekday - 1) : 0;
+
+const totalScored = workouts.filter((w) => w.scoreState === 'SCORED').length;
+---
+
+<figure class="gvns-strain-heatmap" aria-label={`Strain heatmap over the last ${days} days, ${totalScored} scored workouts`}>
+  <figcaption class="gvns-strain-heatmap__caption">
+    <span>Last {days} days · {totalScored} scored workouts</span>
+    <span class="gvns-strain-heatmap__legend" aria-hidden="true">
+      <span class="gvns-strain-heatmap__legend-label">Less</span>
+      <span class="gvns-strain-heatmap__cell gvns-strain-heatmap__cell--l0"></span>
+      <span class="gvns-strain-heatmap__cell gvns-strain-heatmap__cell--l1"></span>
+      <span class="gvns-strain-heatmap__cell gvns-strain-heatmap__cell--l2"></span>
+      <span class="gvns-strain-heatmap__cell gvns-strain-heatmap__cell--l3"></span>
+      <span class="gvns-strain-heatmap__cell gvns-strain-heatmap__cell--l4"></span>
+      <span class="gvns-strain-heatmap__legend-label">More</span>
+    </span>
+  </figcaption>
+  <div class="gvns-strain-heatmap__grid" role="presentation">
+    {Array.from({ length: leadingPad }).map(() => (
+      <span class="gvns-strain-heatmap__cell gvns-strain-heatmap__cell--pad" aria-hidden="true"></span>
+    ))}
+    {cells.map((c) => (
+      <span
+        class:list={['gvns-strain-heatmap__cell', `gvns-strain-heatmap__cell--l${c.level}`]}
+        title={c.strain > 0 ? `${c.iso} · strain ${c.strain.toFixed(1)}` : `${c.iso} · no workout`}
+      ></span>
+    ))}
+  </div>
+</figure>
+
+<style>
+  .gvns-strain-heatmap {
+    margin: 0;
+    padding: var(--space-4) 0;
+  }
+
+  .gvns-strain-heatmap__caption {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--text-xs);
+    color: var(--colour-text-secondary);
+    font-family: var(--font-mono);
+    margin-bottom: var(--space-3);
+  }
+
+  .gvns-strain-heatmap__legend {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+  }
+
+  .gvns-strain-heatmap__legend-label {
+    color: var(--colour-text-muted);
+  }
+
+  /* Grid flows column-by-column (top→bottom, left→right) so each
+     column is one ISO calendar week (Mon row 1 … Sun row 7). */
+  .gvns-strain-heatmap__grid {
+    display: grid;
+    grid-template-rows: repeat(7, 12px);
+    grid-auto-flow: column;
+    grid-auto-columns: 12px;
+    gap: 3px;
+    overflow-x: auto;
+    padding-bottom: var(--space-1);
+  }
+
+  .gvns-strain-heatmap__cell {
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    background: var(--colour-bg-tertiary);
+  }
+
+  /* Padding cells take no visual space — kept invisible so the first
+     column still aligns to Monday. */
+  .gvns-strain-heatmap__cell--pad {
+    background: transparent;
+  }
+
+  /* Crimson scale via relative-colour syntax. Falls back to the base
+     swatch on browsers without rgb-from support (very old) — the
+     heatmap becomes monochrome but still readable. */
+  .gvns-strain-heatmap__cell--l0 { background: var(--colour-bg-tertiary); }
+  .gvns-strain-heatmap__cell--l1 { background: rgb(from var(--colour-p6-crimson) r g b / 0.28); }
+  .gvns-strain-heatmap__cell--l2 { background: rgb(from var(--colour-p6-crimson) r g b / 0.50); }
+  .gvns-strain-heatmap__cell--l3 { background: rgb(from var(--colour-p6-crimson) r g b / 0.75); }
+  .gvns-strain-heatmap__cell--l4 { background: var(--colour-p6-crimson); }
+
+  @media (max-width: 640px) {
+    .gvns-strain-heatmap__grid {
+      grid-template-rows: repeat(7, 10px);
+      grid-auto-columns: 10px;
+      gap: 2px;
+    }
+    .gvns-strain-heatmap__cell {
+      width: 10px;
+      height: 10px;
+    }
+  }
+</style>

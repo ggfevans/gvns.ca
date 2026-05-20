@@ -1,0 +1,30 @@
+{
+  "_fixture": true,
+  "_note": "Hand-authored placeholder so widgets render before scripts/fetch-whoop.mjs has run with real Whoop credentials. fetch-whoop.mjs detects the _fixture flag and overwrites this file on first successful fetch. Shape mirrors docs/research/whoop-api.md §6.",
+  "lastUpdated": "2026-05-19T03:00:00.000Z",
+  "profile": {
+    "profileUrl": "https://www.whoop.com/"
+  },
+  "recentWorkouts": [
+    {
+      "id": "fixture-00000000-0000-0000-0000-000000000001",
+      "sport": "Jiu-jitsu",
+      "sportRaw": "jiu jitsu",
+      "start": "2026-05-18T18:00:00.000Z",
+      "end": "2026-05-18T18:47:00.000Z",
+      "durationMinutes": 47,
+      "strain": 14.2,
+      "scoreState": "SCORED"
+    },
+    {
+      "id": "fixture-00000000-0000-0000-0000-000000000002",
+      "sport": "Running",
+      "sportRaw": "running",
+      "start": "2026-05-16T12:30:00.000Z",
+      "end": "2026-05-16T13:18:00.000Z",
+      "durationMinutes": 48,
+      "strain": 11.6,
+      "scoreState": "SCORED"
+    }
+  ]
+}

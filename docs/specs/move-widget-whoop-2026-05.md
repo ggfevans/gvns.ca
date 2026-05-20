@@ -40,16 +40,6 @@
 
 Header label `MOVE` · primary text: latest workout sport name (Inter 500, 11px) · secondary subtitle: `47 min · strain 14.2` (Inter 400, 10px, muted). Whole cell is a link to `/move`. Border-top 2px P6 crimson. Empty state: `No recent sessions.`
 
-```
-┌──────────────────┐
-│ MOVE            │  ← uppercase label, P6 crimson top stripe
-│                  │
-│ Jiu-jitsu        │  ← Inter 500 11px
-│ 47 min · strain  │  ← Inter 400 10px muted
-│ 14.2             │
-└──────────────────┘
-```
-
 ### 3.2 Full (`/now` bento, `/move` page header)
 
 Same component, `compact={false}`. Renders inside `.gvns-widget` shell with `border-left-color: var(--colour-p6-crimson)`. Adds: relative time (`time` element with `relativeTime()`), `View movement →` link to `/move`. Empty state: `No sessions logged yet.`

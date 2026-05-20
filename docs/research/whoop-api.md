@@ -262,7 +262,7 @@ Workouts with `scoreState !== "SCORED"` should still appear in the array, but th
 ### Fetch (#567)
 
 - **No `whoop-sports.json` lookup table needed.** Strike that line item from the issue. Build a tiny presentation map directly in the fetch script for known special cases (`"jiu jitsu"` → `"Jiu-jitsu"`, `"hiit"` → `"HIIT"`, `"f45 training"` → `"F45 Training"`, etc.).
-- Filter the workouts array via the training-sport allowlist (§3.5) before writing to JSON.
+- Filter the workouts array via the movement-sport allowlist (§3.5) before writing to JSON.
 - On first run (no existing `whoop.json` or no `lastUpdated`): fetch last 30 days.
 - On subsequent runs: fetch from `lastUpdated - 24h` to now (the 24h buffer catches late-syncing workouts).
 - Dedupe on `id`, sort by `start` descending, cap to 30 entries.

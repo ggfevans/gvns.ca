@@ -23,7 +23,7 @@
     --colour-text-muted: #71717a; /* zinc-500 */
     --colour-text-inverse: #0a0a0a; /* zinc-950 — dark text on light backgrounds */
 
-    /* P1-P5 Accent Palette */
+    /* P1-P6 Accent Palette */
     --colour-p1-violet: #8b5cf6; /* violet-500 — code activity */
     --colour-p1-violet-hover: #a78bfa; /* violet-400 */
     --colour-p2-rose: #f43f5e; /* rose-500 — read section */
@@ -34,16 +34,19 @@
     --colour-p4-amber-hover: #fbbf24; /* amber-400 */
     --colour-p5-sky: #0ea5e9; /* sky-500 — status */
     --colour-p5-sky-hover: #38bdf8; /* sky-400 */
+    --colour-p6-crimson: #dc143c; /* crimson — move activity (Whoop) */
+    --colour-p6-crimson-hover: #e63a5c; /* ~8% lighter (HSL L 47% → 55%) */
 
-    /* Activity gradient — 5-stop hard-stop linear gradient using P1–P5.
-       Single source of truth for masthead stripe (PR 3) and footer line (PR 5). */
+    /* Activity gradient — 6-stop hard-stop linear gradient using P1–P6.
+       Single source of truth for masthead stripe and footer line. */
     --gvns-activity-gradient: linear-gradient(
         90deg,
-        var(--colour-p1-violet) 0% 20%,
-        var(--colour-p2-rose) 20% 40%,
-        var(--colour-p3-emerald) 40% 60%,
-        var(--colour-p4-amber) 60% 80%,
-        var(--colour-p5-sky) 80% 100%
+        var(--colour-p1-violet) 0% 16.66%,
+        var(--colour-p2-rose) 16.66% 33.33%,
+        var(--colour-p3-emerald) 33.33% 50%,
+        var(--colour-p4-amber) 50% 66.66%,
+        var(--colour-p5-sky) 66.66% 83.33%,
+        var(--colour-p6-crimson) 83.33% 100%
     );
 
     /* Status surfaces — P5 sky tinted to 0.06 alpha for the "open to work"
@@ -158,6 +161,11 @@
     --colour-accent-hover: var(--colour-p5-sky-hover);
     --colour-link-text: var(--colour-p5-sky-hover);
 }
+[data-accent="p6-crimson"] {
+    --colour-accent-primary: var(--colour-p6-crimson);
+    --colour-accent-hover: var(--colour-p6-crimson-hover);
+    --colour-link-text: var(--colour-p6-crimson-hover);
+}
 [data-accent="neutral"] {
     --colour-accent-primary: var(--colour-accent-neutral);
     --colour-accent-hover: var(--colour-accent-neutral-hover);
@@ -189,6 +197,11 @@
     --colour-accent-primary: #0284c7;
     --colour-accent-hover: #0369a1;
     --colour-link-text: #0284c7;
+}
+:root:not(.dark)[data-accent="p6-crimson"] {
+    --colour-accent-primary: #be123c; /* rose-700 — deeper crimson for 5:1+ on light bg */
+    --colour-accent-hover: #9f1239; /* rose-800 */
+    --colour-link-text: #be123c;
 }
 :root:not(.dark)[data-accent="neutral"] {
     --colour-accent-primary: #52525b;
