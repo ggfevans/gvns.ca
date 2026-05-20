@@ -107,7 +107,7 @@ const rangeLabel = listeningData.stats.range.replace(/_/g, " ");
 /** Construct a Cover Art Archive URL from a release MBID, or return undefined. */
 function coverArtUrl(mbid: string | null | undefined): string | undefined {
     return isValidMbid(mbid)
-        ? `https://coverartarchive.org/release/${mbid}/front-500`
+        ? `https://coverartarchive.org/release/${mbid}/front-250`
         : undefined;
 }
 

@@ -71,7 +71,8 @@
   transition: color var(--transition-fast);
 }
 
-.gvns-widget-compact:hover .gvns-widget-compact__title {
+.gvns-widget-compact:hover .gvns-widget-compact__title,
+.gvns-widget-compact:focus-within .gvns-widget-compact__title {
   color: var(--widget-accent, var(--colour-p5-sky));
 }
 

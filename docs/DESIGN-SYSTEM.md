@@ -48,7 +48,7 @@ Each activity section has a dedicated colour. Maintain this consistently.
 
 ### Colour Discipline
 
-> **Critical:** Each activity type has a specific colour. Never mix them.
+> **Critical:** Each activity type has a specific colour. Dedicated by default; intentional shared accents are documented below.
 >
 > - Code → Violet
 > - Read → Rose

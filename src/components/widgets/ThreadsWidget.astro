@@ -33,7 +33,7 @@ try {
 }
 
 const posts = data.posts
-  .filter(p => !p.isQuotePost && p.mediaType !== 'REPOST_FACADE')
+  .filter(p => !p.isQuotePost && p.mediaType !== 'REPOST_FACADE' && /^https?:\/\//i.test(p.permalink))
   .slice(0, 3);
 const mediaBadge: Record<string, string> = {
   IMAGE: '[image]',

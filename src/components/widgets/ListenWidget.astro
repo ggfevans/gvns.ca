@@ -53,7 +53,7 @@ try {
 
 const latestTrack = data.recentListens?.[0] ?? null;
 const artUrl = isValidMbid(latestTrack?.caaReleaseMbid)
-  ? `https://coverartarchive.org/release/${latestTrack.caaReleaseMbid}/front-500`
+  ? `https://coverartarchive.org/release/${latestTrack.caaReleaseMbid}/front-${compact ? 500 : 250}`
   : undefined;
 ---
 
