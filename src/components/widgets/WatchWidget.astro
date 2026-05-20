@@ -40,20 +40,22 @@ const watchedDate = latestWatch?.watchedDate && !Number.isNaN(new Date(latestWat
 
 {compact ? (
   <article class="gvns-widget-compact gvns-widget-compact--watch">
-    <div class="gvns-widget-compact__label">Now Watching</div>
-    {latestWatch ? (
-      <a href="/watch" class="gvns-widget-compact__body">
-        {posterSrc && (
-          <img src={posterSrc} alt={`Poster for ${latestWatch.title}`} class="gvns-widget-compact__cover" width="40" height="60" loading="lazy" decoding="async" />
-        )}
-        <div class="gvns-widget-compact__info">
+    <div class="gvns-widget-compact__frame">
+      {posterSrc && (
+        <img src={posterSrc} alt={`Poster for ${latestWatch.title}`} class="gvns-widget-compact__image" loading="lazy" decoding="async" />
+      )}
+    </div>
+    <div class="gvns-widget-compact__body">
+      <div class="gvns-widget-compact__label">Now Watching</div>
+      {latestWatch ? (
+        <a href="/watch" class="gvns-widget-compact__link">
           <p class="gvns-widget-compact__title">{latestWatch.title}</p>
           <p class="gvns-widget-compact__subtitle">{latestWatch.type}</p>
-        </div>
-      </a>
-    ) : (
-      <p class="gvns-widget-compact__empty">Nothing watched.</p>
-    )}
+        </a>
+      ) : (
+        <p class="gvns-widget-compact__empty">Nothing watched.</p>
+      )}
+    </div>
   </article>
 ) : (
   <article class="gvns-widget gvns-widget--watch">
@@ -105,7 +107,4 @@ const watchedDate = latestWatch?.watchedDate && !Number.isNaN(new Date(latestWat
     flex-shrink: 0;
   }
 
-  .gvns-widget-compact--watch {
-    border-top: var(--border-accent) solid var(--colour-p4-amber);
-  }
 </style>

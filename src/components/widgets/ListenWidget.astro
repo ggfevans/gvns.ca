@@ -53,26 +53,28 @@ try {
 
 const latestTrack = data.recentListens?.[0] ?? null;
 const artUrl = isValidMbid(latestTrack?.caaReleaseMbid)
-  ? `https://coverartarchive.org/release/${latestTrack.caaReleaseMbid}/front-250`
+  ? `https://coverartarchive.org/release/${latestTrack.caaReleaseMbid}/front-500`
   : undefined;
 ---
 
 {compact ? (
   <article class="gvns-widget-compact gvns-widget-compact--listen">
-    <div class="gvns-widget-compact__label">Now Listening</div>
-    {latestTrack ? (
-      <a href="/listen" class="gvns-widget-compact__body">
-        {artUrl && (
-          <img src={artUrl} alt={`${latestTrack.album || latestTrack.track} album art`} class="gvns-widget-compact__cover gvns-widget-compact__cover--square" width="40" height="40" loading="lazy" decoding="async" />
-        )}
-        <div class="gvns-widget-compact__info">
+    <div class="gvns-widget-compact__frame">
+      {artUrl && (
+        <img src={artUrl} alt={`${latestTrack.album || latestTrack.track} album art`} class="gvns-widget-compact__image gvns-widget-compact__image--fill" loading="lazy" decoding="async" />
+      )}
+    </div>
+    <div class="gvns-widget-compact__body">
+      <div class="gvns-widget-compact__label">Now Listening</div>
+      {latestTrack ? (
+        <a href="/listen" class="gvns-widget-compact__link">
           <p class="gvns-widget-compact__title">{latestTrack.track}</p>
           <p class="gvns-widget-compact__subtitle">{latestTrack.artist}</p>
-        </div>
-      </a>
-    ) : (
-      <p class="gvns-widget-compact__empty">Nothing playing.</p>
-    )}
+        </a>
+      ) : (
+        <p class="gvns-widget-compact__empty">Nothing playing.</p>
+      )}
+    </div>
   </article>
 ) : (
   <article class="gvns-widget gvns-widget--listen">
@@ -142,11 +144,4 @@ const artUrl = isValidMbid(latestTrack?.caaReleaseMbid)
     flex-shrink: 0;
   }
 
-  .gvns-widget-compact--listen {
-    border-top: var(--border-accent) solid var(--colour-p3-emerald);
-  }
-
-  .gvns-widget-compact__cover--square {
-    border-radius: var(--radius-md);
-  }
 </style>

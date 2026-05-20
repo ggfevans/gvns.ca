@@ -1,14 +1,50 @@
-/* Compact widget styles — shared across pages that use compact widget variants */
+/* Compact widget hero-card layout — shared across pages that use compact widget variants */
 
 .gvns-widget-compact {
   background: var(--colour-bg-secondary);
   border: 1px solid var(--colour-border);
   border-radius: var(--radius-lg);
-  padding: var(--space-4);
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
   transition: border-color var(--transition-fast);
+}
+
+/* Hero-card frame — 4:3 cover area at top of card */
+.gvns-widget-compact__frame {
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--colour-bg-tertiary);
+  overflow: hidden;
+}
+
+.gvns-widget-compact__image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Album art fills the 4:3 frame; portraits letterbox by default */
+.gvns-widget-compact__image--fill {
+  object-fit: cover;
+}
+
+/* Slot icons for text-only widgets (Code) — 33% of frame width, capped at 120px */
+.gvns-widget-compact__icon {
+  width: 33%;
+  max-width: 120px;
+  color: var(--colour-text-muted);
+}
+
+/* Hero-card body — text section below frame with accent strip */
+.gvns-widget-compact__body {
+  border-top: 2px solid var(--widget-accent, var(--colour-p5-sky));
+  padding: var(--space-3) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
 }
 
 .gvns-widget-compact__label {
@@ -19,22 +55,9 @@
   color: var(--colour-text-secondary);
 }
 
-.gvns-widget-compact__body {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
+.gvns-widget-compact__link {
   text-decoration: none;
   color: inherit;
-}
-
-.gvns-widget-compact__cover {
-  border-radius: var(--radius-md);
-  object-fit: cover;
-  flex-shrink: 0;
-}
-
-.gvns-widget-compact__info {
-  min-width: 0;
 }
 
 .gvns-widget-compact__title {
@@ -45,12 +68,17 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  transition: color var(--transition-fast);
+}
+
+.gvns-widget-compact:hover .gvns-widget-compact__title {
+  color: var(--widget-accent, var(--colour-p5-sky));
 }
 
 .gvns-widget-compact__subtitle {
   font-size: var(--text-xs);
   color: var(--colour-text-secondary);
-  margin: var(--space-1) 0 0 0;
+  margin: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -61,4 +89,15 @@
   color: var(--colour-text-secondary);
   font-style: italic;
   margin: 0;
+  padding: var(--space-4);
 }
+
+/* Per-variant accent colours — single source of truth for border + hover */
+.gvns-widget-compact--read    { --widget-accent: var(--colour-p2-rose); }
+.gvns-widget-compact--listen  { --widget-accent: var(--colour-p3-emerald); }
+.gvns-widget-compact--watch   { --widget-accent: var(--colour-p4-amber); }
+.gvns-widget-compact--code    { --widget-accent: var(--colour-p1-violet); }
+.gvns-widget-compact--game    { --widget-accent: var(--colour-p5-sky); }
+.gvns-widget-compact--write   { --widget-accent: var(--colour-p4-amber); }
+.gvns-widget-compact--threads { --widget-accent: var(--colour-p5-sky); }
+.gvns-widget-compact--move   { --widget-accent: var(--colour-p6-crimson); }
