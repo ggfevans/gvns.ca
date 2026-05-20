@@ -1,6 +1,6 @@
 # Move widget (Whoop integration) — #553 spec
 
-**Status:** Spec, awaiting implementation
+**Status:** Completed (Merged PRs 584, 587, 590, 591, 592, 593)
 **Drafted:** 2026-05-19
 **Revised:** 2026-05-19 (post-API-research) — corrected to Whoop **v2** API paths, removed `whoop-sports.json` (v2 returns `sport_name` directly), added movement-sport allowlist (recovery activities now share the workouts endpoint). See `docs/research/whoop-api.md`.
 **Replaces:** the one-line stub on issue [#553](https://github.com/ggfevans/gvns.ca/issues/553)
@@ -81,7 +81,7 @@ Strain is a 0–21 logarithmic scale (Whoop convention). Render to one decimal p
 
 | File | Action |
 |---|---|
-| `scripts/fetch-whoop.mjs` | **New.** Node ESM script. Reads `WHOOP_ACCESS_TOKEN` + `WHOOP_REFRESH_TOKEN` from env, fetches latest workouts, writes `src/data/whoop.json`. Rotates both tokens back to GH secrets on success (refresh tokens are single-use). |
+| `scripts/fetch-whoop.mjs` | **New.** Node ESM script. Reads `WHOOP_ACCESS_TOKEN` + `WHOOP_REFRESH_TOKEN` from env, refreshes tokens first and persists new refresh + access tokens to GH secrets immediately, then fetches latest workouts and writes `src/data/whoop.json`. Refresh tokens are single-use, so the rotate-first order is critical — see §4.4. |
 | `scripts/refresh-whoop-token.mjs` | **New, optional.** Standalone refresh script following the `refresh-threads-token.mjs` pattern (incl. failure-as-issue reporter). Useful when the fetch script hasn't run for a while and tokens are close to expiry. |
 | `scripts/whoop-auth-bootstrap.mjs` | **New.** One-time local utility to walk through Whoop's OAuth flow (browser redirect → code → first refresh token). Run once locally, `gh secret set` the result, never touch again unless the refresh chain breaks. |
 | ~~`scripts/whoop-sports.json`~~ | **Dropped post-research.** Whoop v2 returns `sport_name` directly; the v1 `sport_id` enum is being phased out 2025-09-01. The fetch script will keep a tiny inline presentation map for special cases (`"jiu jitsu"` → `"Jiu-jitsu"`, `"hiit"` → `"HIIT"`, etc.) — no external lookup needed. |
@@ -97,12 +97,12 @@ Whoop uses OAuth2 with the authorization-code grant + refresh tokens. The flow:
    - Listens on `localhost:8910/callback` for the redirected `code`.
    - Exchanges `code` → `{ access_token, refresh_token, expires_in }`.
    - Prints the values; user pipes them into `gh secret set WHOOP_ACCESS_TOKEN` and `gh secret set WHOOP_REFRESH_TOKEN`.
-2. **Daily fetch (CI).** `scripts/fetch-whoop.mjs` runs:
-   - Always refresh first (cheap, ~200ms; means the access token is fresh for the fetch and we exercise refresh every day, catching breakage early).
+2. **Daily fetch (CI).** `scripts/fetch-whoop.mjs` runs (order is critical — see §4.4):
+   - Refresh token first → get new `{access, refresh}` pair.
+   - **Immediately persist** the new `refresh_token` and `access_token` to GH secrets via `gh secret set` (stdin, to keep them out of argv / logs / shell history — same pattern as `refresh-threads-token.mjs`). This must happen before any fetch, because refresh tokens are single-use — if the subsequent fetch fails, the old token is already invalidated.
    - Fetch workouts since the last `lastUpdated` (or last 30 days on first run).
    - Merge with existing `whoop.json`, dedupe on `id`, sort newest-first, cap at 30 entries.
    - Write `src/data/whoop.json`.
-   - **Rotate tokens.** Pipe the new `access_token` + `refresh_token` to `gh secret set` (stdin, to keep them out of argv / logs / shell history — same pattern as `refresh-threads-token.mjs`).
 3. **Failure surfacing.** On any error, open or comment on a `[whoop-auth] …` issue (mirrors the Threads pattern). Don't fail the whole `fetch-daily.yml` run — `continue-on-error: true` on the step.
 
 ### 4.3 Why "always refresh"
@@ -207,14 +207,14 @@ Whoop's brand red is roughly `#FF0026` — saturated, very close to P2 rose. Pul
 
 ---
 
-## 7. Open questions
+## 7. Resolved questions
 
-1. **Exact P6 hex.** `#dc143c` is a placeholder. Worth dropping P2 rose, the candidate P6, and the existing palette into a swatch grid before PR 1 lands. Crimson vs deeper burgundy vs orange-leaning — small choice, big visual.
-2. **Generalise `ContributionHeatmap` or build `StrainHeatmap` standalone?** GitHub-shaped vs strain-shaped data differs (continuous score vs discrete count). Could go either way; defer the call until PR 4.
-3. **Add `Move` to the top-nav?** The other activity pages (`/read`, `/listen`, `/watch`, `/code`) aren't in the top-nav — they're reached via `/now` widget links. Consistency says don't add. But "Move" being net-new might warrant a launch nudge for the first month. Decide at PR 5.
-4. **Sport-name display mapping.** v2 returns `sport_name` directly — no lookup table. The fetch script keeps a small inline `SPORT_DISPLAY_MAP` for special cases (`jiu jitsu` → `Jiu-jitsu`, `hiit` → `HIIT`, etc.) and title-cases the rest. Log unseen `sport_name` values as warnings so the map + the movement-sport allowlist stay current.
-5. **Display when the latest workout is ≥7 days old.** The compact cell saying "Jiu-jitsu · 47 min · strain 14.2" with `time` saying "9 days ago" is slightly awkward. Either show the timestamp prominently in compact, or render an empty state after N days idle. Suggest: 14-day cutoff to empty state.
-6. **Privacy review.** Workout names + strain + duration are fine. The sport list reveals BJJ days, gym days, etc. — also fine. Add a `.privacy.md` note to `docs/` if anything subtler shows up during implementation.
+1. **Exact P6 hex.** Resolved: `#dc143c` used for Dark; `#be123c` used for Light (contrast check).
+2. **Generalise `ContributionHeatmap` or build `StrainHeatmap` standalone?** Resolved: Built `StrainHeatmap` standalone to handle continuous strain scores vs discrete commit counts.
+3. **Add `Move` to the top-nav?** Resolved: Omitted to maintain consistency with other activity pages reached via `/now`.
+4. **Sport-name display mapping.** Resolved: implemented inline `SPORT_DISPLAY_MAP` in `fetch-whoop.mjs` for special cases and title-case fallback.
+5. **Display when the latest workout is ≥7 days old.** Resolved: 14-day cutoff to empty state implemented.
+6. **Privacy review.** Resolved: Public surface only shows sport, duration, and strain; no medical-grade data exposed.
 
 ---
 

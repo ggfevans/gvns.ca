@@ -79,6 +79,7 @@ gvns.ca/
 │   ├── wikilink-convert.mjs     # `npm run wikilinks`
 │   ├── syndicate.mjs            # `npm run syndicate` — POSSE
 │   ├── fetch-comments.mjs       # Threads replies → src/data/comments/
+│   ├── fetch-whoop.mjs          # In-repo fetch pattern prototype (Whoop)
 │   ├── refresh-threads-token.mjs
 │   └── prebuild-clean.js
 ├── workers/                     # Cloudflare Workers (auth, etc)

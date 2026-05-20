@@ -32,7 +32,7 @@ App already exists — client ID `e888c435-61b2-4118-a80d-a5f781931fd3`, secret 
 
 ### 2.2 OAuth endpoints (confirmed)
 
-```
+```text
 Authorize : https://api.prod.whoop.com/oauth/oauth2/auth
 Token     : https://api.prod.whoop.com/oauth/oauth2/token   (also handles refresh)
 ```
@@ -91,7 +91,7 @@ There's a `revokeUserOauthAccess` endpoint if we ever need to disable the integr
 
 ### 3.1 Path + auth
 
-```
+```text
 GET https://api.prod.whoop.com/v2/activity/workout
 Authorization: Bearer <access_token>
 ```
