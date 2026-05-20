@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-05-19T18:40:09.197Z",
+  "lastUpdated": "2026-05-20T04:28:12.689Z",
   "contributions": {
-    "total": 8344,
-    "commits": 3004,
-    "pullRequests": 986,
+    "total": 8438,
+    "commits": 3033,
+    "pullRequests": 1007,
     "pullRequestReviews": 11,
-    "issues": 1360,
-    "restricted": 2897
+    "issues": 1386,
+    "restricted": 2916
   },
   "calendar": {
     "weeks": [
@@ -1487,7 +1487,7 @@
           },
           {
             "date": "2026-02-07",
-            "count": 48,
+            "count": 46,
             "level": 2
           }
         ]
@@ -2052,8 +2052,8 @@
           },
           {
             "date": "2026-05-19",
-            "count": 50,
-            "level": 2
+            "count": 146,
+            "level": 4
           }
         ]
       }
@@ -2062,150 +2062,40 @@
   "streak": {
     "current": 30,
     "longest": 132,
-    "today": true
+    "today": false
   },
   "recentActivity": [
     {
       "type": "issue",
       "repo": "gvns.ca",
       "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "chore: migrate trakt fetcher to local composite action",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/561",
-      "date": "2026-05-19T18:38:44Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "chore: migrate steam fetcher to local composite action",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/558",
-      "date": "2026-05-19T18:38:40Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "chore: migrate hardcover fetcher to local composite action",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/559",
-      "date": "2026-05-19T18:38:20Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "chore: migrate listenbrainz fetcher to local composite action",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/560",
-      "date": "2026-05-19T18:26:00Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "chore: migrate github fetcher to local composite action",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/557",
-      "date": "2026-05-19T18:16:02Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Cannot resize rack after placing devices",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1624",
-      "date": "2026-05-19T17:49:37Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "bug: resize validator reports stale/invalid U position (e.g. U228 on a 42U rack)",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1683",
-      "date": "2026-05-19T17:49:37Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "chore: consolidate *-json-bourne fetchers into local composite actions",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/556",
-      "date": "2026-05-19T17:43:04Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat: add right-click context menu to DevicePalette for custom device actions",
-      "url": "https://github.com/RackulaLives/Rackula/issues/167",
-      "date": "2026-05-19T16:29:27Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "/train page — workouts list + strain heatmap",
+      "title": "/move page — workouts list + strain heatmap",
       "url": "https://github.com/ggfevans/gvns.ca/issues/570",
-      "date": "2026-05-19T09:58:37Z",
+      "date": "2026-05-19T23:58:55Z",
       "meta": {
-        "state": "OPEN"
+        "state": "CLOSED"
       }
     },
     {
       "type": "issue",
       "repo": "gvns.ca",
       "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "TrainWidget in /now bento — responsive cell plan",
+      "title": "MoveWidget in /now bento — responsive cell plan",
       "url": "https://github.com/ggfevans/gvns.ca/issues/569",
-      "date": "2026-05-19T09:58:28Z",
+      "date": "2026-05-19T23:54:44Z",
       "meta": {
-        "state": "OPEN"
+        "state": "CLOSED"
       }
     },
     {
       "type": "issue",
       "repo": "gvns.ca",
       "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "TrainWidget component (compact + full) + home strip 6-up",
+      "title": "MoveWidget component (compact + full) + home strip 6-up",
       "url": "https://github.com/ggfevans/gvns.ca/issues/568",
-      "date": "2026-05-19T09:58:21Z",
+      "date": "2026-05-19T23:53:11Z",
       "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "Daily Whoop fetch script + fetch-daily.yml workflow step",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/567",
-      "date": "2026-05-19T09:58:15Z",
-      "meta": {
-        "state": "OPEN"
+        "state": "CLOSED"
       }
     },
     {
@@ -2214,7 +2104,73 @@
       "repoUrl": "https://github.com/ggfevans/gvns.ca",
       "title": "Whoop OAuth bootstrap script (one-time local flow)",
       "url": "https://github.com/ggfevans/gvns.ca/issues/566",
-      "date": "2026-05-19T09:58:06Z",
+      "date": "2026-05-19T23:50:18Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "gvns.ca",
+      "repoUrl": "https://github.com/ggfevans/gvns.ca",
+      "title": "Daily Whoop fetch script + fetch-daily.yml workflow step",
+      "url": "https://github.com/ggfevans/gvns.ca/issues/567",
+      "date": "2026-05-19T23:47:25Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "gvns.ca",
+      "repoUrl": "https://github.com/ggfevans/gvns.ca",
+      "title": "chore: resolve P5 Sky dual-purpose (Status/now vs Play)",
+      "url": "https://github.com/ggfevans/gvns.ca/issues/589",
+      "date": "2026-05-19T23:47:07Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "gvns.ca",
+      "repoUrl": "https://github.com/ggfevans/gvns.ca",
+      "title": "chore: bump cover image source resolutions (CAA / OL / TMDB)",
+      "url": "https://github.com/ggfevans/gvns.ca/issues/588",
+      "date": "2026-05-19T23:46:51Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "gvns.ca",
+      "repoUrl": "https://github.com/ggfevans/gvns.ca",
+      "title": "refactor: activity widgets to Option C hero-card layout",
+      "url": "https://github.com/ggfevans/gvns.ca/issues/586",
+      "date": "2026-05-19T23:46:36Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "gvns.ca",
+      "repoUrl": "https://github.com/ggfevans/gvns.ca",
+      "title": "feat: polish home Now section (heading + label cleanup + Code icon)",
+      "url": "https://github.com/ggfevans/gvns.ca/issues/585",
+      "date": "2026-05-19T23:46:14Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "qmd-swiftbar",
+      "repoUrl": "https://github.com/ggfevans/qmd-swiftbar",
+      "title": "chore: create release workflow skill for qmd-swiftbar",
+      "url": "https://github.com/ggfevans/qmd-swiftbar/issues/18",
+      "date": "2026-05-19T23:44:33Z",
       "meta": {
         "state": "OPEN"
       }
@@ -2225,117 +2181,73 @@
       "repoUrl": "https://github.com/ggfevans/gvns.ca",
       "title": "Add P6 crimson palette token + 6-stop activity gradient",
       "url": "https://github.com/ggfevans/gvns.ca/issues/565",
-      "date": "2026-05-19T09:58:01Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "Train widget — UX exploration + mockups",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/564",
-      "date": "2026-05-19T09:57:53Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "Whoop API research spike",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/563",
-      "date": "2026-05-19T09:57:43Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "chore: archive *-json-bourne source repositories",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/562",
-      "date": "2026-05-19T09:18:16Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "Add trivy weekly & manual scan workflow",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/555",
-      "date": "2026-05-19T09:17:01Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "Epic: Train widget (Whoop integration)",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/553",
-      "date": "2026-05-19T09:14:21Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "ThreadsWidget: fetch workflow fails with invalid OAuth token despite refresh workflow succeeding",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/552",
-      "date": "2026-05-19T08:00:38Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "ThreadsWidget: remove placeholder posts from threads.json",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/548",
-      "date": "2026-05-19T07:54:39Z",
+      "date": "2026-05-19T23:41:50Z",
       "meta": {
         "state": "CLOSED"
       }
     },
     {
       "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "ThreadsWidget: move alongside posts on desktop / after posts on mobile",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/547",
-      "date": "2026-05-19T07:46:47Z",
+      "repo": "qmd-swiftbar",
+      "repoUrl": "https://github.com/ggfevans/qmd-swiftbar",
+      "title": "epic #5.4: update README for binary distribution",
+      "url": "https://github.com/ggfevans/qmd-swiftbar/issues/9",
+      "date": "2026-05-19T23:23:51Z",
       "meta": {
         "state": "CLOSED"
       }
     },
     {
       "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "fix: post focus page centring + header polish + prev/next nav",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/544",
-      "date": "2026-05-19T07:16:22Z",
+      "repo": "qmd-swiftbar",
+      "repoUrl": "https://github.com/ggfevans/qmd-swiftbar",
+      "title": "feature: supply qmd.30s.sh entry point for SwiftBar/xbar",
+      "url": "https://github.com/ggfevans/qmd-swiftbar/issues/5",
+      "date": "2026-05-19T22:52:22Z",
       "meta": {
         "state": "CLOSED"
       }
     },
     {
       "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "feat: Threads post feed widget on home page (@ggfevans)",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/525",
-      "date": "2026-05-19T07:16:07Z",
+      "repo": "qmd-swiftbar",
+      "repoUrl": "https://github.com/ggfevans/qmd-swiftbar",
+      "title": "epic #5.3: shell wrapper (qmd.30s.sh) for SwiftBar/xbar",
+      "url": "https://github.com/ggfevans/qmd-swiftbar/issues/8",
+      "date": "2026-05-19T22:50:31Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "qmd-swiftbar",
+      "repoUrl": "https://github.com/ggfevans/qmd-swiftbar",
+      "title": "feature: add Trivy security scan workflow",
+      "url": "https://github.com/ggfevans/qmd-swiftbar/issues/13",
+      "date": "2026-05-19T22:26:06Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "qmd-swiftbar",
+      "repoUrl": "https://github.com/ggfevans/qmd-swiftbar",
+      "title": "feature: add release command",
+      "url": "https://github.com/ggfevans/qmd-swiftbar/issues/12",
+      "date": "2026-05-19T22:26:06Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "qmd-swiftbar",
+      "repoUrl": "https://github.com/ggfevans/qmd-swiftbar",
+      "title": "epic #5.2: compiled binary via deno compile",
+      "url": "https://github.com/ggfevans/qmd-swiftbar/issues/7",
+      "date": "2026-05-19T22:23:55Z",
       "meta": {
         "state": "CLOSED"
       }
@@ -2344,66 +2256,162 @@
       "type": "issue",
       "repo": "zed-hujson",
       "repoUrl": "https://github.com/ggfevans/zed-hujson",
-      "title": "Add Trivy security scanning workflow (weekly + manual)",
-      "url": "https://github.com/ggfevans/zed-hujson/issues/6",
-      "date": "2026-05-19T06:57:22Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "steam-json-bourne",
-      "repoUrl": "https://github.com/ggfevans/steam-json-bourne",
-      "title": "fix: artwork URLs 404 for newer games (Steam migrated to hashed paths)",
-      "url": "https://github.com/ggfevans/steam-json-bourne/issues/9",
-      "date": "2026-05-19T06:29:21Z",
+      "title": "pin all workflow deps using sha values",
+      "url": "https://github.com/ggfevans/zed-hujson/issues/16",
+      "date": "2026-05-19T22:22:14Z",
       "meta": {
         "state": "OPEN"
       }
     },
     {
       "type": "issue",
-      "repo": "swiftbar-qmd",
-      "repoUrl": "https://github.com/ggfevans/swiftbar-qmd",
-      "title": "Action runner: tighten PID-file lock atomicity + failure ordering (D8+D9)",
-      "url": "https://github.com/ggfevans/swiftbar-qmd/issues/2",
-      "date": "2026-05-19T05:18:53Z",
+      "repo": "qmd-swiftbar",
+      "repoUrl": "https://github.com/ggfevans/qmd-swiftbar",
+      "title": "epic #5.1: CI build pipeline for compiled binary",
+      "url": "https://github.com/ggfevans/qmd-swiftbar/issues/6",
+      "date": "2026-05-19T22:15:42Z",
       "meta": {
         "state": "CLOSED"
       }
     },
     {
       "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Enable file chooser E2E tests with clickLoad helper",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1403",
-      "date": "2026-05-19T02:41:01Z",
+      "repo": "gvns.ca",
+      "repoUrl": "https://github.com/ggfevans/gvns.ca",
+      "title": "ThreadsWidget: fetch workflow fails with invalid OAuth token despite refresh workflow succeeding",
+      "url": "https://github.com/ggfevans/gvns.ca/issues/552",
+      "date": "2026-05-19T20:55:32Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "zed-hujson",
+      "repoUrl": "https://github.com/ggfevans/zed-hujson",
+      "title": "Add SECURITY.md, release workflow, and /release command",
+      "url": "https://github.com/ggfevans/zed-hujson/issues/9",
+      "date": "2026-05-19T20:40:23Z",
       "meta": {
         "state": "CLOSED"
       }
     },
     {
       "type": "issue",
+      "repo": "tree-sitter-hujson",
+      "repoUrl": "https://github.com/ggfevans/tree-sitter-hujson",
+      "title": "chore: Quarterly upstream sync against tree-sitter-json",
+      "url": "https://github.com/ggfevans/tree-sitter-hujson/issues/4",
+      "date": "2026-05-19T20:39:45Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "tree-sitter-hujson",
+      "repoUrl": "https://github.com/ggfevans/tree-sitter-hujson",
+      "title": "feature: Add .jwcc file-extension to grammar",
+      "url": "https://github.com/ggfevans/tree-sitter-hujson/issues/3",
+      "date": "2026-05-19T20:39:42Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "tree-sitter-hujson",
+      "repoUrl": "https://github.com/ggfevans/tree-sitter-hujson",
+      "title": "feature: Markdown fenced-block injection — highlight hujson blocks in host languages",
+      "url": "https://github.com/ggfevans/tree-sitter-hujson/issues/2",
+      "date": "2026-05-19T20:39:39Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "zed-hujson",
+      "repoUrl": "https://github.com/ggfevans/zed-hujson",
+      "title": "feature: Ship standalone hujsonfmt binary distribution",
+      "url": "https://github.com/ggfevans/zed-hujson/issues/14",
+      "date": "2026-05-19T20:39:27Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "zed-hujson",
+      "repoUrl": "https://github.com/ggfevans/zed-hujson",
+      "title": "feature: Add .jwcc file-extension to Zed extension config",
+      "url": "https://github.com/ggfevans/zed-hujson/issues/13",
+      "date": "2026-05-19T20:39:25Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "zed-hujson",
+      "repoUrl": "https://github.com/ggfevans/zed-hujson",
+      "title": "feature: Schema validation (LSP) — diagnostics and completions for JWCC documents",
+      "url": "https://github.com/ggfevans/zed-hujson/issues/12",
+      "date": "2026-05-19T20:39:23Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "zed-hujson",
+      "repoUrl": "https://github.com/ggfevans/zed-hujson",
+      "title": "feature: Formatter integration — wire hujsonfmt as a language server",
+      "url": "https://github.com/ggfevans/zed-hujson/issues/11",
+      "date": "2026-05-19T20:39:21Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "bug: device/device-type removal loses images permanently — undo cannot restore them",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1477",
-      "date": "2026-05-19T02:39:39Z",
+      "title": "chore(ts): Remove @ts-nocheck from test helpers — 2 files, 4 errors",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1708",
+      "date": "2026-05-19T20:19:40Z",
       "meta": {
-        "state": "CLOSED"
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "chore(ts): Remove @ts-nocheck from components — 9 files, 23 errors",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1707",
+      "date": "2026-05-19T20:18:32Z",
+      "meta": {
+        "state": "OPEN"
       }
     }
   ],
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 438,
-    "contributionsThisMonth": 1070,
+    "contributionsThisWeek": 525,
+    "contributionsThisMonth": 1166,
     "repositoriesThisWeek": 5
   },
   "repositories": [
+    {
+      "name": "zed-hujson",
+      "description": "HuJSON language grammar for Zed",
+      "language": "Shell",
+      "languageColor": "#89e051",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/zed-hujson"
+    },
     {
       "name": "gvns.ca",
       "description": "",
@@ -2413,20 +2421,12 @@
       "url": "https://github.com/ggfevans/gvns.ca"
     },
     {
-      "name": "steam-json-bourne",
-      "description": "",
-      "language": "JavaScript",
-      "languageColor": "#f1e05a",
+      "name": "qmd-swiftbar",
+      "description": "qmd state in your macOS menubar",
+      "language": "TypeScript",
+      "languageColor": "#3178c6",
       "stars": 0,
-      "url": "https://github.com/ggfevans/steam-json-bourne"
-    },
-    {
-      "name": "zed-hujson",
-      "description": "HuJSON language grammar for Zed",
-      "language": "Shell",
-      "languageColor": "#89e051",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/zed-hujson"
+      "url": "https://github.com/ggfevans/qmd-swiftbar"
     },
     {
       "name": "searxng-seek-alfred",
@@ -2453,14 +2453,6 @@
       "url": "https://github.com/ggfevans/endorse"
     },
     {
-      "name": "swiftbar-qmd",
-      "description": "qmd state in your macOS menubar",
-      "language": "TypeScript",
-      "languageColor": "#3178c6",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/swiftbar-qmd"
-    },
-    {
       "name": "ai-disclosure",
       "description": "A lightweight, machine-readable convention for declaring AI involvement in source code",
       "language": "",
@@ -2485,20 +2477,28 @@
       "url": "https://github.com/ggfevans/gwilym.ca"
     },
     {
-      "name": "github-json-bourne",
-      "description": "",
-      "language": "JavaScript",
-      "languageColor": "#f1e05a",
-      "stars": 1,
-      "url": "https://github.com/ggfevans/github-json-bourne"
-    },
-    {
       "name": "listenbrainz-csv-upload",
       "description": "Import your Last.fm listening history into ListenBrainz from a CSV export",
       "language": "Python",
       "languageColor": "#3572A5",
       "stars": 0,
       "url": "https://github.com/ggfevans/listenbrainz-csv-upload"
+    },
+    {
+      "name": "route-to-art",
+      "description": "Transform GPX route files into visual artwork — CLI and web interface for GPS art generation",
+      "language": "Python",
+      "languageColor": "#3572A5",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/route-to-art"
+    },
+    {
+      "name": "SearXNG-Community-Scripts-ProxmoxVE",
+      "description": "SearXNG engine for searching the Proxmox VE Community Scripts catalogue (~480 scripts). Offline, cached, zero dependencies",
+      "language": "Python",
+      "languageColor": "#3572A5",
+      "stars": 11,
+      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE"
     }
   ]
 }
