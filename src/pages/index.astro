@@ -62,9 +62,9 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
       <div class="gvns-activity-grid">
         <ReadWidget compact />
         <ListenWidget compact />
+        <GameWidget compact />
         <WatchWidget compact />
         <CodeWidget compact />
-        <GameWidget compact />
         <MoveWidget compact />
       </div>
     </section>
@@ -73,6 +73,11 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
 
 <style>
   .gvns-home {
+    /* width:100% is load-bearing — without it, BaseLayout's `body{display:flex;flex-direction:column}`
+       combined with `margin:0 auto` cross-axis-auto-margins suppresses flex stretch and main collapses
+       to intrinsic content width. With width:100% the element claims body width, max-width then caps it,
+       and margin:auto centers normally. */
+    width: 100%;
     max-width: var(--width-wide);
     margin: 0 auto;
     padding-inline: var(--space-4);
@@ -119,24 +124,12 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
   .gvns-activity-widgets {
     padding-block: var(--space-2);
   }
+  /* Auto-fit with a card-width floor — no jarring breakpoint snap.
+     At any viewport, columns scale smoothly between 1 and 6 cards-per-row
+     while every card stays ≥ ~190px so frame imagery never shrinks below readable. */
   .gvns-activity-grid {
     display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
     gap: var(--space-4);
-  }
-  @media (max-width: 1279px) {
-    .gvns-activity-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-  }
-  @media (max-width: 1023px) {
-    .gvns-activity-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-  @media (max-width: 640px) {
-    .gvns-activity-grid {
-      grid-template-columns: minmax(0, 1fr);
-    }
   }
 </style>
