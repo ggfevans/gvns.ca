@@ -91,7 +91,7 @@ Strain is a 0–21 logarithmic scale (Whoop convention). Render to one decimal p
 
 | File | Action |
 |---|---|
-| `scripts/fetch-whoop.mjs` | **New.** Node ESM script. Reads `WHOOP_ACCESS_TOKEN` + `WHOOP_REFRESH_TOKEN` from env, fetches latest workouts, writes `src/data/whoop.json`. Rotates both tokens back to GH secrets on success (refresh tokens are single-use). |
+| `scripts/fetch-whoop.mjs` | **New.** Node ESM script. Reads `WHOOP_ACCESS_TOKEN` + `WHOOP_REFRESH_TOKEN` from env, refreshes tokens first and persists new refresh + access tokens to GH secrets immediately, then fetches latest workouts and writes `src/data/whoop.json`. Refresh tokens are single-use, so the rotate-first order is critical — see §4.4. |
 | `scripts/refresh-whoop-token.mjs` | **New, optional.** Standalone refresh script following the `refresh-threads-token.mjs` pattern (incl. failure-as-issue reporter). Useful when the fetch script hasn't run for a while and tokens are close to expiry. |
 | `scripts/whoop-auth-bootstrap.mjs` | **New.** One-time local utility to walk through Whoop's OAuth flow (browser redirect → code → first refresh token). Run once locally, `gh secret set` the result, never touch again unless the refresh chain breaks. |
 | ~~`scripts/whoop-sports.json`~~ | **Dropped post-research.** Whoop v2 returns `sport_name` directly; the v1 `sport_id` enum is being phased out 2025-09-01. The fetch script will keep a tiny inline presentation map for special cases (`"jiu jitsu"` → `"Jiu-jitsu"`, `"hiit"` → `"HIIT"`, etc.) — no external lookup needed. |
@@ -107,12 +107,12 @@ Whoop uses OAuth2 with the authorization-code grant + refresh tokens. The flow:
    - Listens on `localhost:8910/callback` for the redirected `code`.
    - Exchanges `code` → `{ access_token, refresh_token, expires_in }`.
    - Prints the values; user pipes them into `gh secret set WHOOP_ACCESS_TOKEN` and `gh secret set WHOOP_REFRESH_TOKEN`.
-2. **Daily fetch (CI).** `scripts/fetch-whoop.mjs` runs:
-   - Always refresh first (cheap, ~200ms; means the access token is fresh for the fetch and we exercise refresh every day, catching breakage early).
+2. **Daily fetch (CI).** `scripts/fetch-whoop.mjs` runs (order is critical — see §4.4):
+   - Refresh token first → get new `{access, refresh}` pair.
+   - **Immediately persist** the new `refresh_token` and `access_token` to GH secrets via `gh secret set` (stdin, to keep them out of argv / logs / shell history — same pattern as `refresh-threads-token.mjs`). This must happen before any fetch, because refresh tokens are single-use — if the subsequent fetch fails, the old token is already invalidated.
    - Fetch workouts since the last `lastUpdated` (or last 30 days on first run).
    - Merge with existing `whoop.json`, dedupe on `id`, sort newest-first, cap at 30 entries.
    - Write `src/data/whoop.json`.
-   - **Rotate tokens.** Pipe the new `access_token` + `refresh_token` to `gh secret set` (stdin, to keep them out of argv / logs / shell history — same pattern as `refresh-threads-token.mjs`).
 3. **Failure surfacing.** On any error, open or comment on a `[whoop-auth] …` issue (mirrors the Threads pattern). Don't fail the whole `fetch-daily.yml` run — `continue-on-error: true` on the step.
 
 ### 4.3 Why "always refresh"
