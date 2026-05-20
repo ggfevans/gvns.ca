@@ -43,12 +43,12 @@ Each activity section has a dedicated colour. Maintain this consistently.
 | **Rose** | Read | `#f43f5e` | `#e11d48` | `#fff1f2` |
 | **Emerald** | Listen | `#10b981` | `#059669` | `#ecfdf5` |
 | **Amber** | Write, Watch | `#f59e0b` | `#d97706` | `#fffbeb` |
-| **Sky** | Status indicators | `#0ea5e9` | `#0284c7` | `#f0f9ff` |
+| **Sky** | Status, Play | `#0ea5e9` | `#0284c7` | `#f0f9ff` |
 | **Crimson** | Move (Whoop) | `#dc143c` | `#be123c` | `#fff1f2` |
 
 ### Colour Discipline
 
-> **Critical:** Each activity type has a specific colour. Never mix them.
+> **Critical:** Each activity type has a specific colour. Dedicated by default; intentional shared accents are documented below.
 >
 > - Code → Violet
 > - Read → Rose
@@ -56,6 +56,7 @@ Each activity section has a dedicated colour. Maintain this consistently.
 > - Watch → Amber
 > - Write → Amber
 > - Status → Sky
+> - Play → Sky
 > - Move → Crimson
 
 ### Interactive States

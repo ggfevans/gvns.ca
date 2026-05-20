@@ -682,6 +682,31 @@ Recents count is **4** (`posts.slice(1, 5)`) — right column ~280px tall, sits 
 
 ---
 
+## ADR-021: P5 Sky Dual-Use for Status and Play
+
+**Date**: 2026-05-19
+**Status**: Accepted
+
+### Context
+P5 Sky currently serves two distinct activity surfaces: Status/now indicators and Play (gaming) widgets. Every other palette stop (except P4 Amber, shared by Watch and Write) maps to a single discipline. The question is whether to introduce a dedicated P7 stop for one of the two, or formally accept the dual use.
+
+### Decision
+Keep P5 Sky as the shared accent for both Status and Play. Document it as intentional.
+
+### Rationale
+- Sky reads naturally as both "status / online / calm" and "cool / gaming" — the semantic overlap is genuine, not accidental
+- P4 Amber is already shared between Watch and Write; dual-use has precedent in the palette
+- Adding P7 would extend the activity gradient to 7 stops, breaking the clean 5-band equal split (each band currently spans exactly 20%)
+- ADR-008 intentionally designed the palette as P1–P5; expanding it should require stronger justification than aesthetic symmetry
+- A 5-stop gradient is simpler to maintain and reason about than 6 or 7 stops
+
+### Consequences
+- Game/Play and Status/now widgets share the same accent colour
+- No visual wayfinding distinction between gaming activity and status indicators
+- Future addition of more activity types may pressure the palette; revisit if a 6th or 7th discipline emerges with no natural colour affinity
+
+---
+
 ## Template for New Decisions
 
 ```markdown
@@ -705,4 +730,4 @@ Recents count is **4** (`posts.slice(1, 5)`) — right column ~280px tall, sits 
 
 ---
 
-*Last updated: 2026-05-03 (ADR-020)*
+*Last updated: 2026-05-19 (ADR-021)*
