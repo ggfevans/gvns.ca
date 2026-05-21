@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2026-05-20T09:44:02.784Z",
+  "lastUpdated": "2026-05-21T04:31:18.237Z",
   "contributions": {
-    "total": 8466,
-    "commits": 3044,
-    "pullRequests": 1012,
+    "total": 8469,
+    "commits": 3045,
+    "pullRequests": 1014,
     "pullRequestReviews": 11,
     "issues": 1386,
     "restricted": 2928
@@ -2057,7 +2057,7 @@
           },
           {
             "date": "2026-05-20",
-            "count": 10,
+            "count": 13,
             "level": 1
           }
         ]
@@ -2067,9 +2067,20 @@
   "streak": {
     "current": 31,
     "longest": 132,
-    "today": true
+    "today": false
   },
   "recentActivity": [
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Invalid redirect when behind reverse proxy and using OIDC",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1713",
+      "date": "2026-05-20T16:05:45Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
     {
       "type": "issue",
       "repo": "gvns.ca",
@@ -2388,25 +2399,14 @@
       "meta": {
         "state": "OPEN"
       }
-    },
-    {
-      "type": "issue",
-      "repo": "zed-hujson",
-      "repoUrl": "https://github.com/ggfevans/zed-hujson",
-      "title": "feature: Add .jwcc file-extension to Zed extension config",
-      "url": "https://github.com/ggfevans/zed-hujson/issues/13",
-      "date": "2026-05-19T20:39:25Z",
-      "meta": {
-        "state": "OPEN"
-      }
     }
   ],
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 553,
-    "contributionsThisMonth": 1194,
-    "repositoriesThisWeek": 4
+    "contributionsThisWeek": 534,
+    "contributionsThisMonth": 1196,
+    "repositoriesThisWeek": 5
   },
   "repositories": [
     {
