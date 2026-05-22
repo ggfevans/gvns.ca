@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-05-21T04:31:18.237Z",
+  "lastUpdated": "2026-05-22T04:28:17.156Z",
   "contributions": {
-    "total": 8469,
+    "total": 8491,
     "commits": 3045,
-    "pullRequests": 1014,
+    "pullRequests": 1015,
     "pullRequestReviews": 11,
     "issues": 1386,
-    "restricted": 2928
+    "restricted": 2949
   },
   "calendar": {
     "weeks": [
@@ -2052,12 +2052,17 @@
           },
           {
             "date": "2026-05-19",
-            "count": 164,
+            "count": 166,
             "level": 4
           },
           {
             "date": "2026-05-20",
             "count": 13,
+            "level": 1
+          },
+          {
+            "date": "2026-05-21",
+            "count": 20,
             "level": 1
           }
         ]
@@ -2065,11 +2070,22 @@
     ]
   },
   "streak": {
-    "current": 31,
+    "current": 32,
     "longest": 132,
     "today": false
   },
   "recentActivity": [
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "feat: replace pako with lz-string for share URL compression",
+      "url": "https://github.com/RackulaLives/Rackula/issues/817",
+      "date": "2026-05-21T16:06:58Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
     {
       "type": "issue",
       "repo": "Rackula",
@@ -2388,27 +2404,32 @@
       "meta": {
         "state": "OPEN"
       }
-    },
-    {
-      "type": "issue",
-      "repo": "zed-hujson",
-      "repoUrl": "https://github.com/ggfevans/zed-hujson",
-      "title": "feature: Ship standalone hujsonfmt binary distribution",
-      "url": "https://github.com/ggfevans/zed-hujson/issues/14",
-      "date": "2026-05-19T20:39:27Z",
-      "meta": {
-        "state": "OPEN"
-      }
     }
   ],
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 534,
-    "contributionsThisMonth": 1196,
+    "contributionsThisWeek": 499,
+    "contributionsThisMonth": 1210,
     "repositoriesThisWeek": 5
   },
   "repositories": [
+    {
+      "name": "endorse",
+      "description": "LinkedIn CLI / TUI. LinkedIn messaging without the feed, the ads, or the \"Thoughts?\" posts.",
+      "language": "Go",
+      "languageColor": "#00ADD8",
+      "stars": 13,
+      "url": "https://github.com/ggfevans/endorse"
+    },
+    {
+      "name": "gwilym.ca",
+      "description": "",
+      "language": "Astro",
+      "languageColor": "#ff5a03",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/gwilym.ca"
+    },
     {
       "name": "gvns.ca",
       "description": "",
@@ -2450,14 +2471,6 @@
       "url": "https://github.com/ggfevans/alseerr"
     },
     {
-      "name": "endorse",
-      "description": "LinkedIn CLI / TUI. LinkedIn messaging without the feed, the ads, or the \"Thoughts?\" posts.",
-      "language": "Go",
-      "languageColor": "#00ADD8",
-      "stars": 13,
-      "url": "https://github.com/ggfevans/endorse"
-    },
-    {
       "name": "ai-disclosure",
       "description": "A lightweight, machine-readable convention for declaring AI involvement in source code",
       "language": "",
@@ -2472,14 +2485,6 @@
       "languageColor": "#f1e05a",
       "stars": 0,
       "url": "https://github.com/ggfevans/tree-sitter-hujson"
-    },
-    {
-      "name": "gwilym.ca",
-      "description": "",
-      "language": "Astro",
-      "languageColor": "#ff5a03",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/gwilym.ca"
     },
     {
       "name": "listenbrainz-csv-upload",
