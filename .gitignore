@@ -45,3 +45,4 @@ pnpm-debug.log*
 
 # wrangler local state
 .wrangler/
+.superpowers/

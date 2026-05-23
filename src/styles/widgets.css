@@ -10,9 +10,9 @@
   transition: border-color var(--transition-fast);
 }
 
-/* Hero-card frame — 4:3 cover area at top of card */
+/* Hero-card frame — square crop for a uniform visual rhythm across the bento */
 .gvns-widget-compact__frame {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1 / 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -20,22 +20,29 @@
   overflow: hidden;
 }
 
+/* Images fit fully inside the square (no crop) — portraits letterbox left/right,
+   landscape headers letterbox top/bottom, square art fills. Preserves titles and
+   key composition that cover-crop would shave off. */
 .gvns-widget-compact__image {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  object-position: center;
 }
 
-/* Album art fills the 4:3 frame; portraits letterbox by default */
+/* Opt-in to cover-fill for sources that look better filling the frame edge-to-edge.
+   Currently no caller sets this; retained as an escape hatch. */
 .gvns-widget-compact__image--fill {
   object-fit: cover;
 }
 
-/* Slot icons for text-only widgets (Code) — 33% of frame width, capped at 120px */
+/* Slot icons for text-only widgets (Code, Move) and missing-image fallbacks (Watch, Game) —
+   inherit the widget's accent colour so the bento reads as a cohesive palette, not muted greys. */
 .gvns-widget-compact__icon {
   width: 33%;
   max-width: 120px;
-  color: var(--colour-text-muted);
+  color: var(--widget-accent, var(--colour-text-muted));
+  opacity: 0.7;
 }
 
 /* Hero-card body — text section below frame with accent strip */
