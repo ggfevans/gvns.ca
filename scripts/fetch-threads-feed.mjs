@@ -1,7 +1,7 @@
 import { writeFile, readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 
-const TOKEN = process.env.THREADS_ACCESS_TOKEN;
+const TOKEN = process.env.THREADS_ACCESS_TOKEN?.trim();
 const OUT = resolve('src/data/threads.json');
 const BASE = 'https://graph.threads.net/v1.0/me/threads';
 const FIELDS = 'id,text,media_type,permalink,timestamp,is_quote_post';
