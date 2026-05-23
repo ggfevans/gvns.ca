@@ -41,46 +41,68 @@ const mediaBadge: Record<string, string> = {
   CAROUSEL_ALBUM: '[album]',
   AUDIO: '[audio]',
 };
+const latestPost = posts[0] ?? null;
 ---
 
-<article class={`gvns-widget-compact gvns-widget-compact--threads ${!compact ? 'gvns-widget-full' : ''}`}>
-  <div class="gvns-widget-compact__label">Recent Threads</div>
-  
-  {posts.length === 0 ? (
-    <div class="gvns-widget-compact__empty">Quiet on Threads.</div>
-  ) : (
-    <div class="gvns-widget-compact__content">
-      {posts.map((p) => (
-        <a href={p.permalink} target="_blank" rel="noopener noreferrer" class="gvns-widget-compact__link">
-          <div class="gvns-widget-compact__info">
-            <p class="gvns-widget-compact__title">{truncate(p.text || '', 140)}</p>
-            <div class="gvns-widget-compact__meta">
-              {mediaBadge[p.mediaType] && <span class="gvns-widget-compact__badge">{mediaBadge[p.mediaType]}</span>}
-              <span class="gvns-widget-compact__timestamp">{relativeTime(p.timestamp)}</span>
-            </div>
-          </div>
-        </a>
-      ))}
+{compact ? (
+  <article class="gvns-widget-compact gvns-widget-compact--threads">
+    <div class="gvns-widget-compact__frame">
+      <svg class="gvns-widget-compact__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
     </div>
-  )}
-  
-  <a 
-    class="gvns-widget-compact__footer" 
-    href="https://www.threads.net/@ggfevans" 
-    target="_blank" 
-    rel="noopener noreferrer"
-  >
-    See more on Threads &rarr;
-  </a>
-</article>
+    <div class="gvns-widget-compact__body">
+      <div class="gvns-widget-compact__label">Shitposting</div>
+      {latestPost ? (
+        <a href={latestPost.permalink} target="_blank" rel="noopener noreferrer" class="gvns-widget-compact__link">
+          <p class="gvns-widget-compact__title">{truncate(latestPost.text || '(media)', 60)}</p>
+          <p class="gvns-widget-compact__subtitle">{relativeTime(latestPost.timestamp)}</p>
+        </a>
+      ) : (
+        <a href="https://www.threads.net/@ggfevans" target="_blank" rel="noopener noreferrer" class="gvns-widget-compact__link">
+          <p class="gvns-widget-compact__title">Quiet on Threads</p>
+          <p class="gvns-widget-compact__subtitle">@ggfevans &rarr;</p>
+        </a>
+      )}
+    </div>
+  </article>
+) : (
+  <article class="gvns-widget-compact gvns-widget-compact--threads gvns-widget-compact--threads-full">
+    <div class="gvns-widget-compact__label">Recent Threads</div>
+    {posts.length === 0 ? (
+      <div class="gvns-widget-compact__empty">Quiet on Threads.</div>
+    ) : (
+      <div class="gvns-widget-compact__content">
+        {posts.map((p) => (
+          <a href={p.permalink} target="_blank" rel="noopener noreferrer" class="gvns-widget-compact__link">
+            <div class="gvns-widget-compact__info">
+              <p class="gvns-widget-compact__title">{truncate(p.text || '', 140)}</p>
+              <div class="gvns-widget-compact__meta">
+                {mediaBadge[p.mediaType] && <span class="gvns-widget-compact__badge">{mediaBadge[p.mediaType]}</span>}
+                <span class="gvns-widget-compact__timestamp">{relativeTime(p.timestamp)}</span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    )}
+    <a
+      class="gvns-widget-compact__footer"
+      href="https://www.threads.net/@ggfevans"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      See more on Threads &rarr;
+    </a>
+  </article>
+)}
 
 <style>
-  .gvns-widget-compact--threads {
+  /* Full (non-compact) variant retains the multi-post stack styling used on /now etc. */
+  .gvns-widget-compact--threads-full {
     padding: var(--space-4);
-    border-top: 2px solid var(--widget-accent);
+    border-top: 2px solid var(--widget-accent, var(--colour-p6-crimson));
   }
 
-  .gvns-widget-compact__meta {
+  .gvns-widget-compact--threads-full .gvns-widget-compact__meta {
     display: flex;
     gap: 0.5rem;
     align-items: center;
@@ -88,7 +110,7 @@ const mediaBadge: Record<string, string> = {
     opacity: 0.7;
   }
 
-  .gvns-widget-compact__badge {
+  .gvns-widget-compact--threads-full .gvns-widget-compact__badge {
     font-family: var(--font-mono);
     font-size: 0.65rem;
     padding: 0 0.25rem;

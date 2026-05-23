@@ -8,9 +8,7 @@ import RecentPostsList from '@components/RecentPostsList.astro';
 import ReadWidget from '@components/widgets/ReadWidget.astro';
 import ListenWidget from '@components/widgets/ListenWidget.astro';
 import WatchWidget from '@components/widgets/WatchWidget.astro';
-import CodeWidget from '@components/widgets/CodeWidget.astro';
 import GameWidget from '@components/widgets/GameWidget.astro';
-import MoveWidget from '@components/widgets/MoveWidget.astro';
 import ThreadsWidget from '@components/widgets/ThreadsWidget.astro';
 import { websiteSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
 import { SITE_BIO } from '@utils/site';
@@ -20,6 +18,46 @@ const posts = (await getCollection('posts'))
   .filter((post) => (import.meta.env.PROD ? !post.data.draft : true))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 5);
+
+// All six activity data sources, loaded once and used to derive both the
+// `last fetched` timestamp under the Now heading and the inline Code/Move chips.
+const dataModules = await Promise.all([
+  import('../data/reading.json'),
+  import('../data/listening.json'),
+  import('../data/watching.json'),
+  import('../data/gaming.json'),
+  import('../data/github.json'),
+  import('../data/whoop.json'),
+]);
+const [, , , , githubData, whoopData] = dataModules.map((m) => m.default as Record<string, unknown>);
+
+const lastFetchMs = dataModules
+  .map((m) => (m.default as { lastUpdated?: string | null }).lastUpdated)
+  .filter((s): s is string => Boolean(s))
+  .map((s) => new Date(s).getTime())
+  .filter((t) => !Number.isNaN(t))
+  .reduce((max, t) => (t > max ? t : max), 0);
+const lastFetch = lastFetchMs > 0 ? new Date(lastFetchMs) : null;
+const lastFetchDisplay = lastFetch
+  ? `${lastFetch.toISOString().slice(0, 10)} · ${lastFetch.toISOString().slice(11, 16)} UTC`
+  : null;
+const lastFetchIso = lastFetch?.toISOString() ?? '';
+
+// Coding chip: current streak + last-7-day contribution sparkline (level 0-4).
+const codeStreak = Number((githubData?.streak as { current?: number })?.current ?? 0);
+const codeDays = ((githubData?.calendar as { weeks?: Array<{ days?: Array<{ level?: number }> }> })?.weeks ?? [])
+  .flatMap((w) => w.days ?? [])
+  .slice(-7)
+  .map((d) => Number(d?.level ?? 0));
+const codeHasSignal = codeStreak > 0 || codeDays.some((l) => l > 0);
+
+// Move chip: latest workout summary + recent-strain sparkline (newest right).
+interface Workout { sport?: string; durationMinutes?: number; strain?: number }
+const recentWorkouts = ((whoopData?.recentWorkouts as Workout[]) ?? []);
+const moveLatest = recentWorkouts[0] ?? null;
+const moveStrain = recentWorkouts.slice(0, 7).reverse().map((w) => Number(w?.strain) || 0);
+const moveStrainMax = Math.max(...moveStrain, 1);
+const moveHasSignal = !!moveLatest;
 
 const siteUrl = normalizeSiteUrl(Astro.site);
 const jsonLd = toJsonLd(websiteSchema(siteUrl));
@@ -39,7 +77,6 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
         </div>
         <div class="gvns-home__sidebar">
           <RecentPostsList posts={posts.slice(1, 5)} />
-          <ThreadsWidget compact />
         </div>
       </section>
     ) : posts.length === 1 ? (
@@ -53,19 +90,55 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
         </p>
       </section>
     )}
-    {posts.length <= 1 && (
-      <section class="gvns-home__threads-solo" aria-label="Recent Threads">
-        <ThreadsWidget compact />
-      </section>
-    )}
     <section class="gvns-activity-widgets" aria-label="Current activity">
+      <header class="gvns-now">
+        <div class="gvns-now__row">
+          <h2 class="gvns-now__title">Now</h2>
+          <span class="gvns-now__cursor" aria-hidden="true"></span>
+        </div>
+        <div class="gvns-now__meta">
+          {lastFetch && (
+            <p class="gvns-now__date">
+              <span class="gvns-now__branch" aria-hidden="true">&#x2514;</span>
+              <time datetime={lastFetchIso}>{lastFetchDisplay}</time>
+            </p>
+          )}
+          <div class="gvns-now__stats">
+            {codeHasSignal && (
+              <a href="/code" class="gvns-now__chip gvns-now__chip--code">
+                <span class="gvns-now__chip-spark" aria-hidden="true">
+                  {codeDays.map((level) => (
+                    <i style={`height: ${Math.max((level / 4) * 100, 12)}%; opacity: ${0.3 + (level / 4) * 0.7}`}></i>
+                  ))}
+                </span>
+                <span class="gvns-now__chip-text">
+                  <span class="gvns-now__chip-label">coding</span>
+                  <span class="gvns-now__chip-value">{codeStreak}-day streak</span>
+                </span>
+              </a>
+            )}
+            {moveHasSignal && (
+              <a href="/move" class="gvns-now__chip gvns-now__chip--move">
+                <span class="gvns-now__chip-spark" aria-hidden="true">
+                  {moveStrain.map((s) => (
+                    <i style={`height: ${Math.max((s / moveStrainMax) * 100, 12)}%; opacity: ${0.4 + (s / moveStrainMax) * 0.6}`}></i>
+                  ))}
+                </span>
+                <span class="gvns-now__chip-text">
+                  <span class="gvns-now__chip-label">move</span>
+                  <span class="gvns-now__chip-value">{moveLatest!.sport} &middot; {moveLatest!.durationMinutes}m</span>
+                </span>
+              </a>
+            )}
+          </div>
+        </div>
+      </header>
       <div class="gvns-activity-grid">
         <ReadWidget compact />
         <ListenWidget compact />
-        <GameWidget compact />
         <WatchWidget compact />
-        <CodeWidget compact />
-        <MoveWidget compact />
+        <GameWidget compact />
+        <ThreadsWidget compact />
       </div>
     </section>
   </main>
@@ -124,12 +197,140 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
   .gvns-activity-widgets {
     padding-block: var(--space-2);
   }
-  /* Auto-fit with a card-width floor — no jarring breakpoint snap.
-     At any viewport, columns scale smoothly between 1 and 6 cards-per-row
-     while every card stays ≥ ~190px so frame imagery never shrinks below readable. */
+  /* Bento: six column units. Four single tiles (Read P1 → Listen P2 → Watch P3
+     → Play P4) plus the double-width Shitposting tile (P5 sky, spans 2 cols).
+     Move (P6 crimson) lives in the heading-meta chip row. Activity-to-token
+     mapping is canonical left-to-right and shared with the masthead/footer
+     gradients. The threads span-2 + frame aspect rule lives in widgets.css. */
   .gvns-activity-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     gap: var(--space-4);
+  }
+  @media (max-width: 1023px) {
+    .gvns-activity-grid {
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+  }
+
+  /* "Now" heading layout:
+       title row   — "Now" + blinking cursor (left-aligned)
+       meta row    — branch-glyph date (left) + status chips (right, margin-left:auto)
+     Chips wrap below the date row at narrow widths via flex-wrap. */
+  .gvns-now {
+    margin-block-end: var(--space-4);
+  }
+  .gvns-now__row {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+  }
+  .gvns-now__meta {
+    margin-top: var(--space-2);
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    row-gap: var(--space-2);
+  }
+  .gvns-now__title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1;
+    color: var(--colour-text-primary);
+    margin: 0;
+    letter-spacing: -0.02em;
+  }
+  .gvns-now__cursor {
+    display: inline-block;
+    background: var(--colour-p5-sky);
+    width: 5px;
+    height: 15px;
+    transform: translateY(1px);
+    animation: gvns-now-cursor-blink 1.1s steps(1) infinite;
+  }
+  @keyframes gvns-now-cursor-blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .gvns-now__cursor { animation: none; }
+  }
+
+  /* Inline status chips — Coding (P1 violet) + Move (P6 crimson). Each is a
+     link to the relevant /code or /move detail page; the sparkline is decorative. */
+  .gvns-now__stats {
+    display: flex;
+    gap: var(--space-6);
+    margin-left: auto;
+    align-items: center;
+    flex-wrap: wrap;
+    row-gap: var(--space-2);
+  }
+  .gvns-now__chip {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    text-decoration: none;
+    color: inherit;
+    transition: color var(--transition-fast);
+  }
+  .gvns-now__chip:hover .gvns-now__chip-value,
+  .gvns-now__chip:focus-visible .gvns-now__chip-value {
+    color: var(--chip-accent);
+  }
+  .gvns-now__chip-spark {
+    display: inline-flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 22px;
+    width: 72px;
+  }
+  .gvns-now__chip-spark > i {
+    display: block;
+    flex: 1;
+    background: var(--chip-accent);
+    border-radius: 1px;
+    min-height: 3px;
+  }
+  .gvns-now__chip-text {
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    line-height: 1;
+  }
+  .gvns-now__chip-label {
+    color: var(--colour-text-muted);
+    text-transform: lowercase;
+    letter-spacing: 0.04em;
+  }
+  .gvns-now__chip-value {
+    color: var(--colour-text-secondary);
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+    transition: color var(--transition-fast);
+  }
+  .gvns-now__chip--code { --chip-accent: var(--colour-p1-violet); }
+  .gvns-now__chip--move { --chip-accent: var(--colour-p6-crimson); }
+
+  .gvns-now__date {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--colour-text-muted);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+  .gvns-now__branch {
+    color: var(--colour-p5-sky);
+    opacity: 0.55;
+  }
+  .gvns-now__date time {
+    color: inherit;
+    font-variant-numeric: tabular-nums;
   }
 </style>

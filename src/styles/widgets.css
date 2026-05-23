@@ -100,12 +100,44 @@
   padding: var(--space-4);
 }
 
-/* Per-variant accent colours — single source of truth for border + hover */
-.gvns-widget-compact--read    { --widget-accent: var(--colour-p2-rose); }
-.gvns-widget-compact--listen  { --widget-accent: var(--colour-p3-emerald); }
-.gvns-widget-compact--watch   { --widget-accent: var(--colour-p4-amber); }
-.gvns-widget-compact--code    { --widget-accent: var(--colour-p1-violet); }
-.gvns-widget-compact--game    { --widget-accent: var(--colour-p5-sky); }
+/* Per-variant accent colours — single source of truth for border + hover.
+   Mapping is aligned with the masthead/footer canonical gradient (P1→P6):
+     P1 violet  = read       (was P2 rose)
+     P2 rose    = listen     (was P3 emerald)
+     P3 emerald = watch      (was P4 amber)
+     P4 amber   = play/write (was P5 sky for play)
+     P5 sky     = threads    (was P6 crimson)
+     P6 crimson = move       (unchanged)
+   Code keeps violet for chip use (shared with read tile). */
+.gvns-widget-compact--read    { --widget-accent: var(--colour-p1-violet); }
+.gvns-widget-compact--listen  { --widget-accent: var(--colour-p2-rose); }
+.gvns-widget-compact--watch   { --widget-accent: var(--colour-p3-emerald); }
+.gvns-widget-compact--game    { --widget-accent: var(--colour-p4-amber); }
 .gvns-widget-compact--write   { --widget-accent: var(--colour-p4-amber); }
 .gvns-widget-compact--threads { --widget-accent: var(--colour-p5-sky); }
+.gvns-widget-compact--code    { --widget-accent: var(--colour-p1-violet); }
+
+/* When the Threads tile sits in the home-page activity grid, it spans two
+   columns (text-heavy content earns the wider tile). Frame aspect tuned so
+   double-tile-frame-height === single-tile-frame-height — colour line
+   stays at the same y-position as the single-width media tiles.
+
+   Math: double_tile_width = 2*col + gap; we want frame_height = col,
+   so aspect = (2*col + gap) / col = 2 + gap/col.
+   At desktop (6 cols, container 1248px, gap 16px): col ≈ 194.67,
+   gap/col ≈ 0.0822, aspect ≈ 2.083. */
+.gvns-activity-grid > .gvns-widget-compact--threads {
+  grid-column: span 2;
+}
+.gvns-activity-grid > .gvns-widget-compact--threads .gvns-widget-compact__frame {
+  aspect-ratio: 2.083 / 1;
+}
+@media (max-width: 1023px) {
+  .gvns-activity-grid > .gvns-widget-compact--threads {
+    grid-column: auto;
+  }
+  .gvns-activity-grid > .gvns-widget-compact--threads .gvns-widget-compact__frame {
+    aspect-ratio: 1 / 1;
+  }
+}
 .gvns-widget-compact--move   { --widget-accent: var(--colour-p6-crimson); }
