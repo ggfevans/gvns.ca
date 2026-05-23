@@ -10,6 +10,7 @@ import ListenWidget from '@components/widgets/ListenWidget.astro';
 import WatchWidget from '@components/widgets/WatchWidget.astro';
 import GameWidget from '@components/widgets/GameWidget.astro';
 import ThreadsWidget from '@components/widgets/ThreadsWidget.astro';
+import IconBrandGithub from '@tabler/icons/outline/brand-github.svg';
 import { websiteSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
 import { SITE_BIO } from '@utils/site';
 import '@styles/widgets.css';
@@ -109,6 +110,7 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
           <div class="gvns-now__stats">
             {codeHasSignal && (
               <a href="/code" class="gvns-now__chip gvns-now__chip--code">
+                <IconBrandGithub class="gvns-now__chip-icon" aria-hidden="true" />
                 <span class="gvns-now__chip-spark" aria-hidden="true">
                   {codeDays.map((level) => (
                     <i style={`height: ${Math.max((level / 4) * 100, 12)}%; opacity: ${0.3 + (level / 4) * 0.7}`}></i>
@@ -318,6 +320,15 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
   .gvns-now__chip:hover .gvns-now__chip-value,
   .gvns-now__chip:focus-visible .gvns-now__chip-value {
     color: var(--chip-accent);
+  }
+  /* GitHub source attribution mark on the coding chip — kept small so the
+     sparkline stays the chip's primary visual. Picks up --chip-accent so the
+     icon, sparkline, and value share the P1 Violet column on hover/focus. */
+  .gvns-now__chip-icon {
+    width: 14px;
+    height: 14px;
+    color: var(--chip-accent);
+    flex-shrink: 0;
   }
   .gvns-now__chip-spark {
     display: inline-flex;
