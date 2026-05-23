@@ -2,7 +2,7 @@ name: Fetch Threads Feed
 
 on:
   schedule:
-    - cron: "15 * * * *"   # hourly, offset 15min from fetch-comments
+    - cron: "15 * * * *" # hourly, offset 15min from fetch-comments
   workflow_dispatch:
 
 concurrency:
@@ -25,7 +25,7 @@ jobs:
 
       - name: Fetch threads feed (smart short-circuit inside script)
         env:
-          THREADS_ACCESS_TOKEN: \${{ secrets.THREADS_ACCESS_TOKEN }}
+          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
         run: node scripts/fetch-threads-feed.mjs
 
       - name: Commit via PR (no-op if no diff)
@@ -33,4 +33,4 @@ jobs:
         with:
           commit-message: "chore: update threads feed"
           branch-prefix: update-threads-feed
-          github-token: \${{ secrets.GH_PAT }}
+          github-token: ${{ secrets.GH_PAT }}
