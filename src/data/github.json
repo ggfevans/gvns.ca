@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-05-22T04:28:17.156Z",
+  "lastUpdated": "2026-05-23T04:18:21.145Z",
   "contributions": {
-    "total": 8491,
-    "commits": 3045,
-    "pullRequests": 1015,
+    "total": 8521,
+    "commits": 3046,
+    "pullRequests": 1016,
     "pullRequestReviews": 11,
     "issues": 1386,
-    "restricted": 2949
+    "restricted": 2977
   },
   "calendar": {
     "weeks": [
@@ -2062,7 +2062,12 @@
           },
           {
             "date": "2026-05-21",
-            "count": 20,
+            "count": 47,
+            "level": 2
+          },
+          {
+            "date": "2026-05-22",
+            "count": 3,
             "level": 1
           }
         ]
@@ -2070,11 +2075,22 @@
     ]
   },
   "streak": {
-    "current": 32,
+    "current": 33,
     "longest": 132,
     "today": false
   },
   "recentActivity": [
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "feat: add URL length warning and file export fallback to ShareDialog",
+      "url": "https://github.com/RackulaLives/Rackula/issues/819",
+      "date": "2026-05-22T16:24:19Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
     {
       "type": "issue",
       "repo": "Rackula",
@@ -2393,27 +2409,24 @@
       "meta": {
         "state": "OPEN"
       }
-    },
-    {
-      "type": "issue",
-      "repo": "tree-sitter-hujson",
-      "repoUrl": "https://github.com/ggfevans/tree-sitter-hujson",
-      "title": "feature: Markdown fenced-block injection — highlight hujson blocks in host languages",
-      "url": "https://github.com/ggfevans/tree-sitter-hujson/issues/2",
-      "date": "2026-05-19T20:39:39Z",
-      "meta": {
-        "state": "OPEN"
-      }
     }
   ],
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 499,
-    "contributionsThisMonth": 1210,
+    "contributionsThisWeek": 434,
+    "contributionsThisMonth": 1225,
     "repositoriesThisWeek": 5
   },
   "repositories": [
+    {
+      "name": "gvns.ca",
+      "description": "",
+      "language": "Astro",
+      "languageColor": "#ff5a03",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/gvns.ca"
+    },
     {
       "name": "endorse",
       "description": "LinkedIn CLI / TUI. LinkedIn messaging without the feed, the ads, or the \"Thoughts?\" posts.",
@@ -2429,14 +2442,6 @@
       "languageColor": "#ff5a03",
       "stars": 0,
       "url": "https://github.com/ggfevans/gwilym.ca"
-    },
-    {
-      "name": "gvns.ca",
-      "description": "",
-      "language": "Astro",
-      "languageColor": "#ff5a03",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/gvns.ca"
     },
     {
       "name": "zed-hujson",
