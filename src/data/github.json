@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-05-23T04:18:21.145Z",
+  "lastUpdated": "2026-05-24T04:29:13.555Z",
   "contributions": {
-    "total": 8521,
-    "commits": 3046,
-    "pullRequests": 1016,
+    "total": 8548,
+    "commits": 3061,
+    "pullRequests": 1025,
     "pullRequestReviews": 11,
     "issues": 1386,
-    "restricted": 2977
+    "restricted": 2980
   },
   "calendar": {
     "weeks": [
@@ -2067,7 +2067,12 @@
           },
           {
             "date": "2026-05-22",
-            "count": 3,
+            "count": 6,
+            "level": 1
+          },
+          {
+            "date": "2026-05-23",
+            "count": 24,
             "level": 1
           }
         ]
@@ -2075,11 +2080,44 @@
     ]
   },
   "streak": {
-    "current": 33,
+    "current": 34,
     "longest": 132,
     "today": false
   },
   "recentActivity": [
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "feat: Add navigation to return to Layouts/Start Screen",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1004",
+      "date": "2026-05-23T16:09:44Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "gvns.ca",
+      "repoUrl": "https://github.com/ggfevans/gvns.ca",
+      "title": "ThreadsWidget: fetch workflow fails with invalid OAuth token despite refresh workflow succeeding",
+      "url": "https://github.com/ggfevans/gvns.ca/issues/552",
+      "date": "2026-05-23T11:45:17Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "gvns.ca",
+      "repoUrl": "https://github.com/ggfevans/gvns.ca",
+      "title": "feat: polish home Now section (heading + label cleanup + Code icon)",
+      "url": "https://github.com/ggfevans/gvns.ca/issues/585",
+      "date": "2026-05-23T10:40:44Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
     {
       "type": "issue",
       "repo": "Rackula",
@@ -2247,17 +2285,6 @@
     },
     {
       "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "feat: polish home Now section (heading + label cleanup + Code icon)",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/585",
-      "date": "2026-05-19T23:46:14Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
       "repo": "qmd-swiftbar",
       "repoUrl": "https://github.com/ggfevans/qmd-swiftbar",
       "title": "chore: create release workflow skill for qmd-swiftbar",
@@ -2365,60 +2392,24 @@
       "meta": {
         "state": "CLOSED"
       }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "ThreadsWidget: fetch workflow fails with invalid OAuth token despite refresh workflow succeeding",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/552",
-      "date": "2026-05-19T20:55:32Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "zed-hujson",
-      "repoUrl": "https://github.com/ggfevans/zed-hujson",
-      "title": "Add SECURITY.md, release workflow, and /release command",
-      "url": "https://github.com/ggfevans/zed-hujson/issues/9",
-      "date": "2026-05-19T20:40:23Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "tree-sitter-hujson",
-      "repoUrl": "https://github.com/ggfevans/tree-sitter-hujson",
-      "title": "chore: Quarterly upstream sync against tree-sitter-json",
-      "url": "https://github.com/ggfevans/tree-sitter-hujson/issues/4",
-      "date": "2026-05-19T20:39:45Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "tree-sitter-hujson",
-      "repoUrl": "https://github.com/ggfevans/tree-sitter-hujson",
-      "title": "feature: Add .jwcc file-extension to grammar",
-      "url": "https://github.com/ggfevans/tree-sitter-hujson/issues/3",
-      "date": "2026-05-19T20:39:42Z",
-      "meta": {
-        "state": "OPEN"
-      }
     }
   ],
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 434,
-    "contributionsThisMonth": 1225,
-    "repositoriesThisWeek": 5
+    "contributionsThisWeek": 401,
+    "contributionsThisMonth": 1228,
+    "repositoriesThisWeek": 4
   },
   "repositories": [
+    {
+      "name": "qmd-swiftbar",
+      "description": "qmd state in your macOS menubar",
+      "language": "TypeScript",
+      "languageColor": "#3178c6",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/qmd-swiftbar"
+    },
     {
       "name": "gvns.ca",
       "description": "",
@@ -2450,14 +2441,6 @@
       "languageColor": "#89e051",
       "stars": 0,
       "url": "https://github.com/ggfevans/zed-hujson"
-    },
-    {
-      "name": "qmd-swiftbar",
-      "description": "qmd state in your macOS menubar",
-      "language": "TypeScript",
-      "languageColor": "#3178c6",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/qmd-swiftbar"
     },
     {
       "name": "searxng-seek-alfred",
