@@ -1,54 +1,15 @@
 {
-  "lastUpdated": "2026-05-24T04:29:13.555Z",
+  "lastUpdated": "2026-05-25T04:32:21.362Z",
   "contributions": {
-    "total": 8548,
+    "total": 8552,
     "commits": 3061,
-    "pullRequests": 1025,
+    "pullRequests": 1026,
     "pullRequestReviews": 11,
     "issues": 1386,
-    "restricted": 2980
+    "restricted": 2983
   },
   "calendar": {
     "weeks": [
-      {
-        "days": [
-          {
-            "date": "2025-05-18",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-05-19",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-05-20",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-05-21",
-            "count": 2,
-            "level": 1
-          },
-          {
-            "date": "2025-05-22",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-05-23",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-05-24",
-            "count": 1,
-            "level": 1
-          }
-        ]
-      },
       {
         "days": [
           {
@@ -2076,15 +2037,46 @@
             "level": 1
           }
         ]
+      },
+      {
+        "days": [
+          {
+            "date": "2026-05-24",
+            "count": 4,
+            "level": 1
+          }
+        ]
       }
     ]
   },
   "streak": {
-    "current": 34,
+    "current": 35,
     "longest": 132,
     "today": false
   },
   "recentActivity": [
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "LXC: Add base-uri 'self' to Content-Security-Policy",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1236",
+      "date": "2026-05-24T16:08:47Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Add repository social preview image",
+      "url": "https://github.com/RackulaLives/Rackula/issues/85",
+      "date": "2026-05-24T10:22:09Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
     {
       "type": "issue",
       "repo": "Rackula",
@@ -2397,19 +2389,11 @@
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 401,
-    "contributionsThisMonth": 1228,
+    "contributionsThisWeek": 335,
+    "contributionsThisMonth": 1196,
     "repositoriesThisWeek": 4
   },
   "repositories": [
-    {
-      "name": "qmd-swiftbar",
-      "description": "qmd state in your macOS menubar",
-      "language": "TypeScript",
-      "languageColor": "#3178c6",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/qmd-swiftbar"
-    },
     {
       "name": "gvns.ca",
       "description": "",
@@ -2417,6 +2401,14 @@
       "languageColor": "#ff5a03",
       "stars": 0,
       "url": "https://github.com/ggfevans/gvns.ca"
+    },
+    {
+      "name": "qmd-swiftbar",
+      "description": "qmd state in your macOS menubar",
+      "language": "TypeScript",
+      "languageColor": "#3178c6",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/qmd-swiftbar"
     },
     {
       "name": "endorse",
