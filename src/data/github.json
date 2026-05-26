@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-05-25T04:32:21.362Z",
+  "lastUpdated": "2026-05-26T04:27:13.207Z",
   "contributions": {
-    "total": 8552,
-    "commits": 3061,
-    "pullRequests": 1026,
+    "total": 8600,
+    "commits": 3085,
+    "pullRequests": 1032,
     "pullRequestReviews": 11,
-    "issues": 1386,
-    "restricted": 2983
+    "issues": 1393,
+    "restricted": 2993
   },
   "calendar": {
     "weeks": [
@@ -2042,7 +2042,12 @@
         "days": [
           {
             "date": "2026-05-24",
-            "count": 4,
+            "count": 14,
+            "level": 1
+          },
+          {
+            "date": "2026-05-25",
+            "count": 41,
             "level": 1
           }
         ]
@@ -2050,7 +2055,7 @@
     ]
   },
   "streak": {
-    "current": 35,
+    "current": 36,
     "longest": 132,
     "today": false
   },
@@ -2059,11 +2064,154 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "LXC: Add base-uri 'self' to Content-Security-Policy",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1236",
-      "date": "2026-05-24T16:08:47Z",
+      "title": "Vector PDF Export for AutoCAD Compatibility",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1731",
+      "date": "2026-05-26T03:49:32Z",
       "meta": {
         "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "chore(ci): add post-release version-alignment test across published images",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1728",
+      "date": "2026-05-26T00:30:32Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "nfs-swiftbar",
+      "repoUrl": "https://github.com/ggfevans/nfs-swiftbar",
+      "title": "Add xbar plugin repository listing metadata",
+      "url": "https://github.com/ggfevans/nfs-swiftbar/issues/1",
+      "date": "2026-05-26T00:13:53Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Research Spike: AutoCAD Add-on for Native Rackula Integration",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1733",
+      "date": "2026-05-25T23:55:03Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "DXF Export for Native AutoCAD Interchange",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1732",
+      "date": "2026-05-25T23:55:01Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "AutoCAD support",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1729",
+      "date": "2026-05-25T23:34:25Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "bug: right-click context menu opens at top-left instead of cursor (regression of #1193)",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1725",
+      "date": "2026-05-25T22:53:56Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "enhancement: Use slider for rack height selection in wizards",
+      "url": "https://github.com/RackulaLives/Rackula/issues/756",
+      "date": "2026-05-25T11:15:06Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Invalid redirect when behind reverse proxy and using OIDC",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1713",
+      "date": "2026-05-25T08:43:24Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "feat: Add navigation to return to Layouts/Start Screen",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1004",
+      "date": "2026-05-25T08:42:37Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "bug: Loading half-width layouts saved between v0.7.5 (dd25f4c) and v0.7.6 (#1564) crashes with each_key_duplicate",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1602",
+      "date": "2026-05-25T08:42:18Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "chore(ts): Enable TypeScript strict mode on frontend (burndown)",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1609",
+      "date": "2026-05-25T08:41:36Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "feat: replace pako with lz-string for share URL compression",
+      "url": "https://github.com/RackulaLives/Rackula/issues/817",
+      "date": "2026-05-25T08:40:01Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "LXC: Add base-uri 'self' to Content-Security-Policy",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1236",
+      "date": "2026-05-25T06:01:20Z",
+      "meta": {
+        "state": "CLOSED"
       }
     },
     {
@@ -2075,17 +2223,6 @@
       "date": "2026-05-24T10:22:09Z",
       "meta": {
         "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat: Add navigation to return to Layouts/Start Screen",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1004",
-      "date": "2026-05-23T16:09:44Z",
-      "meta": {
-        "state": "OPEN"
       }
     },
     {
@@ -2119,28 +2256,6 @@
       "date": "2026-05-22T16:24:19Z",
       "meta": {
         "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat: replace pako with lz-string for share URL compression",
-      "url": "https://github.com/RackulaLives/Rackula/issues/817",
-      "date": "2026-05-21T16:06:58Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Invalid redirect when behind reverse proxy and using OIDC",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1713",
-      "date": "2026-05-20T16:05:45Z",
-      "meta": {
-        "state": "OPEN"
       }
     },
     {
@@ -2241,159 +2356,24 @@
       "meta": {
         "state": "CLOSED"
       }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "MoveWidget component (compact + full) + home strip 6-up",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/568",
-      "date": "2026-05-19T23:53:11Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "Whoop OAuth bootstrap script (one-time local flow)",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/566",
-      "date": "2026-05-19T23:50:18Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "Daily Whoop fetch script + fetch-daily.yml workflow step",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/567",
-      "date": "2026-05-19T23:47:25Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "qmd-swiftbar",
-      "repoUrl": "https://github.com/ggfevans/qmd-swiftbar",
-      "title": "chore: create release workflow skill for qmd-swiftbar",
-      "url": "https://github.com/ggfevans/qmd-swiftbar/issues/18",
-      "date": "2026-05-19T23:44:33Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "Add P6 crimson palette token + 6-stop activity gradient",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/565",
-      "date": "2026-05-19T23:41:50Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "qmd-swiftbar",
-      "repoUrl": "https://github.com/ggfevans/qmd-swiftbar",
-      "title": "epic #5.4: update README for binary distribution",
-      "url": "https://github.com/ggfevans/qmd-swiftbar/issues/9",
-      "date": "2026-05-19T23:23:51Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "qmd-swiftbar",
-      "repoUrl": "https://github.com/ggfevans/qmd-swiftbar",
-      "title": "feature: supply qmd.30s.sh entry point for SwiftBar/xbar",
-      "url": "https://github.com/ggfevans/qmd-swiftbar/issues/5",
-      "date": "2026-05-19T22:52:22Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "qmd-swiftbar",
-      "repoUrl": "https://github.com/ggfevans/qmd-swiftbar",
-      "title": "epic #5.3: shell wrapper (qmd.30s.sh) for SwiftBar/xbar",
-      "url": "https://github.com/ggfevans/qmd-swiftbar/issues/8",
-      "date": "2026-05-19T22:50:31Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "qmd-swiftbar",
-      "repoUrl": "https://github.com/ggfevans/qmd-swiftbar",
-      "title": "feature: add Trivy security scan workflow",
-      "url": "https://github.com/ggfevans/qmd-swiftbar/issues/13",
-      "date": "2026-05-19T22:26:06Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "qmd-swiftbar",
-      "repoUrl": "https://github.com/ggfevans/qmd-swiftbar",
-      "title": "feature: add release command",
-      "url": "https://github.com/ggfevans/qmd-swiftbar/issues/12",
-      "date": "2026-05-19T22:26:06Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "qmd-swiftbar",
-      "repoUrl": "https://github.com/ggfevans/qmd-swiftbar",
-      "title": "epic #5.2: compiled binary via deno compile",
-      "url": "https://github.com/ggfevans/qmd-swiftbar/issues/7",
-      "date": "2026-05-19T22:23:55Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "zed-hujson",
-      "repoUrl": "https://github.com/ggfevans/zed-hujson",
-      "title": "pin all workflow deps using sha values",
-      "url": "https://github.com/ggfevans/zed-hujson/issues/16",
-      "date": "2026-05-19T22:22:14Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "qmd-swiftbar",
-      "repoUrl": "https://github.com/ggfevans/qmd-swiftbar",
-      "title": "epic #5.1: CI build pipeline for compiled binary",
-      "url": "https://github.com/ggfevans/qmd-swiftbar/issues/6",
-      "date": "2026-05-19T22:15:42Z",
-      "meta": {
-        "state": "CLOSED"
-      }
     }
   ],
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 335,
-    "contributionsThisMonth": 1196,
-    "repositoriesThisWeek": 4
+    "contributionsThisWeek": 311,
+    "contributionsThisMonth": 1205,
+    "repositoriesThisWeek": 3
   },
   "repositories": [
+    {
+      "name": "nfs-swiftbar",
+      "description": "macOS SwiftBar plugin for NFS autofs mount status with one-click sudo recovery",
+      "language": "Shell",
+      "languageColor": "#89e051",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/nfs-swiftbar"
+    },
     {
       "name": "gvns.ca",
       "description": "",
@@ -2481,14 +2461,6 @@
       "languageColor": "#3572A5",
       "stars": 0,
       "url": "https://github.com/ggfevans/route-to-art"
-    },
-    {
-      "name": "SearXNG-Community-Scripts-ProxmoxVE",
-      "description": "SearXNG engine for searching the Proxmox VE Community Scripts catalogue (~480 scripts). Offline, cached, zero dependencies",
-      "language": "Python",
-      "languageColor": "#3572A5",
-      "stars": 11,
-      "url": "https://github.com/ggfevans/SearXNG-Community-Scripts-ProxmoxVE"
     }
   ]
 }
