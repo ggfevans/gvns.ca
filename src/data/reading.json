@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-25T04:32:32Z",
+  "lastUpdated": "2026-05-26T04:27:18Z",
   "currentlyReading": [
     {
       "title": "Enshittification: Why Everything Suddenly Got Worse and What to Do About It",
@@ -110,17 +110,15 @@
       "hardcoverUrl": "https://hardcover.app/books/for-we-are-many",
       "rating": null,
       "dateFinished": "2025-09-22T07:39:24.806107+00:00"
-    },
-    {
-      "title": "We Are Legion",
-      "author": "Dennis E. Taylor",
-      "coverUrl": "https://assets.hardcover.app/edition/31651212/0f91da1379dc803e1a880cc526c86661808a6680.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/we-are-legion",
-      "rating": 4.5,
-      "dateFinished": "2025-09-10T20:48:46.461072+00:00"
     }
   ],
   "wantToRead": [
+    {
+      "title": "The First 200 Years of Monty Python",
+      "author": "Kim Howard Johnson",
+      "coverUrl": "https://assets.hardcover.app/external_data/43852780/520b24758fdc50c3a4e14bed33eab386b328c545.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/the-first-200-years-of-monty-python"
+    },
     {
       "title": "The Metamorphosis of Prime Intellect",
       "author": "Roger Williams",
