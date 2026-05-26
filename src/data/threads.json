@@ -1,6 +1,14 @@
 {
-  "lastUpdated": "2026-05-25T09:37:30.951Z",
+  "lastUpdated": "2026-05-26T05:38:34.031Z",
   "posts": [
+    {
+      "id": "17923493859348215",
+      "text": "Introducing nfs-swiftbar: a plugin for SwiftBar that shows the status of NFS (Network File System) mounts in macOS. \n\nI basically got tired of having to open up a terminal every time my NFS shares acted up, so I threw together (using Claude) a handy little tool to smack 'em until they work. \n\nFor the seven people that use macOS and NFS together, you're welcome. \n\nhttps://github.com/ggfevans/nfs-swiftbar",
+      "permalink": "https://www.threads.com/@ggfevans/post/DYybZ6oFMUK",
+      "timestamp": "2026-05-26T04:09:39+0000",
+      "mediaType": "IMAGE",
+      "isQuotePost": false
+    },
     {
       "id": "18103958711093744",
       "text": "Just noticed Claude Desktop's \"Open Hardware Buddy...\" menu item in the dev menu. \n\nThis is pretty cool, they provide an SDK to interact with the Desktop app via hardware using Bluetooth Low Energy (BLE), so you can build cute little desktop buddies \n\nhttps://github.com/anthropics/claude-desktop-buddy",
@@ -15,14 +23,6 @@
       "permalink": "https://www.threads.com/@ggfevans/post/DYwHXEzlEN1",
       "timestamp": "2026-05-25T06:36:01+0000",
       "mediaType": "CAROUSEL_ALBUM",
-      "isQuotePost": false
-    },
-    {
-      "id": "18101264447050355",
-      "text": "hell yeah bread 💰",
-      "permalink": "https://www.threads.com/@ggfevans/post/DYh15yViV3Q",
-      "timestamp": "2026-05-19T17:34:06+0000",
-      "mediaType": "IMAGE",
       "isQuotePost": false
     }
   ]
