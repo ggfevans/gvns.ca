@@ -52,9 +52,9 @@
     "ws": "8.20.1"
   },
   "devDependencies": {
-    "@inquirer/prompts": "^8.4.3",
+    "@inquirer/prompts": "^8.5.0",
     "@unpic/astro": "^1.0.2",
     "starwind": "^1.16.2",
-    "wrangler": "^4.93.0"
+    "wrangler": "^4.95.0"
   }
 }
