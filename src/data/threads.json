@@ -1,6 +1,14 @@
 {
-  "lastUpdated": "2026-05-26T05:38:34.031Z",
+  "lastUpdated": "2026-05-26T21:52:18.942Z",
   "posts": [
+    {
+      "id": "17890733028530129",
+      "text": "Just released Rackula v0.10.0 with a thwack of security and bug fixes, plus two new features:\n- support for AutoCAD import via refined vector PDF export\n- drag and drop between racks (how did I not have this?!) \n\nhttps://count.racku.la/\nChangelog: https://github.com/RackulaLives/Rackula/releases/tag/v0.10.0",
+      "permalink": "https://www.threads.com/@ggfevans/post/DY0RtHGkg_0",
+      "timestamp": "2026-05-26T21:23:22+0000",
+      "mediaType": "TEXT_POST",
+      "isQuotePost": false
+    },
     {
       "id": "17923493859348215",
       "text": "Introducing nfs-swiftbar: a plugin for SwiftBar that shows the status of NFS (Network File System) mounts in macOS. \n\nI basically got tired of having to open up a terminal every time my NFS shares acted up, so I threw together (using Claude) a handy little tool to smack 'em until they work. \n\nFor the seven people that use macOS and NFS together, you're welcome. \n\nhttps://github.com/ggfevans/nfs-swiftbar",
