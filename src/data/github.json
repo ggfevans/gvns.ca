@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-05-26T04:27:13.207Z",
+  "lastUpdated": "2026-05-27T04:32:01.719Z",
   "contributions": {
-    "total": 8600,
-    "commits": 3085,
-    "pullRequests": 1032,
+    "total": 8630,
+    "commits": 3098,
+    "pullRequests": 1040,
     "pullRequestReviews": 11,
-    "issues": 1393,
-    "restricted": 2993
+    "issues": 1400,
+    "restricted": 2994
   },
   "calendar": {
     "weeks": [
@@ -2047,7 +2047,12 @@
           },
           {
             "date": "2026-05-25",
-            "count": 41,
+            "count": 60,
+            "level": 2
+          },
+          {
+            "date": "2026-05-26",
+            "count": 11,
             "level": 1
           }
         ]
@@ -2055,11 +2060,176 @@
     ]
   },
   "streak": {
-    "current": 36,
+    "current": 37,
     "longest": 132,
     "today": false
   },
   "recentActivity": [
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "CI Alert: Deploy Prod failed for v0.10.0",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1748",
+      "date": "2026-05-26T20:52:31Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Full E2E test suite failing",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1749",
+      "date": "2026-05-26T20:52:25Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Full E2E test suite failing",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1747",
+      "date": "2026-05-26T19:28:57Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "CI Alert: Deploy Prod failed for v0.10.0",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1746",
+      "date": "2026-05-26T19:28:57Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Support dragging between racks",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1592",
+      "date": "2026-05-26T19:00:34Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Mobile: Orientation Change Handling",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1051",
+      "date": "2026-05-26T18:15:45Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Test failures: svg2pdf.js import resolution error in 7 test files",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1743",
+      "date": "2026-05-26T08:50:29Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "bug: bay labels duplicated/overlapping in bayed rack PDF export",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1740",
+      "date": "2026-05-26T06:34:52Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "bug: structural labels and QR title render in serif font in PDF export",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1739",
+      "date": "2026-05-26T06:34:52Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "bug: device names offset upward in PDF export",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1738",
+      "date": "2026-05-26T06:34:52Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "nfs-swiftbar",
+      "repoUrl": "https://github.com/ggfevans/nfs-swiftbar",
+      "title": "Add xbar plugin repository listing metadata",
+      "url": "https://github.com/ggfevans/nfs-swiftbar/issues/1",
+      "date": "2026-05-26T06:12:26Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "nfs-swiftbar",
+      "repoUrl": "https://github.com/ggfevans/nfs-swiftbar",
+      "title": "Add support for non-default nfs mount paths",
+      "url": "https://github.com/ggfevans/nfs-swiftbar/issues/4",
+      "date": "2026-05-26T06:11:50Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "AutoCAD support",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1729",
+      "date": "2026-05-26T06:04:51Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "nfs-swiftbar",
+      "repoUrl": "https://github.com/ggfevans/nfs-swiftbar",
+      "title": "Decide: strip SwiftBar tags from xbar-plugins copy",
+      "url": "https://github.com/ggfevans/nfs-swiftbar/issues/3",
+      "date": "2026-05-26T05:57:11Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "qmd-swiftbar",
+      "repoUrl": "https://github.com/ggfevans/qmd-swiftbar",
+      "title": "spike: state reader can't use @tobilu/qmd SDK under Deno — choose replacement data source",
+      "url": "https://github.com/ggfevans/qmd-swiftbar/issues/25",
+      "date": "2026-05-26T05:22:01Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
     {
       "type": "issue",
       "repo": "Rackula",
@@ -2084,17 +2254,6 @@
     },
     {
       "type": "issue",
-      "repo": "nfs-swiftbar",
-      "repoUrl": "https://github.com/ggfevans/nfs-swiftbar",
-      "title": "Add xbar plugin repository listing metadata",
-      "url": "https://github.com/ggfevans/nfs-swiftbar/issues/1",
-      "date": "2026-05-26T00:13:53Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
       "title": "Research Spike: AutoCAD Add-on for Native Rackula Integration",
@@ -2111,17 +2270,6 @@
       "title": "DXF Export for Native AutoCAD Interchange",
       "url": "https://github.com/RackulaLives/Rackula/issues/1732",
       "date": "2026-05-25T23:55:01Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "AutoCAD support",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1729",
-      "date": "2026-05-25T23:34:25Z",
       "meta": {
         "state": "OPEN"
       }
@@ -2246,134 +2394,16 @@
       "meta": {
         "state": "CLOSED"
       }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat: add URL length warning and file export fallback to ShareDialog",
-      "url": "https://github.com/RackulaLives/Rackula/issues/819",
-      "date": "2026-05-22T16:24:19Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "Add trivy weekly & manual scan workflow",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/555",
-      "date": "2026-05-20T07:44:49Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "Epic: Move widget (Whoop integration)",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/553",
-      "date": "2026-05-20T06:52:55Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "Move widget — UX exploration + mockups",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/564",
-      "date": "2026-05-20T06:52:55Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "Whoop API research spike",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/563",
-      "date": "2026-05-20T06:52:55Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "refactor: activity widgets to Option C hero-card layout",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/586",
-      "date": "2026-05-20T06:27:37Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "chore: bump cover image source resolutions (CAA / OL / TMDB)",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/588",
-      "date": "2026-05-20T06:27:37Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "chore: resolve P5 Sky dual-purpose (Status/now vs Play)",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/589",
-      "date": "2026-05-20T06:27:37Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "/move page — workouts list + strain heatmap",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/570",
-      "date": "2026-05-19T23:58:55Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "MoveWidget in /now bento — responsive cell plan",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/569",
-      "date": "2026-05-19T23:54:44Z",
-      "meta": {
-        "state": "CLOSED"
-      }
     }
   ],
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 311,
-    "contributionsThisMonth": 1205,
-    "repositoriesThisWeek": 3
+    "contributionsThisWeek": 175,
+    "contributionsThisMonth": 1201,
+    "repositoriesThisWeek": 4
   },
   "repositories": [
-    {
-      "name": "nfs-swiftbar",
-      "description": "macOS SwiftBar plugin for NFS autofs mount status with one-click sudo recovery",
-      "language": "Shell",
-      "languageColor": "#89e051",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/nfs-swiftbar"
-    },
     {
       "name": "gvns.ca",
       "description": "",
@@ -2381,6 +2411,14 @@
       "languageColor": "#ff5a03",
       "stars": 0,
       "url": "https://github.com/ggfevans/gvns.ca"
+    },
+    {
+      "name": "nfs-swiftbar",
+      "description": "macOS SwiftBar plugin for NFS autofs mount status with one-click sudo recovery",
+      "language": "Shell",
+      "languageColor": "#89e051",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/nfs-swiftbar"
     },
     {
       "name": "qmd-swiftbar",
