@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-29T09:28:36.983Z",
+  "lastUpdated": "2026-05-29T22:43:59.749Z",
   "posts": [
     {
       "id": "18020597057675481",
@@ -30,14 +30,6 @@
       "text": "Just noticed Claude Desktop's \"Open Hardware Buddy...\" menu item in the dev menu. \n\nThis is pretty cool, they provide an SDK to interact with the Desktop app via hardware using Bluetooth Low Energy (BLE), so you can build cute little desktop buddies \n\nhttps://github.com/anthropics/claude-desktop-buddy",
       "permalink": "https://www.threads.com/@ggfevans/post/DYwRs1llHrT",
       "timestamp": "2026-05-25T08:06:22+0000",
-      "mediaType": "CAROUSEL_ALBUM",
-      "isQuotePost": false
-    },
-    {
-      "id": "18102795277960500",
-      "text": "Lately I've been enjoying how Claude Code can create purpose-built SwiftBar plugins with ease. Yesterday I made one for my Jobinator dashboard, this evening I made one on a whim to help handle NFS mount status. \n\nBeing able to identify a specific point of friction in my day-to-day workflow and then solving it within a matter of minutes with purpose-built software is wild.",
-      "permalink": "https://www.threads.com/@ggfevans/post/DYwHXEzlEN1",
-      "timestamp": "2026-05-25T06:36:01+0000",
       "mediaType": "CAROUSEL_ALBUM",
       "isQuotePost": false
     }
