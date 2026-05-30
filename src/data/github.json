@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-05-29T04:30:50.186Z",
+  "lastUpdated": "2026-05-30T04:23:31.322Z",
   "contributions": {
-    "total": 8649,
-    "commits": 3102,
-    "pullRequests": 1047,
+    "total": 8724,
+    "commits": 3121,
+    "pullRequests": 1068,
     "pullRequestReviews": 11,
-    "issues": 1405,
-    "restricted": 2997
+    "issues": 1433,
+    "restricted": 3004
   },
   "calendar": {
     "weeks": [
@@ -2062,15 +2062,20 @@
           },
           {
             "date": "2026-05-28",
-            "count": 17,
+            "count": 33,
             "level": 1
+          },
+          {
+            "date": "2026-05-29",
+            "count": 59,
+            "level": 2
           }
         ]
       }
     ]
   },
   "streak": {
-    "current": 39,
+    "current": 40,
     "longest": 132,
     "today": false
   },
@@ -2079,9 +2084,9 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "bug: E2E specs fail on main — expect .zip but YAML is now the default save format (#1754)",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1767",
-      "date": "2026-05-29T02:16:54Z",
+      "title": "Rename GitHub milestones to theme-based names",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1809",
+      "date": "2026-05-30T02:36:17Z",
       "meta": {
         "state": "OPEN"
       }
@@ -2090,9 +2095,9 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "bug: canvas does not fill full window in mobile mode (≤1024px)",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1764",
-      "date": "2026-05-29T01:58:22Z",
+      "title": "Execute CalVer cutover",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1808",
+      "date": "2026-05-30T02:36:10Z",
       "meta": {
         "state": "OPEN"
       }
@@ -2101,9 +2106,9 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "test: E2E regression for mouse tap-to-place in mobile mode (≤1024px) — follow-up to #1757",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1762",
-      "date": "2026-05-29T01:47:27Z",
+      "title": "Rewrite CLAUDE.md versioning policy section",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1807",
+      "date": "2026-05-30T02:36:04Z",
       "meta": {
         "state": "OPEN"
       }
@@ -2112,9 +2117,64 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "bug: tap-to-place device fails for mouse/pointer users in mobile mode (≤1024px viewport)",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1757",
-      "date": "2026-05-29T01:45:42Z",
+      "title": "Update release.yml for CalVer",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1806",
+      "date": "2026-05-30T02:35:56Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Update deploy-prod.yml for CalVer tag format",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1805",
+      "date": "2026-05-30T02:35:50Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Rewrite /release skill for CalVer computation",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1804",
+      "date": "2026-05-30T02:35:41Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Create CalVer version utility script",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1803",
+      "date": "2026-05-30T02:35:33Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Implement CalVer versioning (YY.M.MICRO) across Rackula",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1802",
+      "date": "2026-05-30T02:35:23Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "chore: deploy config parity safeguards and scripts documentation",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1784",
+      "date": "2026-05-29T19:00:25Z",
       "meta": {
         "state": "CLOSED"
       }
@@ -2123,9 +2183,53 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "spike: Feasibility & LOE of packaging Rackula as a reusable library (npm/JSR/Deno/Bun)",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1758",
-      "date": "2026-05-29T01:10:03Z",
+      "title": "fix(lxc): use `apt` instead of `apt-get` in install script",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1785",
+      "date": "2026-05-29T19:00:14Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "chore: root config tidying — move Playwright configs, clarify env examples, document asset dirs",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1783",
+      "date": "2026-05-29T11:03:25Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "chore: clear-win repo root cleanup — empty dirs, orphaned files, AI doc consolidation",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1782",
+      "date": "2026-05-29T09:15:16Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "fix(lxc): add verb_ip6 to install script header",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1789",
+      "date": "2026-05-29T09:15:07Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "enhancement(lxc): add update lock file and trap-based rollback",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1795",
+      "date": "2026-05-29T09:06:10Z",
       "meta": {
         "state": "OPEN"
       }
@@ -2134,9 +2238,141 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat: Make YAML the default save format",
-      "url": "https://github.com/RackulaLives/Rackula/issues/619",
-      "date": "2026-05-28T11:35:09Z",
+      "title": "enhancement(lxc): bump resource defaults to 512 MB RAM / 8 GB disk",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1794",
+      "date": "2026-05-29T09:06:04Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "fix(lxc): conditional HSTS handling in security-headers.conf",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1793",
+      "date": "2026-05-29T09:05:56Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "enhancement(lxc): add nginx service hardening via systemd drop-in override",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1792",
+      "date": "2026-05-29T09:05:53Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "enhancement(lxc): expand systemd sandboxing with network egress control, capability drops, and syscall filtering",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1791",
+      "date": "2026-05-29T09:05:50Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "fix(lxc): remove systemctl daemon-reload from install script",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1790",
+      "date": "2026-05-29T09:05:40Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "feat(lxc): add service health verification after install/update",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1788",
+      "date": "2026-05-29T09:05:34Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "fix(lxc): change Bun install prefix from /root/.bun to /opt/bun",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1787",
+      "date": "2026-05-29T09:05:28Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "fix(lxc): replace custom download logic with fetch_and_deploy_gh_release",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1786",
+      "date": "2026-05-29T09:05:06Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "feat(api): storage abuse guardrails (quota/retention)",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1780",
+      "date": "2026-05-29T07:28:18Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "feat(api): explicit mutating-request origin policy",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1779",
+      "date": "2026-05-29T07:28:15Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "feat(api): write-route rate limiting for self-hosted deployments",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1778",
+      "date": "2026-05-29T07:28:01Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "chore: Docker containerization for isometric service",
+      "url": "https://github.com/RackulaLives/Rackula/issues/327",
+      "date": "2026-05-29T07:27:00Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Consider switching to CalVer versioning",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1315",
+      "date": "2026-05-29T07:22:29Z",
       "meta": {
         "state": "CLOSED"
       }
@@ -2145,20 +2381,9 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Mobile: Orientation Change Handling",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1051",
-      "date": "2026-05-27T11:55:56Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "CI Alert: Deploy Prod failed for v0.10.0",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1748",
-      "date": "2026-05-26T20:52:31Z",
+      "title": "bug: remaining full-E2E failures — android long-press context menu + starter-library search",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1769",
+      "date": "2026-05-29T07:21:59Z",
       "meta": {
         "state": "CLOSED"
       }
@@ -2168,8 +2393,8 @@
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
       "title": "Full E2E test suite failing",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1749",
-      "date": "2026-05-26T20:52:25Z",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1724",
+      "date": "2026-05-29T07:05:05Z",
       "meta": {
         "state": "CLOSED"
       }
@@ -2178,240 +2403,20 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Full E2E test suite failing",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1747",
-      "date": "2026-05-26T19:28:57Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "CI Alert: Deploy Prod failed for v0.10.0",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1746",
-      "date": "2026-05-26T19:28:57Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Support dragging between racks",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1592",
-      "date": "2026-05-26T19:00:34Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Test failures: svg2pdf.js import resolution error in 7 test files",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1743",
-      "date": "2026-05-26T08:50:29Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "bug: bay labels duplicated/overlapping in bayed rack PDF export",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1740",
-      "date": "2026-05-26T06:34:52Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "bug: structural labels and QR title render in serif font in PDF export",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1739",
-      "date": "2026-05-26T06:34:52Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "bug: device names offset upward in PDF export",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1738",
-      "date": "2026-05-26T06:34:52Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "nfs-swiftbar",
-      "repoUrl": "https://github.com/ggfevans/nfs-swiftbar",
-      "title": "Add xbar plugin repository listing metadata",
-      "url": "https://github.com/ggfevans/nfs-swiftbar/issues/1",
-      "date": "2026-05-26T06:12:26Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "nfs-swiftbar",
-      "repoUrl": "https://github.com/ggfevans/nfs-swiftbar",
-      "title": "Add support for non-default nfs mount paths",
-      "url": "https://github.com/ggfevans/nfs-swiftbar/issues/4",
-      "date": "2026-05-26T06:11:50Z",
+      "title": "Splash screen aesthetic enhancement: Count silhouette background",
+      "url": "https://github.com/RackulaLives/Rackula/issues/946",
+      "date": "2026-05-29T07:05:04Z",
       "meta": {
         "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "AutoCAD support",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1729",
-      "date": "2026-05-26T06:04:51Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "nfs-swiftbar",
-      "repoUrl": "https://github.com/ggfevans/nfs-swiftbar",
-      "title": "Decide: strip SwiftBar tags from xbar-plugins copy",
-      "url": "https://github.com/ggfevans/nfs-swiftbar/issues/3",
-      "date": "2026-05-26T05:57:11Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "qmd-swiftbar",
-      "repoUrl": "https://github.com/ggfevans/qmd-swiftbar",
-      "title": "spike: state reader can't use @tobilu/qmd SDK under Deno — choose replacement data source",
-      "url": "https://github.com/ggfevans/qmd-swiftbar/issues/25",
-      "date": "2026-05-26T05:22:01Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Vector PDF Export for AutoCAD Compatibility",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1731",
-      "date": "2026-05-26T03:49:32Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "chore(ci): add post-release version-alignment test across published images",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1728",
-      "date": "2026-05-26T00:30:32Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Research Spike: AutoCAD Add-on for Native Rackula Integration",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1733",
-      "date": "2026-05-25T23:55:03Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "DXF Export for Native AutoCAD Interchange",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1732",
-      "date": "2026-05-25T23:55:01Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "bug: right-click context menu opens at top-left instead of cursor (regression of #1193)",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1725",
-      "date": "2026-05-25T22:53:56Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "enhancement: Use slider for rack height selection in wizards",
-      "url": "https://github.com/RackulaLives/Rackula/issues/756",
-      "date": "2026-05-25T11:15:06Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Invalid redirect when behind reverse proxy and using OIDC",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1713",
-      "date": "2026-05-25T08:43:24Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat: Add navigation to return to Layouts/Start Screen",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1004",
-      "date": "2026-05-25T08:42:37Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "bug: Loading half-width layouts saved between v0.7.5 (dd25f4c) and v0.7.6 (#1564) crashes with each_key_duplicate",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1602",
-      "date": "2026-05-25T08:42:18Z",
-      "meta": {
-        "state": "CLOSED"
       }
     }
   ],
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 134,
-    "contributionsThisMonth": 1128,
-    "repositoriesThisWeek": 3
+    "contributionsThisWeek": 203,
+    "contributionsThisMonth": 1147,
+    "repositoriesThisWeek": 1
   },
   "repositories": [
     {
