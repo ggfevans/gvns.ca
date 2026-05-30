@@ -1,6 +1,14 @@
 {
-  "lastUpdated": "2026-05-30T03:23:39.959Z",
+  "lastUpdated": "2026-05-30T09:02:52.665Z",
   "posts": [
+    {
+      "id": "18101308451092357",
+      "text": "Released Rackula v26.5.0 and you might be wondering \"hey, wasn't it on like v0.10??\" - and you're right! we just switched to Calendar Versioning (CalVer), so I don't have to overthink between a major, minor or patch release. Also, because biggest number is best number.\n\nAlso includes some prep work for an upcoming Proxmox Community Scripts LXC deployment method.\n\nChangelog: https://github.com/RackulaLives/Rackula/releases/tag/v26.5.0",
+      "permalink": "https://www.threads.com/@ggfevans/post/DY9EjJ5lIqt",
+      "timestamp": "2026-05-30T07:21:35+0000",
+      "mediaType": "TEXT_POST",
+      "isQuotePost": false
+    },
     {
       "id": "18092010194121208",
       "text": "Dev thriends: what are your thoughts on Calendar Versioning (CalVer) vs the traditional Semantic Versioning (SemVer)? I ask because I'm leaning towards switching Rackula to CalVer, specifically YY. MM. MICRO format. My reasoning is it removes some of the annoying friction I'm finding around deciding what is a minor vs major release on SemVer style releasing. The other thought I have is that because Rackula isn't a library, the actual version number is less important than release date freshness",
@@ -15,22 +23,6 @@
       "permalink": "https://www.threads.com/@ggfevans/post/DY6jALqFGZE",
       "timestamp": "2026-05-29T07:49:58+0000",
       "mediaType": "TEXT_POST",
-      "isQuotePost": false
-    },
-    {
-      "id": "17890733028530129",
-      "text": "Just released Rackula v0.10.0 with a thwack of security and bug fixes, plus two new features:\n- support for AutoCAD import via refined vector PDF export\n- drag and drop between racks (how did I not have this?!) \n\nhttps://count.racku.la/\nChangelog: https://github.com/RackulaLives/Rackula/releases/tag/v0.10.0",
-      "permalink": "https://www.threads.com/@ggfevans/post/DY0RtHGkg_0",
-      "timestamp": "2026-05-26T21:23:22+0000",
-      "mediaType": "TEXT_POST",
-      "isQuotePost": false
-    },
-    {
-      "id": "17923493859348215",
-      "text": "Introducing nfs-swiftbar: a plugin for SwiftBar that shows the status of NFS (Network File System) mounts in macOS. \n\nI basically got tired of having to open up a terminal every time my NFS shares acted up, so I threw together (using Claude) a handy little tool to smack 'em until they work. \n\nFor the seven people that use macOS and NFS together, you're welcome. \n\nhttps://github.com/ggfevans/nfs-swiftbar",
-      "permalink": "https://www.threads.com/@ggfevans/post/DYybZ6oFMUK",
-      "timestamp": "2026-05-26T04:09:39+0000",
-      "mediaType": "IMAGE",
       "isQuotePost": false
     }
   ]
