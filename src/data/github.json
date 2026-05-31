@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-05-30T04:23:31.322Z",
+  "lastUpdated": "2026-05-31T04:31:54.856Z",
   "contributions": {
-    "total": 8724,
-    "commits": 3121,
-    "pullRequests": 1068,
+    "total": 8761,
+    "commits": 3141,
+    "pullRequests": 1081,
     "pullRequestReviews": 11,
-    "issues": 1433,
-    "restricted": 3004
+    "issues": 1434,
+    "restricted": 3006
   },
   "calendar": {
     "weeks": [
@@ -2067,15 +2067,20 @@
           },
           {
             "date": "2026-05-29",
-            "count": 59,
+            "count": 79,
             "level": 2
+          },
+          {
+            "date": "2026-05-30",
+            "count": 17,
+            "level": 1
           }
         ]
       }
     ]
   },
   "streak": {
-    "current": 40,
+    "current": 41,
     "longest": 132,
     "today": false
   },
@@ -2084,9 +2089,9 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Rename GitHub milestones to theme-based names",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1809",
-      "date": "2026-05-30T02:36:17Z",
+      "title": "Add onboarding guidance after rack creation",
+      "url": "https://github.com/RackulaLives/Rackula/issues/111",
+      "date": "2026-05-30T11:10:54Z",
       "meta": {
         "state": "OPEN"
       }
@@ -2095,66 +2100,11 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Execute CalVer cutover",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1808",
-      "date": "2026-05-30T02:36:10Z",
+      "title": "chore(auth): Replace in-memory session invalidation with shared TTL-backed store",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1269",
+      "date": "2026-05-30T07:39:44Z",
       "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Rewrite CLAUDE.md versioning policy section",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1807",
-      "date": "2026-05-30T02:36:04Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Update release.yml for CalVer",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1806",
-      "date": "2026-05-30T02:35:56Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Update deploy-prod.yml for CalVer tag format",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1805",
-      "date": "2026-05-30T02:35:50Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Rewrite /release skill for CalVer computation",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1804",
-      "date": "2026-05-30T02:35:41Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Create CalVer version utility script",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1803",
-      "date": "2026-05-30T02:35:33Z",
-      "meta": {
-        "state": "OPEN"
+        "state": "CLOSED"
       }
     },
     {
@@ -2163,9 +2113,284 @@
       "repoUrl": "https://github.com/RackulaLives/Rackula",
       "title": "Implement CalVer versioning (YY.M.MICRO) across Rackula",
       "url": "https://github.com/RackulaLives/Rackula/issues/1802",
-      "date": "2026-05-30T02:35:23Z",
+      "date": "2026-05-30T07:33:20Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "chore: move SELF-HOSTING.md from docs/guides/ to docs/deployment/",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1819",
+      "date": "2026-05-30T06:40:28Z",
       "meta": {
         "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Refresh README for FOSS professionalism and expanded audience",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1353",
+      "date": "2026-05-30T06:39:39Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Rename GitHub milestones to theme-based names",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1809",
+      "date": "2026-05-30T05:56:10Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "LXC: Extract nginx config from tarball instead of inline heredoc",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1240",
+      "date": "2026-05-30T05:55:32Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "LXC: Clean up temporary tarball directory in build-lxc workflow",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1239",
+      "date": "2026-05-30T05:55:32Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "LXC: Use explicit exit codes in ct/rackula.sh",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1233",
+      "date": "2026-05-30T05:55:31Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "fix(lxc): conditional HSTS handling in security-headers.conf",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1793",
+      "date": "2026-05-30T05:55:31Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "enhancement(lxc): add nginx service hardening via systemd drop-in override",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1792",
+      "date": "2026-05-30T05:55:31Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "LXC: Add HTTPS scheme support for CORS_ORIGIN",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1237",
+      "date": "2026-05-30T05:55:31Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "LXC: Pin GitHub Actions and Bun version in build-lxc workflow",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1234",
+      "date": "2026-05-30T05:55:31Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "enhancement(lxc): expand systemd sandboxing with network egress control, capability drops, and syscall filtering",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1791",
+      "date": "2026-05-30T05:55:29Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "enhancement(lxc): add update lock file and trap-based rollback",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1795",
+      "date": "2026-05-30T05:55:29Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "enhancement(lxc): bump resource defaults to 512 MB RAM / 8 GB disk",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1794",
+      "date": "2026-05-30T05:55:29Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "feat(lxc): add service health verification after install/update",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1788",
+      "date": "2026-05-30T05:55:29Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "fix(lxc): replace custom download logic with fetch_and_deploy_gh_release",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1786",
+      "date": "2026-05-30T05:55:29Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "fix(lxc): change Bun install prefix from /root/.bun to /opt/bun",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1787",
+      "date": "2026-05-30T05:55:27Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "fix(lxc): remove systemctl daemon-reload from install script",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1790",
+      "date": "2026-05-30T05:55:27Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Execute CalVer cutover",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1808",
+      "date": "2026-05-30T05:13:56Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "LXC: Improve update_script() rollback to include frontend and API",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1238",
+      "date": "2026-05-30T05:03:25Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "LXC: Add systemd hardening options to rackula-api.service",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1235",
+      "date": "2026-05-30T05:03:23Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Rewrite CLAUDE.md versioning policy section",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1807",
+      "date": "2026-05-30T05:03:15Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Update deploy-prod.yml for CalVer tag format",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1805",
+      "date": "2026-05-30T05:03:11Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Rewrite /release skill for CalVer computation",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1804",
+      "date": "2026-05-30T05:03:04Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Update release.yml for CalVer",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1806",
+      "date": "2026-05-30T05:02:58Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Create CalVer version utility script",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1803",
+      "date": "2026-05-30T05:02:25Z",
+      "meta": {
+        "state": "CLOSED"
       }
     },
     {
@@ -2189,233 +2414,13 @@
       "meta": {
         "state": "CLOSED"
       }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "chore: root config tidying — move Playwright configs, clarify env examples, document asset dirs",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1783",
-      "date": "2026-05-29T11:03:25Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "chore: clear-win repo root cleanup — empty dirs, orphaned files, AI doc consolidation",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1782",
-      "date": "2026-05-29T09:15:16Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "fix(lxc): add verb_ip6 to install script header",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1789",
-      "date": "2026-05-29T09:15:07Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "enhancement(lxc): add update lock file and trap-based rollback",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1795",
-      "date": "2026-05-29T09:06:10Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "enhancement(lxc): bump resource defaults to 512 MB RAM / 8 GB disk",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1794",
-      "date": "2026-05-29T09:06:04Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "fix(lxc): conditional HSTS handling in security-headers.conf",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1793",
-      "date": "2026-05-29T09:05:56Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "enhancement(lxc): add nginx service hardening via systemd drop-in override",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1792",
-      "date": "2026-05-29T09:05:53Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "enhancement(lxc): expand systemd sandboxing with network egress control, capability drops, and syscall filtering",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1791",
-      "date": "2026-05-29T09:05:50Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "fix(lxc): remove systemctl daemon-reload from install script",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1790",
-      "date": "2026-05-29T09:05:40Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat(lxc): add service health verification after install/update",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1788",
-      "date": "2026-05-29T09:05:34Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "fix(lxc): change Bun install prefix from /root/.bun to /opt/bun",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1787",
-      "date": "2026-05-29T09:05:28Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "fix(lxc): replace custom download logic with fetch_and_deploy_gh_release",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1786",
-      "date": "2026-05-29T09:05:06Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat(api): storage abuse guardrails (quota/retention)",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1780",
-      "date": "2026-05-29T07:28:18Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat(api): explicit mutating-request origin policy",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1779",
-      "date": "2026-05-29T07:28:15Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat(api): write-route rate limiting for self-hosted deployments",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1778",
-      "date": "2026-05-29T07:28:01Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "chore: Docker containerization for isometric service",
-      "url": "https://github.com/RackulaLives/Rackula/issues/327",
-      "date": "2026-05-29T07:27:00Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Consider switching to CalVer versioning",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1315",
-      "date": "2026-05-29T07:22:29Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "bug: remaining full-E2E failures — android long-press context menu + starter-library search",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1769",
-      "date": "2026-05-29T07:21:59Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Full E2E test suite failing",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1724",
-      "date": "2026-05-29T07:05:05Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Splash screen aesthetic enhancement: Count silhouette background",
-      "url": "https://github.com/RackulaLives/Rackula/issues/946",
-      "date": "2026-05-29T07:05:04Z",
-      "meta": {
-        "state": "OPEN"
-      }
     }
   ],
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 203,
-    "contributionsThisMonth": 1147,
+    "contributionsThisWeek": 216,
+    "contributionsThisMonth": 1160,
     "repositoriesThisWeek": 1
   },
   "repositories": [
