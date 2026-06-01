@@ -1,54 +1,15 @@
 {
-  "lastUpdated": "2026-05-31T04:31:54.856Z",
+  "lastUpdated": "2026-06-01T04:33:47.160Z",
   "contributions": {
-    "total": 8761,
-    "commits": 3141,
-    "pullRequests": 1081,
+    "total": 8779,
+    "commits": 3147,
+    "pullRequests": 1087,
     "pullRequestReviews": 11,
-    "issues": 1434,
-    "restricted": 3006
+    "issues": 1437,
+    "restricted": 3009
   },
   "calendar": {
     "weeks": [
-      {
-        "days": [
-          {
-            "date": "2025-05-25",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-05-26",
-            "count": 13,
-            "level": 1
-          },
-          {
-            "date": "2025-05-27",
-            "count": 19,
-            "level": 1
-          },
-          {
-            "date": "2025-05-28",
-            "count": 9,
-            "level": 1
-          },
-          {
-            "date": "2025-05-29",
-            "count": 1,
-            "level": 1
-          },
-          {
-            "date": "2025-05-30",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-05-31",
-            "count": 0,
-            "level": 0
-          }
-        ]
-      },
       {
         "days": [
           {
@@ -2072,7 +2033,16 @@
           },
           {
             "date": "2026-05-30",
-            "count": 17,
+            "count": 21,
+            "level": 1
+          }
+        ]
+      },
+      {
+        "days": [
+          {
+            "date": "2026-05-31",
+            "count": 14,
             "level": 1
           }
         ]
@@ -2080,7 +2050,7 @@
     ]
   },
   "streak": {
-    "current": 41,
+    "current": 42,
     "longest": 132,
     "today": false
   },
@@ -2089,11 +2059,110 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Add onboarding guidance after rack creation",
-      "url": "https://github.com/RackulaLives/Rackula/issues/111",
-      "date": "2026-05-30T11:10:54Z",
+      "title": "feat: port type categorization (network/power/console)",
+      "url": "https://github.com/RackulaLives/Rackula/issues/276",
+      "date": "2026-05-31T11:16:08Z",
       "meta": {
         "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "feat(devices): add firewall device category",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1833",
+      "date": "2026-05-31T10:24:36Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "feat(devices): instance-level metadata (serial, asset tag, MAC, custom fields)",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1834",
+      "date": "2026-05-31T09:29:45Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "docs(auth): document and verify OIDC behind reverse proxy (Caddy/Traefik)",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1832",
+      "date": "2026-05-31T09:29:29Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "feat(api): explicit mutating-request origin policy",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1779",
+      "date": "2026-05-31T08:26:14Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Add onboarding guidance after rack creation",
+      "url": "https://github.com/RackulaLives/Rackula/issues/111",
+      "date": "2026-05-31T08:25:20Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Write community-scripts LXC install files",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1213",
+      "date": "2026-05-31T08:03:14Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "chore: move SELF-HOSTING.md from docs/guides/ to docs/deployment/",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1819",
+      "date": "2026-05-31T08:01:12Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Add CI/CD release tarball build pipeline for LXC distribution",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1212",
+      "date": "2026-05-31T07:01:35Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "feat(api): write-route rate limiting for self-hosted deployments",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1778",
+      "date": "2026-05-31T06:33:37Z",
+      "meta": {
+        "state": "CLOSED"
       }
     },
     {
@@ -2116,17 +2185,6 @@
       "date": "2026-05-30T07:33:20Z",
       "meta": {
         "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "chore: move SELF-HOSTING.md from docs/guides/ to docs/deployment/",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1819",
-      "date": "2026-05-30T06:40:28Z",
-      "meta": {
-        "state": "OPEN"
       }
     },
     {
@@ -2326,101 +2384,13 @@
       "meta": {
         "state": "CLOSED"
       }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "LXC: Add systemd hardening options to rackula-api.service",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1235",
-      "date": "2026-05-30T05:03:23Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Rewrite CLAUDE.md versioning policy section",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1807",
-      "date": "2026-05-30T05:03:15Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Update deploy-prod.yml for CalVer tag format",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1805",
-      "date": "2026-05-30T05:03:11Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Rewrite /release skill for CalVer computation",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1804",
-      "date": "2026-05-30T05:03:04Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Update release.yml for CalVer",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1806",
-      "date": "2026-05-30T05:02:58Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Create CalVer version utility script",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1803",
-      "date": "2026-05-30T05:02:25Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "chore: deploy config parity safeguards and scripts documentation",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1784",
-      "date": "2026-05-29T19:00:25Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "fix(lxc): use `apt` instead of `apt-get` in install script",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1785",
-      "date": "2026-05-29T19:00:14Z",
-      "meta": {
-        "state": "CLOSED"
-      }
     }
   ],
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 216,
-    "contributionsThisMonth": 1160,
+    "contributionsThisWeek": 220,
+    "contributionsThisMonth": 1140,
     "repositoriesThisWeek": 1
   },
   "repositories": [
@@ -2509,7 +2479,7 @@
       "description": "Import your Last.fm listening history into ListenBrainz from a CSV export",
       "language": "Python",
       "languageColor": "#3572A5",
-      "stars": 0,
+      "stars": 1,
       "url": "https://github.com/ggfevans/listenbrainz-csv-upload"
     },
     {
