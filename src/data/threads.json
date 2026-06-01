@@ -1,6 +1,14 @@
 {
-  "lastUpdated": "2026-05-30T09:02:52.665Z",
+  "lastUpdated": "2026-06-01T22:16:49.928Z",
   "posts": [
+    {
+      "id": "17913391794199758",
+      "text": "Wow, looks like Strava is going the enshittification route: \"... we care deeply about developers, and the health of the developer ecosystem\" meanwhile they will now be requiring a subscription for any API access. The framing is anti-AI-scraping, but the practical effect is that casual free API access is ending.\n\nAs a longtime Strava user, this is disappointing to see hostility towards the dev ecosystem.\n\nhttps://communityhub.strava.com/insider-journal-9/an-update-to-our-developer-program-13428",
+      "permalink": "https://www.threads.com/@ggfevans/post/DZDzNJEktbd",
+      "timestamp": "2026-06-01T22:04:43+0000",
+      "mediaType": "TEXT_POST",
+      "isQuotePost": false
+    },
     {
       "id": "18101308451092357",
       "text": "Released Rackula v26.5.0 and you might be wondering \"hey, wasn't it on like v0.10??\" - and you're right! we just switched to Calendar Versioning (CalVer), so I don't have to overthink between a major, minor or patch release. Also, because biggest number is best number.\n\nAlso includes some prep work for an upcoming Proxmox Community Scripts LXC deployment method.\n\nChangelog: https://github.com/RackulaLives/Rackula/releases/tag/v26.5.0",
@@ -14,14 +22,6 @@
       "text": "Dev thriends: what are your thoughts on Calendar Versioning (CalVer) vs the traditional Semantic Versioning (SemVer)? I ask because I'm leaning towards switching Rackula to CalVer, specifically YY. MM. MICRO format. My reasoning is it removes some of the annoying friction I'm finding around deciding what is a minor vs major release on SemVer style releasing. The other thought I have is that because Rackula isn't a library, the actual version number is less important than release date freshness",
       "permalink": "https://www.threads.com/@ggfevans/post/DY8cUV9CWve",
       "timestamp": "2026-05-30T01:30:02+0000",
-      "mediaType": "TEXT_POST",
-      "isQuotePost": false
-    },
-    {
-      "id": "18020597057675481",
-      "text": "Released Rackula v0.10.1 with a few bug fixes and adjustments. Web on Mobile with SVGs is hard! ...anyways, you can click on things now, so that's nice. \n\nhttps://github.com/RackulaLives/Rackula/releases/tag/v0.10.1",
-      "permalink": "https://www.threads.com/@ggfevans/post/DY6jALqFGZE",
-      "timestamp": "2026-05-29T07:49:58+0000",
       "mediaType": "TEXT_POST",
       "isQuotePost": false
     }
