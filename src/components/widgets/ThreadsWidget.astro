@@ -182,6 +182,19 @@ const latestPost = posts[0] ?? null;
     margin-bottom: var(--space-2);
   }
 
+  /* The shared `.gvns-widget-compact:hover .gvns-widget-compact__title` rule
+     lights up every title on card-hover — fine for single-post tiles, but this
+     stack has three. Neutralise the card-wide trigger and re-scope the accent
+     to the post link actually being hovered/focused. */
+  .gvns-widget-compact--threads-full:hover .gvns-widget-compact__title,
+  .gvns-widget-compact--threads-full:focus-within .gvns-widget-compact__title {
+    color: var(--colour-text-primary);
+  }
+  .gvns-widget-compact--threads-full .gvns-widget-compact__link:hover .gvns-widget-compact__title,
+  .gvns-widget-compact--threads-full .gvns-widget-compact__link:focus-visible .gvns-widget-compact__title {
+    color: var(--widget-accent, var(--colour-p5-sky));
+  }
+
   .gvns-widget-compact--threads-full .gvns-widget-compact__meta {
     display: flex;
     gap: 0.5rem;
