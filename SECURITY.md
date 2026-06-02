@@ -6,7 +6,13 @@ If you discover a security vulnerability in this project, please report it respo
 
 **Do not open a public GitHub issue for security vulnerabilities.**
 
-Instead, please email security concerns to: **admin@gvns.ca**
+Instead, please use GitHub's private vulnerability reporting:
+
+1. Go to the [**Security advisories**](https://github.com/ggfevans/gvns.ca/security/advisories/new) page for this repository.
+2. Click **Report a vulnerability**.
+3. Fill in the advisory form with the details below.
+
+This keeps the report private between you and the maintainer until a fix is released, and lets us discuss and coordinate the advisory directly on GitHub. You'll need a GitHub account to submit a report.
 
 ### What to Include
 
