@@ -80,28 +80,10 @@ collections:
         }
       - name: tags
         label: Tags
-        widget: select
-        multiple: true
+        widget: list
         min: 1
         max: 4
-        create: true
-        options:
-          - homelab
-          - docker
-          - linux
-          - networking
-          - automation
-          - web-dev
-          - bjj
-          - movement
-          - training
-          - adhd
-          - productivity
-          - pkm
-          - essay
-          - tutorial
-          - til
-          - meta
+        hint: "1–4 tags. Recommended (kebab-case, no plurals): homelab, docker, linux, networking, automation, web-dev, bjj, movement, training, adhd, productivity, pkm, essay, tutorial, til, meta."
       - {
           name: updatedDate,
           label: Updated date,
