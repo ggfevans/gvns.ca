@@ -32,8 +32,8 @@ const statusOpen = status === 'open';
           <img
             src="/avatar.jpg"
             alt=""
-            width="26"
-            height="26"
+            width="40"
+            height="40"
             loading="eager"
             decoding="async"
             class="gvns-navbar__avatar"
@@ -101,8 +101,8 @@ const statusOpen = status === 'open';
         <img
           src="/avatar.jpg"
           alt=""
-          width="26"
-          height="26"
+          width="40"
+          height="40"
           loading="eager"
           decoding="async"
           class="gvns-navbar__avatar"
@@ -128,7 +128,9 @@ const statusOpen = status === 'open';
 <style>
   .gvns-navbar {
     position: relative;
-    padding: var(--space-4) var(--space-6);
+    /* Vertical padding trimmed (space-4 → space-3) so the enlarged avatar grows
+       without ballooning the bar height — the avatar now sets the row rhythm. */
+    padding: var(--space-3) var(--space-6);
     border-bottom: 1px solid var(--colour-border);
   }
 
@@ -169,8 +171,8 @@ const statusOpen = status === 'open';
   }
 
   .gvns-navbar__avatar {
-    width: 26px;
-    height: 26px;
+    width: 40px;
+    height: 40px;
     border-radius: 9999px;
     object-fit: cover;
     display: block;
