@@ -1,5 +1,6 @@
 ---
 import { relativeTime, truncate } from '@utils/format';
+import IconBrandThreads from '@tabler/icons/outline/brand-threads.svg';
 
 interface Props {
   compact?: boolean;
@@ -66,7 +67,18 @@ const latestPost = posts[0] ?? null;
   </article>
 ) : (
   <article class="gvns-widget-compact gvns-widget-compact--threads gvns-widget-compact--threads-full">
-    <div class="gvns-widget-compact__label">Recent Threads</div>
+    <header class="gvns-threads__header">
+      <IconBrandThreads class="gvns-threads__logo" aria-hidden="true" />
+      <span class="gvns-threads__id">
+        <span class="gvns-threads__name">Threads</span>
+        <a
+          class="gvns-threads__handle"
+          href="https://www.threads.net/@ggfevans"
+          target="_blank"
+          rel="noopener noreferrer"
+        >@ggfevans</a>
+      </span>
+    </header>
     {posts.length === 0 ? (
       <div class="gvns-widget-compact__empty">Quiet on Threads.</div>
     ) : (
@@ -96,20 +108,92 @@ const latestPost = posts[0] ?? null;
 )}
 
 <style>
-  /* Full (non-compact) variant retains the multi-post stack styling used on /now etc. */
+  /* Full (non-compact) variant — brand-forward 3-post stack used in the home
+     sidebar. The sky accent strip comes from --widget-accent (set by the
+     .gvns-widget-compact--threads class); the crimson fallback is defensive. */
   .gvns-widget-compact--threads-full {
     padding: var(--space-4);
     border-top: 2px solid var(--widget-accent, var(--colour-p6-crimson));
+  }
+
+  /* Brand header: Threads logo + stacked name/handle, sits above the post stack. */
+  .gvns-threads__header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding-bottom: var(--space-3);
+    margin-bottom: var(--space-3);
+    border-bottom: 1px solid var(--colour-border);
+  }
+  .gvns-threads__logo {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: var(--colour-p5-sky);
+    flex-shrink: 0;
+  }
+  .gvns-threads__id {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+  }
+  .gvns-threads__name {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: var(--text-sm);
+    color: var(--colour-text-primary);
+  }
+  .gvns-threads__handle {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--colour-text-muted);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+  .gvns-threads__handle:hover,
+  .gvns-threads__handle:focus-visible {
+    color: var(--colour-p5-sky-hover);
+  }
+
+  /* Post stack — each post separated by a hairline divider. */
+  .gvns-widget-compact--threads-full .gvns-widget-compact__content {
+    display: flex;
+    flex-direction: column;
+  }
+  .gvns-widget-compact--threads-full .gvns-widget-compact__link {
+    display: block;
+    padding-block: var(--space-3);
+    border-top: 1px solid var(--colour-border);
+  }
+  .gvns-widget-compact--threads-full .gvns-widget-compact__link:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+
+  /* Override the shared single-line title — full-variant posts wrap to ~3 lines. */
+  .gvns-widget-compact--threads-full .gvns-widget-compact__title {
+    white-space: normal;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: var(--space-2);
   }
 
   .gvns-widget-compact--threads-full .gvns-widget-compact__meta {
     display: flex;
     gap: 0.5rem;
     align-items: center;
-    font-size: 0.75rem;
+    font-size: var(--text-xs);
     opacity: 0.7;
   }
-
+  .gvns-widget-compact--threads-full .gvns-widget-compact__timestamp {
+    font-family: var(--font-mono);
+    color: var(--colour-text-muted);
+    font-variant-numeric: tabular-nums;
+  }
   .gvns-widget-compact--threads-full .gvns-widget-compact__badge {
     font-family: var(--font-mono);
     font-size: 0.65rem;
@@ -117,5 +201,26 @@ const latestPost = posts[0] ?? null;
     border-radius: 0.125rem;
     background: var(--colour-bg-tertiary);
     color: var(--colour-text-secondary);
+  }
+
+  /* Footer CTA — divider above, mono link with nudging arrow on hover. */
+  .gvns-widget-compact--threads-full .gvns-widget-compact__footer {
+    display: inline-block;
+    margin-top: var(--space-3);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--colour-border);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--colour-text-secondary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+  .gvns-widget-compact--threads-full .gvns-widget-compact__footer:hover,
+  .gvns-widget-compact--threads-full .gvns-widget-compact__footer:focus-visible {
+    color: var(--colour-p5-sky-hover);
+  }
+
+  .gvns-widget-compact--threads-full .gvns-widget-compact__empty {
+    padding: 0;
   }
 </style>
