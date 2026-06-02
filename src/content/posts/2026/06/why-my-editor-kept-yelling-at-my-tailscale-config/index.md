@@ -3,7 +3,7 @@ title: Why My Editor Kept Yelling at My Tailscale Config
 description: HuJSON is JSON with comments and trailing commas. My editor disagreed, so I wrote a Zed grammar for it
 pubDate: 2026-06-01
 tags:
-  - productivity
+  - open-source,zed,hujson,project
 updatedDate: ''
 draft: false
 heroImage: ''
