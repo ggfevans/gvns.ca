@@ -1,54 +1,15 @@
 {
-  "lastUpdated": "2026-05-26T04:27:13.207Z",
+  "lastUpdated": "2026-06-01T04:33:47.160Z",
   "contributions": {
-    "total": 8600,
-    "commits": 3085,
-    "pullRequests": 1032,
+    "total": 8779,
+    "commits": 3147,
+    "pullRequests": 1087,
     "pullRequestReviews": 11,
-    "issues": 1393,
-    "restricted": 2993
+    "issues": 1437,
+    "restricted": 3009
   },
   "calendar": {
     "weeks": [
-      {
-        "days": [
-          {
-            "date": "2025-05-25",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-05-26",
-            "count": 13,
-            "level": 1
-          },
-          {
-            "date": "2025-05-27",
-            "count": 19,
-            "level": 1
-          },
-          {
-            "date": "2025-05-28",
-            "count": 9,
-            "level": 1
-          },
-          {
-            "date": "2025-05-29",
-            "count": 1,
-            "level": 1
-          },
-          {
-            "date": "2025-05-30",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-05-31",
-            "count": 0,
-            "level": 0
-          }
-        ]
-      },
       {
         "days": [
           {
@@ -2047,7 +2008,41 @@
           },
           {
             "date": "2026-05-25",
-            "count": 41,
+            "count": 60,
+            "level": 2
+          },
+          {
+            "date": "2026-05-26",
+            "count": 11,
+            "level": 1
+          },
+          {
+            "date": "2026-05-27",
+            "count": 2,
+            "level": 1
+          },
+          {
+            "date": "2026-05-28",
+            "count": 33,
+            "level": 1
+          },
+          {
+            "date": "2026-05-29",
+            "count": 79,
+            "level": 2
+          },
+          {
+            "date": "2026-05-30",
+            "count": 21,
+            "level": 1
+          }
+        ]
+      },
+      {
+        "days": [
+          {
+            "date": "2026-05-31",
+            "count": 14,
             "level": 1
           }
         ]
@@ -2055,7 +2050,7 @@
     ]
   },
   "streak": {
-    "current": 36,
+    "current": 42,
     "longest": 132,
     "today": false
   },
@@ -2064,9 +2059,9 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Vector PDF Export for AutoCAD Compatibility",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1731",
-      "date": "2026-05-26T03:49:32Z",
+      "title": "feat: port type categorization (network/power/console)",
+      "url": "https://github.com/RackulaLives/Rackula/issues/276",
+      "date": "2026-05-31T11:16:08Z",
       "meta": {
         "state": "OPEN"
       }
@@ -2075,20 +2070,9 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "chore(ci): add post-release version-alignment test across published images",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1728",
-      "date": "2026-05-26T00:30:32Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "nfs-swiftbar",
-      "repoUrl": "https://github.com/ggfevans/nfs-swiftbar",
-      "title": "Add xbar plugin repository listing metadata",
-      "url": "https://github.com/ggfevans/nfs-swiftbar/issues/1",
-      "date": "2026-05-26T00:13:53Z",
+      "title": "feat(devices): add firewall device category",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1833",
+      "date": "2026-05-31T10:24:36Z",
       "meta": {
         "state": "OPEN"
       }
@@ -2097,9 +2081,9 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Research Spike: AutoCAD Add-on for Native Rackula Integration",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1733",
-      "date": "2026-05-25T23:55:03Z",
+      "title": "feat(devices): instance-level metadata (serial, asset tag, MAC, custom fields)",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1834",
+      "date": "2026-05-31T09:29:45Z",
       "meta": {
         "state": "OPEN"
       }
@@ -2108,9 +2092,9 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "DXF Export for Native AutoCAD Interchange",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1732",
-      "date": "2026-05-25T23:55:01Z",
+      "title": "docs(auth): document and verify OIDC behind reverse proxy (Caddy/Traefik)",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1832",
+      "date": "2026-05-31T09:29:29Z",
       "meta": {
         "state": "OPEN"
       }
@@ -2119,20 +2103,9 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "AutoCAD support",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1729",
-      "date": "2026-05-25T23:34:25Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "bug: right-click context menu opens at top-left instead of cursor (regression of #1193)",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1725",
-      "date": "2026-05-25T22:53:56Z",
+      "title": "feat(api): explicit mutating-request origin policy",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1779",
+      "date": "2026-05-31T08:26:14Z",
       "meta": {
         "state": "CLOSED"
       }
@@ -2141,20 +2114,9 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "enhancement: Use slider for rack height selection in wizards",
-      "url": "https://github.com/RackulaLives/Rackula/issues/756",
-      "date": "2026-05-25T11:15:06Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Invalid redirect when behind reverse proxy and using OIDC",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1713",
-      "date": "2026-05-25T08:43:24Z",
+      "title": "Add onboarding guidance after rack creation",
+      "url": "https://github.com/RackulaLives/Rackula/issues/111",
+      "date": "2026-05-31T08:25:20Z",
       "meta": {
         "state": "CLOSED"
       }
@@ -2163,9 +2125,9 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat: Add navigation to return to Layouts/Start Screen",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1004",
-      "date": "2026-05-25T08:42:37Z",
+      "title": "Write community-scripts LXC install files",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1213",
+      "date": "2026-05-31T08:03:14Z",
       "meta": {
         "state": "CLOSED"
       }
@@ -2174,9 +2136,9 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "bug: Loading half-width layouts saved between v0.7.5 (dd25f4c) and v0.7.6 (#1564) crashes with each_key_duplicate",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1602",
-      "date": "2026-05-25T08:42:18Z",
+      "title": "chore: move SELF-HOSTING.md from docs/guides/ to docs/deployment/",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1819",
+      "date": "2026-05-31T08:01:12Z",
       "meta": {
         "state": "CLOSED"
       }
@@ -2185,9 +2147,9 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "chore(ts): Enable TypeScript strict mode on frontend (burndown)",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1609",
-      "date": "2026-05-25T08:41:36Z",
+      "title": "Add CI/CD release tarball build pipeline for LXC distribution",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1212",
+      "date": "2026-05-31T07:01:35Z",
       "meta": {
         "state": "CLOSED"
       }
@@ -2196,9 +2158,9 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat: replace pako with lz-string for share URL compression",
-      "url": "https://github.com/RackulaLives/Rackula/issues/817",
-      "date": "2026-05-25T08:40:01Z",
+      "title": "feat(api): write-route rate limiting for self-hosted deployments",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1778",
+      "date": "2026-05-31T06:33:37Z",
       "meta": {
         "state": "CLOSED"
       }
@@ -2207,9 +2169,9 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "LXC: Add base-uri 'self' to Content-Security-Policy",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1236",
-      "date": "2026-05-25T06:01:20Z",
+      "title": "chore(auth): Replace in-memory session invalidation with shared TTL-backed store",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1269",
+      "date": "2026-05-30T07:39:44Z",
       "meta": {
         "state": "CLOSED"
       }
@@ -2218,31 +2180,9 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Add repository social preview image",
-      "url": "https://github.com/RackulaLives/Rackula/issues/85",
-      "date": "2026-05-24T10:22:09Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "ThreadsWidget: fetch workflow fails with invalid OAuth token despite refresh workflow succeeding",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/552",
-      "date": "2026-05-23T11:45:17Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "feat: polish home Now section (heading + label cleanup + Code icon)",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/585",
-      "date": "2026-05-23T10:40:44Z",
+      "title": "Implement CalVer versioning (YY.M.MICRO) across Rackula",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1802",
+      "date": "2026-05-30T07:33:20Z",
       "meta": {
         "state": "CLOSED"
       }
@@ -2251,108 +2191,196 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat: add URL length warning and file export fallback to ShareDialog",
-      "url": "https://github.com/RackulaLives/Rackula/issues/819",
-      "date": "2026-05-22T16:24:19Z",
+      "title": "Refresh README for FOSS professionalism and expanded audience",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1353",
+      "date": "2026-05-30T06:39:39Z",
       "meta": {
         "state": "CLOSED"
       }
     },
     {
       "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "Add trivy weekly & manual scan workflow",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/555",
-      "date": "2026-05-20T07:44:49Z",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Rename GitHub milestones to theme-based names",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1809",
+      "date": "2026-05-30T05:56:10Z",
       "meta": {
         "state": "CLOSED"
       }
     },
     {
       "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "Epic: Move widget (Whoop integration)",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/553",
-      "date": "2026-05-20T06:52:55Z",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "LXC: Extract nginx config from tarball instead of inline heredoc",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1240",
+      "date": "2026-05-30T05:55:32Z",
       "meta": {
         "state": "CLOSED"
       }
     },
     {
       "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "Move widget — UX exploration + mockups",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/564",
-      "date": "2026-05-20T06:52:55Z",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "LXC: Clean up temporary tarball directory in build-lxc workflow",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1239",
+      "date": "2026-05-30T05:55:32Z",
       "meta": {
         "state": "CLOSED"
       }
     },
     {
       "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "Whoop API research spike",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/563",
-      "date": "2026-05-20T06:52:55Z",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "LXC: Use explicit exit codes in ct/rackula.sh",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1233",
+      "date": "2026-05-30T05:55:31Z",
       "meta": {
         "state": "CLOSED"
       }
     },
     {
       "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "refactor: activity widgets to Option C hero-card layout",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/586",
-      "date": "2026-05-20T06:27:37Z",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "fix(lxc): conditional HSTS handling in security-headers.conf",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1793",
+      "date": "2026-05-30T05:55:31Z",
       "meta": {
         "state": "CLOSED"
       }
     },
     {
       "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "chore: bump cover image source resolutions (CAA / OL / TMDB)",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/588",
-      "date": "2026-05-20T06:27:37Z",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "enhancement(lxc): add nginx service hardening via systemd drop-in override",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1792",
+      "date": "2026-05-30T05:55:31Z",
       "meta": {
         "state": "CLOSED"
       }
     },
     {
       "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "chore: resolve P5 Sky dual-purpose (Status/now vs Play)",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/589",
-      "date": "2026-05-20T06:27:37Z",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "LXC: Add HTTPS scheme support for CORS_ORIGIN",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1237",
+      "date": "2026-05-30T05:55:31Z",
       "meta": {
         "state": "CLOSED"
       }
     },
     {
       "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "/move page — workouts list + strain heatmap",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/570",
-      "date": "2026-05-19T23:58:55Z",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "LXC: Pin GitHub Actions and Bun version in build-lxc workflow",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1234",
+      "date": "2026-05-30T05:55:31Z",
       "meta": {
         "state": "CLOSED"
       }
     },
     {
       "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "MoveWidget in /now bento — responsive cell plan",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/569",
-      "date": "2026-05-19T23:54:44Z",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "enhancement(lxc): expand systemd sandboxing with network egress control, capability drops, and syscall filtering",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1791",
+      "date": "2026-05-30T05:55:29Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "enhancement(lxc): add update lock file and trap-based rollback",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1795",
+      "date": "2026-05-30T05:55:29Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "enhancement(lxc): bump resource defaults to 512 MB RAM / 8 GB disk",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1794",
+      "date": "2026-05-30T05:55:29Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "feat(lxc): add service health verification after install/update",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1788",
+      "date": "2026-05-30T05:55:29Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "fix(lxc): replace custom download logic with fetch_and_deploy_gh_release",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1786",
+      "date": "2026-05-30T05:55:29Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "fix(lxc): change Bun install prefix from /root/.bun to /opt/bun",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1787",
+      "date": "2026-05-30T05:55:27Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "fix(lxc): remove systemctl daemon-reload from install script",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1790",
+      "date": "2026-05-30T05:55:27Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Execute CalVer cutover",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1808",
+      "date": "2026-05-30T05:13:56Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "LXC: Improve update_script() rollback to include frontend and API",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1238",
+      "date": "2026-05-30T05:03:25Z",
       "meta": {
         "state": "CLOSED"
       }
@@ -2361,19 +2389,11 @@
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 311,
-    "contributionsThisMonth": 1205,
-    "repositoriesThisWeek": 3
+    "contributionsThisWeek": 220,
+    "contributionsThisMonth": 1140,
+    "repositoriesThisWeek": 1
   },
   "repositories": [
-    {
-      "name": "nfs-swiftbar",
-      "description": "macOS SwiftBar plugin for NFS autofs mount status with one-click sudo recovery",
-      "language": "Shell",
-      "languageColor": "#89e051",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/nfs-swiftbar"
-    },
     {
       "name": "gvns.ca",
       "description": "",
@@ -2381,6 +2401,14 @@
       "languageColor": "#ff5a03",
       "stars": 0,
       "url": "https://github.com/ggfevans/gvns.ca"
+    },
+    {
+      "name": "nfs-swiftbar",
+      "description": "macOS SwiftBar plugin for NFS autofs mount status with one-click sudo recovery",
+      "language": "Shell",
+      "languageColor": "#89e051",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/nfs-swiftbar"
     },
     {
       "name": "qmd-swiftbar",
@@ -2451,7 +2479,7 @@
       "description": "Import your Last.fm listening history into ListenBrainz from a CSV export",
       "language": "Python",
       "languageColor": "#3572A5",
-      "stars": 0,
+      "stars": 1,
       "url": "https://github.com/ggfevans/listenbrainz-csv-upload"
     },
     {

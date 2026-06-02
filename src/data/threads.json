@@ -1,36 +1,28 @@
 {
-  "lastUpdated": "2026-05-26T21:52:18.942Z",
+  "lastUpdated": "2026-06-01T22:16:49.928Z",
   "posts": [
     {
-      "id": "17890733028530129",
-      "text": "Just released Rackula v0.10.0 with a thwack of security and bug fixes, plus two new features:\n- support for AutoCAD import via refined vector PDF export\n- drag and drop between racks (how did I not have this?!) \n\nhttps://count.racku.la/\nChangelog: https://github.com/RackulaLives/Rackula/releases/tag/v0.10.0",
-      "permalink": "https://www.threads.com/@ggfevans/post/DY0RtHGkg_0",
-      "timestamp": "2026-05-26T21:23:22+0000",
+      "id": "17913391794199758",
+      "text": "Wow, looks like Strava is going the enshittification route: \"... we care deeply about developers, and the health of the developer ecosystem\" meanwhile they will now be requiring a subscription for any API access. The framing is anti-AI-scraping, but the practical effect is that casual free API access is ending.\n\nAs a longtime Strava user, this is disappointing to see hostility towards the dev ecosystem.\n\nhttps://communityhub.strava.com/insider-journal-9/an-update-to-our-developer-program-13428",
+      "permalink": "https://www.threads.com/@ggfevans/post/DZDzNJEktbd",
+      "timestamp": "2026-06-01T22:04:43+0000",
       "mediaType": "TEXT_POST",
       "isQuotePost": false
     },
     {
-      "id": "17923493859348215",
-      "text": "Introducing nfs-swiftbar: a plugin for SwiftBar that shows the status of NFS (Network File System) mounts in macOS. \n\nI basically got tired of having to open up a terminal every time my NFS shares acted up, so I threw together (using Claude) a handy little tool to smack 'em until they work. \n\nFor the seven people that use macOS and NFS together, you're welcome. \n\nhttps://github.com/ggfevans/nfs-swiftbar",
-      "permalink": "https://www.threads.com/@ggfevans/post/DYybZ6oFMUK",
-      "timestamp": "2026-05-26T04:09:39+0000",
-      "mediaType": "IMAGE",
+      "id": "18101308451092357",
+      "text": "Released Rackula v26.5.0 and you might be wondering \"hey, wasn't it on like v0.10??\" - and you're right! we just switched to Calendar Versioning (CalVer), so I don't have to overthink between a major, minor or patch release. Also, because biggest number is best number.\n\nAlso includes some prep work for an upcoming Proxmox Community Scripts LXC deployment method.\n\nChangelog: https://github.com/RackulaLives/Rackula/releases/tag/v26.5.0",
+      "permalink": "https://www.threads.com/@ggfevans/post/DY9EjJ5lIqt",
+      "timestamp": "2026-05-30T07:21:35+0000",
+      "mediaType": "TEXT_POST",
       "isQuotePost": false
     },
     {
-      "id": "18103958711093744",
-      "text": "Just noticed Claude Desktop's \"Open Hardware Buddy...\" menu item in the dev menu. \n\nThis is pretty cool, they provide an SDK to interact with the Desktop app via hardware using Bluetooth Low Energy (BLE), so you can build cute little desktop buddies \n\nhttps://github.com/anthropics/claude-desktop-buddy",
-      "permalink": "https://www.threads.com/@ggfevans/post/DYwRs1llHrT",
-      "timestamp": "2026-05-25T08:06:22+0000",
-      "mediaType": "CAROUSEL_ALBUM",
-      "isQuotePost": false
-    },
-    {
-      "id": "18102795277960500",
-      "text": "Lately I've been enjoying how Claude Code can create purpose-built SwiftBar plugins with ease. Yesterday I made one for my Jobinator dashboard, this evening I made one on a whim to help handle NFS mount status. \n\nBeing able to identify a specific point of friction in my day-to-day workflow and then solving it within a matter of minutes with purpose-built software is wild.",
-      "permalink": "https://www.threads.com/@ggfevans/post/DYwHXEzlEN1",
-      "timestamp": "2026-05-25T06:36:01+0000",
-      "mediaType": "CAROUSEL_ALBUM",
+      "id": "18092010194121208",
+      "text": "Dev thriends: what are your thoughts on Calendar Versioning (CalVer) vs the traditional Semantic Versioning (SemVer)? I ask because I'm leaning towards switching Rackula to CalVer, specifically YY. MM. MICRO format. My reasoning is it removes some of the annoying friction I'm finding around deciding what is a minor vs major release on SemVer style releasing. The other thought I have is that because Rackula isn't a library, the actual version number is less important than release date freshness",
+      "permalink": "https://www.threads.com/@ggfevans/post/DY8cUV9CWve",
+      "timestamp": "2026-05-30T01:30:02+0000",
+      "mediaType": "TEXT_POST",
       "isQuotePost": false
     }
   ]

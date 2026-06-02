@@ -65,7 +65,7 @@ The `YYYY/MM/` folders are organisation only. Two posts with the same filename i
 
 ## Tag taxonomy
 
-Use **one primary** + 1–3 secondary tags. Kebab-case only. The Sveltia CMS exposes the same list as a multi-select with min 1, max 4.
+Use **one primary** + 1–3 secondary tags. Kebab-case only. The Sveltia CMS exposes the same list as a multi-select with min 1, max 4, and now allows new tags inline (`create: true`) — so the taxonomy is the *recommended* set, not a hard constraint (the build validates count, not values).
 
 | Group | Tags |
 |---|---|
