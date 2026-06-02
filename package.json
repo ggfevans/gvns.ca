@@ -27,7 +27,7 @@
     "@fontsource/jetbrains-mono": "^5.2.8",
     "@fontsource/space-grotesk": "^5.2.10",
     "@pagefind/default-ui": "^1.5.2",
-    "@tabler/icons": "^3.41.1",
+    "@tabler/icons": "^3.44.0",
     "@tailwindcss/forms": "^0.5.11",
     "@tailwindcss/vite": "^4.3.0",
     "astro": "^6.3.8",
