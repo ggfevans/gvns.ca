@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-01T22:16:49.928Z",
+  "lastUpdated": "2026-06-02T03:26:15.747Z",
   "posts": [
     {
       "id": "17913391794199758",
@@ -14,14 +14,6 @@
       "text": "Released Rackula v26.5.0 and you might be wondering \"hey, wasn't it on like v0.10??\" - and you're right! we just switched to Calendar Versioning (CalVer), so I don't have to overthink between a major, minor or patch release. Also, because biggest number is best number.\n\nAlso includes some prep work for an upcoming Proxmox Community Scripts LXC deployment method.\n\nChangelog: https://github.com/RackulaLives/Rackula/releases/tag/v26.5.0",
       "permalink": "https://www.threads.com/@ggfevans/post/DY9EjJ5lIqt",
       "timestamp": "2026-05-30T07:21:35+0000",
-      "mediaType": "TEXT_POST",
-      "isQuotePost": false
-    },
-    {
-      "id": "18092010194121208",
-      "text": "Dev thriends: what are your thoughts on Calendar Versioning (CalVer) vs the traditional Semantic Versioning (SemVer)? I ask because I'm leaning towards switching Rackula to CalVer, specifically YY. MM. MICRO format. My reasoning is it removes some of the annoying friction I'm finding around deciding what is a minor vs major release on SemVer style releasing. The other thought I have is that because Rackula isn't a library, the actual version number is less important than release date freshness",
-      "permalink": "https://www.threads.com/@ggfevans/post/DY8cUV9CWve",
-      "timestamp": "2026-05-30T01:30:02+0000",
       "mediaType": "TEXT_POST",
       "isQuotePost": false
     }
