@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-06-01T04:33:47.160Z",
+  "lastUpdated": "2026-06-02T04:32:13.884Z",
   "contributions": {
-    "total": 8779,
-    "commits": 3147,
-    "pullRequests": 1087,
-    "pullRequestReviews": 11,
-    "issues": 1437,
-    "restricted": 3009
+    "total": 8820,
+    "commits": 3183,
+    "pullRequests": 1108,
+    "pullRequestReviews": 12,
+    "issues": 1451,
+    "restricted": 2978
   },
   "calendar": {
     "weeks": [
@@ -1974,7 +1974,7 @@
           },
           {
             "date": "2026-05-19",
-            "count": 166,
+            "count": 167,
             "level": 4
           },
           {
@@ -2042,26 +2042,108 @@
         "days": [
           {
             "date": "2026-05-31",
-            "count": 14,
+            "count": 33,
             "level": 1
+          },
+          {
+            "date": "2026-06-01",
+            "count": 63,
+            "level": 2
           }
         ]
       }
     ]
   },
   "streak": {
-    "current": 42,
+    "current": 43,
     "longest": 132,
     "today": false
   },
   "recentActivity": [
     {
       "type": "issue",
+      "repo": "gvns.ca",
+      "repoUrl": "https://github.com/ggfevans/gvns.ca",
+      "title": "feature: relocate & restyle Threads widget to homepage sidebar",
+      "url": "https://github.com/ggfevans/gvns.ca/issues/649",
+      "date": "2026-06-02T04:00:55Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "zed-hujson",
+      "repoUrl": "https://github.com/ggfevans/zed-hujson",
+      "title": "feature: Add .jwcc file-extension to Zed extension config",
+      "url": "https://github.com/ggfevans/zed-hujson/issues/13",
+      "date": "2026-06-02T01:03:57Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "zed-hujson",
+      "repoUrl": "https://github.com/ggfevans/zed-hujson",
+      "title": "pin all workflow deps using sha values",
+      "url": "https://github.com/ggfevans/zed-hujson/issues/16",
+      "date": "2026-06-02T01:00:47Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "zed-hujson",
+      "repoUrl": "https://github.com/ggfevans/zed-hujson",
+      "title": "feature: Formatter integration — wire hujsonfmt as a language server",
+      "url": "https://github.com/ggfevans/zed-hujson/issues/11",
+      "date": "2026-06-02T01:00:16Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat: port type categorization (network/power/console)",
-      "url": "https://github.com/RackulaLives/Rackula/issues/276",
-      "date": "2026-05-31T11:16:08Z",
+      "title": "feat(ci): add project board automation for assigned issues and opened PRs",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1863",
+      "date": "2026-06-01T12:39:26Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Full E2E test suite failing",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1855",
+      "date": "2026-06-01T12:12:49Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Auto-import undo may remove unrelated device types",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1479",
+      "date": "2026-06-01T12:01:45Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "docs: remove em dashes and emoji from milestone docs (CLAUDE.md, ROADMAP, cadence plan)",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1862",
+      "date": "2026-06-01T11:58:19Z",
       "meta": {
         "state": "OPEN"
       }
@@ -2070,11 +2152,220 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat(devices): add firewall device category",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1833",
-      "date": "2026-05-31T10:24:36Z",
+      "title": "fix: pre-push CodeRabbit hook blocks tag pushes during release",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1861",
+      "date": "2026-06-01T11:58:03Z",
       "meta": {
         "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Harden LXC update_script rollback and install idempotency",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1851",
+      "date": "2026-06-01T09:55:44Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "chore(deps): evaluate vaul-svelte next-channel pin",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1853",
+      "date": "2026-06-01T08:28:41Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "fix(devices): chassis devices missing from category-grouped palette",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1839",
+      "date": "2026-06-01T07:42:20Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "arm64 support for the LXC release tarball",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1850",
+      "date": "2026-06-01T07:35:11Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Epic: Self-hosted API hardening baseline",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1274",
+      "date": "2026-06-01T07:17:55Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Epic: Format Adapters & External Schema Bridge",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1209",
+      "date": "2026-06-01T07:17:39Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Initiative: Ecosystem Interoperability",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1208",
+      "date": "2026-06-01T07:17:39Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Epic: Developer-Friendly Data Format",
+      "url": "https://github.com/RackulaLives/Rackula/issues/570",
+      "date": "2026-06-01T07:17:37Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "feat: Add YAML edit/apply flow with schema validation and conflict guardrails",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1176",
+      "date": "2026-06-01T07:17:37Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Research Spike: Borrowing Patterns from svstate",
+      "url": "https://github.com/RackulaLives/Rackula/issues/746",
+      "date": "2026-06-01T07:16:55Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Update slfhost/icons Rackula icon",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1847",
+      "date": "2026-06-01T06:40:03Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "docs(auth): document and verify OIDC behind reverse proxy (Caddy/Traefik)",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1832",
+      "date": "2026-06-01T06:39:41Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "test: App.startScreen and App.cleanupPrompt flake in full suite",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1846",
+      "date": "2026-06-01T06:38:45Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "ProxmoxVED",
+      "repoUrl": "https://github.com/community-scripts/ProxmoxVED",
+      "title": "Rackula",
+      "url": "https://github.com/community-scripts/ProxmoxVED/issues/1883",
+      "date": "2026-06-01T06:28:05Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "feat: move mini-PC server devices from Generic into specific brand packs",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1840",
+      "date": "2026-06-01T06:19:08Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "CVE-2026-6732: libxml2 DoS in rackula:latest (Alpine OS package)",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1841",
+      "date": "2026-06-01T06:07:58Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "bug: Device rendering fails for moved brand pack slugs (intel-nuc, raspberry-pi, etc.)",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1842",
+      "date": "2026-06-01T05:51:51Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "feat(devices): add firewall device category",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1833",
+      "date": "2026-06-01T05:24:58Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "feat: port type categorization (network/power/console)",
+      "url": "https://github.com/RackulaLives/Rackula/issues/276",
+      "date": "2026-06-01T05:18:12Z",
+      "meta": {
+        "state": "CLOSED"
       }
     },
     {
@@ -2092,295 +2383,9 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "docs(auth): document and verify OIDC behind reverse proxy (Caddy/Traefik)",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1832",
-      "date": "2026-05-31T09:29:29Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
       "title": "feat(api): explicit mutating-request origin policy",
       "url": "https://github.com/RackulaLives/Rackula/issues/1779",
       "date": "2026-05-31T08:26:14Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Add onboarding guidance after rack creation",
-      "url": "https://github.com/RackulaLives/Rackula/issues/111",
-      "date": "2026-05-31T08:25:20Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Write community-scripts LXC install files",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1213",
-      "date": "2026-05-31T08:03:14Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "chore: move SELF-HOSTING.md from docs/guides/ to docs/deployment/",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1819",
-      "date": "2026-05-31T08:01:12Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Add CI/CD release tarball build pipeline for LXC distribution",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1212",
-      "date": "2026-05-31T07:01:35Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat(api): write-route rate limiting for self-hosted deployments",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1778",
-      "date": "2026-05-31T06:33:37Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "chore(auth): Replace in-memory session invalidation with shared TTL-backed store",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1269",
-      "date": "2026-05-30T07:39:44Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Implement CalVer versioning (YY.M.MICRO) across Rackula",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1802",
-      "date": "2026-05-30T07:33:20Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Refresh README for FOSS professionalism and expanded audience",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1353",
-      "date": "2026-05-30T06:39:39Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Rename GitHub milestones to theme-based names",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1809",
-      "date": "2026-05-30T05:56:10Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "LXC: Extract nginx config from tarball instead of inline heredoc",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1240",
-      "date": "2026-05-30T05:55:32Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "LXC: Clean up temporary tarball directory in build-lxc workflow",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1239",
-      "date": "2026-05-30T05:55:32Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "LXC: Use explicit exit codes in ct/rackula.sh",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1233",
-      "date": "2026-05-30T05:55:31Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "fix(lxc): conditional HSTS handling in security-headers.conf",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1793",
-      "date": "2026-05-30T05:55:31Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "enhancement(lxc): add nginx service hardening via systemd drop-in override",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1792",
-      "date": "2026-05-30T05:55:31Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "LXC: Add HTTPS scheme support for CORS_ORIGIN",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1237",
-      "date": "2026-05-30T05:55:31Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "LXC: Pin GitHub Actions and Bun version in build-lxc workflow",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1234",
-      "date": "2026-05-30T05:55:31Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "enhancement(lxc): expand systemd sandboxing with network egress control, capability drops, and syscall filtering",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1791",
-      "date": "2026-05-30T05:55:29Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "enhancement(lxc): add update lock file and trap-based rollback",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1795",
-      "date": "2026-05-30T05:55:29Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "enhancement(lxc): bump resource defaults to 512 MB RAM / 8 GB disk",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1794",
-      "date": "2026-05-30T05:55:29Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat(lxc): add service health verification after install/update",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1788",
-      "date": "2026-05-30T05:55:29Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "fix(lxc): replace custom download logic with fetch_and_deploy_gh_release",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1786",
-      "date": "2026-05-30T05:55:29Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "fix(lxc): change Bun install prefix from /root/.bun to /opt/bun",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1787",
-      "date": "2026-05-30T05:55:27Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "fix(lxc): remove systemctl daemon-reload from install script",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1790",
-      "date": "2026-05-30T05:55:27Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Execute CalVer cutover",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1808",
-      "date": "2026-05-30T05:13:56Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "LXC: Improve update_script() rollback to include frontend and API",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1238",
-      "date": "2026-05-30T05:03:25Z",
       "meta": {
         "state": "CLOSED"
       }
@@ -2389,9 +2394,9 @@
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 220,
-    "contributionsThisMonth": 1140,
-    "repositoriesThisWeek": 1
+    "contributionsThisWeek": 242,
+    "contributionsThisMonth": 1175,
+    "repositoriesThisWeek": 4
   },
   "repositories": [
     {
@@ -2401,6 +2406,14 @@
       "languageColor": "#ff5a03",
       "stars": 0,
       "url": "https://github.com/ggfevans/gvns.ca"
+    },
+    {
+      "name": "zed-hujson",
+      "description": "HuJSON language grammar for Zed",
+      "language": "Shell",
+      "languageColor": "#89e051",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/zed-hujson"
     },
     {
       "name": "nfs-swiftbar",
@@ -2435,14 +2448,6 @@
       "url": "https://github.com/ggfevans/gwilym.ca"
     },
     {
-      "name": "zed-hujson",
-      "description": "HuJSON language grammar for Zed",
-      "language": "Shell",
-      "languageColor": "#89e051",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/zed-hujson"
-    },
-    {
       "name": "searxng-seek-alfred",
       "description": "Alfred workflow for private web search via SearXNG. Includes inline results, favicons, quick actions",
       "language": "JavaScript",
@@ -2463,7 +2468,7 @@
       "description": "A lightweight, machine-readable convention for declaring AI involvement in source code",
       "language": "",
       "languageColor": "",
-      "stars": 0,
+      "stars": 1,
       "url": "https://github.com/ggfevans/ai-disclosure"
     },
     {
