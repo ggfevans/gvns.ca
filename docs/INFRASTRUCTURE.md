@@ -64,6 +64,25 @@ Before this change, the non-production deploy command was also `wrangler deploy`
 
 No deploy workflow needed in `.github/workflows/`. No Cloudflare secrets in GitHub — Workers Builds uses the native git integration.
 
+### Build Watch Paths
+
+Workers Builds has a **Build watch paths** setting (Cloudflare → Workers & Pages → gvns-ca → **Settings → Build → Build watch paths**) that is *separate* from the build configuration above. It decides which changed paths trigger a build: excluded paths are dropped first, then the rest are matched against the includes — if nothing matches, **the build is skipped entirely** (no production deploy, no preview). See the [Cloudflare docs](https://developers.cloudflare.com/workers/ci-cd/builds/build-watch-paths/).
+
+**Keep this broad.** Include paths should be `*` (build on every push — Cloudflare's default). A narrow include such as `src/*` silently skips deploys for everything outside `src/`:
+
+- `public/**` — Sveltia CMS config (`public/admin/config.yml`), `_headers`, `_redirects`, favicon, uploads
+- `package.json` / `package-lock.json` — dependency bumps (including Dependabot)
+- `astro.config.*`, `wrangler.jsonc`, `tsconfig.json` — build/runtime config
+
+> **Incident (2026-06):** the include was scoped to `src/*`, so a run of merges that only touched `public/admin/config.yml`, `docs/`, and `package*.json` (Dependabot) never deployed — production served a stale CMS config until a manual rebuild. If you want to save build minutes on docs-only pushes, prefer Include `*` + Exclude `docs/*, .github/*` rather than a narrow include — a wildcard matches across `/`, so those excludes still let `public/*`, `src/*`, and `package*.json` deploy.
+
+**Force a deploy manually:** a zero-change push bypasses path matching, so an empty commit on `main` always triggers a build:
+
+```bash
+git commit --allow-empty -m "chore: trigger Workers Builds deploy"
+git push origin main
+```
+
 ### Local Worker Development
 
 ```bash
