@@ -96,12 +96,12 @@ Use **one primary tag** per post, plus 1-3 secondary tags.
 4. **Kebab-case only**: `web-dev` not `webDev` or `Web Dev`
 5. **No plurals**: `tutorial` not `tutorials`
 
-> **Creating new tags:** The Sveltia CMS tag field now allows new tags inline
-> (`create: true`), so the taxonomy above is the *recommended* set, not a hard
-> constraint — the build only validates count (1–4), not values. Prefer an
+> **Adding new tags:** The Sveltia CMS tag field is a free-form `list` widget, so
+> editors can type any tag — the build only validates count (1–4), not values.
+> The taxonomy above is the *recommended* set, not a hard constraint. Prefer an
 > existing tag; if you must add one, follow the kebab-case / no-plurals rules
-> above and add it to both this taxonomy and the `options:` list in
-> `public/admin/config.yml` so it surfaces as a suggestion for future posts.
+> above and add it to both this taxonomy and the `hint:` for the tags field in
+> `public/admin/config.yml` so future authors are nudged toward reusing it.
 
 ## Content Organisation
 
