@@ -78,6 +78,7 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
         </div>
         <div class="gvns-home__sidebar">
           <RecentPostsList posts={posts.slice(1, 5)} />
+          <ThreadsWidget />
         </div>
       </section>
     ) : posts.length === 1 ? (
@@ -143,7 +144,6 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
         <ListenWidget compact />
         <WatchWidget compact />
         <GameWidget compact />
-        <ThreadsWidget compact />
       </div>
     </section>
   </main>
@@ -202,14 +202,14 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
   .gvns-activity-widgets {
     padding-block: var(--space-2);
   }
-  /* Bento: six column units. Four single tiles (Read P1 → Listen P2 → Watch P3
-     → Play P4) plus the double-width Shitposting tile (P5 sky, spans 2 cols).
-     Move (P6 crimson) lives in the heading-meta chip row. Activity-to-token
-     mapping is canonical left-to-right and shared with the masthead/footer
-     gradients. The threads span-2 + frame aspect rule lives in widgets.css. */
+  /* Bento: four equal tiles (Read P1 → Listen P2 → Watch P3 → Play P4).
+     Threads (P5 sky) now lives in the upper-right sidebar beside the featured
+     post, not in this row. Move (P6 crimson) lives in the heading-meta chip
+     row. Activity-to-token mapping is canonical left-to-right and shared with
+     the masthead/footer gradients. */
   .gvns-activity-grid {
     display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: var(--space-4);
   }
   @media (max-width: 1023px) {
