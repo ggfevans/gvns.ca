@@ -1,19 +1,11 @@
 {
-  "lastUpdated": "2026-06-02T03:26:15.747Z",
+  "lastUpdated": "2026-06-03T22:56:01.515Z",
   "posts": [
     {
       "id": "17913391794199758",
       "text": "Wow, looks like Strava is going the enshittification route: \"... we care deeply about developers, and the health of the developer ecosystem\" meanwhile they will now be requiring a subscription for any API access. The framing is anti-AI-scraping, but the practical effect is that casual free API access is ending.\n\nAs a longtime Strava user, this is disappointing to see hostility towards the dev ecosystem.\n\nhttps://communityhub.strava.com/insider-journal-9/an-update-to-our-developer-program-13428",
       "permalink": "https://www.threads.com/@ggfevans/post/DZDzNJEktbd",
       "timestamp": "2026-06-01T22:04:43+0000",
-      "mediaType": "TEXT_POST",
-      "isQuotePost": false
-    },
-    {
-      "id": "18101308451092357",
-      "text": "Released Rackula v26.5.0 and you might be wondering \"hey, wasn't it on like v0.10??\" - and you're right! we just switched to Calendar Versioning (CalVer), so I don't have to overthink between a major, minor or patch release. Also, because biggest number is best number.\n\nAlso includes some prep work for an upcoming Proxmox Community Scripts LXC deployment method.\n\nChangelog: https://github.com/RackulaLives/Rackula/releases/tag/v26.5.0",
-      "permalink": "https://www.threads.com/@ggfevans/post/DY9EjJ5lIqt",
-      "timestamp": "2026-05-30T07:21:35+0000",
       "mediaType": "TEXT_POST",
       "isQuotePost": false
     }
