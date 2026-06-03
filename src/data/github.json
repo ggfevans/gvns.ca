@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-06-02T04:32:13.884Z",
+  "lastUpdated": "2026-06-03T04:32:36.199Z",
   "contributions": {
-    "total": 8820,
-    "commits": 3183,
-    "pullRequests": 1108,
+    "total": 8863,
+    "commits": 3200,
+    "pullRequests": 1123,
     "pullRequestReviews": 12,
-    "issues": 1451,
-    "restricted": 2978
+    "issues": 1460,
+    "restricted": 2980
   },
   "calendar": {
     "weeks": [
@@ -1462,7 +1462,7 @@
           },
           {
             "date": "2026-02-16",
-            "count": 13,
+            "count": 12,
             "level": 1
           },
           {
@@ -2047,345 +2047,141 @@
           },
           {
             "date": "2026-06-01",
-            "count": 63,
-            "level": 2
+            "count": 95,
+            "level": 3
+          },
+          {
+            "date": "2026-06-02",
+            "count": 12,
+            "level": 1
           }
         ]
       }
     ]
   },
   "streak": {
-    "current": 43,
+    "current": 44,
     "longest": 132,
     "today": false
   },
   "recentActivity": [
     {
       "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "feature: relocate & restyle Threads widget to homepage sidebar",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/649",
-      "date": "2026-06-02T04:00:55Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "zed-hujson",
-      "repoUrl": "https://github.com/ggfevans/zed-hujson",
-      "title": "feature: Add .jwcc file-extension to Zed extension config",
-      "url": "https://github.com/ggfevans/zed-hujson/issues/13",
-      "date": "2026-06-02T01:03:57Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "zed-hujson",
-      "repoUrl": "https://github.com/ggfevans/zed-hujson",
-      "title": "pin all workflow deps using sha values",
-      "url": "https://github.com/ggfevans/zed-hujson/issues/16",
-      "date": "2026-06-02T01:00:47Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "zed-hujson",
-      "repoUrl": "https://github.com/ggfevans/zed-hujson",
-      "title": "feature: Formatter integration — wire hujsonfmt as a language server",
-      "url": "https://github.com/ggfevans/zed-hujson/issues/11",
-      "date": "2026-06-02T01:00:16Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat(ci): add project board automation for assigned issues and opened PRs",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1863",
-      "date": "2026-06-01T12:39:26Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Full E2E test suite failing",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1855",
-      "date": "2026-06-01T12:12:49Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Auto-import undo may remove unrelated device types",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1479",
-      "date": "2026-06-01T12:01:45Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "docs: remove em dashes and emoji from milestone docs (CLAUDE.md, ROADMAP, cadence plan)",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1862",
-      "date": "2026-06-01T11:58:19Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
       "title": "fix: pre-push CodeRabbit hook blocks tag pushes during release",
       "url": "https://github.com/RackulaLives/Rackula/issues/1861",
-      "date": "2026-06-01T11:58:03Z",
+      "date": "2026-06-02T11:10:22Z",
       "meta": {
         "state": "OPEN"
       }
     },
     {
       "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Harden LXC update_script rollback and install idempotency",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1851",
-      "date": "2026-06-01T09:55:44Z",
+      "repo": "tree-sitter-hujson",
+      "repoUrl": "https://github.com/ggfevans/tree-sitter-hujson",
+      "title": "chore: skip publish jobs when their registry credential is not configured",
+      "url": "https://github.com/ggfevans/tree-sitter-hujson/issues/20",
+      "date": "2026-06-02T07:52:45Z",
       "meta": {
         "state": "CLOSED"
       }
     },
     {
       "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "chore(deps): evaluate vaul-svelte next-channel pin",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1853",
-      "date": "2026-06-01T08:28:41Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "fix(devices): chassis devices missing from category-grouped palette",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1839",
-      "date": "2026-06-01T07:42:20Z",
+      "repo": "tree-sitter-hujson",
+      "repoUrl": "https://github.com/ggfevans/tree-sitter-hujson",
+      "title": "feature: Add .jwcc file-extension to grammar",
+      "url": "https://github.com/ggfevans/tree-sitter-hujson/issues/3",
+      "date": "2026-06-02T07:37:27Z",
       "meta": {
         "state": "CLOSED"
       }
     },
     {
       "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "arm64 support for the LXC release tarball",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1850",
-      "date": "2026-06-01T07:35:11Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Epic: Self-hosted API hardening baseline",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1274",
-      "date": "2026-06-01T07:17:55Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Epic: Format Adapters & External Schema Bridge",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1209",
-      "date": "2026-06-01T07:17:39Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Initiative: Ecosystem Interoperability",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1208",
-      "date": "2026-06-01T07:17:39Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Epic: Developer-Friendly Data Format",
-      "url": "https://github.com/RackulaLives/Rackula/issues/570",
-      "date": "2026-06-01T07:17:37Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat: Add YAML edit/apply flow with schema validation and conflict guardrails",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1176",
-      "date": "2026-06-01T07:17:37Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Research Spike: Borrowing Patterns from svstate",
-      "url": "https://github.com/RackulaLives/Rackula/issues/746",
-      "date": "2026-06-01T07:16:55Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Update slfhost/icons Rackula icon",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1847",
-      "date": "2026-06-01T06:40:03Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "docs(auth): document and verify OIDC behind reverse proxy (Caddy/Traefik)",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1832",
-      "date": "2026-06-01T06:39:41Z",
+      "repo": "tree-sitter-hujson",
+      "repoUrl": "https://github.com/ggfevans/tree-sitter-hujson",
+      "title": "chore: tighten release-gate validation + scope release.yml permissions (CodeRabbit follow-up to #15)",
+      "url": "https://github.com/ggfevans/tree-sitter-hujson/issues/17",
+      "date": "2026-06-02T07:30:56Z",
       "meta": {
         "state": "CLOSED"
       }
     },
     {
       "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "test: App.startScreen and App.cleanupPrompt flake in full suite",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1846",
-      "date": "2026-06-01T06:38:45Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "ProxmoxVED",
-      "repoUrl": "https://github.com/community-scripts/ProxmoxVED",
-      "title": "Rackula",
-      "url": "https://github.com/community-scripts/ProxmoxVED/issues/1883",
-      "date": "2026-06-01T06:28:05Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat: move mini-PC server devices from Generic into specific brand packs",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1840",
-      "date": "2026-06-01T06:19:08Z",
+      "repo": "tree-sitter-hujson",
+      "repoUrl": "https://github.com/ggfevans/tree-sitter-hujson",
+      "title": "feat: full release automation — CHANGELOG + npm/PyPI/crates.io publishing + version-bump source of truth",
+      "url": "https://github.com/ggfevans/tree-sitter-hujson/issues/15",
+      "date": "2026-06-02T07:16:40Z",
       "meta": {
         "state": "CLOSED"
       }
     },
     {
       "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "CVE-2026-6732: libxml2 DoS in rackula:latest (Alpine OS package)",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1841",
-      "date": "2026-06-01T06:07:58Z",
+      "repo": "tree-sitter-hujson",
+      "repoUrl": "https://github.com/ggfevans/tree-sitter-hujson",
+      "title": "fix: regenerate parser at ABI 14 to match runtime floors + pin tree-sitter CLI in CI",
+      "url": "https://github.com/ggfevans/tree-sitter-hujson/issues/13",
+      "date": "2026-06-02T06:50:15Z",
       "meta": {
         "state": "CLOSED"
       }
     },
     {
       "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "bug: Device rendering fails for moved brand pack slugs (intel-nuc, raspberry-pi, etc.)",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1842",
-      "date": "2026-06-01T05:51:51Z",
+      "repo": "tree-sitter-hujson",
+      "repoUrl": "https://github.com/ggfevans/tree-sitter-hujson",
+      "title": "epic: code review findings — metadata, grammar strictness, query robustness",
+      "url": "https://github.com/ggfevans/tree-sitter-hujson/issues/5",
+      "date": "2026-06-02T06:37:32Z",
       "meta": {
         "state": "CLOSED"
       }
     },
     {
       "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat(devices): add firewall device category",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1833",
-      "date": "2026-06-01T05:24:58Z",
+      "repo": "tree-sitter-hujson",
+      "repoUrl": "https://github.com/ggfevans/tree-sitter-hujson",
+      "title": "fix: outline.scm silently drops empty-string keys",
+      "url": "https://github.com/ggfevans/tree-sitter-hujson/issues/8",
+      "date": "2026-06-02T06:36:53Z",
       "meta": {
         "state": "CLOSED"
       }
     },
     {
       "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat: port type categorization (network/power/console)",
-      "url": "https://github.com/RackulaLives/Rackula/issues/276",
-      "date": "2026-06-01T05:18:12Z",
+      "repo": "tree-sitter-hujson",
+      "repoUrl": "https://github.com/ggfevans/tree-sitter-hujson",
+      "title": "grammar: decide on numeric object keys (strictness vs upstream quirk)",
+      "url": "https://github.com/ggfevans/tree-sitter-hujson/issues/7",
+      "date": "2026-06-02T06:34:28Z",
       "meta": {
         "state": "CLOSED"
       }
     },
     {
       "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat(devices): instance-level metadata (serial, asset tag, MAC, custom fields)",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1834",
-      "date": "2026-05-31T09:29:45Z",
+      "repo": "tree-sitter-hujson",
+      "repoUrl": "https://github.com/ggfevans/tree-sitter-hujson",
+      "title": "chore: register query files and add edge-case query/test coverage",
+      "url": "https://github.com/ggfevans/tree-sitter-hujson/issues/9",
+      "date": "2026-06-02T06:33:40Z",
       "meta": {
-        "state": "OPEN"
+        "state": "CLOSED"
       }
     },
     {
       "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat(api): explicit mutating-request origin policy",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1779",
-      "date": "2026-05-31T08:26:14Z",
+      "repo": "tree-sitter-hujson",
+      "repoUrl": "https://github.com/ggfevans/tree-sitter-hujson",
+      "title": "chore: align packaging metadata (version, repo URLs, email, tree-sitter dep)",
+      "url": "https://github.com/ggfevans/tree-sitter-hujson/issues/6",
+      "date": "2026-06-02T06:33:39Z",
       "meta": {
         "state": "CLOSED"
       }
@@ -2394,18 +2190,18 @@
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 242,
-    "contributionsThisMonth": 1175,
-    "repositoriesThisWeek": 4
+    "contributionsThisWeek": 275,
+    "contributionsThisMonth": 1179,
+    "repositoriesThisWeek": 2
   },
   "repositories": [
     {
-      "name": "gvns.ca",
-      "description": "",
-      "language": "Astro",
-      "languageColor": "#ff5a03",
+      "name": "tree-sitter-hujson",
+      "description": "A tree-sitter grammar for HuJSON (Human JSON)",
+      "language": "JavaScript",
+      "languageColor": "#f1e05a",
       "stars": 0,
-      "url": "https://github.com/ggfevans/gvns.ca"
+      "url": "https://github.com/ggfevans/tree-sitter-hujson"
     },
     {
       "name": "zed-hujson",
@@ -2414,6 +2210,14 @@
       "languageColor": "#89e051",
       "stars": 0,
       "url": "https://github.com/ggfevans/zed-hujson"
+    },
+    {
+      "name": "gvns.ca",
+      "description": "",
+      "language": "Astro",
+      "languageColor": "#ff5a03",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/gvns.ca"
     },
     {
       "name": "nfs-swiftbar",
@@ -2470,14 +2274,6 @@
       "languageColor": "",
       "stars": 1,
       "url": "https://github.com/ggfevans/ai-disclosure"
-    },
-    {
-      "name": "tree-sitter-hujson",
-      "description": "A tree-sitter grammar for HuJSON (Human JSON)",
-      "language": "JavaScript",
-      "languageColor": "#f1e05a",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/tree-sitter-hujson"
     },
     {
       "name": "listenbrainz-csv-upload",
