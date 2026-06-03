@@ -36,6 +36,33 @@
   object-fit: cover;
 }
 
+/* Home Now-bar cards: a shorter 4:3 frame whose letterbox space is filled by a
+   blurred, darkened copy of the same artwork — so differently-shaped covers
+   share one edge-to-edge rhythm without cropping titles. Scoped to the activity
+   grid; other compact-widget usages keep the square frame above.
+   Each widget sets `--frame-img: url(<cover>)` on the frame; when unset the
+   ::before paints nothing and the flat bg-tertiary frame (icon fallback) shows. */
+.gvns-activity-grid .gvns-widget-compact__frame {
+  aspect-ratio: 4 / 3;
+  position: relative;
+}
+.gvns-activity-grid .gvns-widget-compact__frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--frame-img, none);
+  background-size: cover;
+  background-position: center;
+  filter: blur(18px) brightness(0.45);
+  transform: scale(1.15);
+  z-index: 0;
+}
+/* Sharp artwork / icon sits above the blurred backdrop. */
+.gvns-activity-grid .gvns-widget-compact__frame > * {
+  position: relative;
+  z-index: 1;
+}
+
 /* Slot icons for text-only widgets (Code, Move) and missing-image fallbacks (Watch, Game) —
    inherit the widget's accent colour so the bento reads as a cohesive palette, not muted greys. */
 .gvns-widget-compact__icon {

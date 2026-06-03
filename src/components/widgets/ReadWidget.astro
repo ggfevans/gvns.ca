@@ -1,5 +1,5 @@
 ---
-import { safeUrl } from '@utils/format';
+import { safeUrl, cssUrl } from '@utils/format';
 
 interface Props { compact?: boolean; }
 const { compact = false } = Astro.props;
@@ -41,7 +41,7 @@ const progress = typeof rawProgress === 'number' && !Number.isNaN(rawProgress)
 
 {compact ? (
   <article class="gvns-widget-compact gvns-widget-compact--read">
-    <div class="gvns-widget-compact__frame">
+    <div class="gvns-widget-compact__frame" style={coverSrc ? `--frame-img: ${cssUrl(coverSrc)}` : undefined}>
       {coverSrc && (
         <img src={coverSrc} alt={`Cover of ${currentBook.title}`} class="gvns-widget-compact__image" loading="lazy" decoding="async" />
       )}

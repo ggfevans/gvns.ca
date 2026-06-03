@@ -1,5 +1,5 @@
 ---
-import { relativeTime, safeUrl } from '@utils/format';
+import { relativeTime, safeUrl, cssUrl } from '@utils/format';
 
 interface Props { compact?: boolean; }
 const { compact = false } = Astro.props;
@@ -58,7 +58,7 @@ const totalHours = Math.round(rawMinutes / 60);
 
 {compact ? (
   <article class="gvns-widget-compact gvns-widget-compact--game">
-    <div class="gvns-widget-compact__frame">
+    <div class="gvns-widget-compact__frame" style={coverSrc ? `--frame-img: ${cssUrl(coverSrc)}` : undefined}>
       {coverSrc ? (
         <img
           src={coverSrc}

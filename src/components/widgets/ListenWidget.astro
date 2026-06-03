@@ -1,5 +1,5 @@
 ---
-import { relativeTime, isValidMbid } from '@utils/format';
+import { relativeTime, isValidMbid, cssUrl } from '@utils/format';
 
 interface Props { compact?: boolean; }
 const { compact = false } = Astro.props;
@@ -59,7 +59,7 @@ const artUrl = isValidMbid(latestTrack?.caaReleaseMbid)
 
 {compact ? (
   <article class="gvns-widget-compact gvns-widget-compact--listen">
-    <div class="gvns-widget-compact__frame">
+    <div class="gvns-widget-compact__frame" style={artUrl ? `--frame-img: ${cssUrl(artUrl)}` : undefined}>
       {artUrl && (
         <img src={artUrl} alt={`${latestTrack.album || latestTrack.track} album art`} class="gvns-widget-compact__image gvns-widget-compact__image--fill" loading="lazy" decoding="async" />
       )}

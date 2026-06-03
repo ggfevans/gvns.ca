@@ -50,6 +50,12 @@ export function safeUrl(url: string | undefined | null): string | undefined {
   return undefined;
 }
 
+/** Build a CSS `url("...")` value with the URL escaped for the quoted-string
+ *  context (backslashes and double quotes), safe to embed in inline styles. */
+export function cssUrl(url: string): string {
+  return `url("${url.replace(/\\/g, '\\\\').replace(/"/g, '\\"')}")`;
+}
+
 /** Format an ISO date string to a long human-readable timestamp. */
 export function formatTimestamp(dateString: string): string {
   const d = new Date(dateString);
