@@ -1,5 +1,5 @@
 ---
-import { relativeTime, safeUrl } from '@utils/format';
+import { relativeTime, safeUrl, cssUrl } from '@utils/format';
 
 interface Props { compact?: boolean; }
 const { compact = false } = Astro.props;
@@ -40,7 +40,7 @@ const watchedDate = latestWatch?.watchedDate && !Number.isNaN(new Date(latestWat
 
 {compact ? (
   <article class="gvns-widget-compact gvns-widget-compact--watch">
-    <div class="gvns-widget-compact__frame">
+    <div class="gvns-widget-compact__frame" style={posterSrc ? `--frame-img: ${cssUrl(posterSrc)}` : undefined}>
       {posterSrc ? (
         <img src={posterSrc} alt={`Poster for ${latestWatch.title}`} class="gvns-widget-compact__image" loading="lazy" decoding="async" />
       ) : (

@@ -11,6 +11,7 @@ import WatchWidget from '@components/widgets/WatchWidget.astro';
 import GameWidget from '@components/widgets/GameWidget.astro';
 import ThreadsWidget from '@components/widgets/ThreadsWidget.astro';
 import IconBrandGithub from '@tabler/icons/outline/brand-github.svg';
+import IconActivityHeartbeat from '@tabler/icons/outline/activity-heartbeat.svg';
 import { websiteSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
 import { SITE_BIO } from '@utils/site';
 import '@styles/widgets.css';
@@ -53,11 +54,18 @@ const codeDays = ((githubData?.calendar as { weeks?: Array<{ days?: Array<{ leve
 const codeHasSignal = codeStreak > 0 || codeDays.some((l) => l > 0);
 
 // Move chip: latest workout summary + recent-strain sparkline (newest right).
+// Padded to a fixed slot count so its bar widths match the coding chip's 7-day
+// spark — missing slots render as faint ghost bars rather than a few fat bars.
+const SPARK_SLOTS = 7;
 interface Workout { sport?: string; durationMinutes?: number; strain?: number }
 const recentWorkouts = ((whoopData?.recentWorkouts as Workout[]) ?? []);
 const moveLatest = recentWorkouts[0] ?? null;
-const moveStrain = recentWorkouts.slice(0, 7).reverse().map((w) => Number(w?.strain) || 0);
-const moveStrainMax = Math.max(...moveStrain, 1);
+const moveStrainRaw = recentWorkouts.slice(0, SPARK_SLOTS).reverse().map((w) => Number(w?.strain) || 0);
+const moveStrainMax = Math.max(...moveStrainRaw, 1);
+const moveSpark: (number | null)[] = [
+  ...Array(Math.max(0, SPARK_SLOTS - moveStrainRaw.length)).fill(null),
+  ...moveStrainRaw,
+];
 const moveHasSignal = !!moveLatest;
 
 const siteUrl = normalizeSiteUrl(Astro.site);
@@ -125,9 +133,12 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
             )}
             {moveHasSignal && (
               <a href="/move" class="gvns-now__chip gvns-now__chip--move">
+                <IconActivityHeartbeat class="gvns-now__chip-icon" aria-hidden="true" />
                 <span class="gvns-now__chip-spark" aria-hidden="true">
-                  {moveStrain.map((s) => (
-                    <i style={`height: ${Math.max((s / moveStrainMax) * 100, 12)}%; opacity: ${0.4 + (s / moveStrainMax) * 0.6}`}></i>
+                  {moveSpark.map((s) => (
+                    s === null
+                      ? <i class="gvns-now__chip-bar--ghost"></i>
+                      : <i style={`height: ${Math.max((s / moveStrainMax) * 100, 12)}%; opacity: ${0.4 + (s / moveStrainMax) * 0.6}`}></i>
                   ))}
                 </span>
                 <span class="gvns-now__chip-text">
@@ -343,6 +354,12 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
     background: var(--chip-accent);
     border-radius: 1px;
     min-height: 3px;
+  }
+  /* Ghost bars pad the move spark to a fixed slot count so its bar widths match
+     the coding chip; faint and short to read as "no data for this slot". */
+  .gvns-now__chip-spark > i.gvns-now__chip-bar--ghost {
+    height: 12%;
+    opacity: 0.18;
   }
   .gvns-now__chip-text {
     display: inline-flex;
