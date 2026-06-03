@@ -1,6 +1,13 @@
 {
-  "lastUpdated": "2026-06-02T04:32:26Z",
+  "lastUpdated": "2026-06-03T04:32:50Z",
   "recentlyWatched": [
+    {
+      "title": "Lewis — S06E01",
+      "type": "show",
+      "posterUrl": "https://image.tmdb.org/t/p/w342/etyCA64joFB2jGJFWZPUYczVbvf.jpg",
+      "url": "https://trakt.tv/shows/lewis",
+      "watchedDate": "2026-06-02T05:21:00.000Z"
+    },
     {
       "title": "The Punisher: One Last Kill",
       "type": "movie",
@@ -119,17 +126,10 @@
       "posterUrl": "https://image.tmdb.org/t/p/w342/c15BtJxCXMrISLVmysdsnZUPQft.jpg",
       "url": "https://trakt.tv/shows/fallout",
       "watchedDate": "2026-02-13T10:37:00.000Z"
-    },
-    {
-      "title": "Ted Lasso — S01E10",
-      "type": "show",
-      "posterUrl": "https://image.tmdb.org/t/p/w342/5fhZdwP1DVJ0FyVH6vrFdHwpXIn.jpg",
-      "url": "https://trakt.tv/shows/ted-lasso",
-      "watchedDate": "2026-02-04T03:30:00.000Z"
     }
   ],
   "stats": {
     "moviesThisMonth": 0,
-    "showsThisMonth": 0
+    "showsThisMonth": 1
   }
 }
