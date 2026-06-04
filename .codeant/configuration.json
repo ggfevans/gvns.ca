@@ -1,7 +1,7 @@
 {
   "file_filters": {
     "config": {
-      "exclude_files": ["src/data/*"]
+      "exclude_files": "src/data/*"
     }
   }
 }
