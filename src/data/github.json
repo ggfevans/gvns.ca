@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-06-03T04:32:36.199Z",
+  "lastUpdated": "2026-06-04T04:32:21.669Z",
   "contributions": {
-    "total": 8863,
-    "commits": 3200,
-    "pullRequests": 1123,
+    "total": 8937,
+    "commits": 3231,
+    "pullRequests": 1152,
     "pullRequestReviews": 12,
-    "issues": 1460,
-    "restricted": 2980
+    "issues": 1471,
+    "restricted": 2982
   },
   "calendar": {
     "weeks": [
@@ -2052,15 +2052,20 @@
           },
           {
             "date": "2026-06-02",
-            "count": 12,
+            "count": 22,
             "level": 1
+          },
+          {
+            "date": "2026-06-03",
+            "count": 64,
+            "level": 2
           }
         ]
       }
     ]
   },
   "streak": {
-    "current": 44,
+    "current": 45,
     "longest": 132,
     "today": false
   },
@@ -2069,11 +2074,231 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "fix: pre-push CodeRabbit hook blocks tag pushes during release",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1861",
-      "date": "2026-06-02T11:10:22Z",
+      "title": "chore(ts): Remove @ts-nocheck from test helpers — 2 files, 4 errors",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1708",
+      "date": "2026-06-04T01:10:52Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "zed-hujson",
+      "repoUrl": "https://github.com/ggfevans/zed-hujson",
+      "title": "chore: bump tree-sitter-hujson grammar to v1.0.1 and release v1.0.1",
+      "url": "https://github.com/ggfevans/zed-hujson/issues/24",
+      "date": "2026-06-03T11:26:57Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "zed-hujson",
+      "repoUrl": "https://github.com/ggfevans/zed-hujson",
+      "title": "docs: document Markdown ```hujson code-fence injection (works out of the box)",
+      "url": "https://github.com/ggfevans/zed-hujson/issues/23",
+      "date": "2026-06-03T11:20:58Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "zed-hujson",
+      "repoUrl": "https://github.com/ggfevans/zed-hujson",
+      "title": "docs: add README badges and devils-advocate review polish",
+      "url": "https://github.com/ggfevans/zed-hujson/issues/27",
+      "date": "2026-06-03T11:20:58Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "zed-hujson",
+      "repoUrl": "https://github.com/ggfevans/zed-hujson",
+      "title": "fix: query-audit CI gate checks wrong directory (queries/hujson vs languages/hujson)",
+      "url": "https://github.com/ggfevans/zed-hujson/issues/25",
+      "date": "2026-06-03T11:03:28Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Submit Rackula icon to selfhst/icons",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1216",
+      "date": "2026-06-03T10:59:22Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "Update slfhost/icons Rackula icon",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1847",
+      "date": "2026-06-03T10:59:19Z",
       "meta": {
         "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "tree-sitter-hujson",
+      "repoUrl": "https://github.com/ggfevans/tree-sitter-hujson",
+      "title": "feature: support U+2028/U+2029 as single-line comment terminators (tracks tailscale/hujson#43)",
+      "url": "https://github.com/ggfevans/tree-sitter-hujson/issues/25",
+      "date": "2026-06-03T10:59:18Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "tree-sitter-hujson",
+      "repoUrl": "https://github.com/ggfevans/tree-sitter-hujson",
+      "title": "chore: make the ABI 14 pin a single source of truth (generate is inconsistent across CI/Makefile/npm/docs)",
+      "url": "https://github.com/ggfevans/tree-sitter-hujson/issues/35",
+      "date": "2026-06-03T10:00:38Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "tree-sitter-hujson",
+      "repoUrl": "https://github.com/ggfevans/tree-sitter-hujson",
+      "title": "bug: number rule rejects valid negative-zero numbers (-0, -0.5, -0.0, -0e1)",
+      "url": "https://github.com/ggfevans/tree-sitter-hujson/issues/33",
+      "date": "2026-06-03T09:45:14Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "docs: remove em dashes and emoji from milestone docs (CLAUDE.md, ROADMAP, cadence plan)",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1862",
+      "date": "2026-06-03T09:19:25Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "test: App.startScreen and App.cleanupPrompt flake in full suite",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1846",
+      "date": "2026-06-03T09:18:02Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "tree-sitter-hujson",
+      "repoUrl": "https://github.com/ggfevans/tree-sitter-hujson",
+      "title": "chore: Quarterly upstream sync against tree-sitter-json",
+      "url": "https://github.com/ggfevans/tree-sitter-hujson/issues/4",
+      "date": "2026-06-03T08:29:36Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "tree-sitter-hujson",
+      "repoUrl": "https://github.com/ggfevans/tree-sitter-hujson",
+      "title": "fix(go): go.mod declares wrong module path (tree-sitter/ vs ggfevans/)",
+      "url": "https://github.com/ggfevans/tree-sitter-hujson/issues/28",
+      "date": "2026-06-03T08:29:21Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "tree-sitter-hujson",
+      "repoUrl": "https://github.com/ggfevans/tree-sitter-hujson",
+      "title": "chore: revise README before v1.0 (remove em-dashes, verify content accuracy)",
+      "url": "https://github.com/ggfevans/tree-sitter-hujson/issues/24",
+      "date": "2026-06-03T08:00:01Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "feat(release): auto-acknowledge new contributors in ACKNOWLEDGEMENTS.md per release",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1876",
+      "date": "2026-06-03T07:54:00Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "tree-sitter-hujson",
+      "repoUrl": "https://github.com/ggfevans/tree-sitter-hujson",
+      "title": "chore: add SECURITY.md with release-driven auto-update of supported version",
+      "url": "https://github.com/ggfevans/tree-sitter-hujson/issues/26",
+      "date": "2026-06-03T07:51:29Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "fix: pre-push CodeRabbit hook blocks tag pushes during release",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1861",
+      "date": "2026-06-03T07:45:09Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "tree-sitter-hujson",
+      "repoUrl": "https://github.com/ggfevans/tree-sitter-hujson",
+      "title": "feature: Markdown fenced-block injection — highlight hujson blocks in host languages",
+      "url": "https://github.com/ggfevans/tree-sitter-hujson/issues/2",
+      "date": "2026-06-03T07:41:35Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "chore(deps): evaluate vaul-svelte next-channel pin",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1853",
+      "date": "2026-06-03T07:30:26Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "enhancement: Use slider for rack height selection in wizards",
+      "url": "https://github.com/RackulaLives/Rackula/issues/756",
+      "date": "2026-06-03T05:56:29Z",
+      "meta": {
+        "state": "CLOSED"
       }
     },
     {
@@ -2119,89 +2344,23 @@
       "meta": {
         "state": "CLOSED"
       }
-    },
-    {
-      "type": "issue",
-      "repo": "tree-sitter-hujson",
-      "repoUrl": "https://github.com/ggfevans/tree-sitter-hujson",
-      "title": "fix: regenerate parser at ABI 14 to match runtime floors + pin tree-sitter CLI in CI",
-      "url": "https://github.com/ggfevans/tree-sitter-hujson/issues/13",
-      "date": "2026-06-02T06:50:15Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "tree-sitter-hujson",
-      "repoUrl": "https://github.com/ggfevans/tree-sitter-hujson",
-      "title": "epic: code review findings — metadata, grammar strictness, query robustness",
-      "url": "https://github.com/ggfevans/tree-sitter-hujson/issues/5",
-      "date": "2026-06-02T06:37:32Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "tree-sitter-hujson",
-      "repoUrl": "https://github.com/ggfevans/tree-sitter-hujson",
-      "title": "fix: outline.scm silently drops empty-string keys",
-      "url": "https://github.com/ggfevans/tree-sitter-hujson/issues/8",
-      "date": "2026-06-02T06:36:53Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "tree-sitter-hujson",
-      "repoUrl": "https://github.com/ggfevans/tree-sitter-hujson",
-      "title": "grammar: decide on numeric object keys (strictness vs upstream quirk)",
-      "url": "https://github.com/ggfevans/tree-sitter-hujson/issues/7",
-      "date": "2026-06-02T06:34:28Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "tree-sitter-hujson",
-      "repoUrl": "https://github.com/ggfevans/tree-sitter-hujson",
-      "title": "chore: register query files and add edge-case query/test coverage",
-      "url": "https://github.com/ggfevans/tree-sitter-hujson/issues/9",
-      "date": "2026-06-02T06:33:40Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "tree-sitter-hujson",
-      "repoUrl": "https://github.com/ggfevans/tree-sitter-hujson",
-      "title": "chore: align packaging metadata (version, repo URLs, email, tree-sitter dep)",
-      "url": "https://github.com/ggfevans/tree-sitter-hujson/issues/6",
-      "date": "2026-06-02T06:33:39Z",
-      "meta": {
-        "state": "CLOSED"
-      }
     }
   ],
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 275,
-    "contributionsThisMonth": 1179,
-    "repositoriesThisWeek": 2
+    "contributionsThisWeek": 347,
+    "contributionsThisMonth": 1215,
+    "repositoriesThisWeek": 3
   },
   "repositories": [
     {
-      "name": "tree-sitter-hujson",
-      "description": "A tree-sitter grammar for HuJSON (Human JSON)",
-      "language": "JavaScript",
-      "languageColor": "#f1e05a",
+      "name": "gvns.ca",
+      "description": "",
+      "language": "Astro",
+      "languageColor": "#ff5a03",
       "stars": 0,
-      "url": "https://github.com/ggfevans/tree-sitter-hujson"
+      "url": "https://github.com/ggfevans/gvns.ca"
     },
     {
       "name": "zed-hujson",
@@ -2212,12 +2371,12 @@
       "url": "https://github.com/ggfevans/zed-hujson"
     },
     {
-      "name": "gvns.ca",
-      "description": "",
-      "language": "Astro",
-      "languageColor": "#ff5a03",
+      "name": "tree-sitter-hujson",
+      "description": "A tree-sitter grammar for HuJSON (Human JSON)",
+      "language": "Shell",
+      "languageColor": "#89e051",
       "stars": 0,
-      "url": "https://github.com/ggfevans/gvns.ca"
+      "url": "https://github.com/ggfevans/tree-sitter-hujson"
     },
     {
       "name": "nfs-swiftbar",
