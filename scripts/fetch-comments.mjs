@@ -19,7 +19,7 @@
  */
 
 import { readdir, readFile, writeFile, mkdir, access } from 'node:fs/promises';
-import { join, basename, extname } from 'node:path';
+import { join, basename, dirname, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import matter from 'gray-matter';
 import { getReplies } from '@codybrom/denim';
@@ -50,9 +50,15 @@ async function collectMarkdownFiles(dir) {
   return files;
 }
 
-/** Get the slug from a markdown file path. */
+/**
+ * Get the canonical slug from a markdown file path.
+ * Bundle posts live in `<slug>/index.md`, so fall back to the parent directory
+ * name — mirrors getPostSlug() in src/utils/content.ts and keeps comment files
+ * keyed by the same slug the post is routed and rendered under.
+ */
 function getSlug(filePath) {
-  return basename(filePath, '.md');
+  const name = basename(filePath, '.md');
+  return name === 'index' ? basename(dirname(filePath)) : name;
 }
 
 /** Check whether a file exists. */

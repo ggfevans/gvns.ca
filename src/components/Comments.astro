@@ -3,6 +3,7 @@ import type { CollectionEntry } from 'astro:content';
 import { parseCommentsData, EMPTY_COMMENTS } from '@utils/comments';
 import { relativeTime } from '@utils/format';
 import { formatDate } from '@utils/date';
+import { getPostSlug } from '@utils/content';
 
 interface Props {
   post: CollectionEntry<'posts'>;
@@ -16,8 +17,9 @@ let data = EMPTY_COMMENTS;
 if (threadsEntry) {
   try {
     const modules = import.meta.glob('../data/comments/*.json', { eager: true });
-    // post.id is always at least the filename, so .pop() is guaranteed to return a string
-    const slug = post.id.split('/').pop()!;
+    // Bundle posts (`<slug>/index.md`) have ids ending in `/index`; getPostSlug
+    // resolves those to the canonical slug the fetcher keys comment files by.
+    const slug = getPostSlug(post.id);
     const key = `../data/comments/${slug}.json`;
     if (modules[key]) {
       data = parseCommentsData((modules[key] as { default: unknown }).default);
