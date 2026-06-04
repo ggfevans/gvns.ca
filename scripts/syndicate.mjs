@@ -59,9 +59,8 @@ function getTargetPlatforms(tags) {
   return ['bluesky', 'mastodon', 'threads'];
 }
 
-/** Get the slug from a markdown file path.
- *  Handles co-located index.md patterns: posts/2026/05/hello-world/index.md → "hello-world"
- *  Mirrors the logic in src/utils/content.ts getPostSlug(). */
+/** Get the slug from a filesystem path (conceptually mirrors getPostSlug in
+ *  src/utils/content.ts, but operates on file paths rather than Astro content IDs). */
 function getSlug(filePath) {
   const rel = relative(POSTS_DIR, filePath);
   const parts = rel.split(sep).filter(Boolean);
