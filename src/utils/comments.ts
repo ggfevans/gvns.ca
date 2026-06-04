@@ -34,8 +34,8 @@ export const EMPTY_COMMENTS: CommentsData = {
  */
 export function getReplyCount(slug: string): number {
   const posts = (commentsIndex as { posts?: Record<string, { count?: unknown }> }).posts ?? {};
-  const entry = posts[slug];
-  return entry && typeof entry.count === 'number' ? entry.count : 0;
+  const count = posts[slug]?.count;
+  return typeof count === 'number' && Number.isFinite(count) && count >= 0 ? count : 0;
 }
 
 export function parseCommentsData(raw: unknown): CommentsData {
