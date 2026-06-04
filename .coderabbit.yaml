@@ -1,4 +1,8 @@
 reviews:
+  # Skip generated data files. Automated auto/* fetch PRs only ever touch
+  # src/data/*.json, so excluding this path keeps CodeRabbit silent on them.
+  path_filters:
+    - "!src/data/**"
   auto_review:
     ignore_usernames:
       - "github-actions[bot]"
