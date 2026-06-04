@@ -8,7 +8,7 @@
 #   THREADS_USER_ID       — Threads user ID (from developer portal)
 #   THREADS_ACCESS_TOKEN  — Long-lived Threads access token (refreshed by refresh-threads-token.yml)
 
-name: Syndicate Writing
+name: Syndicate Posts
 
 on:
   push:
