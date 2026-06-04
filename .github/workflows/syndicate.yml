@@ -1,4 +1,4 @@
-# POSSE syndication workflow — cross-posts new writing to Bluesky, Mastodon, and Threads.
+# POSSE syndication workflow — cross-posts new posts to Bluesky, Mastodon, and Threads.
 #
 # Required repository secrets:
 #   BLUESKY_HANDLE        — Bluesky handle (e.g. gvns.ca)
@@ -8,13 +8,13 @@
 #   THREADS_USER_ID       — Threads user ID (from developer portal)
 #   THREADS_ACCESS_TOKEN  — Long-lived Threads access token (refreshed by refresh-threads-token.yml)
 
-name: Syndicate Writing
+name: Syndicate Posts
 
 on:
   push:
     branches: [main]
     paths:
-      - "src/content/writing/**"
+      - "src/content/posts/**"
   workflow_dispatch:
 
 permissions:
@@ -53,7 +53,7 @@ jobs:
 
       - uses: ./.github/actions/commit-via-pr
         with:
-          paths: src/content/writing/
+          paths: src/content/posts/
           commit-message: "chore: update syndication data"
           branch-prefix: update-syndication
           github-token: ${{ secrets.GH_PAT }}

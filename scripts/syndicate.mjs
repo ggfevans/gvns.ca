@@ -17,7 +17,7 @@
  */
 
 import { readdir, readFile, writeFile, stat } from 'node:fs/promises';
-import { join, basename, extname } from 'node:path';
+import { join, basename, extname, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import matter from 'gray-matter';
 import { BskyAgent, RichText } from '@atproto/api';
@@ -59,9 +59,13 @@ function getTargetPlatforms(tags) {
   return ['bluesky', 'mastodon', 'threads'];
 }
 
-/** Get the slug from a markdown file path. */
+/** Get the slug from a filesystem path (conceptually mirrors getPostSlug in
+ *  src/utils/content.ts, but operates on file paths rather than Astro content IDs). */
 function getSlug(filePath) {
-  return basename(filePath, '.md');
+  const rel = relative(POSTS_DIR, filePath);
+  const parts = rel.split(sep).filter(Boolean);
+  if (parts[parts.length - 1] === 'index.md') parts.pop();
+  return parts[parts.length - 1]?.replace(/\.md$/, '') ?? rel;
 }
 
 /** Prefer canonicalUrl from frontmatter when available and safe. */
