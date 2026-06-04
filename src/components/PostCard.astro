@@ -4,6 +4,7 @@ import { formatDate } from '@utils/date';
 import { getReadingTime } from '@utils/reading-time';
 import TagList from './TagList.astro';
 import { getPostSlug } from '@utils/content';
+import { getReplyCount } from '@utils/comments';
 
 interface Props {
   post: CollectionEntry<'posts'>;
@@ -12,11 +13,15 @@ interface Props {
 }
 
 const { post, showReadingTime = true, headingLevel = 'h3' } = Astro.props;
-const { title, description, pubDate, tags } = post.data;
+const { title, description, pubDate, tags, syndication } = post.data;
 const readingTime = getReadingTime(post.body ?? '');
 const HeadingTag = headingLevel;
 
 const filename = getPostSlug(post.id);
+
+// Reply count surfaces on any post syndicated to Threads (0 until replies land).
+const isSyndicatedToThreads = syndication?.some((s) => s.platform === 'threads') ?? false;
+const replyCount = isSyndicatedToThreads ? getReplyCount(filename) : 0;
 ---
 
 <article class="post-card">
@@ -26,6 +31,11 @@ const filename = getPostSlug(post.id);
   <div class="post-meta">
     <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>
     {showReadingTime && <span class="reading-time">{readingTime} min read</span>}
+    {isSyndicatedToThreads && (
+      <span class="comment-count" aria-label={`${replyCount} ${replyCount === 1 ? 'reply' : 'replies'} on Threads`}>
+        {replyCount} {replyCount === 1 ? 'reply' : 'replies'}
+      </span>
+    )}
   </div>
   <p class="post-description">{description}</p>
   <TagList tags={tags} />
@@ -69,7 +79,8 @@ const filename = getPostSlug(post.id);
     margin-bottom: 0.75rem;
   }
 
-  .reading-time::before {
+  .reading-time::before,
+  .comment-count::before {
     content: "·";
     margin-right: 1rem;
   }

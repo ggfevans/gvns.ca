@@ -1,3 +1,5 @@
+import commentsIndex from '../data/comments/_index.json';
+
 export interface ThreadsReply {
   id: string;
   username: string;
@@ -24,6 +26,17 @@ export const EMPTY_COMMENTS: CommentsData = {
   fetchedAt: new Date(0).toISOString(),
   lastError: null,
 };
+
+/**
+ * Reply count for a post slug, read from the build-time comments index
+ * (`src/data/comments/_index.json`). Returns 0 when the post has no entry
+ * (never syndicated, no replies fetched yet, or the index is empty).
+ */
+export function getReplyCount(slug: string): number {
+  const posts = (commentsIndex as { posts?: Record<string, { count?: unknown }> }).posts ?? {};
+  const entry = posts[slug];
+  return entry && typeof entry.count === 'number' ? entry.count : 0;
+}
 
 export function parseCommentsData(raw: unknown): CommentsData {
   if (!raw || typeof raw !== 'object') return EMPTY_COMMENTS;
