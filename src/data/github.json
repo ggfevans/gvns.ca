@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-06-05T04:31:27.324Z",
+  "lastUpdated": "2026-06-06T04:24:31.551Z",
   "contributions": {
-    "total": 8997,
-    "commits": 3257,
-    "pullRequests": 1166,
+    "total": 9063,
+    "commits": 3276,
+    "pullRequests": 1180,
     "pullRequestReviews": 12,
-    "issues": 1477,
-    "restricted": 2994
+    "issues": 1503,
+    "restricted": 3001
   },
   "calendar": {
     "weeks": [
@@ -2062,7 +2062,12 @@
           },
           {
             "date": "2026-06-04",
-            "count": 55,
+            "count": 58,
+            "level": 2
+          },
+          {
+            "date": "2026-06-05",
+            "count": 63,
             "level": 2
           }
         ]
@@ -2070,7 +2075,7 @@
     ]
   },
   "streak": {
-    "current": 46,
+    "current": 47,
     "longest": 132,
     "today": false
   },
@@ -2079,9 +2084,20 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Placement image re-keying on device move",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1478",
-      "date": "2026-06-05T04:30:58Z",
+      "title": "bug: LXC install hangs at 'Installing Bun' (missing unzip + no-timeout curl)",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1933",
+      "date": "2026-06-06T04:24:05Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "chore(lxc): release-free way to test the LXC install/payload against main",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1949",
+      "date": "2026-06-06T04:14:33Z",
       "meta": {
         "state": "OPEN"
       }
@@ -2090,9 +2106,9 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "release.yml: pass tag and changelog notes via env to avoid run-shell injection",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1899",
-      "date": "2026-06-05T04:15:37Z",
+      "title": "feat: connection hover highlighting and selection",
+      "url": "https://github.com/RackulaLives/Rackula/issues/613",
+      "date": "2026-06-06T04:13:19Z",
       "meta": {
         "state": "CLOSED"
       }
@@ -2101,9 +2117,9 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "build-lxc: build from the release tag on the workflow_run path (split build/publish)",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1897",
-      "date": "2026-06-05T03:56:02Z",
+      "title": "feat: implement port position calculation utility",
+      "url": "https://github.com/RackulaLives/Rackula/issues/611",
+      "date": "2026-06-06T04:13:17Z",
       "meta": {
         "state": "CLOSED"
       }
@@ -2112,9 +2128,75 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "arm64 support for the LXC release tarball",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1850",
-      "date": "2026-06-05T03:55:04Z",
+      "title": "feat: implement ConnectionPath rendering component",
+      "url": "https://github.com/RackulaLives/Rackula/issues/610",
+      "date": "2026-06-06T04:13:14Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "feat: implement ConnectionLayer container component",
+      "url": "https://github.com/RackulaLives/Rackula/issues/609",
+      "date": "2026-06-06T04:13:12Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "feat: Cascade connection cleanup on container delete",
+      "url": "https://github.com/RackulaLives/Rackula/issues/466",
+      "date": "2026-06-06T04:13:10Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "feat: Migration from Cable to Connection",
+      "url": "https://github.com/RackulaLives/Rackula/issues/371",
+      "date": "2026-06-06T04:13:07Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "feat: connection creation panel UI",
+      "url": "https://github.com/RackulaLives/Rackula/issues/640",
+      "date": "2026-06-06T04:13:07Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "feat: layout store connection management functions",
+      "url": "https://github.com/RackulaLives/Rackula/issues/638",
+      "date": "2026-06-06T04:13:05Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "feat: interface list editor in EditPanel",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1948",
+      "date": "2026-06-06T04:07:31Z",
       "meta": {
         "state": "OPEN"
       }
@@ -2123,9 +2205,9 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Submit PR to community-scripts/ProxmoxVE",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1215",
-      "date": "2026-06-05T03:19:35Z",
+      "title": "feat: RoutingConfig for matrix switcher routing",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1947",
+      "date": "2026-06-06T04:07:29Z",
       "meta": {
         "state": "OPEN"
       }
@@ -2134,20 +2216,9 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Fix build-lxc.yml pipeline and harden LXC release workflow",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1891",
-      "date": "2026-06-05T03:05:20Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "fix(a11y): resolve autofocus warning and chunk size warning in e2e output",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1896",
-      "date": "2026-06-05T02:23:07Z",
+      "title": "feat: ExternalEndpoint for non-rack connection endpoints",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1946",
+      "date": "2026-06-06T04:07:26Z",
       "meta": {
         "state": "OPEN"
       }
@@ -2156,75 +2227,9 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Epic: Self-hosted API hardening baseline",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1274",
-      "date": "2026-06-05T02:21:45Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "fix: Persistence errors should surface to user with retry option",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1390",
-      "date": "2026-06-05T01:37:04Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Fix 5 typecheck errors in storage-quota-middleware.ts",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1890",
-      "date": "2026-06-05T01:30:50Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Adopt a logging standard with levels for the API (pino)",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1888",
-      "date": "2026-06-05T01:23:03Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat(api): storage abuse guardrails (quota/retention)",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1780",
-      "date": "2026-06-05T01:10:14Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat(release): auto-acknowledge new contributors in ACKNOWLEDGEMENTS.md per release",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1876",
-      "date": "2026-06-05T01:09:17Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Update slfhost/icons Rackula icon",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1847",
-      "date": "2026-06-04T23:28:33Z",
+      "title": "feat: PatchBayNormal with per-instance override",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1945",
+      "date": "2026-06-06T04:07:23Z",
       "meta": {
         "state": "OPEN"
       }
@@ -2233,9 +2238,9 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "chore(ts): Remove @ts-nocheck from components — 9 files, 23 errors",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1707",
-      "date": "2026-06-04T23:15:08Z",
+      "title": "feat: add gender field to InterfaceTemplate and PlacedPort (auto-derived)",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1944",
+      "date": "2026-06-06T04:07:21Z",
       "meta": {
         "state": "OPEN"
       }
@@ -2244,9 +2249,9 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "chore(ts): Remove @ts-nocheck from utils — 11 files, 49 errors",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1705",
-      "date": "2026-06-04T23:08:56Z",
+      "title": "feat: patch list export (CSV)",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1940",
+      "date": "2026-06-06T04:07:09Z",
       "meta": {
         "state": "OPEN"
       }
@@ -2255,20 +2260,9 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "chore(ts): Remove @ts-nocheck from stores — 3 files, 8 errors",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1706",
-      "date": "2026-06-04T15:29:56Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Mobile: Selection Feedback Improvements",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1050",
-      "date": "2026-06-04T11:12:20Z",
+      "title": "feat: port details panel in EditPanel",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1939",
+      "date": "2026-06-06T04:07:09Z",
       "meta": {
         "state": "OPEN"
       }
@@ -2277,53 +2271,75 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "chore(ts): Remove @ts-nocheck from test helpers — 2 files, 4 errors",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1708",
-      "date": "2026-06-04T01:10:52Z",
+      "title": "feat: signal type compatibility warnings",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1936",
+      "date": "2026-06-06T04:07:01Z",
       "meta": {
-        "state": "CLOSED"
+        "state": "OPEN"
       }
     },
     {
       "type": "issue",
-      "repo": "zed-hujson",
-      "repoUrl": "https://github.com/ggfevans/zed-hujson",
-      "title": "chore: bump tree-sitter-hujson grammar to v1.0.1 and release v1.0.1",
-      "url": "https://github.com/ggfevans/zed-hujson/issues/24",
-      "date": "2026-06-03T11:26:57Z",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "feat: add signal_type field (optional, inferred) to InterfaceTemplate and PlacedPort",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1935",
+      "date": "2026-06-06T04:07:00Z",
       "meta": {
-        "state": "CLOSED"
+        "state": "OPEN"
       }
     },
     {
       "type": "issue",
-      "repo": "zed-hujson",
-      "repoUrl": "https://github.com/ggfevans/zed-hujson",
-      "title": "docs: document Markdown ```hujson code-fence injection (works out of the box)",
-      "url": "https://github.com/ggfevans/zed-hujson/issues/23",
-      "date": "2026-06-03T11:20:58Z",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "feat: ConnectionLayer and ConnectionPath rendering",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1931",
+      "date": "2026-06-06T04:02:10Z",
       "meta": {
-        "state": "CLOSED"
+        "state": "OPEN"
       }
     },
     {
       "type": "issue",
-      "repo": "zed-hujson",
-      "repoUrl": "https://github.com/ggfevans/zed-hujson",
-      "title": "docs: add README badges and devils-advocate review polish",
-      "url": "https://github.com/ggfevans/zed-hujson/issues/27",
-      "date": "2026-06-03T11:20:58Z",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "feat: connection creation workflow (desktop)",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1932",
+      "date": "2026-06-06T04:02:03Z",
       "meta": {
-        "state": "CLOSED"
+        "state": "OPEN"
       }
     },
     {
       "type": "issue",
-      "repo": "zed-hujson",
-      "repoUrl": "https://github.com/ggfevans/zed-hujson",
-      "title": "fix: query-audit CI gate checks wrong directory (queries/hujson vs languages/hujson)",
-      "url": "https://github.com/ggfevans/zed-hujson/issues/25",
-      "date": "2026-06-03T11:03:28Z",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "feat: add PortDirection field to InterfaceTemplate and PlacedPort",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1930",
+      "date": "2026-06-06T04:01:44Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "feat: add AV interface types to InterfaceType enum",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1929",
+      "date": "2026-06-06T04:01:39Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "spike: pro audio and AV connectivity modeling",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1927",
+      "date": "2026-06-06T04:01:25Z",
       "meta": {
         "state": "CLOSED"
       }
@@ -2332,42 +2348,20 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Submit Rackula icon to selfhst/icons",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1216",
-      "date": "2026-06-03T10:59:22Z",
+      "title": "Epic: Connectivity & Pro Audio",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1928",
+      "date": "2026-06-06T04:01:18Z",
       "meta": {
-        "state": "CLOSED"
+        "state": "OPEN"
       }
     },
     {
       "type": "issue",
-      "repo": "tree-sitter-hujson",
-      "repoUrl": "https://github.com/ggfevans/tree-sitter-hujson",
-      "title": "feature: support U+2028/U+2029 as single-line comment terminators (tracks tailscale/hujson#43)",
-      "url": "https://github.com/ggfevans/tree-sitter-hujson/issues/25",
-      "date": "2026-06-03T10:59:18Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "tree-sitter-hujson",
-      "repoUrl": "https://github.com/ggfevans/tree-sitter-hujson",
-      "title": "chore: make the ABI 14 pin a single source of truth (generate is inconsistent across CI/Makefile/npm/docs)",
-      "url": "https://github.com/ggfevans/tree-sitter-hujson/issues/35",
-      "date": "2026-06-03T10:00:38Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "tree-sitter-hujson",
-      "repoUrl": "https://github.com/ggfevans/tree-sitter-hujson",
-      "title": "bug: number rule rejects valid negative-zero numbers (-0, -0.5, -0.0, -0e1)",
-      "url": "https://github.com/ggfevans/tree-sitter-hujson/issues/33",
-      "date": "2026-06-03T09:45:14Z",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "feat: Connection Graph Model - Phase 1: Port-Based Architecture",
+      "url": "https://github.com/RackulaLives/Rackula/issues/362",
+      "date": "2026-06-06T04:00:42Z",
       "meta": {
         "state": "CLOSED"
       }
@@ -2376,9 +2370,42 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "docs: remove em dashes and emoji from milestone docs (CLAUDE.md, ROADMAP, cadence plan)",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1862",
-      "date": "2026-06-03T09:19:25Z",
+      "title": "Epic: network interface visualization and connectivity",
+      "url": "https://github.com/RackulaLives/Rackula/issues/71",
+      "date": "2026-06-06T04:00:39Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "bug: dev stopped auto-deploying on push to main (broken deploy-dev paths filter)",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1924",
+      "date": "2026-06-06T03:00:02Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "bug: contributors.sh fails on macOS (BSD sed) during local /release",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1907",
+      "date": "2026-06-06T01:43:46Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "api: align package.json version with release flow (frozen at 26.5.0)",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1915",
+      "date": "2026-06-06T00:47:41Z",
       "meta": {
         "state": "CLOSED"
       }
@@ -2387,9 +2414,9 @@
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 374,
-    "contributionsThisMonth": 1261,
-    "repositoriesThisWeek": 3
+    "contributionsThisWeek": 361,
+    "contributionsThisMonth": 1299,
+    "repositoriesThisWeek": 1
   },
   "repositories": [
     {
