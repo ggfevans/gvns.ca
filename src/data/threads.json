@@ -1,6 +1,14 @@
 {
-  "lastUpdated": "2026-06-07T12:48:34.175Z",
+  "lastUpdated": "2026-06-08T21:52:47.431Z",
   "posts": [
+    {
+      "id": "18133539094604838",
+      "text": "anyone else having this issue with the Threads web client sidebar flyout thing being blank? It seems like its getting stuck between collapsed and expanded. I have been seeing this for awhile now. I think it relates to the window size - it seems to happen when I have a window width of around ~1045px\n\nZen 1.20.2b (Firefox 151.0.3) (aarch64)",
+      "permalink": "https://www.threads.com/@ggfevans/post/DZVvnmWEmub",
+      "timestamp": "2026-06-08T21:19:42+0000",
+      "mediaType": "IMAGE",
+      "isQuotePost": false
+    },
     {
       "id": "18113260244490694",
       "text": "can't stop thinking about this question\n\nwhoistheoldestbaby.com",
@@ -23,14 +31,6 @@
       "permalink": "https://www.threads.com/@ggfevans/post/DZJm2ivlEPx",
       "timestamp": "2026-06-04T04:12:13+0000",
       "mediaType": "IMAGE",
-      "isQuotePost": false
-    },
-    {
-      "id": "18118131583706703",
-      "text": "The @verge Vergecast switched to daily weekday episodes and I’m loving it. The episodes are shorter and more timely in a way that I find makes it easier to keep up with. You’re doing great work @imdavidpierce @vicmsong @reckless1280 and crew!",
-      "permalink": "https://www.threads.com/@ggfevans/post/DZJSAgDCRsM",
-      "timestamp": "2026-06-04T01:10:04+0000",
-      "mediaType": "TEXT_POST",
       "isQuotePost": false
     }
   ]
