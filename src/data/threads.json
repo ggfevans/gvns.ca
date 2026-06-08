@@ -1,6 +1,14 @@
 {
-  "lastUpdated": "2026-06-08T21:52:47.431Z",
+  "lastUpdated": "2026-06-08T23:41:28.324Z",
   "posts": [
+    {
+      "id": "18116562340802208",
+      "text": "VoiceInk has thoroughly impressed me for macOS transcription. GPL, no sub. There is a Pro tier, or build from source free (a transparent business model <3 ) It does realtime transcription, drop-in voice notes, and a solid spread of models.\n\nnow when I am going \"what the shit?!\" at some dumb technical mess my macbook can actually hear it",
+      "permalink": "https://www.threads.com/@ggfevans/post/DZV7UuZj036",
+      "timestamp": "2026-06-08T23:01:59+0000",
+      "mediaType": "IMAGE",
+      "isQuotePost": false
+    },
     {
       "id": "18133539094604838",
       "text": "anyone else having this issue with the Threads web client sidebar flyout thing being blank? It seems like its getting stuck between collapsed and expanded. I have been seeing this for awhile now. I think it relates to the window size - it seems to happen when I have a window width of around ~1045px\n\nZen 1.20.2b (Firefox 151.0.3) (aarch64)",
