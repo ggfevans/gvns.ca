@@ -1,54 +1,15 @@
 {
-  "lastUpdated": "2026-06-07T04:32:10.971Z",
+  "lastUpdated": "2026-06-08T04:32:51.312Z",
   "contributions": {
-    "total": 9121,
-    "commits": 3280,
-    "pullRequests": 1190,
+    "total": 9174,
+    "commits": 3291,
+    "pullRequests": 1200,
     "pullRequestReviews": 12,
-    "issues": 1511,
-    "restricted": 3036
+    "issues": 1512,
+    "restricted": 3067
   },
   "calendar": {
     "weeks": [
-      {
-        "days": [
-          {
-            "date": "2025-06-01",
-            "count": 1,
-            "level": 1
-          },
-          {
-            "date": "2025-06-02",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-06-03",
-            "count": 20,
-            "level": 1
-          },
-          {
-            "date": "2025-06-04",
-            "count": 35,
-            "level": 1
-          },
-          {
-            "date": "2025-06-05",
-            "count": 5,
-            "level": 1
-          },
-          {
-            "date": "2025-06-06",
-            "count": 49,
-            "level": 2
-          },
-          {
-            "date": "2025-06-07",
-            "count": 7,
-            "level": 1
-          }
-        ]
-      },
       {
         "days": [
           {
@@ -2076,44 +2037,31 @@
             "level": 2
           }
         ]
+      },
+      {
+        "days": [
+          {
+            "date": "2026-06-07",
+            "count": 53,
+            "level": 2
+          }
+        ]
       }
     ]
   },
   "streak": {
-    "current": 48,
+    "current": 49,
     "longest": 132,
     "today": false
   },
   "recentActivity": [
     {
       "type": "issue",
-      "repo": "eternalMac",
-      "repoUrl": "https://github.com/eternalMac/eternalMac",
-      "title": "Pin all actions to SHA values for CI hardening (actions/checkout & actions/cache)",
-      "url": "https://github.com/eternalMac/eternalMac/issues/8",
-      "date": "2026-06-07T03:02:28Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "eternalMac",
-      "repoUrl": "https://github.com/eternalMac/eternalMac",
-      "title": "Add Dependabot for automated dependency updates",
-      "url": "https://github.com/eternalMac/eternalMac/issues/6",
-      "date": "2026-06-07T02:50:55Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "eternalMac",
-      "repoUrl": "https://github.com/eternalMac/eternalMac",
-      "title": "docs: add SECURITY.md — vulnerability disclosure policy",
-      "url": "https://github.com/eternalMac/eternalMac/issues/4",
-      "date": "2026-06-07T01:04:16Z",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "chore(lxc): reusable dev smoke-test script (deploy + upgrade)",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1967",
+      "date": "2026-06-08T04:05:17Z",
       "meta": {
         "state": "OPEN"
       }
@@ -2122,9 +2070,9 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "Placement image re-keying on device move",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1478",
-      "date": "2026-06-06T15:03:03Z",
+      "title": "Submit Rackula icon to selfhst/icons",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1216",
+      "date": "2026-06-08T03:54:30Z",
       "meta": {
         "state": "CLOSED"
       }
@@ -2133,31 +2081,9 @@
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "chore: Optimize JSZip loading for legacy ZIP support",
-      "url": "https://github.com/RackulaLives/Rackula/issues/620",
-      "date": "2026-06-06T11:07:33Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "chore(lxc): add setup_bun helper to tools.func and use it (drop hand-rolled bun install)",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1956",
-      "date": "2026-06-06T05:15:46Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "chore: add Rackula-branded ASCII art header to the LXC ct script",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1954",
-      "date": "2026-06-06T05:13:56Z",
+      "title": "epic: audit & align Rackula LXC with PVE Community Scripts",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1950",
+      "date": "2026-06-08T03:43:25Z",
       "meta": {
         "state": "CLOSED"
       }
@@ -2168,7 +2094,18 @@
       "repoUrl": "https://github.com/RackulaLives/Rackula",
       "title": "chore: align Rackula community-scripts with the detailed container guide",
       "url": "https://github.com/RackulaLives/Rackula/issues/1953",
-      "date": "2026-06-06T04:49:17Z",
+      "date": "2026-06-08T03:33:56Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Rackula",
+      "repoUrl": "https://github.com/RackulaLives/Rackula",
+      "title": "chore: Optimize JSZip loading for legacy ZIP support",
+      "url": "https://github.com/RackulaLives/Rackula/issues/620",
+      "date": "2026-06-08T02:56:29Z",
       "meta": {
         "state": "OPEN"
       }
@@ -2179,29 +2116,18 @@
       "repoUrl": "https://github.com/RackulaLives/Rackula",
       "title": "bug: rackula-api fails to start in LXC ('API failed to start within 10s')",
       "url": "https://github.com/RackulaLives/Rackula/issues/1952",
-      "date": "2026-06-06T04:49:15Z",
+      "date": "2026-06-08T02:18:45Z",
       "meta": {
-        "state": "OPEN"
+        "state": "CLOSED"
       }
     },
     {
       "type": "issue",
       "repo": "Rackula",
       "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "epic: audit & align Rackula LXC with PVE Community Scripts",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1950",
-      "date": "2026-06-06T04:39:23Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "bug: LXC install hangs at 'Installing Bun' (missing unzip + no-timeout curl)",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1933",
-      "date": "2026-06-06T04:24:05Z",
+      "title": "chore(lxc): add setup_bun helper to tools.func and use it (drop hand-rolled bun install)",
+      "url": "https://github.com/RackulaLives/Rackula/issues/1956",
+      "date": "2026-06-08T02:18:45Z",
       "meta": {
         "state": "CLOSED"
       }
@@ -2212,216 +2138,18 @@
       "repoUrl": "https://github.com/RackulaLives/Rackula",
       "title": "chore(lxc): release-free way to test the LXC install/payload against main",
       "url": "https://github.com/RackulaLives/Rackula/issues/1949",
-      "date": "2026-06-06T04:14:33Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat: connection hover highlighting and selection",
-      "url": "https://github.com/RackulaLives/Rackula/issues/613",
-      "date": "2026-06-06T04:13:19Z",
+      "date": "2026-06-08T02:15:26Z",
       "meta": {
         "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat: implement port position calculation utility",
-      "url": "https://github.com/RackulaLives/Rackula/issues/611",
-      "date": "2026-06-06T04:13:17Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat: implement ConnectionPath rendering component",
-      "url": "https://github.com/RackulaLives/Rackula/issues/610",
-      "date": "2026-06-06T04:13:14Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat: implement ConnectionLayer container component",
-      "url": "https://github.com/RackulaLives/Rackula/issues/609",
-      "date": "2026-06-06T04:13:12Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat: Cascade connection cleanup on container delete",
-      "url": "https://github.com/RackulaLives/Rackula/issues/466",
-      "date": "2026-06-06T04:13:10Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat: Migration from Cable to Connection",
-      "url": "https://github.com/RackulaLives/Rackula/issues/371",
-      "date": "2026-06-06T04:13:07Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat: connection creation panel UI",
-      "url": "https://github.com/RackulaLives/Rackula/issues/640",
-      "date": "2026-06-06T04:13:07Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat: layout store connection management functions",
-      "url": "https://github.com/RackulaLives/Rackula/issues/638",
-      "date": "2026-06-06T04:13:05Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat: interface list editor in EditPanel",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1948",
-      "date": "2026-06-06T04:07:31Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat: RoutingConfig for matrix switcher routing",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1947",
-      "date": "2026-06-06T04:07:29Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat: ExternalEndpoint for non-rack connection endpoints",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1946",
-      "date": "2026-06-06T04:07:26Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat: PatchBayNormal with per-instance override",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1945",
-      "date": "2026-06-06T04:07:23Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat: add gender field to InterfaceTemplate and PlacedPort (auto-derived)",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1944",
-      "date": "2026-06-06T04:07:21Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat: patch list export (CSV)",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1940",
-      "date": "2026-06-06T04:07:09Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat: port details panel in EditPanel",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1939",
-      "date": "2026-06-06T04:07:09Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat: signal type compatibility warnings",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1936",
-      "date": "2026-06-06T04:07:01Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat: add signal_type field (optional, inferred) to InterfaceTemplate and PlacedPort",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1935",
-      "date": "2026-06-06T04:07:00Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Rackula",
-      "repoUrl": "https://github.com/RackulaLives/Rackula",
-      "title": "feat: ConnectionLayer and ConnectionPath rendering",
-      "url": "https://github.com/RackulaLives/Rackula/issues/1931",
-      "date": "2026-06-06T04:02:10Z",
-      "meta": {
-        "state": "OPEN"
       }
     }
   ],
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 398,
-    "contributionsThisMonth": 1321,
-    "repositoriesThisWeek": 2
+    "contributionsThisWeek": 418,
+    "contributionsThisMonth": 1351,
+    "repositoriesThisWeek": 1
   },
   "repositories": [
     {
@@ -2477,7 +2205,7 @@
       "description": "LinkedIn CLI / TUI. LinkedIn messaging without the feed, the ads, or the \"Thoughts?\" posts.",
       "language": "Go",
       "languageColor": "#00ADD8",
-      "stars": 13,
+      "stars": 14,
       "url": "https://github.com/ggfevans/endorse"
     },
     {
