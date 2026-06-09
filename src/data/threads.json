@@ -1,6 +1,14 @@
 {
-  "lastUpdated": "2026-06-08T23:41:28.324Z",
+  "lastUpdated": "2026-06-09T07:32:33.556Z",
   "posts": [
+    {
+      "id": "18082278410405369",
+      "text": "Released Rackula 26.6.3 with a fully functional LXC release. For real this time. Third time is the charm.\n\nI have learned a LOT about CI and runners. time to sleep\n\nhttps://github.com/RackulaLives/Rackula/releases",
+      "permalink": "https://www.threads.com/@ggfevans/post/DZWxBaHlKuR",
+      "timestamp": "2026-06-09T06:51:12+0000",
+      "mediaType": "TEXT_POST",
+      "isQuotePost": false
+    },
     {
       "id": "18116562340802208",
       "text": "VoiceInk has thoroughly impressed me for macOS transcription. GPL, no sub. There is a Pro tier, or build from source free (a transparent business model <3 ) It does realtime transcription, drop-in voice notes, and a solid spread of models.\n\nnow when I am going \"what the shit?!\" at some dumb technical mess my macbook can actually hear it",
@@ -30,14 +38,6 @@
       "text": "if you smell something burning its just my tokens - yikes. 3.9B in the last 30 days?! \n\nI have been pedal to the floor on Rackula and a few other personal projects recently",
       "permalink": "https://www.threads.com/@ggfevans/post/DZRA6c6CY6g",
       "timestamp": "2026-06-07T01:14:37+0000",
-      "mediaType": "IMAGE",
-      "isQuotePost": false
-    },
-    {
-      "id": "18473287852098422",
-      "text": "Wow, my brother sent me this photo of a bear from a site in northern BC (near Quesnel) - that is one heifer of a black bear",
-      "permalink": "https://www.threads.com/@ggfevans/post/DZJm2ivlEPx",
-      "timestamp": "2026-06-04T04:12:13+0000",
       "mediaType": "IMAGE",
       "isQuotePost": false
     }
