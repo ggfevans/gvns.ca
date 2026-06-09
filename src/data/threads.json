@@ -1,6 +1,14 @@
 {
-  "lastUpdated": "2026-06-09T07:32:33.556Z",
+  "lastUpdated": "2026-06-09T09:25:40.211Z",
   "posts": [
+    {
+      "id": "18105770833979344",
+      "text": "so, the main thing I took from the WWDC keynote is that now we can vibecode Shortcuts. nice",
+      "permalink": "https://www.threads.com/@ggfevans/post/DZXAb-XFI8v",
+      "timestamp": "2026-06-09T09:05:54+0000",
+      "mediaType": "TEXT_POST",
+      "isQuotePost": false
+    },
     {
       "id": "18082278410405369",
       "text": "Released Rackula 26.6.3 with a fully functional LXC release. For real this time. Third time is the charm.\n\nI have learned a LOT about CI and runners. time to sleep\n\nhttps://github.com/RackulaLives/Rackula/releases",
@@ -31,14 +39,6 @@
       "permalink": "https://www.threads.com/@ggfevans/post/DZSKagPG6cy",
       "timestamp": "2026-06-07T11:56:53+0000",
       "mediaType": "TEXT_POST",
-      "isQuotePost": false
-    },
-    {
-      "id": "18102607316279765",
-      "text": "if you smell something burning its just my tokens - yikes. 3.9B in the last 30 days?! \n\nI have been pedal to the floor on Rackula and a few other personal projects recently",
-      "permalink": "https://www.threads.com/@ggfevans/post/DZRA6c6CY6g",
-      "timestamp": "2026-06-07T01:14:37+0000",
-      "mediaType": "IMAGE",
       "isQuotePost": false
     }
   ]
