@@ -1,43 +1,43 @@
 {
-  "lastUpdated": "2026-06-09T09:25:40.211Z",
+  "lastUpdated": "2026-06-10T17:23:10.420Z",
   "posts": [
+    {
+      "id": "18108222970921712",
+      "text": "Here's a good example of what Fable 5 can do. This is Ultracode effort, on a refactor on Rackula. In ~55min, across 44 agents:\n- 6 stacked PRs pushed, ready for review\n- 11 new issues identified for follow up\n\nIt used 3.87M tokens to do this.",
+      "permalink": "https://www.threads.com/@ggfevans/post/DZaYDCvFICl",
+      "timestamp": "2026-06-10T16:29:56+0000",
+      "mediaType": "IMAGE",
+      "isQuotePost": false
+    },
+    {
+      "id": "18081613118544129",
+      "text": "I've hit Fable's safety filter a few times in Claude Code, it seems quite sensitive. No idea what tripped it in this scenario: this is a code review of storage modules in Rackula.\n\nIt also just occurred to me that because when you switch models in a conversation the convo history has to be re-read into context (a cache bust), that when it downgrades from Fable to Opus you take that token usage hit. It's a nasty tripwire that I would really like to understand how to avoid",
+      "permalink": "https://www.threads.com/@ggfevans/post/DZaXDNqlDwv",
+      "timestamp": "2026-06-10T16:21:13+0000",
+      "mediaType": "IMAGE",
+      "isQuotePost": false
+    },
+    {
+      "id": "18114350890671481",
+      "text": "y'know, a year or so from now when Anthropic has decided to stop subsidizing subscription models we are probably going to look back at this period as the halcyon days of \"cheap\" access to agentic models.\n\n(I really hope I'm wrong about that)",
+      "permalink": "https://www.threads.com/@ggfevans/post/DZaV44dFIBj",
+      "timestamp": "2026-06-10T16:11:04+0000",
+      "mediaType": "TEXT_POST",
+      "isQuotePost": false
+    },
+    {
+      "id": "17974510059021937",
+      "text": "omg Fable 5 is an absolute monster. this is the agent usage for two codebase reviews. 52 subagents?! Fable has a posse",
+      "permalink": "https://www.threads.com/@ggfevans/post/DZaU1AAFFHi",
+      "timestamp": "2026-06-10T16:01:48+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "isQuotePost": false
+    },
     {
       "id": "18105770833979344",
       "text": "so, the main thing I took from the WWDC keynote is that now we can vibecode Shortcuts. nice",
       "permalink": "https://www.threads.com/@ggfevans/post/DZXAb-XFI8v",
       "timestamp": "2026-06-09T09:05:54+0000",
-      "mediaType": "TEXT_POST",
-      "isQuotePost": false
-    },
-    {
-      "id": "18082278410405369",
-      "text": "Released Rackula 26.6.3 with a fully functional LXC release. For real this time. Third time is the charm.\n\nI have learned a LOT about CI and runners. time to sleep\n\nhttps://github.com/RackulaLives/Rackula/releases",
-      "permalink": "https://www.threads.com/@ggfevans/post/DZWxBaHlKuR",
-      "timestamp": "2026-06-09T06:51:12+0000",
-      "mediaType": "TEXT_POST",
-      "isQuotePost": false
-    },
-    {
-      "id": "18116562340802208",
-      "text": "VoiceInk has thoroughly impressed me for macOS transcription. GPL, no sub. There is a Pro tier, or build from source free (a transparent business model <3 ) It does realtime transcription, drop-in voice notes, and a solid spread of models.\n\nnow when I am going \"what the shit?!\" at some dumb technical mess my macbook can actually hear it",
-      "permalink": "https://www.threads.com/@ggfevans/post/DZV7UuZj036",
-      "timestamp": "2026-06-08T23:01:59+0000",
-      "mediaType": "IMAGE",
-      "isQuotePost": false
-    },
-    {
-      "id": "18133539094604838",
-      "text": "anyone else having this issue with the Threads web client sidebar flyout thing being blank? It seems like its getting stuck between collapsed and expanded. I have been seeing this for awhile now. I think it relates to the window size - it seems to happen when I have a window width of around ~1045px\n\nZen 1.20.2b (Firefox 151.0.3) (aarch64)",
-      "permalink": "https://www.threads.com/@ggfevans/post/DZVvnmWEmub",
-      "timestamp": "2026-06-08T21:19:42+0000",
-      "mediaType": "IMAGE",
-      "isQuotePost": false
-    },
-    {
-      "id": "18113260244490694",
-      "text": "can't stop thinking about this question\n\nwhoistheoldestbaby.com",
-      "permalink": "https://www.threads.com/@ggfevans/post/DZSKagPG6cy",
-      "timestamp": "2026-06-07T11:56:53+0000",
       "mediaType": "TEXT_POST",
       "isQuotePost": false
     }
