@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-11T04:32:31Z",
+  "lastUpdated": "2026-06-12T04:32:18Z",
   "currentlyReading": [
     {
       "title": "Enshittification: Why Everything Suddenly Got Worse and What to Do About It",
@@ -113,6 +113,12 @@
     }
   ],
   "wantToRead": [
+    {
+      "title": "The Surgeon of Crowthorne: A Tale of Murder, Madness and the Oxford English Dictionary",
+      "author": "Simon Winchester",
+      "coverUrl": "https://assets.hardcover.app/edition/30879754/ee21b1cb5d2f4632ff22d642ef349341f8b50dee.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/the-surgeon-of-crowthorne"
+    },
     {
       "title": "The First 200 Years of Monty Python",
       "author": "Kim Howard Johnson",
@@ -304,12 +310,6 @@
       "author": "Robert Jackson Bennett",
       "coverUrl": "https://assets.hardcover.app/editions/30774097/5279737640186273-ttce1.jpg",
       "hardcoverUrl": "https://hardcover.app/books/the-tainted-cup"
-    },
-    {
-      "title": "Not Till We Are Lost",
-      "author": "Dennis E. Taylor",
-      "coverUrl": "https://assets.hardcover.app/editions/31469389/7597277688037378.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/not-till-we-are-lost"
     }
   ]
 }
