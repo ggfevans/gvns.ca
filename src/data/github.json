@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-06-12T04:32:11.285Z",
+  "lastUpdated": "2026-06-13T04:31:33.327Z",
   "contributions": {
-    "total": 6465,
-    "commits": 2202,
-    "pullRequests": 553,
+    "total": 6505,
+    "commits": 2227,
+    "pullRequests": 560,
     "pullRequestReviews": 1,
     "issues": 571,
-    "restricted": 3052
+    "restricted": 3060
   },
   "calendar": {
     "weeks": [
@@ -2028,13 +2028,13 @@
           },
           {
             "date": "2026-06-05",
-            "count": 11,
+            "count": 17,
             "level": 1
           },
           {
             "date": "2026-06-06",
-            "count": 46,
-            "level": 2
+            "count": 52,
+            "level": 3
           }
         ]
       },
@@ -2042,7 +2042,7 @@
         "days": [
           {
             "date": "2026-06-07",
-            "count": 39,
+            "count": 44,
             "level": 2
           },
           {
@@ -2057,121 +2057,45 @@
           },
           {
             "date": "2026-06-10",
-            "count": 15,
+            "count": 16,
             "level": 1
           },
           {
             "date": "2026-06-11",
-            "count": 33,
+            "count": 34,
             "level": 2
+          },
+          {
+            "date": "2026-06-12",
+            "count": 21,
+            "level": 1
           }
         ]
       }
     ]
   },
   "streak": {
-    "current": 15,
+    "current": 16,
     "longest": 61,
     "today": false
   },
-  "recentActivity": [
-    {
-      "type": "issue",
-      "repo": "tree-sitter-hujson",
-      "repoUrl": "https://github.com/ggfevans/tree-sitter-hujson",
-      "title": "fix: LICENSE drops upstream tree-sitter-json copyright notice (MIT compliance)",
-      "url": "https://github.com/ggfevans/tree-sitter-hujson/issues/41",
-      "date": "2026-06-11T09:12:46Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "tree-sitter-hujson",
-      "repoUrl": "https://github.com/ggfevans/tree-sitter-hujson",
-      "title": "docs: correct fork-point claim — string node structure predates 001c28d",
-      "url": "https://github.com/ggfevans/tree-sitter-hujson/issues/53",
-      "date": "2026-06-11T09:02:36Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "tree-sitter-hujson",
-      "repoUrl": "https://github.com/ggfevans/tree-sitter-hujson",
-      "title": "fix: strings accept raw control characters (RFC 8259 violation)",
-      "url": "https://github.com/ggfevans/tree-sitter-hujson/issues/44",
-      "date": "2026-06-11T09:02:35Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "tree-sitter-hujson",
-      "repoUrl": "https://github.com/ggfevans/tree-sitter-hujson",
-      "title": "fix: document rule accepts zero/multiple root values, masking leading-zero rejection",
-      "url": "https://github.com/ggfevans/tree-sitter-hujson/issues/43",
-      "date": "2026-06-11T09:02:35Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "tree-sitter-hujson",
-      "repoUrl": "https://github.com/ggfevans/tree-sitter-hujson",
-      "title": "fix: number grammar accepts non-JSON literals (.5, -.5, 1., 1.e5)",
-      "url": "https://github.com/ggfevans/tree-sitter-hujson/issues/42",
-      "date": "2026-06-11T09:02:35Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "chore: resolve homepage tile palette vs P1-P5 wayfinding contradiction (revert or supersede ADR-008/021)",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/693",
-      "date": "2026-06-11T08:13:52Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "bug: light mode ships unreadable contact-form feedback and vanishing hover titles",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/692",
-      "date": "2026-06-11T08:12:21Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "tree-sitter-hujson",
-      "repoUrl": "https://github.com/ggfevans/tree-sitter-hujson",
-      "title": "chore: packaging polish (tree-sitter.json shipping, metadata drift, injection regex, Swift excludes, Go module, prebuild coverage)",
-      "url": "https://github.com/ggfevans/tree-sitter-hujson/issues/55",
-      "date": "2026-06-11T08:12:16Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    }
-  ],
+  "recentActivity": [],
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 186,
-    "contributionsThisMonth": 987,
-    "repositoriesThisWeek": 2
+    "contributionsThisWeek": 209,
+    "contributionsThisMonth": 1005,
+    "repositoriesThisWeek": 0
   },
   "repositories": [
+    {
+      "name": "gvns.ca",
+      "description": "",
+      "language": "Astro",
+      "languageColor": "#ff5a03",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/gvns.ca"
+    },
     {
       "name": "tree-sitter-hujson",
       "description": "A tree-sitter grammar for HuJSON (Human JSON)",
@@ -2195,14 +2119,6 @@
       "languageColor": "#ff5a03",
       "stars": 0,
       "url": "https://github.com/ggfevans/gwilym.ca"
-    },
-    {
-      "name": "gvns.ca",
-      "description": "",
-      "language": "Astro",
-      "languageColor": "#ff5a03",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/gvns.ca"
     },
     {
       "name": "qmd-swiftbar",
