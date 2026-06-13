@@ -1,6 +1,22 @@
 {
-  "lastUpdated": "2026-06-12T21:52:40.851Z",
+  "lastUpdated": "2026-06-13T05:46:06.419Z",
   "posts": [
+    {
+      "id": "18558923782071009",
+      "text": "So, we can probably infer this vague idea of a jailbreak is simply a lever for Hegseth and Trump to put pressure on Anthropic, right?",
+      "permalink": "https://www.threads.com/@ggfevans/post/DZgzJSNlCDi",
+      "timestamp": "2026-06-13T04:22:09+0000",
+      "mediaType": "TEXT_POST",
+      "isQuotePost": false
+    },
+    {
+      "id": "18085725953386729",
+      "text": "Damnit, dog is not there. I step away for one quiet moment and the US gov forces \n\nAnthropic to drop the hammer and cut off access to Fable to non US citizens, based on a purported jailbreak. Though Anthropic went the equanimity route and just turned it off for everyone. Thought the prospect of somehow identifying US citizens was probably also unrealistic",
+      "permalink": "https://www.threads.com/@ggfevans/post/DZgxCHOFGMS",
+      "timestamp": "2026-06-13T04:03:42+0000",
+      "mediaType": "IMAGE",
+      "isQuotePost": false
+    },
     {
       "id": "18108222970921712",
       "text": "Here's a good example of what Fable 5 can do. This is Ultracode effort, on a refactor on Rackula. In ~55min, across 44 agents:\n- 6 stacked PRs pushed, ready for review\n- 11 new issues identified for follow up\n\nIt used 3.87M tokens to do this.",
@@ -15,22 +31,6 @@
       "permalink": "https://www.threads.com/@ggfevans/post/DZaXDNqlDwv",
       "timestamp": "2026-06-10T16:21:13+0000",
       "mediaType": "IMAGE",
-      "isQuotePost": false
-    },
-    {
-      "id": "18114350890671481",
-      "text": "y'know, a year or so from now when Anthropic has decided to stop subsidizing subscription models we are probably going to look back at this period as the halcyon days of \"cheap\" access to agentic models.\n\n(I really hope I'm wrong about that)",
-      "permalink": "https://www.threads.com/@ggfevans/post/DZaV44dFIBj",
-      "timestamp": "2026-06-10T16:11:04+0000",
-      "mediaType": "TEXT_POST",
-      "isQuotePost": false
-    },
-    {
-      "id": "17974510059021937",
-      "text": "omg Fable 5 is an absolute monster. this is the agent usage for two codebase reviews. 52 subagents?! Fable has a posse",
-      "permalink": "https://www.threads.com/@ggfevans/post/DZaU1AAFFHi",
-      "timestamp": "2026-06-10T16:01:48+0000",
-      "mediaType": "CAROUSEL_ALBUM",
       "isQuotePost": false
     }
   ]
