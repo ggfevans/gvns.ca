@@ -1,6 +1,14 @@
 {
-  "lastUpdated": "2026-06-13T05:46:06.419Z",
+  "lastUpdated": "2026-06-13T07:34:15.400Z",
   "posts": [
+    {
+      "id": "18014379401890550",
+      "text": "on a positive note, this soggy dog only needs a stick to have the best day _ever_",
+      "permalink": "https://www.threads.com/@ggfevans/post/DZg8wn2lCHu",
+      "timestamp": "2026-06-13T05:46:10+0000",
+      "mediaType": "IMAGE",
+      "isQuotePost": false
+    },
     {
       "id": "18558923782071009",
       "text": "So, we can probably infer this vague idea of a jailbreak is simply a lever for Hegseth and Trump to put pressure on Anthropic, right?",
@@ -22,14 +30,6 @@
       "text": "Here's a good example of what Fable 5 can do. This is Ultracode effort, on a refactor on Rackula. In ~55min, across 44 agents:\n- 6 stacked PRs pushed, ready for review\n- 11 new issues identified for follow up\n\nIt used 3.87M tokens to do this.",
       "permalink": "https://www.threads.com/@ggfevans/post/DZaYDCvFICl",
       "timestamp": "2026-06-10T16:29:56+0000",
-      "mediaType": "IMAGE",
-      "isQuotePost": false
-    },
-    {
-      "id": "18081613118544129",
-      "text": "I've hit Fable's safety filter a few times in Claude Code, it seems quite sensitive. No idea what tripped it in this scenario: this is a code review of storage modules in Rackula.\n\nIt also just occurred to me that because when you switch models in a conversation the convo history has to be re-read into context (a cache bust), that when it downgrades from Fable to Opus you take that token usage hit. It's a nasty tripwire that I would really like to understand how to avoid",
-      "permalink": "https://www.threads.com/@ggfevans/post/DZaXDNqlDwv",
-      "timestamp": "2026-06-10T16:21:13+0000",
       "mediaType": "IMAGE",
       "isQuotePost": false
     }
