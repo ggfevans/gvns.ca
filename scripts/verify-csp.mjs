@@ -49,7 +49,18 @@ function countPolicies(cspHeaderValue) {
 }
 
 for (const { path, marker, label, accessGated } of expectations) {
-  const res = await fetch(ORIGIN + path, { method: "HEAD", redirect: "manual" });
+  let res;
+  try {
+    res = await fetch(ORIGIN + path, {
+      method: "HEAD",
+      redirect: "manual",
+      signal: AbortSignal.timeout(10000),
+    });
+  } catch (err) {
+    console.error(`FAIL ${path}: request error (${err.name}: ${err.message}, label: ${label})`);
+    failures++;
+    continue;
+  }
 
   if (accessGated) {
     const www = res.headers.get("www-authenticate") ?? "";

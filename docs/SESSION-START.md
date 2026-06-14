@@ -79,7 +79,7 @@ gvns.ca/
 │   ├── wikilink-convert.mjs     # `npm run wikilinks`
 │   ├── syndicate.mjs            # `npm run syndicate` — POSSE
 │   ├── validate-image-refs.mjs  # prebuild check (`npm run build`)
-│   ├── verify-csp.mjs           # CSP hash check
+│   ├── verify-csp.mjs           # post-deploy CSP header check (prod routes)
 │   ├── fetch-comments.mjs       # Threads replies → src/data/comments/
 │   ├── fetch-threads-feed.mjs   # Threads feed → src/data/
 │   ├── fetch-whoop.mjs          # In-repo fetch pattern prototype (Whoop)

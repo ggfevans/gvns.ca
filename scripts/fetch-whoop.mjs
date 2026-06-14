@@ -258,6 +258,13 @@ async function main() {
 
   if (inActions && !repo) bail('Missing GITHUB_REPOSITORY env var.');
 
+  // GH_TOKEN authenticates every `gh` call — token rotation (`gh secret set`)
+  // AND failure reporting (`gh issue …`) both need it. Without it we can't even
+  // surface a failure as an issue, so fail fast with a clear message.
+  if (inActions && !(process.env.GH_TOKEN || process.env.GITHUB_TOKEN)) {
+    bail('Missing GH_TOKEN env var — cannot persist rotated tokens or report failures as issues.');
+  }
+
   const missingEnv = [
     ['WHOOP_CLIENT_ID', clientId],
     ['WHOOP_CLIENT_SECRET', clientSecret],

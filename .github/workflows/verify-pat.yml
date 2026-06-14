@@ -55,14 +55,18 @@ jobs:
         run: |
           echo "=== Probe: can the token write repo secrets? ==="
           # Set + delete a throwaway secret — proves Secrets: read/write, which
-          # fetch-whoop.mjs and refresh-threads-token.mjs rely on.
-          printf ok | gh secret set VERIFY_PAT_PROBE --repo "$GITHUB_REPOSITORY" && gh secret delete VERIFY_PAT_PROBE --repo "$GITHUB_REPOSITORY" && echo "OK — secrets write works"
+          # fetch-whoop.mjs and refresh-threads-token.mjs rely on. The name is
+          # run-scoped so a concurrent run (or a real secret) can't be clobbered.
+          probe="VERIFY_PAT_PROBE_${GITHUB_RUN_ID}"
+          printf ok | gh secret set "$probe" --repo "$GITHUB_REPOSITORY" && gh secret delete "$probe" --repo "$GITHUB_REPOSITORY" && echo "OK — secrets write works"
 
       - name: Probe issues access
         env:
           GH_TOKEN: ${{ secrets.GH_PAT }}
         run: |
-          echo "=== Probe: can the token list issues? ==="
+          echo "=== Probe: can the token read issues? ==="
           # The failure reporters (`[threads-auth] …`, `[whoop-auth] …`) need
-          # Issues: read/write; listing proves the Issues permission is granted.
-          gh issue list --repo "$GITHUB_REPOSITORY" --limit 1 --state all --json number,title >/dev/null && echo "OK — issue read works"
+          # Issues: read/write. This lists issues, which only proves READ — a
+          # write probe would spam real issues, so we don't create one here.
+          # The reporters themselves exercise issue create/comment in anger.
+          gh issue list --repo "$GITHUB_REPOSITORY" --limit 1 --state all --json number,title >/dev/null && echo "OK — issue read works (write inferred, not probed)"

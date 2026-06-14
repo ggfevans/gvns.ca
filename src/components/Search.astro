@@ -94,10 +94,12 @@ const bundlePath = join(import.meta.env.BASE_URL, 'pagefind/');
           showSubResults: true,
           showImages: false,
           bundlePath: currentBundlePath,
-          translations: { placeholder: '42' },
+          translations: { placeholder: 'Search posts…' },
         });
         loadedContainers.add(container);
-        focusInput(container);
+        // The import resolves asynchronously; only steal focus if the dialog
+        // is still open (the user may have closed it mid-load).
+        if (dialogEl.open) focusInput(container);
       } catch {
         container.innerHTML =
           '<p class="gvns-search-fallback">Search is not available. Run a production build to enable search.</p>';

@@ -20,7 +20,7 @@ const errorMessages: Record<string, string> = {
 Astro.response.headers.set(
   'Content-Security-Policy',
   "default-src 'self'; " +
-    "script-src 'self' https://static.cloudflareinsights.com https://challenges.cloudflare.com 'unsafe-inline' 'wasm-unsafe-eval'; " +
+    "script-src 'self' https://challenges.cloudflare.com 'unsafe-inline' 'wasm-unsafe-eval'; " +
     "style-src 'self' 'unsafe-inline'; " +
     "img-src 'self' https: data:; " +
     "font-src 'self' data:; " +
