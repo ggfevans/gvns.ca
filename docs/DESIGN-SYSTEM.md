@@ -129,11 +129,11 @@ WCAG AA requires 4.5:1 for normal text, 3:1 for large text/UI components.
 | `text-xs` | 12px | 1.3 | Labels, metadata |
 | `text-sm` | 14px | 1.4 | Card content |
 | `text-base` | 16px | 1.5 | Body |
-| `text-lg` | 18px | 1.5 | Lead paragraphs |
-| `text-xl` | 20px | 1.4 | H4, card titles |
-| `text-2xl` | 24px | 1.3 | H3 |
-| `text-4xl` | 36px | 1.2 | Section titles |
-| `text-5xl` | 48px | 1.1 | Page titles |
+| `text-lg` | 20px | 1.5 | Lead paragraphs |
+| `text-xl` | 24px | 1.4 | H4, card titles |
+| `text-2xl` | 30px | 1.3 | H3 |
+| `text-3xl` | 38px | 1.2 | H2, section titles |
+| `text-4xl` | 48px | 1.1 | H1, page titles |
 
 ### Font Weights
 

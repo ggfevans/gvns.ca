@@ -3,3 +3,9 @@
 # https://gvns.ca/$1"). Workers Static Assets rejects absolute URLs in
 # _redirects (error 10021), and a path-only `/*` rule here would also fire
 # on apex requests. Keep this file for any future path-relative redirects.
+
+# Pre-rename section URLs (ADR-010, shipped 2026-06). Index-level only — no
+# /* splat rules, because no pre-rename slugs survive that would need them.
+/writing /posts 301
+/reading /read 301
+/write /posts 301

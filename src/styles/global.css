@@ -228,6 +228,13 @@ body {
     line-height: 1.6;
 }
 
+/* Every page renders its own <main> inside BaseLayout's <body>, so the
+   shared page gutters live here rather than in a (scoped, and therefore
+   dead) layout rule. Pages must not re-add their own outer padding. */
+main {
+    padding: var(--space-8) var(--space-6);
+}
+
 h1,
 h2,
 h3 {

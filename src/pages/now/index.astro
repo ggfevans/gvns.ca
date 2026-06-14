@@ -10,6 +10,7 @@ import WatchWidget from "@components/widgets/WatchWidget.astro";
 import WriteWidget from "@components/widgets/WriteWidget.astro";
 import StatusWidget from "@components/widgets/StatusWidget.astro";
 import MoveWidget from "@components/widgets/MoveWidget.astro";
+import GameWidget from "@components/widgets/GameWidget.astro";
 import { Content as NowIntroContent, frontmatter as nowIntroFrontmatter } from "../../data/now-intro.md";
 
 const siteUrl = normalizeSiteUrl(Astro.site);
@@ -81,6 +82,9 @@ const breadcrumbJsonLd = toJsonLd(
                 <div class="gvns-now__cell">
                     <StatusWidget />
                 </div>
+                <div class="gvns-now__cell gvns-now__cell--wide">
+                    <GameWidget />
+                </div>
             </div>
         </div>
     </main>
@@ -90,7 +94,6 @@ const breadcrumbJsonLd = toJsonLd(
     .gvns-now__container {
         max-width: var(--width-wide);
         margin-inline: auto;
-        padding-inline: var(--space-6);
     }
 
     .gvns-now__header {
@@ -108,7 +111,7 @@ const breadcrumbJsonLd = toJsonLd(
 
     .gvns-now__header h1 {
         font-family: var(--font-display, "Space Grotesk"), sans-serif;
-        font-size: 32px;
+        font-size: var(--text-4xl);
         font-weight: 700;
         letter-spacing: -0.02em;
         line-height: 1.1;
@@ -143,9 +146,9 @@ const breadcrumbJsonLd = toJsonLd(
      *
      * Cell-size mapping:
      *   --large: CodeWidget (2x2) — heatmap + language stats
-     *   --wide:  ReadWidget, ListenWidget (2x1) — covers/album art benefit
-     *            from horizontal space
-     *   default: WriteWidget, WatchWidget, StatusWidget (1x1)
+     *   --wide:  ReadWidget, ListenWidget, GameWidget (2x1) — covers/album/box
+     *            art benefit from horizontal space
+     *   default: WriteWidget, MoveWidget, WatchWidget, StatusWidget (1x1)
      */
     .gvns-now__bento {
         display: grid;

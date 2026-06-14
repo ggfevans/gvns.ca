@@ -89,7 +89,7 @@ if (readingData.lastUpdated) {
     />
 
     <main id="main-content" class="read-page" data-pagefind-body>
-        <div class="container">
+        <div class="read-page__container">
             <header class="page-header">
                 <h1 class="page-title">Read</h1>
                 <p class="page-subtitle">
@@ -159,7 +159,9 @@ if (readingData.lastUpdated) {
 </BaseLayout>
 
 <style>
-    .container {
+    /* Page-scoped (not the global `.container` utility, whose padding-inline
+       would double up with the global <main> gutters). */
+    .read-page__container {
         max-width: var(--width-content);
         margin-inline: auto;
     }

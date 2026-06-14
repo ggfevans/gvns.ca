@@ -10,6 +10,7 @@ import cloudflare from "@astrojs/cloudflare";
 import { imageService } from "@unpic/astro/service";
 import rehypeSlug from "rehype-slug";
 import pagefind from "./src/integrations/pagefind.ts";
+import { codeMockupTransformer } from "./src/utils/rehype-code-mockup.ts";
 
 let shikiTheme = {};
 try {
@@ -46,6 +47,7 @@ export default defineConfig({
   markdown: {
     shikiConfig: {
       theme: shikiTheme,
+      transformers: [codeMockupTransformer()],
     },
     rehypePlugins: [rehypeSlug],
   },

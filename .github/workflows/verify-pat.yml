@@ -1,7 +1,12 @@
 # One-shot diagnostic — run via Actions tab → "Verify PAT" → "Run workflow".
 # Confirms that GH_PAT has the scopes/permissions the automated workflows need:
 #   - Classic PAT: `repo` scope is sufficient
-#   - Fine-grained PAT: needs Contents: read/write + Pull requests: read/write
+#   - Fine-grained PAT needs:
+#       Contents: read/write       — checkout + commit-via-pr branch pushes
+#       Pull requests: read/write  — commit-via-pr opens/merges PRs
+#       Secrets: read/write        — fetch-whoop.mjs / refresh-threads-token.mjs
+#                                    persist rotated tokens via `gh secret set`
+#       Issues: read/write         — failure reporting (`gh issue list/create/comment`)
 #
 # Safe to keep around, but feel free to delete once verified.
 
@@ -37,9 +42,31 @@ jobs:
           echo
 
           echo "=== Probe: can the token list PRs? ==="
-          gh pr list --limit 1 --state all --json number,title >/dev/null && echo "OK — PR read works"
+          gh pr list --repo "$GITHUB_REPOSITORY" --limit 1 --state all --json number,title >/dev/null && echo "OK — PR read works"
           echo
 
           echo "=== Probe: can the token resolve auto-merge prerequisites? ==="
           # If allow_auto_merge isn't enabled on the repo, gh pr merge --auto fails.
           gh api "repos/${GITHUB_REPOSITORY}" --jq '{allow_auto_merge: .allow_auto_merge, delete_branch_on_merge: .delete_branch_on_merge}'
+
+      - name: Probe secrets write
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          echo "=== Probe: can the token write repo secrets? ==="
+          # Set + delete a throwaway secret — proves Secrets: read/write, which
+          # fetch-whoop.mjs and refresh-threads-token.mjs rely on. The name is
+          # run-scoped so a concurrent run (or a real secret) can't be clobbered.
+          probe="VERIFY_PAT_PROBE_${GITHUB_RUN_ID}"
+          printf ok | gh secret set "$probe" --repo "$GITHUB_REPOSITORY" && gh secret delete "$probe" --repo "$GITHUB_REPOSITORY" && echo "OK — secrets write works"
+
+      - name: Probe issues access
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          echo "=== Probe: can the token read issues? ==="
+          # The failure reporters (`[threads-auth] …`, `[whoop-auth] …`) need
+          # Issues: read/write. This lists issues, which only proves READ — a
+          # write probe would spam real issues, so we don't create one here.
+          # The reporters themselves exercise issue create/comment in anger.
+          gh issue list --repo "$GITHUB_REPOSITORY" --limit 1 --state all --json number,title >/dev/null && echo "OK — issue read works (write inferred, not probed)"
