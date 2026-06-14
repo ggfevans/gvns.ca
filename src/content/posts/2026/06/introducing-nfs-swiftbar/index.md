@@ -1,7 +1,9 @@
 ---
 title: Introducing nfs-swiftbar
-description: 'nfs-swiftbar: a plugin for SwiftBar that shows the status of NFS mounts in macOS'
-pubDate: 2026-05-25
+description: >-
+  nfs-swiftbar: a plugin for SwiftBar that shows the status of NFS mounts in
+  macOS
+pubDate: 2026-05-25T00:00:00.000Z
 tags:
   - open-source
   - nfs
@@ -12,6 +14,12 @@ draft: false
 heroImage: nfs-swiftbar-screenshot.webp
 heroImageAlt: nfs-swiftbar screenshot
 canonicalUrl: ''
+syndication:
+  - platform: threads
+    url: 'https://www.threads.com/@ggfevans/post/DZjvtItFXL2'
+    syndicatedAt: '2026-06-14'
+    mediaId: '18354782569244789'
+    shortcode: DZjvtItFXL2
 ---
 
 Introducing nfs-swiftbar: a plugin for SwiftBar that shows the status of NFS mounts in macOS.

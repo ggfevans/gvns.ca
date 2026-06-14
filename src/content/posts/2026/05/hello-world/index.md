@@ -1,7 +1,7 @@
 ---
 title: Hello World
 description: First Post
-pubDate: 2026-05-18
+pubDate: 2026-05-18T00:00:00.000Z
 tags:
   - meta
 updatedDate: ''
@@ -9,6 +9,12 @@ draft: false
 heroImage: pasted-image-1779172864913.webp
 heroImageAlt: ''
 canonicalUrl: ''
+syndication:
+  - platform: threads
+    url: 'https://www.threads.com/@ggfevans/post/DZjvoWRlb-a'
+    syndicatedAt: '2026-06-14'
+    mediaId: '18066695765409397'
+    shortcode: DZjvoWRlb-a
 ---
 
 Hi! I'm Gareth. I've finally followed through on my longstanding intent to build a personal site. I've wanted,  for a really long time, to have somewhere that I can share my thoughts and own them: as opposed to on a social media site that then gets to stuff ads in between.

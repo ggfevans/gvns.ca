@@ -1,7 +1,9 @@
 ---
 title: Why My Editor Kept Yelling at My Tailscale Config
-description: HuJSON is JSON with comments and trailing commas. My editor disagreed, so I wrote a Zed grammar for it
-pubDate: 2026-06-01
+description: >-
+  HuJSON is JSON with comments and trailing commas. My editor disagreed, so I
+  wrote a Zed grammar for it
+pubDate: 2026-06-01T00:00:00.000Z
 tags:
   - open-source
   - zed
@@ -12,6 +14,12 @@ draft: false
 heroImage: ''
 heroImageAlt: ''
 canonicalUrl: ''
+syndication:
+  - platform: threads
+    url: 'https://www.threads.com/@ggfevans/post/DZjvx9_lfWN'
+    syndicatedAt: '2026-06-14'
+    mediaId: '18183603928384875'
+    shortcode: DZjvx9_lfWN
 ---
 
 Tailscale keeps its ACL policy in a file written in HuJSON, which is plain JSON plus two human comforts: C-style comments and trailing commas. Those are the two things that make a config file pleasant to edit by hand, and they are also the two things every default JSON parser treats as a syntax error. So every time I opened my tailnet's policy, my editor lit it up with red squiggles, gave up on code folding, and dropped the document outline. The file was correct. The editor just had no grammar for the format and was quietly trying to parse human-friendly config as strict JSON.
