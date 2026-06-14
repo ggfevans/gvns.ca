@@ -4,7 +4,8 @@
  * Refresh the long-lived Threads access token and persist the new value
  * back into the THREADS_ACCESS_TOKEN GitHub Actions secret.
  *
- * Runs weekly via .github/workflows/refresh-threads-token.yml.
+ * Runs on the 1st and 15th of each month via
+ * .github/workflows/refresh-threads-token.yml.
  *
  * Why plain fetch instead of denim: this script must be runnable
  * independently of Phase B (the rest of the Threads integration), so it

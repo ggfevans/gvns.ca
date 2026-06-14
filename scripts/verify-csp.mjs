@@ -18,16 +18,22 @@
 const ORIGIN = process.argv[2] || "https://gvns.ca";
 
 // Routes we expect to have a CSP, and the marker substring that proves which
-// CSP arrived. The marker is the connect-src value because it's the
-// directive that actually broke /admin/.
+// CSP arrived. Markers pin "connect-src 'self';" (semicolon included) so a
+// reintroduced analytics/third-party connect-src origin fails the check, and
+// the directive that follows distinguishes the site CSP from the contact one.
+//
+// /admin/ is fronted by Cloudflare Access: unauthenticated requests get a 302
+// to the Access login with a `www-authenticate: Cloudflare-Access` header, so
+// we assert the Access challenge instead of the CSP behind it (which is still
+// defined in public/_headers but unreachable without auth).
 const expectations = [
-  { path: "/",       marker: "connect-src 'self' https://analytics.gvns.ca",    label: "site"  },
-  { path: "/about/", marker: "connect-src 'self' https://analytics.gvns.ca",    label: "site"  },
-  { path: "/code/",  marker: "connect-src 'self' https://analytics.gvns.ca",    label: "site"  },
-  { path: "/now/",   marker: "connect-src 'self' https://analytics.gvns.ca",    label: "site"  },
-  { path: "/work/",  marker: "connect-src 'self' https://analytics.gvns.ca",    label: "site"  },
-  { path: "/admin/", marker: "https://api.github.com",                          label: "admin" },
-  { path: "/contact", marker: "frame-src https://challenges.cloudflare.com",    label: "contact" },
+  { path: "/",       marker: "connect-src 'self'; frame-ancestors 'none'",      label: "site"  },
+  { path: "/about/", marker: "connect-src 'self'; frame-ancestors 'none'",      label: "site"  },
+  { path: "/code/",  marker: "connect-src 'self'; frame-ancestors 'none'",      label: "site"  },
+  { path: "/now/",   marker: "connect-src 'self'; frame-ancestors 'none'",      label: "site"  },
+  { path: "/work/",  marker: "connect-src 'self'; frame-ancestors 'none'",      label: "site"  },
+  { path: "/admin/", accessGated: true,                                         label: "admin" },
+  { path: "/contact", marker: "connect-src 'self'; frame-src https://challenges.cloudflare.com", label: "contact" },
 ];
 
 let failures = 0;
@@ -42,8 +48,22 @@ function countPolicies(cspHeaderValue) {
   return matches ? matches.length : 0;
 }
 
-for (const { path, marker, label } of expectations) {
+for (const { path, marker, label, accessGated } of expectations) {
   const res = await fetch(ORIGIN + path, { method: "HEAD", redirect: "manual" });
+
+  if (accessGated) {
+    const www = res.headers.get("www-authenticate") ?? "";
+    if (res.status === 302 && www.includes("Cloudflare-Access")) {
+      console.log(`OK   ${path}  (${label}: Cloudflare Access challenge)`);
+    } else {
+      console.error(
+        `FAIL ${path}: expected 302 + www-authenticate: Cloudflare-Access, got ${res.status} (www-authenticate: ${www || "absent"}, label: ${label})`
+      );
+      failures++;
+    }
+    continue;
+  }
+
   const csp = res.headers.get("content-security-policy");
 
   if (!csp) {
@@ -71,4 +91,4 @@ if (failures > 0) {
   console.error(`\n${failures} route(s) failed CSP verification.`);
   process.exit(1);
 }
-console.log("\nAll routes have exactly one CSP header with the expected scope.");
+console.log("\nAll routes passed: one CSP with the expected scope (and /admin/ behind Cloudflare Access).");

@@ -6,80 +6,30 @@ on:
   workflow_dispatch:
 
 permissions:
-  issues: write
+  contents: read
 
 jobs:
   refresh:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
-        with:
-          token: ${{ secrets.GH_PAT }}
 
       - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
         with:
           node-version: "24"
-          cache: npm
 
-      - run: npm ci
-
-      - name: Check token expiry and refresh
-        id: refresh
+      # Refreshes unconditionally on every scheduled run — the previous inline
+      # implementation skipped when >30 days remained on the token, but an
+      # unconditional twice-monthly refresh is simpler and well within Meta's
+      # limits. The script is dependency-free (native fetch + gh CLI), so no
+      # npm ci. On failure it opens/comments on a dedup'd "[threads-auth] …"
+      # issue itself — no separate create-issue step needed.
+      - name: Refresh token and persist secret
         env:
           THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+          # GH_PAT needs Secrets: read/write (to update THREADS_ACCESS_TOKEN)
+          # and Issues: read/write (failure reporting) — run verify-pat.yml
+          # to confirm.
           GH_TOKEN: ${{ secrets.GH_PAT }}
-          REPO: ${{ github.repository }}
-        run: |
-          node --input-type=module <<'SCRIPT'
-          import { refreshToken, debugToken } from '@codybrom/denim';
-
-          const token = process.env.THREADS_ACCESS_TOKEN;
-          if (!token) {
-            console.error('THREADS_ACCESS_TOKEN is not set');
-            process.exit(1);
-          }
-
-          // Check current token expiry
-          try {
-            const debug = await debugToken(token, token);
-            const expiresAt = debug?.data?.expires_at;
-            if (expiresAt) {
-              const daysLeft = Math.floor((expiresAt * 1000 - Date.now()) / (1000 * 60 * 60 * 24));
-              console.log(`Token expires in ${daysLeft} days`);
-              if (daysLeft > 30) {
-                console.log('Token has >30 days remaining, skipping refresh');
-                process.exit(0);
-              }
-            }
-          } catch (err) {
-            console.warn(`Could not debug token (proceeding with refresh): ${err.message}`);
-          }
-
-          // Refresh the token
-          const result = await refreshToken(token);
-          const newToken = result.access_token;
-          if (!newToken) {
-            console.error('Refresh response did not contain access_token');
-            process.exit(1);
-          }
-
-          console.log(`Token refreshed successfully (expires in ${result.expires_in} seconds)`);
-
-          // Write to stdout for the next step
-          const { execSync } = await import('node:child_process');
-          execSync(`gh secret set THREADS_ACCESS_TOKEN --repo="${process.env.REPO}"`, {
-            input: newToken,
-            stdio: ['pipe', 'inherit', 'inherit'],
-          });
-          console.log('Updated THREADS_ACCESS_TOKEN secret');
-          SCRIPT
-
-      - name: Create issue on failure
-        if: failure()
-        env:
-          GH_TOKEN: ${{ secrets.GH_PAT }}
-        run: |
-          gh issue create \
-            --title "Threads token refresh failed" \
-            --body "The scheduled Threads token refresh workflow failed. The long-lived token may expire soon. Check the [workflow run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) for details." \
-            --label "bug"
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/refresh-threads-token.mjs

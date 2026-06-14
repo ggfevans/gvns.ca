@@ -256,10 +256,29 @@ async function main() {
   const repo = process.env.GITHUB_REPOSITORY;
   const inActions = Boolean(process.env.GITHUB_ACTIONS);
 
-  if (!clientId) bail('Missing WHOOP_CLIENT_ID env var.');
-  if (!clientSecret) bail('Missing WHOOP_CLIENT_SECRET env var.');
-  if (!refreshToken) bail('Missing WHOOP_REFRESH_TOKEN env var.');
   if (inActions && !repo) bail('Missing GITHUB_REPOSITORY env var.');
+
+  const missingEnv = [
+    ['WHOOP_CLIENT_ID', clientId],
+    ['WHOOP_CLIENT_SECRET', clientSecret],
+    ['WHOOP_REFRESH_TOKEN', refreshToken],
+  ].filter(([, value]) => !value).map(([name]) => name);
+  if (missingEnv.length > 0) {
+    if (inActions) {
+      const title = '[whoop-auth] Required env var(s) missing';
+      const body = `Daily fetch bailed at \`${new Date().toISOString()}\` — missing env var(s): ${missingEnv.map((name) => `\`${name}\``).join(', ')}.
+
+**What this means:** the workflow's secret(s) are absent or empty (deleted, renamed, or never set), so the fetch never reached the Whoop API.
+
+**Recovery:**
+
+1. Check repo secrets: \`gh secret list\` should include WHOOP_CLIENT_ID, WHOOP_CLIENT_SECRET and WHOOP_REFRESH_TOKEN.
+2. Restore the missing value(s) — for WHOOP_REFRESH_TOKEN, run \`node scripts/whoop-auth-bootstrap.mjs\` locally to mint a fresh refresh token, then \`gh secret set WHOOP_REFRESH_TOKEN\`.
+3. Retry this workflow.`;
+      await reportFailure(repo, title, body);
+    }
+    bail(`Missing ${missingEnv.join(', ')} env var(s).`);
+  }
 
   console.log('=== Whoop daily fetch ===');
 
