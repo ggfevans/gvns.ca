@@ -1,33 +1,239 @@
 ---
+/**
+ * GitHub contribution heatmap — pure Astro/CSS, no JS island.
+ *
+ * Replaces the former React component (react-activity-calendar + react-tooltip).
+ * All data is static at build time: `src/data/github.json` already ships a
+ * precomputed `level: 0|1|2|3|4` per day, and the only runtime behaviour was
+ * hover tooltips — now native `title` attributes.
+ *
+ * Layout mirrors GitHub's calendar: 7 rows (Sun…Sat) × ~53 columns (weeks),
+ * flowing column-by-column. Month labels sit above the grid, weekday labels
+ * (Mon/Wed/Fri) to its left. The wrapper is `role="img"` so the whole thing
+ * presents as a single labelled image to assistive tech (the per-cell titles
+ * are sighted-hover affordances only) — matching the prior component.
+ */
 import type { GitHubCalendar } from '@utils/github';
-import HeatmapIsland from './ContributionHeatmap.tsx';
 
 interface Props {
   calendar: GitHubCalendar;
 }
 
 const { calendar } = Astro.props;
-const days = calendar.weeks.flatMap((w) => w.days);
+
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+const weeks = calendar.weeks;
+const days = weeks.flatMap((w) => w.days);
+const total = days.reduce((sum, d) => sum + d.count, 0);
+
+// Parse 'YYYY-MM-DD' as UTC midnight so weekday/month are timezone-stable.
+function utc(date: string): Date {
+  return new Date(`${date}T00:00:00Z`);
+}
+
+// Sunday-start rows (GitHub convention): Sun=0 … Sat=6. The first calendar
+// week is usually a full Sun–Sat, but pad defensively so day 0 lands on its
+// real weekday row in column 1.
+const firstWeekday = days.length > 0 ? utc(days[0].date).getUTCDay() : 0;
+
+// One month label per week-column whose first day opens a new month.
+// Suppress any label within 3 columns of the previous one so a partial
+// leading month doesn't collide with the next.
+interface MonthLabel {
+  name: string;
+  col: number; // 1-based grid column
+}
+// Derive each week's grid column from the running flat-day index rather than
+// the week index: column = floor((firstWeekday + flatIndex) / 7) + 1. With the
+// usual Sunday-start data this equals i+1, but it stays correct even if the
+// first day isn't a Sunday (matching the same pad the cell grid applies).
+const monthLabels: MonthLabel[] = [];
+let prevMonth = -1;
+let lastLabelCol = -99;
+let dayIndex = 0;
+for (const w of weeks) {
+  if (w.days.length > 0) {
+    const m = utc(w.days[0].date).getUTCMonth();
+    if (m !== prevMonth) {
+      prevMonth = m;
+      const col = Math.floor((firstWeekday + dayIndex) / 7) + 1;
+      if (col - lastLabelCol >= 3) {
+        monthLabels.push({ name: MONTHS[m], col });
+        lastLabelCol = col;
+      }
+    }
+  }
+  dayIndex += w.days.length;
+}
+
+// Number of grid columns the cells actually span, so the months track is
+// exactly as wide as the cell grid (ceil over 7 rows, after the leading pad).
+const totalColumns = days.length > 0
+  ? Math.floor((firstWeekday + days.length - 1) / 7) + 1
+  : 0;
+
+// Tooltip text mirrors the former react renderBlock output.
+function tip(d: { count: number; date: string }): string {
+  return `${d.count} contribution${d.count === 1 ? '' : 's'} on ${d.date}`;
+}
 ---
 
-<div class="gvns-heatmap" role="img" aria-label="Contribution activity over the past year">
-  <HeatmapIsland client:visible days={days} />
-</div>
+<figure
+  class="gvns-heatmap"
+  role="img"
+  aria-label={`Contribution activity over the past year — ${total} contributions`}
+>
+  <div class="gvns-heatmap__chart">
+    <div class="gvns-heatmap__weekdays" aria-hidden="true">
+      <span style="grid-row: 2">Mon</span>
+      <span style="grid-row: 4">Wed</span>
+      <span style="grid-row: 6">Fri</span>
+    </div>
+    <div class="gvns-heatmap__scroll">
+      <div
+        class="gvns-heatmap__months"
+        aria-hidden="true"
+        style={`grid-template-columns: repeat(${totalColumns}, var(--hm-cell))`}
+      >
+        {monthLabels.map((m) => (
+          <span style={`grid-column: ${m.col} / span 6`}>{m.name}</span>
+        ))}
+      </div>
+      <div class="gvns-heatmap__grid" role="presentation">
+        {Array.from({ length: firstWeekday }).map(() => (
+          <span class="gvns-heatmap__cell gvns-heatmap__cell--pad" aria-hidden="true"></span>
+        ))}
+        {days.map((d) => (
+          <span
+            class:list={['gvns-heatmap__cell', `gvns-heatmap__cell--l${d.level}`]}
+            title={tip(d)}
+          ></span>
+        ))}
+      </div>
+    </div>
+  </div>
+  <figcaption class="gvns-heatmap__footer">
+    <span>{total} contributions in the last year</span>
+    <span class="gvns-heatmap__legend" aria-hidden="true">
+      <span class="gvns-heatmap__legend-label">Less</span>
+      <span class="gvns-heatmap__cell gvns-heatmap__cell--l0"></span>
+      <span class="gvns-heatmap__cell gvns-heatmap__cell--l1"></span>
+      <span class="gvns-heatmap__cell gvns-heatmap__cell--l2"></span>
+      <span class="gvns-heatmap__cell gvns-heatmap__cell--l3"></span>
+      <span class="gvns-heatmap__cell gvns-heatmap__cell--l4"></span>
+      <span class="gvns-heatmap__legend-label">More</span>
+    </span>
+  </figcaption>
+</figure>
 
 <style>
   .gvns-heatmap {
-    overflow-x: auto;
+    /* Block size + gap match the former react theme (blockSize 11, margin 3). */
+    --hm-cell: 11px;
+    --hm-gap: 3px;
+    --hm-month-h: 1.1rem;
+    margin: 0;
   }
 
-  /* Style the react-activity-calendar container */
-  .gvns-heatmap :global(.react-activity-calendar) {
+  .gvns-heatmap__chart {
+    display: flex;
+    gap: var(--space-2);
+  }
+
+  /* Weekday labels align to grid rows; the top margin clears the months row
+     so Mon/Wed/Fri line up with rows 2/4/6 of the grid below. */
+  .gvns-heatmap__weekdays {
+    display: grid;
+    grid-template-rows: repeat(7, var(--hm-cell));
+    gap: var(--hm-gap);
+    margin-top: var(--hm-month-h);
+    font-size: var(--text-xs);
+    line-height: var(--hm-cell);
     color: var(--colour-text-muted);
     font-family: var(--font-sans);
   }
 
+  .gvns-heatmap__scroll {
+    overflow-x: auto;
+    padding-bottom: var(--space-1);
+  }
+
+  /* Same column track + gap as the grid, so labels sit over their week. */
+  .gvns-heatmap__months {
+    display: grid;
+    height: var(--hm-month-h);
+    column-gap: var(--hm-gap);
+    font-size: var(--text-xs);
+    color: var(--colour-text-muted);
+    font-family: var(--font-sans);
+  }
+
+  .gvns-heatmap__months span {
+    white-space: nowrap;
+  }
+
+  /* Flows column-by-column (top→bottom, left→right): each column is one
+     calendar week (Sun row 1 … Sat row 7). */
+  .gvns-heatmap__grid {
+    display: grid;
+    grid-template-rows: repeat(7, var(--hm-cell));
+    grid-auto-flow: column;
+    grid-auto-columns: var(--hm-cell);
+    gap: var(--hm-gap);
+    width: max-content;
+  }
+
+  .gvns-heatmap__cell {
+    display: block;
+    width: var(--hm-cell);
+    height: var(--hm-cell);
+    border-radius: 2px;
+    background: #27272a;
+  }
+
+  /* Invisible spacers so the first column aligns to the correct weekday. */
+  .gvns-heatmap__cell--pad {
+    background: transparent;
+  }
+
+  /* 5-step violet scale (levels 0–4), matching the former react theme. */
+  .gvns-heatmap__cell--l0 { background: #27272a; }
+  .gvns-heatmap__cell--l1 { background: #4c1d95; }
+  .gvns-heatmap__cell--l2 { background: #6d28d9; }
+  .gvns-heatmap__cell--l3 { background: #8b5cf6; }
+  .gvns-heatmap__cell--l4 { background: #a78bfa; }
+
+  .gvns-heatmap__footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--space-3);
+    font-size: var(--text-xs);
+    color: var(--colour-text-secondary);
+    font-family: var(--font-mono);
+  }
+
+  .gvns-heatmap__legend {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+  }
+
+  .gvns-heatmap__legend .gvns-heatmap__cell {
+    display: inline-block;
+  }
+
+  .gvns-heatmap__legend-label {
+    color: var(--colour-text-muted);
+  }
+
   @media (max-width: 640px) {
-    .gvns-heatmap :global(.react-activity-calendar) {
-      font-size: 10px;
+    .gvns-heatmap {
+      --hm-cell: 10px;
+      --hm-gap: 2px;
     }
   }
 </style>
