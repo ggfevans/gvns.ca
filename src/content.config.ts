@@ -28,7 +28,10 @@ const posts = defineCollection({
       description: z.string().max(200),
       pubDate: z.coerce.date(),
       updatedDate: z.preprocess(emptyToUndefined, z.coerce.date().optional()),
-      tags: z.array(z.string()).min(1).max(4),
+      tags: z
+        .array(z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/, 'tags must be kebab-case'))
+        .min(1)
+        .max(4),
       draft: z.boolean().default(false),
       heroImage: z.preprocess(emptyToUndefined, image().optional()),
       heroImageAlt: z.preprocess(trimToUndefined, z.string().max(250).optional()),

@@ -3,7 +3,10 @@ title: Introducing nfs-swiftbar
 description: 'nfs-swiftbar: a plugin for SwiftBar that shows the status of NFS mounts in macOS'
 pubDate: 2026-05-25
 tags:
-  - open-source nfs swiftbar project
+  - open-source
+  - nfs
+  - swiftbar
+  - project
 updatedDate: ''
 draft: false
 heroImage: nfs-swiftbar-screenshot.webp
