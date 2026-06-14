@@ -1,6 +1,22 @@
 {
-  "lastUpdated": "2026-06-14T07:52:16.816Z",
+  "lastUpdated": "2026-06-14T23:41:17.530Z",
   "posts": [
+    {
+      "id": "17887671000394649",
+      "text": "I’m excited to soon show off the forthcoming release of Rackula with all of the storage and UX overhaul that I’ve been churning out lately. Not to mention all the tech debt that I’ve been paying down. \n\nOkay, it’s just me practicing my Mavis Beacon skills while Claude does the work. Though for me, this project has gone from a silly idea to something more tangible and used by thousands worldwide. It’s very gratifying.",
+      "permalink": "https://www.threads.com/@ggfevans/post/DZlYU63j8KF",
+      "timestamp": "2026-06-14T23:04:01+0000",
+      "mediaType": "TEXT_POST",
+      "isQuotePost": false
+    },
+    {
+      "id": "18127926181615643",
+      "text": "I’m considering doing a version of Rackula with Cloudflare workers backed by their R2 storage. \n\nI’m curious, anyone have experience building ontop of R2 storage? It’s either that or straight to Postgres, and I’d rather be lean (free egress seems awesome). \n\nAny FOSS examples would be helpful and appreciated. Thoughts, anyone?",
+      "permalink": "https://www.threads.com/@ggfevans/post/DZlXtRkD_rM",
+      "timestamp": "2026-06-14T22:58:36+0000",
+      "mediaType": "TEXT_POST",
+      "isQuotePost": false
+    },
     {
       "id": "18183603928384875",
       "text": "📝 Why My Editor Kept Yelling at My Tailscale Config\n\nHuJSON is JSON with comments and trailing commas. My editor disagreed, so I wrote a Zed grammar for it\n\nhttps://gvns.ca/posts/why-my-editor-kept-yelling-at-my-tailscale-config/\n\nopensource #zed #hujson #project",
@@ -22,22 +38,6 @@
       "text": "📝 Hello World\n\nFirst Post\n\nhttps://gvns.ca/posts/hello-world/\n\nmeta",
       "permalink": "https://www.threads.com/@ggfevans/post/DZjvoWRlb-a",
       "timestamp": "2026-06-14T07:49:43+0000",
-      "mediaType": "TEXT_POST",
-      "isQuotePost": false
-    },
-    {
-      "id": "18014379401890550",
-      "text": "on a positive note, this soggy dog only needs a stick to have the best day _ever_",
-      "permalink": "https://www.threads.com/@ggfevans/post/DZg8wn2lCHu",
-      "timestamp": "2026-06-13T05:46:10+0000",
-      "mediaType": "IMAGE",
-      "isQuotePost": false
-    },
-    {
-      "id": "18558923782071009",
-      "text": "So, we can probably infer this vague idea of a jailbreak is simply a lever for Hegseth and Trump to put pressure on Anthropic, right?",
-      "permalink": "https://www.threads.com/@ggfevans/post/DZgzJSNlCDi",
-      "timestamp": "2026-06-13T04:22:09+0000",
       "mediaType": "TEXT_POST",
       "isQuotePost": false
     }
