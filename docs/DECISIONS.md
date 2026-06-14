@@ -288,6 +288,7 @@ Use **verb-based URLs**: `/read`, `/listen`, `/watch`, `/code`. Exception: the w
 - Internal links updated across all components and content
 - RSS feed items link to `/posts/...`
 - SEO: 301 redirects preserve link equity
+- *Amended 2026-06*: the redirects shipped in `public/_redirects` as index-level rules only (`/writing → /posts`, `/reading → /read`, `/write → /posts`). No `/*` splat rules — no pre-rename post slugs survived the renames, so deep redirects have nothing to map.
 
 ---
 
@@ -707,6 +708,25 @@ Keep P5 Sky as the shared accent for both Status and Play. Document it as intent
 
 ---
 
+## ADR-022: In-Repo Scripts Are the Default Fetcher Pattern
+
+**Date**: 2026-06-11
+**Status**: Accepted
+
+### Context
+Two fetcher shapes coexist: vendored composite actions (`.github/actions/fetch-*/`) and in-repo ESM scripts (`scripts/fetch-*.mjs`, fetch-whoop style).
+
+### Decision
+In-repo `.mjs` scripts (single script, env-var secrets, failure-as-issue) are the default for all new fetchers; the composite actions are grandfathered until they break. Full conventions live in `docs/INFRASTRUCTURE.md` § In-Repo Fetch Pattern.
+
+### Rationale
+One repo, no sibling-repo or vendored-action overhead, and failures surface as issues in normal triage. See INFRASTRUCTURE.md for the details — this stub exists so ADR scans find the decision.
+
+### Consequences
+New integrations copy the fetch-whoop shape. Composite actions get ported to scripts when they break, not pre-emptively.
+
+---
+
 ## Template for New Decisions
 
 ```markdown
@@ -730,4 +750,4 @@ Keep P5 Sky as the shared accent for both Status and Play. Document it as intent
 
 ---
 
-*Last updated: 2026-05-19 (ADR-021)*
+*Last updated: 2026-06-11 (ADR-022)*

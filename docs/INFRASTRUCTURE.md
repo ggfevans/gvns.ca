@@ -116,6 +116,8 @@ Served via `_headers` file (copied from `public/` to `dist/client/` during build
 - `Referrer-Policy: strict-origin-when-cross-origin`
 - `Permissions-Policy: camera=(), microphone=(), geolocation=()`
 
+CSP coverage is verified by `scripts/verify-csp.mjs`, run weekly against production by `.github/workflows/verify-csp.yml` (standalone so a CSP regression isn't conflated with fetcher failures).
+
 ### Migration History
 
 Migrated from Cloudflare Pages to Workers in 2026-04 (issue #249). Pages project retained for a 2-week soak window post-cutover, then archived.
@@ -143,9 +145,7 @@ Migrated from Cloudflare Pages to Workers in 2026-04 (issue #249). Pages project
 | `HARDCOVER_USER_ID` | fetch-reading | Hardcover user (future) |
 | `LISTENBRAINZ_USERNAME` | fetch-listening | LB user (future) |
 | `THREADS_USER_ID` | syndicate, fetch-comments | Threads user ID |
-| `THREADS_ACCESS_TOKEN` | syndicate, fetch-comments | Long-lived token (refreshed by workflow) |
-| `THREADS_APP_ID` | refresh-threads-token | Threads app ID for token refresh |
-| `THREADS_APP_SECRET` | refresh-threads-token | Threads app secret for token refresh |
+| `THREADS_ACCESS_TOKEN` | syndicate, fetch-comments, refresh-threads-token | Long-lived token (refreshed by workflow) |
 | `WHOOP_CLIENT_ID` | fetch-whoop | Whoop OAuth client ID |
 | `WHOOP_CLIENT_SECRET` | fetch-whoop | Whoop OAuth client secret |
 | `WHOOP_ACCESS_TOKEN` | fetch-whoop | Whoop access token (rotated daily) |
@@ -177,7 +177,7 @@ As of 2026-05, new data-fetching integrations (starting with Whoop) follow an "i
 
 `scripts/fetch-whoop.mjs` is the prototype of the consolidated in-repo fetch shape that will eventually replace the `*-json-bourne` sibling repos (steam / github / hardcover / listenbrainz / trakt). See `docs/specs/move-widget-whoop-2026-05.md` §4 for the full Whoop pipeline design.
 
-If/when the `*-json-bourne` migrations land, the composite-action shape under `.github/actions/fetch-*/` will probably replace this simpler "script + run" form. For now the Whoop integration's flow is the template for any *new* in-repo fetcher.
+**In-repo `.mjs` scripts are the default for all new fetchers** — the fetch-whoop shape: a single `scripts/fetch-*.mjs`, secrets via env vars, failure-as-issue reporting. The vendored composite actions under `.github/actions/fetch-*/` are grandfathered: leave them as-is until one breaks, then port it to the script shape rather than patching the composite action.
 
 ## DNS Records (Cloudflare)
 
@@ -202,4 +202,4 @@ If/when the `*-json-bourne` migrations land, the composite-action shape under `.
 
 ---
 
-*Last updated: 2026-04-27*
+*Last updated: 2026-06-11*
