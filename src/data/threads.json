@@ -1,6 +1,30 @@
 {
-  "lastUpdated": "2026-06-13T07:34:15.400Z",
+  "lastUpdated": "2026-06-14T07:52:16.816Z",
   "posts": [
+    {
+      "id": "18183603928384875",
+      "text": "📝 Why My Editor Kept Yelling at My Tailscale Config\n\nHuJSON is JSON with comments and trailing commas. My editor disagreed, so I wrote a Zed grammar for it\n\nhttps://gvns.ca/posts/why-my-editor-kept-yelling-at-my-tailscale-config/\n\nopensource #zed #hujson #project",
+      "permalink": "https://www.threads.com/@ggfevans/post/DZjvx9_lfWN",
+      "timestamp": "2026-06-14T07:51:03+0000",
+      "mediaType": "TEXT_POST",
+      "isQuotePost": false
+    },
+    {
+      "id": "18354782569244789",
+      "text": "📝 Introducing nfs-swiftbar\n\nnfs-swiftbar: a plugin for SwiftBar that shows the status of NFS mounts in macOS\n\nhttps://gvns.ca/posts/introducing-nfs-swiftbar/\n\nopensource #nfs #swiftbar #project",
+      "permalink": "https://www.threads.com/@ggfevans/post/DZjvtItFXL2",
+      "timestamp": "2026-06-14T07:50:23+0000",
+      "mediaType": "TEXT_POST",
+      "isQuotePost": false
+    },
+    {
+      "id": "18066695765409397",
+      "text": "📝 Hello World\n\nFirst Post\n\nhttps://gvns.ca/posts/hello-world/\n\nmeta",
+      "permalink": "https://www.threads.com/@ggfevans/post/DZjvoWRlb-a",
+      "timestamp": "2026-06-14T07:49:43+0000",
+      "mediaType": "TEXT_POST",
+      "isQuotePost": false
+    },
     {
       "id": "18014379401890550",
       "text": "on a positive note, this soggy dog only needs a stick to have the best day _ever_",
@@ -15,22 +39,6 @@
       "permalink": "https://www.threads.com/@ggfevans/post/DZgzJSNlCDi",
       "timestamp": "2026-06-13T04:22:09+0000",
       "mediaType": "TEXT_POST",
-      "isQuotePost": false
-    },
-    {
-      "id": "18085725953386729",
-      "text": "Damnit, dog is not there. I step away for one quiet moment and the US gov forces \n\nAnthropic to drop the hammer and cut off access to Fable to non US citizens, based on a purported jailbreak. Though Anthropic went the equanimity route and just turned it off for everyone. Thought the prospect of somehow identifying US citizens was probably also unrealistic",
-      "permalink": "https://www.threads.com/@ggfevans/post/DZgxCHOFGMS",
-      "timestamp": "2026-06-13T04:03:42+0000",
-      "mediaType": "IMAGE",
-      "isQuotePost": false
-    },
-    {
-      "id": "18108222970921712",
-      "text": "Here's a good example of what Fable 5 can do. This is Ultracode effort, on a refactor on Rackula. In ~55min, across 44 agents:\n- 6 stacked PRs pushed, ready for review\n- 11 new issues identified for follow up\n\nIt used 3.87M tokens to do this.",
-      "permalink": "https://www.threads.com/@ggfevans/post/DZaYDCvFICl",
-      "timestamp": "2026-06-10T16:29:56+0000",
-      "mediaType": "IMAGE",
       "isQuotePost": false
     }
   ]
