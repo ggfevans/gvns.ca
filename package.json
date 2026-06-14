@@ -13,7 +13,7 @@
     "test": "cd .github/actions/fetch-github && npm test"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=24"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^13.7.0",
@@ -52,7 +52,7 @@
   },
   "devDependencies": {
     "@unpic/astro": "^1.0.2",
-    "starwind": "^1.16.2",
+    "starwind": "^2.0.1",
     "wrangler": "^4.100.0"
   }
 }
