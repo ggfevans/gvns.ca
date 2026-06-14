@@ -47,8 +47,6 @@ const bundlePath = join(import.meta.env.BASE_URL, 'pagefind/');
 </div>
 
 <script>
-  import { PagefindUI } from '@pagefind/default-ui';
-
   declare global {
     interface Window {
       __gvnsSearchInit?: boolean;
@@ -58,6 +56,7 @@ const bundlePath = join(import.meta.env.BASE_URL, 'pagefind/');
   let activeDialog: HTMLDialogElement | null = null;
   let isOpen = false;
   const loadedContainers = new WeakSet<HTMLElement>();
+  const pendingLoads = new WeakMap<HTMLElement, Promise<void>>();
 
   function getDialog(root: ParentNode | null = null) {
     if (root) {
@@ -77,24 +76,38 @@ const bundlePath = join(import.meta.env.BASE_URL, 'pagefind/');
     });
   }
 
-  function loadPagefind(dialogEl: HTMLDialogElement, container: HTMLElement) {
-    if (loadedContainers.has(container)) return;
+  function loadPagefind(dialogEl: HTMLDialogElement, container: HTMLElement): Promise<void> {
+    if (loadedContainers.has(container)) return Promise.resolve();
 
-    try {
-      const currentBundlePath = dialogEl.getAttribute('data-bundle-path') || '/pagefind/';
-      new PagefindUI({
-        element: container,
-        showSubResults: true,
-        showImages: false,
-        bundlePath: currentBundlePath,
-        translations: { placeholder: '42' },
-      });
-      loadedContainers.add(container);
-      focusInput(container);
-    } catch {
-      container.innerHTML =
-        '<p class="gvns-search-fallback">Search is not available. Run a production build to enable search.</p>';
-    }
+    // Single-flight guard: a rapid double-open before the import resolves
+    // must not instantiate PagefindUI twice.
+    const pending = pendingLoads.get(container);
+    if (pending) return pending;
+
+    const load = (async () => {
+      try {
+        // Lazy-load the Pagefind UI bundle on first open instead of on every page view
+        const { PagefindUI } = await import('@pagefind/default-ui');
+        const currentBundlePath = dialogEl.getAttribute('data-bundle-path') || '/pagefind/';
+        new PagefindUI({
+          element: container,
+          showSubResults: true,
+          showImages: false,
+          bundlePath: currentBundlePath,
+          translations: { placeholder: '42' },
+        });
+        loadedContainers.add(container);
+        focusInput(container);
+      } catch {
+        container.innerHTML =
+          '<p class="gvns-search-fallback">Search is not available. Run a production build to enable search.</p>';
+      } finally {
+        pendingLoads.delete(container);
+      }
+    })();
+
+    pendingLoads.set(container, load);
+    return load;
   }
 
   function openDialog(root: ParentNode | null = null) {
@@ -106,10 +119,10 @@ const bundlePath = join(import.meta.env.BASE_URL, 'pagefind/');
     dialogEl.showModal();
     isOpen = true;
 
-    loadPagefind(dialogEl, container);
-
     if (loadedContainers.has(container)) {
       focusInput(container);
+    } else {
+      void loadPagefind(dialogEl, container);
     }
   }
 
