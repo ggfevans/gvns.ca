@@ -30,7 +30,7 @@ GitHub Actions (scheduled):
 | **Output** | `dist/client/` (static assets) + `dist/server/` (SSR Worker bundle) |
 | **Worker config (root)** | `wrangler.jsonc` — assets binding + compat flags |
 | **Worker config (deploy)** | `dist/server/wrangler.json` — adapter-generated, includes resolved `main` |
-| **Node version** | 20 (via `.nvmrc`) |
+| **Node version** | 24 (pinned via `.nvmrc` + `engines.node`; CI uses `node-version: "24"`) |
 | **Production branch** | `main` |
 | **Preview deploys** | Non-`main` branches deploy via `wrangler versions upload` (versioned URL, no prod promotion) |
 
