@@ -4,7 +4,6 @@ import { defineConfig, envField } from "astro/config";
 
 import tailwindcss from "@tailwindcss/vite";
 import svelte from "@astrojs/svelte";
-import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import cloudflare from "@astrojs/cloudflare";
 import { imageService } from "@unpic/astro/service";
@@ -54,7 +53,7 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  integrations: [svelte(), react(), sitemap({ filter: (page) => !page.includes("/sandbox/") }), pagefind()],
+  integrations: [svelte(), sitemap({ filter: (page) => !page.includes("/sandbox/") }), pagefind()],
   env: {
     schema: {
       // Cloudflare Turnstile public site key — safe to expose in client bundles.
