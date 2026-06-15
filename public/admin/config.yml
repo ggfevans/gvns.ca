@@ -110,6 +110,15 @@ collections:
           hint: "Describe the image for screen readers + social previews (max 250 chars). Leave blank if purely decorative.",
         }
       - {
+          name: heroFocus,
+          label: Hero focal point,
+          widget: select,
+          options: [top, center, bottom, left, right],
+          default: center,
+          required: false,
+          hint: "Which part of the hero to keep when it's cropped to the homepage card banner.",
+        }
+      - {
           name: canonicalUrl,
           label: Canonical URL,
           widget: string,

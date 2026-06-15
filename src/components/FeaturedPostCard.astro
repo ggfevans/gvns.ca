@@ -1,5 +1,6 @@
 ---
 import { render, type CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
 import { getReadingTime } from '@utils/reading-time';
 import { getPostSlug } from '@utils/content';
 
@@ -9,6 +10,7 @@ interface Props {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+const { heroImage, heroImageAlt, heroFocus } = post.data;
 
 const primaryTag = post.data.tags[0] ?? null;
 const isoDate = new Date(post.data.pubDate).toISOString().slice(0, 10);
@@ -24,24 +26,39 @@ const href = `/posts/${slug}/`;
   itemscope
   itemtype="https://schema.org/CreativeWork"
 >
-  <header class="gvns-featured__header">
-    {primaryTag && <span class="gvns-featured__tag">{primaryTag}</span>}
-    <time datetime={datetimeAttr} class="gvns-featured__date">{isoDate}</time>
-  </header>
+  {heroImage && (
+    <figure class="gvns-featured__hero" style={`--hero-focus: ${heroFocus};`}>
+      <Image
+        src={heroImage}
+        alt={heroImageAlt ?? ''}
+        loading="eager"
+        fetchpriority="high"
+        widths={[400, 600, 800, 1000]}
+        sizes="(min-width: 1024px) 60vw, 100vw"
+      />
+    </figure>
+  )}
 
-  <h2 class="gvns-featured__title" itemprop="headline">
-    <a href={href}>{post.data.title}</a>
-  </h2>
+  <div class="gvns-featured__inner">
+    <header class="gvns-featured__header">
+      {primaryTag && <span class="gvns-featured__tag">{primaryTag}</span>}
+      <time datetime={datetimeAttr} class="gvns-featured__date">{isoDate}</time>
+    </header>
 
-  <div class="gvns-featured__body prose">
-    <Content />
+    <h2 class="gvns-featured__title" itemprop="headline">
+      <a href={href}>{post.data.title}</a>
+    </h2>
+
+    <div class="gvns-featured__body prose">
+      <Content />
+    </div>
+
+    <footer class="gvns-featured__footer">
+      <span class="gvns-featured__reading-time">{readingTime} min read</span>
+      <a class="gvns-featured__permalink" href={href}>Read full post →</a>
+    </footer>
+    <link itemprop="url" href={href} />
   </div>
-
-  <footer class="gvns-featured__footer">
-    <span class="gvns-featured__reading-time">{readingTime} min read</span>
-    <a class="gvns-featured__permalink" href={href}>Read full post →</a>
-  </footer>
-  <link itemprop="url" href={href} />
 </article>
 
 <style>
@@ -49,6 +66,31 @@ const href = `/posts/${slug}/`;
     background: var(--colour-bg-secondary);
     border: 1px solid var(--colour-border);
     /* No rose top stripe */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* Full-bleed 16:9 banner; only rendered when the post has a heroImage.
+     object-position is set inline from heroFocus (top/center/bottom/left/right). */
+  .gvns-featured__hero {
+    margin: 0;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+  }
+
+  .gvns-featured__hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: var(--hero-focus, center);
+    display: block;
+  }
+
+  /* Padding wrapper so the hero can sit flush to the card edges while text
+     stays padded. With no hero, this is the only child and the card looks
+     identical to before. */
+  .gvns-featured__inner {
     padding: 1.25rem 1.5rem 1.125rem;
     display: flex;
     flex-direction: column;
@@ -142,7 +184,7 @@ const href = `/posts/${slug}/`;
   /* Mobile: tighten padding, scale title down, allow eyebrow to wrap so
      the date can drop to its own line. */
   @media (max-width: 640px) {
-    .gvns-featured {
+    .gvns-featured__inner {
       padding: 1rem 1.125rem;
     }
 
