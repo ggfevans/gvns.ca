@@ -1,6 +1,14 @@
 {
-  "lastUpdated": "2026-06-15T06:04:46.455Z",
+  "lastUpdated": "2026-06-15T08:28:26.765Z",
   "posts": [
+    {
+      "id": "18074795999669291",
+      "text": "Just noticed \"Export your informationn\" is a typo on the Instagram export privacy page, right at the top, and for some reason I find that funny https://privacycenter.instagram.com/guide/dyi/?entry_point=privacy_center_home",
+      "permalink": "https://www.threads.com/@ggfevans/post/DZmNRJxFBY2",
+      "timestamp": "2026-06-15T06:46:38+0000",
+      "mediaType": "TEXT_POST",
+      "isQuotePost": false
+    },
     {
       "id": "18056264198724074",
       "text": "📝 Dark Patterns: A Rant About Meta\n\nMeta makes it trivial to follow thousands of accounts and miserable to leave them",
@@ -22,22 +30,6 @@
       "text": "Do I have any thriends who are familiar with or better yet frequent users of FME Flow? I'd like to pick your brain.\n\nWeird Sunday night question, I know.",
       "permalink": "https://www.threads.com/@ggfevans/post/DZl3xotlKao",
       "timestamp": "2026-06-15T03:38:49+0000",
-      "mediaType": "TEXT_POST",
-      "isQuotePost": false
-    },
-    {
-      "id": "17887671000394649",
-      "text": "I’m excited to soon show off the forthcoming release of Rackula with all of the storage and UX overhaul that I’ve been churning out lately. Not to mention all the tech debt that I’ve been paying down. \n\nOkay, it’s just me practicing my Mavis Beacon skills while Claude does the work. Though for me, this project has gone from a silly idea to something more tangible and used by thousands worldwide. It’s very gratifying.",
-      "permalink": "https://www.threads.com/@ggfevans/post/DZlYU63j8KF",
-      "timestamp": "2026-06-14T23:04:01+0000",
-      "mediaType": "TEXT_POST",
-      "isQuotePost": false
-    },
-    {
-      "id": "18127926181615643",
-      "text": "I’m considering doing a version of Rackula with Cloudflare workers backed by their R2 storage. \n\nI’m curious, anyone have experience building ontop of R2 storage? It’s either that or straight to Postgres, and I’d rather be lean (free egress seems awesome). \n\nAny FOSS examples would be helpful and appreciated. Thoughts, anyone?",
-      "permalink": "https://www.threads.com/@ggfevans/post/DZlXtRkD_rM",
-      "timestamp": "2026-06-14T22:58:36+0000",
       "mediaType": "TEXT_POST",
       "isQuotePost": false
     }
