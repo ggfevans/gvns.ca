@@ -1,54 +1,15 @@
 {
-  "lastUpdated": "2026-06-14T04:32:23.657Z",
+  "lastUpdated": "2026-06-15T04:33:38.902Z",
   "contributions": {
-    "total": 6516,
-    "commits": 2229,
-    "pullRequests": 562,
+    "total": 6565,
+    "commits": 2248,
+    "pullRequests": 581,
     "pullRequestReviews": 1,
-    "issues": 571,
-    "restricted": 3067
+    "issues": 573,
+    "restricted": 3076
   },
   "calendar": {
     "weeks": [
-      {
-        "days": [
-          {
-            "date": "2025-06-08",
-            "count": 12,
-            "level": 1
-          },
-          {
-            "date": "2025-06-09",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-06-10",
-            "count": 5,
-            "level": 1
-          },
-          {
-            "date": "2025-06-11",
-            "count": 3,
-            "level": 1
-          },
-          {
-            "date": "2025-06-12",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-06-13",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-06-14",
-            "count": 0,
-            "level": 0
-          }
-        ]
-      },
       {
         "days": [
           {
@@ -2072,15 +2033,24 @@
           },
           {
             "date": "2026-06-13",
-            "count": 6,
+            "count": 20,
             "level": 1
+          }
+        ]
+      },
+      {
+        "days": [
+          {
+            "date": "2026-06-14",
+            "count": 35,
+            "level": 2
           }
         ]
       }
     ]
   },
   "streak": {
-    "current": 17,
+    "current": 18,
     "longest": 61,
     "today": false
   },
@@ -2088,8 +2058,8 @@
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 168,
-    "contributionsThisMonth": 965,
+    "contributionsThisWeek": 173,
+    "contributionsThisMonth": 930,
     "repositoriesThisWeek": 0
   },
   "repositories": [
@@ -2102,20 +2072,20 @@
       "url": "https://github.com/ggfevans/gvns.ca"
     },
     {
-      "name": "tree-sitter-hujson",
-      "description": "A tree-sitter grammar for HuJSON (Human JSON)",
-      "language": "Shell",
-      "languageColor": "#89e051",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/tree-sitter-hujson"
-    },
-    {
       "name": "zed-hujson",
       "description": "HuJSON language grammar for Zed",
       "language": "Shell",
       "languageColor": "#89e051",
       "stars": 0,
       "url": "https://github.com/ggfevans/zed-hujson"
+    },
+    {
+      "name": "tree-sitter-hujson",
+      "description": "A tree-sitter grammar for HuJSON (Human JSON)",
+      "language": "Shell",
+      "languageColor": "#89e051",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/tree-sitter-hujson"
     },
     {
       "name": "gwilym.ca",
