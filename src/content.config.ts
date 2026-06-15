@@ -35,7 +35,7 @@ const posts = defineCollection({
       draft: z.boolean().default(false),
       heroImage: z.preprocess(emptyToUndefined, image().optional()),
       heroImageAlt: z.preprocess(trimToUndefined, z.string().max(250).optional()),
-      heroFocus: z.enum(['top', 'center', 'bottom', 'left', 'right']).default('center'),
+      heroFocus: z.preprocess(emptyToUndefined, z.enum(['top', 'center', 'bottom', 'left', 'right']).default('center')),
       canonicalUrl: z.preprocess(emptyToUndefined, z.string().url().optional()),
       syndication: z
         .array(
