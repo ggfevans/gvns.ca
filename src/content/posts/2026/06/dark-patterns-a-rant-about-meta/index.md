@@ -3,7 +3,10 @@ title: 'Dark Patterns: A Rant About Meta'
 description: Meta makes it trivial to follow thousands of accounts and miserable to leave them
 pubDate: 2026-06-14
 tags:
-  - design, dark-pattern, social-media, vampire
+  - design
+  - dark-pattern
+  - social-media
+  - vampire
 updatedDate: 2026-06-14
 draft: false
 heroImage: turnstile.webp
