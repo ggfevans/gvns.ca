@@ -43,7 +43,8 @@
     "typescript": "^5.9.3"
   },
   "overrides": {
-    "ws": "8.20.1"
+    "ws": "8.20.1",
+    "esbuild": "^0.28.1"
   },
   "devDependencies": {
     "@unpic/astro": "^1.0.2",
