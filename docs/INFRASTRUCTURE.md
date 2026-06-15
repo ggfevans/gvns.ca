@@ -136,6 +136,8 @@ Migrated from Cloudflare Pages to Workers in 2026-04 (issue #249). Pages project
 | `fetch-whoop.yml` | Daily schedule | Fetch Whoop workouts via in-repo fetch pattern |
 | `refresh-threads-token.yml` | Twice monthly | Refresh Threads long-lived access token |
 | `syndicate.yml` | Push to main (writing changes) | Cross-post new writing to Bluesky, Mastodon, Threads |
+| `trivy.yml` | Weekly (Sun) + manual dispatch | Filesystem vuln scan → code scanning (see [Dependency & Code Security](#dependency--code-security)) |
+| `verify-csp.yml` | Weekly | Verify production CSP coverage (see [Security Headers](#security-headers)) |
 
 ### Required Secrets (GitHub Actions)
 
@@ -161,6 +163,53 @@ Migrated from Cloudflare Pages to Workers in 2026-04 (issue #249). Pages project
 | `WHOOP_ACCESS_TOKEN` | fetch-daily (whoop step) | Whoop access token — also rotated each run (script can re-derive from refresh) |
 
 No Cloudflare secrets needed in GitHub — deploys are handled by Workers Builds' native git integration.
+
+## Dependency & Code Security
+
+Five scanners feed the repo's [Security tab](https://github.com/ggfevans/gvns.ca/security) — results land there, not just in workflow logs.
+
+| Scanner | Config | Trigger | Surfaces in |
+|---------|--------|---------|-------------|
+| **Dependabot alerts** | GitHub-native (no file) | Continuous, **all** manifests (incl. `workers/sveltia-auth`) | Security → Dependabot |
+| **Dependabot version PRs** | `.github/dependabot.yml` | Weekly | Update PRs — `npm` (root `/` only) + `github-actions`, grouped (astro / tailwind / dev-deps) |
+| **CodeQL** | Default setup (repo Settings, no workflow file) | PR + push to `main` | Security → Code scanning |
+| **Trivy** | `.github/workflows/trivy.yml` | **Weekly (Sun) + manual dispatch only** | Security → Code scanning (via SARIF) |
+| **Secret scanning** | GitHub-native | Continuous | Security → Secret scanning |
+
+Target state is **0 open** on every surface. Verify any time:
+
+```bash
+gh api repos/ggfevans/gvns.ca/dependabot/alerts   --jq '[.[]|select(.state=="open")]|length'
+gh api repos/ggfevans/gvns.ca/code-scanning/alerts --jq '[.[]|select(.state=="open")]|length'
+```
+
+### Remediating a vulnerable transitive dependency
+
+Most alerts here are **transitive** (a dep of a dep — e.g. `esbuild` pulled in by vite/astro/wrangler, `ws` by miniflare/wrangler). The idiomatic fix is an `overrides` entry in `package.json`, **not** a direct dependency change:
+
+```jsonc
+// package.json  (and workers/sveltia-auth/package.json — keep them in sync)
+"overrides": {
+  "ws": "8.20.1",       // force a patched ws across the whole tree
+  "esbuild": "^0.28.1"  // force a patched esbuild across the whole tree
+}
+```
+
+Then `npm install` (regenerate the lockfile) → `npm run build` (verify) → confirm with `npm ls <pkg>`, which should show the patched version deduped everywhere. **Old version strings left in `package-lock.json` after the fix are upstream *declared ranges*, not installed versions** — only an installed package node's `version` field is what the scanners read, so don't be alarmed by residual `0.27.x` text in the diff.
+
+### Two operational gotchas
+
+> **Trivy does not run on push or PR.** It only runs weekly (Sun) or on manual dispatch, so a fix merged to `main` will **not** clear its code-scanning alerts until the next Sunday. After merging a dependency fix, force a fresh scan to close them immediately:
+> ```bash
+> gh workflow run trivy.yml --ref main
+> ```
+> Dependabot alerts, by contrast, auto-close within seconds of the fix landing on `main`.
+
+> **Dependabot version PRs cover the root only.** `dependabot.yml` declares `npm` for `directory: "/"` — it does **not** watch `workers/sveltia-auth/`. Dependabot *alerts* still fire for that subtree, but no auto-update PR will arrive, so transitive fixes there must be applied by hand (mirror the root `overrides` into the worker manifest). Add a second `npm` entry pointing at `/workers/sveltia-auth` if you want auto-PRs there too.
+
+> **History:** 2026-06 burndown (PRs [#710](https://github.com/ggfevans/gvns.ca/pull/710), [#712](https://github.com/ggfevans/gvns.ca/pull/712)) cleared 6 alerts (esbuild RCE/file-read ×4 Dependabot + ×2 Trivy) plus a moderate `ws` advisory in the worker, all via `overrides`. Both gotchas above were discovered there.
+
+See [Security Headers](#security-headers) above for the HTTP response-header layer (CSP, HSTS, etc.).
 
 ## In-Repo Fetch Pattern
 
@@ -202,4 +251,4 @@ As of 2026-05, new data-fetching integrations (starting with Whoop) follow an "i
 
 ---
 
-*Last updated: 2026-06-11*
+*Last updated: 2026-06-15*
