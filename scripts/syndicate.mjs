@@ -92,6 +92,13 @@ function formatPostText({ title, description, url, tags }) {
   return `📝 ${title}\n\n${description}\n\n${url}\n\n${hashtags}`;
 }
 
+/** Format post text for Threads. Threads omits hashtags (not idiomatic there)
+ *  and the in-body URL — Threads renders a native link-preview card from the
+ *  linkAttachment instead, so the URL would otherwise appear twice. */
+function formatThreadsText({ title, description }) {
+  return `📝 ${title}\n\n${description}`;
+}
+
 /** Check which platforms still need syndication for a post. */
 function getMissingSyndications(frontmatter, targetPlatforms) {
   const existing = (frontmatter.syndication || []).map((s) => s.platform);
@@ -153,8 +160,8 @@ async function postToMastodon({ title, description, url, tags }) {
   return status.url;
 }
 
-async function postToThreads({ title, description, url, tags }) {
-  const text = formatPostText({ title, description, url, tags });
+async function postToThreads({ title, description, url }) {
+  const text = formatThreadsText({ title, description });
 
   const containerId = await createThreadsContainer({
     userId: process.env.THREADS_USER_ID,
@@ -244,12 +251,17 @@ async function main() {
       try {
         if (DRY_RUN) {
           console.log(`   ✅ [DRY RUN] Would post to ${platform}`);
-          const previewText = formatPostText({
-            title: frontmatter.title,
-            description: frontmatter.description || '',
-            url,
-            tags,
-          });
+          const previewText = platform === 'threads'
+            ? formatThreadsText({
+                title: frontmatter.title,
+                description: frontmatter.description || '',
+              })
+            : formatPostText({
+                title: frontmatter.title,
+                description: frontmatter.description || '',
+                url,
+                tags,
+              });
           console.log(`   Preview:\n${previewText.split('\n').map((l) => `      ${l}`).join('\n')}`);
           continue;
         }
@@ -309,7 +321,6 @@ async function main() {
             title: frontmatter.title,
             description: frontmatter.description || '',
             url,
-            tags,
           });
           console.log(`   ✅ Threads: ${result.url}`);
           try {
