@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-14T04:32:20.988Z",
+  "lastUpdated": "2026-06-15T04:33:36.207Z",
   "profile": {
     "steamId": "76561197962113454",
     "personaName": "Gareth",
@@ -8,13 +8,29 @@
   },
   "recentlyPlayed": [
     {
+      "name": "Baldur's Gate 3",
+      "appId": 1086940,
+      "headerUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1086940/48a2fcbda8565bb45025e98fd8ebde8a7203f6a0/header.jpg?t=1777363040",
+      "capsuleUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1086940/3dd81008e9c385caf68152450c22353f6a8abec9/capsule_231x87.jpg?t=1777363040",
+      "portraitUrl": "https://cdn.akamai.steamstatic.com/steam/apps/1086940/library_600x900.jpg",
+      "playtimeForeverMinutes": 15237,
+      "playtime2WeeksMinutes": 101,
+      "lastPlayed": "2026-06-14T08:10:04.000Z",
+      "playtimeByPlatform": {
+        "windows": 15237,
+        "mac": 0,
+        "linux": 0,
+        "deck": 0
+      }
+    },
+    {
       "name": "DEATH STRANDING 2: ON THE BEACH",
       "appId": 3280350,
       "headerUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3280350/6270c77b0729e2df0a17d660286eeddfd9169386/header.jpg?t=1774022345",
       "capsuleUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3280350/6e07f61e2585bae97d2406d45666a7ee70543792/capsule_231x87.jpg?t=1774022345",
       "portraitUrl": "https://cdn.akamai.steamstatic.com/steam/apps/3280350/library_600x900.jpg",
       "playtimeForeverMinutes": 4985,
-      "playtime2WeeksMinutes": 904,
+      "playtime2WeeksMinutes": 748,
       "lastPlayed": "2026-06-10T10:26:53.000Z",
       "playtimeByPlatform": {
         "windows": 4985,
@@ -136,22 +152,6 @@
       }
     },
     {
-      "name": "Baldur's Gate 3",
-      "appId": 1086940,
-      "headerUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1086940/48a2fcbda8565bb45025e98fd8ebde8a7203f6a0/header.jpg?t=1777363040",
-      "capsuleUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1086940/3dd81008e9c385caf68152450c22353f6a8abec9/capsule_231x87.jpg?t=1777363040",
-      "portraitUrl": "https://cdn.akamai.steamstatic.com/steam/apps/1086940/library_600x900.jpg",
-      "playtimeForeverMinutes": 15136,
-      "playtime2WeeksMinutes": 0,
-      "lastPlayed": "2025-10-18T08:02:08.000Z",
-      "playtimeByPlatform": {
-        "windows": 15136,
-        "mac": 0,
-        "linux": 0,
-        "deck": 0
-      }
-    },
-    {
       "name": "Portal with RTX",
       "appId": 2012840,
       "headerUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2012840/header.jpg?t=1747634461",
@@ -171,12 +171,23 @@
   "stats": {
     "totalGamesOwned": 118,
     "totalGamesPlayed": 66,
-    "totalPlaytimeMinutes": 212511,
-    "totalPlaytimeHours": 3541.9,
-    "gamesPlayedLast2Weeks": 1,
-    "minutesLast2Weeks": 904
+    "totalPlaytimeMinutes": 212612,
+    "totalPlaytimeHours": 3543.5,
+    "gamesPlayedLast2Weeks": 2,
+    "minutesLast2Weeks": 849
   },
   "dailyLog": [
+    {
+      "date": "2026-06-15",
+      "totalMinutes": 101,
+      "games": [
+        {
+          "name": "Baldur's Gate 3",
+          "appId": 1086940,
+          "minutesPlayed": 101
+        }
+      ]
+    },
     {
       "date": "2026-06-11",
       "totalMinutes": 207,
@@ -614,7 +625,7 @@
     }
   ],
   "snapshot": {
-    "date": "2026-06-14",
+    "date": "2026-06-15",
     "games": {
       "10": 25,
       "20": 0,
@@ -725,7 +736,7 @@
       "623990": 0,
       "718560": 2494,
       "1030830": 0,
-      "1086940": 15136,
+      "1086940": 15237,
       "1238040": 0,
       "1850570": 6809,
       "2012840": 167,
