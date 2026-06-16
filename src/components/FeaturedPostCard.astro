@@ -1,7 +1,8 @@
 ---
-import { render, type CollectionEntry } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 import { Image } from 'astro:assets';
 import { getReadingTime } from '@utils/reading-time';
+import { getExcerpt } from '@utils/excerpt';
 import { getPostSlug } from '@utils/content';
 
 interface Props {
@@ -9,8 +10,8 @@ interface Props {
 }
 
 const { post } = Astro.props;
-const { Content } = await render(post);
 const { heroImage, heroImageAlt, heroFocus } = post.data;
+const excerpt = getExcerpt(post.body ?? '');
 
 const primaryTag = post.data.tags[0] ?? null;
 const isoDate = new Date(post.data.pubDate).toISOString().slice(0, 10);
@@ -49,8 +50,8 @@ const href = `/posts/${slug}/`;
       <a href={href}>{post.data.title}</a>
     </h2>
 
-    <div class="gvns-featured__body prose">
-      <Content />
+    <div class="gvns-featured__body">
+      <p class="gvns-featured__excerpt">{excerpt}</p>
     </div>
 
     <footer class="gvns-featured__footer">
@@ -145,7 +146,14 @@ const href = `/posts/${slug}/`;
   }
 
   .gvns-featured__body {
-    /* prose typography inherits from global .prose rules */
+    /* Plain-text teaser (first ~160 words), not the full rendered post. */
+  }
+
+  .gvns-featured__excerpt {
+    margin: 0;
+    color: var(--colour-text-secondary);
+    font-size: 1rem;
+    line-height: 1.7;
   }
 
   .gvns-featured__footer {
