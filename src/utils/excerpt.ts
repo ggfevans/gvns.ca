@@ -26,8 +26,11 @@ export function getExcerpt(content: string, maxWords: number = DEFAULT_MAX_WORDS
   do {
     previous = text;
     text = text
-      .replace(/<!--[\s\S]*?-->/g, '')
-      .replace(/<\/?[A-Za-z][^>]*>/g, '');
+      // Comments — consume through `-->` OR end-of-string so an unterminated
+      // `<!--` can't survive (complete sanitization; clears CodeQL
+      // js/incomplete-multi-character-sanitization).
+      .replace(/<!--[\s\S]*?(?:-->|$)/g, ' ')
+      .replace(/<\/?[A-Za-z][^>]*>/g, ' ');
   } while (text !== previous);
 
   text = text
