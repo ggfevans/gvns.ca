@@ -14,12 +14,20 @@ const ELLIPSIS = '…';
  * text wholesale — fine for counting, wrong for readable prose).
  */
 export function getExcerpt(content: string, maxWords: number = DEFAULT_MAX_WORDS): string {
-  // Strip HTML tags iteratively to handle nested/crafted tags like <scr<script>ipt>.
+  // Clamp to a sane positive integer so a stray 0/negative/float caller can't
+  // break the "first N words" contract.
+  const limit = Number.isFinite(maxWords) ? Math.max(1, Math.floor(maxWords)) : DEFAULT_MAX_WORDS;
+
+  // Strip HTML comments and tags iteratively (handles nested/crafted tags like
+  // <scr<script>ipt>). Only real tags (<tag>, </tag>) are removed, so prose
+  // like "x < y > z" survives.
   let text = content;
   let previous: string;
   do {
     previous = text;
-    text = text.replace(/<[^>]*>/g, '');
+    text = text
+      .replace(/<!--[\s\S]*?-->/g, '')
+      .replace(/<\/?[A-Za-z][^>]*>/g, '');
   } while (text !== previous);
 
   text = text
@@ -36,6 +44,6 @@ export function getExcerpt(content: string, maxWords: number = DEFAULT_MAX_WORDS
     .trim();
 
   const words = text.split(' ').filter(Boolean);
-  if (words.length <= maxWords) return words.join(' ');
-  return words.slice(0, maxWords).join(' ') + ELLIPSIS;
+  if (words.length <= limit) return words.join(' ');
+  return words.slice(0, limit).join(' ') + ELLIPSIS;
 }
