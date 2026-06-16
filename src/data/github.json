@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-06-15T04:33:38.902Z",
+  "lastUpdated": "2026-06-16T04:33:27.323Z",
   "contributions": {
-    "total": 6565,
-    "commits": 2248,
-    "pullRequests": 581,
+    "total": 6603,
+    "commits": 2281,
+    "pullRequests": 594,
     "pullRequestReviews": 1,
-    "issues": 573,
-    "restricted": 3076
+    "issues": 576,
+    "restricted": 3064
   },
   "calendar": {
     "weeks": [
@@ -2018,7 +2018,7 @@
           },
           {
             "date": "2026-06-10",
-            "count": 16,
+            "count": 18,
             "level": 1
           },
           {
@@ -2042,7 +2042,12 @@
         "days": [
           {
             "date": "2026-06-14",
-            "count": 35,
+            "count": 66,
+            "level": 3
+          },
+          {
+            "date": "2026-06-15",
+            "count": 25,
             "level": 2
           }
         ]
@@ -2050,17 +2055,40 @@
     ]
   },
   "streak": {
-    "current": 18,
+    "current": 19,
     "longest": 61,
     "today": false
   },
-  "recentActivity": [],
+  "recentActivity": [
+    {
+      "type": "issue",
+      "repo": "gvns.ca",
+      "repoUrl": "https://github.com/ggfevans/gvns.ca",
+      "title": "chore: render optimized images on PR preview deploys (sharp fallback on non-prod hosts)",
+      "url": "https://github.com/ggfevans/gvns.ca/issues/717",
+      "date": "2026-06-16T04:27:06Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "gvns.ca",
+      "repoUrl": "https://github.com/ggfevans/gvns.ca",
+      "title": "[threads-auth] Token refreshed but secret update failed",
+      "url": "https://github.com/ggfevans/gvns.ca/issues/715",
+      "date": "2026-06-15T14:01:19Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    }
+  ],
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 173,
-    "contributionsThisMonth": 930,
-    "repositoriesThisWeek": 0
+    "contributionsThisWeek": 207,
+    "contributionsThisMonth": 937,
+    "repositoriesThisWeek": 1
   },
   "repositories": [
     {
@@ -2072,12 +2100,12 @@
       "url": "https://github.com/ggfevans/gvns.ca"
     },
     {
-      "name": "zed-hujson",
-      "description": "HuJSON language grammar for Zed",
-      "language": "Shell",
-      "languageColor": "#89e051",
+      "name": "insta-unfollow",
+      "description": "",
+      "language": "Python",
+      "languageColor": "#3572A5",
       "stars": 0,
-      "url": "https://github.com/ggfevans/zed-hujson"
+      "url": "https://github.com/ggfevans/insta-unfollow"
     },
     {
       "name": "tree-sitter-hujson",
@@ -2086,6 +2114,14 @@
       "languageColor": "#89e051",
       "stars": 0,
       "url": "https://github.com/ggfevans/tree-sitter-hujson"
+    },
+    {
+      "name": "zed-hujson",
+      "description": "HuJSON language grammar for Zed",
+      "language": "Shell",
+      "languageColor": "#89e051",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/zed-hujson"
     },
     {
       "name": "gwilym.ca",
@@ -2150,14 +2186,6 @@
       "languageColor": "#3572A5",
       "stars": 1,
       "url": "https://github.com/ggfevans/listenbrainz-csv-upload"
-    },
-    {
-      "name": "route-to-art",
-      "description": "Transform GPX route files into visual artwork — CLI and web interface for GPS art generation",
-      "language": "Python",
-      "languageColor": "#3572A5",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/route-to-art"
     }
   ]
 }
