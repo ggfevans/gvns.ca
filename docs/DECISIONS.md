@@ -569,6 +569,15 @@ Wire `@unpic/astro` as Astro's image service with `fallbackService: "cloudflare"
 - Installed with `--legacy-peer-deps` because `@unpic/astro@1.0.2` declares `astro@^2 || ^3 || ^4 || ^5.0.0-beta` as its peer range; Astro 6 isn't listed yet but the runtime API used (`getURL`/`getHTMLAttributes`) is unchanged. Track upstream and drop the flag once 6 lands in the peer range.
 - Absolute-fill `<Image>` consumers (e.g. `class="size-full object-cover"` inside an aspect-ratio container) need `layout="fullWidth"` to skip unpic's inline `aspect-ratio` injection — otherwise the image renders at its intrinsic ratio and fights the parent. Current state: `src/components/HorizontalPostCard.astro` (homepage post cards) sets `layout="fullWidth"` for this reason. `src/components/starwind-pro/feature-13/Feature13.astro` would also be affected but is vendor reference material that the project doesn't import. When adding new `<Image>` usages, grep `rg 'size-full|inset-0' src/**/*.astro` against `astro:assets` imports to catch absolute-fill cases.
 
+### Update (#717): preview deploys fall back to `passthrough`
+
+`/cdn-cgi/image/` transforms are only served on the production `gvns.ca` zone, so on `*.workers.dev` PR/branch previews every unpic transform URL returns **404** and optimised images appear broken — image work can't be visually QA'd on the preview URL. As of #717, `astro.config.mjs` gates the image service on the build branch:
+
+- **Production** (`WORKERS_CI_BRANCH === "main"`, or the var absent — fail-safe so prod never silently loses transforms): unchanged — adapter `imageService: "custom"` + the unpic service. Markup still emits `/cdn-cgi/image/...`.
+- **Previews** (any other branch on Workers Builds): adapter `imageService: "passthrough"` and the `image.service` block is omitted. Astro emits `/_image?href=/_astro/<asset>` URLs served by the adapter's passthrough endpoint (`@astrojs/cloudflare/image-passthrough-endpoint`), which streams the original asset from the `ASSETS` binding with HTTP 200 — no `/cdn-cgi/` zone dependency. Images render unoptimised but visible.
+
+Production output/markup is untouched; only non-`main` builds diverge.
+
 ---
 
 ## ADR-019: Swap Footer 9 → Starwind Pro Footer 1 (Socials)
