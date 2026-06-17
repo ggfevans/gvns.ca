@@ -29,9 +29,10 @@ try {
 // production `gvns.ca` zone, so the unpic service's transform URLs 404 on preview hosts
 // and optimised images appear broken there (issue #717).
 //
-// `WORKERS_CI_BRANCH` is injected by Workers Builds. Treat a missing/unknown value as
-// production so prod can never silently lose Image Transformations — only a positively
-// identified non-`main` branch is treated as a preview.
+// `WORKERS_CI_BRANCH` is injected by Workers Builds. A missing value (local builds, or
+// if Workers Builds ever stops injecting it) falls back to production so prod can never
+// silently lose Image Transformations; only a positively identified non-`main` branch is
+// treated as a preview.
 const ciBranch = process.env.WORKERS_CI_BRANCH;
 const isProduction = !ciBranch || ciBranch === "main";
 
