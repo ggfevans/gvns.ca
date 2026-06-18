@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-06-17T04:32:40.098Z",
+  "lastUpdated": "2026-06-18T04:32:11.261Z",
   "contributions": {
-    "total": 6618,
-    "commits": 2285,
-    "pullRequests": 596,
+    "total": 6630,
+    "commits": 2286,
+    "pullRequests": 597,
     "pullRequestReviews": 1,
-    "issues": 579,
-    "restricted": 3070
+    "issues": 580,
+    "restricted": 3079
   },
   "calendar": {
     "weeks": [
@@ -2052,7 +2052,12 @@
           },
           {
             "date": "2026-06-16",
-            "count": 6,
+            "count": 8,
+            "level": 1
+          },
+          {
+            "date": "2026-06-17",
+            "count": 10,
             "level": 1
           }
         ]
@@ -2060,31 +2065,27 @@
     ]
   },
   "streak": {
-    "current": 20,
+    "current": 21,
     "longest": 61,
     "today": false
   },
-  "recentActivity": [
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "chore: render optimized images on PR preview deploys (sharp fallback on non-prod hosts)",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/717",
-      "date": "2026-06-17T03:24:20Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    }
-  ],
+  "recentActivity": [],
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 204,
-    "contributionsThisMonth": 885,
-    "repositoriesThisWeek": 1
+    "contributionsThisWeek": 198,
+    "contributionsThisMonth": 839,
+    "repositoriesThisWeek": 0
   },
   "repositories": [
+    {
+      "name": "tree-sitter-hujson",
+      "description": "A tree-sitter grammar for HuJSON (Human JSON)",
+      "language": "Shell",
+      "languageColor": "#89e051",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/tree-sitter-hujson"
+    },
     {
       "name": "gvns.ca",
       "description": "",
@@ -2100,14 +2101,6 @@
       "languageColor": "#3572A5",
       "stars": 0,
       "url": "https://github.com/ggfevans/insta-unfollow"
-    },
-    {
-      "name": "tree-sitter-hujson",
-      "description": "A tree-sitter grammar for HuJSON (Human JSON)",
-      "language": "Shell",
-      "languageColor": "#89e051",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/tree-sitter-hujson"
     },
     {
       "name": "zed-hujson",
