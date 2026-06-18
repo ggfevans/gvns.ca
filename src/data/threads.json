@@ -1,6 +1,22 @@
 {
-  "lastUpdated": "2026-06-15T08:28:26.765Z",
+  "lastUpdated": "2026-06-18T05:54:00.939Z",
   "posts": [
+    {
+      "id": "17885737908420746",
+      "text": "The first thing I did when @andii_dawn told me Commodore are making a flip phone was giggle like a child. The second thing was to think of telling @imdavidpierce because this seems like their jam. Turns out, he's already well aware https://www.theverge.com/tech/950190/commodore-callback-flip-phone\n\nactual site here: https://commodore.net/callback/",
+      "permalink": "https://www.threads.com/@ggfevans/post/DZtrzMllHZQ",
+      "timestamp": "2026-06-18T04:28:06+0000",
+      "mediaType": "TEXT_POST",
+      "isQuotePost": false
+    },
+    {
+      "id": "18205074106355069",
+      "text": "Poll for web app devs. Rackula is a rack layout tool: you drag gear into rack slots. Targeting homelabbers, AV techs, small businesses. \nOn mobile, I’m seeing two problems: limited screen space, and drag-and-drop on touch isn’t viable.\n\nSo “support mobile” isn’t responsive CSS, it means a whole new UX pattern. \n\nAccording to my analytics, most first-timers arrive on mobile. If you were me, would you spend the time to work through the UX challenges, or go desktop-first or even desktop only?",
+      "permalink": "https://www.threads.com/@ggfevans/post/DZtpFBUlGo0",
+      "timestamp": "2026-06-18T04:04:19+0000",
+      "mediaType": "TEXT_POST",
+      "isQuotePost": false
+    },
     {
       "id": "18074795999669291",
       "text": "Just noticed \"Export your informationn\" is a typo on the Instagram export privacy page, right at the top, and for some reason I find that funny https://privacycenter.instagram.com/guide/dyi/?entry_point=privacy_center_home",
@@ -14,22 +30,6 @@
       "text": "📝 Dark Patterns: A Rant About Meta\n\nMeta makes it trivial to follow thousands of accounts and miserable to leave them",
       "permalink": "https://www.threads.com/@ggfevans/post/DZmGpjNFmSQ",
       "timestamp": "2026-06-15T05:49:21+0000",
-      "mediaType": "TEXT_POST",
-      "isQuotePost": false
-    },
-    {
-      "id": "17913658314407725",
-      "text": "Meta and it's user interface dark patterns _really_ piss me off: they actively prevent you from unfollowing more than a few accounts at a time, while there is no rate limit for adding follows.\n\nI've had an Instagram account for ~14 years, and over the years my idiot self has followed a LOT of accounts that I now want to cleanse. 4945 accounts, culled from an export of my followed list. To unfollow this many using the app (or web) is tedious and time consuming. Surely, there's a better way.",
-      "permalink": "https://www.threads.com/@ggfevans/post/DZl7ktMlIhe",
-      "timestamp": "2026-06-15T04:12:01+0000",
-      "mediaType": "TEXT_POST",
-      "isQuotePost": false
-    },
-    {
-      "id": "17905933626264596",
-      "text": "Do I have any thriends who are familiar with or better yet frequent users of FME Flow? I'd like to pick your brain.\n\nWeird Sunday night question, I know.",
-      "permalink": "https://www.threads.com/@ggfevans/post/DZl3xotlKao",
-      "timestamp": "2026-06-15T03:38:49+0000",
       "mediaType": "TEXT_POST",
       "isQuotePost": false
     }
