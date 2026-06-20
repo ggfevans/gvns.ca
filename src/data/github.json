@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-06-19T04:33:13.209Z",
+  "lastUpdated": "2026-06-20T04:30:18.088Z",
   "contributions": {
-    "total": 6639,
-    "commits": 2287,
-    "pullRequests": 598,
+    "total": 6652,
+    "commits": 2290,
+    "pullRequests": 601,
     "pullRequestReviews": 1,
-    "issues": 581,
-    "restricted": 3085
+    "issues": 582,
+    "restricted": 3091
   },
   "calendar": {
     "weeks": [
@@ -2062,7 +2062,12 @@
           },
           {
             "date": "2026-06-18",
-            "count": 4,
+            "count": 7,
+            "level": 1
+          },
+          {
+            "date": "2026-06-19",
+            "count": 10,
             "level": 1
           }
         ]
@@ -2070,19 +2075,39 @@
     ]
   },
   "streak": {
-    "current": 22,
+    "current": 23,
     "longest": 61,
     "today": false
   },
-  "recentActivity": [],
+  "recentActivity": [
+    {
+      "type": "issue",
+      "repo": "zed",
+      "repoUrl": "https://github.com/zed-industries/zed",
+      "title": "Zed Folder Panel in left dock continues to receive mouse input while minimized in macOS Stage Manager",
+      "url": "https://github.com/zed-industries/zed/issues/46336",
+      "date": "2026-06-20T03:15:04Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    }
+  ],
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 173,
-    "contributionsThisMonth": 697,
-    "repositoriesThisWeek": 0
+    "contributionsThisWeek": 160,
+    "contributionsThisMonth": 698,
+    "repositoriesThisWeek": 1
   },
   "repositories": [
+    {
+      "name": "gvns.ca",
+      "description": "",
+      "language": "Astro",
+      "languageColor": "#ff5a03",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/gvns.ca"
+    },
     {
       "name": "tree-sitter-hujson",
       "description": "A tree-sitter grammar for HuJSON (Human JSON)",
@@ -2106,14 +2131,6 @@
       "languageColor": "#ff5a03",
       "stars": 0,
       "url": "https://github.com/ggfevans/gwilym.ca"
-    },
-    {
-      "name": "gvns.ca",
-      "description": "",
-      "language": "Astro",
-      "languageColor": "#ff5a03",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/gvns.ca"
     },
     {
       "name": "insta-unfollow",
