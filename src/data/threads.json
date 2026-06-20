@@ -1,6 +1,14 @@
 {
-  "lastUpdated": "2026-06-19T22:33:36.349Z",
+  "lastUpdated": "2026-06-20T03:24:01.095Z",
   "posts": [
+    {
+      "id": "18083967818157181",
+      "text": "Listening to Uhh Yeah Dude ep 1099 - Seth is going off about how AI will ruin sports over the next 10 years because kids, rather than just trying real hard like Larry Bird, they’ll just go to Claude and build a training plan.  Coach Claude is gonna be our downfall. \n\nAs someone who regularly uses Claude for pretty much every challenge in my life, I  absolutely agree that this sort of exporting our self direction to a computer is probably going to have significant consequences.",
+      "permalink": "https://www.threads.com/@ggfevans/post/DZym7kGFC_e",
+      "timestamp": "2026-06-20T02:21:45+0000",
+      "mediaType": "TEXT_POST",
+      "isQuotePost": false
+    },
     {
       "id": "18377909251160278",
       "text": "I've been trying to make the most of my Claude subscription, fully aware of the ever-present looming thread of Anthropic and other frontier model providers halting their subsidized approach to subscriptions. \n\nAccording to CodexBar, I've used the equivalent of $6,246.08 USD of tokens in the last 30 days at API prices. That is roughly 32x the price I am paying right now.",
@@ -22,14 +30,6 @@
       "text": "Poll for web app devs. Rackula is a rack layout tool: you drag gear into rack slots. Targeting homelabbers, AV techs, small businesses. \nOn mobile, I’m seeing two problems: limited screen space, and drag-and-drop on touch isn’t viable.\n\nSo “support mobile” isn’t responsive CSS, it means a whole new UX pattern. \n\nAccording to my analytics, most first-timers arrive on mobile. If you were me, would you spend the time to work through the UX challenges, or go desktop-first or even desktop only?",
       "permalink": "https://www.threads.com/@ggfevans/post/DZtpFBUlGo0",
       "timestamp": "2026-06-18T04:04:19+0000",
-      "mediaType": "TEXT_POST",
-      "isQuotePost": false
-    },
-    {
-      "id": "18074795999669291",
-      "text": "Just noticed \"Export your informationn\" is a typo on the Instagram export privacy page, right at the top, and for some reason I find that funny https://privacycenter.instagram.com/guide/dyi/?entry_point=privacy_center_home",
-      "permalink": "https://www.threads.com/@ggfevans/post/DZmNRJxFBY2",
-      "timestamp": "2026-06-15T06:46:38+0000",
       "mediaType": "TEXT_POST",
       "isQuotePost": false
     }
