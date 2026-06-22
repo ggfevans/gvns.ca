@@ -1,54 +1,15 @@
 {
-  "lastUpdated": "2026-06-21T04:32:30.777Z",
+  "lastUpdated": "2026-06-22T04:33:46.975Z",
   "contributions": {
-    "total": 6653,
+    "total": 6658,
     "commits": 2290,
     "pullRequests": 601,
     "pullRequestReviews": 1,
-    "issues": 583,
-    "restricted": 3091
+    "issues": 584,
+    "restricted": 3095
   },
   "calendar": {
     "weeks": [
-      {
-        "days": [
-          {
-            "date": "2025-06-15",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-06-16",
-            "count": 4,
-            "level": 1
-          },
-          {
-            "date": "2025-06-17",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-06-18",
-            "count": 12,
-            "level": 1
-          },
-          {
-            "date": "2025-06-19",
-            "count": 44,
-            "level": 2
-          },
-          {
-            "date": "2025-06-20",
-            "count": 2,
-            "level": 1
-          },
-          {
-            "date": "2025-06-21",
-            "count": 22,
-            "level": 1
-          }
-        ]
-      },
       {
         "days": [
           {
@@ -2072,6 +2033,15 @@
           },
           {
             "date": "2026-06-20",
+            "count": 5,
+            "level": 1
+          }
+        ]
+      },
+      {
+        "days": [
+          {
+            "date": "2026-06-21",
             "count": 0,
             "level": 0
           }
@@ -2084,25 +2054,13 @@
     "longest": 61,
     "today": false
   },
-  "recentActivity": [
-    {
-      "type": "issue",
-      "repo": "zed",
-      "repoUrl": "https://github.com/zed-industries/zed",
-      "title": "Zed Folder Panel in left dock continues to receive mouse input while minimized in macOS Stage Manager",
-      "url": "https://github.com/zed-industries/zed/issues/46336",
-      "date": "2026-06-20T03:15:04Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    }
-  ],
+  "recentActivity": [],
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 141,
-    "contributionsThisMonth": 653,
-    "repositoriesThisWeek": 1
+    "contributionsThisWeek": 80,
+    "contributionsThisMonth": 654,
+    "repositoriesThisWeek": 0
   },
   "repositories": [
     {
