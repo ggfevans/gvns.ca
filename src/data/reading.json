@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-22T04:33:55Z",
+  "lastUpdated": "2026-06-23T04:24:59Z",
   "currentlyReading": [
     {
       "title": "Enshittification: Why Everything Suddenly Got Worse and What to Do About It",
@@ -15,6 +15,14 @@
     }
   ],
   "finished": [
+    {
+      "title": "For We Are Many",
+      "author": "Dennis E. Taylor",
+      "coverUrl": "https://assets.hardcover.app/edition/30407482/2715fec8-0b67-449d-bf61-327d57ecb4b8.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/for-we-are-many",
+      "rating": null,
+      "dateFinished": "2026-06-22T18:04:42.722709+00:00"
+    },
     {
       "title": "Sandworm: A New Era of Cyberwar and the Hunt for the Kremlin's Most Dangerous Hackers",
       "author": "Andy Greenberg",
@@ -102,14 +110,6 @@
       "hardcoverUrl": "https://hardcover.app/books/all-these-worlds",
       "rating": null,
       "dateFinished": "2025-10-01T07:43:13.980302+00:00"
-    },
-    {
-      "title": "For We Are Many",
-      "author": "Dennis E. Taylor",
-      "coverUrl": "https://assets.hardcover.app/edition/30407482/2715fec8-0b67-449d-bf61-327d57ecb4b8.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/for-we-are-many",
-      "rating": null,
-      "dateFinished": "2025-09-22T07:39:24.806107+00:00"
     }
   ],
   "wantToRead": [
