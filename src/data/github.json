@@ -1,11 +1,11 @@
 {
-  "lastUpdated": "2026-06-25T04:26:17.021Z",
+  "lastUpdated": "2026-06-26T04:29:35.967Z",
   "contributions": {
-    "total": 6582,
+    "total": 6583,
     "commits": 2291,
     "pullRequests": 603,
     "pullRequestReviews": 1,
-    "issues": 587,
+    "issues": 588,
     "restricted": 3013
   },
   "calendar": {
@@ -2057,15 +2057,20 @@
           },
           {
             "date": "2026-06-24",
-            "count": 1,
+            "count": 2,
             "level": 1
+          },
+          {
+            "date": "2026-06-25",
+            "count": 0,
+            "level": 0
           }
         ]
       }
     ]
   },
   "streak": {
-    "current": 28,
+    "current": 0,
     "longest": 61,
     "today": false
   },
@@ -2073,19 +2078,11 @@
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 31,
-    "contributionsThisMonth": 593,
+    "contributionsThisWeek": 25,
+    "contributionsThisMonth": 592,
     "repositoriesThisWeek": 0
   },
   "repositories": [
-    {
-      "name": "gvns.ca",
-      "description": "",
-      "language": "Astro",
-      "languageColor": "#ff5a03",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/gvns.ca"
-    },
     {
       "name": "tree-sitter-hujson",
       "description": "A tree-sitter grammar for HuJSON (Human JSON)",
@@ -2109,6 +2106,14 @@
       "languageColor": "#ff5a03",
       "stars": 0,
       "url": "https://github.com/ggfevans/gwilym.ca"
+    },
+    {
+      "name": "gvns.ca",
+      "description": "",
+      "language": "Astro",
+      "languageColor": "#ff5a03",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/gvns.ca"
     },
     {
       "name": "insta-unfollow",
