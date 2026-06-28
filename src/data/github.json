@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-06-27T04:22:46.652Z",
+  "lastUpdated": "2026-06-28T04:31:42.009Z",
   "contributions": {
-    "total": 6588,
+    "total": 6600,
     "commits": 2291,
     "pullRequests": 603,
     "pullRequestReviews": 1,
-    "issues": 589,
-    "restricted": 3017
+    "issues": 590,
+    "restricted": 3028
   },
   "calendar": {
     "weeks": [
@@ -2067,7 +2067,12 @@
           },
           {
             "date": "2026-06-26",
-            "count": 4,
+            "count": 7,
+            "level": 1
+          },
+          {
+            "date": "2026-06-27",
+            "count": 9,
             "level": 1
           }
         ]
@@ -2075,17 +2080,29 @@
     ]
   },
   "streak": {
-    "current": 30,
+    "current": 31,
     "longest": 61,
     "today": false
   },
-  "recentActivity": [],
+  "recentActivity": [
+    {
+      "type": "issue",
+      "repo": "gvns.ca",
+      "repoUrl": "https://github.com/ggfevans/gvns.ca",
+      "title": "[whoop-auth] Required env var(s) missing",
+      "url": "https://github.com/ggfevans/gvns.ca/issues/756",
+      "date": "2026-06-27T04:23:14Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    }
+  ],
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 19,
-    "contributionsThisMonth": 597,
-    "repositoriesThisWeek": 0
+    "contributionsThisWeek": 26,
+    "contributionsThisMonth": 605,
+    "repositoriesThisWeek": 1
   },
   "repositories": [
     {
@@ -2181,7 +2198,7 @@
       "description": "Import your Last.fm listening history into ListenBrainz from a CSV export",
       "language": "Python",
       "languageColor": "#3572A5",
-      "stars": 1,
+      "stars": 2,
       "url": "https://github.com/ggfevans/listenbrainz-csv-upload"
     }
   ]
