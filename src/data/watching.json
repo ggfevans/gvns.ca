@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-06-28T04:31:54Z",
+  "lastUpdated": "2026-06-29T04:33:16Z",
   "recentlyWatched": [
     {
-      "title": "It's Always Sunny in Philadelphia — S01E01",
+      "title": "It's Always Sunny in Philadelphia — S17E08",
       "type": "show",
       "posterUrl": "https://image.tmdb.org/t/p/w342/o0tMMK33JqmtpcWw0H41cEr9xQB.jpg",
       "url": "https://trakt.tv/shows/it-s-always-sunny-in-philadelphia",
-      "watchedDate": "2026-06-03T11:53:00.000Z"
+      "watchedDate": "2026-06-28T09:13:00.000Z"
     },
     {
       "title": "Lewis — S06E01",
@@ -105,34 +105,6 @@
       "posterUrl": "https://image.tmdb.org/t/p/w342/z7Nga7Q9IGFWs5OEduY2gGFxnX3.jpg",
       "url": "https://trakt.tv/shows/pluribus",
       "watchedDate": "2026-02-23T06:22:00.000Z"
-    },
-    {
-      "title": "Sentimental Value",
-      "type": "movie",
-      "posterUrl": "https://image.tmdb.org/t/p/w342/pz9NCWxxOk3o0W3v1Zkhawrwb4i.jpg",
-      "url": "https://trakt.tv/movies/sentimental-value-2025",
-      "watchedDate": "2026-02-16T05:32:00.000Z"
-    },
-    {
-      "title": "Banshee — S03E08",
-      "type": "show",
-      "posterUrl": "https://image.tmdb.org/t/p/w342/5nXFiz8Rn8eezVjSTZBd7HmnF1G.jpg",
-      "url": "https://trakt.tv/shows/banshee",
-      "watchedDate": "2026-02-15T12:24:00.000Z"
-    },
-    {
-      "title": "Detroiters — S02E02",
-      "type": "show",
-      "posterUrl": "https://image.tmdb.org/t/p/w342/hBxeoEzVola4LyhW3C7FjseFeWm.jpg",
-      "url": "https://trakt.tv/shows/detroiters",
-      "watchedDate": "2026-02-13T11:03:00.000Z"
-    },
-    {
-      "title": "Fallout — S02E08",
-      "type": "show",
-      "posterUrl": "https://image.tmdb.org/t/p/w342/c15BtJxCXMrISLVmysdsnZUPQft.jpg",
-      "url": "https://trakt.tv/shows/fallout",
-      "watchedDate": "2026-02-13T10:37:00.000Z"
     }
   ],
   "stats": {
