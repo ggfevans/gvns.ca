@@ -1,6 +1,14 @@
 {
-  "lastUpdated": "2026-06-29T08:07:15.496Z",
+  "lastUpdated": "2026-06-30T20:54:20.823Z",
   "posts": [
+    {
+      "id": "17872687137535246",
+      "text": "I just found this posting from Hostinger for a paid hosted version of my project Rackula on a VPS. \n\nRackula is under the MIT license, so commercial use is OK. Though I note they even use the logo, though they don't link the actual repo.\n\nI partially take this as a win: this is the first time I've ever seen something I made been sold as a service. \n\nIt also makes me think I need to be more cautious with my work/license.\n\nI'm curious, any other dev perspectives or similar experiences to this?",
+      "permalink": "https://www.threads.com/@ggfevans/post/DaOUorsElSY",
+      "timestamp": "2026-06-30T20:40:38+0000",
+      "mediaType": "TEXT_POST",
+      "isQuotePost": false
+    },
     {
       "id": "18059693459720781",
       "text": "Rackula v26.6.4 was released... yesterday! I meant to mention it. I've done a huge UX overhaul, with more to come. I'm learning to use my crayons properly and not eat them.\n\nhttps://github.com/RackulaLives/Rackula/releases/tag/v26.6.4",
