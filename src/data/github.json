@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-06-29T04:33:01.670Z",
+  "lastUpdated": "2026-06-30T04:26:48.312Z",
   "contributions": {
-    "total": 6611,
+    "total": 6501,
     "commits": 2294,
     "pullRequests": 606,
     "pullRequestReviews": 1,
     "issues": 591,
-    "restricted": 3032
+    "restricted": 2922
   },
   "calendar": {
     "weeks": [
@@ -2042,7 +2042,12 @@
         "days": [
           {
             "date": "2026-06-28",
-            "count": 3,
+            "count": 4,
+            "level": 1
+          },
+          {
+            "date": "2026-06-29",
+            "count": 11,
             "level": 1
           }
         ]
@@ -2050,182 +2055,19 @@
     ]
   },
   "streak": {
-    "current": 32,
+    "current": 33,
     "longest": 61,
     "today": false
   },
-  "recentActivity": [
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "[whoop-auth] Required env var(s) missing",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/758",
-      "date": "2026-06-28T06:00:15Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "[whoop-auth] Required env var(s) missing",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/756",
-      "date": "2026-06-28T06:00:15Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "[whoop-auth] Required env var(s) missing",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/754",
-      "date": "2026-06-28T06:00:14Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "[whoop-auth] Required env var(s) missing",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/752",
-      "date": "2026-06-28T06:00:14Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "[whoop-auth] Required env var(s) missing",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/750",
-      "date": "2026-06-28T06:00:14Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "[whoop-auth] Required env var(s) missing",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/744",
-      "date": "2026-06-28T06:00:14Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "[whoop-auth] Required env var(s) missing",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/742",
-      "date": "2026-06-28T06:00:14Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "[whoop-auth] Required env var(s) missing",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/746",
-      "date": "2026-06-28T06:00:14Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "[whoop-auth] Required env var(s) missing",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/739",
-      "date": "2026-06-28T06:00:14Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "[whoop-auth] Required env var(s) missing",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/733",
-      "date": "2026-06-28T06:00:14Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "[whoop-auth] Required env var(s) missing",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/728",
-      "date": "2026-06-28T06:00:13Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "[whoop-auth] Required env var(s) missing",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/718",
-      "date": "2026-06-28T06:00:13Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "[whoop-auth] Required env var(s) missing",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/706",
-      "date": "2026-06-28T06:00:13Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "[whoop-auth] Required env var(s) missing",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/730",
-      "date": "2026-06-28T06:00:12Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    }
-  ],
+  "recentActivity": [],
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 36,
-    "contributionsThisMonth": 603,
-    "repositoriesThisWeek": 1
+    "contributionsThisWeek": 43,
+    "contributionsThisMonth": 611,
+    "repositoriesThisWeek": 0
   },
   "repositories": [
-    {
-      "name": "gwilym.ca",
-      "description": "",
-      "language": "Astro",
-      "languageColor": "#ff5a03",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/gwilym.ca"
-    },
     {
       "name": "gvns.ca",
       "description": "",
@@ -2233,6 +2075,14 @@
       "languageColor": "#ff5a03",
       "stars": 0,
       "url": "https://github.com/ggfevans/gvns.ca"
+    },
+    {
+      "name": "gwilym.ca",
+      "description": "",
+      "language": "Astro",
+      "languageColor": "#ff5a03",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/gwilym.ca"
     },
     {
       "name": "tree-sitter-hujson",
