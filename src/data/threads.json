@@ -1,6 +1,14 @@
 {
-  "lastUpdated": "2026-06-30T20:54:20.823Z",
+  "lastUpdated": "2026-07-01T01:22:43.875Z",
   "posts": [
+    {
+      "id": "18058285523583783",
+      "text": "I upgraded to macOS 27 beta 2 today and noted that the TouchID auth prompts now require you to tap on the fingerprint icon to enable TouchID - so it goes from a one-touch to a click then touch, which is annoying. Haven't found any way to change this behaviour, anyone else noticing this?",
+      "permalink": "https://www.threads.com/@ggfevans/post/DaOsJJPD0Vt",
+      "timestamp": "2026-07-01T00:06:02+0000",
+      "mediaType": "IMAGE",
+      "isQuotePost": false
+    },
     {
       "id": "17872687137535246",
       "text": "I just found this posting from Hostinger for a paid hosted version of my project Rackula on a VPS. \n\nRackula is under the MIT license, so commercial use is OK. Though I note they even use the logo, though they don't link the actual repo.\n\nI partially take this as a win: this is the first time I've ever seen something I made been sold as a service. \n\nIt also makes me think I need to be more cautious with my work/license.\n\nI'm curious, any other dev perspectives or similar experiences to this?",
@@ -31,14 +39,6 @@
       "permalink": "https://www.threads.com/@ggfevans/post/DZym7kGFC_e",
       "timestamp": "2026-06-20T02:21:45+0000",
       "mediaType": "TEXT_POST",
-      "isQuotePost": false
-    },
-    {
-      "id": "18377909251160278",
-      "text": "I've been trying to make the most of my Claude subscription, fully aware of the ever-present looming thread of Anthropic and other frontier model providers halting their subsidized approach to subscriptions. \n\nAccording to CodexBar, I've used the equivalent of $6,246.08 USD of tokens in the last 30 days at API prices. That is roughly 32x the price I am paying right now.",
-      "permalink": "https://www.threads.com/@ggfevans/post/DZyLY6Vknon",
-      "timestamp": "2026-06-19T22:21:06+0000",
-      "mediaType": "IMAGE",
       "isQuotePost": false
     }
   ]
