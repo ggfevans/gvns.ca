@@ -1,6 +1,14 @@
 {
-  "lastUpdated": "2026-07-01T01:22:43.875Z",
+  "lastUpdated": "2026-07-01T05:50:00.419Z",
   "posts": [
+    {
+      "id": "18087584150410537",
+      "text": "I tried grilling pineapple today and it was _delicious_",
+      "permalink": "https://www.threads.com/@ggfevans/post/DaPPbUhFJbj",
+      "timestamp": "2026-07-01T05:14:21+0000",
+      "mediaType": "IMAGE",
+      "isQuotePost": false
+    },
     {
       "id": "18058285523583783",
       "text": "I upgraded to macOS 27 beta 2 today and noted that the TouchID auth prompts now require you to tap on the fingerprint icon to enable TouchID - so it goes from a one-touch to a click then touch, which is annoying. Haven't found any way to change this behaviour, anyone else noticing this?",
@@ -14,30 +22,6 @@
       "text": "I just found this posting from Hostinger for a paid hosted version of my project Rackula on a VPS. \n\nRackula is under the MIT license, so commercial use is OK. Though I note they even use the logo, though they don't link the actual repo.\n\nI partially take this as a win: this is the first time I've ever seen something I made been sold as a service. \n\nIt also makes me think I need to be more cautious with my work/license.\n\nI'm curious, any other dev perspectives or similar experiences to this?",
       "permalink": "https://www.threads.com/@ggfevans/post/DaOUorsElSY",
       "timestamp": "2026-06-30T20:40:38+0000",
-      "mediaType": "TEXT_POST",
-      "isQuotePost": false
-    },
-    {
-      "id": "18059693459720781",
-      "text": "Rackula v26.6.4 was released... yesterday! I meant to mention it. I've done a huge UX overhaul, with more to come. I'm learning to use my crayons properly and not eat them.\n\nhttps://github.com/RackulaLives/Rackula/releases/tag/v26.6.4",
-      "permalink": "https://www.threads.com/@ggfevans/post/DaKNgPHlMUC",
-      "timestamp": "2026-06-29T06:21:21+0000",
-      "mediaType": "TEXT_POST",
-      "isQuotePost": false
-    },
-    {
-      "id": "18079211471250700",
-      "text": "Claude Opus 4.8 in Ultracode mode is a beast: ran a 24 agent adversarial review of the Rackula codebase, finding 7 new issues and 3 existing. Now batching the fixes. \n\nIt was even smart enough to know it's own container has an 8GB heap, so sizing to not hit OOM. \n\nThis was started from my laptop, while I'm sitting in my car at a ferry terminal. \n\nI find that super cool 🤓",
-      "permalink": "https://www.threads.com/@ggfevans/post/DaKNOYplCjp",
-      "timestamp": "2026-06-29T06:18:54+0000",
-      "mediaType": "IMAGE",
-      "isQuotePost": false
-    },
-    {
-      "id": "18083967818157181",
-      "text": "Listening to Uhh Yeah Dude ep 1099 - Seth is going off about how AI will ruin sports over the next 10 years because kids, rather than just trying real hard like Larry Bird, they’ll just go to Claude and build a training plan.  Coach Claude is gonna be our downfall. \n\nAs someone who regularly uses Claude for pretty much every challenge in my life, I  absolutely agree that this sort of exporting our self direction to a computer is probably going to have significant consequences.",
-      "permalink": "https://www.threads.com/@ggfevans/post/DZym7kGFC_e",
-      "timestamp": "2026-06-20T02:21:45+0000",
       "mediaType": "TEXT_POST",
       "isQuotePost": false
     }
