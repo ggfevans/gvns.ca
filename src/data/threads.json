@@ -1,6 +1,14 @@
 {
-  "lastUpdated": "2026-07-01T05:50:00.419Z",
+  "lastUpdated": "2026-07-01T07:48:39.714Z",
   "posts": [
+    {
+      "id": "18085821611543251",
+      "text": "Rackula v26.6.6 just emerged. I barely noticed the number, honestly. Shipped 6.6.4 Saturday, 6.6.5 Monday, this one today, didn't even clock it, that's just how fast we move, we're a fast team, I don't count. (Hail Satan.) Anyway...\nhttps://github.com/RackulaLives/Rackula/releases/tag/v26.6.6",
+      "permalink": "https://www.threads.com/@ggfevans/post/DaPXVahFJsK",
+      "timestamp": "2026-07-01T06:23:27+0000",
+      "mediaType": "TEXT_POST",
+      "isQuotePost": false
+    },
     {
       "id": "18087584150410537",
       "text": "I tried grilling pineapple today and it was _delicious_",
@@ -15,14 +23,6 @@
       "permalink": "https://www.threads.com/@ggfevans/post/DaOsJJPD0Vt",
       "timestamp": "2026-07-01T00:06:02+0000",
       "mediaType": "IMAGE",
-      "isQuotePost": false
-    },
-    {
-      "id": "17872687137535246",
-      "text": "I just found this posting from Hostinger for a paid hosted version of my project Rackula on a VPS. \n\nRackula is under the MIT license, so commercial use is OK. Though I note they even use the logo, though they don't link the actual repo.\n\nI partially take this as a win: this is the first time I've ever seen something I made been sold as a service. \n\nIt also makes me think I need to be more cautious with my work/license.\n\nI'm curious, any other dev perspectives or similar experiences to this?",
-      "permalink": "https://www.threads.com/@ggfevans/post/DaOUorsElSY",
-      "timestamp": "2026-06-30T20:40:38+0000",
-      "mediaType": "TEXT_POST",
       "isQuotePost": false
     }
   ]
