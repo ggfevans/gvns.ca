@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-01T04:32:32.784Z",
+  "lastUpdated": "2026-07-02T04:25:08.917Z",
   "profile": {
     "steamId": "76561197962113454",
     "personaName": "Gareth",
@@ -13,11 +13,11 @@
       "headerUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3280350/6270c77b0729e2df0a17d660286eeddfd9169386/header.jpg?t=1774022345",
       "capsuleUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3280350/6e07f61e2585bae97d2406d45666a7ee70543792/capsule_231x87.jpg?t=1774022345",
       "portraitUrl": "https://cdn.akamai.steamstatic.com/steam/apps/3280350/library_600x900.jpg",
-      "playtimeForeverMinutes": 5295,
-      "playtime2WeeksMinutes": 310,
-      "lastPlayed": "2026-06-22T07:10:52.000Z",
+      "playtimeForeverMinutes": 6585,
+      "playtime2WeeksMinutes": 1600,
+      "lastPlayed": "2026-07-02T04:05:45.000Z",
       "playtimeByPlatform": {
-        "windows": 5295,
+        "windows": 6585,
         "mac": 0,
         "linux": 0,
         "deck": 0
@@ -30,7 +30,7 @@
       "capsuleUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1086940/3dd81008e9c385caf68152450c22353f6a8abec9/capsule_231x87.jpg?t=1777363040",
       "portraitUrl": "https://cdn.akamai.steamstatic.com/steam/apps/1086940/library_600x900.jpg",
       "playtimeForeverMinutes": 15915,
-      "playtime2WeeksMinutes": 490,
+      "playtime2WeeksMinutes": 331,
       "lastPlayed": "2026-06-20T07:45:00.000Z",
       "playtimeByPlatform": {
         "windows": 15915,
@@ -171,12 +171,23 @@
   "stats": {
     "totalGamesOwned": 118,
     "totalGamesPlayed": 66,
-    "totalPlaytimeMinutes": 213600,
-    "totalPlaytimeHours": 3560,
+    "totalPlaytimeMinutes": 214890,
+    "totalPlaytimeHours": 3581.5,
     "gamesPlayedLast2Weeks": 2,
-    "minutesLast2Weeks": 800
+    "minutesLast2Weeks": 1931
   },
   "dailyLog": [
+    {
+      "date": "2026-07-02",
+      "totalMinutes": 1290,
+      "games": [
+        {
+          "name": "DEATH STRANDING 2: ON THE BEACH",
+          "appId": 3280350,
+          "minutesPlayed": 1290
+        }
+      ]
+    },
     {
       "date": "2026-06-23",
       "totalMinutes": 174,
@@ -702,7 +713,7 @@
     }
   ],
   "snapshot": {
-    "date": "2026-07-01",
+    "date": "2026-07-02",
     "games": {
       "10": 25,
       "20": 0,
@@ -821,7 +832,7 @@
       "2642680": 70,
       "2708610": 0,
       "2807960": 470,
-      "3280350": 5295
+      "3280350": 6585
     }
   }
 }
