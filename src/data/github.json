@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-07-01T04:32:35.712Z",
+  "lastUpdated": "2026-07-02T04:25:11.910Z",
   "contributions": {
-    "total": 6520,
-    "commits": 2296,
-    "pullRequests": 608,
+    "total": 6529,
+    "commits": 2299,
+    "pullRequests": 612,
     "pullRequestReviews": 1,
     "issues": 591,
-    "restricted": 2937
+    "restricted": 2939
   },
   "calendar": {
     "weeks": [
@@ -2052,7 +2052,12 @@
           },
           {
             "date": "2026-06-30",
-            "count": 18,
+            "count": 21,
+            "level": 1
+          },
+          {
+            "date": "2026-07-01",
+            "count": 6,
             "level": 1
           }
         ]
@@ -2060,7 +2065,7 @@
     ]
   },
   "streak": {
-    "current": 34,
+    "current": 35,
     "longest": 61,
     "today": false
   },
@@ -2068,8 +2073,8 @@
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 61,
-    "contributionsThisMonth": 625,
+    "contributionsThisWeek": 68,
+    "contributionsThisMonth": 570,
     "repositoriesThisWeek": 0
   },
   "repositories": [
@@ -2080,6 +2085,14 @@
       "languageColor": "#ff5a03",
       "stars": 0,
       "url": "https://github.com/ggfevans/gvns.ca"
+    },
+    {
+      "name": "homebrew-launchd-updater",
+      "description": "Automated Homebrew updates via launchd. Runs at 2 AM, checks for AC power, and doesn't ask permission",
+      "language": "Shell",
+      "languageColor": "#89e051",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/homebrew-launchd-updater"
     },
     {
       "name": "gwilym.ca",
@@ -2160,14 +2173,6 @@
       "languageColor": "",
       "stars": 1,
       "url": "https://github.com/ggfevans/ai-disclosure"
-    },
-    {
-      "name": "listenbrainz-csv-upload",
-      "description": "Import your Last.fm listening history into ListenBrainz from a CSV export",
-      "language": "Python",
-      "languageColor": "#3572A5",
-      "stars": 2,
-      "url": "https://github.com/ggfevans/listenbrainz-csv-upload"
     }
   ]
 }
