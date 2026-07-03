@@ -1,27 +1,27 @@
 {
-  "lastUpdated": "2026-07-02T23:20:42.849Z",
+  "lastUpdated": "2026-07-03T04:06:24.737Z",
   "posts": [
+    {
+      "id": "18066986522714995",
+      "text": "Terraform/OpenTofu homelab users: what do you use to store state?",
+      "permalink": "https://www.threads.com/@ggfevans/post/DaT1fVrGUYA",
+      "timestamp": "2026-07-03T00:03:55+0000",
+      "mediaType": "TEXT_POST",
+      "isQuotePost": false
+    },
+    {
+      "id": "18404738371157299",
+      "text": "!!! big news for me: Rackula has been added to the Proxmox Community Scripts library!\n\nI began using Proxmox as my homelab hypervisor just over a year ago, and the Community Scripts were massively helpful in getting used to setting up containers. This was originally a resource built by a guy known as tteck, who has since passed, and is a big part of the Proxmox Community. \n\nFor me to now be giving back to the community with my own project is extremely gratifying. I'm proud of this.",
+      "permalink": "https://www.threads.com/@ggfevans/post/DaTxVi0D7b1",
+      "timestamp": "2026-07-02T23:27:37+0000",
+      "mediaType": "TEXT_POST",
+      "isQuotePost": false
+    },
     {
       "id": "18074467661330663",
       "text": "I use Dark Reader, a browser extension that inverts colours on light sites to make them easier to look at. It's so good I usually forget it's there, but every now and then I get something truly unhinged. Behold: PharmaSatan",
       "permalink": "https://www.threads.com/@ggfevans/post/DaTvClZAUTm",
       "timestamp": "2026-07-02T23:07:33+0000",
-      "mediaType": "IMAGE",
-      "isQuotePost": false
-    },
-    {
-      "id": "18085821611543251",
-      "text": "Rackula v26.6.6 just emerged. I barely noticed the number, honestly. Shipped 6.6.4 Saturday, 6.6.5 Monday, this one today, didn't even clock it, that's just how fast we move, we're a fast team, I don't count. (Hail Satan.) Anyway...\nhttps://github.com/RackulaLives/Rackula/releases/tag/v26.6.6",
-      "permalink": "https://www.threads.com/@ggfevans/post/DaPXVahFJsK",
-      "timestamp": "2026-07-01T06:23:27+0000",
-      "mediaType": "TEXT_POST",
-      "isQuotePost": false
-    },
-    {
-      "id": "18087584150410537",
-      "text": "I tried grilling pineapple today and it was _delicious_",
-      "permalink": "https://www.threads.com/@ggfevans/post/DaPPbUhFJbj",
-      "timestamp": "2026-07-01T05:14:21+0000",
       "mediaType": "IMAGE",
       "isQuotePost": false
     }
