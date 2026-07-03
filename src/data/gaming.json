@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-02T04:25:08.917Z",
+  "lastUpdated": "2026-07-03T06:27:31.786Z",
   "profile": {
     "steamId": "76561197962113454",
     "personaName": "Gareth",
@@ -8,32 +8,32 @@
   },
   "recentlyPlayed": [
     {
-      "name": "DEATH STRANDING 2: ON THE BEACH",
-      "appId": 3280350,
-      "headerUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3280350/6270c77b0729e2df0a17d660286eeddfd9169386/header.jpg?t=1774022345",
-      "capsuleUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3280350/6e07f61e2585bae97d2406d45666a7ee70543792/capsule_231x87.jpg?t=1774022345",
-      "portraitUrl": "https://cdn.akamai.steamstatic.com/steam/apps/3280350/library_600x900.jpg",
-      "playtimeForeverMinutes": 6585,
-      "playtime2WeeksMinutes": 1600,
-      "lastPlayed": "2026-07-02T04:05:45.000Z",
+      "name": "Baldur's Gate 3",
+      "appId": 1086940,
+      "headerUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1086940/48a2fcbda8565bb45025e98fd8ebde8a7203f6a0/header.jpg?t=1777363040",
+      "capsuleUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1086940/3dd81008e9c385caf68152450c22353f6a8abec9/capsule_231x87.jpg?t=1777363040",
+      "portraitUrl": "https://cdn.akamai.steamstatic.com/steam/apps/1086940/library_600x900.jpg",
+      "playtimeForeverMinutes": 16072,
+      "playtime2WeeksMinutes": 378,
+      "lastPlayed": "2026-07-02T07:53:50.000Z",
       "playtimeByPlatform": {
-        "windows": 6585,
+        "windows": 16072,
         "mac": 0,
         "linux": 0,
         "deck": 0
       }
     },
     {
-      "name": "Baldur's Gate 3",
-      "appId": 1086940,
-      "headerUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1086940/48a2fcbda8565bb45025e98fd8ebde8a7203f6a0/header.jpg?t=1777363040",
-      "capsuleUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1086940/3dd81008e9c385caf68152450c22353f6a8abec9/capsule_231x87.jpg?t=1777363040",
-      "portraitUrl": "https://cdn.akamai.steamstatic.com/steam/apps/1086940/library_600x900.jpg",
-      "playtimeForeverMinutes": 15915,
-      "playtime2WeeksMinutes": 331,
-      "lastPlayed": "2026-06-20T07:45:00.000Z",
+      "name": "DEATH STRANDING 2: ON THE BEACH",
+      "appId": 3280350,
+      "headerUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3280350/6270c77b0729e2df0a17d660286eeddfd9169386/header.jpg?t=1774022345",
+      "capsuleUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3280350/6e07f61e2585bae97d2406d45666a7ee70543792/capsule_231x87.jpg?t=1774022345",
+      "portraitUrl": "https://cdn.akamai.steamstatic.com/steam/apps/3280350/library_600x900.jpg",
+      "playtimeForeverMinutes": 6655,
+      "playtime2WeeksMinutes": 1670,
+      "lastPlayed": "2026-07-02T05:15:37.000Z",
       "playtimeByPlatform": {
-        "windows": 15915,
+        "windows": 6655,
         "mac": 0,
         "linux": 0,
         "deck": 0
@@ -171,12 +171,28 @@
   "stats": {
     "totalGamesOwned": 118,
     "totalGamesPlayed": 66,
-    "totalPlaytimeMinutes": 214890,
-    "totalPlaytimeHours": 3581.5,
+    "totalPlaytimeMinutes": 215117,
+    "totalPlaytimeHours": 3585.3,
     "gamesPlayedLast2Weeks": 2,
-    "minutesLast2Weeks": 1931
+    "minutesLast2Weeks": 2048
   },
   "dailyLog": [
+    {
+      "date": "2026-07-03",
+      "totalMinutes": 227,
+      "games": [
+        {
+          "name": "Baldur's Gate 3",
+          "appId": 1086940,
+          "minutesPlayed": 157
+        },
+        {
+          "name": "DEATH STRANDING 2: ON THE BEACH",
+          "appId": 3280350,
+          "minutesPlayed": 70
+        }
+      ]
+    },
     {
       "date": "2026-07-02",
       "totalMinutes": 1290,
@@ -713,7 +729,7 @@
     }
   ],
   "snapshot": {
-    "date": "2026-07-02",
+    "date": "2026-07-03",
     "games": {
       "10": 25,
       "20": 0,
@@ -824,7 +840,7 @@
       "623990": 0,
       "718560": 2494,
       "1030830": 0,
-      "1086940": 15915,
+      "1086940": 16072,
       "1238040": 0,
       "1850570": 6809,
       "2012840": 167,
@@ -832,7 +848,7 @@
       "2642680": 70,
       "2708610": 0,
       "2807960": 470,
-      "3280350": 6585
+      "3280350": 6655
     }
   }
 }
