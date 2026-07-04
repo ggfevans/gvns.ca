@@ -1,28 +1,20 @@
 {
-  "lastUpdated": "2026-07-03T04:06:24.737Z",
+  "lastUpdated": "2026-07-04T15:20:42.204Z",
   "posts": [
+    {
+      "id": "18100373513163707",
+      "text": "iOS 27 beta on my old iPhone 12 mini is giving flashbacks of iOS 17 betas: overheating, sluggish interface. Some Apple process is definitely running rampant in the background. I already disabled Enhanced Visual Search, no help. I went from 75% to 69 (nice) while writing this \n\nShows me right for running a beta on my personal device 🤦",
+      "permalink": "https://www.threads.com/@ggfevans/post/DaX7qnFlJ7a",
+      "timestamp": "2026-07-04T14:14:51+0000",
+      "mediaType": "TEXT_POST",
+      "isQuotePost": false
+    },
     {
       "id": "18066986522714995",
       "text": "Terraform/OpenTofu homelab users: what do you use to store state?",
       "permalink": "https://www.threads.com/@ggfevans/post/DaT1fVrGUYA",
       "timestamp": "2026-07-03T00:03:55+0000",
       "mediaType": "TEXT_POST",
-      "isQuotePost": false
-    },
-    {
-      "id": "18404738371157299",
-      "text": "!!! big news for me: Rackula has been added to the Proxmox Community Scripts library!\n\nI began using Proxmox as my homelab hypervisor just over a year ago, and the Community Scripts were massively helpful in getting used to setting up containers. This was originally a resource built by a guy known as tteck, who has since passed, and is a big part of the Proxmox Community. \n\nFor me to now be giving back to the community with my own project is extremely gratifying. I'm proud of this.",
-      "permalink": "https://www.threads.com/@ggfevans/post/DaTxVi0D7b1",
-      "timestamp": "2026-07-02T23:27:37+0000",
-      "mediaType": "TEXT_POST",
-      "isQuotePost": false
-    },
-    {
-      "id": "18074467661330663",
-      "text": "I use Dark Reader, a browser extension that inverts colours on light sites to make them easier to look at. It's so good I usually forget it's there, but every now and then I get something truly unhinged. Behold: PharmaSatan",
-      "permalink": "https://www.threads.com/@ggfevans/post/DaTvClZAUTm",
-      "timestamp": "2026-07-02T23:07:33+0000",
-      "mediaType": "IMAGE",
       "isQuotePost": false
     }
   ]
