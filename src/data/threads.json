@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-04T17:17:54.492Z",
+  "lastUpdated": "2026-07-05T04:29:58.143Z",
   "posts": [
     {
       "id": "18130392643616889",
@@ -14,14 +14,6 @@
       "text": "iOS 27 beta on my old iPhone 12 mini is giving flashbacks of iOS 17 betas: overheating, sluggish interface. Some Apple process is definitely running rampant in the background. I already disabled Enhanced Visual Search, no help. I went from 75% to 69 (nice) while writing this \n\nShows me right for running a beta on my personal device 🤦",
       "permalink": "https://www.threads.com/@ggfevans/post/DaX7qnFlJ7a",
       "timestamp": "2026-07-04T14:14:51+0000",
-      "mediaType": "TEXT_POST",
-      "isQuotePost": false
-    },
-    {
-      "id": "18066986522714995",
-      "text": "Terraform/OpenTofu homelab users: what do you use to store state?",
-      "permalink": "https://www.threads.com/@ggfevans/post/DaT1fVrGUYA",
-      "timestamp": "2026-07-03T00:03:55+0000",
       "mediaType": "TEXT_POST",
       "isQuotePost": false
     }
