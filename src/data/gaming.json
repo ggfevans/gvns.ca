@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-07T06:42:18.759Z",
+  "lastUpdated": "2026-07-08T05:47:02.088Z",
   "profile": {
     "steamId": "76561197962113454",
     "personaName": "Gareth",
@@ -58,8 +58,8 @@
     {
       "name": "Battlefield™ 6",
       "appId": 2807960,
-      "headerUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2807960/c12d12ce3c7d217398d3fcad77427bfc9d57c570/header.jpg?t=1782831583",
-      "capsuleUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2807960/d7ae078e0a543a97ff5a5d72165999535b0b1cdc/capsule_231x87.jpg?t=1782831583",
+      "headerUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2807960/c12d12ce3c7d217398d3fcad77427bfc9d57c570/header.jpg?t=1783436512",
+      "capsuleUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2807960/d7ae078e0a543a97ff5a5d72165999535b0b1cdc/capsule_231x87.jpg?t=1783436512",
       "portraitUrl": "https://cdn.akamai.steamstatic.com/steam/apps/2807960/library_600x900.jpg",
       "playtimeForeverMinutes": 470,
       "playtime2WeeksMinutes": 0,
@@ -740,7 +740,7 @@
     }
   ],
   "snapshot": {
-    "date": "2026-07-07",
+    "date": "2026-07-08",
     "games": {
       "10": 25,
       "20": 0,
