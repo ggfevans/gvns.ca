@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-08T05:47:16Z",
+  "lastUpdated": "2026-07-09T06:39:23Z",
   "currentlyReading": [
     {
       "title": "Enshittification: Why Everything Suddenly Got Worse and What to Do About It",
@@ -114,6 +114,12 @@
   ],
   "wantToRead": [
     {
+      "title": "If This Isn't Nice What Is? (Much) Expanded Second Edition: The Graduation Speeches and Other Words to Live By",
+      "author": "Kurt Vonnegut",
+      "coverUrl": "https://assets.hardcover.app/external_data/48923766/83dd85d5a89a8fe4be1342e724e7f84b6773a97a.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/if-this-isnt-nice-what-is-much-expanded-second-edition-the-graduation-speeches-and-other-words-to-live-by"
+    },
+    {
       "title": "The Surgeon of Crowthorne: A Tale of Murder, Madness and the Oxford English Dictionary",
       "author": "Simon Winchester",
       "coverUrl": "https://assets.hardcover.app/edition/30879754/ee21b1cb5d2f4632ff22d642ef349341f8b50dee.jpeg",
@@ -224,7 +230,7 @@
     {
       "title": "The Gate of the Feral Gods",
       "author": "Matt Dinniman",
-      "coverUrl": "https://assets.hardcover.app/edition/32402587/413583e40b9333a84f65bc0ee582326ce71b82ee.jpeg",
+      "coverUrl": "https://assets.hardcover.app/edition/31943704/04d5cb18-1725-4b03-9303-b6e9ee14942d.jpg",
       "hardcoverUrl": "https://hardcover.app/books/the-gate-of-the-feral-gods"
     },
     {
@@ -304,12 +310,6 @@
       "author": "Rebecca Roanhorse",
       "coverUrl": "https://assets.hardcover.app/book_mappings/7332858/c7932f5d466a101153b9b0eeeccb38100363f8aa.jpeg",
       "hardcoverUrl": "https://hardcover.app/books/black-sun"
-    },
-    {
-      "title": "The Tainted Cup",
-      "author": "Robert Jackson Bennett",
-      "coverUrl": "https://assets.hardcover.app/editions/30774097/5279737640186273-ttce1.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/the-tainted-cup"
     }
   ]
 }
