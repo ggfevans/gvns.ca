@@ -1,6 +1,13 @@
 {
-  "lastUpdated": "2026-07-09T06:39:27Z",
+  "lastUpdated": "2026-07-10T06:41:19Z",
   "recentlyWatched": [
+    {
+      "title": "Game Changer — S01E02",
+      "type": "show",
+      "posterUrl": "https://image.tmdb.org/t/p/w342/mSU06C03StJL9xBVIGij9GoqKHt.jpg",
+      "url": "https://trakt.tv/shows/game-changer",
+      "watchedDate": "2026-07-09T07:44:00.000Z"
+    },
     {
       "title": "It's Always Sunny in Philadelphia — S17E08",
       "type": "show",
@@ -63,38 +70,10 @@
       "posterUrl": "https://image.tmdb.org/t/p/w342/gRMalasZEzsZi4w2VFuYusfSfqf.jpg",
       "url": "https://trakt.tv/movies/peaky-blinders-the-immortal-man-2026",
       "watchedDate": "2026-03-27T09:28:00.000Z"
-    },
-    {
-      "title": "The Death of Stalin",
-      "type": "movie",
-      "posterUrl": "https://image.tmdb.org/t/p/w342/AqH7q89NxGRDAyRWKqsL3OBtYfV.jpg",
-      "url": "https://trakt.tv/movies/the-death-of-stalin-2017",
-      "watchedDate": "2026-03-27T07:00:00.000Z"
-    },
-    {
-      "title": "Springsteen: Deliver Me from Nowhere",
-      "type": "movie",
-      "posterUrl": "https://image.tmdb.org/t/p/w342/csBV3eq4RDjNg1acNQ8kwOZyPlZ.jpg",
-      "url": "https://trakt.tv/movies/springsteen-deliver-me-from-nowhere-2025",
-      "watchedDate": "2026-03-20T06:00:00.000Z"
-    },
-    {
-      "title": "In the Heights",
-      "type": "movie",
-      "posterUrl": "https://image.tmdb.org/t/p/w342/RO4KoJyoQMQzh9z76d4v4FJMmJ.jpg",
-      "url": "https://trakt.tv/movies/in-the-heights-2021",
-      "watchedDate": "2026-03-19T06:09:00.000Z"
-    },
-    {
-      "title": "Louis Theroux: Inside the Manosphere",
-      "type": "movie",
-      "posterUrl": "https://image.tmdb.org/t/p/w342/ouOvRvsgF37yEx3D6ZLWyuxZFjE.jpg",
-      "url": "https://trakt.tv/movies/louis-theroux-inside-the-manosphere-2026",
-      "watchedDate": "2026-03-18T06:10:00.000Z"
     }
   ],
   "stats": {
     "moviesThisMonth": 0,
-    "showsThisMonth": 1
+    "showsThisMonth": 2
   }
 }
