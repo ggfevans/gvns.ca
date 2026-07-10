@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-09T06:39:12.131Z",
+  "lastUpdated": "2026-07-10T06:40:43.985Z",
   "profile": {
     "steamId": "76561197962113454",
     "personaName": "Gareth",
@@ -13,11 +13,11 @@
       "headerUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3280350/6270c77b0729e2df0a17d660286eeddfd9169386/header.jpg?t=1774022345",
       "capsuleUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3280350/6e07f61e2585bae97d2406d45666a7ee70543792/capsule_231x87.jpg?t=1774022345",
       "portraitUrl": "https://cdn.akamai.steamstatic.com/steam/apps/3280350/library_600x900.jpg",
-      "playtimeForeverMinutes": 6706,
-      "playtime2WeeksMinutes": 1410,
-      "lastPlayed": "2026-07-04T06:15:22.000Z",
+      "playtimeForeverMinutes": 6736,
+      "playtime2WeeksMinutes": 1440,
+      "lastPlayed": "2026-07-10T06:33:15.000Z",
       "playtimeByPlatform": {
-        "windows": 6706,
+        "windows": 6736,
         "mac": 0,
         "linux": 0,
         "deck": 0
@@ -58,8 +58,8 @@
     {
       "name": "Battlefield™ 6",
       "appId": 2807960,
-      "headerUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2807960/c12d12ce3c7d217398d3fcad77427bfc9d57c570/header.jpg?t=1783436512",
-      "capsuleUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2807960/d7ae078e0a543a97ff5a5d72165999535b0b1cdc/capsule_231x87.jpg?t=1783436512",
+      "headerUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2807960/c12d12ce3c7d217398d3fcad77427bfc9d57c570/header.jpg?t=1783599385",
+      "capsuleUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2807960/d7ae078e0a543a97ff5a5d72165999535b0b1cdc/capsule_231x87.jpg?t=1783599385",
       "portraitUrl": "https://cdn.akamai.steamstatic.com/steam/apps/2807960/library_600x900.jpg",
       "playtimeForeverMinutes": 470,
       "playtime2WeeksMinutes": 0,
@@ -171,12 +171,23 @@
   "stats": {
     "totalGamesOwned": 118,
     "totalGamesPlayed": 66,
-    "totalPlaytimeMinutes": 215168,
-    "totalPlaytimeHours": 3586.1,
+    "totalPlaytimeMinutes": 215198,
+    "totalPlaytimeHours": 3586.6,
     "gamesPlayedLast2Weeks": 2,
-    "minutesLast2Weeks": 1567
+    "minutesLast2Weeks": 1597
   },
   "dailyLog": [
+    {
+      "date": "2026-07-10",
+      "totalMinutes": 30,
+      "games": [
+        {
+          "name": "DEATH STRANDING 2: ON THE BEACH",
+          "appId": 3280350,
+          "minutesPlayed": 30
+        }
+      ]
+    },
     {
       "date": "2026-07-04",
       "totalMinutes": 51,
@@ -740,7 +751,7 @@
     }
   ],
   "snapshot": {
-    "date": "2026-07-09",
+    "date": "2026-07-10",
     "games": {
       "10": 25,
       "20": 0,
@@ -859,7 +870,7 @@
       "2642680": 70,
       "2708610": 0,
       "2807960": 470,
-      "3280350": 6706
+      "3280350": 6736
     }
   }
 }
