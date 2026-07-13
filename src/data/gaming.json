@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-12T05:52:50.271Z",
+  "lastUpdated": "2026-07-13T06:11:27.087Z",
   "profile": {
     "steamId": "76561197962113454",
     "personaName": "Gareth",
@@ -13,11 +13,11 @@
       "headerUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3280350/6270c77b0729e2df0a17d660286eeddfd9169386/header.jpg?t=1774022345",
       "capsuleUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3280350/6e07f61e2585bae97d2406d45666a7ee70543792/capsule_231x87.jpg?t=1774022345",
       "portraitUrl": "https://cdn.akamai.steamstatic.com/steam/apps/3280350/library_600x900.jpg",
-      "playtimeForeverMinutes": 7309,
-      "playtime2WeeksMinutes": 2014,
-      "lastPlayed": "2026-07-11T11:53:02.000Z",
+      "playtimeForeverMinutes": 7440,
+      "playtime2WeeksMinutes": 2145,
+      "lastPlayed": "2026-07-12T08:18:03.000Z",
       "playtimeByPlatform": {
-        "windows": 7309,
+        "windows": 7440,
         "mac": 0,
         "linux": 0,
         "deck": 0
@@ -171,12 +171,23 @@
   "stats": {
     "totalGamesOwned": 118,
     "totalGamesPlayed": 66,
-    "totalPlaytimeMinutes": 215771,
-    "totalPlaytimeHours": 3596.2,
+    "totalPlaytimeMinutes": 215902,
+    "totalPlaytimeHours": 3598.4,
     "gamesPlayedLast2Weeks": 2,
-    "minutesLast2Weeks": 2171
+    "minutesLast2Weeks": 2302
   },
   "dailyLog": [
+    {
+      "date": "2026-07-13",
+      "totalMinutes": 131,
+      "games": [
+        {
+          "name": "DEATH STRANDING 2: ON THE BEACH",
+          "appId": 3280350,
+          "minutesPlayed": 131
+        }
+      ]
+    },
     {
       "date": "2026-07-12",
       "totalMinutes": 357,
@@ -773,7 +784,7 @@
     }
   ],
   "snapshot": {
-    "date": "2026-07-12",
+    "date": "2026-07-13",
     "games": {
       "10": 25,
       "20": 0,
@@ -892,7 +903,7 @@
       "2642680": 70,
       "2708610": 0,
       "2807960": 470,
-      "3280350": 7309
+      "3280350": 7440
     }
   }
 }
