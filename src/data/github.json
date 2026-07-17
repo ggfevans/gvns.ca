@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-07-16T05:35:50.714Z",
+  "lastUpdated": "2026-07-17T05:37:43.711Z",
   "contributions": {
-    "total": 6235,
+    "total": 6238,
     "commits": 2307,
     "pullRequests": 619,
     "pullRequestReviews": 1,
     "issues": 588,
-    "restricted": 2632
+    "restricted": 2635
   },
   "calendar": {
     "weeks": [
@@ -2057,15 +2057,20 @@
           },
           {
             "date": "2026-07-15",
-            "count": 0,
-            "level": 0
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2026-07-16",
+            "count": 2,
+            "level": 1
           }
         ]
       }
     ]
   },
   "streak": {
-    "current": 0,
+    "current": 50,
     "longest": 61,
     "today": false
   },
@@ -2074,10 +2079,34 @@
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
     "contributionsThisWeek": 54,
-    "contributionsThisMonth": 242,
+    "contributionsThisMonth": 237,
     "repositoriesThisWeek": 0
   },
   "repositories": [
+    {
+      "name": "tree-sitter-hujson",
+      "description": "A tree-sitter grammar for HuJSON (Human JSON)",
+      "language": "Shell",
+      "languageColor": "#89e051",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/tree-sitter-hujson"
+    },
+    {
+      "name": "endorse",
+      "description": "LinkedIn CLI / TUI. LinkedIn messaging without the feed, the ads, or the \"Thoughts?\" posts.",
+      "language": "Go",
+      "languageColor": "#00ADD8",
+      "stars": 14,
+      "url": "https://github.com/ggfevans/endorse"
+    },
+    {
+      "name": "gwilym.ca",
+      "description": "",
+      "language": "Astro",
+      "languageColor": "#ff5a03",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/gwilym.ca"
+    },
     {
       "name": "gvns.ca",
       "description": "",
@@ -2095,14 +2124,6 @@
       "url": "https://github.com/ggfevans/route-to-art"
     },
     {
-      "name": "endorse",
-      "description": "LinkedIn CLI / TUI. LinkedIn messaging without the feed, the ads, or the \"Thoughts?\" posts.",
-      "language": "Go",
-      "languageColor": "#00ADD8",
-      "stars": 14,
-      "url": "https://github.com/ggfevans/endorse"
-    },
-    {
       "name": "ggfevans",
       "description": "",
       "language": "Python",
@@ -2111,28 +2132,12 @@
       "url": "https://github.com/ggfevans/ggfevans"
     },
     {
-      "name": "tree-sitter-hujson",
-      "description": "A tree-sitter grammar for HuJSON (Human JSON)",
-      "language": "Shell",
-      "languageColor": "#89e051",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/tree-sitter-hujson"
-    },
-    {
       "name": "homebrew-launchd-updater",
       "description": "Automated Homebrew updates via launchd. Runs at 2 AM, checks for AC power, and doesn't ask permission",
       "language": "Shell",
       "languageColor": "#89e051",
       "stars": 0,
       "url": "https://github.com/ggfevans/homebrew-launchd-updater"
-    },
-    {
-      "name": "gwilym.ca",
-      "description": "",
-      "language": "Astro",
-      "languageColor": "#ff5a03",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/gwilym.ca"
     },
     {
       "name": "insta-unfollow",
