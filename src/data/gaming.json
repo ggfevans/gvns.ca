@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-18T05:20:24.588Z",
+  "lastUpdated": "2026-07-19T05:47:23.633Z",
   "profile": {
     "steamId": "76561197962113454",
     "personaName": "Gareth",
@@ -14,7 +14,7 @@
       "capsuleUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3280350/6e07f61e2585bae97d2406d45666a7ee70543792/capsule_231x87.jpg?t=1774022345",
       "portraitUrl": "https://cdn.akamai.steamstatic.com/steam/apps/3280350/library_600x900.jpg",
       "playtimeForeverMinutes": 7440,
-      "playtime2WeeksMinutes": 785,
+      "playtime2WeeksMinutes": 734,
       "lastPlayed": "2026-07-12T08:18:03.000Z",
       "playtimeByPlatform": {
         "windows": 7440,
@@ -174,7 +174,7 @@
     "totalPlaytimeMinutes": 215902,
     "totalPlaytimeHours": 3598.4,
     "gamesPlayedLast2Weeks": 1,
-    "minutesLast2Weeks": 785
+    "minutesLast2Weeks": 734
   },
   "dailyLog": [
     {
@@ -784,7 +784,7 @@
     }
   ],
   "snapshot": {
-    "date": "2026-07-18",
+    "date": "2026-07-19",
     "games": {
       "10": 25,
       "20": 0,
