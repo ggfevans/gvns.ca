@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@astrojs/cloudflare": "^13.7.0",
-    "@astrojs/rss": "^4.0.18",
+    "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.3",
     "@astrojs/svelte": "^8.1.2",
     "@atproto/api": "^0.20.22",
