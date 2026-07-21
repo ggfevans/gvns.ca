@@ -50,6 +50,6 @@
   "devDependencies": {
     "@unpic/astro": "^1.0.2",
     "starwind": "^2.0.1",
-    "wrangler": "^4.106.0"
+    "wrangler": "^4.112.0"
   }
 }
