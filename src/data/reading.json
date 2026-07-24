@@ -1,11 +1,11 @@
 {
-  "lastUpdated": "2026-07-23T05:49:57Z",
+  "lastUpdated": "2026-07-24T05:46:20Z",
   "currentlyReading": [
     {
-      "title": "Red Team Blues",
-      "author": "Cory Doctorow",
-      "coverUrl": "https://assets.hardcover.app/editions/30621072/2bdede2a-52bd-4ce2-84f1-0166dbf6d612.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/red-team-blues"
+      "title": "The Fred Factor: How Passion in Your Work and Life Can Turn the Ordinary Into the Extraordinary",
+      "author": "Mark Sanborn",
+      "coverUrl": "https://assets.hardcover.app/edition/16435242/f63cc52dccfe15d08b54a84bbc0f6f7416d3d30a.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/the-fred-factor"
     },
     {
       "title": "Enshittification: Why Everything Suddenly Got Worse and What to Do About It",
@@ -21,6 +21,14 @@
     }
   ],
   "finished": [
+    {
+      "title": "Red Team Blues",
+      "author": "Cory Doctorow",
+      "coverUrl": "https://assets.hardcover.app/editions/30621072/2bdede2a-52bd-4ce2-84f1-0166dbf6d612.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/red-team-blues",
+      "rating": 4.0,
+      "dateFinished": "2026-07-23T06:42:34.710456+00:00"
+    },
     {
       "title": "For We Are Many",
       "author": "Dennis E. Taylor",
@@ -304,12 +312,6 @@
       "author": "Fyodor Dostoevsky",
       "coverUrl": "https://assets.hardcover.app/edition/31370986/f057a871e6635e92341a5d3c47840dd16a91c543.jpeg",
       "hardcoverUrl": "https://hardcover.app/books/the-brothers-karamazov"
-    },
-    {
-      "title": "The Immortal Life of Henrietta Lacks",
-      "author": "Rebecca Skloot",
-      "coverUrl": "https://assets.hardcover.app/external_data/49453944/e7be4abd4451df42a963622a49e7f996ff0654a3.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/the-immortal-life-of-henrietta-lacks"
     }
   ]
 }
