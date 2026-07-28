@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-07-27T06:25:05.143Z",
+  "lastUpdated": "2026-07-28T05:43:08.700Z",
   "contributions": {
-    "total": 6035,
-    "commits": 2290,
+    "total": 5874,
+    "commits": 2182,
     "pullRequests": 618,
     "pullRequestReviews": 1,
     "issues": 588,
-    "restricted": 2451
+    "restricted": 2399
   },
   "calendar": {
     "weeks": [
@@ -2044,6 +2044,11 @@
             "date": "2026-07-26",
             "count": 0,
             "level": 0
+          },
+          {
+            "date": "2026-07-27",
+            "count": 0,
+            "level": 0
           }
         ]
       }
@@ -2059,18 +2064,10 @@
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
     "contributionsThisWeek": 0,
-    "contributionsThisMonth": 183,
+    "contributionsThisMonth": 166,
     "repositoriesThisWeek": 0
   },
   "repositories": [
-    {
-      "name": "gvns.ca",
-      "description": "",
-      "language": "Astro",
-      "languageColor": "#ff5a03",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/gvns.ca"
-    },
     {
       "name": "gwilym.ca",
       "description": "",
@@ -2078,6 +2075,14 @@
       "languageColor": "#ff5a03",
       "stars": 0,
       "url": "https://github.com/ggfevans/gwilym.ca"
+    },
+    {
+      "name": "gvns.ca",
+      "description": "",
+      "language": "Astro",
+      "languageColor": "#ff5a03",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/gvns.ca"
     },
     {
       "name": "tree-sitter-hujson",
