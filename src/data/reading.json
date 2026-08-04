@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-03T06:17:10Z",
+  "lastUpdated": "2026-08-04T05:43:23Z",
   "currentlyReading": [
     {
       "title": "The Fred Factor: How Passion in Your Work and Life Can Turn the Ordinary Into the Extraordinary",
@@ -127,6 +127,12 @@
     }
   ],
   "wantToRead": [
+    {
+      "title": "The Left Hand of Darkness",
+      "author": "Ursula K. Le Guin",
+      "coverUrl": "https://assets.hardcover.app/edition/9212187/1c8d9135d0b8e7d1debe202c85e2229cc3f586b0.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/the-left-hand-of-darkness"
+    },
     {
       "title": "If This Isn't Nice What Is? (Much) Expanded Second Edition: The Graduation Speeches and Other Words to Live By",
       "author": "Kurt Vonnegut",
@@ -306,12 +312,6 @@
       "author": "Eckhart Tolle",
       "coverUrl": "https://assets.hardcover.app/edition/31594446/d94fb5d1-b5f2-4ddf-b70b-8c29ff55a3f8.jpg",
       "hardcoverUrl": "https://hardcover.app/books/power-of-now"
-    },
-    {
-      "title": "The Brothers Karamazov",
-      "author": "Fyodor Dostoevsky",
-      "coverUrl": "https://assets.hardcover.app/edition/31370986/f057a871e6635e92341a5d3c47840dd16a91c543.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/the-brothers-karamazov"
     }
   ]
 }
