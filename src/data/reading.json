@@ -1,6 +1,12 @@
 {
-  "lastUpdated": "2026-08-10T04:26:06Z",
+  "lastUpdated": "2026-08-11T04:16:16Z",
   "currentlyReading": [
+    {
+      "title": "Westwind",
+      "author": "Ian Rankin",
+      "coverUrl": "https://assets.hardcover.app/external_data/1672782/e719dd4943a6000c8a34a35b70f8a81e7e9ed3bb.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/westwind"
+    },
     {
       "title": "Enshittification: Why Everything Suddenly Got Worse and What to Do About It",
       "author": "Cory Doctorow",
@@ -118,17 +124,15 @@
       "hardcoverUrl": "https://hardcover.app/books/the-martian",
       "rating": null,
       "dateFinished": "2025-10-09T23:16:16.317847+00:00"
-    },
-    {
-      "title": "All These Worlds",
-      "author": "Dennis E. Taylor",
-      "coverUrl": "https://assets.hardcover.app/edition/28912712/76b99f70-7807-471d-ae69-8d038f4b3ca6.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/all-these-worlds",
-      "rating": null,
-      "dateFinished": "2025-10-01T07:43:13.980302+00:00"
     }
   ],
   "wantToRead": [
+    {
+      "title": "Between the Spreadsheets: Classifying and Fixing Dirty Data, Second Edition",
+      "author": "Susan Walsh",
+      "coverUrl": "https://assets.hardcover.app/external_data/4099325/68ec5126bec561d2f1a6c7be7d9fb103b0c1c02c.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/between-the-spreadsheets"
+    },
     {
       "title": "The Left Hand of Darkness",
       "author": "Ursula K. Le Guin",
@@ -308,12 +312,6 @@
       "author": "Chantry Rhodes",
       "coverUrl": null,
       "hardcoverUrl": "https://hardcover.app/books/road-trippin-carrera-style"
-    },
-    {
-      "title": "Power of Now",
-      "author": "Eckhart Tolle",
-      "coverUrl": "https://assets.hardcover.app/edition/31594446/d94fb5d1-b5f2-4ddf-b70b-8c29ff55a3f8.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/power-of-now"
     }
   ]
 }
