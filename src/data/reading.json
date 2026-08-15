@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-14T04:44:45Z",
+  "lastUpdated": "2026-08-15T03:34:30Z",
   "currentlyReading": [
     {
       "title": "Westwind",
@@ -65,7 +65,7 @@
       "title": "The Hobbit, or There and Back Again",
       "author": "J.R.R. Tolkien",
       "coverUrl": "https://assets.hardcover.app/edition/17456445/d34448a9-bf3f-441d-93f2-1cd32dd3867c.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/the-hobbit",
+      "hardcoverUrl": "https://hardcover.app/books/the-hobbit-or-there-and-back-again-heartache-heritage-and-happiness-1937",
       "rating": null,
       "dateFinished": "2026-02-27T19:14:09.618267+00:00"
     },
@@ -116,17 +116,15 @@
       "hardcoverUrl": "https://hardcover.app/books/the-rum-diary",
       "rating": 4.0,
       "dateFinished": "2026-01-01T19:58:10.397857+00:00"
-    },
-    {
-      "title": "The Martian",
-      "author": "Andy Weir",
-      "coverUrl": "https://assets.hardcover.app/editions/21716111/5323176149970177.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/the-martian",
-      "rating": null,
-      "dateFinished": "2025-10-09T23:16:16.317847+00:00"
     }
   ],
   "wantToRead": [
+    {
+      "title": "Filterworld: How Algorithms Flattened Culture",
+      "author": "Kyle Chayka",
+      "coverUrl": "https://assets.hardcover.app/external_data/4110563/00a972259d0e7669b49f269e0c356d740877ca6e.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/filterworld"
+    },
     {
       "title": "Between the Spreadsheets: Classifying and Fixing Dirty Data, Second Edition",
       "author": "Susan Walsh",
