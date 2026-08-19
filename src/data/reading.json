@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-18T03:40:26Z",
+  "lastUpdated": "2026-08-19T03:42:11Z",
   "currentlyReading": [
     {
       "title": "Westwind",
@@ -119,6 +119,12 @@
     }
   ],
   "wantToRead": [
+    {
+      "title": "Slapstick, or Lonesome No More!",
+      "author": "Kurt Vonnegut",
+      "coverUrl": "https://assets.hardcover.app/edition/28759279/fb569605093ac27d58a7c0a349656c8bc518b870.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/slapstick-or-lonesome-no-more-or-lonesome-no-more-a-novel-1976"
+    },
     {
       "title": "Filterworld: How Algorithms Flattened Culture",
       "author": "Kyle Chayka",
@@ -304,12 +310,6 @@
       "author": "Henry David Thoreau",
       "coverUrl": "https://assets.hardcover.app/external_data/37168858/2ae624ba7bce24b7bcb621002ad9f9a31ccc9b8f.jpeg",
       "hardcoverUrl": "https://hardcover.app/books/walden"
-    },
-    {
-      "title": "Road Trippin' Carrera Style: A Lighthearted Story About The Game Of Life Coming Around Full Circle",
-      "author": "Chantry Rhodes",
-      "coverUrl": null,
-      "hardcoverUrl": "https://hardcover.app/books/road-trippin-carrera-style"
     }
   ]
 }
