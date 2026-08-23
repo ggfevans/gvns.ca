@@ -1,26 +1,22 @@
 {
-  "lastUpdated": "2026-08-22T03:37:35Z",
+  "lastUpdated": "2026-08-23T03:46:07Z",
   "currentlyReading": [
+    {
+      "title": "A Killer in King's Cove",
+      "author": "Iona Whishaw",
+      "coverUrl": "https://assets.hardcover.app/edition/30632191/10310724-L.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/a-killer-in-kings-cove"
+    }
+  ],
+  "finished": [
     {
       "title": "Westwind",
       "author": "Ian Rankin",
       "coverUrl": "https://assets.hardcover.app/external_data/1672782/e719dd4943a6000c8a34a35b70f8a81e7e9ed3bb.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/westwind"
+      "hardcoverUrl": "https://hardcover.app/books/westwind",
+      "rating": 3.0,
+      "dateFinished": "2026-08-22T06:08:42.664261+00:00"
     },
-    {
-      "title": "Enshittification: Why Everything Suddenly Got Worse and What to Do About It",
-      "author": "Cory Doctorow",
-      "coverUrl": "https://assets.hardcover.app/edition/32209337/825022aba6548731b3171ce509f5f469ed903d2a.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/enshittification"
-    },
-    {
-      "title": "Heaven's River",
-      "author": "Dennis E. Taylor",
-      "coverUrl": "https://assets.hardcover.app/edition/28338001/d9febd1bc2f6332f39edc4d42352b4e0909f884c.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/heavens-river"
-    }
-  ],
-  "finished": [
     {
       "title": "The Fred Factor: How Passion in Your Work and Life Can Turn the Ordinary Into the Extraordinary",
       "author": "Mark Sanborn",
@@ -65,7 +61,7 @@
       "title": "The Hobbit, or There and Back Again",
       "author": "J.R.R. Tolkien",
       "coverUrl": "https://assets.hardcover.app/edition/17456445/d34448a9-bf3f-441d-93f2-1cd32dd3867c.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/the-hobbit-or-there-and-back-again-heartache-heritage-and-happiness-1937",
+      "hardcoverUrl": "https://hardcover.app/books/the-hobbit",
       "rating": null,
       "dateFinished": "2026-02-27T19:14:09.618267+00:00"
     },
@@ -108,17 +104,27 @@
       "hardcoverUrl": "https://hardcover.app/books/makers",
       "rating": 4.0,
       "dateFinished": "2026-01-11T01:36:06.056477+00:00"
-    },
-    {
-      "title": "The Rum Diary",
-      "author": "Hunter S. Thompson",
-      "coverUrl": "https://assets.hardcover.app/edition/32413671/d5a93b25-2753-4d34-a95a-e4d4342b2ac8.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/the-rum-diary",
-      "rating": 4.0,
-      "dateFinished": "2026-01-01T19:58:10.397857+00:00"
     }
   ],
   "wantToRead": [
+    {
+      "title": "Exit Party",
+      "author": "Emily St. John Mandel",
+      "coverUrl": "https://assets.hardcover.app/book/2225933/d89d5130-a591-4b4e-880d-8e297af5eed2.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/exit-party"
+    },
+    {
+      "title": "How Fiction Works",
+      "author": "James  Wood",
+      "coverUrl": "https://assets.hardcover.app/external_data/27548264/754ca241499b3ec9f9ae8ceb92622a5c8513ccf3.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/how-fiction-works"
+    },
+    {
+      "title": "Fed Up: Emotional Labor, Women, and the Way Forward",
+      "author": "Gemma Hartley",
+      "coverUrl": "https://assets.hardcover.app/edition/15090060/38647406._SX98_.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/fed-up"
+    },
     {
       "title": "Slapstick, or Lonesome No More!",
       "author": "Kurt Vonnegut",
@@ -292,24 +298,6 @@
       "author": "Kurt Vonnegut",
       "coverUrl": "https://assets.hardcover.app/external_data/60225064/5c5e1bba487bf1268234241a0027991badedd15c.jpeg",
       "hardcoverUrl": "https://hardcover.app/books/palm-sunday"
-    },
-    {
-      "title": "The Diary of a Young Girl",
-      "author": "Anne Frank",
-      "coverUrl": "https://assets.hardcover.app/edition/27851218/8581374-L.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/the-diary-of-a-young-girl"
-    },
-    {
-      "title": "On the Calculation of Volume (Book I)",
-      "author": "Solvej Balle",
-      "coverUrl": "https://assets.hardcover.app/edition/31587092/87ad151b8936a6b0c71ebeb25dd1e3a9c1aca925.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/on-the-calculation-of-volume-book-i"
-    },
-    {
-      "title": "Walden",
-      "author": "Henry David Thoreau",
-      "coverUrl": "https://assets.hardcover.app/external_data/37168858/2ae624ba7bce24b7bcb621002ad9f9a31ccc9b8f.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/walden"
     }
   ]
 }
