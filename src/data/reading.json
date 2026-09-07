@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-06T07:32:51Z",
+  "lastUpdated": "2026-09-07T07:51:00Z",
   "currentlyReading": [
     {
       "title": "A Killer in King's Cove",
@@ -88,17 +88,21 @@
       "hardcoverUrl": "https://hardcover.app/books/gonzo",
       "rating": 5.0,
       "dateFinished": "2026-01-29T18:02:01.037162+00:00"
-    },
-    {
-      "title": "The Collected Stories of Philip K. Dick, Volume 1: Beyond Lies the Wub",
-      "author": "Philip K. Dick",
-      "coverUrl": "https://assets.hardcover.app/edition/30696287/efba8cba72d4bf4a662ab39fc41dfa84823751ff.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/the-collected-stories-of-philip-k-dick-volume-1-beyond-lies-the-wub",
-      "rating": 5.0,
-      "dateFinished": "2026-01-20T23:58:31.152564+00:00"
     }
   ],
   "wantToRead": [
+    {
+      "title": "Screen People: How We Entertained Ourselves into a State of Emergency",
+      "author": "Megan Garber",
+      "coverUrl": "https://assets.hardcover.app/edition/32931714/5e9f6f8f-d142-4caa-a4aa-606fddb8900e.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/screen-people"
+    },
+    {
+      "title": "Beyond Life and Death: The Way of True Freedom",
+      "author": "Jet Li",
+      "coverUrl": null,
+      "hardcoverUrl": "https://hardcover.app/books/beyond-life-and-death"
+    },
     {
       "title": "Black Sun",
       "author": "Rebecca Roanhorse",
@@ -296,12 +300,6 @@
       "author": "Richard K. Morgan",
       "coverUrl": "https://assets.hardcover.app/edition/2219140/5f748240-cfda-4b3f-a8c0-3eee5875614f.jpg",
       "hardcoverUrl": "https://hardcover.app/books/broken-angels"
-    },
-    {
-      "title": "Palm Sunday: An Autobiographical Collage",
-      "author": "Kurt Vonnegut",
-      "coverUrl": "https://assets.hardcover.app/external_data/60225064/5c5e1bba487bf1268234241a0027991badedd15c.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/palm-sunday"
     }
   ]
 }
