@@ -1,14 +1,30 @@
 {
-  "lastUpdated": "2026-09-07T07:51:00Z",
+  "lastUpdated": "2026-09-08T07:46:43Z",
   "currentlyReading": [
+    {
+      "title": "Crazy for the Storm: A Memoir of Survival",
+      "author": "Norman Ollestad",
+      "coverUrl": "https://assets.hardcover.app/edition/16967385/6280129-L.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/crazy-for-the-storm-a-memoir-of-survival"
+    }
+  ],
+  "finished": [
+    {
+      "title": "A Season for Spies: A Lane Winslow Prequel",
+      "author": "Iona Whishaw",
+      "coverUrl": null,
+      "hardcoverUrl": "https://hardcover.app/books/a-season-for-spies-a-lane-winslow-prequel",
+      "rating": null,
+      "dateFinished": "2026-09-07T08:25:40.594761+00:00"
+    },
     {
       "title": "A Killer in King's Cove",
       "author": "Marilla Wex",
       "coverUrl": "https://assets.hardcover.app/edition/30632191/10310724-L.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/a-killer-in-kings-cove"
-    }
-  ],
-  "finished": [
+      "hardcoverUrl": "https://hardcover.app/books/a-killer-in-kings-cove",
+      "rating": 4.5,
+      "dateFinished": "2026-09-07T08:24:07.855316+00:00"
+    },
     {
       "title": "Westwind",
       "author": "Ian Rankin",
@@ -72,25 +88,27 @@
       "hardcoverUrl": "https://hardcover.app/books/a-midsummer-nights-dream",
       "rating": null,
       "dateFinished": "2026-02-20T19:47:26.936503+00:00"
-    },
-    {
-      "title": "A Season for Spies",
-      "author": "Iona Whishaw",
-      "coverUrl": "https://assets.hardcover.app/edition/32613914/8434e5b16c98554085182591cd2060ad762872f6.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/a-season-for-spies-2025",
-      "rating": 4.0,
-      "dateFinished": "2026-02-04T03:48:15.925215+00:00"
-    },
-    {
-      "title": "Gonzo: The Life of Hunter S. Thompson",
-      "author": "Corey Seymour",
-      "coverUrl": "https://assets.hardcover.app/external_data/2382724/74fb73196fbe7a575360f4f63e9f8d2907c0f5e1.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/gonzo",
-      "rating": 5.0,
-      "dateFinished": "2026-01-29T18:02:01.037162+00:00"
     }
   ],
   "wantToRead": [
+    {
+      "title": "How to Know a Person: The Art of Seeing Others Deeply and Being Deeply Seen",
+      "author": "David Brooks",
+      "coverUrl": "https://assets.hardcover.app/editions/31035902/8329032797745852.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/how-to-know-a-person"
+    },
+    {
+      "title": "An Old, Cold Grave",
+      "author": "Iona Whishaw",
+      "coverUrl": "https://assets.hardcover.app/external_data/60350723/4266c252eda23f6efa8c7254d0c6240aa03ba63d.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/an-old-cold-grave"
+    },
+    {
+      "title": "Death in a Darkening Mist",
+      "author": "Iona Whishaw",
+      "coverUrl": "https://assets.hardcover.app/external_data/60350724/7b6b1b61fc531677409324f407820e40262f640e.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/death-in-a-darkening-mist"
+    },
     {
       "title": "Screen People: How We Entertained Ourselves into a State of Emergency",
       "author": "Megan Garber",
@@ -288,18 +306,6 @@
       "author": "Dan Jones",
       "coverUrl": "https://assets.hardcover.app/edition/30455082/e0f7f17e50453bb8ec454ab9a6eeb32c5a321046.jpeg",
       "hardcoverUrl": "https://hardcover.app/books/the-plantagenets"
-    },
-    {
-      "title": "A Tree Grows in Brooklyn",
-      "author": "Betty Smith",
-      "coverUrl": "https://assets.hardcover.app/book_mappings/7333021/0b43734baa588dec6c20c5f4e1dbb367405b913c.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/a-tree-grows-in-brooklyn"
-    },
-    {
-      "title": "Broken Angels",
-      "author": "Richard K. Morgan",
-      "coverUrl": "https://assets.hardcover.app/edition/2219140/5f748240-cfda-4b3f-a8c0-3eee5875614f.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/broken-angels"
     }
   ]
 }
