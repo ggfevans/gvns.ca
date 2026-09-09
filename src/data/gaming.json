@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-08T07:46:16.713Z",
+  "lastUpdated": "2026-09-09T07:48:24.103Z",
   "profile": {
     "steamId": "76561197962113454",
     "personaName": "Gareth",
@@ -169,7 +169,7 @@
     }
   ],
   "stats": {
-    "totalGamesOwned": 118,
+    "totalGamesOwned": 117,
     "totalGamesPlayed": 66,
     "totalPlaytimeMinutes": 215902,
     "totalPlaytimeHours": 3598.4,
@@ -784,7 +784,7 @@
     }
   ],
   "snapshot": {
-    "date": "2026-09-08",
+    "date": "2026-09-09",
     "games": {
       "10": 25,
       "20": 0,
@@ -806,7 +806,6 @@
       "620": 909,
       "1250": 361,
       "1520": 80,
-      "1523": 0,
       "3900": 315,
       "3990": 0,
       "4920": 109,
