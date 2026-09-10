@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-09T07:48:32Z",
+  "lastUpdated": "2026-09-10T07:49:29Z",
   "currentlyReading": [
     {
       "title": "Crazy for the Storm: A Memoir of Survival",
@@ -91,6 +91,36 @@
     }
   ],
   "wantToRead": [
+    {
+      "title": "The Nerd Reich: Silicon Valley Fascism and the War on Democracy",
+      "author": "Gil Duran",
+      "coverUrl": "https://assets.hardcover.app/edition/32403516/4412a035-8348-4c16-b5d3-fb613cbd17ea.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/the-nerd-reich"
+    },
+    {
+      "title": "Outland",
+      "author": "Dennis E. Taylor",
+      "coverUrl": "https://assets.hardcover.app/external_data/620613/20b669a0a401240aaebfef143e63a475b75e9509.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/outland"
+    },
+    {
+      "title": "The Infinite Extent",
+      "author": "Dennis E. Taylor",
+      "coverUrl": "https://assets.hardcover.app/edition/32944595/9db12aa2-f8c7-49a2-b33f-ba092e5cd8c0.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/the-infinite-extent"
+    },
+    {
+      "title": "The Castle: Adventures in a World of Unraveling Men",
+      "author": "Jon Ronson",
+      "coverUrl": "https://assets.hardcover.app/edition/32959813/4dd31ff9-d7ec-4189-9267-d47ee0137865.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/the-castle-adventures-in-a-world-of-unraveling-men"
+    },
+    {
+      "title": "Deep Unlearning: The Rise of AI and the Radicalization of a Tech Idealist",
+      "author": "Timnit Gebru",
+      "coverUrl": "https://assets.hardcover.app/external_data/4107766/391bd890895b2e471b627b77283b7ec395a50f19.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/deep-unlearning"
+    },
     {
       "title": "How to Know a Person: The Art of Seeing Others Deeply and Being Deeply Seen",
       "author": "David Brooks",
@@ -276,36 +306,6 @@
       "author": "James Islington",
       "coverUrl": "https://assets.hardcover.app/edition/30615590/1fe836a2-7004-4378-add0-dc78b96b2d17.jpg",
       "hardcoverUrl": "https://hardcover.app/books/the-will-of-the-many-2023"
-    },
-    {
-      "title": "Piranesi",
-      "author": "Susanna Clarke",
-      "coverUrl": "https://assets.hardcover.app/editions/30480426/ec301cb7-b118-48fd-aa3a-5d336e61c182.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/piranesi"
-    },
-    {
-      "title": "The Butcher's Masquerade",
-      "author": "Matt Dinniman",
-      "coverUrl": "https://assets.hardcover.app/editions/32004303/0e11e113-fd6c-4363-9a68-da8999b886f5.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/the-butchers-masquerade"
-    },
-    {
-      "title": "The Gate of the Feral Gods",
-      "author": "Matt Dinniman",
-      "coverUrl": "https://assets.hardcover.app/edition/31943704/04d5cb18-1725-4b03-9303-b6e9ee14942d.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/the-gate-of-the-feral-gods"
-    },
-    {
-      "title": "Remarkably Bright Creatures",
-      "author": "Shelby Van Pelt",
-      "coverUrl": "https://assets.hardcover.app/external_data/59469142/340246db2f5b43b566a8dfc27887bb13301ca4cd.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/remarkably-bright-creatures"
-    },
-    {
-      "title": "The Plantagenets: The Warrior Kings and Queens Who Made England",
-      "author": "Dan Jones",
-      "coverUrl": "https://assets.hardcover.app/edition/30455082/e0f7f17e50453bb8ec454ab9a6eeb32c5a321046.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/the-plantagenets"
     }
   ]
 }
