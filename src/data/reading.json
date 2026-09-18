@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-17T08:20:32Z",
+  "lastUpdated": "2026-09-18T07:55:55Z",
   "currentlyReading": [
     {
       "title": "Remarkably Bright Creatures",
@@ -43,6 +43,24 @@
     }
   ],
   "wantToRead": [
+    {
+      "title": "One Man In: The Explosive Firsthand Account of the Lone Special-Ops Soldier Who Fought Off a Massive Terrorist Attack in Kenya",
+      "author": "Chris Craighead",
+      "coverUrl": "https://assets.hardcover.app/edition/32424329/0d1829ea4974aebac31f488172738630117a58df.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/one-man-in"
+    },
+    {
+      "title": "The Godsblood Tragedy",
+      "author": "Bill           Adams",
+      "coverUrl": "https://assets.hardcover.app/edition/31515660/3ddd3c86cc7df4d0916986870bf77da426fe5d08.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/the-godsblood-tragedy"
+    },
+    {
+      "title": "This Kingdom Will Not Kill Me",
+      "author": "Ilona Andrews",
+      "coverUrl": "https://assets.hardcover.app/editions/31935198/00491e49-dc23-4d18-a68e-6d03dd48ef72.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/this-kingdom-will-not-kill-me"
+    },
     {
       "title": "American Gods",
       "author": "Neil Gaiman",
@@ -270,24 +288,6 @@
       "author": "Gemma Hartley",
       "coverUrl": "https://assets.hardcover.app/edition/15090060/38647406._SX98_.jpg",
       "hardcoverUrl": "https://hardcover.app/books/fed-up"
-    },
-    {
-      "title": "Slapstick, or Lonesome No More!",
-      "author": "Kurt Vonnegut",
-      "coverUrl": "https://assets.hardcover.app/edition/28759279/fb569605093ac27d58a7c0a349656c8bc518b870.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/slapstick-or-lonesome-no-more-or-lonesome-no-more-a-novel-1976"
-    },
-    {
-      "title": "Filterworld: How Algorithms Flattened Culture",
-      "author": "Kyle Chayka",
-      "coverUrl": "https://assets.hardcover.app/external_data/4110563/00a972259d0e7669b49f269e0c356d740877ca6e.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/filterworld"
-    },
-    {
-      "title": "Between the Spreadsheets: Classifying and Fixing Dirty Data, Second Edition",
-      "author": "Susan Walsh",
-      "coverUrl": "https://assets.hardcover.app/external_data/4099325/68ec5126bec561d2f1a6c7be7d9fb103b0c1c02c.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/between-the-spreadsheets"
     }
   ]
 }
