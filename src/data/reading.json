@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-18T07:55:55Z",
+  "lastUpdated": "2026-09-19T07:46:19Z",
   "currentlyReading": [
     {
       "title": "Remarkably Bright Creatures",
@@ -9,6 +9,14 @@
     }
   ],
   "finished": [
+    {
+      "title": "Rant",
+      "author": "Chuck Palahniuk",
+      "coverUrl": "https://assets.hardcover.app/edition/24324123/71572f88947ca0f52f71334ffec60cde3b026418.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/rant",
+      "rating": 3.0,
+      "dateFinished": "2026-09-18T10:04:56.594332+00:00"
+    },
     {
       "title": "A Killer in King's Cove",
       "author": "Marilla Wex",
@@ -32,14 +40,6 @@
       "hardcoverUrl": "https://hardcover.app/books/a-season-for-spies-a-lane-winslow-prequel",
       "rating": null,
       "dateFinished": "2026-09-07T08:25:40.594761+00:00"
-    },
-    {
-      "title": "Westwind",
-      "author": "Ian Rankin",
-      "coverUrl": "https://assets.hardcover.app/external_data/1672782/e719dd4943a6000c8a34a35b70f8a81e7e9ed3bb.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/westwind",
-      "rating": 3.0,
-      "dateFinished": "2026-08-22T06:08:42.664261+00:00"
     }
   ],
   "wantToRead": [
