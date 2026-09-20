@@ -17,6 +17,73 @@
 
 const ORIGIN = process.argv[2] || "https://gvns.ca";
 
+// Cloudflare's bot rules challenge requests with no (or a default Node) UA, so
+// from a GitHub Actions runner this script was reading the *challenge page's*
+// headers instead of the site's — every route failing with a nonce CSP it never
+// defines. A descriptive UA identifies the check and gets it treated as the
+// first-party monitor it is.
+const USER_AGENT =
+  "gvns-ca-csp-verifier/1.0 (+https://github.com/ggfevans/gvns.ca; scripts/verify-csp.mjs)";
+
+// A UA alone is not enough — runners still score as bots and get
+// `cf-mitigated: challenge` / 403. To let this checker through, add a
+// Cloudflare WAF custom rule:
+//
+//   Expression:  http.request.headers["x-csp-verifier"][0] eq "<secret>"
+//   Action:      Skip -> all remaining custom rules + Bot Fight Mode
+//
+// then store the same value as the CSP_VERIFY_TOKEN repository secret.
+//
+// The check deliberately runs against the zone (gvns.ca), not the
+// *.workers.dev origin: zone-level settings can rewrite headers on their way
+// out — that is exactly how HSTS ended up as max-age=0 below — and a check
+// that bypassed the zone would not see it.
+const VERIFY_TOKEN = process.env.CSP_VERIFY_TOKEN;
+
+// ORIGIN comes from argv, so the token must never ride along to an arbitrary
+// host: `node scripts/verify-csp.mjs https://attacker.example` would otherwise
+// hand the WAF bypass secret straight to it. Compare the parsed hostname
+// exactly — substring matching would accept gvns.ca.attacker.example.
+const TOKEN_ALLOWED_HOSTS = new Set(["gvns.ca", "www.gvns.ca"]);
+
+let originHost;
+try {
+  originHost = new URL(ORIGIN).hostname;
+} catch {
+  console.error(`FATAL: "${ORIGIN}" is not a valid URL.`);
+  process.exit(2);
+}
+
+const sendToken = Boolean(VERIFY_TOKEN) && TOKEN_ALLOWED_HOSTS.has(originHost);
+if (VERIFY_TOKEN && !sendToken) {
+  console.warn(
+    `WARN CSP_VERIFY_TOKEN is set but withheld: ${originHost} is not one of ${[...TOKEN_ALLOWED_HOSTS].join(", ")}.`
+  );
+}
+
+const REQUEST_HEADERS = {
+  "user-agent": USER_AGENT,
+  ...(sendToken ? { "x-csp-verifier": VERIFY_TOKEN } : {}),
+};
+
+// Cloudflare's interstitial serves its own CSP, which is never anything
+// public/_headers emits. Treat that as "we got blocked" rather than as a policy
+// mismatch — the two have completely different fixes.
+//
+// The signature is structural on purpose: `default-src 'none'` paired with a
+// per-request nonce. Our own policies use `default-src 'self'` and never carry
+// a nonce. Matching the challenge domain as a substring instead would be both
+// imprecise (a lookalike host contains it too) and wrong here — /contact's
+// legitimate CSP already lists challenges.cloudflare.com for Turnstile.
+function challengeReason(res, csp) {
+  const mitigated = res.headers.get("cf-mitigated");
+  if (mitigated) return `cf-mitigated: ${mitigated}`;
+  if (csp && /'nonce-[^']+'/.test(csp) && /default-src\s+'none'/.test(csp)) {
+    return "response carries Cloudflare's challenge CSP (default-src 'none' + per-request nonce)";
+  }
+  return null;
+}
+
 // Routes we expect to have a CSP, and the marker substring that proves which
 // CSP arrived. Markers pin "connect-src 'self';" (semicolon included) so a
 // reintroduced analytics/third-party connect-src origin fails the check, and
@@ -54,10 +121,23 @@ for (const { path, marker, label, accessGated } of expectations) {
     res = await fetch(ORIGIN + path, {
       method: "HEAD",
       redirect: "manual",
+      headers: REQUEST_HEADERS,
       signal: AbortSignal.timeout(10000),
     });
   } catch (err) {
     console.error(`FAIL ${path}: request error (${err.name}: ${err.message}, label: ${label})`);
+    failures++;
+    continue;
+  }
+
+  const blocked = challengeReason(res, res.headers.get("content-security-policy"));
+  if (blocked) {
+    console.error(
+      `FAIL ${path}: blocked by Cloudflare before reaching the site — ${blocked} (status ${res.status}, label: ${label})`
+    );
+    console.error(
+      `  These are the challenge page's headers, not gvns.ca's. Allow this checker through the WAF; do not change public/_headers to match.`
+    );
     failures++;
     continue;
   }
@@ -96,6 +176,38 @@ for (const { path, marker, label, accessGated } of expectations) {
     continue;
   }
   console.log(`OK   ${path}  (${label})`);
+}
+
+// HSTS is declared in public/_headers but Cloudflare's zone-level HSTS setting
+// can override it, rewriting max-age to 0 while leaving `includeSubDomains;
+// preload` intact — which is how the site shipped with HSTS unenforced and
+// nothing noticed. Nothing above asserts it, so check it here.
+//
+// Deliberately a warning, not a failure: as of 2026-09-20 production serves
+// max-age=0, and a check that can only ever be red is a check people learn to
+// ignore. Promote this to `failures++` once the zone setting is on.
+try {
+  const res = await fetch(ORIGIN + "/", {
+    method: "HEAD",
+    redirect: "manual",
+    headers: REQUEST_HEADERS,
+    signal: AbortSignal.timeout(10000),
+  });
+  const hsts = res.headers.get("strict-transport-security") ?? "";
+  const maxAge = Number(hsts.match(/max-age=(\d+)/i)?.[1] ?? -1);
+  if (maxAge >= 31536000) {
+    console.log(`OK   HSTS  (max-age=${maxAge})`);
+  } else if (maxAge === 0) {
+    console.warn(
+      `WARN HSTS is not enforced: max-age=0 (public/_headers declares 31536000).\n` +
+        `  Cloudflare's zone HSTS setting overrides the origin header. Enable it in\n` +
+        `  SSL/TLS -> Edge Certificates, then make this a hard failure.`
+    );
+  } else {
+    console.warn(`WARN HSTS unexpected or absent: "${hsts || "absent"}"`);
+  }
+} catch (err) {
+  console.warn(`WARN HSTS check could not run (${err.name}: ${err.message})`);
 }
 
 if (failures > 0) {
