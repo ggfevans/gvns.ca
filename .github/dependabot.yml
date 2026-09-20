@@ -18,6 +18,17 @@ updates:
         update-types:
           - "minor"
           - "patch"
+    ignore:
+      # TypeScript 7 is the native port and ships no stable programmatic API
+      # yet, so Astro/Svelte tooling cannot use it. Both consumers here declare
+      # peers that exclude it: @astrojs/svelte wants ^5.3.3 || ^6.0.0 and
+      # svelte2tsx wants ^4.9.4 || ^5.0.0 || ^6.0.0. legacy-peer-deps=true in
+      # .npmrc means npm installs 7 silently rather than refusing, so without
+      # this the bump lands unnoticed. Nothing runs tsc in CI, so it breaks
+      # nothing today — it is simply wrong. Drop this once the tooling
+      # supports 7.
+      - dependency-name: "typescript"
+        versions: ["7.x"]
 
   - package-ecosystem: "npm"
     directory: "/.github/actions/fetch-github"
