@@ -23,7 +23,7 @@
     "@astrojs/svelte": "^9.0.1",
     "@atproto/api": "^0.20.28",
     "@codybrom/denim": "npm:@jsr/codybrom__denim@^2.0.1",
-    "@fontsource/inter": "^5.2.8",
+    "@fontsource/inter": "^5.3.0",
     "@fontsource/jetbrains-mono": "^5.2.8",
     "@fontsource/space-grotesk": "^5.2.10",
     "@pagefind/default-ui": "^1.5.2",
