@@ -4,7 +4,7 @@
 
 | Layer | Choice | Rationale |
 |-------|--------|-----------|
-| **Framework** | Astro 5.x | Content-first, zero JS default, islands architecture |
+| **Framework** | Astro 7.x | Content-first, zero JS default, islands architecture |
 | **UI Framework** | Svelte 5 | Islands only when interactivity needed |
 | **Styling** | Tailwind CSS 4.x | Utility-first, design tokens via CSS variables |
 | **Content** | Astro Content Collections | Type-safe markdown with frontmatter validation |
