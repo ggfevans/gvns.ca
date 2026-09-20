@@ -118,14 +118,20 @@ This layers on top of Sveltia's own GitHub OAuth (see `CMS-SETUP.md`) — Access
 
 **Nothing in this repo configures Access.** It is dashboard-only state (Zero Trust → Access → Applications), so it is invisible to `git` and to CI. That is exactly why it is documented here.
 
-**Invariant:** `/admin` is the *only* path on the apex behind Access. Every other path must return `200` to anonymous requests.
+**Invariant:** `/admin` is the *only* path on the apex behind Access. No other path may redirect to `gwilym.cloudflareaccess.com`; each serves its own normal status to anonymous requests (`200` for the site's routes, `404` for unknown paths, `405` for `GET /api/contact`).
 
 ```bash
 curl -sI https://gvns.ca/ | head -1        # expect: HTTP/2 200
 curl -sI https://gvns.ca/admin/ | head -1  # expect: HTTP/2 302 (healthy — this one is gated)
 ```
 
-A `302` to `<team>.cloudflareaccess.com` on any other path means a stray Access app is matching the apex. To identify which one, decode the `meta` JWT in the redirect URL — its `aud` claim is the offending app's AUD tag, which you can then match in the dashboard:
+Identify an Access redirect by its `location:` host plus a `CF_AppSession` cookie, not by the `302` alone — the www → apex Redirect Rule is also a 3xx, and Astro issues its own trailing-slash redirects:
+
+```bash
+curl -sI https://gvns.ca/admin/ | grep -iE '^(location|set-cookie)'
+```
+
+A redirect to `<team>.cloudflareaccess.com` on any path other than `/admin` means a stray Access app is matching the apex. To identify which one, decode the `meta` JWT in the redirect URL — its `aud` claim is the offending app's AUD tag, which you can then match in the dashboard:
 
 ```bash
 curl -s -o /dev/null -w '%{redirect_url}' https://gvns.ca/ \
