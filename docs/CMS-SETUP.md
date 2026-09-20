@@ -2,6 +2,8 @@
 
 Sveltia CMS is mounted at `gvns.ca/admin`. Auth is brokered by the `auth.gvns.ca` Worker, backed by a **GitHub App** (used as the OAuth provider — see "Why a GitHub App if it's just OAuth" below).
 
+`/admin` also sits behind a Cloudflare Access application (GitHub IdP) in front of the Worker, so an unauthenticated request there returns a `302` to `gwilym.cloudflareaccess.com` rather than the CMS — that redirect is healthy, not a fault. See "Cloudflare Access (Zero Trust)" in `INFRASTRUCTURE.md`.
+
 ## Auth flow
 
 The Worker runs the standard GitHub web flow with the App's `client_id` / `client_secret`. The shape is identical to OAuth Apps with two differences:
