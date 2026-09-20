@@ -45,15 +45,20 @@ const REQUEST_HEADERS = {
   ...(VERIFY_TOKEN ? { "x-csp-verifier": VERIFY_TOKEN } : {}),
 };
 
-// Cloudflare's interstitial serves its own CSP: `default-src 'none'` with a
-// per-request nonce and challenges.cloudflare.com in script-src. That is never
-// anything public/_headers emits, so treat it as "we got blocked", not as a
-// policy mismatch — the two have completely different fixes.
+// Cloudflare's interstitial serves its own CSP, which is never anything
+// public/_headers emits. Treat that as "we got blocked" rather than as a policy
+// mismatch — the two have completely different fixes.
+//
+// The signature is structural on purpose: `default-src 'none'` paired with a
+// per-request nonce. Our own policies use `default-src 'self'` and never carry
+// a nonce. Matching the challenge domain as a substring instead would be both
+// imprecise (a lookalike host contains it too) and wrong here — /contact's
+// legitimate CSP already lists challenges.cloudflare.com for Turnstile.
 function challengeReason(res, csp) {
   const mitigated = res.headers.get("cf-mitigated");
   if (mitigated) return `cf-mitigated: ${mitigated}`;
-  if (csp && /'nonce-[^']+'/.test(csp) && csp.includes("challenges.cloudflare.com")) {
-    return "response carries Cloudflare's challenge CSP (per-request nonce)";
+  if (csp && /'nonce-[^']+'/.test(csp) && /default-src\s+'none'/.test(csp)) {
+    return "response carries Cloudflare's challenge CSP (default-src 'none' + per-request nonce)";
   }
   return null;
 }
