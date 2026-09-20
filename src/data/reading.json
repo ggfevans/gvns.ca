@@ -1,14 +1,38 @@
 {
-  "lastUpdated": "2026-09-08T07:46:43Z",
+  "lastUpdated": "2026-09-19T07:46:19Z",
   "currentlyReading": [
+    {
+      "title": "Remarkably Bright Creatures",
+      "author": "Shelby Van Pelt",
+      "coverUrl": "https://assets.hardcover.app/external_data/59469142/340246db2f5b43b566a8dfc27887bb13301ca4cd.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/remarkably-bright-creatures"
+    }
+  ],
+  "finished": [
+    {
+      "title": "Rant",
+      "author": "Chuck Palahniuk",
+      "coverUrl": "https://assets.hardcover.app/edition/24324123/71572f88947ca0f52f71334ffec60cde3b026418.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/rant",
+      "rating": 3.0,
+      "dateFinished": "2026-09-18T10:04:56.594332+00:00"
+    },
+    {
+      "title": "A Killer in King's Cove",
+      "author": "Marilla Wex",
+      "coverUrl": "https://assets.hardcover.app/edition/30632191/10310724-L.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/a-killer-in-kings-cove",
+      "rating": 4.0,
+      "dateFinished": "2026-09-13T18:58:08.12434+00:00"
+    },
     {
       "title": "Crazy for the Storm: A Memoir of Survival",
       "author": "Norman Ollestad",
       "coverUrl": "https://assets.hardcover.app/edition/16967385/6280129-L.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/crazy-for-the-storm-a-memoir-of-survival"
-    }
-  ],
-  "finished": [
+      "hardcoverUrl": "https://hardcover.app/books/crazy-for-the-storm-a-memoir-of-survival",
+      "rating": 3.0,
+      "dateFinished": "2026-09-13T17:48:18.960494+00:00"
+    },
     {
       "title": "A Season for Spies: A Lane Winslow Prequel",
       "author": "Iona Whishaw",
@@ -16,81 +40,195 @@
       "hardcoverUrl": "https://hardcover.app/books/a-season-for-spies-a-lane-winslow-prequel",
       "rating": null,
       "dateFinished": "2026-09-07T08:25:40.594761+00:00"
-    },
-    {
-      "title": "A Killer in King's Cove",
-      "author": "Marilla Wex",
-      "coverUrl": "https://assets.hardcover.app/edition/30632191/10310724-L.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/a-killer-in-kings-cove",
-      "rating": 4.5,
-      "dateFinished": "2026-09-07T08:24:07.855316+00:00"
-    },
-    {
-      "title": "Westwind",
-      "author": "Ian Rankin",
-      "coverUrl": "https://assets.hardcover.app/external_data/1672782/e719dd4943a6000c8a34a35b70f8a81e7e9ed3bb.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/westwind",
-      "rating": 3.0,
-      "dateFinished": "2026-08-22T06:08:42.664261+00:00"
-    },
-    {
-      "title": "The Fred Factor: How Passion in Your Work and Life Can Turn the Ordinary Into the Extraordinary",
-      "author": "Mark Sanborn",
-      "coverUrl": "https://assets.hardcover.app/edition/16435242/f63cc52dccfe15d08b54a84bbc0f6f7416d3d30a.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/the-fred-factor",
-      "rating": null,
-      "dateFinished": "2026-08-04T06:12:53.574714+00:00"
-    },
-    {
-      "title": "Red Team Blues",
-      "author": "Cory Doctorow",
-      "coverUrl": "https://assets.hardcover.app/editions/30621072/2bdede2a-52bd-4ce2-84f1-0166dbf6d612.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/red-team-blues",
-      "rating": 4.0,
-      "dateFinished": "2026-07-23T06:42:34.710456+00:00"
-    },
-    {
-      "title": "For We Are Many",
-      "author": "Dennis E. Taylor",
-      "coverUrl": "https://assets.hardcover.app/edition/30407482/2715fec8-0b67-449d-bf61-327d57ecb4b8.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/for-we-are-many",
-      "rating": null,
-      "dateFinished": "2026-06-22T18:04:42.722709+00:00"
-    },
-    {
-      "title": "Sandworm: A New Era of Cyberwar and the Hunt for the Kremlin's Most Dangerous Hackers",
-      "author": "Andy Greenberg",
-      "coverUrl": "https://assets.hardcover.app/edition/30745345/21a193da-1e24-4297-9932-c2d5a1f1898c.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/sandworm",
-      "rating": 4.0,
-      "dateFinished": "2026-03-09T11:12:31.626263+00:00"
-    },
-    {
-      "title": "Radicalized: Four Tales of Our Present Moment",
-      "author": "Cory Doctorow",
-      "coverUrl": "https://assets.hardcover.app/external_data/28473324/bbfc1d3a639d337468a9dae5bddf40bd9f918f9e.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/radicalized",
-      "rating": null,
-      "dateFinished": "2026-03-09T11:00:59.434707+00:00"
-    },
-    {
-      "title": "The Hobbit, or There and Back Again",
-      "author": "J.R.R. Tolkien",
-      "coverUrl": "https://assets.hardcover.app/edition/17456445/d34448a9-bf3f-441d-93f2-1cd32dd3867c.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/the-hobbit",
-      "rating": null,
-      "dateFinished": "2026-02-27T19:14:09.618267+00:00"
-    },
-    {
-      "title": "A Midsummer Night's Dream",
-      "author": "William Shakespeare",
-      "coverUrl": "https://assets.hardcover.app/edition/7796402/41b97beb-9383-4757-91ea-0c6f9d872ec7.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/a-midsummer-nights-dream",
-      "rating": null,
-      "dateFinished": "2026-02-20T19:47:26.936503+00:00"
     }
   ],
   "wantToRead": [
+    {
+      "title": "One Man In: The Explosive Firsthand Account of the Lone Special-Ops Soldier Who Fought Off a Massive Terrorist Attack in Kenya",
+      "author": "Chris Craighead",
+      "coverUrl": "https://assets.hardcover.app/edition/32424329/0d1829ea4974aebac31f488172738630117a58df.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/one-man-in"
+    },
+    {
+      "title": "The Godsblood Tragedy",
+      "author": "Bill           Adams",
+      "coverUrl": "https://assets.hardcover.app/edition/31515660/3ddd3c86cc7df4d0916986870bf77da426fe5d08.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/the-godsblood-tragedy"
+    },
+    {
+      "title": "This Kingdom Will Not Kill Me",
+      "author": "Ilona Andrews",
+      "coverUrl": "https://assets.hardcover.app/editions/31935198/00491e49-dc23-4d18-a68e-6d03dd48ef72.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/this-kingdom-will-not-kill-me"
+    },
+    {
+      "title": "American Gods",
+      "author": "Neil Gaiman",
+      "coverUrl": "https://assets.hardcover.app/edition/12291130/1bb87eb105094cd7ae9eda1376da6939cfa6ad5f.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/american-gods"
+    },
+    {
+      "title": "So Much Blue",
+      "author": "Percival Everett",
+      "coverUrl": "https://assets.hardcover.app/edition/10475393/dd004e2547d2db20f0f1d263adbd40e3129392f8.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/so-much-blue"
+    },
+    {
+      "title": "Erasure",
+      "author": "Percival Everett",
+      "coverUrl": "https://assets.hardcover.app/edition/5392478/83269973b951967301d5604c3f4ee24801e30c4f.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/erasure"
+    },
+    {
+      "title": "The Trees",
+      "author": "Percival Everett",
+      "coverUrl": "https://assets.hardcover.app/external_data/562716/1c83a6ab54796c12d798329c6004a2212b02b470.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/the-trees"
+    },
+    {
+      "title": "James",
+      "author": "Percival Everett",
+      "coverUrl": "https://assets.hardcover.app/external_data/61346674/caff7309b465f9633e166709b0215c12aa392aff.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/james"
+    },
+    {
+      "title": "I, Mengsk",
+      "author": "Graham McNeill",
+      "coverUrl": null,
+      "hardcoverUrl": "https://hardcover.app/books/i-mengsk"
+    },
+    {
+      "title": "Dark Roads",
+      "author": "Chevy Stevens",
+      "coverUrl": "https://assets.hardcover.app/external_data/59505208/357950b31711212d417cd474ee16ea894dc97726.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/dark-roads"
+    },
+    {
+      "title": "Sleeping Giants",
+      "author": "Sylvain Neuvel",
+      "coverUrl": "https://assets.hardcover.app/edition/30399454/1d6c479c90a9b6a818364b67ab8f7e6e93c57d4c.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/sleeping-giants"
+    },
+    {
+      "title": "Start With Why",
+      "author": "Simon Sinek",
+      "coverUrl": "https://assets.hardcover.app/edition/32289451/2dd5f10490105675d2fba6b02fc98d08708a8a11.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/start-with-why-2009"
+    },
+    {
+      "title": "Cult of the Dead Cow",
+      "author": "Joseph Menn",
+      "coverUrl": "https://assets.hardcover.app/external_data/49458121/9782bf701ad9842fe15e6ff43c8f4ac4890d623a.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/cult-of-the-dead-cow"
+    },
+    {
+      "title": "Pataphysics: A Useless Guide",
+      "author": "Andrew Hugill",
+      "coverUrl": "https://assets.hardcover.app/edition/32231315/be3a80346821b512890d39029b0532d10631affa.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/pataphysics-a-useless-guide"
+    },
+    {
+      "title": "Hacking Capitalism: Modeling, Humans, Computers, and Money.",
+      "author": "Kris Nóva",
+      "coverUrl": "https://assets.hardcover.app/external_data/61763111/dc17070658fbfaa7b6b6ec8e92738c1ad148c4b1.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/hacking-capitalism"
+    },
+    {
+      "title": "The Dawn of Everything",
+      "author": "David Graeber",
+      "coverUrl": "https://assets.hardcover.app/editions/30876738/e0ee01a2-4b49-4597-9f67-28dc7b7eb58f.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/the-dawn-of-everything"
+    },
+    {
+      "title": "The Count of Monte Cristo",
+      "author": "Alexandre Dumas",
+      "coverUrl": "https://assets.hardcover.app/external_data/27561581/253321bd80aa52383000f2f3a7795ccdd3277c23.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/the-count-of-monte-cristo"
+    },
+    {
+      "title": "The Leaderless Revolution : How Ordinary People Will Take Power and Change Politics in the Twenty-First Century",
+      "author": "Carne Ross",
+      "coverUrl": "https://assets.hardcover.app/edition/30454340/6b8c527d7e3a46c315696c5825de3148655552a0.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/the-leaderless-revolution"
+    },
+    {
+      "title": "Beyond Fear",
+      "author": "Bruce Schneier",
+      "coverUrl": "https://assets.hardcover.app/edition/30530405/content.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/beyond-fear-2006"
+    },
+    {
+      "title": "Homo Deus: A Brief History of Tomorrow",
+      "author": "Yuval Noah Harari",
+      "coverUrl": "https://assets.hardcover.app/edition/30425557/3b67f74a7a1f38cdd9ce2941e2cc608229ff3492.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/homo-deus"
+    },
+    {
+      "title": "The Myth of Normal: Trauma, Illness, and Healing in a Toxic Culture",
+      "author": "Gabor Maté",
+      "coverUrl": "https://assets.hardcover.app/edition/30531365/942d0f5d72aef39c8bc83b00c2a107374641d686.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/the-myth-of-normal"
+    },
+    {
+      "title": "The Drunkard's Walk: How Randomness Rules Our Lives",
+      "author": "Leonard Mlodinow",
+      "coverUrl": "https://assets.hardcover.app/edition/4550463/2411494-L.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/the-drunkards-walk"
+    },
+    {
+      "title": "CRUISIN' BAJA STYLE!",
+      "author": "Chantry Rhodes",
+      "coverUrl": null,
+      "hardcoverUrl": "https://hardcover.app/books/cruisin-baja-style"
+    },
+    {
+      "title": "SQL Antipatterns",
+      "author": "Bill Karwin",
+      "coverUrl": "https://assets.hardcover.app/book_mappings/7344430/03079d9a43438afd56fb6f46c8a35a94ef91ae54.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/sql-antipatterns"
+    },
+    {
+      "title": "Sixteen Ways to Defend a Walled City",
+      "author": "K.J. Parker",
+      "coverUrl": "https://assets.hardcover.app/external_data/50321426/9a3eea446aefdd817e53ef137bcca8d2bdbcf3e1.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/sixteen-ways-to-defend-a-walled-city"
+    },
+    {
+      "title": "Atlas of the Heart: Mapping Meaningful Connection and the Language of Human Experience",
+      "author": "Gavin Aung Than",
+      "coverUrl": "https://assets.hardcover.app/external_data/3002986/3d3975de8c01fbc80c6c2b180d71d89386677c47.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/atlas-of-the-heart"
+    },
+    {
+      "title": "The Nerd Reich: Silicon Valley Fascism and the War on Democracy",
+      "author": "Gil Duran",
+      "coverUrl": "https://assets.hardcover.app/edition/32403516/4412a035-8348-4c16-b5d3-fb613cbd17ea.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/the-nerd-reich"
+    },
+    {
+      "title": "Outland",
+      "author": "Dennis E. Taylor",
+      "coverUrl": "https://assets.hardcover.app/external_data/620613/20b669a0a401240aaebfef143e63a475b75e9509.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/outland"
+    },
+    {
+      "title": "The Infinite Extent",
+      "author": "Dennis E. Taylor",
+      "coverUrl": "https://assets.hardcover.app/edition/32944595/a7e36f33-4898-4a24-9ef9-b578b5a258bb.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/the-infinite-extent"
+    },
+    {
+      "title": "The Castle: Adventures in a World of Unraveling Men",
+      "author": "Jon Ronson",
+      "coverUrl": "https://assets.hardcover.app/edition/32959813/4dd31ff9-d7ec-4189-9267-d47ee0137865.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/the-castle-adventures-in-a-world-of-unraveling-men"
+    },
+    {
+      "title": "Deep Unlearning: The Rise of AI and the Radicalization of a Tech Idealist",
+      "author": "Timnit Gebru",
+      "coverUrl": "https://assets.hardcover.app/external_data/4107766/391bd890895b2e471b627b77283b7ec395a50f19.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/deep-unlearning"
+    },
     {
       "title": "How to Know a Person: The Art of Seeing Others Deeply and Being Deeply Seen",
       "author": "David Brooks",
@@ -150,162 +288,6 @@
       "author": "Gemma Hartley",
       "coverUrl": "https://assets.hardcover.app/edition/15090060/38647406._SX98_.jpg",
       "hardcoverUrl": "https://hardcover.app/books/fed-up"
-    },
-    {
-      "title": "Slapstick, or Lonesome No More!",
-      "author": "Kurt Vonnegut",
-      "coverUrl": "https://assets.hardcover.app/edition/28759279/fb569605093ac27d58a7c0a349656c8bc518b870.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/slapstick-or-lonesome-no-more-or-lonesome-no-more-a-novel-1976"
-    },
-    {
-      "title": "Filterworld: How Algorithms Flattened Culture",
-      "author": "Kyle Chayka",
-      "coverUrl": "https://assets.hardcover.app/external_data/4110563/00a972259d0e7669b49f269e0c356d740877ca6e.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/filterworld"
-    },
-    {
-      "title": "Between the Spreadsheets: Classifying and Fixing Dirty Data, Second Edition",
-      "author": "Susan Walsh",
-      "coverUrl": "https://assets.hardcover.app/external_data/4099325/68ec5126bec561d2f1a6c7be7d9fb103b0c1c02c.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/between-the-spreadsheets"
-    },
-    {
-      "title": "The Left Hand of Darkness",
-      "author": "Ursula K. Le Guin",
-      "coverUrl": "https://assets.hardcover.app/edition/9212187/1c8d9135d0b8e7d1debe202c85e2229cc3f586b0.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/the-left-hand-of-darkness"
-    },
-    {
-      "title": "If This Isn't Nice What Is? (Much) Expanded Second Edition: The Graduation Speeches and Other Words to Live By",
-      "author": "Dan Wakefield",
-      "coverUrl": "https://assets.hardcover.app/external_data/48923766/83dd85d5a89a8fe4be1342e724e7f84b6773a97a.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/if-this-isnt-nice-what-is-much-expanded-second-edition-the-graduation-speeches-and-other-words-to-live-by"
-    },
-    {
-      "title": "The Surgeon of Crowthorne: A Tale of Murder, Madness and the Oxford English Dictionary",
-      "author": "Simon Winchester",
-      "coverUrl": "https://assets.hardcover.app/edition/30879754/ee21b1cb5d2f4632ff22d642ef349341f8b50dee.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/the-surgeon-of-crowthorne"
-    },
-    {
-      "title": "The First 200 Years of Monty Python",
-      "author": "Kim Howard Johnson",
-      "coverUrl": "https://assets.hardcover.app/external_data/43852780/520b24758fdc50c3a4e14bed33eab386b328c545.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/the-first-200-years-of-monty-python"
-    },
-    {
-      "title": "The Metamorphosis of Prime Intellect",
-      "author": "Roger Williams",
-      "coverUrl": "https://assets.hardcover.app/edition/3659606/dfcba4b7dc603133fd0787a9f119e582a6330883.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/the-metamorphosis-of-prime-intellect"
-    },
-    {
-      "title": "A Christmas Carol",
-      "author": "Charles Dickens",
-      "coverUrl": "https://assets.hardcover.app/external_data/3581636/3e832f7c07e29ef8bbde4f1f8322bbb873d45dba.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/a-christmas-carol"
-    },
-    {
-      "title": "Ways of Seeing",
-      "author": "John Berger",
-      "coverUrl": "https://assets.hardcover.app/edition/11057484/dbfd350653eff1b4a541125a59fcc656b4834778.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/ways-of-seeing"
-    },
-    {
-      "title": "Practical Programming: An Introduction to Computer Science Using Python 3",
-      "author": "Paul Gries",
-      "coverUrl": "https://assets.hardcover.app/edition/32385093/b2832afde8add9b38b4166a8cd525ee7a55104b1.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/practical-programming-python-3"
-    },
-    {
-      "title": "The Man Without a Face",
-      "author": "Masha Gessen",
-      "coverUrl": "https://assets.hardcover.app/edition/9877157/7246400-L.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/the-man-without-a-face"
-    },
-    {
-      "title": "The Song of Achilles",
-      "author": "Madeline Miller",
-      "coverUrl": "https://assets.hardcover.app/editions/8933288/8719175186248367.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/the-song-of-achilles"
-    },
-    {
-      "title": "I Who Have Never Known Men",
-      "author": "Jacqueline Harpman",
-      "coverUrl": "https://assets.hardcover.app/edition/30584481/30b8077a24fe1e99055ff4e2c9a0fc0f73104b4a.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/i-who-have-never-known-men"
-    },
-    {
-      "title": "Morning Star",
-      "author": "Pierce Brown",
-      "coverUrl": "https://assets.hardcover.app/book_mappings/7332844/702879986b75f035349c34acad3d94f88bb737ed.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/morning-star"
-    },
-    {
-      "title": "Against the Machine The Fight to Stay Human",
-      "author": "Paul Kingsnorth",
-      "coverUrl": "https://assets.hardcover.app/edition/31984054/f4cc9f67064607aa0ce510c10edb55ea40d1ed91.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/against-the-machine-the-fight-to-stay-human"
-    },
-    {
-      "title": "The Information: A History, a Theory, a Flood",
-      "author": "James Gleick",
-      "coverUrl": "https://assets.hardcover.app/edition/30704237/46fdac0db12687412956af65d35f3beab24bc48c.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/the-information-a-history-a-theory-a-flood"
-    },
-    {
-      "title": "Consider Phlebas",
-      "author": "Iain M. Banks",
-      "coverUrl": "https://assets.hardcover.app/edition/25245221/035c7c4e-7508-410f-9a6b-71e048c2daa6.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/consider-phlebas"
-    },
-    {
-      "title": "There Is No Antimemetics Division",
-      "author": "qntm",
-      "coverUrl": "https://assets.hardcover.app/external_data/193765/b3af02e08dc537afe1627e9cc6a20131874e056d.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/there-is-no-antimemetics-division"
-    },
-    {
-      "title": "Adult Children of Emotionally Immature Parents",
-      "author": "Lindsay C. Gibson",
-      "coverUrl": "https://assets.hardcover.app/external_data/41549765/6c6f7ea22215111389446a672c72de619d8bff21.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/adult-children-of-emotionally-immature-parents"
-    },
-    {
-      "title": "The Will of the Many",
-      "author": "James Islington",
-      "coverUrl": "https://assets.hardcover.app/edition/30615590/1fe836a2-7004-4378-add0-dc78b96b2d17.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/the-will-of-the-many-2023"
-    },
-    {
-      "title": "Piranesi",
-      "author": "Susanna Clarke",
-      "coverUrl": "https://assets.hardcover.app/editions/30480426/ec301cb7-b118-48fd-aa3a-5d336e61c182.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/piranesi"
-    },
-    {
-      "title": "The Butcher's Masquerade",
-      "author": "Matt Dinniman",
-      "coverUrl": "https://assets.hardcover.app/editions/32004303/0e11e113-fd6c-4363-9a68-da8999b886f5.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/the-butchers-masquerade"
-    },
-    {
-      "title": "The Gate of the Feral Gods",
-      "author": "Matt Dinniman",
-      "coverUrl": "https://assets.hardcover.app/edition/31943704/04d5cb18-1725-4b03-9303-b6e9ee14942d.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/the-gate-of-the-feral-gods"
-    },
-    {
-      "title": "Remarkably Bright Creatures",
-      "author": "Shelby Van Pelt",
-      "coverUrl": "https://assets.hardcover.app/external_data/59469142/340246db2f5b43b566a8dfc27887bb13301ca4cd.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/remarkably-bright-creatures"
-    },
-    {
-      "title": "The Plantagenets: The Warrior Kings and Queens Who Made England",
-      "author": "Dan Jones",
-      "coverUrl": "https://assets.hardcover.app/edition/30455082/e0f7f17e50453bb8ec454ab9a6eeb32c5a321046.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/the-plantagenets"
     }
   ]
 }
