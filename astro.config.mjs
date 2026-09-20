@@ -1,6 +1,7 @@
 // @ts-check
 import { readFileSync } from "node:fs";
 import { defineConfig, envField } from "astro/config";
+import { unified } from "@astrojs/markdown-remark";
 
 import tailwindcss from "@tailwindcss/vite";
 import svelte from "@astrojs/svelte";
@@ -68,7 +69,11 @@ export default defineConfig({
       theme: shikiTheme,
       transformers: [codeMockupTransformer()],
     },
-    rehypePlugins: [rehypeSlug],
+    // Astro 7 made Sätteri the default Markdown processor and stopped bundling
+    // `@astrojs/markdown-remark`. `markdown.rehypePlugins` still works but is
+    // deprecated (Astro auto-migrates it onto a unified processor and warns);
+    // passing the plugin to `unified()` directly is the supported form.
+    processor: unified({ rehypePlugins: [rehypeSlug] }),
   },
   vite: {
     plugins: [tailwindcss()],
