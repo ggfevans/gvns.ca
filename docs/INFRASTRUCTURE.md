@@ -106,6 +106,39 @@ Workers Static Assets rejects absolute URLs in `_redirects` (validation error 10
 
 `public/_redirects` is retained for any future *path-relative* redirects.
 
+### Cloudflare Access (Zero Trust)
+
+`gvns.ca/admin` is gated by a Cloudflare Access application in the **`gwilym`** Zero Trust team. Access runs at the edge *before* the Worker sees the request — the same layer as Redirect Rules.
+
+| App | Matches | Identity provider | AUD tag |
+|---|---|---|---|
+| CMS admin | `gvns.ca/admin` | GitHub (auto-redirect) | `69044c10ca5e0fc336bfef01a9a99169a27604e05b9304c0f1a63bf6eb9374ff` |
+
+This layers on top of Sveltia's own GitHub OAuth (see `CMS-SETUP.md`) — Access decides who reaches `/admin` at all, the `auth.gvns.ca` Worker decides who can commit.
+
+**Nothing in this repo configures Access.** It is dashboard-only state (Zero Trust → Access → Applications), so it is invisible to `git` and to CI. That is exactly why it is documented here.
+
+**Invariant:** `/admin` is the *only* path on the apex behind Access. Every other path must return `200` to anonymous requests.
+
+```bash
+curl -sI https://gvns.ca/ | head -1        # expect: HTTP/2 200
+curl -sI https://gvns.ca/admin/ | head -1  # expect: HTTP/2 302 (healthy — this one is gated)
+```
+
+A `302` to `<team>.cloudflareaccess.com` on any other path means a stray Access app is matching the apex. To identify which one, decode the `meta` JWT in the redirect URL — its `aud` claim is the offending app's AUD tag, which you can then match in the dashboard:
+
+```bash
+curl -s -o /dev/null -w '%{redirect_url}' https://gvns.ca/ \
+  | grep -oE 'meta=[^&]+' | cut -d= -f2 | cut -d. -f2 \
+  | python3 -c 'import sys,base64,json; s=sys.stdin.read().strip(); print(json.dumps(json.loads(base64.urlsafe_b64decode(s+"="*(-len(s)%4))),indent=2))'
+```
+
+(The JWT payload is base64**url** with padding stripped, so plain `base64 -d` truncates it — hence the Python one-liner.)
+
+The local wrangler OAuth token **cannot** audit this: `/accounts/{id}/access/apps` returns `success: true` with an empty list (a missing scope, not "no apps"), and audit logs return `10000 Authentication error`. Checking Access config needs the dashboard or an API token with *Access: Apps and Policies Read*.
+
+**Incident 2026-09-19:** a second, unrelated Access app (AUD `5b9dcf0b…`, default email one-time-PIN login) was found matching the bare host `gvns.ca`, gating the entire public site. Zone analytics showed near-zero `200`s against thousands of `302`s for the full 31-day retention window, so it had been live at least that long and search crawlers had been served login redirects throughout. The app was deleted; the `/admin` app was left in place.
+
 ### Security Headers
 
 Served via `_headers` file (copied from `public/` to `dist/client/` during build):
