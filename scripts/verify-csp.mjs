@@ -40,9 +40,30 @@ const USER_AGENT =
 // that bypassed the zone would not see it.
 const VERIFY_TOKEN = process.env.CSP_VERIFY_TOKEN;
 
+// ORIGIN comes from argv, so the token must never ride along to an arbitrary
+// host: `node scripts/verify-csp.mjs https://attacker.example` would otherwise
+// hand the WAF bypass secret straight to it. Compare the parsed hostname
+// exactly — substring matching would accept gvns.ca.attacker.example.
+const TOKEN_ALLOWED_HOSTS = new Set(["gvns.ca", "www.gvns.ca"]);
+
+let originHost;
+try {
+  originHost = new URL(ORIGIN).hostname;
+} catch {
+  console.error(`FATAL: "${ORIGIN}" is not a valid URL.`);
+  process.exit(2);
+}
+
+const sendToken = Boolean(VERIFY_TOKEN) && TOKEN_ALLOWED_HOSTS.has(originHost);
+if (VERIFY_TOKEN && !sendToken) {
+  console.warn(
+    `WARN CSP_VERIFY_TOKEN is set but withheld: ${originHost} is not one of ${[...TOKEN_ALLOWED_HOSTS].join(", ")}.`
+  );
+}
+
 const REQUEST_HEADERS = {
   "user-agent": USER_AGENT,
-  ...(VERIFY_TOKEN ? { "x-csp-verifier": VERIFY_TOKEN } : {}),
+  ...(sendToken ? { "x-csp-verifier": VERIFY_TOKEN } : {}),
 };
 
 // Cloudflare's interstitial serves its own CSP, which is never anything
