@@ -18,9 +18,13 @@ const sortedEntries = entries.sort((a, b) =>
 // Format date for display
 function formatDate(dateStr: string): string {
   const date = new Date(dateStr);
+  // Timeline dates are date-only and parse as UTC midnight. Without an explicit
+  // timeZone they render in the build machine's zone, so `2020-03-01` shows as
+  // "Feb 2020" anywhere west of UTC (e.g. `npm run dev` in Vancouver).
   return date.toLocaleDateString('en-CA', {
     year: 'numeric',
     month: 'short',
+    timeZone: 'UTC',
   });
 }
 ---
