@@ -24,5 +24,12 @@ jobs:
         with:
           node-version: "24"
 
+      # CSP_VERIFY_TOKEN is optional. Without it the run still works from an
+      # unchallenged IP, but GitHub-hosted runners score as bots and get
+      # `cf-mitigated: challenge`. Set the secret and add a matching Cloudflare
+      # WAF skip rule on `http.request.headers["x-csp-verifier"][0]` to let the
+      # checker through — see the header comment in scripts/verify-csp.mjs.
       - name: Verify production CSP headers
+        env:
+          CSP_VERIFY_TOKEN: ${{ secrets.CSP_VERIFY_TOKEN }}
         run: node scripts/verify-csp.mjs https://gvns.ca
