@@ -1,5 +1,5 @@
 ---
-import yaml from 'js-yaml';
+import { load } from 'js-yaml';
 import timelineSource from '../data/timeline.yaml?raw';
 
 interface TimelineEntry {
@@ -8,7 +8,7 @@ interface TimelineEntry {
   description: string;
 }
 
-const entries = yaml.load(timelineSource) as TimelineEntry[];
+const entries = load(timelineSource) as TimelineEntry[];
 
 // Sort by date descending (newest first)
 const sortedEntries = entries.sort((a, b) =>
