@@ -1,14 +1,22 @@
 {
-  "lastUpdated": "2026-09-21T08:31:20Z",
+  "lastUpdated": "2026-09-22T08:11:40Z",
   "currentlyReading": [
+    {
+      "title": "I, Mengsk",
+      "author": "Graham McNeill",
+      "coverUrl": null,
+      "hardcoverUrl": "https://hardcover.app/books/i-mengsk"
+    }
+  ],
+  "finished": [
     {
       "title": "Remarkably Bright Creatures",
       "author": "Shelby Van Pelt",
       "coverUrl": "https://assets.hardcover.app/external_data/59469142/340246db2f5b43b566a8dfc27887bb13301ca4cd.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/remarkably-bright-creatures"
-    }
-  ],
-  "finished": [
+      "hardcoverUrl": "https://hardcover.app/books/remarkably-bright-creatures",
+      "rating": 4.5,
+      "dateFinished": "2026-09-22T04:39:29.582571+00:00"
+    },
     {
       "title": "Rant",
       "author": "Chuck Palahniuk",
@@ -43,6 +51,30 @@
     }
   ],
   "wantToRead": [
+    {
+      "title": "I, Me, Mine",
+      "author": "George Harrison",
+      "coverUrl": "https://assets.hardcover.app/edition/30455282/content.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/i-me-mine"
+    },
+    {
+      "title": "A Short Stay in Hell",
+      "author": "Steven L. Peck",
+      "coverUrl": "https://assets.hardcover.app/edition/32076091/1fb38c39-58fb-4af1-8960-5b0ff1b9cbb4.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/a-short-stay-in-hell"
+    },
+    {
+      "title": "Other Minds: The Octopus, the Sea, and the Deep Origins of Consciousness",
+      "author": "Peter Godfrey-Smith",
+      "coverUrl": "https://assets.hardcover.app/external_data/23226136/287fb6c2665e500667eb1b4852a23951c6a8e561.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/other-minds"
+    },
+    {
+      "title": "The Soul of an Octopus: A Surprising Exploration into the Wonder of Consciousness",
+      "author": "Sy Montgomery",
+      "coverUrl": "https://assets.hardcover.app/external_data/26727102/4af07fdb67196479133e203948cc1bfe2ff5ad18.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/the-soul-of-an-octopus"
+    },
     {
       "title": "One Man In: The Explosive Firsthand Account of the Lone Special-Ops Soldier Who Fought Off a Massive Terrorist Attack in Kenya",
       "author": "Chris Craighead",
@@ -90,12 +122,6 @@
       "author": "Percival Everett",
       "coverUrl": "https://assets.hardcover.app/external_data/61346674/caff7309b465f9633e166709b0215c12aa392aff.jpeg",
       "hardcoverUrl": "https://hardcover.app/books/james"
-    },
-    {
-      "title": "I, Mengsk",
-      "author": "Graham McNeill",
-      "coverUrl": null,
-      "hardcoverUrl": "https://hardcover.app/books/i-mengsk"
     },
     {
       "title": "Dark Roads",
@@ -276,18 +302,6 @@
       "author": "Emily St. John Mandel",
       "coverUrl": "https://assets.hardcover.app/book/2225933/d89d5130-a591-4b4e-880d-8e297af5eed2.jpg",
       "hardcoverUrl": "https://hardcover.app/books/exit-party"
-    },
-    {
-      "title": "How Fiction Works",
-      "author": "James  Wood",
-      "coverUrl": "https://assets.hardcover.app/external_data/27548264/754ca241499b3ec9f9ae8ceb92622a5c8513ccf3.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/how-fiction-works"
-    },
-    {
-      "title": "Fed Up: Emotional Labor, Women, and the Way Forward",
-      "author": "Gemma Hartley",
-      "coverUrl": "https://assets.hardcover.app/edition/15090060/38647406._SX98_.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/fed-up"
     }
   ]
 }
