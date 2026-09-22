@@ -25,7 +25,7 @@
     "@codybrom/denim": "npm:@jsr/codybrom__denim@^2.0.1",
     "@fontsource/inter": "^5.3.0",
     "@fontsource/jetbrains-mono": "^5.2.8",
-    "@fontsource/space-grotesk": "^5.2.10",
+    "@fontsource/space-grotesk": "^5.3.0",
     "@pagefind/default-ui": "^1.5.2",
     "@tabler/icons": "^3.46.0",
     "@tailwindcss/forms": "^0.5.11",
