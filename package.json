@@ -54,7 +54,7 @@
     "@types/hast": "^3.0.5",
     "@unpic/astro": "^1.0.2",
     "shiki": "^4.4.3",
-    "starwind": "^2.0.1",
+    "starwind": "^3.3.2",
     "typescript": "^6.0.3",
     "wrangler": "^4.135.0"
   }
