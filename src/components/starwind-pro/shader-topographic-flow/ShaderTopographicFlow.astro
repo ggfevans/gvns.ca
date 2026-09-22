@@ -1,0 +1,127 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { tv } from "tailwind-variants";
+
+interface Props extends HTMLAttributes<"div"> {
+  /** Distance between contour bands without changing the terrain scale. */
+  contourSpacing?: number;
+  /** Thickness of the minor and major contour strokes. */
+  contourWidth?: number;
+
+  /** Contour drift multiplier. */
+  contourDrift?: number;
+  /** Contour field scale. */
+  contourScale?: number;
+  /** Contour line strength. */
+  lineStrength?: number;
+  /** Sets the overall opacity of the shader background wrapper. */
+  opacity?: number;
+  /** Caps device pixel ratio for sharper output without runaway GPU cost. */
+  maxDpr?: number;
+  /** Caps the animation frame rate for performance-sensitive pages. */
+  maxFps?: 30 | 45 | 60;
+  /** Map wash color as a CSS color or normalized RGB. */
+  mapWashColor?: string;
+  /** Contour line color as a CSS color or normalized RGB. */
+  contourLineColor?: string;
+  /** Major line color as a CSS color or normalized RGB. */
+  majorLineColor?: string;
+}
+
+const backgroundStyles = tv({
+  base: "pointer-events-none absolute inset-0 overflow-hidden",
+});
+
+const {
+  contourSpacing = 1,
+  contourWidth = 1,
+  contourDrift = 0.28,
+  contourScale = 3.4,
+  lineStrength = 0.75,
+  opacity = 0.94,
+  maxDpr = 1.5,
+  maxFps = 60,
+  mapWashColor = "#1a857a",
+  contourLineColor = "#2e8ffa",
+  majorLineColor = "#dbb870",
+  class: className,
+  style,
+  ...rest
+} = Astro.props;
+
+const inlineStyle = [`opacity: var(--shader-opacity, ${opacity})`, style]
+  .filter(Boolean)
+  .join("; ");
+---
+
+<div
+  class={backgroundStyles({ class: className })}
+  data-shader-topographic-flow
+  data-shader-state="loading"
+  aria-hidden="true"
+  {...rest}
+  style={inlineStyle}
+>
+  <div class="shader-topographic-flow-fallback absolute inset-0"></div>
+  <canvas
+    class="absolute inset-0 size-full"
+    data-shader-topographic-flow-canvas
+    data-shader-contour-spacing={contourSpacing}
+    data-shader-contour-width={contourWidth}
+    data-shader-contour-drift={contourDrift}
+    data-shader-contour-line-color={contourLineColor}
+    data-shader-contour-scale={contourScale}
+    data-shader-line-strength={lineStrength}
+    data-shader-major-line-color={majorLineColor}
+    data-shader-map-wash-color={mapWashColor}
+    data-shader-max-dpr={maxDpr}
+    data-shader-max-fps={maxFps}></canvas>
+</div>
+
+<script>
+  import { initShaderTopographicFlowBackgrounds } from "./shaders";
+
+  initShaderTopographicFlowBackgrounds();
+  document.addEventListener("astro:after-swap", initShaderTopographicFlowBackgrounds);
+</script>
+
+<style>
+  .shader-topographic-flow-fallback {
+    background-color: var(--background);
+    background:
+      radial-gradient(
+        circle at 72% 28%,
+        color-mix(in oklab, var(--primary) 14%, transparent),
+        transparent 34%
+      ),
+      radial-gradient(
+        circle at 22% 78%,
+        color-mix(in oklab, var(--primary-accent) 14%, transparent),
+        transparent 38%
+      ),
+      linear-gradient(
+        135deg,
+        var(--background),
+        color-mix(in oklab, var(--primary) 8%, var(--background)) 48%,
+        var(--background)
+      );
+  }
+
+  [data-shader-topographic-flow] canvas,
+  .shader-topographic-flow-fallback {
+    opacity: 0;
+    transition: opacity 320ms ease;
+  }
+
+  [data-shader-topographic-flow][data-shader-state="running"] canvas {
+    opacity: 1;
+  }
+
+  [data-shader-topographic-flow][data-shader-state="fallback"] canvas {
+    display: none;
+  }
+
+  [data-shader-topographic-flow][data-shader-state="fallback"] .shader-topographic-flow-fallback {
+    opacity: 1;
+  }
+</style>
