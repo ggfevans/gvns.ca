@@ -1,0 +1,95 @@
+---
+export const prerender = true;
+
+// Sandbox test of @starwind-pro/shader-topographic-flow — not an adoption.
+// ADR-019 forbids direct starwind-pro/ imports in pages; this lab page is the
+// deliberate exception. If the shader makes the cut, fork it into a project
+// component (e.g. Hero.astro) with a lineage header and drop this import.
+import BaseLayout from '@layouts/BaseLayout.astro';
+import ShaderTopographicFlow from '@components/starwind-pro/shader-topographic-flow/ShaderTopographicFlow.astro';
+---
+
+<BaseLayout
+  title="Shader sandbox"
+  description="Review surface for the Starwind Pro Topographic Flow shader"
+>
+  <Fragment slot="head">
+    <meta name="robots" content="noindex, nofollow" />
+  </Fragment>
+
+  <main id="main-content" class="gvns-shader-main">
+    <section
+      id="shader-topographic-flow-demo"
+      class="bg-background text-foreground dark @container relative isolate min-h-[720px] w-full overflow-hidden"
+      data-shader-demo="topographic-flow"
+    >
+      <ShaderTopographicFlow
+        contourLineColor="#2e8ffa"
+        majorLineColor="#dbb870"
+        mapWashColor="#1a857a"
+        contourScale={3.4}
+        contourSpacing={1}
+        contourWidth={1}
+        contourDrift={0.28}
+        lineStrength={0.75}
+        opacity={0.94}
+      />
+
+      <div class="gvns-shader-copy relative z-10">
+        <p class="gvns-shader-eyebrow">sandbox · shader-topographic-flow</p>
+        <h1>Readability check over the contour field</h1>
+        <p>
+          Body copy sits here to judge contrast against moving lines. Watch for
+          the gold major lines crossing text, and check the page on a phone for
+          GPU heat and battery drain.
+        </p>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  /* Full-bleed: drop the global main gutters for this page only. */
+  .gvns-shader-main {
+    padding: 0;
+  }
+
+  /* The running canvas is dark whatever the theme, but the loading/fallback
+     layer follows --background. The section's `dark` class doesn't flip gvns
+     tokens (they key off html.dark), so copy switches on the shader state.
+     `~` not `+`: Astro renders the component's <script> between the two. */
+  .gvns-shader-copy {
+    --shader-copy-fg: var(--colour-text-primary);
+    --shader-copy-muted: var(--colour-text-secondary);
+    max-width: var(--width-content, 42rem);
+    margin-inline: auto;
+    padding: 12rem 1.5rem 6rem;
+    color: var(--shader-copy-fg);
+    transition: color 320ms ease;
+  }
+
+  :global([data-shader-state="running"]) ~ .gvns-shader-copy {
+    --shader-copy-fg: var(--color-zinc-100);
+    --shader-copy-muted: var(--color-zinc-300);
+  }
+
+  .gvns-shader-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--shader-copy-muted);
+    margin-bottom: 1rem;
+  }
+
+  .gvns-shader-copy h1 {
+    color: var(--shader-copy-fg);
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    line-height: 1.1;
+    margin-bottom: 1.25rem;
+  }
+
+  .gvns-shader-copy p:last-child {
+    color: var(--shader-copy-muted);
+    font-size: 1.125rem;
+    line-height: 1.6;
+  }
+</style>
