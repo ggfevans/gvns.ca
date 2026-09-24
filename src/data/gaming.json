@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-23T08:13:45.933Z",
+  "lastUpdated": "2026-09-24T08:04:58.950Z",
   "profile": {
     "steamId": "76561197962113454",
     "personaName": "Gareth",
@@ -138,8 +138,8 @@
     {
       "name": "Half-Life: Alyx",
       "appId": 546560,
-      "headerUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/546560/header.jpg?t=1790108885",
-      "capsuleUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/546560/capsule_231x87.jpg?t=1790108885",
+      "headerUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/546560/header.jpg?t=1790202165",
+      "capsuleUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/546560/capsule_231x87.jpg?t=1790202165",
       "portraitUrl": "https://cdn.akamai.steamstatic.com/steam/apps/546560/library_600x900.jpg",
       "playtimeForeverMinutes": 109,
       "playtime2WeeksMinutes": 0,
@@ -784,7 +784,7 @@
     }
   ],
   "snapshot": {
-    "date": "2026-09-23",
+    "date": "2026-09-24",
     "games": {
       "10": 25,
       "20": 0,
