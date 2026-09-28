@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-27T08:53:09Z",
+  "lastUpdated": "2026-09-28T09:17:45Z",
   "currentlyReading": [
     {
       "title": "I, Mengsk",
@@ -51,6 +51,18 @@
     }
   ],
   "wantToRead": [
+    {
+      "title": "Tecumseh and the Prophet",
+      "author": "Peter Cozzens",
+      "coverUrl": "https://assets.hardcover.app/edition/30551887/49829876._SX98_.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/tecumseh-and-the-prophet"
+    },
+    {
+      "title": "Tecumseh: A Life",
+      "author": "John Sugden",
+      "coverUrl": "https://assets.hardcover.app/edition/19670399/579561-L.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/tecumseh-a-life"
+    },
     {
       "title": "I, Me, Mine",
       "author": "George Harrison",
@@ -168,7 +180,7 @@
     {
       "title": "The Count of Monte Cristo",
       "author": "Alexandre Dumas",
-      "coverUrl": "https://assets.hardcover.app/external_data/27561581/253321bd80aa52383000f2f3a7795ccdd3277c23.jpeg",
+      "coverUrl": "https://assets.hardcover.app/edition/22062767/3432f1033b04d23e47edea3a864bb956f3b6346e.jpeg",
       "hardcoverUrl": "https://hardcover.app/books/the-count-of-monte-cristo"
     },
     {
@@ -290,18 +302,6 @@
       "author": "Rebecca Roanhorse",
       "coverUrl": "https://assets.hardcover.app/book_mappings/7332858/c7932f5d466a101153b9b0eeeccb38100363f8aa.jpeg",
       "hardcoverUrl": "https://hardcover.app/books/black-sun"
-    },
-    {
-      "title": "Deadwood: Gold, Guns, and Greed in the American West",
-      "author": "Peter Cozzens",
-      "coverUrl": "https://assets.hardcover.app/edition/32221972/8eea95d42a28710d5261b2bbd84e0ed7cc080984.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/deadwood-gold-guns-and-greed-in-the-american-west"
-    },
-    {
-      "title": "Exit Party",
-      "author": "Emily St. John Mandel",
-      "coverUrl": "https://assets.hardcover.app/book/2225933/d89d5130-a591-4b4e-880d-8e297af5eed2.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/exit-party"
     }
   ]
 }
