@@ -1,14 +1,23 @@
 {
-  "lastUpdated": "2026-09-28T09:17:45Z",
-  "currentlyReading": [
+  "lastUpdated": "2026-09-29T09:24:51Z",
+  "currentlyReading": [],
+  "finished": [
+    {
+      "title": "Greenwood",
+      "author": "Michael Christie",
+      "coverUrl": "https://assets.hardcover.app/edition/1491433/c28c1acfd83f5cca28f93d2867654fe12a89ab0f.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/greenwood",
+      "rating": 5.0,
+      "dateFinished": "2026-09-29T06:52:36.898201+00:00"
+    },
     {
       "title": "I, Mengsk",
       "author": "Graham McNeill",
       "coverUrl": "https://assets.hardcover.app/edition/31165154/e412b201b2983c79845a9bdd0a14ed0b1c2748d1.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/i-mengsk"
-    }
-  ],
-  "finished": [
+      "hardcoverUrl": "https://hardcover.app/books/i-mengsk",
+      "rating": 4.0,
+      "dateFinished": "2026-09-29T06:50:44.004507+00:00"
+    },
     {
       "title": "Remarkably Bright Creatures",
       "author": "Shelby Van Pelt",
@@ -40,17 +49,51 @@
       "hardcoverUrl": "https://hardcover.app/books/crazy-for-the-storm-a-memoir-of-survival",
       "rating": 3.0,
       "dateFinished": "2026-09-13T17:48:18.960494+00:00"
-    },
-    {
-      "title": "A Season for Spies: A Lane Winslow Prequel",
-      "author": "Iona Whishaw",
-      "coverUrl": null,
-      "hardcoverUrl": "https://hardcover.app/books/a-season-for-spies-a-lane-winslow-prequel",
-      "rating": null,
-      "dateFinished": "2026-09-07T08:25:40.594761+00:00"
     }
   ],
   "wantToRead": [
+    {
+      "title": "Queen of Blades",
+      "author": "Aaron Rosenberg",
+      "coverUrl": null,
+      "hardcoverUrl": "https://hardcover.app/books/queen-of-blades"
+    },
+    {
+      "title": "Starcraft: Evolution",
+      "author": "Timothy Zahn",
+      "coverUrl": "https://assets.hardcover.app/external_data/59836407/438e4298b17d3ea80deafaf1cae147b8de281dd5.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/starcraft-evolution"
+    },
+    {
+      "title": "Five Little Indians",
+      "author": "Michelle Good",
+      "coverUrl": "https://assets.hardcover.app/edition/30483879/00ee3e052171bab8d669040b9c6caf545fbf1c32.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/five-little-indians"
+    },
+    {
+      "title": "Men We Reaped: A Memoir",
+      "author": "Jesmyn Ward",
+      "coverUrl": "https://assets.hardcover.app/external_data/59702417/44f0f921376b2c787f604b8a4546e3794a1216e5.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/men-we-reaped"
+    },
+    {
+      "title": "The Arsonists' City",
+      "author": "Hala Alyan",
+      "coverUrl": "https://assets.hardcover.app/external_data/1622992/71eff847ddd7aa5be8c9ef2b5824912d00d4c0e6.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/the-arsonists-city"
+    },
+    {
+      "title": "The Love Songs of W.E.B. Du Bois",
+      "author": "Honorée Fanonne Jeffers",
+      "coverUrl": "https://assets.hardcover.app/edition/15927450/f88491233dd8363ecc4083f60b58f541eb6ab645.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/the-love-songs-of-web-du-bois"
+    },
+    {
+      "title": "The Heart's Invisible Furies",
+      "author": "John Boyne",
+      "coverUrl": "https://assets.hardcover.app/book_mappings/7333430/ae1fa1ca991a4429bd1b7f5ebdfa98dbd84d2eba.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/the-hearts-invisible-furies"
+    },
     {
       "title": "Tecumseh and the Prophet",
       "author": "Peter Cozzens",
@@ -266,42 +309,6 @@
       "author": "Timnit Gebru",
       "coverUrl": "https://assets.hardcover.app/external_data/4107766/391bd890895b2e471b627b77283b7ec395a50f19.jpeg",
       "hardcoverUrl": "https://hardcover.app/books/deep-unlearning"
-    },
-    {
-      "title": "How to Know a Person: The Art of Seeing Others Deeply and Being Deeply Seen",
-      "author": "David Brooks",
-      "coverUrl": "https://assets.hardcover.app/editions/31035902/8329032797745852.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/how-to-know-a-person"
-    },
-    {
-      "title": "An Old, Cold Grave",
-      "author": "Iona Whishaw",
-      "coverUrl": "https://assets.hardcover.app/external_data/60350723/4266c252eda23f6efa8c7254d0c6240aa03ba63d.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/an-old-cold-grave"
-    },
-    {
-      "title": "Death in a Darkening Mist",
-      "author": "Iona Whishaw",
-      "coverUrl": "https://assets.hardcover.app/external_data/60350724/7b6b1b61fc531677409324f407820e40262f640e.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/death-in-a-darkening-mist"
-    },
-    {
-      "title": "Screen People: How We Entertained Ourselves into a State of Emergency",
-      "author": "Megan Garber",
-      "coverUrl": "https://assets.hardcover.app/edition/32931714/5e9f6f8f-d142-4caa-a4aa-606fddb8900e.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/screen-people"
-    },
-    {
-      "title": "Beyond Life and Death: The Way of True Freedom",
-      "author": "Jet Li",
-      "coverUrl": null,
-      "hardcoverUrl": "https://hardcover.app/books/beyond-life-and-death"
-    },
-    {
-      "title": "Black Sun",
-      "author": "Rebecca Roanhorse",
-      "coverUrl": "https://assets.hardcover.app/book_mappings/7332858/c7932f5d466a101153b9b0eeeccb38100363f8aa.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/black-sun"
     }
   ]
 }
