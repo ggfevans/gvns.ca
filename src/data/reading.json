@@ -1,6 +1,13 @@
 {
-  "lastUpdated": "2026-09-29T09:24:51Z",
-  "currentlyReading": [],
+  "lastUpdated": "2026-09-30T09:15:27Z",
+  "currentlyReading": [
+    {
+      "title": "Homo Deus: A Brief History of Tomorrow",
+      "author": "Yuval Noah Harari",
+      "coverUrl": "https://assets.hardcover.app/edition/30425557/3b67f74a7a1f38cdd9ce2941e2cc608229ff3492.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/homo-deus"
+    }
+  ],
   "finished": [
     {
       "title": "Greenwood",
@@ -52,6 +59,24 @@
     }
   ],
   "wantToRead": [
+    {
+      "title": "Money",
+      "author": "Yuval Noah Harari",
+      "coverUrl": "https://assets.hardcover.app/edition/30491850/content.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/money-2018"
+    },
+    {
+      "title": "Nexus: A Brief History of Information Networks from the Stone Age to AI",
+      "author": "Yuval Noah Harari",
+      "coverUrl": "https://assets.hardcover.app/external_data/61357850/68f1576954c8dfda3fe583db347a4cfe5e1c441e.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/nexus-ai"
+    },
+    {
+      "title": "Sapiens: A Brief History of Humankind",
+      "author": "Yuval Noah Harari",
+      "coverUrl": "https://assets.hardcover.app/edition/1014761/175a425a-fb6c-4cb6-afdc-6e1818246f9d.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/sapiens"
+    },
     {
       "title": "Queen of Blades",
       "author": "Aaron Rosenberg",
@@ -239,12 +264,6 @@
       "hardcoverUrl": "https://hardcover.app/books/beyond-fear-2006"
     },
     {
-      "title": "Homo Deus: A Brief History of Tomorrow",
-      "author": "Yuval Noah Harari",
-      "coverUrl": "https://assets.hardcover.app/edition/30425557/3b67f74a7a1f38cdd9ce2941e2cc608229ff3492.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/homo-deus"
-    },
-    {
       "title": "The Myth of Normal: Trauma, Illness, and Healing in a Toxic Culture",
       "author": "Gabor Maté",
       "coverUrl": "https://assets.hardcover.app/edition/30531365/942d0f5d72aef39c8bc83b00c2a107374641d686.jpeg",
@@ -291,24 +310,6 @@
       "author": "Dennis E. Taylor",
       "coverUrl": "https://assets.hardcover.app/external_data/620613/20b669a0a401240aaebfef143e63a475b75e9509.jpeg",
       "hardcoverUrl": "https://hardcover.app/books/outland"
-    },
-    {
-      "title": "The Infinite Extent",
-      "author": "Dennis E. Taylor",
-      "coverUrl": "https://assets.hardcover.app/edition/32944595/a7e36f33-4898-4a24-9ef9-b578b5a258bb.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/the-infinite-extent"
-    },
-    {
-      "title": "The Castle: Adventures in a World of Unraveling Men",
-      "author": "Jon Ronson",
-      "coverUrl": "https://assets.hardcover.app/edition/32959813/4dd31ff9-d7ec-4189-9267-d47ee0137865.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/the-castle-adventures-in-a-world-of-unraveling-men"
-    },
-    {
-      "title": "Deep Unlearning: The Rise of AI and the Radicalization of a Tech Idealist",
-      "author": "Timnit Gebru",
-      "coverUrl": "https://assets.hardcover.app/external_data/4107766/391bd890895b2e471b627b77283b7ec395a50f19.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/deep-unlearning"
     }
   ]
 }
