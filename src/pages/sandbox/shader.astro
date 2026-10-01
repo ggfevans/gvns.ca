@@ -111,13 +111,23 @@ const moveHasSignal = !!moveLatest;
       />
 
       <div class="gvns-home relative z-10">
+        <div class="gvns-topo-toolbar">
+          <button type="button" class="gvns-topo-pause" data-topo-pause>Pause motion</button>
+          <div class="gvns-topo-switch" role="group" aria-label="Light-mode shader variant">
+            <span class="gvns-topo-switch__label">light shader</span>
+            <button type="button" data-topo-variant="quiet" aria-pressed="false">Quiet</button>
+            <button type="button" data-topo-variant="present" aria-pressed="true">Present</button>
+          </div>
+        </div>
         {posts.length > 1 ? (
           <section class="gvns-home__split" aria-label="Recent posts">
             <div class="gvns-home__featured">
               <FeaturedPostCard post={posts[0]} />
             </div>
             <div class="gvns-home__sidebar">
-              <RecentPostsList posts={posts.slice(1, 5)} />
+              <div class="gvns-topo-scrim">
+                <RecentPostsList posts={posts.slice(1, 5)} />
+              </div>
               <ThreadsWidget />
             </div>
           </section>
@@ -126,14 +136,14 @@ const moveHasSignal = !!moveLatest;
             <FeaturedPostCard post={posts[0]} />
           </section>
         ) : (
-          <section class="gvns-home__posts gvns-home__posts--empty" aria-label="Recent posts">
+          <section class="gvns-home__posts gvns-home__posts--empty gvns-topo-scrim" aria-label="Recent posts">
             <p class="gvns-empty-state">
               Currently drafting in private. See what I'm up to on <a href="/now">/now</a>.
             </p>
           </section>
         )}
         <section class="gvns-activity-widgets" aria-label="Current activity">
-          <header class="gvns-now">
+          <header class="gvns-now gvns-topo-scrim">
             <div class="gvns-now__row">
               <h2 class="gvns-now__title">
                 <a class="gvns-now__link" href="/now">Now</a>
@@ -191,12 +201,6 @@ const moveHasSignal = !!moveLatest;
         </section>
       </div>
     </section>
-
-    <div class="gvns-topo-switch" role="group" aria-label="Light-mode shader variant">
-      <span class="gvns-topo-switch__label">light shader</span>
-      <button type="button" data-topo-variant="quiet" aria-pressed="false">Quiet</button>
-      <button type="button" data-topo-variant="present" aria-pressed="true">Present</button>
-    </div>
   </main>
 </BaseLayout>
 
@@ -219,6 +223,41 @@ const moveHasSignal = !!moveLatest;
   buttons.forEach((b) => b.addEventListener('click', () => setVariant(b.dataset.topoVariant ?? 'present')));
   const initial = new URLSearchParams(location.search).get('light');
   if (initial === 'quiet' || initial === 'present') setVariant(initial);
+
+  // Pause/play (WCAG 2.2.2). Freezes the shader's clock via the fork's
+  // frozen/frozenTime/timeOffset inputs so resuming continues without a jump.
+  // Remembered per browser; storage can throw (private mode), so guard it.
+  const PAUSE_KEY = 'gvns-shader-paused';
+  const pauseBtn = document.querySelector<HTMLButtonElement>('[data-topo-pause]');
+  const canvas = document.querySelector<HTMLCanvasElement>('[data-shader-topographic-flow-canvas]');
+  let pausedAt = 0;
+  let offset = 0;
+
+  const elapsed = () => (performance.now() - Number(canvas?.dataset.shaderStartedAt ?? 0)) / 1000;
+
+  function setPaused(paused: boolean, remember = true) {
+    if (!canvas || !pauseBtn) return;
+    if (paused) {
+      pausedAt = elapsed();
+      canvas.setAttribute('data-shader-frozen-time', String(Math.max(0, pausedAt - offset)));
+      canvas.setAttribute('data-shader-frozen', '1');
+    } else {
+      if (canvas.getAttribute('data-shader-frozen') === '1') offset += elapsed() - pausedAt;
+      canvas.setAttribute('data-shader-time-offset', String(offset));
+      canvas.setAttribute('data-shader-frozen', '0');
+    }
+    pauseBtn.textContent = paused ? 'Play motion' : 'Pause motion';
+    if (remember) {
+      try { localStorage.setItem(PAUSE_KEY, paused ? '1' : '0'); } catch { /* storage blocked */ }
+    }
+  }
+
+  pauseBtn?.addEventListener('click', () => setPaused(canvas?.getAttribute('data-shader-frozen') !== '1'));
+  let storedPaused = false;
+  try { storedPaused = localStorage.getItem(PAUSE_KEY) === '1'; } catch { /* storage blocked */ }
+  if (storedPaused) setPaused(true, false);
+  // Reduced motion already gets the static fallback; the control would do nothing.
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches && pauseBtn) pauseBtn.hidden = true;
 </script>
 
 <style>
@@ -257,25 +296,43 @@ const moveHasSignal = !!moveLatest;
     --topo-major: color-mix(in oklab, #b45309 55%, var(--colour-bg-primary));
   }
 
-  .gvns-topo-switch {
-    position: fixed;
-    right: var(--space-4);
-    bottom: var(--space-4);
-    z-index: 50;
+  /* Sandbox controls sit in flow above the posts so they never cover content
+     (the fixed version overlapped the Now chips). */
+  .gvns-topo-toolbar {
     display: flex;
-    align-items: center;
-    gap: var(--space-1);
-    padding: var(--space-1);
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-block-end: calc(-1 * var(--space-6));
+  }
+  .gvns-topo-pause,
+  .gvns-topo-switch {
     border: 1px solid var(--colour-border, var(--colour-bg-tertiary));
     border-radius: 999px;
     background: var(--colour-bg-secondary);
     font-family: var(--font-mono);
     font-size: var(--text-xs);
-    box-shadow: 0 4px 16px rgb(0 0 0 / 0.15);
+  }
+  .gvns-topo-pause {
+    padding: var(--space-1) var(--space-3);
+    min-height: 2rem;
+    color: var(--colour-text-primary);
+    cursor: pointer;
+  }
+  .gvns-topo-pause:focus-visible {
+    outline: 2px solid var(--colour-accent-primary);
+    outline-offset: 2px;
+  }
+  .gvns-topo-switch {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    padding: var(--space-1);
   }
   .gvns-topo-switch__label {
     padding-inline: var(--space-2);
-    color: var(--colour-text-muted);
+    /* secondary, not muted: muted is 3.7:1 on bg-secondary in dark. */
+    color: var(--colour-text-secondary);
   }
   .gvns-topo-switch button {
     padding: var(--space-1) var(--space-3);
@@ -292,9 +349,17 @@ const moveHasSignal = !!moveLatest;
     outline: 2px solid var(--colour-accent-primary);
     outline-offset: 2px;
   }
-  /* Variants only differ in light mode; dim the switch in dark to say so. */
-  :global(:root.dark) .gvns-topo-switch {
-    opacity: 0.55;
+
+  /* Backing for text that would otherwise sit straight on the moving field
+     (WCAG 1.4.3). Measured worst-pixel contrast over the bare shader fell to
+     ~2.1:1 for muted meta text; the panel brings it back to near the flat
+     background. The blur averages out line edges that show through. */
+  .gvns-topo-scrim {
+    background: color-mix(in oklab, var(--colour-bg-primary) 94%, transparent);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: var(--radius-lg);
+    padding: var(--space-3) var(--space-4);
   }
 
   /* ---- Copied from src/pages/index.astro ---- */
