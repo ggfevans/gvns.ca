@@ -142,8 +142,8 @@ const moveHasSignal = !!moveLatest;
             </p>
           </section>
         )}
-        <section class="gvns-activity-widgets" aria-label="Current activity">
-          <header class="gvns-now gvns-topo-scrim">
+        <section class="gvns-activity-widgets gvns-topo-scrim gvns-topo-scrim--activity" aria-label="Current activity">
+          <header class="gvns-now">
             <div class="gvns-now__row">
               <h2 class="gvns-now__title">
                 <a class="gvns-now__link" href="/now">Now</a>
@@ -360,6 +360,11 @@ const moveHasSignal = !!moveLatest;
     -webkit-backdrop-filter: blur(8px);
     border-radius: var(--radius-lg);
     padding: var(--space-3) var(--space-4);
+  }
+  /* One panel from the Now header down through the tiles, so the heading
+     reads as the tiles' title rather than a separate floating box. */
+  .gvns-activity-widgets.gvns-topo-scrim--activity {
+    padding: var(--space-4);
   }
 
   /* ---- Copied from src/pages/index.astro ---- */
