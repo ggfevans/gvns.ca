@@ -201,9 +201,13 @@ export function createShaderTopographicFlowBackground(
 ): ShaderHandle | null {
   // The runtime's uTime counts from its own private performance.now() taken
   // during construction; record ours alongside so the pause script can
-  // compute the same elapsed time (off by microseconds).
-  canvas.dataset.shaderStartedAt = String(performance.now());
-  return createRawShaderBackground(canvas, {
+  // compute the same elapsed time (off by microseconds). Only when a new
+  // instance is built: a repeat init returns the live one with its clock
+  // untouched, while a disposed one is rebuilt with a fresh clock.
+  const previous = (canvas as HTMLCanvasElement & { __starwindShaderHandle?: ShaderHandle })
+    .__starwindShaderHandle;
+  const startedAt = performance.now();
+  const handle = createRawShaderBackground(canvas, {
     fragmentShaderSource,
     rootSelector: "[data-shader-topographic-flow]",
     defaults: {
@@ -213,6 +217,8 @@ export function createShaderTopographicFlowBackground(
     inputs: shaderInputs,
     requiredExtensions: ["OES_standard_derivatives"],
   });
+  if (handle && handle !== previous) canvas.dataset.shaderStartedAt = String(startedAt);
+  return handle;
 }
 
 export function initShaderTopographicFlowBackgrounds() {
