@@ -1,6 +1,12 @@
 {
-  "lastUpdated": "2026-09-30T09:15:27Z",
+  "lastUpdated": "2026-10-01T09:43:11Z",
   "currentlyReading": [
+    {
+      "title": "Debugging: The 9 Indispensable Rules for Finding Even the Most Elusive Software and Hardware Problems",
+      "author": "David J. Agans",
+      "coverUrl": "https://assets.hardcover.app/external_data/60301341/56fc67de3928d06daf468f93af17d7e7d12644cc.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/debugging-the-9-indispensable-rules-for-finding-even-the-most-elusive-software-and-hardware-problems"
+    },
     {
       "title": "Homo Deus: A Brief History of Tomorrow",
       "author": "Yuval Noah Harari",
@@ -48,17 +54,39 @@
       "hardcoverUrl": "https://hardcover.app/books/a-killer-in-kings-cove",
       "rating": 4.0,
       "dateFinished": "2026-09-13T18:58:08.12434+00:00"
-    },
-    {
-      "title": "Crazy for the Storm: A Memoir of Survival",
-      "author": "Norman Ollestad",
-      "coverUrl": "https://assets.hardcover.app/edition/16967385/6280129-L.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/crazy-for-the-storm-a-memoir-of-survival",
-      "rating": 3.0,
-      "dateFinished": "2026-09-13T17:48:18.960494+00:00"
     }
   ],
   "wantToRead": [
+    {
+      "title": "The Starflight Handbook",
+      "author": "Eugene F. Mallove",
+      "coverUrl": "https://assets.hardcover.app/edition/31171098/a553733b03d8970fc63f4f04c018fe1ebd9e5d5d.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/the-starflight-handbook"
+    },
+    {
+      "title": "Centauri Dreams",
+      "author": "Paul Gilster",
+      "coverUrl": "https://assets.hardcover.app/edition/23728087/content.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/centauri-dreams"
+    },
+    {
+      "title": "Aurora",
+      "author": "Kim Stanley Robinson",
+      "coverUrl": "https://assets.hardcover.app/editions/30400651/1f89c6fd-140a-4784-939d-d8583ac0cabf-aurora.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/aurora"
+    },
+    {
+      "title": "Rendezvous with Rama",
+      "author": "Arthur C. Clarke",
+      "coverUrl": "https://assets.hardcover.app/edition/20518146/c49aa24a1b0de1b88192d9bb59053ee7dd2af4fc.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/rendezvous-with-rama"
+    },
+    {
+      "title": "Record of a Spaceborn Few",
+      "author": "Becky Chambers",
+      "coverUrl": "https://assets.hardcover.app/editions/30452112/1390368926954764.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/record-of-a-spaceborn-few"
+    },
     {
       "title": "Money",
       "author": "Yuval Noah Harari",
@@ -170,7 +198,7 @@
     {
       "title": "This Kingdom Will Not Kill Me",
       "author": "Ilona Andrews",
-      "coverUrl": "https://assets.hardcover.app/editions/31935198/00491e49-dc23-4d18-a68e-6d03dd48ef72.jpg",
+      "coverUrl": "https://assets.hardcover.app/edition/31935198/265de0efb4ad3f0dbda517b4bed55f53b7f3f32e.jpeg",
       "hardcoverUrl": "https://hardcover.app/books/this-kingdom-will-not-kill-me"
     },
     {
@@ -280,36 +308,6 @@
       "author": "Chantry Rhodes",
       "coverUrl": null,
       "hardcoverUrl": "https://hardcover.app/books/cruisin-baja-style"
-    },
-    {
-      "title": "SQL Antipatterns",
-      "author": "Bill Karwin",
-      "coverUrl": "https://assets.hardcover.app/book_mappings/7344430/03079d9a43438afd56fb6f46c8a35a94ef91ae54.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/sql-antipatterns"
-    },
-    {
-      "title": "Sixteen Ways to Defend a Walled City",
-      "author": "K.J. Parker",
-      "coverUrl": "https://assets.hardcover.app/external_data/50321426/9a3eea446aefdd817e53ef137bcca8d2bdbcf3e1.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/sixteen-ways-to-defend-a-walled-city"
-    },
-    {
-      "title": "Atlas of the Heart: Mapping Meaningful Connection and the Language of Human Experience",
-      "author": "Gavin Aung Than",
-      "coverUrl": "https://assets.hardcover.app/external_data/3002986/3d3975de8c01fbc80c6c2b180d71d89386677c47.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/atlas-of-the-heart"
-    },
-    {
-      "title": "The Nerd Reich: Silicon Valley Fascism and the War on Democracy",
-      "author": "Gil Duran",
-      "coverUrl": "https://assets.hardcover.app/edition/32403516/4412a035-8348-4c16-b5d3-fb613cbd17ea.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/the-nerd-reich"
-    },
-    {
-      "title": "Outland",
-      "author": "Dennis E. Taylor",
-      "coverUrl": "https://assets.hardcover.app/external_data/620613/20b669a0a401240aaebfef143e63a475b75e9509.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/outland"
     }
   ]
 }
