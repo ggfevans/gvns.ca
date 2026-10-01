@@ -233,21 +233,22 @@ const moveHasSignal = !!moveLatest;
     padding: var(--space-8) var(--space-6);
   }
 
-  /* Shader palettes. Dark matches the original Starwind look exactly (base is
-     the shader's old hard-coded vec3). Light uses the page's zinc-50 paper:
-     Present = full-strength ink, Quiet = the same hues pulled ~60% toward the
-     paper so the field reads as texture behind the cards. */
+  /* Shader palettes. Dark keeps the original Starwind hues and base (the
+     shader's old hard-coded vec3), pulled ~20% toward the base to sit a touch
+     quieter than upstream. Light uses the page's zinc-50 paper:
+     Present = ink pulled ~20% toward the paper, Quiet = ~60% so the field
+     reads as texture behind the cards. */
   .gvns-topo {
     --topo-base: #050708;
-    --topo-wash: #1a857a;
-    --topo-line: #2e8ffa;
-    --topo-major: #dbb870;
+    --topo-wash: color-mix(in oklab, #1a857a 85%, #050708);
+    --topo-line: color-mix(in oklab, #2e8ffa 80%, #050708);
+    --topo-major: color-mix(in oklab, #dbb870 80%, #050708);
   }
   :global(:root:not(.dark)) .gvns-topo--present {
     --topo-base: var(--colour-bg-primary);
-    --topo-wash: #99f6e4; /* teal-200 */
-    --topo-line: #0369a1; /* sky-700 */
-    --topo-major: #b45309; /* amber-700 */
+    --topo-wash: color-mix(in oklab, #99f6e4 80%, var(--colour-bg-primary)); /* teal-200 */
+    --topo-line: color-mix(in oklab, #0369a1 80%, var(--colour-bg-primary)); /* sky-700 */
+    --topo-major: color-mix(in oklab, #b45309 80%, var(--colour-bg-primary)); /* amber-700 */
   }
   :global(:root:not(.dark)) .gvns-topo--quiet {
     --topo-base: var(--colour-bg-primary);
