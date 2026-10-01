@@ -9,7 +9,12 @@ export const prerender = true;
 // Body is a copy of src/pages/index.astro (data loading, markup, styles) laid
 // over the shader to judge the real homepage against it. Not kept in sync —
 // re-copy if the homepage changes before a decision is made.
-import ShaderTopographicFlow from '@components/starwind-pro/shader-topographic-flow/ShaderTopographicFlow.astro';
+//
+// Light-mode spike: the shader is a throwaway local fork (./_shader-light/)
+// with a base colour and an ink-on-paper blend. Colours come from --topo-*
+// custom properties so the runtime re-reads them on theme or variant change.
+// The Quiet/Present switch only affects light mode; dark is the original look.
+import ThemedTopographicFlow from './_shader-light/ThemedTopographicFlow.astro';
 
 import { getCollection } from 'astro:content';
 import BaseLayout from '@layouts/BaseLayout.astro';
@@ -89,13 +94,14 @@ const moveHasSignal = !!moveLatest;
   <main id="main-content" class="gvns-shader-main">
     <section
       id="shader-topographic-flow-demo"
-      class="bg-background text-foreground dark @container relative isolate w-full overflow-hidden"
+      class="gvns-topo gvns-topo--present bg-background text-foreground @container relative isolate w-full overflow-hidden"
       data-shader-demo="topographic-flow"
     >
-      <ShaderTopographicFlow
-        contourLineColor="#2e8ffa"
-        majorLineColor="#dbb870"
-        mapWashColor="#1a857a"
+      <ThemedTopographicFlow
+        baseColor="var(--topo-base)"
+        contourLineColor="var(--topo-line)"
+        majorLineColor="var(--topo-major)"
+        mapWashColor="var(--topo-wash)"
         contourScale={3.4}
         contourSpacing={1}
         contourWidth={1}
@@ -185,8 +191,35 @@ const moveHasSignal = !!moveLatest;
         </section>
       </div>
     </section>
+
+    <div class="gvns-topo-switch" role="group" aria-label="Light-mode shader variant">
+      <span class="gvns-topo-switch__label">light shader</span>
+      <button type="button" data-topo-variant="quiet" aria-pressed="false">Quiet</button>
+      <button type="button" data-topo-variant="present" aria-pressed="true">Present</button>
+    </div>
   </main>
 </BaseLayout>
+
+<script>
+  // ?light=quiet|present picks the starting variant so a link can be shared.
+  const section = document.getElementById('shader-topographic-flow-demo');
+  const buttons = document.querySelectorAll<HTMLButtonElement>('[data-topo-variant]');
+
+  function setVariant(variant: string) {
+    if (!section) return;
+    // Swapping the class is what the shader runtime's observer reacts to.
+    section.classList.toggle('gvns-topo--quiet', variant === 'quiet');
+    section.classList.toggle('gvns-topo--present', variant !== 'quiet');
+    buttons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.topoVariant === variant)));
+    const url = new URL(location.href);
+    url.searchParams.set('light', variant);
+    history.replaceState(null, '', url);
+  }
+
+  buttons.forEach((b) => b.addEventListener('click', () => setVariant(b.dataset.topoVariant ?? 'present')));
+  const initial = new URLSearchParams(location.search).get('light');
+  if (initial === 'quiet' || initial === 'present') setVariant(initial);
+</script>
 
 <style>
   /* Full-bleed: drop the global main gutters so the shader reaches the edges,
@@ -198,6 +231,69 @@ const moveHasSignal = !!moveLatest;
   #shader-topographic-flow-demo {
     min-height: 720px;
     padding: var(--space-8) var(--space-6);
+  }
+
+  /* Shader palettes. Dark matches the original Starwind look exactly (base is
+     the shader's old hard-coded vec3). Light uses the page's zinc-50 paper:
+     Present = full-strength ink, Quiet = the same hues pulled ~60% toward the
+     paper so the field reads as texture behind the cards. */
+  .gvns-topo {
+    --topo-base: #050708;
+    --topo-wash: #1a857a;
+    --topo-line: #2e8ffa;
+    --topo-major: #dbb870;
+  }
+  :global(:root:not(.dark)) .gvns-topo--present {
+    --topo-base: var(--colour-bg-primary);
+    --topo-wash: #99f6e4; /* teal-200 */
+    --topo-line: #0369a1; /* sky-700 */
+    --topo-major: #b45309; /* amber-700 */
+  }
+  :global(:root:not(.dark)) .gvns-topo--quiet {
+    --topo-base: var(--colour-bg-primary);
+    --topo-wash: color-mix(in oklab, #99f6e4 35%, var(--colour-bg-primary));
+    --topo-line: color-mix(in oklab, #0369a1 40%, var(--colour-bg-primary));
+    --topo-major: color-mix(in oklab, #b45309 55%, var(--colour-bg-primary));
+  }
+
+  .gvns-topo-switch {
+    position: fixed;
+    right: var(--space-4);
+    bottom: var(--space-4);
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    padding: var(--space-1);
+    border: 1px solid var(--colour-border, var(--colour-bg-tertiary));
+    border-radius: 999px;
+    background: var(--colour-bg-secondary);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    box-shadow: 0 4px 16px rgb(0 0 0 / 0.15);
+  }
+  .gvns-topo-switch__label {
+    padding-inline: var(--space-2);
+    color: var(--colour-text-muted);
+  }
+  .gvns-topo-switch button {
+    padding: var(--space-1) var(--space-3);
+    border-radius: 999px;
+    color: var(--colour-text-secondary);
+    background: transparent;
+    cursor: pointer;
+  }
+  .gvns-topo-switch button[aria-pressed="true"] {
+    background: var(--colour-bg-tertiary);
+    color: var(--colour-text-primary);
+  }
+  .gvns-topo-switch button:focus-visible {
+    outline: 2px solid var(--colour-accent-primary);
+    outline-offset: 2px;
+  }
+  /* Variants only differ in light mode; dim the switch in dark to say so. */
+  :global(:root.dark) .gvns-topo-switch {
+    opacity: 0.55;
   }
 
   /* ---- Copied from src/pages/index.astro ---- */
