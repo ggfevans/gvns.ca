@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-02T09:17:21Z",
+  "lastUpdated": "2026-10-03T08:49:54Z",
   "currentlyReading": [
     {
       "title": "Debugging: The 9 Indispensable Rules for Finding Even the Most Elusive Software and Hardware Problems",
@@ -57,6 +57,12 @@
     }
   ],
   "wantToRead": [
+    {
+      "title": "Start With Why: How Great Leaders Inspire Everyone To Take Action",
+      "author": "Simon Sinek",
+      "coverUrl": "https://assets.hardcover.app/external_data/510213/570cdfb618632c217459c24dccbaf7d7f513ab71.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/start-with-why"
+    },
     {
       "title": "The Starflight Handbook",
       "author": "Eugene F. Mallove",
@@ -242,12 +248,6 @@
       "author": "Sylvain Neuvel",
       "coverUrl": "https://assets.hardcover.app/edition/30399454/1d6c479c90a9b6a818364b67ab8f7e6e93c57d4c.jpeg",
       "hardcoverUrl": "https://hardcover.app/books/sleeping-giants"
-    },
-    {
-      "title": "Start With Why",
-      "author": "Simon Sinek",
-      "coverUrl": "https://assets.hardcover.app/edition/32289451/2dd5f10490105675d2fba6b02fc98d08708a8a11.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/start-with-why-2009"
     },
     {
       "title": "Cult of the Dead Cow",
