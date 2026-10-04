@@ -10,6 +10,7 @@ import ListenWidget from '@components/widgets/ListenWidget.astro';
 import WatchWidget from '@components/widgets/WatchWidget.astro';
 import GameWidget from '@components/widgets/GameWidget.astro';
 import ThreadsWidget from '@components/widgets/ThreadsWidget.astro';
+import TopographicBackground from '@components/TopographicBackground.astro';
 import IconBrandGithub from '@tabler/icons/outline/brand-github.svg';
 import IconActivityHeartbeat from '@tabler/icons/outline/activity-heartbeat.svg';
 import { websiteSchema, normalizeSiteUrl, toJsonLd } from '@utils/json-ld';
@@ -78,89 +79,121 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
   accent="neutral"
 >
   <script type="application/ld+json" set:html={jsonLd} slot="head" />
-  <main id="main-content" class="gvns-home">
-    {posts.length > 1 ? (
-      <section class="gvns-home__split" aria-label="Recent posts">
-        <div class="gvns-home__featured">
-          <FeaturedPostCard post={posts[0]} />
-        </div>
-        <div class="gvns-home__sidebar">
-          <RecentPostsList posts={posts.slice(1, 5)} />
-          <ThreadsWidget />
-        </div>
-      </section>
-    ) : posts.length === 1 ? (
-      <section class="gvns-home__posts" aria-label="Recent posts">
-        <FeaturedPostCard post={posts[0]} />
-      </section>
-    ) : (
-      <section class="gvns-home__posts gvns-home__posts--empty" aria-label="Recent posts">
-        <p class="gvns-empty-state">
-          Currently drafting in private. See what I'm up to on <a href="/now">/now</a>.
-        </p>
-      </section>
-    )}
-    <section class="gvns-activity-widgets" aria-label="Current activity">
-      <header class="gvns-now">
-        <div class="gvns-now__row">
-          <h2 class="gvns-now__title">
-            <a class="gvns-now__link" href="/now">Now</a>
-          </h2>
-          <span class="gvns-now__cursor" aria-hidden="true"></span>
-          <span class="gvns-now__arrow" aria-hidden="true">&rarr;</span>
-        </div>
-        <div class="gvns-now__meta">
-          {lastFetch && (
-            <p class="gvns-now__date">
-              <span class="gvns-now__branch" aria-hidden="true">&#x2514;</span>
-              <time datetime={lastFetchIso}>{lastFetchDisplay}</time>
+  <main id="main-content" class="gvns-home-main">
+    <div class="gvns-topo-section relative isolate overflow-hidden">
+      <TopographicBackground />
+      <div class="gvns-home relative z-10">
+        {posts.length > 1 ? (
+          <section class="gvns-home__split" aria-label="Recent posts">
+            <div class="gvns-home__featured">
+              <FeaturedPostCard post={posts[0]} />
+            </div>
+            <div class="gvns-home__sidebar">
+              <div class="gvns-topo-scrim">
+                <RecentPostsList posts={posts.slice(1, 5)} />
+              </div>
+              <ThreadsWidget />
+            </div>
+          </section>
+        ) : posts.length === 1 ? (
+          <section class="gvns-home__posts" aria-label="Recent posts">
+            <FeaturedPostCard post={posts[0]} />
+          </section>
+        ) : (
+          <section class="gvns-home__posts gvns-home__posts--empty gvns-topo-scrim" aria-label="Recent posts">
+            <p class="gvns-empty-state">
+              Currently drafting in private. See what I'm up to on <a href="/now">/now</a>.
             </p>
-          )}
-          <div class="gvns-now__stats">
-            {codeHasSignal && (
-              <a href="/code" class="gvns-now__chip gvns-now__chip--code">
-                <IconBrandGithub class="gvns-now__chip-icon" aria-hidden="true" />
-                <span class="gvns-now__chip-spark" aria-hidden="true">
-                  {codeDays.map((level) => (
-                    <i style={`height: ${Math.max((level / 4) * 100, 12)}%; opacity: ${0.3 + (level / 4) * 0.7}`}></i>
-                  ))}
-                </span>
-                <span class="gvns-now__chip-text">
-                  <span class="gvns-now__chip-label">coding</span>
-                  <span class="gvns-now__chip-value">{codeStreak}-day streak</span>
-                </span>
-              </a>
-            )}
-            {moveHasSignal && (
-              <a href="/move" class="gvns-now__chip gvns-now__chip--move">
-                <IconActivityHeartbeat class="gvns-now__chip-icon" aria-hidden="true" />
-                <span class="gvns-now__chip-spark" aria-hidden="true">
-                  {moveSpark.map((s) => (
-                    s === null
-                      ? <i class="gvns-now__chip-bar--ghost"></i>
-                      : <i style={`height: ${Math.max((s / moveStrainMax) * 100, 12)}%; opacity: ${0.4 + (s / moveStrainMax) * 0.6}`}></i>
-                  ))}
-                </span>
-                <span class="gvns-now__chip-text">
-                  <span class="gvns-now__chip-label">move</span>
-                  <span class="gvns-now__chip-value">{moveLatest!.sport} &middot; {moveLatest!.durationMinutes}m</span>
-                </span>
-              </a>
-            )}
+          </section>
+        )}
+        <section class="gvns-activity-widgets gvns-topo-scrim gvns-topo-scrim--activity" aria-label="Current activity">
+          <header class="gvns-now">
+            <div class="gvns-now__row">
+              <h2 class="gvns-now__title">
+                <a class="gvns-now__link" href="/now">Now</a>
+              </h2>
+              <span class="gvns-now__cursor" aria-hidden="true"></span>
+              <span class="gvns-now__arrow" aria-hidden="true">&rarr;</span>
+            </div>
+            <div class="gvns-now__meta">
+              {lastFetch && (
+                <p class="gvns-now__date">
+                  <span class="gvns-now__branch" aria-hidden="true">&#x2514;</span>
+                  <time datetime={lastFetchIso}>{lastFetchDisplay}</time>
+                </p>
+              )}
+              <div class="gvns-now__stats">
+                {codeHasSignal && (
+                  <a href="/code" class="gvns-now__chip gvns-now__chip--code">
+                    <IconBrandGithub class="gvns-now__chip-icon" aria-hidden="true" />
+                    <span class="gvns-now__chip-spark" aria-hidden="true">
+                      {codeDays.map((level) => (
+                        <i style={`height: ${Math.max((level / 4) * 100, 12)}%; opacity: ${0.3 + (level / 4) * 0.7}`}></i>
+                      ))}
+                    </span>
+                    <span class="gvns-now__chip-text">
+                      <span class="gvns-now__chip-label">coding</span>
+                      <span class="gvns-now__chip-value">{codeStreak}-day streak</span>
+                    </span>
+                  </a>
+                )}
+                {moveHasSignal && (
+                  <a href="/move" class="gvns-now__chip gvns-now__chip--move">
+                    <IconActivityHeartbeat class="gvns-now__chip-icon" aria-hidden="true" />
+                    <span class="gvns-now__chip-spark" aria-hidden="true">
+                      {moveSpark.map((s) => (
+                        s === null
+                          ? <i class="gvns-now__chip-bar--ghost"></i>
+                          : <i style={`height: ${Math.max((s / moveStrainMax) * 100, 12)}%; opacity: ${0.4 + (s / moveStrainMax) * 0.6}`}></i>
+                      ))}
+                    </span>
+                    <span class="gvns-now__chip-text">
+                      <span class="gvns-now__chip-label">move</span>
+                      <span class="gvns-now__chip-value">{moveLatest!.sport} &middot; {moveLatest!.durationMinutes}m</span>
+                    </span>
+                  </a>
+                )}
+              </div>
+            </div>
+          </header>
+          <div class="gvns-activity-grid">
+            <ReadWidget compact />
+            <ListenWidget compact />
+            <WatchWidget compact />
+            <GameWidget compact />
           </div>
-        </div>
-      </header>
-      <div class="gvns-activity-grid">
-        <ReadWidget compact />
-        <ListenWidget compact />
-        <WatchWidget compact />
-        <GameWidget compact />
+        </section>
       </div>
-    </section>
+    </div>
   </main>
 </BaseLayout>
 
 <style>
+  /* Full-bleed: the shader reaches the viewport edges, so this page drops the
+     global main gutters and re-applies them inside the shader wrapper. */
+  .gvns-home-main {
+    padding: 0;
+  }
+  .gvns-topo-section {
+    padding: var(--space-8) var(--space-6);
+  }
+
+  /* Backing for text that would otherwise sit straight on the moving field
+     (WCAG 1.4.3, ADR-023). The blur averages out line edges that show
+     through; 94% keeps light-mode muted text at or above 4.5:1. */
+  .gvns-topo-scrim {
+    background: color-mix(in oklab, var(--colour-bg-primary) 94%, transparent);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: var(--radius-lg);
+    padding: var(--space-3) var(--space-4);
+  }
+  /* One panel from the Now header through the tiles; out-specifies the
+     .gvns-activity-widgets padding-block below. */
+  .gvns-activity-widgets.gvns-topo-scrim--activity {
+    padding: var(--space-4);
+  }
+
   .gvns-home {
     /* width:100% is load-bearing — without it, BaseLayout's `body{display:flex;flex-direction:column}`
        combined with `margin:0 auto` cross-axis-auto-margins suppresses flex stretch and main collapses
