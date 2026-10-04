@@ -70,7 +70,10 @@ export interface ShaderDrawContext extends ShaderProgramContext {
 export interface ShaderRuntimeConfig {
   fragmentShaderSource: string;
   rootSelector: string;
-  defaults: Partial<ShaderOptions>;
+  // gvns patch: `paused` is runtime state set via update(), not a default;
+  // readOptions() (also used by refreshFromDataset) must never reset it.
+  defaults: Partial<Omit<ShaderOptions, "paused">>;
+  // end gvns patch
   enableThemeColors?: boolean;
   enablePointer?: boolean;
   fallbackTimeoutMs?: number;
