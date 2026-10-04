@@ -1,13 +1,16 @@
 ---
 import ThemeToggle from './ThemeToggle.svelte';
+import MotionToggle from './MotionToggle.svelte';
 import MobileNav from './MobileNav.svelte';
 import Search from '@components/Search.astro';
 
 interface Props {
   breadcrumbs?: { label: string; href?: string }[];
+  /** Render the background-animation pause control (pages with TopographicBackground). */
+  motionControl?: boolean;
 }
 
-const { breadcrumbs } = Astro.props;
+const { breadcrumbs, motionControl = false } = Astro.props;
 
 const navItems = [
   { href: '/about', label: 'About' },
@@ -88,6 +91,7 @@ const statusOpen = status === 'open';
           <span class="gvns-status-pill__label">Open to freelance work</span>
         </a>
       )}
+      {motionControl && <MotionToggle client:load />}
       <ThemeToggle client:load />
       <Search />
     </div>

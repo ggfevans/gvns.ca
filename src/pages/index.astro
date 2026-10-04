@@ -77,6 +77,7 @@ const jsonLd = toJsonLd(websiteSchema(siteUrl));
   title="Gareth Evans"
   description={SITE_BIO}
   accent="neutral"
+  motionControl
 >
   <script type="application/ld+json" set:html={jsonLd} slot="head" />
   <main id="main-content" class="gvns-home-main">

@@ -15,9 +15,11 @@ interface Props {
   imageAlt?: string;
   accent?: 'p1-violet' | 'p2-rose' | 'p3-emerald' | 'p4-amber' | 'p5-sky' | 'neutral';
   breadcrumbs?: { label: string; href?: string }[];
+  /** Show the masthead pause control for a TopographicBackground on this page. */
+  motionControl?: boolean;
 }
 
-const { title, description = SITE_BIO, image, imageWidth, imageHeight, imageAlt, accent, breadcrumbs } = Astro.props;
+const { title, description = SITE_BIO, image, imageWidth, imageHeight, imageAlt, accent, breadcrumbs, motionControl = false } = Astro.props;
 
 const SITE_SUFFIX = ' | gvns.ca';
 const fullTitle = title.endsWith(SITE_SUFFIX) ? title : `${title}${SITE_SUFFIX}`;
@@ -45,7 +47,7 @@ const fullTitle = title.endsWith(SITE_SUFFIX) ? title : `${title}${SITE_SUFFIX}`
   </head>
   <body>
     <a href="#main-content" class="gvns-skip-link">Skip to content</a>
-    <Header breadcrumbs={breadcrumbs} />
+    <Header breadcrumbs={breadcrumbs} motionControl={motionControl} />
     <slot />
     <Footer />
   </body>

@@ -56,6 +56,10 @@
     }
   }
 
+  // The visitor's own pause, held in memory so the toggle still works for the
+  // session when storage is blocked.
+  let userPaused = storedPaused();
+
   const unavailable = () => !handle || root?.dataset.shaderState === 'fallback';
 
   function apply() {
@@ -63,7 +67,7 @@
       html.dataset.motion = 'unavailable';
       return;
     }
-    const paused = storedPaused() || narrow.matches || reduced.matches;
+    const paused = userPaused || narrow.matches || reduced.matches;
     handle!.update({ paused });
     html.dataset.motion = paused ? 'paused' : 'running';
   }
@@ -71,7 +75,12 @@
   apply();
   narrow.addEventListener('change', apply);
   reduced.addEventListener('change', apply);
-  document.addEventListener('gvns:motion-toggle', apply);
+  // MotionToggle sends { paused } in detail; a bare event re-reads storage.
+  document.addEventListener('gvns:motion-toggle', (event) => {
+    const detail = (event as CustomEvent<{ paused?: boolean }>).detail;
+    userPaused = typeof detail?.paused === 'boolean' ? detail.paused : storedPaused();
+    apply();
+  });
 
   // No WebGL, a failed start or a lost context flips the runtime to its
   // fallback; only republish state here so a reveal can't re-enter apply().
