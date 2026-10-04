@@ -1,3 +1,14 @@
+/**
+ * REFERENCE ONLY — do not import.
+ *
+ * This is the upstream `@starwind-pro/shader-topographic-flow` block, kept so
+ * future upstream releases can be diffed against `src/utils/topographic-flow.ts`
+ * (the project code derived from it).
+ *
+ * To use it in a page or layout, import `@components/TopographicBackground.astro`
+ * instead. See `docs/PRO-BLOCKS.md` for the add/update flow and the local
+ * runtime patch.
+ */
 import {
   createRawShaderBackground,
   initRawShaderBackgrounds,
