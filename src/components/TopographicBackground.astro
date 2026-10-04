@@ -83,10 +83,14 @@
   });
 
   // No WebGL, a failed start or a lost context flips the runtime to its
-  // fallback; only republish state here so a reveal can't re-enter apply().
+  // fallback. A startup timeout can recover (the runtime retries on tab
+  // return), so re-apply the motion rule once it leaves fallback. This can't
+  // loop: apply() without a pause transition only repaints, and the reveal
+  // sets the state at most once.
   if (root) {
     new MutationObserver(() => {
       if (unavailable()) html.dataset.motion = 'unavailable';
+      else if (html.dataset.motion === 'unavailable') apply();
     }).observe(root, { attributes: true, attributeFilter: ['data-shader-state'] });
   }
 </script>

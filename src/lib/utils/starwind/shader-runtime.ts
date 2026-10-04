@@ -849,6 +849,12 @@ class ShaderBackground implements ShaderHandle {
     // (draw() reveals it on first paint).
     if (this.options.paused && this.canRender()) {
       this.stopLoop();
+      // Retry a timed-out start the same way the animated branch does.
+      if (this.startupTimedOut) {
+        this.startupTimedOut = false;
+        this.root.dataset.shaderState = "loading";
+        this.resizeNow();
+      }
       this.scheduleRevealWatchdog();
       this.draw(performance.now());
       return;
