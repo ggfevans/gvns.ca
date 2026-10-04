@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-03T08:49:54Z",
+  "lastUpdated": "2026-10-04T09:16:32Z",
   "currentlyReading": [
     {
       "title": "Debugging: The 9 Indispensable Rules for Finding Even the Most Elusive Software and Hardware Problems",
@@ -46,17 +46,15 @@
       "hardcoverUrl": "https://hardcover.app/books/rant",
       "rating": 3.0,
       "dateFinished": "2026-09-18T10:04:56.594332+00:00"
-    },
-    {
-      "title": "A Killer in King's Cove",
-      "author": "Marilla Wex",
-      "coverUrl": "https://assets.hardcover.app/edition/30632191/10310724-L.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/a-killer-in-kings-cove",
-      "rating": 4.0,
-      "dateFinished": "2026-09-13T18:58:08.12434+00:00"
     }
   ],
   "wantToRead": [
+    {
+      "title": "Helen of Nowhere",
+      "author": "Makenna Goodman",
+      "coverUrl": "https://assets.hardcover.app/edition/33121987/ca800a3a-80a7-40d5-8203-2baff6c8b9e0.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/helen-of-nowhere"
+    },
     {
       "title": "Start With Why: How Great Leaders Inspire Everyone To Take Action",
       "author": "Simon Sinek",
