@@ -1,0 +1,138 @@
+---
+/*
+ * Project component derived from @starwind-pro/shader-topographic-flow.
+ * Reference: src/components/starwind-pro/shader-topographic-flow/ShaderTopographicFlow.astro
+ * ADR: docs/DECISIONS.md#adr-023
+ * Last upstream sync: 2026-09-21
+ *
+ * Animated contour map behind the homepage. Fills its positioned parent.
+ * Motion rule: still (one painted frame, loop stopped) when the visitor has
+ * paused it, below 768px, or under prefers-reduced-motion; otherwise it
+ * animates. State is published as <html data-motion="running|paused|unavailable">
+ * for the masthead MotionToggle, which signals back via `gvns:motion-toggle`.
+ */
+---
+
+<div
+  class="gvns-topo pointer-events-none absolute inset-0 overflow-hidden"
+  data-shader-topographic-flow
+  data-shader-state="loading"
+  aria-hidden="true"
+>
+  <div class="gvns-topo__fallback absolute inset-0"></div>
+  <canvas
+    class="absolute inset-0 size-full"
+    data-gvns-topo-canvas
+    data-shader-contour-scale="3.4"
+    data-shader-contour-spacing="1"
+    data-shader-contour-width="1"
+    data-shader-contour-drift="0.28"
+    data-shader-line-strength="0.75"
+    data-shader-base-color="var(--topo-base)"
+    data-shader-contour-line-color="var(--topo-line)"
+    data-shader-major-line-color="var(--topo-major)"
+    data-shader-map-wash-color="var(--topo-wash)"
+    data-shader-max-dpr="1.5"
+    data-shader-max-fps="60"></canvas>
+</div>
+
+<script>
+  import { initTopographicFlow } from '@utils/topographic-flow';
+
+  const STORAGE_KEY = 'gvns-shader-paused';
+  const html = document.documentElement;
+  const root = document.querySelector<HTMLElement>('[data-shader-topographic-flow]');
+  const canvas = root?.querySelector<HTMLCanvasElement>('[data-gvns-topo-canvas]') ?? null;
+  const narrow = matchMedia('(max-width: 767px)');
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const handle = canvas ? initTopographicFlow(canvas) : null;
+
+  // Storage can throw (private mode, blocked site data): default to playing.
+  function storedPaused() {
+    try {
+      return localStorage.getItem(STORAGE_KEY) === '1';
+    } catch {
+      return false;
+    }
+  }
+
+  // The visitor's own pause, held in memory so the toggle still works for the
+  // session when storage is blocked.
+  let userPaused = storedPaused();
+
+  const unavailable = () => !handle || root?.dataset.shaderState === 'fallback';
+
+  function apply() {
+    if (unavailable()) {
+      html.dataset.motion = 'unavailable';
+      return;
+    }
+    const paused = userPaused || narrow.matches || reduced.matches;
+    handle!.update({ paused });
+    html.dataset.motion = paused ? 'paused' : 'running';
+  }
+
+  apply();
+  narrow.addEventListener('change', apply);
+  reduced.addEventListener('change', apply);
+  // MotionToggle sends { paused } in detail; a bare event re-reads storage.
+  document.addEventListener('gvns:motion-toggle', (event) => {
+    const detail = (event as CustomEvent<{ paused?: boolean }>).detail;
+    userPaused = typeof detail?.paused === 'boolean' ? detail.paused : storedPaused();
+    apply();
+  });
+
+  // No WebGL, a failed start or a lost context flips the runtime to its
+  // fallback. A startup timeout can recover (the runtime retries on tab
+  // return), so re-apply the motion rule once it leaves fallback. This can't
+  // loop: apply() without a pause transition only repaints, and the reveal
+  // sets the state at most once.
+  if (root) {
+    new MutationObserver(() => {
+      if (unavailable()) html.dataset.motion = 'unavailable';
+      else if (html.dataset.motion === 'unavailable') apply();
+    }).observe(root, { attributes: true, attributeFilter: ['data-shader-state'] });
+  }
+</script>
+
+<style>
+  /* Palettes. Dark keeps the upstream hues on the shader's original base,
+     pulled ~20% toward it; light lays ink on the page's paper. */
+  .gvns-topo {
+    --topo-base: #050708;
+    --topo-wash: color-mix(in oklab, #1a857a 85%, #050708);
+    --topo-line: color-mix(in oklab, #2e8ffa 80%, #050708);
+    --topo-major: color-mix(in oklab, #dbb870 80%, #050708);
+    opacity: 0.94;
+  }
+  :global(:root:not(.dark)) .gvns-topo {
+    --topo-base: var(--colour-bg-primary);
+    --topo-wash: color-mix(in oklab, #99f6e4 80%, var(--colour-bg-primary)); /* teal-200 */
+    --topo-line: color-mix(in oklab, #0369a1 80%, var(--colour-bg-primary)); /* sky-700 */
+    --topo-major: color-mix(in oklab, #b45309 80%, var(--colour-bg-primary)); /* amber-700 */
+  }
+
+  /* Fallback for no WebGL: soft gradient from the reference block. */
+  .gvns-topo__fallback {
+    background-color: var(--background);
+    background:
+      radial-gradient(circle at 72% 28%, color-mix(in oklab, var(--primary) 14%, transparent), transparent 34%),
+      radial-gradient(circle at 22% 78%, color-mix(in oklab, var(--primary-accent) 14%, transparent), transparent 38%),
+      linear-gradient(135deg, var(--background), color-mix(in oklab, var(--primary) 8%, var(--background)) 48%, var(--background));
+  }
+
+  .gvns-topo canvas,
+  .gvns-topo__fallback {
+    opacity: 0;
+    transition: opacity 320ms ease;
+  }
+  .gvns-topo[data-shader-state='running'] canvas {
+    opacity: 1;
+  }
+  .gvns-topo[data-shader-state='fallback'] canvas {
+    display: none;
+  }
+  .gvns-topo[data-shader-state='fallback'] .gvns-topo__fallback {
+    opacity: 1;
+  }
+</style>

@@ -34,6 +34,9 @@ export interface ShaderOptions {
   maxDpr: number;
   maxFps: number;
   pointerEnabled?: boolean;
+  // gvns patch: real pause (ADR-023)
+  paused?: boolean;
+  // end gvns patch
 }
 
 export interface ShaderUpdate {
@@ -41,6 +44,9 @@ export interface ShaderUpdate {
   maxDpr?: number;
   maxFps?: number;
   pointerEnabled?: boolean;
+  // gvns patch: real pause (ADR-023)
+  paused?: boolean;
+  // end gvns patch
 }
 
 export interface ShaderHandle {
@@ -64,7 +70,10 @@ export interface ShaderDrawContext extends ShaderProgramContext {
 export interface ShaderRuntimeConfig {
   fragmentShaderSource: string;
   rootSelector: string;
-  defaults: Partial<ShaderOptions>;
+  // gvns patch: `paused` is runtime state set via update(), not a default;
+  // readOptions() (also used by refreshFromDataset) must never reset it.
+  defaults: Partial<Omit<ShaderOptions, "paused">>;
+  // end gvns patch
   enableThemeColors?: boolean;
   enablePointer?: boolean;
   fallbackTimeoutMs?: number;
@@ -467,6 +476,9 @@ class ShaderBackground implements ShaderHandle {
   private resizeObserver: ResizeObserver | null = null;
   private resizeTimeoutId: number | null = null;
   private startedAt = performance.now();
+  // gvns patch: held clock while paused, so resuming continues without a jump.
+  private pausedAt: number | null = null;
+  // end gvns patch
   private startupTimedOut = false;
   private themeBackground: ShaderColor = [1, 1, 1];
   private themeForeground: ShaderColor = [0.09, 0.09, 0.11];
@@ -488,11 +500,13 @@ class ShaderBackground implements ShaderHandle {
     document.addEventListener("astro:before-swap", this.handleNavigation);
     if (this.config.enableThemeColors) this.refreshThemeColors();
 
+    // gvns patch: reduced motion gets a still contour frame (start paused)
+    // instead of skipping WebGL for the CSS fallback.
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      // Reduced-motion previews use the CSS fallback instead of drawing an animated canvas.
-      this.setFallback();
-      return;
+      this.options = { ...this.options, paused: true };
+      this.pausedAt = performance.now();
     }
+    // end gvns patch
 
     this.gl = this.canvas.getContext("webgl", {
       alpha: true,
@@ -518,17 +532,37 @@ class ShaderBackground implements ShaderHandle {
 
   update(patch: ShaderUpdate) {
     const previousMaxDpr = this.options.maxDpr;
+    // gvns patch: real pause (ADR-023)
+    const wasPaused = Boolean(this.options.paused);
+    // end gvns patch
 
     this.options = {
       maxDpr: patch.maxDpr === undefined ? this.options.maxDpr : clampNumber(patch.maxDpr, 1, 2),
       maxFps: patch.maxFps === undefined ? this.options.maxFps : clampNumber(patch.maxFps, 1, 60),
       pointerEnabled: patch.pointerEnabled ?? this.options.pointerEnabled,
+      // gvns patch: refreshFromDataset() passes options without `paused`; keep it.
+      paused: patch.paused ?? this.options.paused,
+      // end gvns patch
     };
     if (patch.inputs)
       this.inputValues = mergeInputPatch(this.inputValues, patch.inputs, this.config);
 
     if (this.options.maxDpr !== previousMaxDpr) this.scheduleResize();
-    if (this.shouldAnimate()) this.draw(performance.now());
+    // gvns patch: a pause transition holds or releases the clock and restarts
+    // the loop logic; otherwise repaint whenever a frame can be drawn.
+    if (Boolean(this.options.paused) !== wasPaused) {
+      const now = performance.now();
+      if (this.options.paused) {
+        this.pausedAt = now;
+      } else if (this.pausedAt !== null) {
+        this.startedAt += now - this.pausedAt;
+        this.pausedAt = null;
+      }
+      this.updateLoop();
+      return;
+    }
+    if (this.canRender()) this.draw(performance.now());
+    // end gvns patch
   }
 
   refreshFromDataset() {
@@ -557,7 +591,7 @@ class ShaderBackground implements ShaderHandle {
       this.fallbackTimeoutId !== null ||
       this.hasRevealedFirstFrame ||
       this.startupTimedOut ||
-      !this.shouldAnimate()
+      !this.canRender() // gvns patch: paused shaders still need a revealed frame
     )
       return;
 
@@ -572,7 +606,7 @@ class ShaderBackground implements ShaderHandle {
 
     if (this.disposed || this.hasRevealedFirstFrame) return;
 
-    if (this.shouldAnimate()) {
+    if (this.canRender()) { // gvns patch: watchdog also covers paused starts
       this.startupTimedOut = true;
       this.setFallback();
     }
@@ -583,7 +617,8 @@ class ShaderBackground implements ShaderHandle {
 
     this.revealFrameId = requestAnimationFrame(() => {
       this.revealFrameId = null;
-      if (!this.shouldAnimate() || this.root.dataset.shaderState === "fallback") return;
+      // gvns patch: reveal a paused still frame too
+      if (!this.canRender() || this.root.dataset.shaderState === "fallback") return;
 
       this.hasRevealedFirstFrame = true;
       this.clearRevealWatchdog();
@@ -758,7 +793,8 @@ class ShaderBackground implements ShaderHandle {
       if (this.config.enableThemeColors) this.refreshThemeColors();
       if (hasDynamicColorInputValues(this.canvas, this.config))
         this.inputValues = readInputValues(this.canvas, this.config, this.root);
-      if (this.shouldAnimate()) this.draw(performance.now());
+      // gvns patch: repaint the still frame on theme change while paused
+      if (this.canRender()) this.draw(performance.now());
     });
   };
 
@@ -782,7 +818,9 @@ class ShaderBackground implements ShaderHandle {
     });
   };
 
-  private shouldAnimate() {
+  // gvns patch: split "a frame can be drawn" from "the loop should run" so a
+  // paused shader still paints, reveals and repaints a still frame.
+  private canRender() {
     return (
       !this.disposed &&
       this.program !== null &&
@@ -791,6 +829,11 @@ class ShaderBackground implements ShaderHandle {
       this.inViewport
     );
   }
+
+  private shouldAnimate() {
+    return this.canRender() && !this.options.paused;
+  }
+  // end gvns patch
 
   private updateLoop = () => {
     if (this.shouldAnimate()) {
@@ -804,6 +847,22 @@ class ShaderBackground implements ShaderHandle {
       this.startLoop();
       return;
     }
+
+    // gvns patch: paused but drawable: stop the loop and paint one still frame
+    // (draw() reveals it on first paint).
+    if (this.options.paused && this.canRender()) {
+      this.stopLoop();
+      // Retry a timed-out start the same way the animated branch does.
+      if (this.startupTimedOut) {
+        this.startupTimedOut = false;
+        this.root.dataset.shaderState = "loading";
+        this.resizeNow();
+      }
+      this.scheduleRevealWatchdog();
+      this.draw(performance.now());
+      return;
+    }
+    // end gvns patch
 
     this.clearRevealWatchdog();
     this.stopLoop();
@@ -848,7 +907,8 @@ class ShaderBackground implements ShaderHandle {
       this.canvas.width = width;
       this.canvas.height = height;
       gl.viewport(0, 0, width, height);
-      if (this.shouldAnimate()) this.draw(performance.now());
+      // gvns patch: repaint the still frame on resize while paused
+      if (this.canRender()) this.draw(performance.now());
     }
   };
 
@@ -921,7 +981,8 @@ class ShaderBackground implements ShaderHandle {
     const enabledPointerActive = this.options.pointerEnabled === false ? 0 : pointerActive;
 
     gl.uniform2f(this.locations.resolution, this.canvas.width, this.canvas.height);
-    const elapsedTime = (now - this.startedAt) / 1000;
+    // gvns patch: hold the clock at the pause moment while paused
+    const elapsedTime = ((this.pausedAt ?? now) - this.startedAt) / 1000;
     gl.uniform1f(this.locations.time, elapsedTime);
     gl.uniform2f(this.locations.pointer, this.pointerX, this.pointerY);
     gl.uniform1f(this.locations.pointerActive, enabledPointerActive);

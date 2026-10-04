@@ -85,6 +85,18 @@ For pattern-only adoptions (no Pro markup carried forward — e.g. `HorizontalPo
 | `@starwind-pro/feature-13` | `src/pages/now/index.astro` (pattern only) | (none — deleted in #323) | ADR-017 |
 | `@starwind-pro/footer-01` | `src/components/Footer.astro` | (none — deleted in #323) | ADR-018 |
 | `@starwind-pro/profile-01` | `src/components/Profile.astro` | `src/components/starwind-pro/profile-01/` | ADR-019 |
+| `@starwind-pro/shader-topographic-flow` | `src/components/TopographicBackground.astro` + `src/utils/topographic-flow.ts` | `src/components/starwind-pro/shader-topographic-flow/` | ADR-023 |
+
+## Local patches
+
+`src/lib/utils/starwind/shader-runtime.ts` (the shared Starwind shader runtime) carries a local patch for ADR-023, fenced with `// gvns patch` … `// end gvns patch` comments:
+
+1. **`paused` option** on `ShaderOptions` / `ShaderUpdate`. `update()` keeps it when `refreshFromDataset()` passes options without it.
+2. **`canRender()` split from `shouldAnimate()`.** A paused shader stops its rAF loop but still paints, reveals, and repaints (theme change, resize) one still frame.
+3. **Held clock.** Elapsed time freezes at the pause moment; resuming shifts `startedAt` so the field continues without a jump.
+4. **Reduced motion starts paused** (still contour frame) instead of skipping WebGL for the CSS fallback.
+
+After any `npx starwind add` that touches `shader-runtime.ts`, run `git diff src/lib/utils/starwind/shader-runtime.ts` and re-apply anything inside the fences that upstream dropped. The Starwind v3 CLI also auto-migrates other components on `add`, so check `git status` and revert anything you didn't mean to upgrade.
 
 ## Primitives (separate concern)
 

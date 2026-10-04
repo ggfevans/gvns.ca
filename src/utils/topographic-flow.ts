@@ -1,10 +1,13 @@
-// THROWAWAY sandbox fork of
-// src/components/starwind-pro/shader-topographic-flow/shaders.ts for the
-// light-mode spike. Adds uBaseColor and an ink-on-paper blend when the base is
-// light; on a dark base the original additive maths runs unchanged.
-// Also adds a pause (WCAG 2.2.2): frozen/frozenTime/timeOffset inputs hold
-// the field still and resume without a jump. The loop keeps drawing the
-// frozen frame; an adopted version should stop the loop in the runtime.
+/*
+ * Project component derived from @starwind-pro/shader-topographic-flow.
+ * Reference: src/components/starwind-pro/shader-topographic-flow/shaders.ts
+ * ADR: docs/DECISIONS.md#adr-023
+ * Last upstream sync: 2026-09-21
+ *
+ * Differences from upstream: a `baseColor` input, and lines are laid down as
+ * ink (mix) on light bases instead of added as glow, which washes out to
+ * white on a light page. Dark bases keep the original additive maths.
+ */
 import {
   createRawShaderBackground,
   initRawShaderBackgrounds,
@@ -27,9 +30,6 @@ const fragmentShaderSource = /* glsl */ `
   uniform vec3 uContourLineColor;
   uniform vec3 uMajorLineColor;
   uniform vec3 uBaseColor;
-  uniform float uFrozen;
-  uniform float uFrozenTime;
-  uniform float uTimeOffset;
 
   float hash(vec2 p) {
     p = fract(p * vec2(443.9, 127.1));
@@ -63,8 +63,7 @@ const fragmentShaderSource = /* glsl */ `
 
   void main() {
     vec2 p = (2.0 * gl_FragCoord.xy - uResolution.xy) / max(uResolution.y, 1.0);
-    float time = mix(uTime - uTimeOffset, uFrozenTime, step(0.5, uFrozen));
-    float t = time * uContourDrift * 0.14;
+    float t = uTime * uContourDrift * 0.14;
     vec2 q = p * uContourScale + vec2(t, -t * 0.7);
     float terrain = fbm(q);
     terrain += fbm(q * 0.62 + vec2(7.0, -3.0)) * 0.36;
@@ -158,30 +157,6 @@ const shaderInputs = {
     type: "color",
     uniform: "uMajorLineColor",
   },
-  frozen: {
-    attribute: "data-shader-frozen",
-    default: 0,
-    min: 0,
-    max: 1,
-    type: "number",
-    uniform: "uFrozen",
-  },
-  frozenTime: {
-    attribute: "data-shader-frozen-time",
-    default: 0,
-    min: 0,
-    max: 1e9,
-    type: "number",
-    uniform: "uFrozenTime",
-  },
-  timeOffset: {
-    attribute: "data-shader-time-offset",
-    default: 0,
-    min: 0,
-    max: 1e9,
-    type: "number",
-    uniform: "uTimeOffset",
-  },
   baseColor: {
     attribute: "data-shader-base-color",
     default: [0.018, 0.028, 0.032],
@@ -196,18 +171,8 @@ const shaderInputs = {
   },
 } satisfies ShaderInputDefinitions;
 
-export function createShaderTopographicFlowBackground(
-  canvas: HTMLCanvasElement,
-): ShaderHandle | null {
-  // The runtime's uTime counts from its own private performance.now() taken
-  // during construction; record ours alongside so the pause script can
-  // compute the same elapsed time (off by microseconds). Only when a new
-  // instance is built: a repeat init returns the live one with its clock
-  // untouched, while a disposed one is rebuilt with a fresh clock.
-  const previous = (canvas as HTMLCanvasElement & { __starwindShaderHandle?: ShaderHandle })
-    .__starwindShaderHandle;
-  const startedAt = performance.now();
-  const handle = createRawShaderBackground(canvas, {
+export function initTopographicFlow(canvas: HTMLCanvasElement): ShaderHandle | null {
+  return createRawShaderBackground(canvas, {
     fragmentShaderSource,
     rootSelector: "[data-shader-topographic-flow]",
     defaults: {
@@ -217,13 +182,8 @@ export function createShaderTopographicFlowBackground(
     inputs: shaderInputs,
     requiredExtensions: ["OES_standard_derivatives"],
   });
-  if (handle && handle !== previous) canvas.dataset.shaderStartedAt = String(startedAt);
-  return handle;
 }
 
-export function initShaderTopographicFlowBackgrounds() {
-  initRawShaderBackgrounds(
-    "[data-shader-topographic-flow-canvas]",
-    createShaderTopographicFlowBackground,
-  );
+export function initTopographicFlowBackgrounds(): void {
+  initRawShaderBackgrounds("[data-gvns-topo-canvas]", initTopographicFlow);
 }

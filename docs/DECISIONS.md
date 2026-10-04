@@ -736,6 +736,36 @@ New integrations copy the fetch-whoop shape. Composite actions get ported to scr
 
 ---
 
+## ADR-023: Topographic Flow Shader as the Homepage Background
+
+**Date**: 2026-10-03
+**Status**: Accepted
+
+### Context
+The Starwind Pro Topographic Flow shader was trialled on `/sandbox/shader` (PR #915) behind a copy of the homepage. Upstream it hard-codes a near-black base and adds line colour on top, so it can't do a light theme. It offers no way to pause short of disposing it, and under reduced motion it drops WebGL for a CSS gradient. A WCAG 2.1 AA audit of the sandbox found small muted text sitting straight on the moving field failing contrast (worst pixel ~2.1:1). It also found no way to stop the motion (2.2.2).
+
+### Decision
+Adopt the shader on the homepage only, via fork-on-adopt (ADR-019):
+- `src/components/TopographicBackground.astro` + `src/utils/topographic-flow.ts`. The fork adds a `baseColor` input and lays lines down as ink on light bases (additive glow on dark bases is unchanged). Palettes: dark keeps the upstream hues pulled ~20% toward the base; light is zinc-50 paper with teal-200 / sky-700 / amber-700 at 80%.
+- A small fenced patch to the vendored runtime (`// gvns patch`, listed in `docs/PRO-BLOCKS.md`) adds a real `paused` state: the loop stops, one still frame is painted, the clock is held so resume doesn't jump, and theme or resize changes repaint while paused. Reduced motion starts paused instead of falling back.
+- Motion rule: still when the visitor paused it (remembered in `localStorage`), below 768px, or under `prefers-reduced-motion`; otherwise animated, re-evaluated live.
+- `MotionToggle.svelte` in the masthead (desktop only, opt-in via `BaseLayout`'s `motionControl`) is the pause control.
+- 94% `--colour-bg-primary` panels with an 8px backdrop blur sit behind the recent posts and the whole Now section.
+
+### Rationale
+- A real pause beats freezing the clock in the shader: phones and reduced-motion visitors would otherwise burn GPU on an image that never changes.
+- Phones get a still frame because the cards cover most of the field at that width; the battery cost bought little.
+- The panels fix contrast without dimming the shader everywhere. Light-mode muted text is at or above 4.5:1 at the worst sampled pixel; dark matches the flat-background figure.
+- An in-place patch (~40 fenced lines) is easier to keep in step with upstream than a forked 1,000-line runtime.
+
+### Consequences
+- `npx starwind add` for this block can overwrite `shader-runtime.ts`; re-apply the patch from `docs/PRO-BLOCKS.md` § Local patches.
+- Dark-mode `--colour-text-muted` (zinc-500) is 4.10:1 on `#0a0a0a` site-wide; that predates this ADR and is tracked separately.
+- The backdrop blur is recomposited every animated frame; if it stutters on low-end GPUs, fall back to no blur and a 96% panel.
+- `/sandbox/shader` and its throwaway fork are deleted; `/sandbox/featured` and `/sandbox/starwind` remain as the component lab.
+
+---
+
 ## Template for New Decisions
 
 ```markdown
@@ -759,4 +789,4 @@ New integrations copy the fetch-whoop shape. Composite actions get ported to scr
 
 ---
 
-*Last updated: 2026-06-11 (ADR-022)*
+*Last updated: 2026-10-03 (ADR-023)*
