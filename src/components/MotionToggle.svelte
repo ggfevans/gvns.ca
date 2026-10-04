@@ -9,6 +9,9 @@
   const STORAGE_KEY = 'gvns-shader-paused';
 
   let paused = $state(false);
+  // The server can't know a stored pause, and an unhydrated button can't act,
+  // so stay hidden until mounted rather than show the wrong label.
+  let mounted = $state(false);
 
   onMount(() => {
     try {
@@ -16,6 +19,7 @@
     } catch {
       paused = false; // storage blocked: default to playing
     }
+    mounted = true;
   });
 
   function toggle() {
@@ -34,6 +38,7 @@
   onclick={toggle}
   aria-label={paused ? 'Play background animation' : 'Pause background animation'}
   class="motion-toggle"
+  hidden={!mounted}
 >
   <span class="icon" aria-hidden="true">{@html paused ? playIcon : pauseIcon}</span>
 </button>
@@ -69,7 +74,9 @@
     height: 18px;
   }
 
-  /* Nothing to control: no WebGL, phones (still frame) or reduced motion. */
+  /* Not yet hydrated (the display rule above would override [hidden]), or
+     nothing to control: no WebGL, phones (still frame) or reduced motion. */
+  .motion-toggle[hidden],
   :global(html[data-motion='unavailable']) .motion-toggle {
     display: none;
   }
