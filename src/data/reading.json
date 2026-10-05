@@ -1,17 +1,23 @@
 {
-  "lastUpdated": "2026-10-04T09:16:32Z",
+  "lastUpdated": "2026-10-05T09:57:04Z",
   "currentlyReading": [
     {
-      "title": "Debugging: The 9 Indispensable Rules for Finding Even the Most Elusive Software and Hardware Problems",
-      "author": "David J. Agans",
-      "coverUrl": "https://assets.hardcover.app/external_data/60301341/56fc67de3928d06daf468f93af17d7e7d12644cc.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/debugging-the-9-indispensable-rules-for-finding-even-the-most-elusive-software-and-hardware-problems"
+      "title": "Starcraft: The Dark Templar Saga: Firstborn: Book One",
+      "author": "Christie Golden",
+      "coverUrl": "https://assets.hardcover.app/edition/32368509/34e24144e5fdf58ef49d3a8532fb8c759105f3d6.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/starcraft-the-dark-templar-saga-firstborn-book-one"
     },
     {
       "title": "Homo Deus: A Brief History of Tomorrow",
       "author": "Yuval Noah Harari",
       "coverUrl": "https://assets.hardcover.app/edition/30425557/3b67f74a7a1f38cdd9ce2941e2cc608229ff3492.jpeg",
       "hardcoverUrl": "https://hardcover.app/books/homo-deus"
+    },
+    {
+      "title": "Debugging: The 9 Indispensable Rules for Finding Even the Most Elusive Software and Hardware Problems",
+      "author": "David J. Agans",
+      "coverUrl": "https://assets.hardcover.app/external_data/60301341/56fc67de3928d06daf468f93af17d7e7d12644cc.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/debugging-the-9-indispensable-rules-for-finding-even-the-most-elusive-software-and-hardware-problems"
     }
   ],
   "finished": [
@@ -49,6 +55,18 @@
     }
   ],
   "wantToRead": [
+    {
+      "title": "Twilight",
+      "author": "Christie Golden",
+      "coverUrl": "https://assets.hardcover.app/external_data/60418716/72a0f202f36cdd9dfc6318f545c9319f22ed95f3.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/twilight-dark-templar-twilight-2007"
+    },
+    {
+      "title": "Shadow Hunters",
+      "author": "Christie Golden",
+      "coverUrl": "https://assets.hardcover.app/external_data/1684279/b707a57383b7220b1e23d0c4a90fec546f1f4473.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/shadow-hunters-2007"
+    },
     {
       "title": "Helen of Nowhere",
       "author": "Makenna Goodman",
@@ -288,24 +306,6 @@
       "author": "Bruce Schneier",
       "coverUrl": "https://assets.hardcover.app/edition/30530405/content.jpeg",
       "hardcoverUrl": "https://hardcover.app/books/beyond-fear-2006"
-    },
-    {
-      "title": "The Myth of Normal: Trauma, Illness, and Healing in a Toxic Culture",
-      "author": "Gabor Maté",
-      "coverUrl": "https://assets.hardcover.app/edition/30531365/942d0f5d72aef39c8bc83b00c2a107374641d686.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/the-myth-of-normal"
-    },
-    {
-      "title": "The Drunkard's Walk: How Randomness Rules Our Lives",
-      "author": "Leonard Mlodinow",
-      "coverUrl": "https://assets.hardcover.app/edition/4550463/2411494-L.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/the-drunkards-walk"
-    },
-    {
-      "title": "CRUISIN' BAJA STYLE!",
-      "author": "Chantry Rhodes",
-      "coverUrl": null,
-      "hardcoverUrl": "https://hardcover.app/books/cruisin-baja-style"
     }
   ]
 }
