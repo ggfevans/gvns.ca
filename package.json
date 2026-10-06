@@ -16,7 +16,7 @@
     "node": ">=24"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^14.3.2",
+    "@astrojs/cloudflare": "^14.3.3",
     "@astrojs/markdown-remark": "^7.3.1",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.4",
@@ -30,7 +30,7 @@
     "@tabler/icons": "^3.48.0",
     "@tailwindcss/forms": "^0.5.11",
     "@tailwindcss/vite": "^4.3.1",
-    "astro": "^7.3.3",
+    "astro": "^7.3.5",
     "gray-matter": "^4.0.3",
     "hast-util-to-string": "^3.0.1",
     "hastscript": "^9.0.1",
