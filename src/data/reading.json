@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-05T09:57:04Z",
+  "lastUpdated": "2026-10-06T09:44:04Z",
   "currentlyReading": [
     {
       "title": "Starcraft: The Dark Templar Saga: Firstborn: Book One",
@@ -55,6 +55,12 @@
     }
   ],
   "wantToRead": [
+    {
+      "title": "Fan Fiction",
+      "author": "Brent Spiner",
+      "coverUrl": "https://assets.hardcover.app/edition/30412777/d71fcf37c354f6697291bfe494375a459ae303d4.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/fan-fiction"
+    },
     {
       "title": "Twilight",
       "author": "Christie Golden",
@@ -300,12 +306,6 @@
       "author": "Carne Ross",
       "coverUrl": "https://assets.hardcover.app/edition/30454340/6b8c527d7e3a46c315696c5825de3148655552a0.jpeg",
       "hardcoverUrl": "https://hardcover.app/books/the-leaderless-revolution"
-    },
-    {
-      "title": "Beyond Fear",
-      "author": "Bruce Schneier",
-      "coverUrl": "https://assets.hardcover.app/edition/30530405/content.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/beyond-fear-2006"
     }
   ]
 }
