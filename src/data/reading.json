@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-08T09:52:40Z",
+  "lastUpdated": "2026-10-09T09:56:49Z",
   "currentlyReading": [
     {
       "title": "Starcraft: The Dark Templar Saga: Firstborn: Book One",
@@ -55,6 +55,24 @@
     }
   ],
   "wantToRead": [
+    {
+      "title": "Catastrophe Practice",
+      "author": "Nicholas Mosley",
+      "coverUrl": "https://assets.hardcover.app/edition/31236482/d211f1a0eddda648217c9791006606ffad04b588.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/catastrophe-practice"
+    },
+    {
+      "title": "Hopeful Monsters",
+      "author": "Nicholas Mosley",
+      "coverUrl": "https://assets.hardcover.app/external_data/59861156/a8c824323a5ece2ec84f092a75135f86e2f3b846.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/hopeful-monsters-1990"
+    },
+    {
+      "title": "Serpent",
+      "author": "Nicholas Mosley",
+      "coverUrl": "https://assets.hardcover.app/edition/30724101/d69c301d2c140edb6d1796d7e6b6775509e2cbaf.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/serpent-1981"
+    },
     {
       "title": "Fan Fiction",
       "author": "Brent Spiner",
@@ -288,24 +306,6 @@
       "author": "Kris Nóva",
       "coverUrl": "https://assets.hardcover.app/external_data/61763111/dc17070658fbfaa7b6b6ec8e92738c1ad148c4b1.jpeg",
       "hardcoverUrl": "https://hardcover.app/books/hacking-capitalism"
-    },
-    {
-      "title": "The Dawn of Everything",
-      "author": "David Graeber",
-      "coverUrl": "https://assets.hardcover.app/editions/30876738/e0ee01a2-4b49-4597-9f67-28dc7b7eb58f.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/the-dawn-of-everything"
-    },
-    {
-      "title": "The Count of Monte Cristo",
-      "author": "Alexandre Dumas",
-      "coverUrl": "https://assets.hardcover.app/edition/22062767/3432f1033b04d23e47edea3a864bb956f3b6346e.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/the-count-of-monte-cristo"
-    },
-    {
-      "title": "The Leaderless Revolution : How Ordinary People Will Take Power and Change Politics in the Twenty-First Century",
-      "author": "Carne Ross",
-      "coverUrl": "https://assets.hardcover.app/edition/30454340/6b8c527d7e3a46c315696c5825de3148655552a0.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/the-leaderless-revolution"
     }
   ]
 }
