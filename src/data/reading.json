@@ -1,11 +1,11 @@
 {
-  "lastUpdated": "2026-10-10T09:20:14Z",
+  "lastUpdated": "2026-10-11T09:39:48Z",
   "currentlyReading": [
     {
-      "title": "Starcraft: The Dark Templar Saga: Firstborn: Book One",
+      "title": "Shadow Hunters",
       "author": "Christie Golden",
-      "coverUrl": "https://assets.hardcover.app/edition/32368509/34e24144e5fdf58ef49d3a8532fb8c759105f3d6.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/starcraft-the-dark-templar-saga-firstborn-book-one"
+      "coverUrl": "https://assets.hardcover.app/external_data/1684279/b707a57383b7220b1e23d0c4a90fec546f1f4473.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/shadow-hunters-2007"
     },
     {
       "title": "Homo Deus: A Brief History of Tomorrow",
@@ -21,6 +21,14 @@
     }
   ],
   "finished": [
+    {
+      "title": "Starcraft: The Dark Templar Saga: Firstborn: Book One",
+      "author": "Christie Golden",
+      "coverUrl": "https://assets.hardcover.app/edition/32368509/34e24144e5fdf58ef49d3a8532fb8c759105f3d6.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/starcraft-the-dark-templar-saga-firstborn-book-one",
+      "rating": 4.0,
+      "dateFinished": "2026-10-11T08:56:54.897033+00:00"
+    },
     {
       "title": "Greenwood",
       "author": "Michael Christie",
@@ -84,12 +92,6 @@
       "author": "Christie Golden",
       "coverUrl": "https://assets.hardcover.app/external_data/60418716/72a0f202f36cdd9dfc6318f545c9319f22ed95f3.jpeg",
       "hardcoverUrl": "https://hardcover.app/books/twilight-dark-templar-twilight-2007"
-    },
-    {
-      "title": "Shadow Hunters",
-      "author": "Christie Golden",
-      "coverUrl": "https://assets.hardcover.app/external_data/1684279/b707a57383b7220b1e23d0c4a90fec546f1f4473.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/shadow-hunters-2007"
     },
     {
       "title": "Helen of Nowhere",
