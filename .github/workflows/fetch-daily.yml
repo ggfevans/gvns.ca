@@ -63,15 +63,11 @@ jobs:
           user_id: ${{ secrets.HARDCOVER_USER_ID }}
           output_path: src/data/reading.json
 
-      - id: watching
-        name: Fetch Trakt data
-        continue-on-error: true
-        uses: ./.github/actions/fetch-trakt
-        with:
-          trakt_client_id: ${{ secrets.TRAKT_CLIENT_ID }}
-          trakt_username: "gvns"
-          tmdb_api_key: ${{ secrets.TMDB_API_KEY }}
-          output_path: src/data/watching.json
+      # Trakt fetch frozen: since ~2026-07-31 Trakt disables API apps owned by
+      # free accounts and gates new ones behind VIP, so every request 403s.
+      # src/data/watching.json stays at its last good snapshot (2026-07-30);
+      # /watch shows its "Last updated" date. To revive, restore this step (from git
+      # history) and re-add [watching] to the gate — ./.github/actions/fetch-trakt is kept.
 
       - name: Commit and open PR
         if: always()
@@ -90,7 +86,6 @@ jobs:
             [github]="${{ steps.github.outcome }}"
             [listening]="${{ steps.listening.outcome }}"
             [reading]="${{ steps.reading.outcome }}"
-            [watching]="${{ steps.watching.outcome }}"
           )
           {
             echo "### Fetch outcomes"
