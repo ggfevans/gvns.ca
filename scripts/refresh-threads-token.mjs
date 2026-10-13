@@ -129,7 +129,7 @@ console.log(`✓ Refreshed token — new expiry: ${newExpiresAt} (~${newExpiresI
 
 try {
   await ghCmd(
-    ['secret', 'set', 'THREADS_ACCESS_TOKEN', '--repo', repo, '--body-file', '-'],
+    ['secret', 'set', 'THREADS_ACCESS_TOKEN', '--repo', repo],
     newToken
   );
   console.log('✓ Updated THREADS_ACCESS_TOKEN secret');

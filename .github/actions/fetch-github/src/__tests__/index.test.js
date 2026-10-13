@@ -99,3 +99,46 @@ test('run uses best-effort fallbacks and still writes output when some fetchers 
     fs.rmSync(outputDir, { recursive: true, force: true });
   }
 });
+
+test('run throws and leaves the existing output untouched when every fetcher fails', async () => {
+  const previousDisableAutorun = process.env.GITHUB_JSON_BOURNE_DISABLE_AUTORUN;
+  process.env.GITHUB_JSON_BOURNE_DISABLE_AUTORUN = '1';
+
+  const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), 'github-json-bourne-'));
+  const outputPath = path.join(outputDir, 'github.json');
+  const lastGood = '{"lastGood":true}\n';
+  fs.writeFileSync(outputPath, lastGood, 'utf8');
+
+  try {
+    const { run } = await import('../index.js');
+    const badCredentials = async () => {
+      throw new Error('Bad credentials');
+    };
+
+    await assert.rejects(
+      run({
+        core: createCoreMock({
+          username: 'acme',
+          token: 'expired-token',
+          'output-path': outputPath,
+          'max-repos': '12',
+          'max-activities': '30',
+          'max-pages': '2',
+        }),
+        fetchContributions: badCredentials,
+        fetchActivity: badCredentials,
+        fetchRepos: badCredentials,
+      }),
+      /All GitHub fetches failed.*Bad credentials/,
+    );
+
+    assert.equal(fs.readFileSync(outputPath, 'utf8'), lastGood);
+  } finally {
+    if (previousDisableAutorun == null) {
+      delete process.env.GITHUB_JSON_BOURNE_DISABLE_AUTORUN;
+    } else {
+      process.env.GITHUB_JSON_BOURNE_DISABLE_AUTORUN = previousDisableAutorun;
+    }
+    fs.rmSync(outputDir, { recursive: true, force: true });
+  }
+});

@@ -64,6 +64,15 @@ export async function run(overrides = {}) {
     }),
   ]);
 
+  // Every fetch failing almost always means the token is bad (expired PAT →
+  // "Bad credentials"). Fail the step without writing, so the last-good file
+  // survives instead of being replaced by an all-zero payload that ships.
+  const results = [contributionsResult, activityResult, reposResult];
+  if (results.every((result) => result.status === 'rejected')) {
+    const reasons = results.map((result) => result.reason?.message ?? result.reason);
+    throw new Error(`All GitHub fetches failed; leaving ${outputPath} unchanged. ${reasons.join(' | ')}`);
+  }
+
   const { contributions, calendar } =
     contributionsResult.status === 'fulfilled'
       ? contributionsResult.value
