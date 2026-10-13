@@ -321,7 +321,7 @@ If this recurs, verify the Whoop OAuth endpoint shape hasn't changed: https://de
   if (inActions) {
     try {
       await ghCmd(
-        ['secret', 'set', 'WHOOP_REFRESH_TOKEN', '--repo', repo, '--body-file', '-'],
+        ['secret', 'set', 'WHOOP_REFRESH_TOKEN', '--repo', repo],
         newRefresh,
       );
       console.log('✓ Persisted new WHOOP_REFRESH_TOKEN secret');
@@ -342,7 +342,7 @@ The fine-grained PAT needs **Secrets: Read and write** permission. Run \`verify-
 
     try {
       await ghCmd(
-        ['secret', 'set', 'WHOOP_ACCESS_TOKEN', '--repo', repo, '--body-file', '-'],
+        ['secret', 'set', 'WHOOP_ACCESS_TOKEN', '--repo', repo],
         newAccess,
       );
       console.log('✓ Persisted new WHOOP_ACCESS_TOKEN secret');
