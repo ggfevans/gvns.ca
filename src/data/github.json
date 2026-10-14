@@ -1,11 +1,11 @@
 {
-  "lastUpdated": "2026-10-13T10:01:59.925Z",
+  "lastUpdated": "2026-10-14T08:19:57.517Z",
   "contributions": {
-    "total": 5516,
-    "commits": 1905,
-    "pullRequests": 609,
+    "total": 5539,
+    "commits": 1921,
+    "pullRequests": 614,
     "pullRequestReviews": 1,
-    "issues": 640,
+    "issues": 642,
     "restricted": 2275
   },
   "calendar": {
@@ -2028,7 +2028,7 @@
           },
           {
             "date": "2026-10-09",
-            "count": 44,
+            "count": 49,
             "level": 2
           },
           {
@@ -2052,6 +2052,11 @@
           },
           {
             "date": "2026-10-13",
+            "count": 18,
+            "level": 1
+          },
+          {
+            "date": "2026-10-14",
             "count": 0,
             "level": 0
           }
@@ -2060,11 +2065,33 @@
     ]
   },
   "streak": {
-    "current": 1,
+    "current": 2,
     "longest": 61,
     "today": false
   },
   "recentActivity": [
+    {
+      "type": "issue",
+      "repo": "Services-Directory-Toolkit",
+      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
+      "title": "Phase 4 (settings): define every setting once and make saving safe",
+      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/33",
+      "date": "2026-10-14T01:19:21Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Services-Directory-Toolkit",
+      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
+      "title": "Phase 3 (shell): final manifest, background script, status indicator and popup entry points",
+      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/32",
+      "date": "2026-10-14T01:19:21Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
     {
       "type": "issue",
       "repo": "gvns.ca",
@@ -2075,101 +2102,16 @@
       "meta": {
         "state": "CLOSED"
       }
-    },
-    {
-      "type": "issue",
-      "repo": "Services-Directory-Toolkit",
-      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
-      "title": "Screen-reader pass before release",
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/27",
-      "date": "2026-10-10T02:56:25Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Services-Directory-Toolkit",
-      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
-      "title": "Store assets that match the UI",
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/26",
-      "date": "2026-10-10T02:56:21Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Services-Directory-Toolkit",
-      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
-      "title": "Options page layout",
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/25",
-      "date": "2026-10-10T02:56:20Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Services-Directory-Toolkit",
-      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
-      "title": "Popup layout and states for search and Trim query URL",
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/23",
-      "date": "2026-10-10T02:56:19Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Services-Directory-Toolkit",
-      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
-      "title": "Quick settings and Reload page in the popup",
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/24",
-      "date": "2026-10-10T02:56:18Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Services-Directory-Toolkit",
-      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
-      "title": "Print task controls and Insert saved web map",
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/22",
-      "date": "2026-10-10T02:56:17Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Services-Directory-Toolkit",
-      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
-      "title": "Find Helper layout",
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/21",
-      "date": "2026-10-10T02:56:14Z",
-      "meta": {
-        "state": "OPEN"
-      }
     }
   ],
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 48,
-    "contributionsThisMonth": 171,
+    "contributionsThisWeek": 71,
+    "contributionsThisMonth": 183,
     "repositoriesThisWeek": 2
   },
   "repositories": [
-    {
-      "name": "gvns.ca",
-      "description": "",
-      "language": "Astro",
-      "languageColor": "#ff5a03",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/gvns.ca"
-    },
     {
       "name": "Services-Directory-Toolkit",
       "description": "Chrome extension with diagnostic and query tools for ArcGIS Server REST Services Directory pages",
@@ -2179,11 +2121,19 @@
       "url": "https://github.com/ggfevans/Services-Directory-Toolkit"
     },
     {
+      "name": "gvns.ca",
+      "description": "",
+      "language": "Astro",
+      "languageColor": "#ff5a03",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/gvns.ca"
+    },
+    {
       "name": "oryx-overlay",
       "description": "",
       "language": "Python",
       "languageColor": "#3572A5",
-      "stars": 5,
+      "stars": 6,
       "url": "https://github.com/ggfevans/oryx-overlay"
     },
     {
