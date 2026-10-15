@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-14T08:20:02Z",
+  "lastUpdated": "2026-10-15T07:57:03Z",
   "currentlyReading": [
     {
       "title": "Shadow Hunters",
@@ -63,6 +63,18 @@
     }
   ],
   "wantToRead": [
+    {
+      "title": "On Anarchism",
+      "author": "Noam Chomsky",
+      "coverUrl": "https://assets.hardcover.app/editions/30566570/43654612-07c9-4ef7-a878-6ab57ba17aa1.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/on-anarchism"
+    },
+    {
+      "title": "The Penguin Book of Witches & Warlocks: Tales of Black Magic, Old & New",
+      "author": "Marvin Kaye",
+      "coverUrl": "https://assets.hardcover.app/edition/2407402/6698854-L.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/the-penguin-book-of-witches-warlocks"
+    },
     {
       "title": "Catastrophe Practice",
       "author": "Nicholas Mosley",
@@ -296,18 +308,6 @@
       "author": "Joseph Menn",
       "coverUrl": "https://assets.hardcover.app/external_data/49458121/9782bf701ad9842fe15e6ff43c8f4ac4890d623a.jpeg",
       "hardcoverUrl": "https://hardcover.app/books/cult-of-the-dead-cow"
-    },
-    {
-      "title": "Pataphysics: A Useless Guide",
-      "author": "Andrew Hugill",
-      "coverUrl": "https://assets.hardcover.app/edition/32231315/be3a80346821b512890d39029b0532d10631affa.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/pataphysics-a-useless-guide"
-    },
-    {
-      "title": "Hacking Capitalism: Modeling, Humans, Computers, and Money.",
-      "author": "Kris Nóva",
-      "coverUrl": "https://assets.hardcover.app/external_data/61763111/dc17070658fbfaa7b6b6ec8e92738c1ad148c4b1.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/hacking-capitalism"
     }
   ]
 }
