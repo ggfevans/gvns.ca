@@ -21,7 +21,7 @@
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.4",
     "@astrojs/svelte": "^9.0.1",
-    "@atproto/api": "^0.20.28",
+    "@atproto/api": "^0.23.0",
     "@codybrom/denim": "npm:@jsr/codybrom__denim@^2.0.1",
     "@fontsource/inter": "^5.3.0",
     "@fontsource/jetbrains-mono": "^5.3.0",
