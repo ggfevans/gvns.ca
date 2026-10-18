@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-17T07:27:55Z",
+  "lastUpdated": "2026-10-18T07:43:25Z",
   "currentlyReading": [
     {
       "title": "Shadow Hunters",
@@ -21,6 +21,14 @@
     }
   ],
   "finished": [
+    {
+      "title": "A Storm of Swords",
+      "author": "George R.R. Martin",
+      "coverUrl": "https://assets.hardcover.app/book_mappings/7332349/5249dbcbc118ae4ea68c37295c8386f96c341c95.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/a-storm-of-swords",
+      "rating": 4.0,
+      "dateFinished": "2026-10-17T10:37:08.249233+00:00"
+    },
     {
       "title": "Starcraft: The Dark Templar Saga: Firstborn: Book One",
       "author": "Christie Golden",
@@ -302,12 +310,6 @@
       "author": "Sylvain Neuvel",
       "coverUrl": "https://assets.hardcover.app/edition/30399454/1d6c479c90a9b6a818364b67ab8f7e6e93c57d4c.jpeg",
       "hardcoverUrl": "https://hardcover.app/books/sleeping-giants"
-    },
-    {
-      "title": "Cult of the Dead Cow",
-      "author": "Joseph Menn",
-      "coverUrl": "https://assets.hardcover.app/external_data/49458121/9782bf701ad9842fe15e6ff43c8f4ac4890d623a.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/cult-of-the-dead-cow"
     }
   ]
 }
