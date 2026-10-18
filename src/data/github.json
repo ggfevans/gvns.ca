@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-17T07:27:50.509Z",
+  "lastUpdated": "2026-10-18T07:43:22.615Z",
   "contributions": {
     "total": 5588,
     "commits": 1947,
@@ -10,45 +10,6 @@
   },
   "calendar": {
     "weeks": [
-      {
-        "days": [
-          {
-            "date": "2025-10-12",
-            "count": 2,
-            "level": 1
-          },
-          {
-            "date": "2025-10-13",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-10-14",
-            "count": 10,
-            "level": 1
-          },
-          {
-            "date": "2025-10-15",
-            "count": 4,
-            "level": 1
-          },
-          {
-            "date": "2025-10-16",
-            "count": 1,
-            "level": 1
-          },
-          {
-            "date": "2025-10-17",
-            "count": 1,
-            "level": 1
-          },
-          {
-            "date": "2025-10-18",
-            "count": 0,
-            "level": 0
-          }
-        ]
-      },
       {
         "days": [
           {
@@ -2076,11 +2037,20 @@
             "level": 0
           }
         ]
+      },
+      {
+        "days": [
+          {
+            "date": "2026-10-18",
+            "count": 0,
+            "level": 0
+          }
+        ]
       }
     ]
   },
   "streak": {
-    "current": 5,
+    "current": 0,
     "longest": 61,
     "today": false
   },
@@ -2425,20 +2395,20 @@
   },
   "repositories": [
     {
-      "name": "Services-Directory-Toolkit",
-      "description": "Chrome extension with diagnostic and query tools for ArcGIS Server REST Services Directory pages",
-      "language": "JavaScript",
-      "languageColor": "#f1e05a",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit"
-    },
-    {
       "name": "gvns.ca",
       "description": "",
       "language": "Astro",
       "languageColor": "#ff5a03",
       "stars": 0,
       "url": "https://github.com/ggfevans/gvns.ca"
+    },
+    {
+      "name": "Services-Directory-Toolkit",
+      "description": "Chrome extension with diagnostic and query tools for ArcGIS Server REST Services Directory pages",
+      "language": "JavaScript",
+      "languageColor": "#f1e05a",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/Services-Directory-Toolkit"
     },
     {
       "name": "oryx-overlay",
