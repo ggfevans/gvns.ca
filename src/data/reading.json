@@ -1,11 +1,11 @@
 {
-  "lastUpdated": "2026-10-18T07:43:25Z",
+  "lastUpdated": "2026-10-19T08:25:36Z",
   "currentlyReading": [
     {
-      "title": "Shadow Hunters",
+      "title": "Twilight",
       "author": "Christie Golden",
-      "coverUrl": "https://assets.hardcover.app/external_data/1684279/b707a57383b7220b1e23d0c4a90fec546f1f4473.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/shadow-hunters-2007"
+      "coverUrl": "https://assets.hardcover.app/external_data/60418716/72a0f202f36cdd9dfc6318f545c9319f22ed95f3.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/twilight-dark-templar-twilight-2007"
     },
     {
       "title": "Homo Deus: A Brief History of Tomorrow",
@@ -21,6 +21,14 @@
     }
   ],
   "finished": [
+    {
+      "title": "Shadow Hunters",
+      "author": "Christie Golden",
+      "coverUrl": "https://assets.hardcover.app/external_data/1684279/b707a57383b7220b1e23d0c4a90fec546f1f4473.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/shadow-hunters-2007",
+      "rating": 4.0,
+      "dateFinished": "2026-10-19T03:13:54.52867+00:00"
+    },
     {
       "title": "A Storm of Swords",
       "author": "George R.R. Martin",
@@ -72,6 +80,12 @@
   ],
   "wantToRead": [
     {
+      "title": "The Autobiography of Malcolm X",
+      "author": "Malcolm X",
+      "coverUrl": "https://assets.hardcover.app/book_mappings/7333239/b8c3a88e5cb7d284a02d9b35b07573d207f458bf.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/the-autobiography-of-malcolm-x"
+    },
+    {
       "title": "On Anarchism",
       "author": "Noam Chomsky",
       "coverUrl": "https://assets.hardcover.app/editions/30566570/43654612-07c9-4ef7-a878-6ab57ba17aa1.jpg",
@@ -106,12 +120,6 @@
       "author": "Brent Spiner",
       "coverUrl": "https://assets.hardcover.app/edition/30412777/d71fcf37c354f6697291bfe494375a459ae303d4.jpeg",
       "hardcoverUrl": "https://hardcover.app/books/fan-fiction"
-    },
-    {
-      "title": "Twilight",
-      "author": "Christie Golden",
-      "coverUrl": "https://assets.hardcover.app/external_data/60418716/72a0f202f36cdd9dfc6318f545c9319f22ed95f3.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/twilight-dark-templar-twilight-2007"
     },
     {
       "title": "Helen of Nowhere",
@@ -304,12 +312,6 @@
       "author": "Chevy Stevens",
       "coverUrl": "https://assets.hardcover.app/external_data/59505208/357950b31711212d417cd474ee16ea894dc97726.jpeg",
       "hardcoverUrl": "https://hardcover.app/books/dark-roads"
-    },
-    {
-      "title": "Sleeping Giants",
-      "author": "Sylvain Neuvel",
-      "coverUrl": "https://assets.hardcover.app/edition/30399454/1d6c479c90a9b6a818364b67ab8f7e6e93c57d4c.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/sleeping-giants"
     }
   ]
 }
