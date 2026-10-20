@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-19T08:25:36Z",
+  "lastUpdated": "2026-10-20T08:07:48Z",
   "currentlyReading": [
     {
       "title": "Twilight",
@@ -82,7 +82,7 @@
     {
       "title": "The Autobiography of Malcolm X",
       "author": "Malcolm X",
-      "coverUrl": "https://assets.hardcover.app/book_mappings/7333239/b8c3a88e5cb7d284a02d9b35b07573d207f458bf.jpeg",
+      "coverUrl": "https://assets.hardcover.app/edition/26959980/b836252262705ee95beb5687f1b5af3e21cbe16e.jpeg",
       "hardcoverUrl": "https://hardcover.app/books/the-autobiography-of-malcolm-x"
     },
     {
@@ -306,12 +306,6 @@
       "author": "Percival Everett",
       "coverUrl": "https://assets.hardcover.app/external_data/61346674/caff7309b465f9633e166709b0215c12aa392aff.jpeg",
       "hardcoverUrl": "https://hardcover.app/books/james"
-    },
-    {
-      "title": "Dark Roads",
-      "author": "Chevy Stevens",
-      "coverUrl": "https://assets.hardcover.app/external_data/59505208/357950b31711212d417cd474ee16ea894dc97726.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/dark-roads"
     }
   ]
 }
