@@ -16,11 +16,11 @@
     "node": ">=24"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^14.3.2",
-    "@astrojs/markdown-remark": "^7.3.1",
+    "@astrojs/cloudflare": "^14.4.0",
+    "@astrojs/markdown-remark": "^7.3.3",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.4",
-    "@astrojs/svelte": "^9.0.1",
+    "@astrojs/svelte": "^9.1.0",
     "@atproto/api": "^0.20.28",
     "@codybrom/denim": "npm:@jsr/codybrom__denim@^2.0.1",
     "@fontsource/inter": "^5.3.0",
@@ -30,7 +30,7 @@
     "@tabler/icons": "^3.48.0",
     "@tailwindcss/forms": "^0.5.11",
     "@tailwindcss/vite": "^4.3.1",
-    "astro": "^7.3.3",
+    "astro": "^7.4.0",
     "gray-matter": "^4.0.3",
     "hast-util-to-string": "^3.0.1",
     "hastscript": "^9.0.1",
