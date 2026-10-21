@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-10-20T08:07:39.496Z",
+  "lastUpdated": "2026-10-21T08:13:28.166Z",
   "contributions": {
-    "total": 5570,
-    "commits": 1947,
-    "pullRequests": 616,
+    "total": 5580,
+    "commits": 1951,
+    "pullRequests": 620,
     "pullRequestReviews": 1,
     "issues": 654,
-    "restricted": 2267
+    "restricted": 2269
   },
   "calendar": {
     "weeks": [
@@ -40,7 +40,7 @@
           {
             "date": "2025-10-24",
             "count": 27,
-            "level": 2
+            "level": 1
           },
           {
             "date": "2025-10-25",
@@ -118,7 +118,7 @@
           {
             "date": "2025-11-07",
             "count": 35,
-            "level": 2
+            "level": 1
           },
           {
             "date": "2025-11-08",
@@ -230,12 +230,12 @@
           {
             "date": "2025-11-27",
             "count": 28,
-            "level": 2
+            "level": 1
           },
           {
             "date": "2025-11-28",
             "count": 33,
-            "level": 2
+            "level": 1
           },
           {
             "date": "2025-11-29",
@@ -259,12 +259,12 @@
           {
             "date": "2025-12-02",
             "count": 51,
-            "level": 3
+            "level": 2
           },
           {
             "date": "2025-12-03",
             "count": 31,
-            "level": 2
+            "level": 1
           },
           {
             "date": "2025-12-04",
@@ -274,7 +274,7 @@
           {
             "date": "2025-12-05",
             "count": 27,
-            "level": 2
+            "level": 1
           },
           {
             "date": "2025-12-06",
@@ -308,12 +308,12 @@
           {
             "date": "2025-12-11",
             "count": 27,
-            "level": 2
+            "level": 1
           },
           {
             "date": "2025-12-12",
             "count": 28,
-            "level": 2
+            "level": 1
           },
           {
             "date": "2025-12-13",
@@ -327,7 +327,7 @@
           {
             "date": "2025-12-14",
             "count": 81,
-            "level": 4
+            "level": 3
           },
           {
             "date": "2025-12-15",
@@ -337,27 +337,27 @@
           {
             "date": "2025-12-16",
             "count": 89,
-            "level": 4
+            "level": 3
           },
           {
             "date": "2025-12-17",
             "count": 81,
-            "level": 4
+            "level": 3
           },
           {
             "date": "2025-12-18",
             "count": 32,
-            "level": 2
+            "level": 1
           },
           {
             "date": "2025-12-19",
             "count": 98,
-            "level": 4
+            "level": 3
           },
           {
             "date": "2025-12-20",
             "count": 33,
-            "level": 2
+            "level": 1
           }
         ]
       },
@@ -366,27 +366,27 @@
           {
             "date": "2025-12-21",
             "count": 28,
-            "level": 2
+            "level": 1
           },
           {
             "date": "2025-12-22",
             "count": 60,
-            "level": 3
+            "level": 2
           },
           {
             "date": "2025-12-23",
             "count": 28,
-            "level": 2
+            "level": 1
           },
           {
             "date": "2025-12-24",
             "count": 33,
-            "level": 2
+            "level": 1
           },
           {
             "date": "2025-12-25",
             "count": 37,
-            "level": 2
+            "level": 1
           },
           {
             "date": "2025-12-26",
@@ -420,12 +420,12 @@
           {
             "date": "2025-12-31",
             "count": 61,
-            "level": 3
+            "level": 2
           },
           {
             "date": "2026-01-01",
             "count": 35,
-            "level": 2
+            "level": 1
           },
           {
             "date": "2026-01-02",
@@ -532,7 +532,7 @@
           {
             "date": "2026-01-20",
             "count": 26,
-            "level": 2
+            "level": 1
           },
           {
             "date": "2026-01-21",
@@ -561,12 +561,12 @@
           {
             "date": "2026-01-25",
             "count": 32,
-            "level": 2
+            "level": 1
           },
           {
             "date": "2026-01-26",
             "count": 55,
-            "level": 3
+            "level": 2
           },
           {
             "date": "2026-01-27",
@@ -576,22 +576,22 @@
           {
             "date": "2026-01-28",
             "count": 52,
-            "level": 3
+            "level": 2
           },
           {
             "date": "2026-01-29",
             "count": 72,
-            "level": 3
+            "level": 2
           },
           {
             "date": "2026-01-30",
             "count": 54,
-            "level": 3
+            "level": 2
           },
           {
             "date": "2026-01-31",
             "count": 57,
-            "level": 3
+            "level": 2
           }
         ]
       },
@@ -605,7 +605,7 @@
           {
             "date": "2026-02-02",
             "count": 35,
-            "level": 2
+            "level": 1
           },
           {
             "date": "2026-02-03",
@@ -615,12 +615,12 @@
           {
             "date": "2026-02-04",
             "count": 87,
-            "level": 4
+            "level": 3
           },
           {
             "date": "2026-02-05",
             "count": 30,
-            "level": 2
+            "level": 1
           },
           {
             "date": "2026-02-06",
@@ -630,7 +630,7 @@
           {
             "date": "2026-02-07",
             "count": 36,
-            "level": 2
+            "level": 1
           }
         ]
       },
@@ -649,7 +649,7 @@
           {
             "date": "2026-02-10",
             "count": 25,
-            "level": 2
+            "level": 1
           },
           {
             "date": "2026-02-11",
@@ -659,7 +659,7 @@
           {
             "date": "2026-02-12",
             "count": 29,
-            "level": 2
+            "level": 1
           },
           {
             "date": "2026-02-13",
@@ -693,12 +693,12 @@
           {
             "date": "2026-02-18",
             "count": 36,
-            "level": 2
+            "level": 1
           },
           {
             "date": "2026-02-19",
             "count": 31,
-            "level": 2
+            "level": 1
           },
           {
             "date": "2026-02-20",
@@ -708,7 +708,7 @@
           {
             "date": "2026-02-21",
             "count": 36,
-            "level": 2
+            "level": 1
           }
         ]
       },
@@ -976,7 +976,7 @@
           {
             "date": "2026-04-10",
             "count": 53,
-            "level": 3
+            "level": 2
           },
           {
             "date": "2026-04-11",
@@ -1054,7 +1054,7 @@
           {
             "date": "2026-04-24",
             "count": 36,
-            "level": 2
+            "level": 1
           },
           {
             "date": "2026-04-25",
@@ -1068,12 +1068,12 @@
           {
             "date": "2026-04-26",
             "count": 34,
-            "level": 2
+            "level": 1
           },
           {
             "date": "2026-04-27",
             "count": 69,
-            "level": 3
+            "level": 2
           },
           {
             "date": "2026-04-28",
@@ -1083,7 +1083,7 @@
           {
             "date": "2026-04-29",
             "count": 56,
-            "level": 3
+            "level": 2
           },
           {
             "date": "2026-04-30",
@@ -1093,7 +1093,7 @@
           {
             "date": "2026-05-01",
             "count": 25,
-            "level": 2
+            "level": 1
           },
           {
             "date": "2026-05-02",
@@ -1122,12 +1122,12 @@
           {
             "date": "2026-05-06",
             "count": 28,
-            "level": 2
+            "level": 1
           },
           {
             "date": "2026-05-07",
             "count": 36,
-            "level": 2
+            "level": 1
           },
           {
             "date": "2026-05-08",
@@ -1166,17 +1166,17 @@
           {
             "date": "2026-05-14",
             "count": 51,
-            "level": 3
+            "level": 2
           },
           {
             "date": "2026-05-15",
             "count": 84,
-            "level": 4
+            "level": 3
           },
           {
             "date": "2026-05-16",
             "count": 51,
-            "level": 3
+            "level": 2
           }
         ]
       },
@@ -1185,12 +1185,12 @@
           {
             "date": "2026-05-17",
             "count": 67,
-            "level": 3
+            "level": 2
           },
           {
             "date": "2026-05-18",
             "count": 58,
-            "level": 3
+            "level": 2
           },
           {
             "date": "2026-05-19",
@@ -1229,7 +1229,7 @@
           {
             "date": "2026-05-25",
             "count": 34,
-            "level": 2
+            "level": 1
           },
           {
             "date": "2026-05-26",
@@ -1268,7 +1268,7 @@
           {
             "date": "2026-06-01",
             "count": 64,
-            "level": 3
+            "level": 2
           },
           {
             "date": "2026-06-02",
@@ -1278,12 +1278,12 @@
           {
             "date": "2026-06-03",
             "count": 53,
-            "level": 3
+            "level": 2
           },
           {
             "date": "2026-06-04",
             "count": 25,
-            "level": 2
+            "level": 1
           },
           {
             "date": "2026-06-05",
@@ -1293,7 +1293,7 @@
           {
             "date": "2026-06-06",
             "count": 52,
-            "level": 3
+            "level": 2
           }
         ]
       },
@@ -1322,12 +1322,12 @@
           {
             "date": "2026-06-11",
             "count": 34,
-            "level": 2
+            "level": 1
           },
           {
             "date": "2026-06-12",
             "count": 26,
-            "level": 2
+            "level": 1
           },
           {
             "date": "2026-06-13",
@@ -1341,12 +1341,12 @@
           {
             "date": "2026-06-14",
             "count": 66,
-            "level": 3
+            "level": 2
           },
           {
             "date": "2026-06-15",
             "count": 34,
-            "level": 2
+            "level": 1
           },
           {
             "date": "2026-06-16",
@@ -1814,7 +1814,7 @@
           {
             "date": "2026-09-07",
             "count": 29,
-            "level": 2
+            "level": 1
           },
           {
             "date": "2026-09-08",
@@ -1941,7 +1941,7 @@
           {
             "date": "2026-09-30",
             "count": 63,
-            "level": 3
+            "level": 2
           },
           {
             "date": "2026-10-01",
@@ -2014,7 +2014,7 @@
           {
             "date": "2026-10-13",
             "count": 31,
-            "level": 2
+            "level": 1
           },
           {
             "date": "2026-10-14",
@@ -2052,6 +2052,11 @@
           },
           {
             "date": "2026-10-20",
+            "count": 10,
+            "level": 1
+          },
+          {
+            "date": "2026-10-21",
             "count": 0,
             "level": 0
           }
@@ -2060,11 +2065,44 @@
     ]
   },
   "streak": {
-    "current": 0,
+    "current": 1,
     "longest": 61,
     "today": false
   },
   "recentActivity": [
+    {
+      "type": "issue",
+      "repo": "Services-Directory-Toolkit",
+      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
+      "title": "Phase 4 (settings): define every setting once and make saving safe",
+      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/33",
+      "date": "2026-10-21T04:21:27Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Services-Directory-Toolkit",
+      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
+      "title": "Phase 3 (shell): final manifest, background script, status indicator and popup entry points",
+      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/32",
+      "date": "2026-10-21T02:46:08Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Services-Directory-Toolkit",
+      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
+      "title": "Phase 2 (shared core): shared helpers, token scope and page classifier",
+      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/44",
+      "date": "2026-10-21T00:11:14Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
     {
       "type": "issue",
       "repo": "Services-Directory-Toolkit",
@@ -2361,57 +2399,16 @@
       "meta": {
         "state": "OPEN"
       }
-    },
-    {
-      "type": "issue",
-      "repo": "Services-Directory-Toolkit",
-      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
-      "title": "Tokens v1: who requests run as, Copy as for the page's token, and What's public here?",
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/52",
-      "date": "2026-10-16T08:20:49Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Services-Directory-Toolkit",
-      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
-      "title": "Run token experiments E4 and E12 before Tokens v1",
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/51",
-      "date": "2026-10-16T08:06:15Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Services-Directory-Toolkit",
-      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
-      "title": "Phase 8 (print and geoprocessing pages): no dialogs, complete choice lists, web map on click",
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/48",
-      "date": "2026-10-16T08:02:35Z",
-      "meta": {
-        "state": "OPEN"
-      }
     }
   ],
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 67,
-    "contributionsThisMonth": 227,
+    "contributionsThisWeek": 46,
+    "contributionsThisMonth": 231,
     "repositoriesThisWeek": 1
   },
   "repositories": [
-    {
-      "name": "gvns.ca",
-      "description": "",
-      "language": "Astro",
-      "languageColor": "#ff5a03",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/gvns.ca"
-    },
     {
       "name": "Services-Directory-Toolkit",
       "description": "Chrome extension with diagnostic and query tools for ArcGIS Server REST Services Directory pages",
@@ -2419,6 +2416,14 @@
       "languageColor": "#f1e05a",
       "stars": 0,
       "url": "https://github.com/ggfevans/Services-Directory-Toolkit"
+    },
+    {
+      "name": "gvns.ca",
+      "description": "",
+      "language": "Astro",
+      "languageColor": "#ff5a03",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/gvns.ca"
     },
     {
       "name": "oryx-overlay",
