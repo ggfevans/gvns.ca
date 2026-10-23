@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-10-22T08:14:53.444Z",
+  "lastUpdated": "2026-10-23T08:11:57.134Z",
   "contributions": {
-    "total": 5585,
-    "commits": 1952,
-    "pullRequests": 621,
+    "total": 5595,
+    "commits": 1953,
+    "pullRequests": 622,
     "pullRequestReviews": 1,
     "issues": 654,
-    "restricted": 2272
+    "restricted": 2280
   },
   "calendar": {
     "weeks": [
@@ -2062,6 +2062,11 @@
           },
           {
             "date": "2026-10-22",
+            "count": 10,
+            "level": 1
+          },
+          {
+            "date": "2026-10-23",
             "count": 0,
             "level": 0
           }
@@ -2070,11 +2075,33 @@
     ]
   },
   "streak": {
-    "current": 2,
+    "current": 3,
     "longest": 61,
     "today": false
   },
   "recentActivity": [
+    {
+      "type": "issue",
+      "repo": "Services-Directory-Toolkit",
+      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
+      "title": "Status bar replaces the corner status indicator",
+      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/14",
+      "date": "2026-10-23T02:47:26Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Services-Directory-Toolkit",
+      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
+      "title": "Shared style, theme check and accessibility test helpers",
+      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/13",
+      "date": "2026-10-23T02:47:26Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
     {
       "type": "issue",
       "repo": "Services-Directory-Toolkit",
@@ -2310,28 +2337,6 @@
       "type": "issue",
       "repo": "Services-Directory-Toolkit",
       "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
-      "title": "Status bar replaces the corner status indicator",
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/14",
-      "date": "2026-10-16T23:26:30Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Services-Directory-Toolkit",
-      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
-      "title": "Shared style, theme check and accessibility test helpers",
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/13",
-      "date": "2026-10-16T23:26:27Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Services-Directory-Toolkit",
-      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
       "title": "Replace test:live's default server before 10.9.1 retires (30 Nov 2027)",
       "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/58",
       "date": "2026-10-16T23:23:56Z",
@@ -2409,8 +2414,8 @@
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 49,
-    "contributionsThisMonth": 235,
+    "contributionsThisWeek": 43,
+    "contributionsThisMonth": 245,
     "repositoriesThisWeek": 1
   },
   "repositories": [
