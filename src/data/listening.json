@@ -1,6 +1,42 @@
 {
-  "lastUpdated": "2026-10-24T07:50:43Z",
+  "lastUpdated": "2026-10-25T08:03:36Z",
   "recentListens": [
+    {
+      "track": "23kid",
+      "artist": "65daysofstatic",
+      "album": "One Time For All Time",
+      "listenedAt": "2026-10-25T05:12:03Z",
+      "caaReleaseMbid": "a41e4735-76af-4ee3-aa0f-1d12eda2bf25",
+      "caaId": 2737978532,
+      "recordingMbid": "03ae1273-eb5e-4697-a30c-cac24ca43ace",
+      "artistMbids": [
+        "0cd12ab3-9628-45ef-a97b-ff18624f14a0"
+      ]
+    },
+    {
+      "track": "Await Rescue",
+      "artist": "65daysofstatic",
+      "album": "One Time For All Time",
+      "listenedAt": "2026-10-25T05:07:30Z",
+      "caaReleaseMbid": "a41e4735-76af-4ee3-aa0f-1d12eda2bf25",
+      "caaId": 2737978532,
+      "recordingMbid": "14df46e2-dcac-4d48-b2c0-792cadbbfe81",
+      "artistMbids": [
+        "0cd12ab3-9628-45ef-a97b-ff18624f14a0"
+      ]
+    },
+    {
+      "track": "Drove Through Ghosts To Get Here",
+      "artist": "65daysofstatic",
+      "album": "One Time For All Time",
+      "listenedAt": "2026-10-25T05:02:45Z",
+      "caaReleaseMbid": "a41e4735-76af-4ee3-aa0f-1d12eda2bf25",
+      "caaId": 2737978532,
+      "recordingMbid": "e93f7304-8182-42a9-9d55-16ee0ddadc6a",
+      "artistMbids": [
+        "0cd12ab3-9628-45ef-a97b-ff18624f14a0"
+      ]
+    },
     {
       "track": "From You",
       "artist": "Bonobo",
@@ -87,43 +123,6 @@
       "artistMbids": [
         "3bcff06f-675a-451f-9075-99e8657047e8"
       ]
-    },
-    {
-      "track": "Mi swing es tropical",
-      "artist": "Quantic & Nickodemus",
-      "album": "Salsa Style: Latin Beats for Dancing Feets",
-      "listenedAt": "2026-02-10T21:01:34Z",
-      "caaReleaseMbid": "82376b6c-5a13-41c7-888e-a76fb4f648dd",
-      "caaId": 21330531664,
-      "recordingMbid": "c23c6114-2f3f-4eea-9eb7-7d6ddcb8d2f5",
-      "artistMbids": [
-        "f1560407-8826-4ec9-b78f-e0c3fa3ea4f5",
-        "ec475fb8-d454-406e-b473-7f0b0d815f9d"
-      ]
-    },
-    {
-      "track": "Suzuki",
-      "artist": "Tosca",
-      "album": "Suzuki",
-      "listenedAt": "2026-02-10T20:55:29Z",
-      "caaReleaseMbid": "505f0ee9-6113-46aa-b44e-fbae0bcff839",
-      "caaId": 13276098607,
-      "recordingMbid": "f128b4c3-72a3-461e-b5b7-21ffaff31a9a",
-      "artistMbids": [
-        "3231d12a-c42d-4977-b2a4-a6e4d87978e1"
-      ]
-    },
-    {
-      "track": "Lebanese Blonde",
-      "artist": "Thievery Corporation",
-      "album": "The Mirror Conspiracy",
-      "listenedAt": "2026-02-10T20:50:26Z",
-      "caaReleaseMbid": "1de73c08-5755-3646-ad2c-a6657aa00fd4",
-      "caaId": 1769287326,
-      "recordingMbid": "27a32525-c99d-47d3-8f58-58e924313136",
-      "artistMbids": [
-        "a505bb48-ad65-4af4-ae47-29149715bff9"
-      ]
     }
   ],
   "recentListensStatus": "ok",
@@ -134,7 +133,7 @@
   "topAlbums": [],
   "topAlbumsStatus": "no_data",
   "stats": {
-    "totalListenCount": 212612,
+    "totalListenCount": 212615,
     "rangeListenCount": null,
     "range": "this_month",
     "artistCount": null,

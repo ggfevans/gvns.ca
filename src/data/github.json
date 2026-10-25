@@ -1,54 +1,15 @@
 {
-  "lastUpdated": "2026-10-24T07:50:37.665Z",
+  "lastUpdated": "2026-10-25T08:03:30.371Z",
   "contributions": {
-    "total": 5594,
-    "commits": 1953,
-    "pullRequests": 622,
+    "total": 5603,
+    "commits": 1955,
+    "pullRequests": 624,
     "pullRequestReviews": 1,
     "issues": 653,
-    "restricted": 2280
+    "restricted": 2285
   },
   "calendar": {
     "weeks": [
-      {
-        "days": [
-          {
-            "date": "2025-10-19",
-            "count": 2,
-            "level": 1
-          },
-          {
-            "date": "2025-10-20",
-            "count": 2,
-            "level": 1
-          },
-          {
-            "date": "2025-10-21",
-            "count": 5,
-            "level": 1
-          },
-          {
-            "date": "2025-10-22",
-            "count": 1,
-            "level": 1
-          },
-          {
-            "date": "2025-10-23",
-            "count": 2,
-            "level": 1
-          },
-          {
-            "date": "2025-10-24",
-            "count": 27,
-            "level": 1
-          },
-          {
-            "date": "2025-10-25",
-            "count": 0,
-            "level": 0
-          }
-        ]
-      },
       {
         "days": [
           {
@@ -2072,6 +2033,15 @@
           },
           {
             "date": "2026-10-24",
+            "count": 9,
+            "level": 1
+          }
+        ]
+      },
+      {
+        "days": [
+          {
+            "date": "2026-10-25",
             "count": 0,
             "level": 0
           }
@@ -2080,7 +2050,7 @@
     ]
   },
   "streak": {
-    "current": 0,
+    "current": 1,
     "longest": 61,
     "today": false
   },
@@ -2139,288 +2109,13 @@
       "meta": {
         "state": "CLOSED"
       }
-    },
-    {
-      "type": "issue",
-      "repo": "Services-Directory-Toolkit",
-      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
-      "title": "Phase 9 (popup): reliable search and trimming, popup settings",
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/49",
-      "date": "2026-10-16T23:29:59Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Services-Directory-Toolkit",
-      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
-      "title": "Map preview: show it beside the link, not in the top-right corner",
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/6",
-      "date": "2026-10-16T23:27:43Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Services-Directory-Toolkit",
-      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
-      "title": "Design review: a consistent, easier-to-use UI, with settings in the toolbar popup",
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/7",
-      "date": "2026-10-16T23:27:41Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Services-Directory-Toolkit",
-      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
-      "title": "Phase 7 (Query and Find pages): shared field picker, SQL literals and presets",
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/47",
-      "date": "2026-10-16T23:27:08Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Services-Directory-Toolkit",
-      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
-      "title": "Phase 5 (service and layer pages): failure handling, request budget and on-demand counts",
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/45",
-      "date": "2026-10-16T23:27:06Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Services-Directory-Toolkit",
-      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
-      "title": "Screen-reader pass before release",
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/27",
-      "date": "2026-10-16T23:26:56Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Services-Directory-Toolkit",
-      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
-      "title": "Store assets that match the UI",
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/26",
-      "date": "2026-10-16T23:26:54Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Services-Directory-Toolkit",
-      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
-      "title": "Options page layout",
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/25",
-      "date": "2026-10-16T23:26:52Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Services-Directory-Toolkit",
-      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
-      "title": "Quick settings and Reload page in the popup",
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/24",
-      "date": "2026-10-16T23:26:50Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Services-Directory-Toolkit",
-      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
-      "title": "Popup layout and states for search and Trim query URL",
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/23",
-      "date": "2026-10-16T23:26:48Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Services-Directory-Toolkit",
-      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
-      "title": "Print task controls and Insert saved web map",
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/22",
-      "date": "2026-10-16T23:26:46Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Services-Directory-Toolkit",
-      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
-      "title": "Find Helper layout",
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/21",
-      "date": "2026-10-16T23:26:44Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Services-Directory-Toolkit",
-      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
-      "title": "Query Helper layout and keyboard use",
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/20",
-      "date": "2026-10-16T23:26:42Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Services-Directory-Toolkit",
-      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
-      "title": "Docked side panel for the Query and Find Helpers",
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/19",
-      "date": "2026-10-16T23:26:40Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Services-Directory-Toolkit",
-      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
-      "title": "Map preview pop-up: look and states",
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/18",
-      "date": "2026-10-16T23:26:38Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Services-Directory-Toolkit",
-      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
-      "title": "Feature and value counts: inline counts, zero warnings, Count values",
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/17",
-      "date": "2026-10-16T23:26:36Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Services-Directory-Toolkit",
-      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
-      "title": "Service and layer details in an inline disclosure",
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/16",
-      "date": "2026-10-16T23:26:33Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Services-Directory-Toolkit",
-      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
-      "title": "Spatial reference badges from a tested palette",
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/15",
-      "date": "2026-10-16T23:26:31Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Services-Directory-Toolkit",
-      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
-      "title": "Replace test:live's default server before 10.9.1 retires (30 Nov 2027)",
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/58",
-      "date": "2026-10-16T23:23:56Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Services-Directory-Toolkit",
-      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
-      "title": "Run token experiments E1–E3, E6 and E9–E11 before Tokens v2",
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/57",
-      "date": "2026-10-16T23:23:56Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Services-Directory-Toolkit",
-      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
-      "title": "probe-tokens.js: redact() misses URL-encoded tokens",
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/56",
-      "date": "2026-10-16T23:23:55Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Services-Directory-Toolkit",
-      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
-      "title": "2.0.0 release and store upload",
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/55",
-      "date": "2026-10-16T23:22:54Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Services-Directory-Toolkit",
-      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
-      "title": "Tokens v2: pasted tokens and Read my sign-in",
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/53",
-      "date": "2026-10-16T08:55:15Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Services-Directory-Toolkit",
-      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
-      "title": "Track S (store assets and account): privacy policy, icons, listing copy, account and permission justifications",
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/50",
-      "date": "2026-10-16T08:55:14Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Services-Directory-Toolkit",
-      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
-      "title": "Phase 6 (map previews): image requests, hover timing and cancellation",
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/46",
-      "date": "2026-10-16T08:29:17Z",
-      "meta": {
-        "state": "OPEN"
-      }
     }
   ],
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 25,
-    "contributionsThisMonth": 245,
+    "contributionsThisWeek": 34,
+    "contributionsThisMonth": 253,
     "repositoriesThisWeek": 1
   },
   "repositories": [
