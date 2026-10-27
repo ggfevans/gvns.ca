@@ -25,6 +25,8 @@ jobs:
   syndicate:
     # Skip when this run was triggered by the syndicate workflow's own merge to
     # main (commit message comes from the PR title set by the composite action).
+    # GITHUB_TOKEN merges don't fire push workflows, so this is a backstop in
+    # case the merge token ever changes back to a PAT.
     # The `|| ''` fallback keeps workflow_dispatch runs working — head_commit
     # is undefined for that event.
     if: "${{ !startsWith(github.event.head_commit.message || '', 'chore: update syndication data') }}"
@@ -32,9 +34,8 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          token: ${{ secrets.GH_PAT }}
           # `commit-via-pr` runs `gh auth setup-git` before its own fetch/push,
-          # so the PAT never needs to sit in .git/config while `npm ci` runs
+          # so no token needs to sit in .git/config while `npm ci` runs
           # dependency install scripts.
           persist-credentials: false
 
@@ -60,4 +61,4 @@ jobs:
           paths: src/content/posts/
           commit-message: "chore: update syndication data"
           branch-prefix: update-syndication
-          github-token: ${{ secrets.GH_PAT }}
+          github-token: ${{ github.token }}

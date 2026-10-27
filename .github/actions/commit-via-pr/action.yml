@@ -25,15 +25,26 @@ inputs:
     default: 'Automated update.'
   github-token:
     description: >-
-      Token used for `git push`, `gh pr create`, and `gh pr merge`. The
-      default `GITHUB_TOKEN` works (auto-merge isn't used and required
-      status checks were removed on `main` — see #263); a PAT is only
-      needed if downstream workflows must fire from the resulting PR.
+      Token used for `git push`, `gh pr create`, and `gh pr merge`. Use
+      `GITHUB_TOKEN`: PRs it opens are authored by github-actions[bot], which
+      is not a ruleset bypass actor, so auto-merge waits for the required
+      Workers Builds check. A PAT acts as the repo admin and would skip it.
     required: true
 
 runs:
   using: 'composite'
   steps:
+    # The ahead-check below merges whatever HEAD has over origin/main. Run
+    # from a feature branch (e.g. `gh workflow run --ref <branch>`), that
+    # would fast-forward the whole branch onto main, unreviewed.
+    - name: Refuse to run outside main
+      shell: bash
+      run: |
+        if [ "$GITHUB_REF" != "refs/heads/main" ]; then
+          echo "::error::commit-via-pr only runs on refs/heads/main (got $GITHUB_REF); merging from here would land this branch's commits on main."
+          exit 1
+        fi
+
     - name: Configure git identity and auth
       shell: bash
       env:
@@ -102,9 +113,8 @@ runs:
           exit 1
         fi
 
-        # Immediate merge: enablePullRequestAutoMerge requires a
-        # required_status_checks rule on main, which we removed (#263 — it
-        # blocked Sveltia's direct CMS commits, see docs/CMS-SETUP.md).
-        # Workers Builds runs after merge; failed builds simply don't deploy.
-        gh pr merge "$BRANCH" --squash --delete-branch
+        # Auto-merge once the required Workers Builds check passes (ruleset on
+        # main, see docs/CMS-SETUP.md). A data commit that breaks the build
+        # stays an open PR instead of landing on main.
+        gh pr merge "$BRANCH" --auto --squash --delete-branch
 

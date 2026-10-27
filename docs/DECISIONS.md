@@ -766,6 +766,32 @@ Adopt the shader on the homepage only, via fork-on-adopt (ADR-019):
 
 ---
 
+## ADR-024: Gate Bot Merges, Not the Owner
+
+**Date**: 2026-10-26
+**Status**: Accepted
+
+### Context
+#263 removed required status checks from `main` because Sveltia commits as the human user and the rule rejected every CMS save. Everything that reached `main` was then ungated, bots included: `commit-via-pr` squash-merged its own PRs immediately, and Dependabot PRs had to be merged by hand because auto-merge needs a required check. On 2026-10-25 that left 10 open Dependabot PRs and 32 open alerts (cleared in #958). #263 had only considered constraining the human; once Sveltia ruled that out, it dropped protection altogether.
+
+### Decision
+- A `require-workers-build` ruleset on `main` requires the `Workers Builds: gvns-ca` check (Cloudflare app 85455), with **Repository admin, always allow** as the only bypass. The owner (CLI pushes, Sveltia CMS saves) is unconstrained; bots are not.
+- Bots merge as `github-actions[bot]` via `GITHUB_TOKEN`, never a PAT, so they are not bypass actors and auto-merge waits for the check. `commit-via-pr` uses `gh pr merge --auto` and refuses to run outside `refs/heads/main`.
+- `dependabot-automerge.yml` queues patch updates, and minor updates of dev dependencies and Actions, but nothing at 0.x. Majors and production minors stay human.
+- `ci.yml`'s `Build` is deliberately **not** required: PRs opened with `GITHUB_TOKEN` never trigger workflows, so data PRs would never merge.
+
+### Rationale
+- Merging to `main` is a production deploy. A bot change that breaks the build should stay an open PR, not become a red commit on `main`.
+- Workers Builds is webhook-driven and reports on every branch push whoever pushed it, so it is the one check every PR reliably gets.
+- Supersedes #691's direct-push plan, which this ruleset would reject; its ref guard and token clean-up are kept.
+
+### Consequences
+- A data PR whose build fails stays open; later runs touching the same file will conflict until it is closed. The weekly maintenance routine checks for stale `auto/*` PRs.
+- If a Sveltia save is ever rejected, the admin bypass isn't covering its GitHub App user token: set the ruleset to `disabled` and revisit.
+- `GH_PAT` remains only where a PAT is required: GitHub API reads in `fetch-github`, and the secrets write in `refresh-threads-token`.
+
+---
+
 ## Template for New Decisions
 
 ```markdown
@@ -789,4 +815,4 @@ Adopt the shader on the homepage only, via fork-on-adopt (ADR-019):
 
 ---
 
-*Last updated: 2026-10-03 (ADR-023)*
+*Last updated: 2026-10-26 (ADR-024)*
