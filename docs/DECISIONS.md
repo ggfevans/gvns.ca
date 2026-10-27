@@ -777,7 +777,7 @@ Adopt the shader on the homepage only, via fork-on-adopt (ADR-019):
 ### Decision
 - A `require-workers-build` ruleset on `main` requires the `Workers Builds: gvns-ca` check (Cloudflare app 85455), with **Repository admin, always allow** as the only bypass. The owner (CLI pushes, Sveltia CMS saves) is unconstrained; bots are not.
 - Bots merge as `github-actions[bot]` via `GITHUB_TOKEN`, never a PAT, so they are not bypass actors and auto-merge waits for the check. `commit-via-pr` uses `gh pr merge --auto` and refuses to run outside `refs/heads/main`.
-- `dependabot-automerge.yml` queues patch updates, and minor updates of dev dependencies and Actions, but nothing at 0.x. Majors and production minors stay human.
+- `dependabot-automerge.yml` queues patch updates, and minor updates of dev dependencies and Actions, but no 0.x minors (0.x patches are eligible). Majors and production minors stay human.
 - `ci.yml`'s `Build` is deliberately **not** required: PRs opened with `GITHUB_TOKEN` never trigger workflows, so data PRs would never merge.
 
 ### Rationale
@@ -787,6 +787,7 @@ Adopt the shader on the homepage only, via fork-on-adopt (ADR-019):
 
 ### Consequences
 - A data PR whose build fails stays open; later runs touching the same file will conflict until it is closed. The weekly maintenance routine checks for stale `auto/*` PRs.
+- `syndicate.yml` fails while an `auto/update-syndication-*` PR is open. Already-posted state lives only in post frontmatter, so running before that PR merges would double-post. Re-run it once the PR merges.
 - If a Sveltia save is ever rejected, the admin bypass isn't covering its GitHub App user token: set the ruleset to `disabled` and revisit.
 - `GH_PAT` remains only where a PAT is required: GitHub API reads in `fetch-github`, and the secrets write in `refresh-threads-token`.
 

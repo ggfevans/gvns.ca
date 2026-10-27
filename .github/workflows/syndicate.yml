@@ -21,6 +21,12 @@ permissions:
   contents: write
   pull-requests: write
 
+# Never let two runs post at once; queue, don't cancel (a cancelled run can
+# be mid-way through posting).
+concurrency:
+  group: syndicate
+  cancel-in-progress: false
+
 jobs:
   syndicate:
     # Skip when this run was triggered by the syndicate workflow's own merge to
@@ -32,6 +38,23 @@ jobs:
     if: "${{ !startsWith(github.event.head_commit.message || '', 'chore: update syndication data') }}"
     runs-on: ubuntu-latest
     steps:
+      # Already-posted state lives only in each post's `syndication`
+      # frontmatter, and it reaches main via the auto-merged
+      # auto/update-syndication-* PR. Until that PR merges (one Workers Build,
+      # or indefinitely if the build fails), main still looks unsyndicated, so a
+      # run now would post the same entries again. Fail loudly instead of
+      # skipping: re-run once the pending PR has merged.
+      - name: Refuse while a syndication PR is pending
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          pending=$(gh pr list -R "$GITHUB_REPOSITORY" --state open --json number,headRefName \
+            --jq '[.[] | select(.headRefName | startswith("auto/update-syndication-")) | "#\(.number)"] | join(" ")')
+          if [ -n "$pending" ]; then
+            echo "::error::Syndication PR still pending ($pending). Posting now would duplicate it; merge or close it, then re-run this workflow."
+            exit 1
+          fi
+
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           # `commit-via-pr` runs `gh auth setup-git` before its own fetch/push,
