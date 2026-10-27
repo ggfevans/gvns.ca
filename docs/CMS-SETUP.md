@@ -39,7 +39,7 @@ Sveltia commits as the human user (the only path that works given the `/user` re
 - **`require-workers-build`** ruleset: requires the `Workers Builds: gvns-ca` check, with **Repository admin, always allow** as the only bypass. CMS saves and CLI pushes go straight to `main` as before. Bot PRs (Dependabot, `commit-via-pr` data updates) are authored by `github-actions[bot]`/`dependabot[bot]`, can't bypass, and auto-merge only once the build passes.
 - **No PR-required rule.** Sveltia (and CLI) push directly.
 
-The original #263 attempt at required checks had **no** bypass for the human, so every CMS save was rejected: a fresh commit has no passing check yet, because Workers Builds runs *after* the push. The admin bypass is what avoids that loop. **If a CMS save is ever rejected**, the bypass isn't covering Sveltia's GitHub App user token. Set the ruleset's enforcement to `disabled` in Settings → Rules and revisit.
+The original #263 attempt at required checks had **no** bypass for the human, so every CMS save was rejected: a fresh commit has no passing check yet, because Workers Builds runs *after* the push. The admin bypass is what avoids that loop. **If a CMS save is ever rejected**, the bypass isn't covering Sveltia's GitHub App user token. Set the ruleset's enforcement to `disabled` in Settings → Rules for that save, then re-enable it. While it's disabled, `gh pr merge --auto` has no required check to wait on and fails, so data and Dependabot PRs stay open unmerged. If it has to stay off, revert `commit-via-pr` to an immediate `gh pr merge --squash` as well.
 
 For an owner push, Workers Builds still runs on every push to `main`; a failing build doesn't deploy and the last good build stays live.
 

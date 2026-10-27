@@ -788,7 +788,8 @@ Adopt the shader on the homepage only, via fork-on-adopt (ADR-019):
 ### Consequences
 - A data PR whose build fails stays open; later runs touching the same file will conflict until it is closed. The weekly maintenance routine checks for stale `auto/*` PRs.
 - `syndicate.yml` fails while an `auto/update-syndication-*` PR is open. Already-posted state lives only in post frontmatter, so running before that PR merges would double-post. Re-run it once the PR merges.
-- If a Sveltia save is ever rejected, the admin bypass isn't covering its GitHub App user token: set the ruleset to `disabled` and revisit.
+- If a Sveltia save is ever rejected, the admin bypass isn't covering its GitHub App user token. Disabling the ruleset unblocks the save but also breaks `--auto` merges (no required check to wait on); see `docs/CMS-SETUP.md` for the recovery steps.
+- `syndicate.yml` also refuses non-main refs before posting, since `commit-via-pr` would reject the frontmatter commit after the posts went out.
 - `GH_PAT` remains only where a PAT is required: GitHub API reads in `fetch-github`, and the secrets write in `refresh-threads-token`.
 
 ---

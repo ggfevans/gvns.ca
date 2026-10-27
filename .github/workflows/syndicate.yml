@@ -44,6 +44,16 @@ jobs:
       # or indefinitely if the build fails), main still looks unsyndicated, so a
       # run now would post the same entries again. Fail loudly instead of
       # skipping: re-run once the pending PR has merged.
+      # Before anything posts: commit-via-pr refuses non-main refs, so a
+      # dispatch from a branch would post externally, fail to commit the
+      # frontmatter, and leave the next run to post the same entries again.
+      - name: Refuse to run outside main
+        run: |
+          if [ "$GITHUB_REF" != "refs/heads/main" ]; then
+            echo "::error::Syndication only runs on refs/heads/main (got $GITHUB_REF)."
+            exit 1
+          fi
+
       - name: Refuse while a syndication PR is pending
         env:
           GH_TOKEN: ${{ github.token }}
