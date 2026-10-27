@@ -33,19 +33,19 @@ So we kept the App for the OAuth side only. If we ever switch CMSes (or Sveltia 
 
 ## Branch protection posture
 
-Sveltia commits as the human user (the only path that works given the `/user` requirement above), so we *cannot* combine PR-required protection with bypass-the-CMS — the bypass would have to apply to the human, which would also bypass CLI pushes.
+Sveltia commits as the human user (the only path that works given the `/user` requirement above), so the CMS can't be constrained separately from CLI pushes. The posture therefore gates **bots** and leaves the **owner** unconstrained (ADR-024):
 
-Posture instead — the **`protect da goods` ruleset** on `main`:
-
-- **`deletion`** rule only: prevents accidental branch delete / force-push of an empty ref. That's it.
-- **No required status checks.** Tried; created a circular dependency: Sveltia's fresh commits don't have a passing check yet (Workers Builds runs *after* the push), so the rule rejected every CMS save.
+- **`protect da goods`** ruleset: `deletion` rule only, preventing an accidental branch delete or a force-push of an empty ref.
+- **`require-workers-build`** ruleset: requires the `Workers Builds: gvns-ca` check, with **Repository admin, always allow** as the only bypass. CMS saves and CLI pushes go straight to `main` as before. Bot PRs (Dependabot, `commit-via-pr` data updates) are authored by `github-actions[bot]`/`dependabot[bot]`, can't bypass, and auto-merge only once the build passes.
 - **No PR-required rule.** Sveltia (and CLI) push directly.
 
-Workers Builds still runs on every push to `main`. A failing build just doesn't deploy — last successful build stays live. Site stays up even if a bad commit lands; the cost is a messy `git log` until the next good commit.
+The original #263 attempt at required checks had **no** bypass for the human, so every CMS save was rejected: a fresh commit has no passing check yet, because Workers Builds runs *after* the push. The admin bypass is what avoids that loop. **If a CMS save is ever rejected**, the bypass isn't covering Sveltia's GitHub App user token. Set the ruleset's enforcement to `disabled` in Settings → Rules for that save, then re-enable it. While it's disabled, `gh pr merge --auto` has no required check to wait on and fails, so data and Dependabot PRs stay open unmerged. If it has to stay off, revert `commit-via-pr` to an immediate `gh pr merge --squash` as well.
 
-For the watching/fetch workflows: `gh pr merge --auto` requires a `required_status_checks` rule on `main` (`enablePullRequestAutoMerge` GraphQL precondition). Since we don't have one, those workflows must use immediate merge — change `gh pr merge --auto --squash --delete-branch` to `gh pr merge --squash --delete-branch` in `.github/actions/commit-via-pr/action.yml`.
+For an owner push, Workers Builds still runs on every push to `main`; a failing build doesn't deploy and the last good build stays live.
 
-See [#263](https://github.com/ggfevans/gvns.ca/issues/263) for the full investigation and rejected alternatives.
+`commit-via-pr` uses `gh pr merge --auto`, which needs this required check to exist (`enablePullRequestAutoMerge` precondition). Pass it `github.token`, not a PAT: a PAT acts as the admin and would skip the check.
+
+See [#263](https://github.com/ggfevans/gvns.ca/issues/263) for the original investigation.
 
 ## Posts use the bundle layout
 

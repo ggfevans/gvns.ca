@@ -1,0 +1,56 @@
+# Queues low-risk Dependabot PRs for auto-merge. Merging still waits for the
+# required Workers Builds check (ruleset on main), so a bump that breaks the
+# build never lands. Merge == production deploy, hence the narrow allowlist:
+#
+#   auto:  semver-patch, anywhere (direct, indirect, security group)
+#   auto:  semver-minor of dev dependencies or GitHub Actions, unless 0.x
+#   human: majors, prod-dependency minors, any 0.x minor (breaking by semver)
+#
+# Enabled as github-actions[bot] via GITHUB_TOKEN: not a ruleset bypass actor,
+# so auto-merge cannot skip the check.
+
+name: Dependabot auto-merge
+
+on: pull_request
+
+permissions:
+  contents: read
+
+jobs:
+  automerge:
+    if: github.event.pull_request.user.login == 'dependabot[bot]' && github.repository == 'ggfevans/gvns.ca'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - id: meta
+        uses: dependabot/fetch-metadata@25dd0e34f4fe68f24cc83900b1fe3fe149efef98 # v3.1.0
+
+      # Judged per dependency, not from the summary outputs: for grouped PRs
+      # fetch-metadata's new-version is only the first dependency's, so a 0.x
+      # minor further down the group would slip past a summary check. Every
+      # dependency must qualify; an empty or unparseable list means a human
+      # merges it.
+      - name: Enable auto-merge for low-risk updates
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          DEPS: ${{ steps.meta.outputs.updated-dependencies-json }}
+        run: |
+          eligible=$(jq -r '
+            length > 0 and all(.[];
+              .updateType == "version-update:semver-patch"
+              or (.updateType == "version-update:semver-minor"
+                  and ((.newVersion // "0.") | startswith("0.") | not)
+                  and (.dependencyType == "direct:development"
+                       or .packageEcosystem == "github_actions")))
+          ' <<< "$DEPS" 2>/dev/null || echo false)
+
+          jq -r '.[] | "\(.dependencyName) \(.prevVersion) -> \(.newVersion) [\(.updateType), \(.dependencyType)]"' <<< "$DEPS" 2>/dev/null || true
+
+          if [ "$eligible" = "true" ]; then
+            gh pr merge --auto --squash "$PR_URL"
+          else
+            echo "Not eligible for auto-merge; leaving for human review."
+          fi
