@@ -1,8 +1,19 @@
 name: Trivy Security Scan
 
 on:
+  # Rescan as soon as a lockfile change lands, so fixed alerts close in
+  # minutes instead of lingering until the next scheduled run.
+  push:
+    branches: [main]
+    paths:
+      - '**/package-lock.json'
+      - '.trivyignore'
+      - '.github/workflows/trivy.yml'
+  # Daily backstop: merges made with GITHUB_TOKEN (Dependabot auto-merge,
+  # commit-via-pr) don't trigger push workflows, and new advisories appear
+  # against unchanged lockfiles.
   schedule:
-    - cron: '0 0 * * 0' # Weekly on Sunday
+    - cron: '0 0 * * *'
   workflow_dispatch:
 
 permissions:
@@ -20,11 +31,12 @@ jobs:
           persist-credentials: false
 
       - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
         with:
           scan-type: 'fs'
           format: 'sarif'
           output: 'trivy-results.sarif'
+          trivyignores: '.trivyignore'
 
       - name: Upload Trivy scan results to GitHub Security
         uses: github/codeql-action/upload-sarif@78ed0c7291d93e40c51b085850dc669a4c3ab73b
