@@ -1,9 +1,27 @@
 version: 2
 updates:
+  # One entry covers every npm manifest, so grouping and cooldown apply
+  # uniformly. Version-update groups open one PR per directory; a security
+  # update affecting several directories can arrive as one cross-directory
+  # `security` PR touching each of their lockfiles. List manifests explicitly:
+  # a /.github/actions/* glob would also match the four actions with no
+  # package.json.
   - package-ecosystem: "npm"
-    directory: "/"
+    directories:
+      - "/"
+      - "/.github/actions/fetch-github"
+      - "/.github/actions/fetch-steam"
+      - "/workers/sveltia-auth"
     schedule:
       interval: "weekly"
+      day: "monday"
+    # Hold version updates until a release has been public for a week, so a
+    # compromised publish is usually yanked before it reaches main. Security
+    # updates ignore cooldown and still open immediately.
+    cooldown:
+      default-days: 7
+      semver-major-days: 14
+    open-pull-requests-limit: 5
     groups:
       astro:
         patterns:
@@ -13,11 +31,19 @@ updates:
         patterns:
           - "tailwindcss"
           - "@tailwindcss/*"
-      dev-dependencies:
-        dependency-type: "development"
+      # Everything else non-major in one PR per directory, instead of one PR
+      # per package that each rewrite package-lock.json and conflict.
+      non-major:
+        applies-to: version-updates
+        patterns:
+          - "*"
         update-types:
           - "minor"
           - "patch"
+      security:
+        applies-to: security-updates
+        patterns:
+          - "*"
     ignore:
       # TypeScript 7 is the native port and ships no stable programmatic API
       # yet, so Astro/Svelte tooling cannot use it. Both consumers here declare
@@ -30,17 +56,19 @@ updates:
       - dependency-name: "typescript"
         versions: ["7.x"]
 
-  - package-ecosystem: "npm"
-    directory: "/.github/actions/fetch-github"
-    schedule:
-      interval: "weekly"
-
-  - package-ecosystem: "npm"
-    directory: "/.github/actions/fetch-steam"
-    schedule:
-      interval: "weekly"
-
+  # "/" only scans .github/workflows; composite actions need their own
+  # directories or their pins drift (fetch-* sat on setup-node 7.0.0 after
+  # the workflows moved to 7.1.0).
   - package-ecosystem: "github-actions"
-    directory: "/"
+    directories:
+      - "/"
+      - "/.github/actions/*"
     schedule:
       interval: "weekly"
+      day: "monday"
+    cooldown:
+      default-days: 7
+    groups:
+      actions:
+        patterns:
+          - "*"
