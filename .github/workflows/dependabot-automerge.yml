@@ -11,7 +11,17 @@
 
 name: Dependabot auto-merge
 
-on: pull_request
+# Every Dependabot PR touches a manifest or something under .github/ (Actions
+# bumps); commit-via-pr data PRs never do. Without this filter the workflow
+# also ran on github-actions[bot] data PRs and failed at startup with zero
+# jobs, before the job-level `if` could skip it (#964), leaving a red check on
+# every data PR.
+on:
+  pull_request:
+    paths:
+      - '**/package.json'
+      - '**/package-lock.json'
+      - '.github/**'
 
 permissions:
   contents: read
