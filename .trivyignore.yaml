@@ -1,11 +1,17 @@
-# Accepted Trivy findings. Every entry needs a reason and an exp: date, after
-# which Trivy reports it again and the decision has to be re-made.
+# Accepted Trivy findings. Every entry needs a statement and an expired_at
+# date, after which Trivy reports it again and the decision has to be re-made.
+# Scope each entry by purl so it can't hide the same CVE in another version.
 
-# zod 3.25.76 (GHSA-mrhx-c7xc-m3w5): the advisory covers all zod <4.6.6 and
-# 3.25.76 is the final 3.x. It is pulled only by @atproto/* (^3.23.8), which
-# scripts/syndicate.mjs uses in CI to validate bsky.social responses; it is
-# not in the deployed Worker. The zod 4 copies are fixed. Recheck whether
-# @atproto has moved to zod 4. Dependabot alert #141 is dismissed to match.
-# Plain-format ignores match the CVE in every zod copy, so a zod 4 downgrade
-# below 4.6.6 would also be hidden here (Dependabot would still flag it).
-CVE-2023-54404 exp:2027-04-01
+vulnerabilities:
+  # GHSA-mrhx-c7xc-m3w5: the advisory covers all zod <4.6.6 and 3.25.76 is the
+  # final 3.x. It is pulled only by @atproto/* (^3.23.8), which
+  # scripts/syndicate.mjs uses in CI to validate bsky.social responses; the zod
+  # 4 copies are fixed. The purl limits this to 3.25.76, but a filesystem scan
+  # can't tell lockfiles apart, so it would also hide that exact version if a
+  # Worker dependency ever pulled it in. Recheck whether @atproto has moved to
+  # zod 4. Dependabot alert #141 is dismissed to match.
+  - id: CVE-2023-54404
+    purls:
+      - "pkg:npm/zod@3.25.76"
+    statement: "zod 3.x has no fix; CI-only via @atproto/* in syndicate.mjs"
+    expired_at: 2027-04-01

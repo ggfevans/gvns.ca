@@ -1,7 +1,9 @@
 version: 2
 updates:
   # One entry covers every npm manifest, so grouping and cooldown apply
-  # uniformly. Groups are evaluated per directory. List manifests explicitly:
+  # uniformly. Version-update groups open one PR per directory; a security
+  # update affecting several directories can arrive as one cross-directory
+  # `security` PR touching each of their lockfiles. List manifests explicitly:
   # a /.github/actions/* glob would also match the four actions with no
   # package.json.
   - package-ecosystem: "npm"

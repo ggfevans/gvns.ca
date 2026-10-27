@@ -7,7 +7,7 @@ on:
     branches: [main]
     paths:
       - '**/package-lock.json'
-      - '.trivyignore'
+      - '.trivyignore.yaml'
       - '.github/workflows/trivy.yml'
   # Daily backstop: merges made with GITHUB_TOKEN (Dependabot auto-merge,
   # commit-via-pr) don't trigger push workflows, and new advisories appear
@@ -36,7 +36,7 @@ jobs:
           scan-type: 'fs'
           format: 'sarif'
           output: 'trivy-results.sarif'
-          trivyignores: '.trivyignore'
+          trivyignores: '.trivyignore.yaml'
 
       - name: Upload Trivy scan results to GitHub Security
         uses: github/codeql-action/upload-sarif@78ed0c7291d93e40c51b085850dc669a4c3ab73b
