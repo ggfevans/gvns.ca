@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2026-10-26T08:26:53.357Z",
+  "lastUpdated": "2026-10-27T00:44:13.639Z",
   "contributions": {
-    "total": 5564,
-    "commits": 1932,
-    "pullRequests": 624,
+    "total": 5568,
+    "commits": 1934,
+    "pullRequests": 626,
     "pullRequestReviews": 1,
     "issues": 653,
     "restricted": 2271
@@ -2047,19 +2047,30 @@
           },
           {
             "date": "2026-10-26",
-            "count": 0,
-            "level": 0
+            "count": 4,
+            "level": 1
           }
         ]
       }
     ]
   },
   "streak": {
-    "current": 0,
+    "current": 1,
     "longest": 61,
     "today": false
   },
   "recentActivity": [
+    {
+      "type": "issue",
+      "repo": "gvns.ca",
+      "repoUrl": "https://github.com/ggfevans/gvns.ca",
+      "title": "chore: simplify commit-via-pr to guarded direct push — kill auto-PR churn and the fast-forward footgun",
+      "url": "https://github.com/ggfevans/gvns.ca/issues/691",
+      "date": "2026-10-27T00:43:26Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
     {
       "type": "issue",
       "repo": "Services-Directory-Toolkit",
@@ -2092,36 +2103,14 @@
       "meta": {
         "state": "CLOSED"
       }
-    },
-    {
-      "type": "issue",
-      "repo": "Services-Directory-Toolkit",
-      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
-      "title": "Phase 3 (shell): final manifest, background script, status indicator and popup entry points",
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/32",
-      "date": "2026-10-21T02:46:08Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Services-Directory-Toolkit",
-      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
-      "title": "Phase 2 (shared core): shared helpers, token scope and page classifier",
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/44",
-      "date": "2026-10-21T00:11:14Z",
-      "meta": {
-        "state": "CLOSED"
-      }
     }
   ],
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 34,
-    "contributionsThisMonth": 253,
-    "repositoriesThisWeek": 1
+    "contributionsThisWeek": 38,
+    "contributionsThisMonth": 257,
+    "repositoriesThisWeek": 2
   },
   "repositories": [
     {
