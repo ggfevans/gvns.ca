@@ -1,8 +1,6 @@
 ---
 title: 'Dark Patterns: A Rant About Meta'
-description: >-
-  Meta makes it trivial to follow thousands of accounts and miserable to leave
-  them
+description: Meta makes it trivial to follow thousands of accounts and miserable to leave them
 pubDate: 2026-06-14T00:00:00.000Z
 tags:
   - design
@@ -15,11 +13,11 @@ heroImage: turnstile.webp
 heroImageAlt: turnstile
 canonicalUrl: ''
 syndication:
-  - platform: threads
-    url: 'https://www.threads.com/@ggfevans/post/DZmGpjNFmSQ'
-    syndicatedAt: '2026-06-15'
+  - shortcode: DZmGpjNFmSQ
     mediaId: '18056264198724074'
-    shortcode: DZmGpjNFmSQ
+    syndicatedAt: 2026-06-15
+    url: https://www.threads.com/@ggfevans/post/DZmGpjNFmSQ
+    platform: threads
 ---
 
 I want to be an optimist about technology. Built properly, the internet can make life better. But "built properly" is a big If, and lately that If is doing a lot of work.
