@@ -48,7 +48,8 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          pending=$(gh pr list -R "$GITHUB_REPOSITORY" --state open --json number,headRefName \
+          # --limit: the default of 30 could miss a pending PR behind others.
+          pending=$(gh pr list -R "$GITHUB_REPOSITORY" --state open --limit 1000 --json number,headRefName \
             --jq '[.[] | select(.headRefName | startswith("auto/update-syndication-")) | "#\(.number)"] | join(" ")')
           if [ -n "$pending" ]; then
             echo "::error::Syndication PR still pending ($pending). Posting now would duplicate it; merge or close it, then re-run this workflow."
@@ -57,6 +58,10 @@ jobs:
 
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
+          # Current main, not the triggering commit: a run queued behind a
+          # syndication PR that has since merged would otherwise read the
+          # pre-merge frontmatter and post the same entries again.
+          ref: main
           # `commit-via-pr` runs `gh auth setup-git` before its own fetch/push,
           # so no token needs to sit in .git/config while `npm ci` runs
           # dependency install scripts.
