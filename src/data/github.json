@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-10-28T09:14:27.120Z",
+  "lastUpdated": "2026-10-29T09:15:28.485Z",
   "contributions": {
-    "total": 5581,
-    "commits": 1939,
-    "pullRequests": 632,
+    "total": 5596,
+    "commits": 1942,
+    "pullRequests": 635,
     "pullRequestReviews": 1,
     "issues": 653,
-    "restricted": 2273
+    "restricted": 2282
   },
   "calendar": {
     "weeks": [
@@ -2057,6 +2057,11 @@
           },
           {
             "date": "2026-10-28",
+            "count": 15,
+            "level": 1
+          },
+          {
+            "date": "2026-10-29",
             "count": 0,
             "level": 0
           }
@@ -2065,11 +2070,44 @@
     ]
   },
   "streak": {
-    "current": 2,
+    "current": 3,
     "longest": 61,
     "today": false
   },
   "recentActivity": [
+    {
+      "type": "issue",
+      "repo": "oryx-overlay",
+      "repoUrl": "https://github.com/ggfevans/oryx-overlay",
+      "title": "A layer name starting with `-` breaks all drawings",
+      "url": "https://github.com/ggfevans/oryx-overlay/issues/18",
+      "date": "2026-10-28T22:49:33Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "oryx-overlay",
+      "repoUrl": "https://github.com/ggfevans/oryx-overlay",
+      "title": "A layer name containing `<!--<script` blanks the viewer",
+      "url": "https://github.com/ggfevans/oryx-overlay/issues/11",
+      "date": "2026-10-28T22:38:19Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "oryx-overlay",
+      "repoUrl": "https://github.com/ggfevans/oryx-overlay",
+      "title": "make docker-* ignores environment overrides and has no git identity",
+      "url": "https://github.com/ggfevans/oryx-overlay/issues/9",
+      "date": "2026-10-28T22:25:31Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
     {
       "type": "issue",
       "repo": "oryx-overlay",
@@ -2124,24 +2162,49 @@
       "meta": {
         "state": "CLOSED"
       }
+    },
+    {
+      "type": "issue",
+      "repo": "Services-Directory-Toolkit",
+      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
+      "title": "Shared style, theme check and accessibility test helpers",
+      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/13",
+      "date": "2026-10-23T02:47:26Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Services-Directory-Toolkit",
+      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
+      "title": "Phase 4 (settings): define every setting once and make saving safe",
+      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/33",
+      "date": "2026-10-21T04:21:27Z",
+      "meta": {
+        "state": "CLOSED"
+      }
+    },
+    {
+      "type": "issue",
+      "repo": "Services-Directory-Toolkit",
+      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
+      "title": "Phase 3 (shell): final manifest, background script, status indicator and popup entry points",
+      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/32",
+      "date": "2026-10-21T02:46:08Z",
+      "meta": {
+        "state": "CLOSED"
+      }
     }
   ],
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 41,
-    "contributionsThisMonth": 270,
+    "contributionsThisWeek": 51,
+    "contributionsThisMonth": 267,
     "repositoriesThisWeek": 3
   },
   "repositories": [
-    {
-      "name": "gvns.ca",
-      "description": "",
-      "language": "Astro",
-      "languageColor": "#ff5a03",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/gvns.ca"
-    },
     {
       "name": "oryx-overlay",
       "description": "",
@@ -2149,6 +2212,14 @@
       "languageColor": "#3572A5",
       "stars": 6,
       "url": "https://github.com/ggfevans/oryx-overlay"
+    },
+    {
+      "name": "gvns.ca",
+      "description": "",
+      "language": "Astro",
+      "languageColor": "#ff5a03",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/gvns.ca"
     },
     {
       "name": "Services-Directory-Toolkit",

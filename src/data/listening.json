@@ -1,6 +1,18 @@
 {
-  "lastUpdated": "2026-10-28T09:14:31Z",
+  "lastUpdated": "2026-10-29T09:15:33Z",
   "recentListens": [
+    {
+      "track": "Grace, Too",
+      "artist": "The Tragically Hip",
+      "album": "Day For Night",
+      "listenedAt": "2026-10-28T16:01:46Z",
+      "caaReleaseMbid": "8685ded6-c933-4a1e-9c2d-b5d7112443de",
+      "caaId": 8468352947,
+      "recordingMbid": "cfeac386-2dc0-47b0-a285-291230360e5c",
+      "artistMbids": [
+        "e86ab653-bec8-46f3-b4b6-a1a866919ef6"
+      ]
+    },
     {
       "track": "Grace, Too",
       "artist": "The Tragically Hip",
@@ -108,18 +120,6 @@
       "artistMbids": [
         "e86ab653-bec8-46f3-b4b6-a1a866919ef6"
       ]
-    },
-    {
-      "track": "Grace, Too",
-      "artist": "The Tragically Hip",
-      "album": "Day For Night",
-      "listenedAt": "2026-10-28T05:31:05Z",
-      "caaReleaseMbid": "8685ded6-c933-4a1e-9c2d-b5d7112443de",
-      "caaId": 8468352947,
-      "recordingMbid": "cfeac386-2dc0-47b0-a285-291230360e5c",
-      "artistMbids": [
-        "e86ab653-bec8-46f3-b4b6-a1a866919ef6"
-      ]
     }
   ],
   "recentListensStatus": "ok",
@@ -130,7 +130,7 @@
   "topAlbums": [],
   "topAlbumsStatus": "no_data",
   "stats": {
-    "totalListenCount": 212727,
+    "totalListenCount": 212728,
     "rangeListenCount": null,
     "range": "this_month",
     "artistCount": null,
