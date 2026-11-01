@@ -1,54 +1,15 @@
 {
-  "lastUpdated": "2026-10-31T09:13:12.357Z",
+  "lastUpdated": "2026-11-01T09:59:48.715Z",
   "contributions": {
-    "total": 5603,
-    "commits": 1942,
-    "pullRequests": 635,
+    "total": 5638,
+    "commits": 1941,
+    "pullRequests": 633,
     "pullRequestReviews": 1,
     "issues": 653,
-    "restricted": 2289
+    "restricted": 2328
   },
   "calendar": {
     "weeks": [
-      {
-        "days": [
-          {
-            "date": "2025-10-26",
-            "count": 1,
-            "level": 1
-          },
-          {
-            "date": "2025-10-27",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-10-28",
-            "count": 2,
-            "level": 1
-          },
-          {
-            "date": "2025-10-29",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-10-30",
-            "count": 0,
-            "level": 0
-          },
-          {
-            "date": "2025-10-31",
-            "count": 1,
-            "level": 1
-          },
-          {
-            "date": "2025-11-01",
-            "count": 1,
-            "level": 1
-          }
-        ]
-      },
       {
         "days": [
           {
@@ -702,7 +663,7 @@
           },
           {
             "date": "2026-02-27",
-            "count": 9,
+            "count": 10,
             "level": 1
           },
           {
@@ -726,7 +687,7 @@
           },
           {
             "date": "2026-03-03",
-            "count": 9,
+            "count": 11,
             "level": 1
           },
           {
@@ -755,12 +716,12 @@
         "days": [
           {
             "date": "2026-03-08",
-            "count": 3,
+            "count": 4,
             "level": 1
           },
           {
             "date": "2026-03-09",
-            "count": 7,
+            "count": 8,
             "level": 1
           },
           {
@@ -902,7 +863,7 @@
           },
           {
             "date": "2026-04-04",
-            "count": 6,
+            "count": 7,
             "level": 1
           }
         ]
@@ -916,17 +877,17 @@
           },
           {
             "date": "2026-04-06",
-            "count": 20,
+            "count": 21,
             "level": 1
           },
           {
             "date": "2026-04-07",
-            "count": 15,
+            "count": 16,
             "level": 1
           },
           {
             "date": "2026-04-08",
-            "count": 12,
+            "count": 15,
             "level": 1
           },
           {
@@ -1253,7 +1214,7 @@
           },
           {
             "date": "2026-06-06",
-            "count": 52,
+            "count": 51,
             "level": 2
           }
         ]
@@ -1389,7 +1350,7 @@
           },
           {
             "date": "2026-06-30",
-            "count": 21,
+            "count": 22,
             "level": 1
           },
           {
@@ -1457,12 +1418,12 @@
         "days": [
           {
             "date": "2026-07-12",
-            "count": 12,
+            "count": 13,
             "level": 1
           },
           {
             "date": "2026-07-13",
-            "count": 8,
+            "count": 9,
             "level": 1
           },
           {
@@ -1628,7 +1589,7 @@
           },
           {
             "date": "2026-08-12",
-            "count": 13,
+            "count": 14,
             "level": 1
           },
           {
@@ -1774,7 +1735,7 @@
           },
           {
             "date": "2026-09-07",
-            "count": 29,
+            "count": 31,
             "level": 1
           },
           {
@@ -1916,7 +1877,7 @@
           },
           {
             "date": "2026-10-03",
-            "count": 11,
+            "count": 12,
             "level": 1
           }
         ]
@@ -2067,11 +2028,20 @@
           },
           {
             "date": "2026-10-30",
-            "count": 5,
+            "count": 9,
             "level": 1
           },
           {
             "date": "2026-10-31",
+            "count": 14,
+            "level": 1
+          }
+        ]
+      },
+      {
+        "days": [
+          {
+            "date": "2026-11-01",
             "count": 0,
             "level": 0
           }
@@ -2080,7 +2050,7 @@
     ]
   },
   "streak": {
-    "current": 5,
+    "current": 6,
     "longest": 61,
     "today": false
   },
@@ -2183,24 +2153,13 @@
       "meta": {
         "state": "CLOSED"
       }
-    },
-    {
-      "type": "issue",
-      "repo": "Services-Directory-Toolkit",
-      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
-      "title": "Phase 4 (settings): define every setting once and make saving safe",
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/33",
-      "date": "2026-10-21T04:21:27Z",
-      "meta": {
-        "state": "CLOSED"
-      }
     }
   ],
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 48,
-    "contributionsThisMonth": 205,
+    "contributionsThisWeek": 57,
+    "contributionsThisMonth": 223,
     "repositoriesThisWeek": 3
   },
   "repositories": [
@@ -2253,14 +2212,6 @@
       "url": "https://github.com/ggfevans/gwilym.ca"
     },
     {
-      "name": "route-to-art",
-      "description": "Transform GPX route files into visual artwork — CLI and web interface for GPS art generation",
-      "language": "Python",
-      "languageColor": "#3572A5",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/route-to-art"
-    },
-    {
       "name": "ggfevans",
       "description": "",
       "language": "Python",
@@ -2299,6 +2250,14 @@
       "languageColor": "#3178c6",
       "stars": 0,
       "url": "https://github.com/ggfevans/qmd-swiftbar"
+    },
+    {
+      "name": "nfs-swiftbar",
+      "description": "macOS SwiftBar plugin for NFS autofs mount status with one-click sudo recovery",
+      "language": "Shell",
+      "languageColor": "#89e051",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/nfs-swiftbar"
     }
   ]
 }
