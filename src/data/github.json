@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-11-01T09:59:48.715Z",
+  "lastUpdated": "2026-11-02T10:28:07.016Z",
   "contributions": {
-    "total": 5638,
-    "commits": 1941,
-    "pullRequests": 633,
+    "total": 5682,
+    "commits": 1931,
+    "pullRequests": 641,
     "pullRequestReviews": 1,
     "issues": 653,
-    "restricted": 2328
+    "restricted": 2374
   },
   "calendar": {
     "weeks": [
@@ -40,7 +40,7 @@
           {
             "date": "2025-11-07",
             "count": 35,
-            "level": 1
+            "level": 2
           },
           {
             "date": "2025-11-08",
@@ -152,12 +152,12 @@
           {
             "date": "2025-11-27",
             "count": 28,
-            "level": 1
+            "level": 2
           },
           {
             "date": "2025-11-28",
             "count": 33,
-            "level": 1
+            "level": 2
           },
           {
             "date": "2025-11-29",
@@ -181,12 +181,12 @@
           {
             "date": "2025-12-02",
             "count": 51,
-            "level": 2
+            "level": 3
           },
           {
             "date": "2025-12-03",
             "count": 31,
-            "level": 1
+            "level": 2
           },
           {
             "date": "2025-12-04",
@@ -196,7 +196,7 @@
           {
             "date": "2025-12-05",
             "count": 27,
-            "level": 1
+            "level": 2
           },
           {
             "date": "2025-12-06",
@@ -230,12 +230,12 @@
           {
             "date": "2025-12-11",
             "count": 27,
-            "level": 1
+            "level": 2
           },
           {
             "date": "2025-12-12",
             "count": 28,
-            "level": 1
+            "level": 2
           },
           {
             "date": "2025-12-13",
@@ -249,7 +249,7 @@
           {
             "date": "2025-12-14",
             "count": 81,
-            "level": 3
+            "level": 4
           },
           {
             "date": "2025-12-15",
@@ -259,27 +259,27 @@
           {
             "date": "2025-12-16",
             "count": 89,
-            "level": 3
+            "level": 4
           },
           {
             "date": "2025-12-17",
             "count": 81,
-            "level": 3
+            "level": 4
           },
           {
             "date": "2025-12-18",
             "count": 32,
-            "level": 1
+            "level": 2
           },
           {
             "date": "2025-12-19",
             "count": 98,
-            "level": 3
+            "level": 4
           },
           {
             "date": "2025-12-20",
             "count": 33,
-            "level": 1
+            "level": 2
           }
         ]
       },
@@ -288,27 +288,27 @@
           {
             "date": "2025-12-21",
             "count": 28,
-            "level": 1
+            "level": 2
           },
           {
             "date": "2025-12-22",
             "count": 60,
-            "level": 2
+            "level": 3
           },
           {
             "date": "2025-12-23",
             "count": 28,
-            "level": 1
+            "level": 2
           },
           {
             "date": "2025-12-24",
             "count": 33,
-            "level": 1
+            "level": 2
           },
           {
             "date": "2025-12-25",
             "count": 37,
-            "level": 1
+            "level": 2
           },
           {
             "date": "2025-12-26",
@@ -342,12 +342,12 @@
           {
             "date": "2025-12-31",
             "count": 61,
-            "level": 2
+            "level": 3
           },
           {
             "date": "2026-01-01",
             "count": 35,
-            "level": 1
+            "level": 2
           },
           {
             "date": "2026-01-02",
@@ -454,7 +454,7 @@
           {
             "date": "2026-01-20",
             "count": 26,
-            "level": 1
+            "level": 2
           },
           {
             "date": "2026-01-21",
@@ -483,12 +483,12 @@
           {
             "date": "2026-01-25",
             "count": 32,
-            "level": 1
+            "level": 2
           },
           {
             "date": "2026-01-26",
             "count": 55,
-            "level": 2
+            "level": 3
           },
           {
             "date": "2026-01-27",
@@ -498,22 +498,22 @@
           {
             "date": "2026-01-28",
             "count": 52,
-            "level": 2
+            "level": 3
           },
           {
             "date": "2026-01-29",
             "count": 72,
-            "level": 2
+            "level": 3
           },
           {
             "date": "2026-01-30",
             "count": 54,
-            "level": 2
+            "level": 3
           },
           {
             "date": "2026-01-31",
             "count": 57,
-            "level": 2
+            "level": 3
           }
         ]
       },
@@ -527,7 +527,7 @@
           {
             "date": "2026-02-02",
             "count": 35,
-            "level": 1
+            "level": 2
           },
           {
             "date": "2026-02-03",
@@ -537,12 +537,12 @@
           {
             "date": "2026-02-04",
             "count": 87,
-            "level": 3
+            "level": 4
           },
           {
             "date": "2026-02-05",
             "count": 30,
-            "level": 1
+            "level": 2
           },
           {
             "date": "2026-02-06",
@@ -552,7 +552,7 @@
           {
             "date": "2026-02-07",
             "count": 36,
-            "level": 1
+            "level": 2
           }
         ]
       },
@@ -571,7 +571,7 @@
           {
             "date": "2026-02-10",
             "count": 25,
-            "level": 1
+            "level": 2
           },
           {
             "date": "2026-02-11",
@@ -581,7 +581,7 @@
           {
             "date": "2026-02-12",
             "count": 29,
-            "level": 1
+            "level": 2
           },
           {
             "date": "2026-02-13",
@@ -615,12 +615,12 @@
           {
             "date": "2026-02-18",
             "count": 36,
-            "level": 1
+            "level": 2
           },
           {
             "date": "2026-02-19",
             "count": 31,
-            "level": 1
+            "level": 2
           },
           {
             "date": "2026-02-20",
@@ -630,7 +630,7 @@
           {
             "date": "2026-02-21",
             "count": 36,
-            "level": 1
+            "level": 2
           }
         ]
       },
@@ -898,7 +898,7 @@
           {
             "date": "2026-04-10",
             "count": 53,
-            "level": 2
+            "level": 3
           },
           {
             "date": "2026-04-11",
@@ -976,7 +976,7 @@
           {
             "date": "2026-04-24",
             "count": 36,
-            "level": 1
+            "level": 2
           },
           {
             "date": "2026-04-25",
@@ -990,12 +990,12 @@
           {
             "date": "2026-04-26",
             "count": 34,
-            "level": 1
+            "level": 2
           },
           {
             "date": "2026-04-27",
             "count": 69,
-            "level": 2
+            "level": 3
           },
           {
             "date": "2026-04-28",
@@ -1005,7 +1005,7 @@
           {
             "date": "2026-04-29",
             "count": 56,
-            "level": 2
+            "level": 3
           },
           {
             "date": "2026-04-30",
@@ -1015,7 +1015,7 @@
           {
             "date": "2026-05-01",
             "count": 25,
-            "level": 1
+            "level": 2
           },
           {
             "date": "2026-05-02",
@@ -1044,12 +1044,12 @@
           {
             "date": "2026-05-06",
             "count": 28,
-            "level": 1
+            "level": 2
           },
           {
             "date": "2026-05-07",
             "count": 36,
-            "level": 1
+            "level": 2
           },
           {
             "date": "2026-05-08",
@@ -1088,17 +1088,17 @@
           {
             "date": "2026-05-14",
             "count": 51,
-            "level": 2
+            "level": 3
           },
           {
             "date": "2026-05-15",
             "count": 84,
-            "level": 3
+            "level": 4
           },
           {
             "date": "2026-05-16",
             "count": 51,
-            "level": 2
+            "level": 3
           }
         ]
       },
@@ -1107,12 +1107,12 @@
           {
             "date": "2026-05-17",
             "count": 67,
-            "level": 2
+            "level": 3
           },
           {
             "date": "2026-05-18",
             "count": 58,
-            "level": 2
+            "level": 3
           },
           {
             "date": "2026-05-19",
@@ -1151,7 +1151,7 @@
           {
             "date": "2026-05-25",
             "count": 34,
-            "level": 1
+            "level": 2
           },
           {
             "date": "2026-05-26",
@@ -1190,7 +1190,7 @@
           {
             "date": "2026-06-01",
             "count": 64,
-            "level": 2
+            "level": 3
           },
           {
             "date": "2026-06-02",
@@ -1200,12 +1200,12 @@
           {
             "date": "2026-06-03",
             "count": 53,
-            "level": 2
+            "level": 3
           },
           {
             "date": "2026-06-04",
             "count": 25,
-            "level": 1
+            "level": 2
           },
           {
             "date": "2026-06-05",
@@ -1215,7 +1215,7 @@
           {
             "date": "2026-06-06",
             "count": 51,
-            "level": 2
+            "level": 3
           }
         ]
       },
@@ -1244,12 +1244,12 @@
           {
             "date": "2026-06-11",
             "count": 34,
-            "level": 1
+            "level": 2
           },
           {
             "date": "2026-06-12",
             "count": 26,
-            "level": 1
+            "level": 2
           },
           {
             "date": "2026-06-13",
@@ -1263,12 +1263,12 @@
           {
             "date": "2026-06-14",
             "count": 66,
-            "level": 2
+            "level": 3
           },
           {
             "date": "2026-06-15",
             "count": 34,
-            "level": 1
+            "level": 2
           },
           {
             "date": "2026-06-16",
@@ -1736,7 +1736,7 @@
           {
             "date": "2026-09-07",
             "count": 31,
-            "level": 1
+            "level": 2
           },
           {
             "date": "2026-09-08",
@@ -1863,7 +1863,7 @@
           {
             "date": "2026-09-30",
             "count": 63,
-            "level": 2
+            "level": 3
           },
           {
             "date": "2026-10-01",
@@ -1936,7 +1936,7 @@
           {
             "date": "2026-10-13",
             "count": 31,
-            "level": 1
+            "level": 2
           },
           {
             "date": "2026-10-14",
@@ -2008,8 +2008,8 @@
           },
           {
             "date": "2026-10-26",
-            "count": 15,
-            "level": 1
+            "count": 32,
+            "level": 2
           },
           {
             "date": "2026-10-27",
@@ -2042,26 +2042,31 @@
         "days": [
           {
             "date": "2026-11-01",
-            "count": 0,
-            "level": 0
+            "count": 31,
+            "level": 2
+          },
+          {
+            "date": "2026-11-02",
+            "count": 1,
+            "level": 1
           }
         ]
       }
     ]
   },
   "streak": {
-    "current": 6,
+    "current": 8,
     "longest": 61,
-    "today": false
+    "today": true
   },
   "recentActivity": [
     {
       "type": "issue",
       "repo": "oryx-overlay",
       "repoUrl": "https://github.com/ggfevans/oryx-overlay",
-      "title": "A layer name starting with `-` breaks all drawings",
-      "url": "https://github.com/ggfevans/oryx-overlay/issues/18",
-      "date": "2026-10-28T22:49:33Z",
+      "title": "Layout diff mislabels layers after an insert, reorder or rename, and puts false changes in sync commits",
+      "url": "https://github.com/ggfevans/oryx-overlay/issues/12",
+      "date": "2026-11-02T04:35:04Z",
       "meta": {
         "state": "CLOSED"
       }
@@ -2070,9 +2075,9 @@
       "type": "issue",
       "repo": "oryx-overlay",
       "repoUrl": "https://github.com/ggfevans/oryx-overlay",
-      "title": "A layer name containing `<!--<script` blanks the viewer",
-      "url": "https://github.com/ggfevans/oryx-overlay/issues/11",
-      "date": "2026-10-28T22:38:19Z",
+      "title": "Lint's trap check gives false positives and false negatives",
+      "url": "https://github.com/ggfevans/oryx-overlay/issues/17",
+      "date": "2026-11-02T02:05:26Z",
       "meta": {
         "state": "CLOSED"
       }
@@ -2081,9 +2086,9 @@
       "type": "issue",
       "repo": "oryx-overlay",
       "repoUrl": "https://github.com/ggfevans/oryx-overlay",
-      "title": "make docker-* ignores environment overrides and has no git identity",
-      "url": "https://github.com/ggfevans/oryx-overlay/issues/9",
-      "date": "2026-10-28T22:25:31Z",
+      "title": "Non-US keycodes and some mod aliases get raw or wrong legends",
+      "url": "https://github.com/ggfevans/oryx-overlay/issues/23",
+      "date": "2026-11-02T00:54:33Z",
       "meta": {
         "state": "CLOSED"
       }
@@ -2092,31 +2097,9 @@
       "type": "issue",
       "repo": "oryx-overlay",
       "repoUrl": "https://github.com/ggfevans/oryx-overlay",
-      "title": "Flash deny list misses QMK's other flash targets; KEYMAP_NAME is not validated",
-      "url": "https://github.com/ggfevans/oryx-overlay/issues/10",
-      "date": "2026-10-27T07:01:52Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "oryx-overlay",
-      "repoUrl": "https://github.com/ggfevans/oryx-overlay",
-      "title": "Pin GitHub Actions to commit SHAs and let Dependabot bump them",
-      "url": "https://github.com/ggfevans/oryx-overlay/issues/2",
-      "date": "2026-10-27T06:52:42Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "oryx-overlay",
-      "repoUrl": "https://github.com/ggfevans/oryx-overlay",
-      "title": "No .gitattributes: a CRLF checkout breaks every script",
-      "url": "https://github.com/ggfevans/oryx-overlay/issues/8",
-      "date": "2026-10-27T05:39:48Z",
+      "title": "Viewer and keymap.md describe TG keys as tap/hold, and unnamed layers clash with position labels",
+      "url": "https://github.com/ggfevans/oryx-overlay/issues/45",
+      "date": "2026-11-01T22:53:15Z",
       "meta": {
         "state": "CLOSED"
       }
@@ -2127,29 +2110,7 @@
       "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
       "title": "Status bar replaces the corner status indicator",
       "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/14",
-      "date": "2026-10-27T03:55:20Z",
-      "meta": {
-        "state": "OPEN"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "gvns.ca",
-      "repoUrl": "https://github.com/ggfevans/gvns.ca",
-      "title": "chore: simplify commit-via-pr to guarded direct push — kill auto-PR churn and the fast-forward footgun",
-      "url": "https://github.com/ggfevans/gvns.ca/issues/691",
-      "date": "2026-10-27T00:43:26Z",
-      "meta": {
-        "state": "CLOSED"
-      }
-    },
-    {
-      "type": "issue",
-      "repo": "Services-Directory-Toolkit",
-      "repoUrl": "https://github.com/ggfevans/Services-Directory-Toolkit",
-      "title": "Shared style, theme check and accessibility test helpers",
-      "url": "https://github.com/ggfevans/Services-Directory-Toolkit/issues/13",
-      "date": "2026-10-23T02:47:26Z",
+      "date": "2026-11-01T21:59:49Z",
       "meta": {
         "state": "CLOSED"
       }
@@ -2158,19 +2119,11 @@
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 57,
-    "contributionsThisMonth": 223,
-    "repositoriesThisWeek": 3
+    "contributionsThisWeek": 106,
+    "contributionsThisMonth": 272,
+    "repositoriesThisWeek": 2
   },
   "repositories": [
-    {
-      "name": "gvns.ca",
-      "description": "",
-      "language": "Astro",
-      "languageColor": "#ff5a03",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/gvns.ca"
-    },
     {
       "name": "oryx-overlay",
       "description": "",
@@ -2178,6 +2131,22 @@
       "languageColor": "#3572A5",
       "stars": 6,
       "url": "https://github.com/ggfevans/oryx-overlay"
+    },
+    {
+      "name": "rainforest-EAGLE-commands",
+      "description": "",
+      "language": "Shell",
+      "languageColor": "#89e051",
+      "stars": 1,
+      "url": "https://github.com/ggfevans/rainforest-EAGLE-commands"
+    },
+    {
+      "name": "tree-sitter-hujson",
+      "description": "A tree-sitter grammar for HuJSON (Human JSON)",
+      "language": "Shell",
+      "languageColor": "#89e051",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/tree-sitter-hujson"
     },
     {
       "name": "Services-Directory-Toolkit",
@@ -2188,20 +2157,20 @@
       "url": "https://github.com/ggfevans/Services-Directory-Toolkit"
     },
     {
+      "name": "gvns.ca",
+      "description": "",
+      "language": "Astro",
+      "languageColor": "#ff5a03",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/gvns.ca"
+    },
+    {
       "name": "endorse",
       "description": "LinkedIn CLI / TUI. LinkedIn messaging without the feed, the ads, or the \"Thoughts?\" posts.",
       "language": "Go",
       "languageColor": "#00ADD8",
       "stars": 14,
       "url": "https://github.com/ggfevans/endorse"
-    },
-    {
-      "name": "tree-sitter-hujson",
-      "description": "A tree-sitter grammar for HuJSON (Human JSON)",
-      "language": "Shell",
-      "languageColor": "#89e051",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/tree-sitter-hujson"
     },
     {
       "name": "gwilym.ca",
@@ -2250,14 +2219,6 @@
       "languageColor": "#3178c6",
       "stars": 0,
       "url": "https://github.com/ggfevans/qmd-swiftbar"
-    },
-    {
-      "name": "nfs-swiftbar",
-      "description": "macOS SwiftBar plugin for NFS autofs mount status with one-click sudo recovery",
-      "language": "Shell",
-      "languageColor": "#89e051",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/nfs-swiftbar"
     }
   ]
 }
