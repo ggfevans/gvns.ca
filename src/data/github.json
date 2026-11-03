@@ -1,11 +1,11 @@
 {
-  "lastUpdated": "2026-11-02T10:28:07.016Z",
+  "lastUpdated": "2026-11-03T10:25:01.499Z",
   "contributions": {
-    "total": 5682,
+    "total": 5683,
     "commits": 1931,
     "pullRequests": 641,
     "pullRequestReviews": 1,
-    "issues": 653,
+    "issues": 654,
     "restricted": 2374
   },
   "calendar": {
@@ -2047,8 +2047,13 @@
           },
           {
             "date": "2026-11-02",
-            "count": 1,
+            "count": 2,
             "level": 1
+          },
+          {
+            "date": "2026-11-03",
+            "count": 0,
+            "level": 0
           }
         ]
       }
@@ -2057,9 +2062,20 @@
   "streak": {
     "current": 8,
     "longest": 61,
-    "today": true
+    "today": false
   },
   "recentActivity": [
+    {
+      "type": "issue",
+      "repo": "claude-code",
+      "repoUrl": "https://github.com/anthropics/claude-code",
+      "title": "\"ClaudeCode.app is damaged and can't be opened\": background-session helper fails codesign (2.1.316)",
+      "url": "https://github.com/anthropics/claude-code/issues/106841",
+      "date": "2026-11-02T23:59:24Z",
+      "meta": {
+        "state": "OPEN"
+      }
+    },
     {
       "type": "issue",
       "repo": "oryx-overlay",
@@ -2119,11 +2135,19 @@
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 106,
-    "contributionsThisMonth": 272,
-    "repositoriesThisWeek": 2
+    "contributionsThisWeek": 75,
+    "contributionsThisMonth": 261,
+    "repositoriesThisWeek": 3
   },
   "repositories": [
+    {
+      "name": "gvns.ca",
+      "description": "",
+      "language": "Astro",
+      "languageColor": "#ff5a03",
+      "stars": 0,
+      "url": "https://github.com/ggfevans/gvns.ca"
+    },
     {
       "name": "oryx-overlay",
       "description": "",
@@ -2155,14 +2179,6 @@
       "languageColor": "#f1e05a",
       "stars": 0,
       "url": "https://github.com/ggfevans/Services-Directory-Toolkit"
-    },
-    {
-      "name": "gvns.ca",
-      "description": "",
-      "language": "Astro",
-      "languageColor": "#ff5a03",
-      "stars": 0,
-      "url": "https://github.com/ggfevans/gvns.ca"
     },
     {
       "name": "endorse",
