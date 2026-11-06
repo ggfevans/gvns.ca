@@ -1,11 +1,11 @@
 {
-  "lastUpdated": "2026-11-05T10:15:48Z",
+  "lastUpdated": "2026-11-06T10:18:36Z",
   "currentlyReading": [
     {
       "title": "Twilight",
       "author": "Christie Golden",
-      "coverUrl": "https://assets.hardcover.app/external_data/60418716/72a0f202f36cdd9dfc6318f545c9319f22ed95f3.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/twilight-dark-templar-twilight-2007"
+      "coverUrl": "https://assets.hardcover.app/edition/31302497/e6d6c2bac90b0bce0080f320f52c5e77cafc6aaa.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/twilight-dark-templar-2007"
     },
     {
       "title": "Homo Deus: A Brief History of Tomorrow",
@@ -22,6 +22,14 @@
   ],
   "finished": [
     {
+      "title": "Firstborn",
+      "author": "Christie Golden",
+      "coverUrl": "https://assets.hardcover.app/external_data/1228740/1b44810a2c2b48f04e494b552750d5d92e9d3db3.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/firstborn-dark-templar-1-firstborn-2007",
+      "rating": 4.0,
+      "dateFinished": "2026-11-05T16:52:03.144393+00:00"
+    },
+    {
       "title": "Shadow Hunters",
       "author": "Christie Golden",
       "coverUrl": "https://assets.hardcover.app/external_data/1684279/b707a57383b7220b1e23d0c4a90fec546f1f4473.jpeg",
@@ -36,14 +44,6 @@
       "hardcoverUrl": "https://hardcover.app/books/a-storm-of-swords",
       "rating": 4.0,
       "dateFinished": "2026-10-17T10:37:08.249233+00:00"
-    },
-    {
-      "title": "Starcraft: The Dark Templar Saga: Firstborn: Book One",
-      "author": "Christie Golden",
-      "coverUrl": "https://assets.hardcover.app/edition/32368509/34e24144e5fdf58ef49d3a8532fb8c759105f3d6.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/starcraft-the-dark-templar-saga-firstborn-book-one",
-      "rating": 4.0,
-      "dateFinished": "2026-10-11T08:56:54.897033+00:00"
     },
     {
       "title": "Greenwood",
@@ -79,6 +79,18 @@
     }
   ],
   "wantToRead": [
+    {
+      "title": "The Way Forward",
+      "author": "Yung Pueblo",
+      "coverUrl": "https://assets.hardcover.app/edition/31259457/9889d360000151c2bbcd3fb500b68ebf85c12602.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/the-way-forward-2023"
+    },
+    {
+      "title": "Lords of the horizons",
+      "author": "Jason Goodwin",
+      "coverUrl": "https://assets.hardcover.app/books/81785/6795894-L.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/lords-of-the-horizons"
+    },
     {
       "title": "The Autobiography of Malcolm X",
       "author": "Malcolm X",
@@ -294,18 +306,6 @@
       "author": "Percival Everett",
       "coverUrl": "https://assets.hardcover.app/edition/5392478/83269973b951967301d5604c3f4ee24801e30c4f.jpeg",
       "hardcoverUrl": "https://hardcover.app/books/erasure"
-    },
-    {
-      "title": "The Trees",
-      "author": "Percival Everett",
-      "coverUrl": "https://assets.hardcover.app/external_data/562716/1c83a6ab54796c12d798329c6004a2212b02b470.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/the-trees"
-    },
-    {
-      "title": "James",
-      "author": "Percival Everett",
-      "coverUrl": "https://assets.hardcover.app/external_data/61346674/caff7309b465f9633e166709b0215c12aa392aff.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/james"
     }
   ]
 }
