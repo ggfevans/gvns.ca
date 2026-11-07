@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-06T10:18:36Z",
+  "lastUpdated": "2026-11-07T09:33:14Z",
   "currentlyReading": [
     {
       "title": "Twilight",
@@ -60,25 +60,75 @@
       "hardcoverUrl": "https://hardcover.app/books/i-mengsk",
       "rating": 4.0,
       "dateFinished": "2026-09-29T06:50:44.004507+00:00"
-    },
-    {
-      "title": "Remarkably Bright Creatures",
-      "author": "Shelby Van Pelt",
-      "coverUrl": "https://assets.hardcover.app/external_data/59469142/340246db2f5b43b566a8dfc27887bb13301ca4cd.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/remarkably-bright-creatures",
-      "rating": 4.5,
-      "dateFinished": "2026-09-22T04:39:29.582571+00:00"
-    },
-    {
-      "title": "Rant",
-      "author": "Chuck Palahniuk",
-      "coverUrl": "https://assets.hardcover.app/edition/24324123/71572f88947ca0f52f71334ffec60cde3b026418.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/rant",
-      "rating": 3.0,
-      "dateFinished": "2026-09-18T10:04:56.594332+00:00"
     }
   ],
   "wantToRead": [
+    {
+      "title": "Industrial Society and Its Future",
+      "author": "Theodore J. Kaczynski",
+      "coverUrl": "https://assets.hardcover.app/external_data/59588428/c2521f79fd321e62d1a07ddb4f282d509dd4d0aa.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/industrial-society-and-its-future"
+    },
+    {
+      "title": "The Conquest of Bread",
+      "author": "Pyotr Kropotkin",
+      "coverUrl": "https://assets.hardcover.app/external_data/402892/7a1b089f9c5404b06846c3cfe6730437b5597d53.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/the-conquest-of-bread"
+    },
+    {
+      "title": "Man and His Symbols",
+      "author": "Joseph L. Henderson",
+      "coverUrl": "https://assets.hardcover.app/edition/23883901/d8a3bef389f585dfc496b055098aea3c4c04ed4b.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/man-and-his-symbols"
+    },
+    {
+      "title": "Against Method",
+      "author": "Paul Karl Feyerabend",
+      "coverUrl": "https://assets.hardcover.app/edition/2543189/3b467eab95343c176e90c429eb963e0ad4fedf67.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/against-method"
+    },
+    {
+      "title": "The Principia",
+      "author": "Isaac Newton",
+      "coverUrl": "https://assets.hardcover.app/edition/30462233/3d36f8be3ebd2cf632c109ab01fc93d4b3c0b419.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/the-principia"
+    },
+    {
+      "title": "LSD: My Problem Child",
+      "author": "Albert Hofmann",
+      "coverUrl": "https://assets.hardcover.app/edition/32779183/978d1b01-f20c-4ed8-87f8-ca823899b9b7.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/lsd-my-problem-child"
+    },
+    {
+      "title": "Homo Ludens: A Study of the Play-Element in Culture",
+      "author": "Johan Huizinga",
+      "coverUrl": "https://assets.hardcover.app/external_data/2696202/c1524bea0764e1f9ac571733bd036a40ee24150e.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/homo-ludens"
+    },
+    {
+      "title": "What Does It All Mean?",
+      "author": "Thomas Nagel",
+      "coverUrl": "https://assets.hardcover.app/external_data/61602104/cc53084364f8c1125d410d5b418d291247dd80ec.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/what-does-it-all-mean-1987"
+    },
+    {
+      "title": "Naming and Necessity",
+      "author": "Saul A. Kripke",
+      "coverUrl": "https://assets.hardcover.app/edition/15295246/395423-L.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/naming-and-necessity"
+    },
+    {
+      "title": "The Origin of Consciousness in the Breakdown of the Bicameral Mind",
+      "author": "Julian Jaynes",
+      "coverUrl": "https://assets.hardcover.app/edition/13352429/4616576-L.jpg",
+      "hardcoverUrl": "https://hardcover.app/books/the-origin-of-consciousness-in-the-breakdown-of-the-bicameral-mind"
+    },
+    {
+      "title": "Simulacra and Simulation",
+      "author": "Jean Baudrillard",
+      "coverUrl": "https://assets.hardcover.app/external_data/59898529/0f1e7a4a7ffb0bf196b38febf5151dab9ea12a47.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/simulacra-and-simulation"
+    },
     {
       "title": "The Way Forward",
       "author": "Yung Pueblo",
@@ -258,54 +308,6 @@
       "author": "Steven L. Peck",
       "coverUrl": "https://assets.hardcover.app/edition/32076091/1fb38c39-58fb-4af1-8960-5b0ff1b9cbb4.jpg",
       "hardcoverUrl": "https://hardcover.app/books/a-short-stay-in-hell"
-    },
-    {
-      "title": "Other Minds: The Octopus, the Sea, and the Deep Origins of Consciousness",
-      "author": "Peter Godfrey-Smith",
-      "coverUrl": "https://assets.hardcover.app/external_data/23226136/287fb6c2665e500667eb1b4852a23951c6a8e561.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/other-minds"
-    },
-    {
-      "title": "The Soul of an Octopus: A Surprising Exploration into the Wonder of Consciousness",
-      "author": "Sy Montgomery",
-      "coverUrl": "https://assets.hardcover.app/external_data/26727102/4af07fdb67196479133e203948cc1bfe2ff5ad18.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/the-soul-of-an-octopus"
-    },
-    {
-      "title": "One Man In: The Explosive Firsthand Account of the Lone Special-Ops Soldier Who Fought Off a Massive Terrorist Attack in Kenya",
-      "author": "Chris Craighead",
-      "coverUrl": "https://assets.hardcover.app/edition/32424329/0d1829ea4974aebac31f488172738630117a58df.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/one-man-in"
-    },
-    {
-      "title": "The Godsblood Tragedy",
-      "author": "Bill           Adams",
-      "coverUrl": "https://assets.hardcover.app/edition/31515660/3ddd3c86cc7df4d0916986870bf77da426fe5d08.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/the-godsblood-tragedy"
-    },
-    {
-      "title": "This Kingdom Will Not Kill Me",
-      "author": "Ilona Andrews",
-      "coverUrl": "https://assets.hardcover.app/edition/31935198/265de0efb4ad3f0dbda517b4bed55f53b7f3f32e.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/this-kingdom-will-not-kill-me"
-    },
-    {
-      "title": "American Gods",
-      "author": "Neil Gaiman",
-      "coverUrl": "https://assets.hardcover.app/edition/12291130/1bb87eb105094cd7ae9eda1376da6939cfa6ad5f.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/american-gods"
-    },
-    {
-      "title": "So Much Blue",
-      "author": "Percival Everett",
-      "coverUrl": "https://assets.hardcover.app/edition/10475393/dd004e2547d2db20f0f1d263adbd40e3129392f8.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/so-much-blue"
-    },
-    {
-      "title": "Erasure",
-      "author": "Percival Everett",
-      "coverUrl": "https://assets.hardcover.app/edition/5392478/83269973b951967301d5604c3f4ee24801e30c4f.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/erasure"
     }
   ]
 }
