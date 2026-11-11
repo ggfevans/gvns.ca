@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-10T10:43:11Z",
+  "lastUpdated": "2026-11-11T10:13:26Z",
   "currentlyReading": [
     {
       "title": "Twilight",
@@ -63,6 +63,12 @@
     }
   ],
   "wantToRead": [
+    {
+      "title": "Highest Duty: My Search for What Really Matters",
+      "author": "Chesley B. Sullenberger",
+      "coverUrl": null,
+      "hardcoverUrl": "https://hardcover.app/books/highest-duty-my-search-for-what-really-matters"
+    },
     {
       "title": "Industrial Society and Its Future",
       "author": "Theodore J. Kaczynski",
@@ -302,12 +308,6 @@
       "author": "George Harrison",
       "coverUrl": "https://assets.hardcover.app/edition/30455282/content.jpeg",
       "hardcoverUrl": "https://hardcover.app/books/i-me-mine"
-    },
-    {
-      "title": "A Short Stay in Hell",
-      "author": "Steven L. Peck",
-      "coverUrl": "https://assets.hardcover.app/edition/32076091/1fb38c39-58fb-4af1-8960-5b0ff1b9cbb4.jpg",
-      "hardcoverUrl": "https://hardcover.app/books/a-short-stay-in-hell"
     }
   ]
 }
