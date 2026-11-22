@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-21T10:35:35Z",
+  "lastUpdated": "2026-11-22T10:39:14Z",
   "currentlyReading": [
     {
       "title": "Twilight",
@@ -35,6 +35,12 @@
     }
   ],
   "wantToRead": [
+    {
+      "title": "The 4-Hour Work Week: Escape the 9-5, Live Anywhere and Join the New Rich",
+      "author": "Timothy Ferriss",
+      "coverUrl": "https://assets.hardcover.app/edition/5528857/33ceaea635606a1637e571993ca2c13dbc79a895.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/the-4-hour-work-week"
+    },
     {
       "title": "The Infinite State",
       "author": "Richard Swan",
@@ -298,12 +304,6 @@
       "author": "Nicholas Mosley",
       "coverUrl": "https://assets.hardcover.app/external_data/59861156/a8c824323a5ece2ec84f092a75135f86e2f3b846.jpeg",
       "hardcoverUrl": "https://hardcover.app/books/hopeful-monsters-1990"
-    },
-    {
-      "title": "Serpent",
-      "author": "Nicholas Mosley",
-      "coverUrl": "https://assets.hardcover.app/edition/30724101/d69c301d2c140edb6d1796d7e6b6775509e2cbaf.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/serpent-1981"
     }
   ]
 }

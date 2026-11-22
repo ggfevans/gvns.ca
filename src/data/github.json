@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-21T10:35:31.398Z",
+  "lastUpdated": "2026-11-22T10:39:10.980Z",
   "contributions": {
     "total": 10254,
     "commits": 3625,
@@ -10,45 +10,6 @@
   },
   "calendar": {
     "weeks": [
-      {
-        "days": [
-          {
-            "date": "2025-11-16",
-            "count": 1,
-            "level": 1
-          },
-          {
-            "date": "2025-11-17",
-            "count": 2,
-            "level": 1
-          },
-          {
-            "date": "2025-11-18",
-            "count": 3,
-            "level": 1
-          },
-          {
-            "date": "2025-11-19",
-            "count": 3,
-            "level": 1
-          },
-          {
-            "date": "2025-11-20",
-            "count": 1,
-            "level": 1
-          },
-          {
-            "date": "2025-11-21",
-            "count": 2,
-            "level": 1
-          },
-          {
-            "date": "2025-11-22",
-            "count": 3,
-            "level": 1
-          }
-        ]
-      },
       {
         "days": [
           {
@@ -2076,12 +2037,21 @@
             "level": 0
           }
         ]
+      },
+      {
+        "days": [
+          {
+            "date": "2026-11-22",
+            "count": 0,
+            "level": 0
+          }
+        ]
       }
     ]
   },
   "streak": {
     "current": 0,
-    "longest": 125,
+    "longest": 118,
     "today": false
   },
   "recentActivity": [
@@ -2221,8 +2191,8 @@
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 29,
-    "contributionsThisMonth": 208,
+    "contributionsThisWeek": 18,
+    "contributionsThisMonth": 198,
     "repositoriesThisWeek": 0
   },
   "repositories": [
