@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-23T11:42:26Z",
+  "lastUpdated": "2026-11-24T13:12:58Z",
   "currentlyReading": [
     {
       "title": "Twilight",
@@ -35,6 +35,12 @@
     }
   ],
   "wantToRead": [
+    {
+      "title": "The Penguin Atlas of Medieval History",
+      "author": "Colin McEvedy",
+      "coverUrl": "https://assets.hardcover.app/edition/32479757/ea68a94067308feb5dc618dcb34f4bb4879cba43.jpeg",
+      "hardcoverUrl": "https://hardcover.app/books/the-penguin-atlas-of-medieval-history"
+    },
     {
       "title": "The 4-Hour Work Week: Escape the 9-5, Live Anywhere and Join the New Rich",
       "author": "Timothy Ferriss",
@@ -298,12 +304,6 @@
       "author": "Nicholas Mosley",
       "coverUrl": "https://assets.hardcover.app/edition/31236482/d211f1a0eddda648217c9791006606ffad04b588.jpeg",
       "hardcoverUrl": "https://hardcover.app/books/catastrophe-practice"
-    },
-    {
-      "title": "Hopeful Monsters",
-      "author": "Nicholas Mosley",
-      "coverUrl": "https://assets.hardcover.app/external_data/59861156/a8c824323a5ece2ec84f092a75135f86e2f3b846.jpeg",
-      "hardcoverUrl": "https://hardcover.app/books/hopeful-monsters-1990"
     }
   ]
 }
