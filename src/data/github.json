@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-11-24T13:12:54.582Z",
+  "lastUpdated": "2026-11-25T12:01:26.034Z",
   "contributions": {
-    "total": 10240,
+    "total": 10244,
     "commits": 3625,
     "pullRequests": 1930,
     "pullRequestReviews": 14,
     "issues": 2248,
-    "restricted": 2333
+    "restricted": 2337
   },
   "calendar": {
     "weeks": [
@@ -356,7 +356,7 @@
           },
           {
             "date": "2026-01-24",
-            "count": 27,
+            "count": 28,
             "level": 1
           }
         ]
@@ -370,7 +370,7 @@
           },
           {
             "date": "2026-01-26",
-            "count": 78,
+            "count": 77,
             "level": 2
           },
           {
@@ -404,12 +404,12 @@
         "days": [
           {
             "date": "2026-02-01",
-            "count": 40,
+            "count": 41,
             "level": 1
           },
           {
             "date": "2026-02-02",
-            "count": 56,
+            "count": 55,
             "level": 2
           },
           {
@@ -980,7 +980,7 @@
           },
           {
             "date": "2026-05-16",
-            "count": 59,
+            "count": 60,
             "level": 2
           }
         ]
@@ -989,7 +989,7 @@
         "days": [
           {
             "date": "2026-05-17",
-            "count": 71,
+            "count": 70,
             "level": 2
           },
           {
@@ -1077,12 +1077,12 @@
           },
           {
             "date": "2026-06-02",
-            "count": 23,
+            "count": 24,
             "level": 1
           },
           {
             "date": "2026-06-03",
-            "count": 68,
+            "count": 67,
             "level": 2
           },
           {
@@ -1740,12 +1740,12 @@
           },
           {
             "date": "2026-09-29",
-            "count": 22,
+            "count": 23,
             "level": 1
           },
           {
             "date": "2026-09-30",
-            "count": 68,
+            "count": 67,
             "level": 2
           },
           {
@@ -2052,6 +2052,11 @@
           },
           {
             "date": "2026-11-24",
+            "count": 4,
+            "level": 1
+          },
+          {
+            "date": "2026-11-25",
             "count": 0,
             "level": 0
           }
@@ -2060,7 +2065,7 @@
     ]
   },
   "streak": {
-    "current": 0,
+    "current": 1,
     "longest": 118,
     "today": false
   },
@@ -2185,24 +2190,13 @@
       "meta": {
         "state": "CLOSED"
       }
-    },
-    {
-      "type": "issue",
-      "repo": "RTSCamera",
-      "repoUrl": "https://github.com/lzh-mb-mod/RTSCamera",
-      "title": "[beta v1.5.6 Crash] NullReferenceException in Patch_GauntletOrderUIHandler.ApplyCommandQueueChange (get_ActiveTargetState not found)",
-      "url": "https://github.com/lzh-mb-mod/RTSCamera/issues/21",
-      "date": "2026-11-05T02:09:24Z",
-      "meta": {
-        "state": "CLOSED"
-      }
     }
   ],
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 2,
-    "contributionsThisMonth": 190,
+    "contributionsThisWeek": 5,
+    "contributionsThisMonth": 194,
     "repositoriesThisWeek": 0
   },
   "repositories": [
