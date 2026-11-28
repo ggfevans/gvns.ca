@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-11-27T11:41:59.104Z",
+  "lastUpdated": "2026-11-28T11:17:00.215Z",
   "contributions": {
-    "total": 10275,
+    "total": 10279,
     "commits": 3625,
     "pullRequests": 1930,
     "pullRequestReviews": 14,
     "issues": 2248,
-    "restricted": 2368
+    "restricted": 2372
   },
   "calendar": {
     "weeks": [
@@ -2062,11 +2062,16 @@
           },
           {
             "date": "2026-11-26",
-            "count": 15,
+            "count": 18,
             "level": 1
           },
           {
             "date": "2026-11-27",
+            "count": 1,
+            "level": 1
+          },
+          {
+            "date": "2026-11-28",
             "count": 0,
             "level": 0
           }
@@ -2075,7 +2080,7 @@
     ]
   },
   "streak": {
-    "current": 3,
+    "current": 4,
     "longest": 118,
     "today": false
   },
@@ -2189,24 +2194,13 @@
       "meta": {
         "state": "OPEN"
       }
-    },
-    {
-      "type": "issue",
-      "repo": "RTSCamera",
-      "repoUrl": "https://github.com/lzh-mb-mod/RTSCamera",
-      "title": "Patch_OrderTroopPlacer reuses a previous mission's placer and order-position entities if teardown is skipped",
-      "url": "https://github.com/lzh-mb-mod/RTSCamera/issues/23",
-      "date": "2026-11-05T06:11:21Z",
-      "meta": {
-        "state": "CLOSED"
-      }
     }
   ],
   "stats": {
     "commitsThisWeek": 0,
     "commitsThisMonth": 0,
-    "contributionsThisWeek": 36,
-    "contributionsThisMonth": 191,
+    "contributionsThisWeek": 40,
+    "contributionsThisMonth": 180,
     "repositoriesThisWeek": 0
   },
   "repositories": [
